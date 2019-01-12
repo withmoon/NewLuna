@@ -22,11 +22,12 @@
 </div>
 </section>
  --%>
- 
+ <%--
  <section id="page3">
  <img id="p3_1" src="images/page3_1.png"/>
  <img id="p3_2" src="images/page3_2.png"/>
  <img id="p3_3" src="images/page3_3.png"/>
  </section>
- 
+  --%>
+  커밋테스트 들어갑니다.
 </body>
