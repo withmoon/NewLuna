@@ -41,7 +41,7 @@
 <section id="page1">
 <img src="images/finalMain1.gif"/>
 <section id="sec">
-<ul>
+<ul><br/><br/>
 <li><a href="#">&nbsp;둘러보기&nbsp;</a></li>
 <li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
 <li><a href="#">&nbsp;지점으로 찾아보기&nbsp;</a></li>
