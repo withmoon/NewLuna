@@ -1,0 +1,11 @@
+.bar img{
+	float:left;
+	width:11%;
+	height:11%;
+}
+#gpImage:hover{
+	content:url('../images/arrowLeft_hover.png');
+}
+#gnImage:hover{
+	content:url('../images/arrowRight_hover.png');
+}
