@@ -8,6 +8,8 @@
 </head>
 <body>
 <P>  The time on the server is ${serverTime}. </P>
-<P>  한글 안깨져~~</P>
+<P> 이제 안깨지는 구나 </P>
+<P> 이제 안깨지는 구나 </P>
+<P> 이제 안깨지는 구나 </P>
 </body>
 </html>
