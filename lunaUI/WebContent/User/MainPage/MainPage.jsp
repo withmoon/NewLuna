@@ -15,9 +15,9 @@
 <img src="images/finalMain1.gif"/>
 <section id="sec">
 <ul>
-<li><a href="#">&nbsp;둘러보기&nbsp;</a></li>
+<li><a href="#">&nbsp;홈으로&nbsp;</a></li>
 <li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
-<li><a href="#">&nbsp;지점으로 찾아보기&nbsp;</a></li>
+<li><a href="#">&nbsp;주변 지점 찾기&nbsp;</a></li>
 </ul>
 </section>
 </section>
