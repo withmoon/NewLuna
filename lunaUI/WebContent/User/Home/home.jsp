@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>homepage</title>
+<title>home</title>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="js/jquery.selectlist.js"></script>
 <script type="text/javascript">
