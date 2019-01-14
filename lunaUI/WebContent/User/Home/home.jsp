@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>home</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.selectlist.css">
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="js/jquery.selectlist.js"></script>
 <script type="text/javascript">

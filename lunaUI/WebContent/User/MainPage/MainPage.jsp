@@ -19,9 +19,9 @@
 		
 	<section id="sec">
 	<ul>
-	<li><a href="#">&nbsp;홈으로&nbsp;</a></li>
-	<li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
-	<li><a href="#">&nbsp;주변 지점 찾기&nbsp;</a></li>	
+		<li><a href="#">&nbsp;홈으로&nbsp;</a></li>
+		<li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
+		<li><a href="#">&nbsp;주변 지점 찾기&nbsp;</a></li>	
 	</ul>
 	</section>
 	
