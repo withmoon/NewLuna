@@ -30,4 +30,8 @@
  </section>
   --%>
   커밋테스트 들어갑니다.kkkkk
+  신영 : 커밋중 commit~~~ hello java 
+ 명희:빼에에에에ㅔㄱ
+ 유슈:남조선
+ 진혁 : 노트북
 </body>
