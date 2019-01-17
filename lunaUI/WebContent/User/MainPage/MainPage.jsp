@@ -8,13 +8,15 @@
 <title>스터디카페 달빛</title>
 <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/Main.js"></script>
-</head>
+</head><%-- style="overflow-x:hidden; overflow-y:hidden"--%> 
 <body style="overflow-x:hidden; overflow-y:hidden">
 
 <section>
 <img id="PartOfMain_left" class="page1" src="images/Page1.png"/>
 <img id="PartOfMain_left" class="page2" src="images/Page2.png"/>
 <img id="PartOfMain_left" class="page3" src="images/Page3.png"/>
+<img id="PartOfMain_left" class="page4" src="images/Page4-1.png"/>
+<img id="PartOfMain_left" class="page5" src="images/Page5.png"/>
 <img id="PartOfMain_right" src="images/PartOfMain_right.gif"/>
 		
 	<section id="sec">

@@ -31,15 +31,14 @@ section{
 
 /* 소개, 둘러보기, 지점찾기, 바로 예약하기 */
 #sec ul li{
-	margin:0 0 5% 0;
+	margin:0 0 2% 0;
 	clear: both;
 	float:right;
 	border-bottom:1px solid black;
 }
 #sec{
-	display:none;
-	position:relative;
-	top:-8em;
+	position:absolute;
+	bottom:-75%;
 	float:right;
 	margin:0px;
 }
