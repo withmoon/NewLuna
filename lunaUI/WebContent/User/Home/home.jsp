@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>home</title>
-<link rel="stylesheet" type="text/css" href="css/jquery.selectlist.css">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> <!-- 외부폰트 -->
+<link rel="stylesheet" type="text/css" href="css/home.css">
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="js/jquery.selectlist.js"></script>
+<script src="js/home.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$('select').selectlist({
@@ -19,12 +20,25 @@
 </script>
 </head>
 <body>
-<article id="studyhome">
-		<section>
-			<img src="images/studyhome.jpg" alt="studyhome">
-		</section>
-	</article>
+	<div>
+		<div id="b_icon">
+			<img class="icon1" alt="전체지점수" src="images/전체지점수.png"
+				onmouseout="this.src='images/전체지점수.png'"
+				onmouseover="this.src='images/전체지점수2.png'">
+			<img class="icon2" alt="전월이용고객님" src="images/전월이용고객님.png"
+				onmouseout="this.src='images/전월이용고객님.png'"
+				onmouseover="this.src='images/전월이용고객님2.png'">
+			<img class="icon3" alt="고객님누적이용횟수" src="images/고객님누적이용횟수.png"
+				onmouseout="this.src='images/고객님누적이용횟수.png'"
+				onmouseover="this.src='images/고객님누적이용횟수2.png'">
+		</div>
+		<div align="center"  id="banner">
+			<img alt="studyhome" src="images/studyhome.jpg" >
+		</div>
+	</div>
 
+	<!-- 선택창 -->
+	<div align="center">
 	<select id="sido" name="sido">
 		<option value="서울">서울</option>
 		<option value="부산">부산</option>
@@ -44,10 +58,12 @@
 		<option value="경상북도">경상북도</option>
 		<option value="제주">제주</option>
 	</select>
+
 	<select id="branch" name="branch">
 		<option value="서울지점">서울지점</option>
 		<option value="경기지점">경기지점</option>
 		<option value="대구지점">대구지점</option>
 	</select>
+	</div>
 </body>
 </html>

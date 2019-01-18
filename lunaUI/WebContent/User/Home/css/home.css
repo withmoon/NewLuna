@@ -1,3 +1,14 @@
+ * { font-family: 'Nanum Pen Script', cursive; font-size: 20% }
+ 
+
+ /*배너*/
+ #banner img{width:70%; height:10%;}
+ #b_icon img{clear:both; position:absolute; float: left; top:28%; }
+ .icon1 {width: 10%; left: 22%}
+ .icon2 {width: 10%; left: 42%}
+ .icon3 {width: 10%;  left: 62%}
+ 
+ /*selcet*/
   .select-wrapper{
     font: normal 14px '\5FAE\8F6F\96C5\9ED1';
     width: 240px;
@@ -16,8 +27,7 @@
     border: 1px solid #836e5b; /*select 테두리창*/
   }
   .select-button{
-    font: normal 14px '\5FAE\8F6F\96C5\9ED1';
-    width: 238px;
+     width: 238px;
     height: 34px;
     border: 0;
     border-radius: 3px;
@@ -30,6 +40,7 @@
     white-space: nowrap;
     word-break: keep-all;
     text-overflow: ellipsis;
+    font-size : 150%
   }
   .select-down{
     position: absolute;
@@ -76,6 +87,7 @@
     white-space: nowrap;
     word-break: keep-all;
     text-overflow: ellipsis;
+     font-size:large;
   }
   .select-list ul li.selected,
   .select-list ul li:hover{
