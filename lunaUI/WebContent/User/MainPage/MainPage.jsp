@@ -21,27 +21,28 @@
 <img id="PartOfMain_right" src="images/PartOfMain_right.gif"/>
 </section>
 
-<!-- 슬라이드 변경바 -->
+<!-- 슬라이드 변경바  시간 날때 넣을거
 <section id="slidebar">
-		<img id="ns_main1" src="images/mainBar_nonSelect.png"/>
-		<!-- <a href="#"><img id="ns_main2" src="images/mainBar_nonSelect.png"/></a>
+		<a href="#"><img id="ns_main1" src="images/mainBar_nonSelect.png"/></a>
+		<a href="#"><img id="ns_main2" src="images/mainBar_nonSelect.png"/></a>
 		<a href="#"><img id="ns_main3" src="images/mainBar_nonSelect.png"/></a>
 		<a href="#"><img id="ns_main4" src="images/mainBar_nonSelect.png"/></a>
 		<a href="#"><img id="ns_main5" src="images/mainBar_nonSelect.png"/></a>
-		 -->
+		 
 </section>
+-->
 
 <!-- 이동 경로 -->
 <section id="sec">
 	<ul>
-		<li><a href="#">&nbsp;홈으로&nbsp;</a></li>
+		<li><a href="../Home/home.jsp">&nbsp;홈으로&nbsp;</a></li>
 		<li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
 		<li><a href="#">&nbsp;주변 지점 찾기&nbsp;</a></li>
 	</ul>
 	</section>
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
-<jsp:include page="TopMenu.jsp"/>
+<jsp:include page="../TopMenu.jsp"/>
 </nav>
 
 </body>
