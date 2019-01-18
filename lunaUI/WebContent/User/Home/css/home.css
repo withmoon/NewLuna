@@ -1,14 +1,62 @@
- * { font-family: 'Nanum Pen Script', cursive; font-size: 20% }
+ * { font-family: 'Nanum Pen Script', cursive;}
  
 
- /*배너*/
- #banner img{width:70%; height:10%;}
- #b_icon img{clear:both; position:absolute; float: left; top:28%; }
- .icon1 {width: 10%; left: 22%}
- .icon2 {width: 10%; left: 42%}
- .icon3 {width: 10%;  left: 62%}
+/*배너*/
+#banner img{width:70%; height:10%;}
+#b_icon img{clear:both; position:absolute; float: left; top:28%; }
+.icon1 {width: 10%; left: 25%;}
+.icon2 {width: 10%; left: 45%;}
+.icon3 {width: 10%;  left: 65%;}
  
- /*selcet*/
+select {
+ width : 10%;
+ padding: 0.5%;
+ font-size : large;
+ border-color : #836e5b;
+}
+
+.look {
+  -moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
+	background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
+	background-color:#7d5d3b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding: 0.5%;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+}
+
+.look:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
+	background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
+	background-color:#634b30;
+}
+.look:active {
+	position:relative;
+	top:1px;
+}
+ 
+ /*selcet
   .select-wrapper{
     font: normal 14px '\5FAE\8F6F\96C5\9ED1';
     width: 240px;
@@ -24,7 +72,7 @@
     border: 1px solid #e3e3e3;
   }
   .select-wrapper.focus{
-    border: 1px solid #836e5b; /*select 테두리창*/
+    border: 1px solid #836e5b; /*select 테두리창
   }
   .select-button{
      width: 238px;
@@ -50,7 +98,7 @@
     width:0;
     overflow: hidden;
     font-size: 0;
-    border-color: #333 transparent transparent transparent; /*테두리색상*/
+    border-color: #333 transparent transparent transparent; /*테두리색상
     border-style: solid;
     border-width: 6px;
   }  
@@ -92,10 +140,10 @@
   .select-list ul li.selected,
   .select-list ul li:hover{
     color: #fff;
-    background: #836e5b; /*list 마우스 올릴 때 컬러*/
+    background: #836e5b; /*list 마우스 올릴 때 컬러
   }
   
-  /* 訝뗦땳�닓烏ⓧ툖�룾�뵪�졆凉� */
+  /* 訝뗦땳�닓烏ⓧ툖�룾�뵪�졆凉� 
   .select-button-disable{
     color: #ccc;
     width: 238px;
@@ -116,4 +164,4 @@
     top: 0;
     right: 10px;
    line-height: 34px;
-  }
+  }*/

@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> <!-- 외부폰트 -->
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="js/home.js"></script>
+<!-- <script src="js/home.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$('select').selectlist({
@@ -17,7 +17,7 @@
 			height : 40
 		});
 	})
-</script>
+</script> -->
 </head>
 <body>
 	<div>
@@ -38,8 +38,8 @@
 	</div>
 
 	<!-- 선택창 -->
-	<div align="center">
-	<select id="sido" name="sido">
+	<div class="choice">
+	<select>
 		<option value="서울">서울</option>
 		<option value="부산">부산</option>
 		<option value="대구">대구</option>
@@ -59,11 +59,13 @@
 		<option value="제주">제주</option>
 	</select>
 
-	<select id="branch" name="branch">
+	<select>
 		<option value="서울지점">서울지점</option>
 		<option value="경기지점">경기지점</option>
 		<option value="대구지점">대구지점</option>
 	</select>
+	
+	<button class="look">찾기</button>
 	</div>
 </body>
 </html>
