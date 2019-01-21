@@ -1,12 +1,16 @@
  * { font-family: 'Nanum Pen Script', cursive;}
  
+ /*로그인*/
+ nav{float:right; }
+ 
 
 /*배너*/
 #banner img{width:70%; height:10%;}
-#b_icon img{clear:both; position:absolute; float: left; top:28%; }
+#b_icon img{clear:both; position:absolute; float: left; top:29%; }
 .icon1 {width: 10%; left: 25%;}
 .icon2 {width: 10%; left: 45%;}
 .icon3 {width: 10%;  left: 65%;}
+ 
  
 select {
  width : 10%;
@@ -15,6 +19,7 @@ select {
  border-color : #836e5b;
 }
 
+/*button*/
 .look {
   -moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
@@ -55,6 +60,9 @@ select {
 	position:relative;
 	top:1px;
 }
+
+/*인기순 / 조회순 / new*/
+p{ font-size : 40px; color : #836e5b; }
  
  /*selcet
   .select-wrapper{

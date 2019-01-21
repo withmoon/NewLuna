@@ -20,6 +20,12 @@
 </script> -->
 </head>
 <body>
+	<!-- 로그인 -->
+	<nav> 
+		<jsp:include page="../TopMenu.jsp"/>
+	</nav>
+	
+	<!-- 배너 -->
 	<div>
 		<div id="b_icon">
 			<img class="icon1" alt="전체지점수" src="images/전체지점수.png"
@@ -38,7 +44,7 @@
 	</div>
 
 	<!-- 선택창 -->
-	<div class="choice">
+	<div align="center">
 	<select>
 		<option value="서울">서울</option>
 		<option value="부산">부산</option>
@@ -66,6 +72,34 @@
 	</select>
 	
 	<button class="look">찾기</button>
+	</div>&nbsp;
+	
+	<!-- 인기순/조회수/new -->
+	<div align="center">
+		<p><img alt="" src="images/line.png">	인기순	<img alt="" src="images/line.png"></p>
+		<table border="0">
+			<tr>
+				<td><img alt="" src="images/room1.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room2.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room3.png" width="400" height="250"></td>
+			</tr>
+		</table>
+		<p><img alt="" src="images/line.png">	조회순	<img alt="" src="images/line.png"></p>
+		<table border="0">
+			<tr>
+				<td><img alt="" src="images/room1.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room2.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room3.png" width="400" height="250"></td>
+			</tr>
+		</table>
+		<p><img alt="" src="images/line.png">	NEW	<img alt="" src="images/line.png"></p>
+		<table border="0">
+			<tr>
+				<td><img alt="" src="images/room1.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room2.png" width="400" height="250"></td>
+				<td><img alt="" src="images/room3.png" width="400" height="250"></td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>
