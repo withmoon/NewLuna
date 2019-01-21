@@ -37,7 +37,7 @@
 <section id="sec">
 	<ul>
 		<li><a href="../Home/home.jsp">&nbsp;홈으로&nbsp;</a></li>
-		<li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
+		<li><a href="../LookOver/LookOver.jsp">&nbsp;바로 예약&nbsp;</a></li>
 		<li><a href="../Found/FoundBranch.jsp">&nbsp;주변 지점 찾기&nbsp;</a></li>
 	</ul>
 	</section>
