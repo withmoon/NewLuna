@@ -22,7 +22,7 @@
 <body>
 	<!-- 로그인 -->
 	<nav> 
-		<jsp:include page="../TopMenu.jsp"/>
+		<jsp:include page="../../Public/TopMenu.jsp"/>
 	</nav>
 	
 	<!-- 배너 -->

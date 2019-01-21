@@ -42,7 +42,7 @@
 	</section>
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
-<jsp:include page="../TopMenu.jsp"/>
+<jsp:include page="../../Public/TopMenu.jsp"/>
 </nav>
 
 </body>

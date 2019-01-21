@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/FoundBranch.css"/>
 </head>
 <body>
-<nav><jsp:include page="../TopMenu.jsp"/></nav>
+<nav><jsp:include page="../../Public/TopMenu.jsp"/></nav>
 <a href="../Home/home.jsp"><img class="logo" src="../../Logo/MainLogo.png"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
@@ -47,7 +47,7 @@
 </section>
 
 <footer>
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../../Public/footer.jsp"/>
 </footer>
 </body>
 </html>
