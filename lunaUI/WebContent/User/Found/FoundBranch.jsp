@@ -44,8 +44,10 @@
 번호-번호-번호<br/>
 <div class="sep"></div>
 </div>
-
 </section>
 
+<footer>
+<jsp:include page="../footer.jsp"/>
+</footer>
 </body>
 </html>

@@ -77,3 +77,7 @@ button{
 	border-bottom:1px solid #c0c0c0; 
 	margin:3% 0 3% 0;
 }
+footer{
+	position:absolute;
+	bottom:-10%;
+}
