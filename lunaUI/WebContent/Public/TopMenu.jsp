@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<header>
 <ul class="topUl">
 <li><a href="#">이벤트</a></li>
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -17,5 +18,6 @@
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그아웃</a></li> -->
 </ul>
+</header>
 </body>
 </html>

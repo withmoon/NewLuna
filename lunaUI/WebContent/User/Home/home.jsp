@@ -7,6 +7,7 @@
 <title>home</title>
 <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> <!-- 외부폰트 -->
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <!-- <script src="js/home.js"></script>
 <script type="text/javascript">
@@ -18,13 +19,24 @@
 		});
 	})
 </script> -->
+<script type="text/javascript">
+	$(function() {
+		$('option').mosueover(function(){
+			$(this).addClass('over');
+		});
+		$('option').mouseout(function(){
+			$(this).removeClass('over');
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- 로그인 -->
-	<nav> 
-		<jsp:include page="../../Public/TopMenu.jsp"/>
-	</nav>
+	<header>
+		
+	</header>
 	
+	<section>
 	<!-- 배너 -->
 	<div>
 		<div id="b_icon">
@@ -101,5 +113,6 @@
 			</tr>
 		</table>
 	</div>
+	</section>
 </body>
 </html>

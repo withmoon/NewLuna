@@ -3,7 +3,7 @@
  * by Liuyuchao
  * Copyright 2015.2
  * Date: Tue Feb 25 2015
- */
+ 
 
 
 
@@ -456,4 +456,4 @@
         return this;
     };
     
- })(jQuery,window,document);
+ })(jQuery,window,document);*/

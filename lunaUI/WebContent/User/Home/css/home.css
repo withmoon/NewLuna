@@ -1,12 +1,13 @@
  * { font-family: 'Nanum Pen Script', cursive;}
  
- /*로그인*/
- nav{float:right; }
  
+.logo{
+ width:10px; height:10px;
+ }
 
 /*배너*/
 #banner img{width:70%; height:10%;}
-#b_icon img{clear:both; position:absolute; float: left; top:29%; }
+#b_icon img{clear:both; position:absolute; float: left; top:28%; }
 .icon1 {width: 10%; left: 25%;}
 .icon2 {width: 10%; left: 45%;}
 .icon3 {width: 10%;  left: 65%;}
@@ -18,6 +19,8 @@ select {
  font-size : large;
  border-color : #836e5b;
 }
+
+option { color: white; background:#836e5b;  }
 
 /*button*/
 .look {
