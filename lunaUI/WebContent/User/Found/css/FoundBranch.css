@@ -1,17 +1,18 @@
 @charset "UTF-8";
 *{
+	margin:0;
 	font-family: 휴먼아미체;
 }
 
 nav{
 	position:absolute;
 	top:1%;
-	right:1%;
+	right:10%;
 }
 .logo{
 	position:absolute;
 	width:5%;
-	left:9%;
+	left:10%;
 }
 /* 타이틀 */
 .top{
@@ -26,7 +27,7 @@ nav{
 /* 텍스트, 찾기 버튼 section */
 .searchArea{
 	position:absolute;
-	top:12%;
+	top:14%;
 	background-color:#e0e0e0; 
 	border:1px solid #c0c0c0;
 	width:100%;
@@ -54,6 +55,7 @@ button{
 	position:absolute;
 	top:1%;
 	right:0;
+	padding:3px;
 	border-bottom:1px solid #c8bbb0; 
 }
 /* 틀 */
@@ -64,7 +66,6 @@ button{
 	width:80%;
 	height:69%;
 	background-color:#836e5b; 
-	margin:0 0 5% 0;
 }
 /* 지도 검색 결과  */
 #mapResult{
@@ -79,5 +80,7 @@ button{
 }
 footer{
 	position:absolute;
-	bottom:-15%;
+	bottom:-30%;
+	left:10%;
+	margin:0 -5% 0 0;
 }

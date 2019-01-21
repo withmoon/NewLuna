@@ -5,11 +5,22 @@
 <head>
 <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
 <title>스터디카페 달빛_근처 지점 찾기</title>
-<link rel="stylesheet" href="css/FoundBranch.css"/>
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
+<link rel="stylesheet" href="css/FoundBranch.css"/>
 </head>
-<body>
-<nav><jsp:include page="../../Public/TopMenu.jsp"/></nav>
+<body style="overflow-x:hidden;">
+<nav>
+<ul class="topUl">
+<li><a href="#">이벤트</a></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+<!-- 
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">마이페이지</a></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">로그아웃</a></li> -->
+</ul>
+</nav>
 <a href="../Home/home.jsp"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
@@ -29,26 +40,32 @@
 <div class="resultMsg">"달빛 스터디카페" 에대한 검색결과 <b id="searchResultCount">8</b>건이 있습니다</div>
 <!-- 결과값 전송받을 div -->
 <div id="mapResult" style="padding:5px;z-index:1;">
+<a>
 <b>여기에 장소명</b><br/>
 도로명도로명도로명<br/>
 지번지번지번지번지번지번지번지번지번지번<br/>
 번호-번호-번호<br/>
+</a>
 <div class="sep"></div>
+<a>
 <b>여기에 장소명</b><br/>
 도로명도로명도로명<br/>
 지번지번지번지번지번지번<br/>
 번호-번호-번호<br/>
+</a>
 <div class="sep"></div>
+<a>
 <b>여기에 장소명</b><br/>
 도로명도로명도로명<br/>
 지번지번지번지번지번지번지번지번<br/>
 번호-번호-번호<br/>
+</a>
 <div class="sep"></div>
 </div>
 </section>
 
 <footer>
-<jsp:include page="../../Public/footer.jsp"/>
+<jsp:include page="../../Public/footer.jsp"/><br/><br/><br/><br/><br/>
 </footer>
 </body>
 </html>

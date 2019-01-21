@@ -4,6 +4,20 @@
 	font-size: 1.5vw;
 	font-family: 휴먼아미체;
 }
+ul li{
+	margin:0px;
+	font-family: 휴먼아미체;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.5vw;
+}
+li a{
+	text-decoration:none;
+	color: black;
+}
+li a:hover{
+	color: orange;
+}
 /* 이벤트/로그인 topMenu css */
 nav{
 	position:fixed;

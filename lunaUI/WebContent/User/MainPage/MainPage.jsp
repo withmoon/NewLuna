@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet"  href="css/MainPage.css"/>
+<link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <title>스터디카페 달빛</title>
 <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/Main.js"></script>
@@ -37,12 +38,21 @@
 	<ul>
 		<li><a href="../Home/home.jsp">&nbsp;홈으로&nbsp;</a></li>
 		<li><a href="#">&nbsp;바로 예약&nbsp;</a></li>
-		<li><a href="#">&nbsp;주변 지점 찾기&nbsp;</a></li>
+		<li><a href="../Found/FoundBranch.jsp">&nbsp;주변 지점 찾기&nbsp;</a></li>
 	</ul>
 	</section>
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
-<jsp:include page="../../Public/TopMenu.jsp"/>
+<ul class="topUl">
+<li><a href="#">이벤트</a></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+<!-- 
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">마이페이지</a></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><a href="#">로그아웃</a></li> -->
+</ul>
 </nav>
 
 </body>
