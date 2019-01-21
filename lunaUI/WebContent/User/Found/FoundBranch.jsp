@@ -6,10 +6,11 @@
 <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
 <title>스터디카페 달빛_근처 지점 찾기</title>
 <link rel="stylesheet" href="css/FoundBranch.css"/>
+<link rel="stylesheet" href="../../Public/TopMenu.css"/>
 </head>
 <body>
 <nav><jsp:include page="../../Public/TopMenu.jsp"/></nav>
-<a href="../Home/home.jsp"><img class="logo" src="../../Logo/MainLogo.png"/></a>
+<a href="../Home/home.jsp"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->

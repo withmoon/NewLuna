@@ -5,10 +5,9 @@
 <head>
 <meta name="viewport"  content="width=device-width, initial-scale=1.0"/>
 <title>Insert title here</title>
-<link rel="stylesheet"  href="../TopMenu.css"/>
 </head>
 <body>
-<ul>
+<ul class="topUl">
 <li><a href="#">이벤트</a></li>
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>

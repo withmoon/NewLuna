@@ -1,16 +1,14 @@
-*{
+.topUl li{
 	margin:0px;
 	font-family: 휴먼아미체;
-}
-ul li{
 	text-decoration:none;
 	display:table-cell;
 	font-size: 1.5vw;
 }
-a{
+.topUl li a{
 	text-decoration:none;
 	color: black;
 }
-a:hover{
+.topUl li a:hover{
 	color: orange;
 }
