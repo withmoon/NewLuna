@@ -11,6 +11,7 @@
 <script type="text/javascript" src="js/LookOver.js"></script>
 </head>
 <body style="overflow-x:hidden;">
+<!-- 상단 기본 바 -->
 <nav>
 <ul class="topUl">
 <li><a href="#">이벤트</a></li>

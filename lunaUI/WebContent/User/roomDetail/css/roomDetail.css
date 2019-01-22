@@ -1,0 +1,162 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	font-family: 휴먼아미체;
+}
+/* 고정 상단바 */
+nav{
+	position:absolute;
+	top:1%;
+	right:10%;
+}
+.topUl li a{
+	font-size: 1.3vw;
+}
+.logo{
+	position:absolute;
+	width:5%;
+	left:10%;
+}
+
+/* 방 간략 소개 구간 */
+.roomExp{
+	position:absolute;
+	top:14%;
+	left:15%;
+	width:55%;
+	height:35%;
+	background-color:#b5a495;
+	font-size: 1.2vw;
+}
+/* 이미지 */
+#roomExpImg{
+	position:absolute;
+	top:7%;
+	left:2.5%;
+	width:40%;
+	height:84%;
+}
+/* 방소개  */
+.roomExp #roomExplain{
+	position:relative;
+	left:50%;
+	top:13%;
+}
+/* 구역 나눔 */
+.sec{
+	position:relative;
+	left:70%;
+	top:-63%;
+	height:80%;
+	border-left:1px solid black;
+}
+/* 지점 소개 */
+.roomExp #branchExplain{
+	position:relative;
+	left:75%;
+	top:-148%;
+	
+}
+/* 카카오 링크 이미지 */
+#kakao-link-btn{
+	position:absolute;
+	top:12%;
+	right:33%;
+	width:5%;
+	
+}
+/* 찜 안찜 */
+#keep{
+	position:absolute;
+	top:12%;
+	right:31%;
+	width:3%;
+}
+
+/* 스프링 효과 */
+.springEf{
+	position:fixed;
+	top:38%;
+	right:16%;
+	width:5%;
+}
+.springEf2{
+	position:absolute;
+	top:45%;
+	right:31%;
+	width:5%;
+}
+
+/* 스케줄 */
+#showSchedule{
+	position:absolute;
+	top:51%;
+	left:15%;
+	width:53%;
+	height:18%;
+	border: 2px solid #b5a495;
+	padding:1%;
+	text-align: center;
+	font-size:1vw;
+}
+#showSchedule table{
+	font-size:1vw;
+	border:1px solid black;
+}
+#showSchedule table td{
+	border:1px solid black;
+}
+
+/* 스케줄 바 */
+.right1{
+	position:fixed;
+	top:30%;
+	right:15%;
+	width:8%;
+	height:12%;
+	background: #b9b9b9; 
+}
+
+/* 달력  */
+input[type=date]{
+	width :89%;
+	height:30%;
+ 	padding: 0.25%;
+ 	font-size : 1vw;
+	position:relative;
+	left:3.5%;
+	top:5%;
+}
+/* 버튼 */
+.look{
+	position:relative;
+	top:-5px;
+	left:3.5%;
+	font-size : 1.5vw;
+	background: #686868; 
+	border: 1px solid #686868; 
+	color:#000000;
+	padding:1px 10px 1px 10px;
+	width :92%;
+}
+
+/* 스케줄 바 */
+.right2{
+	position:fixed;
+	top:45%;
+	right:15%;
+	width:8%;
+	height:24%;
+	background: #b9b9b9;
+	text-align:center;
+	padding:1% 0 0 0;
+}
+
+
+footer{
+	position:absolute;
+	bottom:-30%;
+	left:10%;
+	margin:0 -5% 0 0;
+	font-size:1.5vw;
+}
