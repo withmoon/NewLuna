@@ -4,31 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>home</title>
+<title>Home</title>
 <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> <!-- 외부폰트 -->
-<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/Home.css">
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<!-- <script src="js/home.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(function() {
-		$('select').selectlist({
-			zIndex : 10,
-			width : 300,
-			height : 40
+		$('option').onmosueover(function(){
+			$(this).css("background-color","#836e5b");
+			$(this).css("font-color","#836e5b");
 		});
-	})
-</script> -->
-<script type="text/javascript">
-	$(function() {
-		$('option').mosueover(function(){
-			$(this).addClass('over');
-		});
-		$('option').mouseout(function(){
+		 $('option').onmouseout(function(){
 			$(this).removeClass('over');
 		});
 	});
-</script>
+</script> -->
 </head>
 <body>
 	<!-- 로그인 -->
@@ -95,16 +86,13 @@
 				<td><img alt="" src="images/room2.png" width="400" height="250"></td>
 				<td><img alt="" src="images/room3.png" width="400" height="250"></td>
 			</tr>
-		</table>
-		<p><img alt="" src="images/line.png">	조회순	<img alt="" src="images/line.png"></p>
-		<table border="0">
 			<tr>
 				<td><img alt="" src="images/room1.png" width="400" height="250"></td>
 				<td><img alt="" src="images/room2.png" width="400" height="250"></td>
 				<td><img alt="" src="images/room3.png" width="400" height="250"></td>
 			</tr>
 		</table>
-		<p><img alt="" src="images/line.png">	NEW	<img alt="" src="images/line.png"></p>
+		<p><img alt="" src="images/line.png">	조회순	<img alt="" src="images/line.png"></p>
 		<table border="0">
 			<tr>
 				<td><img alt="" src="images/room1.png" width="400" height="250"></td>

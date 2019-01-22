@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+* {font-family: 'Nanum Pen Script', cursive;}
+
+.mypage{width:80%;position:absolute;}
+.aside {position:absolute;right:10% ;}
+.bottom{position:absolute;top:20%;}
+img{width:20%}
+
