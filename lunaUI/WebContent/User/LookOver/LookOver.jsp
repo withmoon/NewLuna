@@ -32,6 +32,7 @@
 
 <!-- 지점 지정 -->
 <section class="searchArea">
+<p>날짜 적용후 이미지에 마우스를 올리시면 자세한 스케줄 확인이 가능합니다^^</p>
 <select id="branchSido">
 		<option value="서울">서울</option>
 		<option value="부산">부산</option>
@@ -163,6 +164,8 @@
 </tr>
 </table>
 </div>
-
+<footer>
+<jsp:include page="../../Public/footer.jsp"/><br/><br/><br/><br/><br/>
+</footer>
 </body>
 </html>

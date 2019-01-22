@@ -8,6 +8,9 @@ nav{
 	top:1%;
 	right:10%;
 }
+.topUl li a{
+	font-size: 1.3vw;
+}
 .logo{
 	position:absolute;
 	width:5%;
