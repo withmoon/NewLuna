@@ -23,7 +23,7 @@
 <li><a href="#">로그아웃</a></li> -->
 </ul>
 </nav>
-<a href="../Home/home.jsp"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
+<a href="../Home/home.jsp" title="홈으로 이동"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->

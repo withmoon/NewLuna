@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/LookOver.css"/>
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
-<%-- <script type="text/javascript" src="js/LookOver.js"></script>--%>
+<script type="text/javascript" src="js/LookOver.js"></script>
 </head>
 <body style="overflow-x:hidden;">
 <nav>
@@ -27,7 +27,7 @@
 </nav>
 
 <!-- 상단로고 -->
-<a href="../Home/home.jsp"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
+<a href="../Home/home.jsp" title="홈으로 이동"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
 <div class="top">방 찾기</div>
 
 <!-- 지점 지정 -->
@@ -64,7 +64,7 @@
 <!-- 검색결과 보여주는 곳 -->
 <div class="showRoom" style="overflow-y:scroll;">
 <div class="showView">
-<a id="img1" href="#"><img src="sampleImg/더빅스터디카페8콘.jpg"></a><br/>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="sampleImg/더빅스터디카페8콘.jpg"></a><br/>
 <a href="#">첫번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2</label><br/>
@@ -72,7 +72,7 @@
 </div>
 
 <div class="showView">
-<a href="#"><img src="sampleImg/더빅스터디카페단체.jpg"></a><br/>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="sampleImg/더빅스터디카페단체.jpg"></a><br/>
 <a href="#">두번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2설명2설명2</label><br/>
