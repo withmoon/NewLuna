@@ -8,15 +8,19 @@
 <title>스터디카페 달빛</title>
 <link rel="stylesheet" href="css/roomDetail.css"/>
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
+<script src="../../Public/jquery/jquery-3.3.1.min.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
+<script type="text/javascript" src="js/FoundBranch.js"></script>
+<script src="js/textAuto.js"></script>
 </head>
-<body>
+<body style="overflow-x:hidden">
 <nav>
 <ul class="topUl">
 <li><a href="#">이벤트</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="#">지점 찾기</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>&emsp;&nbsp;&nbsp;</li>
+<li><a href="../Found/FoundBranch.jsp">지점 찾기</a></li>
+<li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
 <!-- 
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -38,7 +42,7 @@
 <label id="ex3">큐브형 룸</label><br/><br/>
 <label id="ex4">쾌적한환경과 조절가능한 조명</label>
 </div>
-<div class="sec"></div>
+<div class="rsec"></div>
 <div id="branchExplain">
 <b>지점소개</b><br/><br/>
 <label id="bex1">강남점</label><br/><br/>
@@ -55,17 +59,17 @@
 <script type='text/javascript' src="js/kakaolink.js"></script>
 
 <!-- 찜 안찜 -->
-<img title="찜하기" id="keep" src="images/안찜.png" onclick="this.src='images/찜.png'"/>
+<img title="찜하기" id="keep" src="images/안찜글.png" onclick="this.src='images/찜.png'"/>
 
 <div id="showSchedule">
 <p>선택하신 날짜 : <b><label>0월 0일</label> </b>의 스케줄입니다.</p><br/>
 <table>
 <tr>
 <th>오전</th>
-<td>00:00</td>
-<td>00:30</td>
-<td>01:00</td>
-<td>01:30</td>
+<td style="background-color:#b5a495;">00:00</td>
+<td style="background-color:#b5a495;">00:30</td>
+<td style="background-color:#b5a495;">01:00</td>
+<td style="background-color:#b5a495;">01:30</td>
 <td>02:00</td>
 <td>02:30</td>
 <td>03:00</td>
@@ -172,24 +176,106 @@
 	<option value="tl_9">09</option>
 	<option value="tl_10">10</option>
 </select>
-
+<br/><br/>
+가격: 40000 원
+<button class="rsbtn">예약&amp;결제</button>
 </div>
 
 <!-- 스프링 효과 -->
 <img class="springEf" src="images/동글2.png"/>
 <img style="right:18%" class="springEf" src="images/동글2.png"/>
 
-<!-- 주의사항 시작 -->
+<section class="content">
 
 <!-- 방소개 시작 -->
-
-<!--  -->
+<section class="f_roomExplain">
+<b style="text-decoration:underline;">방소개</b><br/>
+<textarea class="etx1" style="overflow-y:hidden" cols="115">
+방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개
+방소개
+방소개
+방소개
+방소개
+방소개
+방소개
+방소개
+방소개
+</textarea>
+<br/>
+<!-- 방 사진 -->
+<b style="text-decoration:underline;">방사진</b><br/>
+<img src="images/더빅스터디카페단체.jpg">
+<img src="images/더빅스터디카페큐브.png">
+<img src="images/스터디룸인종각점.JPG">
+</section>
+<br/>
+<!-- 주의사항 시작 -->
+<section>
+<b style="color:gray; font-size:1.2vw;">※주의사항</b><br/>
+<textarea class="etx2" style="color:gray; overflow-y:hidden" cols="115">
+주의사항
+주의사항
+주의사항
+주의사항
+주의사항
+</textarea>
+</section>
 
 <!-- 위치설명 시작 -->
+<section>
+<b style="text-decoration:underline;">오시는 길</b><br/>
+<textarea class="etx3" style="overflow-y:hidden" cols="115">
+왕십리역 2번출구 에서 직진후
+바로 보이는 골목으로 들어오시면 
+1층에 떡볶이집이 있는 빌딩 4층입니다^^
+</textarea>
+</section>
 
 <!-- 다음 지도 시작 -->
+<section>
+<div id="map" style="width:100%; height:300px" ></div>
+</section>
+</section>
 
 <!-- 리뷰 시작 -->
+<section class="review">
+<img src="images/star.png"><b>한줄후기</b><img src="images/star.png">
+<br/>여러분의 <a href="#" onclick="rivDown('pnum')">한줄후기</a> 를 들려주세요<br/><br/>
+<div class="rbox">
+작성자 : 선비냥이<br/>
+작성날짜 : 2019-01-01<br/><br/>
+흠.. <a href="#">수정</a>&emsp;<a href="#">삭제</a><br/>
+</div>
+
+<div class="rbox">
+작성자 : 냥냥펀치님<br/>
+작성날짜 : 2019-01-01<br/><br/>
+아래 작성자 넌 뭐냥 왜 고냥이 말밖에 못하냥 어디서 순고양이가 인간세계에와서 어울리냥<br/>
+</div>
+
+<div class="rbox">
+작성자 : 고냥이님<br/>
+작성날짜 : 2019-01-01<br/><br/>
+냥냥냥 냥냥~~냥냥 0ㅁ0 냥냥냥~~~~~~<br/>
+</div>
+
+<div class="rbox">
+작성자 : 프로리뷰어님<br/>
+작성날짜 : 2019-01-01<br/><br/>
+공기정화기 덕분에 숨통도 잘 트이고 조명조절이 가능해서 오늘 프레젠테이션하는데 있어 너무나도 편리했습니다.<br/>
+</div>
+
+<div class="rbox">
+작성자 : 난강사다<br/>
+작성날짜 : 2019-01-01<br/><br/>
+강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
+</div>
+<br/>
+<div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
+<br/>
+<input type="text" size="120"><button>후기 올리기</button>
+</section>
+
 
 <footer>
 <jsp:include page="../../Public/footer.jsp"/><br/><br/><br/><br/><br/>
