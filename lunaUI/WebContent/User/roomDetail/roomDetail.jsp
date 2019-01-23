@@ -12,6 +12,7 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
 <script type="text/javascript" src="js/FoundBranch.js"></script>
+<script type="text/javascript" src="js/kakaoPop.js"></script>
 <script src="js/textAuto.js"></script>
 </head>
 <body style="overflow-x:hidden">
@@ -22,6 +23,8 @@
 <li><a href="../Found/FoundBranch.jsp">지점 찾기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+<li>&emsp;&nbsp;&nbsp;</li>
+<li><a href="">고객 센터</a></li>
 <!-- 
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li><a href="#">마이페이지</a></li>
@@ -178,7 +181,7 @@
 </select>
 <br/><br/>
 가격: 40000 원
-<button class="rsbtn">예약&amp;결제</button>
+<button class="rsbtn" onclick="kakapop()">예약&amp;결제</button>
 </div>
 
 <!-- 스프링 효과 -->
