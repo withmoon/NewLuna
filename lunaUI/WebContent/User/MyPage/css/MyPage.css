@@ -1,9 +1,140 @@
 @charset "UTF-8";
 
-* {font-family: 'Nanum Pen Script', cursive;}
+* {font-family: 휴먼아미체;}
 
-.mypage{width:80%;position:absolute;}
-.aside {position:absolute;right:10% ;}
-.bottom{position:absolute;top:20%;}
-img{width:20%}
+/* 로그인 */
+header{
+	position:absolute;
+	top:1%;
+	right:10%;
+}
+.topUl li a{
+	font-size: 1.3vw;
+}
 
+/* 상단로고 */
+.logo{
+	position:absolute;
+	width:5%;
+	left:10%;
+}
+
+.top{
+	position:absolute;
+	top:3%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+
+/*정보*/
+.myinformation{
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	font-size: x-large
+}
+
+p{
+	color: #686868;
+	font-weight:bold
+}
+
+.update {
+	/* position:relative; */
+	-moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
+	background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
+	background-color:#7d5d3b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+}
+
+.update:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
+	background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
+	background-color:#634b30;
+}
+.update:active {
+	position:relative;
+	top:1px;
+}
+
+.room {
+	position:absolute;
+	right: 20%;
+	top:20%;
+	font-size:medium;
+	background-color: white;
+}
+
+/* 일정 */
+.line2 {
+	position:absolute;
+	top:46%;
+	left: 10%;
+}
+
+input[type=date]{
+	font-size : large;
+ 	border:1px solid #836e5b;
+	position:relative;
+}
+
+.schedule {
+	position:absolute;
+	top:45%;
+	right:36%;
+	font-size: x-large;
+	color: white;
+}
+
+/*예약현황*/
+.noroom {
+	position:absolute;
+	top: 58%;
+	left: 30%;
+}
+
+.reservation{
+	position: absolute;
+	top: 59%;
+	left: 42%;
+	font-size: large;
+}
+
+table {
+	border: 2px solid gray;
+	border-collapse: collapse;
+	position: absolute;
+	width: 70%;
+	top: 82%;
+	left: 15%;
+}
+
+th { border: 2px solid gray; }
+
+td { border: 2px solid gray; }
