@@ -65,7 +65,7 @@
 						<jsp:include page="form/search.jsp" />
 					</div>
 					<div id="submenu">
-						<jsp:include page="form/submenu.jsp" />
+<%-- 						<jsp:include page="form/submenu.jsp" /> --%>
 					</div>
 				</aside>
 				<!-- 중앙세션 -->
