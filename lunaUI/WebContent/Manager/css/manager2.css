@@ -133,7 +133,7 @@ header{
 	
 }
 #day { 
-	width:800px;
+	width:97%;
 	background-color: gray;
 }
 #date {
@@ -142,20 +142,20 @@ header{
 	width: 100px;
 }
 #su1{
-	width: 180px;
-	height: 150px;	
+	width: 22%;
+	height: 110%;	
 	background-color: red;
 	float: left;
 }
 #su2{
-	width: 180px;
-	height: 150px;		
+	width: 22%;
+	height: 110%;		
 	background-color: black;
 	float: left;
 }
 #su3{
-	width: 180px;
-	height: 150px;	
+	width: 22%;
+	height: 110%;	
 	background-color: blue;
 	float: left;
 }
@@ -196,17 +196,28 @@ header{
 }
 
 #right{
-	float: left;
-	margin-left: 30px;
-	margin-top: 8%;
+	float: right;
+	width: 150px;
+	height: 700px;
 }
-#right p{
-	border: 1px solid black;
-	width: 230%;
-	margin-left: -20px;
+#rtd{
+	margin-top:70%;
+	width: 100%;
 }
-#rul il{
+.rdiv{
+	color:white;
+	width: 100%;
+	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+	background-color: #587CEA;
+}
+#rul li{
+	border-bottom: 1px solid black;
+	padding-top: 3%;
+}
+
+#re{
+	margin-top: 87%;	
 }
 
 

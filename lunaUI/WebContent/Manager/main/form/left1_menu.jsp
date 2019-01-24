@@ -8,7 +8,17 @@
 	cursor: pointer;
 	border-bottom: 1px solid black;
 	width: 200px;
+	text-decoration: none;
+	color: black;
 }
+.menu a:hover{
+	color: black; 
+}
+#letf1m ul ul li{
+	padding-left: 20px;
+}
+
+
 .menu .hide {
 	display: none;
 	border: none;
@@ -17,7 +27,8 @@
 	border: 1px solid black;
 }
 .menu a img{
-	width: 200px;
+ 	width: 20px; 
+	height: 20px;
 }
 
 </style>
@@ -30,9 +41,9 @@
 <!-- 이상태 링크가 아닌 main 화면에 각자 넣고 그 jsp화면을 연동할 생각  *현재는 테스트로 링크를 넣어둠 -->
 <!-- ajax 는 로그인 부분만 사용하고 나머지는 세션/링크를 통해 넘어갈것 -->
 <body>
-	<div>
+	<div id="letf1m">
 		<ul>
-			<li class="menu"><a id="a" href="#"><img src="" alt="게시판관리" /></a>
+			<li class="menu"><a id="a" href="#"><img src="../images/menu02.png" alt="게시판관리" />게시판관리</a>
 				<ul class="hide">
 					<li>문의 게시판</li>
 					<li>이벤트 게시판</li>
@@ -42,30 +53,30 @@
 				</ul>
 			</li>
 
-			<li class="menu"><a href="#"><img src="" alt="매출통계" /></a>
+			<li class="menu"><a href="#"><img src="../images/menu02.png" alt="매출통계" />매출통계</a>
+				<ul class="hide">
+					<li>메뉴1</li>
+					<li>메뉴2</li>
+					<li>메뉴3</li>
+				</ul>
+			</li>
+			<li class="menu"><a href="#"><img src="../images/menu01.png" alt="예약시간대통계" />예약시간대통계</a>
+				<ul class="hide">
+					<li>메뉴1</li>
+					<li>메뉴2</li>
+					<li>메뉴3</li>
+				</ul>
+			</li>
+			<li class="menu"><a href="#"><img src="../images/menu03.png" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
+				<ul class="hide">
+					<li>메뉴1</li>
+					<li>메뉴2</li>
+					<li>메뉴3</li>
+				</ul>
+			</li>
+				<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
 				<ul class="hide">
 					<li>매출현황</li>
-					<li>매출보고서</li>
-					<li>메뉴3</li>
-				</ul>
-			</li>
-			<li class="menu"><a href="#"><img src="" alt="예약관리" /></a>
-				<ul class="hide">
-					<li>예약목록</li><!-- 게시판으로 목록 보이기 -->
-					<li>메뉴2</li>
-					<li>메뉴3</li>
-				</ul>
-			</li>
-			<li class="menu"><a href="#"><img src="" alt="방 생성/수정/삭제" /></a>
-				<ul class="hide">
-					<li>방 생성/수정/삭제</li>
-					<li>메뉴2</li>
-					<li>메뉴3</li>
-				</ul>
-			</li>
-				<li class="menu"><a href="#"><img src="" alt="현황보기" /></a>
-				<ul class="hide">
-					<li>매출현황</li><!-- 차트랑 게시판  -->
 					<li>예약현황</li>
 					<li>방문현황</li>
 				</ul>
@@ -73,16 +84,7 @@
 		</ul>
 	</div>
 
-<!-- 	<ul>
-		<li><button id="hanbool" onclick="location.href='refund.jsp'">환불처리</button></li>
-		<li><button id="test" onclick="location.href='manager.jsp'">예약시간대통계</button></li>
-		<li><button onclick="location.href='#'">매출통계</button></li>
-		<li><button onclick="location.href='board.jsp'">문의게시판</button></li>
-		<li><button onclick="location.href='#'">방생성</button></li>
-		<li><button onclick="location.href='#'">방수정</button></li>
-		<li><button onclick="location.href='#'">방삭제</button></li>
-		<li><button onclick="location.href='#'">예약현황</button></li>
-		<li><button onclick="location.href='board.jsp'">이벤트게시판</button></li>
-	</ul> -->
+<!-- 	<ul> -->
+<!-- 		<li><button id="hanbool" onclick="location.href='refund.jsp'">환불처리</button></li> -->
 </body>
 </html>

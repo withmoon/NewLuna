@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../js/date.js"></script>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js/mjs.js"></script>
+<script type="text/javascript" src="../js/date.js"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="../css/manager2.css">
 
@@ -32,8 +32,6 @@
 
 	<!-- 배경 -->
 	<div id="border">
-		<!-- 틀 -->
-		<!-- 중앙 -->
 		<!-- 왼측1 사이드 -->
 		<div id="left1div">
 			<div id="search">
@@ -47,14 +45,17 @@
 		<section id="msec">
 			<div id=header>
 				<header>관리자 초기 페이지</header>
-				
+
 				<div id="today">
 					<div id="tmember">
-						<div id="day">today<p id="date"></p></div>
+						<div id="day">
+							today
+							<p id="date"></p>
+						</div>
 						<div id="su1">방문수</div>
 						<div id="su2">예약수</div>
 						<div id="su3">????</div>
-						
+
 						<div id="tsu">
 							<ul>
 								<li>회원 <label>몇명el태그</label></li>
@@ -63,26 +64,45 @@
 								<li>방문 <label>몇명el태그</label></li>
 							</ul>
 						</div>
-					</div>	
+					</div>
 				</div>
-			
+
 				<h3 id="h3">접속 통계</h3>
 				<div id="statistics">
 					<div id="chartdiv"></div>
 				</div>
-						
+
 			</div>
-			
-			
 			<!-- <div id="chart_div"></div> -->
 		</section>
+		<aside id="right">
+			<div id="rtd">
+				<div class="rdiv">최신소식</div>
+				<ul id="rul">
+					<li>asasdasd</li>
+					<li>asdasda</li>
+					<li>asfsaf</li>
+					<li>asdsadas</li>
+					<li>asdasdasd</li>
+				</ul>
+			</div>
+			
+			<div id="re">
+				<div class="rdiv">최신댓글</div>
+				<ul id="rul">
+					<li>asasdasd</li>
+					<li>asdasda</li>
+					<li>asfsaf</li>
+					<li>asdsadas</li>
+					<li>asdasdasd</li>
+				</ul>
+			</div>
+			
+		</aside>
 	</div>
-
-	<div id="footer">
-		<footer>
-			<jsp:include page="form/footer.jsp"></jsp:include>
-		</footer>
-	</div>
-
+	<footer>
+		<jsp:include page="form/footer.jsp"></jsp:include>
+	</footer>
 </body>
+
 </html>
