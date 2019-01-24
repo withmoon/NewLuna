@@ -7,6 +7,7 @@
 <title>MyPage</title>
 <link rel="stylesheet" type="text/css" href="css/MyPage.css">
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
 </head>
 <body>

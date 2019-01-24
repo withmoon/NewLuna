@@ -5,27 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet"> <!-- 외부폰트 -->
 <link rel="stylesheet" type="text/css" href="css/Home.css">
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<!-- <script type="text/javascript">
-	$(function() {
-		$('option').onmosueover(function(){
-			$(this).css("background-color","#836e5b");
-			$(this).css("font-color","#836e5b");
-		});
-		 $('option').onmouseout(function(){
-			$(this).removeClass('over');
-		});
-	});
-</script> -->
 </head>
 <body>
 	<!-- 로그인 -->
 	<header>
-		
+		<ul class="topUl">
+			<li><a href="#">이벤트</a></li>
+			<li>&emsp; &ensp;</li>
+			<li><a href="#">지점 찾기</a></li>
+			<li>&emsp; &ensp;</li>
+			<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+		</ul>
 	</header>
+	
+	<!-- 상단로고 -->
+	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
+	<div class="top">HOME</div>
+
 	
 	<section>
 	<!-- 배너 -->
@@ -102,5 +102,22 @@
 		</table>
 	</div>
 	</section>
+	<footer>
+		&nbsp;Shining in the dark 
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;&nbsp;
+		㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
+		&nbsp;<b>MoonLight</b> StudyCafe
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;
+		©2019. 2JOSYSTEMS Corp.
+	</footer>
 </body>
 </html>
