@@ -35,7 +35,7 @@
 <ul class="topUl">
 <li><a href="#">이벤트</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="#">지점 찾기</a></li>
+<li><a href="foundbranch.udo">지점 찾기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->
 <!-- 

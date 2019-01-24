@@ -16,5 +16,5 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<mvc:resources mapping="/resources/**" location="/resources/*" />
-
+	
 </beans>

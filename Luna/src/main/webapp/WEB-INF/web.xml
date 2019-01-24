@@ -28,19 +28,36 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- for Main -->
 	<servlet>
 		<servlet-name>pub</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-			classpath:/config/pub.xml
+			classpath:/config/pub-controll.xml
 			</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>pub</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- for User -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			classpath:/config/user/user-controll.xml
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>*.udo</url-pattern>
 	</servlet-mapping>
 
 </web-app>
