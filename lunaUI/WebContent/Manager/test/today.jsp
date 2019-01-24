@@ -17,7 +17,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body> 
 	<div id="today">
 		<div id="tmember">
 			<div id="day">today<p id="date"></p></div>

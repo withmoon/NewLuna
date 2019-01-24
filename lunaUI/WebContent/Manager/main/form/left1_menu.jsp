@@ -44,28 +44,28 @@
 
 			<li class="menu"><a href="#"><img src="" alt="매출통계" /></a>
 				<ul class="hide">
-					<li>메뉴1</li>
-					<li>메뉴2</li>
+					<li>매출현황</li>
+					<li>매출보고서</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
-			<li class="menu"><a href="#"><img src="" alt="예약시간대통계" /></a>
+			<li class="menu"><a href="#"><img src="" alt="예약관리" /></a>
 				<ul class="hide">
-					<li>메뉴1</li>
+					<li>예약목록</li><!-- 게시판으로 목록 보이기 -->
 					<li>메뉴2</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="" alt="방 생성/수정/삭제" /></a>
 				<ul class="hide">
-					<li>메뉴1</li>
+					<li>방 생성/수정/삭제</li>
 					<li>메뉴2</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
 				<li class="menu"><a href="#"><img src="" alt="현황보기" /></a>
 				<ul class="hide">
-					<li>매출현황</li>
+					<li>매출현황</li><!-- 차트랑 게시판  -->
 					<li>예약현황</li>
 					<li>방문현황</li>
 				</ul>
