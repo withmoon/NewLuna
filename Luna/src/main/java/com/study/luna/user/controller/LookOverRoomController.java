@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class FoundBranchController {
-	
-	@RequestMapping(value="/foundbranch.udo", method=RequestMethod.GET)
-	public String foundBranchView() {
-		return "foundbranch";
+public class LookOverRoomController {
+	@RequestMapping(value="/lookover.udo", method=RequestMethod.GET)
+	public String lookOverView() {
+		return "lookover";
 	}
 }

@@ -26,7 +26,7 @@
 <section id="sec">
 	<ul>
 		<li><a href="#">&nbsp;홈으로&nbsp;</a></li><!--../Home/home.jsp  -->
-		<li><a href="#">&nbsp;바로 예약&nbsp;</a></li><!-- ../LookOver/LookOver.jsp -->
+		<li><a href="lookover.udo">&nbsp;바로 예약&nbsp;</a></li><!-- ../LookOver/LookOver.jsp -->
 		<li><a href="foundbranch.udo">&nbsp;주변 지점 찾기&nbsp;</a></li><!-- ../Found/FoundBranch.jsp -->
 	</ul>
 	</section>

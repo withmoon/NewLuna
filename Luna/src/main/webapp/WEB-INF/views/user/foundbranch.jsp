@@ -26,7 +26,7 @@
 <li><a href="#">로그아웃</a></li> -->
 </ul>
 </nav>
-<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/Logo/MainLogo.png"/>"/></a>
+<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/MainLogo.png"/>"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->
