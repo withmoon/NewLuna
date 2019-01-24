@@ -12,7 +12,7 @@
 
 <nav>
 <ul class="topUl">
-<li><a href="#">이벤트</a></li>
+<li><a href="../event/event.jsp">이벤트</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="../Found/FoundBranch.jsp">지점 찾기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>

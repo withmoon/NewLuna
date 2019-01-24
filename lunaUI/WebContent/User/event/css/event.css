@@ -1,0 +1,77 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	font-family: 휴먼아미체;
+}
+/* 고정 상단바 */
+nav{
+	position:absolute;
+	top:1%;
+	right:10%;
+}
+.topUl li a{
+	font-size: 1.3vw;
+}
+.logo{
+	position:absolute;
+	width:5%;
+	left:10%;
+}
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:3%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+.list_tab{
+	position:absolute;
+	top:18%;
+	left:18%;
+}
+table{
+	text-align: center;
+	border-top:2px solid #686868; 
+	border-bottom:2px solid #686868; 
+	border-collapse: collapse;
+}
+table th{
+	border-top:2px solid #686868; 
+	border-bottom:2px solid #686868; 
+	width:300px;
+}
+table td{
+	font-size: 1.5vw;
+	padding:3%;
+}
+
+a{
+	text-decoration: none;
+	color:black;
+}
+
+table td a{
+	text-decoration: none;
+	color:#fc6b97; 
+}
+
+a:hover{
+	color:orange;
+}
+
+.pnum{
+	position:absolute;
+	top:78%;
+	left:42%;
+	font-size: 1.5vw;
+}
+
+footer{
+	position:absolute;
+	bottom:-3%;
+	left:10%;
+	margin:0 -5% 0 0;
+}

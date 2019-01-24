@@ -11,7 +11,7 @@
 <body style="overflow-x:hidden;">
 <nav>
 <ul class="topUl">
-<li><a href="#">이벤트</a></li>
+<li><a href="../event/event.jsp">이벤트</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
 <li style="text-decoration: underline;color:#836e5b;"><a href="#">지점 찾기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
@@ -25,7 +25,7 @@
 <li><a href="#">로그아웃</a></li> -->
 </ul>
 </nav>
-<a href="../Home/home.jsp" title="홈으로 이동"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
+<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="../../Public/Logo/MainLogo.png"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->
