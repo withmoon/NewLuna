@@ -13,7 +13,7 @@ css와 js도 폴더로 구분해서 만들어 주세요
 
 수정한또는 생성돈 jsp만 커밋하시고 나머지 딸려오는 파일들은 절대 커밋하면 안됩니다.
 
-public = .do
-user= .udo
-manager = .mdo
-adming= .ado
+public = .do /
+user= .udo /
+manager = .mdo /
+admin= .ado 
