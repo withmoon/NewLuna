@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-* { font-family: 휴먼아미체, 'Gamja Flower', cursive; }
+* { font-family: 'Gamja Flower', cursive; }
 
 /* 로그인 */
 header{
@@ -83,18 +83,63 @@ p{
 	top:1px;
 }
 
-.room {
+.deer {
 	position:absolute;
-	right: 20%;
-	top:20%;
+	right: 30%;
+	top:23%;
 	font-size:medium;
 	background-color: white;
 }
 
-/* 일정 */
+/*즐겨찾기*/
+.favorites1{
+	position:absolute;
+	font-size: xx-large;
+	top: 39%;
+	left: 10%;
+}
+
+.favorites2 {
+	position: absolute;
+	width: 70%;
+	top: 52%;
+	left: 15%;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+table thead th {
+    font-weight: bold;
+    vertical-align: top;
+    color: #836e5b;;
+    border:0;
+    border-top: 3px solid #836e5b;;
+    border-bottom: 3px solid #836e5b;;
+
+
+}
+table td {
+    vertical-align: top;
+    border:0;
+    border-bottom: 1px solid #ccc;
+
+}
+
+/*예약현황*/
+.reservation1 {
+	position:absolute;
+	font-size: xx-large;
+	top: 72%;
+	left: 10%;
+}
+
 .line2 {
 	position:absolute;
-	top:46%;
+	top:83%;
 	left: 10%;
 }
 
@@ -106,35 +151,54 @@ input[type=date]{
 
 .schedule {
 	position:absolute;
-	top:45%;
-	right:36%;
+	top:81%;
+	right:35%;
 	font-size: x-large;
 	color: white;
 }
 
-/*예약현황*/
 .noroom {
 	position:absolute;
-	top: 58%;
-	left: 30%;
+	top: 93%;
+	left: 33%;
 }
 
-.reservation{
+.reservation2 {
 	position: absolute;
-	top: 59%;
-	left: 42%;
+	top: 92%;
+	left: 45%;
 	font-size: large;
 }
 
-table {
-	border: 2px solid gray;
-	border-collapse: collapse;
+.availability {
 	position: absolute;
 	width: 70%;
-	top: 82%;
+	top: 118%;
 	left: 15%;
 }
 
-th { border: 2px solid gray; }
+/*알림*/
+.notification1 {
+	position:absolute;
+	font-size: xx-large;
+	top: 139%;
+	left: 10%;
+}
 
-td { border: 2px solid gray; }
+.notification2 {
+	position: absolute;
+	width: 70%;
+	top: 150%;
+	left: 15%;
+}
+
+/* footer */
+footer {
+	width:80%;
+	height:1%;
+	border-top:1px solid darkgray;
+	margin:0 1% 1% 0;
+	position:absolute;
+	left: 10%;
+	top: 173%;
+}
