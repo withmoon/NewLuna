@@ -27,7 +27,7 @@ nav {
 	width: auto;
 	text-align: center;
 	font-size: 2.3vw;
-	color: #836e5b;
+	color: #e8e8e8;
 }
 
 /* 아이디, 비번 라벨 */
@@ -47,7 +47,7 @@ label{
 /* text 필드 스타일,크기,폰트 사이즈 */
 input[type=text],[type=password]{
 	position:absolute;
-	top:43%;
+	top:42%;
 	left:42.5%;
 	border: none;
 	background-color:#e8e8e8;
