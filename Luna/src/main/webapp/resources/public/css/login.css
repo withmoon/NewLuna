@@ -7,22 +7,44 @@ nav {
 	top: 1%;
 	right:10%;
 }
-
-.topUl li a {
+.topUl li{
+	margin:0px;
+	font-family: 휴먼아미체;
+	text-decoration:none;
+	display:table-cell;
+	font-size: 1.5vw;
+}
+.topUl li a{
+	text-decoration:none;
+	color: #e8e8e8;
 	font-size: 1.2vw;
 }
-
+.topUl li a:hover{
+	color: orange;
+}
+.regis{
+	position: absolute;
+	width: 10%;
+	top:0;
+	left:43.2%;
+}
+.registt{
+	position: absolute;
+	top:5%;
+	left:53.2%;
+	color:#e8e8e8;
+}
 .logo {
 	position: absolute;
 	width: 10%;
-	top:13%;
+	top:17.5%;
 	left:43.2%;
 }
 
 /* 타이틀 */
 .top {
 	position: absolute;
-	top:32%;
+	top:38%;
 	left:45.5%;
 	width: auto;
 	text-align: center;
@@ -38,16 +60,16 @@ label{
 	font-size:1.7vw; 
 }
 .ilabel{
-	top:43%;
+	top:48%;
 }
 .plabel{
-	top:50%;
+	top:58%;
 }
 
 /* text 필드 스타일,크기,폰트 사이즈 */
 input[type=text],[type=password]{
 	position:absolute;
-	top:42%;
+	top:47%;
 	left:42.5%;
 	border: none;
 	background-color:#e8e8e8;
@@ -55,12 +77,12 @@ input[type=text],[type=password]{
 	font-size: 1.5vw;
 }
 input[type=password]{
-	top:50%;
+	top:58%;
 }
 /* log.jsp(로그인,회원가입 버튼) sign.jsp(회원가입 버튼) */
 .loginBtn{
 	position:absolute;
-	top:41.5%;
+	top:47.5%;
 	left:57%;
 	padding:2%;
 	font-size:1.7vw;
@@ -69,7 +91,7 @@ input[type=password]{
 }
 #kakao-login-btn{
 	position:absolute;
-	top:57%;
-	left:30%;
+	top:67%;
+	left:29.5%;
 	width:40%;
 }
