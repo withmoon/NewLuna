@@ -38,7 +38,7 @@ nav{
 }
 .searchArea p{
 	position:absolute;
-	left:34%;
+	left:36%;
 	top:10%;
 }
 /* select list */
@@ -50,11 +50,11 @@ select{
 }
 #branchSido{
 	position:relative;
-	left:29%;
+	left:30%;
 }
 #branchBranch{
 	position:relative;
-	left:30%;
+	left:31%;
 }
 input[type=date]{
 	width :10%;
@@ -62,7 +62,7 @@ input[type=date]{
  	font-size : large;
  	border:1px solid #836e5b;
 	position:relative;
-	left:31%;
+	left:32%;
 	top:-1px;
 }
 /*button*/

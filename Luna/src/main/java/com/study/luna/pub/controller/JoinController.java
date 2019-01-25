@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class MainViewController {
-	
-	@RequestMapping(value="/main.do", method=RequestMethod.GET)
+public class JoinController {
+	@RequestMapping(value="/join.do", method=RequestMethod.GET)
 	public String mainView() {
-		return "mainpage";
+		return "join";
 	}
 }

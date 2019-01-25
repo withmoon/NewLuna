@@ -31,7 +31,7 @@
 </nav>
 
 <!-- 상단로고 -->
-<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/MainLogo.png"/>"/></a>
+<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">방 찾기</div>
 
 <!-- 지점 지정 -->
@@ -69,7 +69,7 @@
 <!-- 검색결과 보여주는 곳 -->
 <div class="showRoom" style="overflow-y:scroll;">
 <div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/더빅스터디카페8콘.jpg"/>"></a><br/>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafe8.jpg"/>"></a><br/>
 <a href="#">첫번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2</label><br/>
@@ -77,21 +77,21 @@
 </div>
 
 <div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/더빅스터디카페단체.jpg"/>"></a><br/>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafeGp.jpg"/>"></a><br/>
 <a href="#">두번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2설명2설명2</label><br/>
 <label>설명3설명3설명3</label>
 </div>
 <div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/위넌스터디카페.jpg"/>"></a><br/>
+<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/WinunStudyCafe.jpg"/>"></a><br/>
 <a href="#">세번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2설명2설명2</label><br/>
 <label>설명3설명3설명3설명3설명3</label>
 </div>
 <div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/더빅스터디카페단체2_1.png"/>"></a><br/>
+<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafeGp2.png"/>"></a><br/>
 <a href="#">네번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2설명2설명2</label><br/>
@@ -99,7 +99,7 @@
 </div>
 
 <div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/홀릭스터디카페본점.jpg"/>"></a><br/>
+<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/HollicStudyCafeCt.jpg"/>"></a><br/>
 <a href="#">다섯번째이미지</a><br/>
 <label>설명1</label><br/>
 <label>설명2설명2설명2설명2</label><br/>
