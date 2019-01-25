@@ -8,6 +8,7 @@
 <title>스터디카페 달빛</title>
 <link rel="stylesheet" href="css/roomDetail.css"/>
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="../../Public/jquery/jquery-3.3.1.min.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>

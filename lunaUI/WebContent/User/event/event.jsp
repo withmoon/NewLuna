@@ -7,6 +7,7 @@
 <title>스터디카페 달빛</title>
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <link rel="stylesheet" href="css/event.css"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
 <nav>
