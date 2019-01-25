@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/manager/js/left1.js"/>"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>

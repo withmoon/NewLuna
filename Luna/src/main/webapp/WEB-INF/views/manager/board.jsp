@@ -12,6 +12,8 @@
 <script type="text/javascript" src="<c:url value="/resources/manager/js/mjs.js"/>"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
+
 <title>지점장 관리화면</title>
 </head>
 <body>

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class MgBoardController {
-	@RequestMapping(value="/board.mdo", method=RequestMethod.GET)
-	public String mgBoardView() {
-		return "board";
+public class mgcalendarController {
+	@RequestMapping(value="/refound.mdo", method=RequestMethod.GET)
+	public String mgCalendarView() {
+		return "refound";
 	} 
 }

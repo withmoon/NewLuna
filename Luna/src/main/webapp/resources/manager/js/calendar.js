@@ -1,3 +1,4 @@
+
 var app = angular.module("calendar", []);
 app.controller("calendarWidget", function($scope) {
     //[1]
@@ -9,7 +10,7 @@ app.controller("calendarWidget", function($scope) {
 app.directive("calendar", function() {
     return {
         restrict: "E",
-        templateUrl: "../templates/calendar.html",
+        templateUrl: "templates/calendar.html",
         scope: {
             selected: "="
             // "=" : 부모 scope의 property와 디렉티브의 property를 binding하여 directive에서 부모 scope에 접근하겠다.
