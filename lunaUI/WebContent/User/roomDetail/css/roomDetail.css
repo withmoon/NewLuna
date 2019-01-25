@@ -23,7 +23,7 @@ nav{
 	position:absolute;
 	top:14%;
 	left:15%;
-	width:55%;
+	width:62%;
 	height:35%;
 	background-color:#b5a495;
 	font-size: 1.2vw;
@@ -39,14 +39,14 @@ nav{
 /* 간략방소개  */
 .roomExp #roomExplain{
 	position:relative;
-	left:50%;
+	left:45%;
 	top:13%;
 }
 /* 구역 나눔 */
 .rsec{
 	position:relative;
-	left:70%;
-	top:-63%;
+	left:72%;
+	top:-66%;
 	height:80%;
 	border-left:1px solid #efefef;
 }
@@ -54,7 +54,7 @@ nav{
 .roomExp #branchExplain{
 	position:relative;
 	left:75%;
-	top:-142%;
+	top:-146%;
 	
 }
 /* 카카오 링크 이미지 */
@@ -77,7 +77,7 @@ nav{
 .springEf{
 	position:fixed;
 	top:38%;
-	right:16%;
+	right:5%;
 	width:5%;
 }
 .springEf2{
@@ -92,7 +92,7 @@ nav{
 	position:absolute;
 	top:51%;
 	left:15%;
-	width:53%;
+	width:60%;
 	height:18%;
 	border: 2px solid #b5a495;
 	padding:1%;
@@ -111,7 +111,7 @@ nav{
 .right1{
 	position:fixed;
 	top:30%;
-	right:15%;
+	right:5%;
 	width:8%;
 	height:12%;
 	background: #d5d5d5; 
@@ -130,9 +130,9 @@ input[type=date]{
 /* 버튼 */
 .look{
 	position:relative;
-	top:-5px;
+	
 	left:3.5%;
-	font-size : 1.5vw;
+	font-size : 1.1vw;
 	background: #898989; 
 	border-color:#898989; 
 	padding:1px 10px 1px 10px;
@@ -143,7 +143,7 @@ input[type=date]{
 .right2{
 	position:fixed;
 	top:45%;
-	right:15%;
+	right:5%;
 	width:8%;
 	height:33%;
 	background: #d5d5d5;
@@ -163,7 +163,7 @@ input[type=date]{
 	position:absolute;
 	top:76%;
 	left:15%;
-	width:49.2%;
+	width:56%;
 	height:auto;
 	border: 2px solid #c0c0c0;
 	padding:3%;
@@ -188,7 +188,7 @@ input[type=date]{
 	position:absolute;
 	top:265%;
 	left:15%;
-	width:49.2%;
+	width:56%;
 	height:auto;
 	border: 2px solid #fee181;
 	padding:3%;

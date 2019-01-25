@@ -125,7 +125,7 @@
 </table>
 </div>
 
-<!-- 오른쪽 달려 바 -->
+<!-- 오른쪽 달력 바 -->
 <div class="right1">
 <input type="date"><br/><br/>
 <button class="look">스케줄 보기</button>	
@@ -187,7 +187,7 @@
 
 <!-- 스프링 효과 -->
 <img class="springEf" src="images/동글2.png"/>
-<img style="right:18%" class="springEf" src="images/동글2.png"/>
+<img style="right:9%" class="springEf" src="images/동글2.png"/>
 
 <section class="content">
 
