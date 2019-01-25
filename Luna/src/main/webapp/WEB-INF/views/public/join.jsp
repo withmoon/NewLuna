@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="layer_fixed">
-	<center>
+	<div align="center">
 	<h1>회원가입 중입니다!</h1>
 	<br/>
 	<form method="post" action="#">
@@ -49,7 +49,7 @@
 	</form>
 	&nbsp; &nbsp; &nbsp; &nbsp;	
 	<input class="button" type="button" value="회원가입">
-	</center>
+	</div>
 	</div>
 </body>
 </html>

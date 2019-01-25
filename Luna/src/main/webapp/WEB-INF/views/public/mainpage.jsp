@@ -35,7 +35,7 @@
 <ul class="topUl">
 <li><a href="#">이벤트</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->
+<li><a href="login.do">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->
 <!-- 
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li><a href="#">마이페이지</a></li>
