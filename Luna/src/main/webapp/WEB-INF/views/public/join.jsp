@@ -1,13 +1,50 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sign</title>
-<link href="../css/log.css" type="text/css" rel="stylesheet"/>
+<link href="<c:url value="/resources/public/css/join.css"/>" type="text/css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script language="javascript" src="script.js"></script>
 </head>
 <body>
-	<div id="layer_fixed">
+	<h1 align="center">☆ 회원가입</h1>
+	
+	<!-- 회원가입 버튼 -->
+	<section>
+		<div class="user">
+			<div class="inside">
+				<span>회원가입</span>
+				<div class="tie-wrap">
+					<div class="tie"></div>
+				</div>
+			</div>
+			<div class="button">
+				<div class="front">
+					<span>일반회원</span>
+				</div>
+				<div class="back"></div>
+			</div>
+		</div>
+		<div class="manager">
+			<div class="inside">
+				<span>회원가입</span>
+				<div class="tie-wrap">
+					<div class="tie"></div>
+				</div>
+			</div>
+			<div class="button">
+				<div class="front">
+					<span>지점장</span>
+				</div>
+				<div class="back"></div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<!-- <div id="layer_fixed">
 	<div align="center">
 	<h1>회원가입 중입니다!</h1>
 	<br/>
@@ -50,6 +87,7 @@
 	&nbsp; &nbsp; &nbsp; &nbsp;	
 	<input class="button" type="button" value="회원가입">
 	</div>
-	</div>
+	</div> -->
+	
 </body>
 </html>
