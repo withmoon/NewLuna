@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../js/left1.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/left1.js"/>"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -14,7 +15,7 @@
 <body>
 	<div id="letf1m">
 		<ul>
-			<li class="menu"><a id="a" href="#"><img src="../images/menu02.png" alt="게시판관리" />게시판관리</a>
+			<li class="menu"><a id="a" href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>"/>게시판관리</a>
 				<ul class="hide">
 					<li>문의 게시판</li>
 					<li>이벤트 게시판</li>
@@ -24,28 +25,28 @@
 				</ul>
 			</li>
 
-			<li class="menu"><a href="#"><img src="../images/menu02.png" alt="매출통계" />매출통계</a>
+			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="매출통계" />매출통계</a>
 				<ul class="hide">
 					<li>메뉴1</li>
 					<li>메뉴2</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
-			<li class="menu"><a href="#"><img src="../images/menu01.png" alt="예약시간대통계" />예약시간대통계</a>
+			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu01.png"/>" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
 					<li>메뉴1</li>
 					<li>메뉴2</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
-			<li class="menu"><a href="#"><img src="../images/menu03.png" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
+			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu03.png"/>" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
 				<ul class="hide">
 					<li>메뉴1</li>
 					<li>메뉴2</li>
 					<li>메뉴3</li>
 				</ul>
 			</li>
-				<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
+				<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="현황보기" />현황보기</a>
 				<ul class="hide">
 					<li>매출현황</li>
 					<li>예약현황</li>

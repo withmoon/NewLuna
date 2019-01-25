@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../js/date.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/date.js"/>"></script>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../js/mjs.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script> 
+<script type="text/javascript" src="<c:url value="/resources/manager/js/mjs.js"/>"></script>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet" href="../css/manager2.css">
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<img class="logo" src="../images/mainlogo2.png">
+				<img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/>
 			</div>
 			<jsp:include page="form/TopMenu1.jsp"></jsp:include>
 		</div>

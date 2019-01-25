@@ -12,11 +12,11 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js/mjs.js"></script>
-<meta charset="UTF-8">
+
 <link type="text/css" rel="stylesheet" href="../css/manager2.css">
 <link rel="stylesheet" type="text/css" href="../css/calendar.css">
 <link type="text/css" rel="stylesheet" href="../css/refund.css">
-
+<meta charset="UTF-8">
 <title>지점장 관리화면</title>
 <script type="text/javascript">
 	moment.locale('kr', {
