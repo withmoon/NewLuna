@@ -35,11 +35,98 @@ header{
 	height:10%;
 }
 
-#b_icon img{clear:both; position:absolute; float: left; top:44%; }
-.icon1 {width: 10%; left: 25%;}
-.icon2 {width: 10%; left: 45%;}
-.icon3 {width: 10%;  left: 65%;}
- 
+/*배너 버튼*/
+.whole {
+	clear:both; 
+	position:absolute; 
+	/*float: left; */
+	top:44%;
+	width: 10%;
+	left: 25%;
+
+}
+
+#whole2 {
+	display:none;
+	position:absolute;
+	width: 40%;
+	left: 30%;
+	top: 20%;;
+	z-index: 1;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	padding: 10px 10px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+    -moz-background-clip: padding;
+	-webkit-background-clip: padding; 
+	background-clip: padding-box;
+	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px; 
+}
+
+.previous {
+	clear:both; 
+	position:absolute; 
+	/*float: left; */
+	top:44%;
+	width: 10%; 
+	left: 45%;
+}
+
+#previous2 {
+	display:none;
+	position:absolute;
+	width: 40%;
+	left: 30%;
+	top: 20%;;
+	z-index: 1;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	padding: 10px 10px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+    -moz-background-clip: padding;
+	-webkit-background-clip: padding; 
+	background-clip: padding-box;
+	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px; 
+}
+
+.accumulate {
+	clear:both; 
+	position:absolute; 
+	/*float: left; */
+	top:44%;
+	width: 10%;  
+	left: 65%;
+}
+
+#accumulate2 {
+	display:none;
+	position:absolute;
+	width: 40%;
+	left: 30%;
+	top: 20%;;
+	z-index: 1;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	padding: 10px 10px;
+	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
+    -moz-background-clip: padding;
+	-webkit-background-clip: padding; 
+	background-clip: padding-box;
+	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px; 
+}
+
+b { font-size : 30px; color : #003366; }
+
+/*select*/
  
 select {
  width : 10%;

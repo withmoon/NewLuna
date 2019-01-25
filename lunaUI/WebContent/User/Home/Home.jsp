@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="../../Public/TopMenu.css"/>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+/* 배너 버튼 이벤트 */
+function view1(opt) {
+	if(opt) {
+		whole2.style.display = "block";
+	}
+	else {
+		whole2.style.display = "none";
+	}
+}
+
+function view2(opt) {
+	if(opt) {
+		  previous2.style.display = "block";
+	}
+	else {
+		  previous2.style.display = "none";
+	}
+}
+
+function view3(opt) {
+	if(opt) {
+		  accumulate2.style.display = "block";
+	}
+	else {
+		  accumulate2.style.display = "none";
+	}
+}
+</script>
 </head>
 <body>
 	<!-- 로그인 -->
@@ -30,7 +59,34 @@
 	<section>
 	<!-- 배너 -->
 	<div>
-		<div id="b_icon">
+		<div onmouseover="view1(true)" onmouseout="view1(false)">
+    		<img class="whole" alt="전체지점수" src="images/whole.png"
+				onmouseout="this.src='images/whole.png'"
+				onmouseover="this.src='images/whole2.png'">
+		</div>
+		<div id="whole2">
+    		<b>전국 380개의 지점수</b><br>
+        	MoimCenter : 22센터    StudyCenter: 349센터    WorkCenter: 9센터
+        </div>
+        <div onmouseover="view2(true)" onmouseout="view2(false)">
+    		<img class="previous" alt="전체지점수" src="images/previous.png"
+				onmouseout="this.src='images/previous.png'"
+				onmouseover="this.src='images/previous2.png'">
+		</div>
+		<div id="previous2">
+    		<b>22,712명 고객님들 감사합니다~</b><br>
+        	MoimCenter : 1,934명   StudyCenter: 20,098명    WorkCenter: 680명
+        </div>
+        <div onmouseover="view3(true)" onmouseout="view3(false)">
+    		<img class="accumulate" alt="전체지점수" src="images/accumulate.png"
+				onmouseout="this.src='images/accumulate.png'"
+				onmouseover="this.src='images/accumulate2.png'">
+		</div>
+		<div id="accumulate2">
+    		<b>22,712명 고객님들이 증명합니다</b><br>
+        	MoimCenter : 1,934명   StudyCenter: 20,098명    WorkCenter: 680명
+        </div>
+		<!-- <div id="b_icon">
 			<img class="icon1" alt="전체지점수" src="images/전체지점수.png"
 				onmouseout="this.src='images/전체지점수.png'"
 				onmouseover="this.src='images/전체지점수2.png'">
@@ -40,7 +96,7 @@
 			<img class="icon3" alt="고객님누적이용횟수" src="images/고객님누적이용횟수.png"
 				onmouseout="this.src='images/고객님누적이용횟수.png'"
 				onmouseover="this.src='images/고객님누적이용횟수2.png'">
-		</div>
+		</div> -->
 		<div align="center"  id="banner">
 			<img alt="studyhome" src="images/studyhome.jpg" >
 		</div>
