@@ -8,6 +8,7 @@
 <title>스터디카페 달빛_근처 지점 찾기</title>
 <link rel="stylesheet" href="<c:url value="/resources/public/css/topmenu.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/user/found/css/FoundBranch.css"/>"/>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body style="overflow-x:hidden;">
 <nav>
