@@ -1,6 +1,23 @@
 @charset "UTF-8";
 * { font-family: 'Gamja Flower', cursive; }
 
+/* 상단로고 */
+.logo{
+	position:absolute;
+	width:5%;
+	left:10%;
+}
+
+.top{
+	position:absolute;
+	top:3%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+
 /* 회원가입버튼용 */
 .button {
   -webkit-transition:transform .28s ease-in;  
@@ -91,8 +108,6 @@
   color:#fff;
 }
 
-/* the bow-tie */
-
 .tie-wrap {
   position:relative;
   margin:0.1em auto;
@@ -147,7 +162,64 @@
   font-size:0.7em;
 }
 
-section {
+/*회원가입*/
+
+.join {
+  position:absolute;
+  top: 40%;
+  left:10%;
+  font-size: 24px;
+}
+
+td{
+  float: left;
+  width: 200%;
+  margin: 10px 3%;
+  position: relative;
+}
+
+input{
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+input ~ label{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 9px;
+  color: #aaa;
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+
+input:focus ~ label,
+.has-content ~ label{
+  top: -16px;
+  font-size: 18px;
+  color: #3399FF;
+  transition: 0.3s;
+}
+
+button{
+    background-color: #836e5b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #bb9540;
+}
+
+
+/* section {
   float:left;
   width:100%;
-}
+} */
