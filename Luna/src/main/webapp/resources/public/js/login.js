@@ -12,8 +12,9 @@
             success: function(res) {
             	alert(JSON.stringify(res));
             	
-            	console.log();
-              
+            	console.log(res.id);
+            	console.log(res.properties.nickname);
+            	console.log(res.kakao_account.email);
             },
       fail: function(err) {
          alert(JSON.stringify(err));
