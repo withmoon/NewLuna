@@ -17,7 +17,18 @@
 	font-size: 2vw;
 	color: #686868; 
 }
-
+.kawai{
+ 	position:absolute;
+  	top: 28%;
+  	left:44%;
+}
+.kawai2{
+	position:absolute;
+  	top: 20%;
+  	left:33%;
+  	color:pink;
+  	font-size: 1.7vw;
+}
 /* 회원가입버튼용 */
 .button {
   -webkit-transition:transform .28s ease-in;  

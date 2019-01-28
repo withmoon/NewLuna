@@ -26,7 +26,7 @@
 </nav>
 
 <!-- 상단로고 -->
-<a href="join.do" title="회원가입"><img class="regis" src="<c:url value="/resources/public/images/regis.gif"/>"/></a>
+<a href="join.do?br=off" title="회원가입"><img class="regis" src="<c:url value="/resources/public/images/regis.gif"/>"/></a>
 <p class="registt">← ← 회원가입은 토끼를 클릭해주세요</p>
 <a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">로그인</div>
@@ -47,8 +47,8 @@
 	</div>
 	
 	<form name="kform" action="join.do" method="post">
-		<input type="hidden" id="kid"/>
-		<input type="hidden" id="knic"/>
+		<input type="hidden" name="kid" value="1"/>
+		<input type="hidden" name="knic" value="2"/>
 	</form>
 	
 </body>

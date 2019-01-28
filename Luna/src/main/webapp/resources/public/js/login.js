@@ -5,16 +5,13 @@
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: function(authObj) {
-        alert(JSON.stringify(authObj));
 
         Kakao.API.request({
             url: '/v2/user/me',
             success: function(res) {
-            	//console.log(res.id);
-            	//console.log(res.properties.nickname);
             	
-            	$("#kid").val(res.id);
-            	$("#knic").val(res.properties.nickname);
+            	$("input[name=kid]").val(res.id);
+            	$("input[name=knic]").val(res.properties.nickname);
             	
             	kform.submit();
 
