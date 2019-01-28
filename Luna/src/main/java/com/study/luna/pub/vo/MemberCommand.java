@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class LoginVO {
+public class MemberCommand {
 	String id;
 	String pw;
 	String name;
