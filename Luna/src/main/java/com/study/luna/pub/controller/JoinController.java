@@ -25,6 +25,7 @@ public class JoinController {
 		mav.addObject("knic",knic);
 		mav.addObject("br","off");
 		mav.setViewName("join");
+		
 		return mav;
 	}
 }
