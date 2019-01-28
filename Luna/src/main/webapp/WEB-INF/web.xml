@@ -16,7 +16,6 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
 			classpath:applicationContext.xml
-			classpath:applicationContext.xml
 		</param-value>
   </context-param>
   <listener>
@@ -28,7 +27,7 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-			classpath:/config/pub-controll.xml
+			classpath:/controller/pub-controll.xml
 			</param-value>
     </init-param>
   </servlet>
@@ -42,7 +41,7 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-			classpath:/config/user/user-controll.xml
+			classpath:/controller/user-controll.xml
 			</param-value>
     </init-param>
   </servlet>
@@ -55,7 +54,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:/config/manager/manager-controller.xml</param-value>
+      <param-value>classpath:/controller/manager-controller.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

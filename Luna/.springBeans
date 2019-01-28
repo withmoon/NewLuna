@@ -8,8 +8,9 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/applicationContext.xml</config>
-		<config>src/main/resources/config/user/user-controll.xml</config>
-		<config>src/main/resources/config/pub-controll.xml</config>
+		<config>src/main/resources/controller/user-controll.xml</config>
+		<config>src/main/resources/controller/manager-controller.xml</config>
+		<config>src/main/resources/controller/pub-controll.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
