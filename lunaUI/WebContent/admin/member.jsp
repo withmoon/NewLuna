@@ -65,7 +65,7 @@
 		</div>
 	</nav>
 	<center>
-	<h3>회원관리 게시판</h3>
+	<h3>회원관리 게시판입니다</h3>
 	</center>
 <br></br>
 	<div class="container">
