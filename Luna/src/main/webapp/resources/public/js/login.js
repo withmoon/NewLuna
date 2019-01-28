@@ -10,8 +10,10 @@
         Kakao.API.request({
             url: '/v2/user/me',
             success: function(res) {
-              alert(JSON.stringify(res));
-              alert(kakao_account.email);
+            	alert(JSON.stringify(res));
+            	
+            	console.log();
+              
             },
       fail: function(err) {
          alert(JSON.stringify(err));

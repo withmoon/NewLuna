@@ -8,18 +8,6 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower"rel="stylesheet"><!-- 외부폰트 -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="<c:url value="/resources/public/js/join.js"/>"></script>
-<!-- <script>
-$(window).load(function(){
-  $("td").val("");
-  $("input").focusout(function(){
-    if($(this).val() != ""){
-      $(this).addClass("has-content");
-    }else{
-    $(this).removeClass("has-content");
-    }
-  });
-});
-</script> -->
 </head>
 <body>
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
