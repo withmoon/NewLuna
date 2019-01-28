@@ -21,7 +21,7 @@ $(window).load(function(){
 </script>
 </head>
 <body>
-	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="/resources/public/logo/MainLogo.png"/></a>
+	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">회원가입</div>
 
 	<!-- 회원가입 버튼 -->
