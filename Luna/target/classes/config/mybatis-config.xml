@@ -6,7 +6,7 @@
 
 	<!-- 별명 사용 예시 -->
 	<typeAliases>
-		<typeAlias type="com.study.luna.pub.vo.MemberCommand" alias="member"></typeAlias>
+		<typeAlias type="com.study.luna.pub.cmd.MemberCommand" alias="member"></typeAlias>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

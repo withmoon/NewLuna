@@ -4,6 +4,6 @@
   
 <mapper namespace="memberDAO">
 	<insert id="insertUser">
-		insert into member(id,pw,name,phone,birth,email) values(#{id},#{pw},#{name},#{phone});
+		insert into member(id,pw,name,phone,birth,email) values(#{id},#{pw},#{name},#{phone},#{birth},#{email});
 	</insert>
 </mapper>
