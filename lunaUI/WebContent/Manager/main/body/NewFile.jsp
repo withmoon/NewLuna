@@ -65,7 +65,7 @@
 
 		<!-- db데이터 -->
 		<table id="t">
-			<tr id="ttr1">
+			<tr id="ttr1"> 
 				<th>a</th>
 				<th>b</th>
 				<th>c</th>
