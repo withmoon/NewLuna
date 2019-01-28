@@ -26,7 +26,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="administrator.jsp">홈</a></li>
 				<li><a href="sales.jsp">판매현황</a></li>
-				<li><a href="approve.jsp">관리자승인</a></li>
+				<li><a href="approve.jsp">지점장승인</a></li>
 				<li><a href="board.jsp">문의게시판</a></li>
 				<li><a href="member.jsp">회원관리</a></li>
 			</ul>
@@ -66,7 +66,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<a class="btn btn-primary pull-right">거절</a><a class="btn btn-primary pull-right">승인</a>
+			<div class="btn btn-primary pull-right">거절</div><div class="btn btn-primary pull-right">수락</div>
 		</div>
 	</div>
 
