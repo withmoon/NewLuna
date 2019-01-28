@@ -8,6 +8,7 @@
 <link href="<c:url value="/resources/public/css/login.css"/>" type="text/css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 </head>
 
 <body style="background-image: url('<c:url value="/resources/public/images/galaxy.gif"/>');">
@@ -45,6 +46,10 @@
 	<script src="<c:url value="/resources/public/js/login.js"/>"></script>
 	</div>
 	
+	<form name="kform" action="join.do" method="post">
+		<input type="hidden" id="kid"/>
+		<input type="hidden" id="knic"/>
+	</form>
 	
 </body>
 </html>

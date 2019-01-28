@@ -10,11 +10,14 @@
         Kakao.API.request({
             url: '/v2/user/me',
             success: function(res) {
-            	alert(JSON.stringify(res));
+            	//console.log(res.id);
+            	//console.log(res.properties.nickname);
             	
-            	console.log(res.id);
-            	console.log(res.properties.nickname);
-            	console.log(res.kakao_account.email);
+            	$("#kid").val(res.id);
+            	$("#knic").val(res.properties.nickname);
+            	
+            	kform.submit();
+
             },
       fail: function(err) {
          alert(JSON.stringify(err));

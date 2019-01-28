@@ -50,7 +50,7 @@
 			<!-- 일반회원가입 -->
 			<table align="center">
 				<tr><td>
-					<input type="text" name="id" size="40">
+					<input type="text" name="id" size="40" value="${kid}">
 					<label>ID</label>
 					<button>중복확인</button>
 				</td></tr>
