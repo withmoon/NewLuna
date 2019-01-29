@@ -10,9 +10,9 @@
 		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/resources/controller/user-controll.xml</config>
 		<config>src/main/resources/controller/manager-controller.xml</config>
-		<config>src/main/resources/controller/pub-controll.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/resources/controller/admin-controller.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

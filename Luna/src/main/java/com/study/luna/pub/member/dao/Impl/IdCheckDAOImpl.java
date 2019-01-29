@@ -12,7 +12,7 @@ public class IdCheckDAOImpl implements IdCheckDAO {
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
+
 	@Override
 	public Integer idCheck(MemberCommand memcom) {	
 		System.out.println("daoImpl 에서의 멤" +memcom.getId());
