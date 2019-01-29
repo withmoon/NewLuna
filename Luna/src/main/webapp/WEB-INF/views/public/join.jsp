@@ -81,12 +81,15 @@
 				</td></tr>
 				</c:if><!-- 카카오 로그인시 여기까지 비출력 -->
 				
+				
 				<tr><td>
 					<input type="text" name="name" id="name" size="50" value="${knic}">
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="tel" name="tel" id="tel" size="50" placeholder="">
+					<input type="tel" name="tel" id="tel" size="13" placeholder="">-
+					<input type="tel1" name="tel1" id="tel1" size="13" placeholder="">-
+					<input type="tel2" name="tel2" id="tel2" size="17.5" placeholder="">
 					<label>Tel</label>
 				</td></tr>
 				<tr><td>
@@ -164,5 +167,19 @@
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</div>
 	</section>
+	<footer>
+<section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
+&nbsp;Shining in the dark 
+&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
+<Strong>MoonLight</Strong> StudyCafe
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+©2019. 2JOSYSTEMS Corp.
+</footer>
 </body>
 </html>

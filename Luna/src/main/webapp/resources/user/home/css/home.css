@@ -40,7 +40,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:44%;
+	top:43%;
 	width: 10%;
 	left: 25%;
 
@@ -70,7 +70,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:44%;
+	top:43%;
 	width: 10%; 
 	left: 45%;
 }
@@ -99,7 +99,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:44%;
+	top:43%;
 	width: 10%;  
 	left: 65%;
 }
@@ -155,7 +155,7 @@ p{ font-size : 40px; color : #836e5b; }
  /* 리뷰 */
 .review{
    position:absolute;
-   top:220%;
+   top:185%;
    left:19%;
    width:56%;
    height:auto;
@@ -184,7 +184,7 @@ p{ font-size : 40px; color : #836e5b; }
 /* footer */
 footer{
 	position:absolute;
-	bottom:-300%;
-	left:7%;
+	bottom:-200%;
+	left:15%;
 	margin:0 -5% 0 0;
 }

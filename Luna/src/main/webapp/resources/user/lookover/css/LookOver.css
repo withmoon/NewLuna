@@ -157,7 +157,7 @@ input[type=date]{
 footer{
 	position:absolute;
 	bottom:-30%;
-	left:10%;
+	left:15%;
 	margin:0 -5% 0 0;
 	z-index: -1;
 }

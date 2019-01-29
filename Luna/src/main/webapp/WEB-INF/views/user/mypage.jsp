@@ -39,7 +39,7 @@
 			<p>- 테스트님 -</p>
 			&emsp;전화번호&ensp;010-1111-1111 <br>
 			&emsp;이메일 &ensp;email@email.com
-			<button class="update">정보수정</button>
+			<button class="update">정보수정</button><br>
 			<div class="deer"><img alt="" src="<c:url value="/resources/user/mypage/images/deer.png"/>"></div>
 			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>

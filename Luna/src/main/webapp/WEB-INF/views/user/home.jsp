@@ -163,7 +163,7 @@
          강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
       </div><br/>
       <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
-      <input type="text" size="120"><button>후기 올리기</button>
+      
    </section>
   	<!-- footer -->
 	<footer>

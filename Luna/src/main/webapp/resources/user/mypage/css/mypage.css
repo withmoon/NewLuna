@@ -33,7 +33,7 @@ header{
 .myinformation{
 	position: absolute;
 	top: 15%;
-	left: 10%;
+	left: 18%;
 	font-size: x-large
 }
 
@@ -96,14 +96,14 @@ p{
 	position:absolute;
 	font-size: xx-large;
 	top: 39%;
-	left: 10%;
+	left: 18%;
 }
 
 .favorites2 {
 	position: absolute;
-	width: 70%;
+	width: 65%;
 	top: 52%;
-	left: 15%;
+	left: 18%;
 }
 
 table {
@@ -134,13 +134,13 @@ table td {
 	position:absolute;
 	font-size: xx-large;
 	top: 72%;
-	left: 10%;
+	left: 18%;
 }
 
 .line2 {
 	position:absolute;
 	top:83%;
-	left: 10%;
+	left: 18%;
 }
 
 input[type=date]{
@@ -160,21 +160,21 @@ input[type=date]{
 .noroom {
 	position:absolute;
 	top: 93%;
-	left: 33%;
+	left: 38%;
 }
 
 .reservation2 {
 	position: absolute;
 	top: 92%;
-	left: 45%;
+	left: 48%;
 	font-size: large;
 }
 
 .availability {
 	position: absolute;
-	width: 70%;
+	width: 65%;
 	top: 118%;
-	left: 15%;
+	left: 18%;
 }
 
 /*알림*/
@@ -182,21 +182,21 @@ input[type=date]{
 	position:absolute;
 	font-size: xx-large;
 	top: 139%;
-	left: 10%;
+	left: 18%;
 }
 
 .notification2 {
 	position: absolute;
-	width: 70%;
+	width: 65%;
 	top: 150%;
-	left: 15%;
+	left: 18%;
 }
 
 /* footer */
 footer{
 	position:absolute;
 	bottom: -85%;
-	left:6%;
+	left:15%;
 	margin:0 -5% 0 0;
 	z-index: -1;
 }

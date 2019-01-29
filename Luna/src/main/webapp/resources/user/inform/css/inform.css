@@ -31,7 +31,7 @@ nav{
 .menu{
 	position:absolute;
 	top:20%;
-	left:35%;
+	left:38%;
 	
 }
 .menu img{
@@ -78,7 +78,7 @@ a:hover{
 .list_tab2 table{
 	position:absolute;
 	top:44%;
-	left:18%;
+	left:25%;
 	text-align: center;
 	border:2px solid #686868;
 	border-collapse: collapse;
@@ -92,7 +92,7 @@ a:hover{
 	border-top:2px solid #686868;
 	border-bottom:2px solid #686868;
 	padding:2%;
-	width:300px;
+	width:305px;
 }
 input{
 	font-size:1vw;
@@ -111,6 +111,6 @@ textarea{
 footer{
 	position:absolute;
 	bottom:-40%;
-	left:6%;
+	left:15%;
 	margin:0 -5% 0 0;
 }

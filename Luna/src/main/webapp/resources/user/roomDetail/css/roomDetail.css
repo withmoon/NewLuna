@@ -186,7 +186,7 @@ input[type=date]{
 /* 리뷰 */
 .review{
 	position:absolute;
-	top:223%;
+	top:200%;
 	left:15%;
 	width:56%;
 	height:auto;
@@ -214,7 +214,7 @@ input[type=date]{
 
 footer{
 	position:absolute;
-	bottom:-250%;
+	bottom:-220%;
 	left:4%;
 	margin:0 -1% 0 0;
 	font-size:1.1vw;

@@ -178,7 +178,7 @@
 .join {
   position:absolute;
   top: 40%;
-  left:10%;
+  left:17%;
   font-size: 24px;
 }
 
@@ -215,6 +215,7 @@ input:focus ~ label,
   transition: 0.3s;
 }
 
+
 button{
     background-color: #836e5b;
     border: none;
@@ -229,6 +230,12 @@ button:hover{
     background-color: #bb9540;
 }
 
+footer{
+	position:absolute;
+	bottom:-10%;
+	left:15%;
+	margin:0 -5% 0 0;
+}
 
 /* section {
   float:left;

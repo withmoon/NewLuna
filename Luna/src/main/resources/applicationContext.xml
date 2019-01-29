@@ -30,7 +30,7 @@
 		<property name="password" value="${jdbc.password}"/>
 	</bean>
 
-	
+
 	<!-- Spring 과 Mybatis 연동 설정 -->
 	<bean id="sqlSession"
 		class="org.mybatis.spring.SqlSessionFactoryBean" 
