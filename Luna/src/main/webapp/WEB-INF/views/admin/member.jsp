@@ -49,11 +49,11 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-            <li><a href="administrator.jsp">홈</a></li>
-            <li><a href="sales.jsp">판매현황</a></li>
-            <li><a href="approve.jsp">관리자승인</a></li>
-            <li><a href="board.jsp">문의게시판</a></li>
-            <li><a href="member.jsp">회원관리</a></li>
+            <li><a href="administrator.ado">홈</a></li>
+            <li><a href="sales.ado">판매현황</a></li>
+            <li><a href="approve.ado">관리자승인</a></li>
+            <li><a href="board.ado">문의게시판</a></li>
+            <li><a href="member.ado">회원관리</a></li>
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -96,7 +96,7 @@
    
             <script
                src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
+           <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
 </body>
 
 </html>

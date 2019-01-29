@@ -36,11 +36,11 @@
    
    <nav>
       <ul>
-         <li><a href="administrator.html">홈</a></li>
-         <li><a href="sales.jsp">매출현황</a></li>
-         <li><a href="administrator.html">지점장승인</a></li>
-         <li><a href="board.html">문의게시판</a></li>
-         <li><a href="member.html">회원관리</a></li>
+         <li><a href="administrator.ado">홈</a></li>
+         <li><a href="sales.ado">매출현황</a></li>
+         <li><a href="administrator.ado">지점장승인</a></li>
+         <li><a href="board.ado">문의게시판</a></li>
+         <li><a href="member.ado">회원관리</a></li>
       </ul>
    </nav>
    
@@ -53,11 +53,11 @@
    <aside id="left">
    <h4>카테고리</h4>
    <ul id="u_left">
-   <li><a target="page1" href="administrator.html">홈으로 가기</a></li>
-   <li><a target="page1" href="sales.jsp">매출현황</a></li>
-   <li><a target="page1" href="administrator.html">지점장승인</a></li>
-   <li><a target="page1" href="board.html">문의게시판</a></li>
-   <li><a target="page1" href="member.html">회원관리 게시판</a></li>
+   <li><a target="page1" href="administrator.ado">홈으로 가기</a></li>
+   <li><a target="page1" href="sales.ado">매출현황</a></li>
+   <li><a target="page1" href="administrator.ado">지점장승인</a></li>
+   <li><a target="page1" href="board.ado">문의게시판</a></li>
+   <li><a target="page1" href="member.ado">회원관리 게시판</a></li>
    </ul>
    </aside>
    </td>
