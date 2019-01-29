@@ -7,7 +7,9 @@ public class TestClient {
 	public static void main(String[] args) {
 		IdCheckDAOImpl idsImpl = new IdCheckDAOImpl();
 		  
-		  MemberCommand mem = new MemberCommand(); mem.setId("test");
+		  MemberCommand mem = new MemberCommand(); 
+		  
+		  mem.setId("test");
 		  
 		  Integer result = idsImpl.idCheck(mem);
 		  

@@ -11,13 +11,13 @@ import com.study.luna.pub.member.dao.IdCheckDAO;
 public class IdCheckDAOImpl implements IdCheckDAO {
 	
 	@Autowired
-	private SqlSessionTemplate mybatis;
+	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public Integer idCheck(MemberCommand memcom) {	
 		System.out.println("daoImpl 에서의 멤" +memcom.getId());
 		
-		return mybatis.selectOne("memberDAO.idCheck", memcom);
+		return sqlSession.selectOne("memberDAO.idCheck", memcom);
 	}
 
 }
