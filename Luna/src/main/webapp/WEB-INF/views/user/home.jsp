@@ -12,19 +12,27 @@
 <script src="<c:url value="/resources/user/home/js/home.js"/>"></script>
 </head>
 <body>
-	<!-- 로그인 -->
+	<!-- 상단메뉴 -->
 	<header>
 		<ul class="topUl">
-			<li><a href="#">이벤트</a></li>
-			<li>&emsp; &ensp;</li>
-			<li><a href="#">지점 찾기</a></li>
-			<li>&emsp; &ensp;</li>
-			<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+			<li><a href="<c:url value="event.udo"/>">이벤트</a></li>
+			<li>&emsp;&nbsp;&nbsp;</li>
+
+			<li><a href="<c:url value="foundbranch.udo"/>">지점 찾기</a></li>
+			<li>&emsp;&nbsp;&nbsp;</li>
+			<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
+			<li>&emsp;&nbsp;&nbsp;</li>
+			<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li>
+			<!-- 
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li><a href="<c:url value="myPage.udo"/>">마이페이지</a></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li><a href="#">로그아웃</a></li> -->
 		</ul>
 	</header>
 	
 	<!-- 상단로고 -->
-	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+	<a href="<c:url value="home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">HOME</div>
 
 	
@@ -120,6 +128,7 @@
 	<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
    </div>
    </section>
+   
    <!-- review -->
    <section class="review">
       <img src="<c:url value="/resources/user/home/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/home/images/star.png"/>">
@@ -158,21 +167,18 @@
    </section>
   	<!-- footer -->
 	<footer>
-		&nbsp;Shining in the dark 
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;&nbsp;
-		㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
-		&nbsp;<strong>MoonLight</strong> StudyCafe
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		&emsp;&emsp;&emsp;&emsp;
-		©2019. 2JOSYSTEMS Corp.
+	<section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
+	&nbsp;Shining in the dark 
+	&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+	&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
+	<Strong>MoonLight</Strong> StudyCafe
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	©2019. 2JOSYSTEMS Corp.
 	</footer>
 </body>
 </html>

@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+* { font-family: 'Gamja Flower', cursive; }
+
+/* 로그인 */
+header{
+	position:absolute;
+	top:1%;
+	right:10%;
+}
+.topUl li a{
+	font-size: 1.3vw;
+}
+
+/* 상단로고 */
+.logo{
+	position:absolute;
+	width:5%;
+	left:10%;
+}
+
+.top{
+	position:absolute;
+	top:3%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+
+/*정보*/
+.myinformation{
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	font-size: x-large
+}
+
+p{
+	color: #686868;
+	font-weight:bold
+}
+
+.update {
+	/* position:relative; */
+	-moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
+	background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
+	background-color:#7d5d3b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+}
+
+.update:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
+	background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
+	background-color:#634b30;
+}
+.update:active {
+	position:relative;
+	top:1px;
+}
+
+.deer {
+	position:absolute;
+	right: 30%;
+	top:23%;
+	font-size:medium;
+	background-color: white;
+}
+
+/*즐겨찾기*/
+.favorites1{
+	position:absolute;
+	font-size: xx-large;
+	top: 39%;
+	left: 10%;
+}
+
+.favorites2 {
+	position: absolute;
+	width: 70%;
+	top: 52%;
+	left: 15%;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+table thead th {
+    font-weight: bold;
+    vertical-align: top;
+    color: #836e5b;;
+    border:0;
+    border-top: 3px solid #836e5b;;
+    border-bottom: 3px solid #836e5b;;
+
+
+}
+table td {
+    vertical-align: top;
+    border:0;
+    border-bottom: 1px solid #ccc;
+
+}
+
+/*예약현황*/
+.reservation1 {
+	position:absolute;
+	font-size: xx-large;
+	top: 72%;
+	left: 10%;
+}
+
+.line2 {
+	position:absolute;
+	top:83%;
+	left: 10%;
+}
+
+input[type=date]{
+	font-size : large;
+ 	border:1px solid #836e5b;
+	position:relative;
+}
+
+.schedule {
+	position:absolute;
+	top:81%;
+	right:35%;
+	font-size: x-large;
+	color: white;
+}
+
+.noroom {
+	position:absolute;
+	top: 93%;
+	left: 33%;
+}
+
+.reservation2 {
+	position: absolute;
+	top: 92%;
+	left: 45%;
+	font-size: large;
+}
+
+.availability {
+	position: absolute;
+	width: 70%;
+	top: 118%;
+	left: 15%;
+}
+
+/*알림*/
+.notification1 {
+	position:absolute;
+	font-size: xx-large;
+	top: 139%;
+	left: 10%;
+}
+
+.notification2 {
+	position: absolute;
+	width: 70%;
+	top: 150%;
+	left: 15%;
+}
+
+/* footer */
+footer {
+	width:80%;
+	height:1%;
+	border-top:1px solid darkgray;
+	margin:0 1% 1% 0;
+	position:absolute;
+	left: 10%;
+	top: 173%;
+}

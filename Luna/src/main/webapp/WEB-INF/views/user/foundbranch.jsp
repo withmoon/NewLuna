@@ -11,23 +11,27 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body style="overflow-x:hidden;">
+<!-- 상단 메뉴 -->
 <nav>
 <ul class="topUl">
-<li><a href="../event/event.jsp">이벤트</a></li>
+<li><a href="<c:url value="event.udo"/>">이벤트</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li style="text-decoration: underline;color:#836e5b;"><a href="#">지점 찾기</a></li>
+
+<li><a href="<c:url value="foundbranch.udo"/>" style="text-decoration: underline;">지점 찾기</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="#">로그인&nbsp;/&nbsp;회원가입</a></li>
+<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
 <li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="../inform/inform.jsp">고객 센터</a></li>
+<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li>
 <!-- 
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="#">마이페이지</a></li>
+<li><a href="<c:url value="myPage.udo"/>">마이페이지</a></li>
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li><a href="#">로그아웃</a></li> -->
 </ul>
 </nav>
-<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+
+<!-- 상단 로고 -->
+<a href="<c:url value="home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->
@@ -56,7 +60,7 @@
 </div>
 </section>
 
-
+<!-- footer -->
 <footer>
 <section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
 &nbsp;Shining in the dark 
@@ -64,11 +68,11 @@
 &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 ㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
-&nbsp;<b>MoonLight</b> StudyCafe
+<Strong>MoonLight</Strong> StudyCafe
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 ©2019. 2JOSYSTEMS Corp.
 </footer>
 
