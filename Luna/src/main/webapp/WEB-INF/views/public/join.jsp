@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower"rel="stylesheet"><!-- 외부폰트 -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="<c:url value="/resources/public/js/join.js"/>"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
@@ -66,34 +67,34 @@
 			<table align="center">
 				<c:if test="${kid eq null}"><!-- 카카오 로그인이 아닐시 출력 -->
 				<tr><td>
-					<input type="text" name="id" size="40">
+					<input type="text" name="id" id="id" size="40">
 					<label>ID</label>
-					<button>중복확인</button>
+					<button onclick="idCheck()">중복확인</button>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="pw" size="50">
+					<input type="password" name="pw" id="pw" size="50" required="required">
 					<label>PassWord</label>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="repw" size="50">
+					<input type="password" name="repw" id="repw" size="50" required="required">
 					<label>Confirm PassWord</label>
 				</td></tr>
 				</c:if><!-- 카카오 로그인시 여기까지 비출력 -->
 				
 				<tr><td>
-					<input type="text" name="name" size="50" value="${knic}">
+					<input type="text" name="name" id="name" size="50" value="${knic}">
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="tel" name="tel" size="50">
+					<input type="tel" name="tel" id="tel" size="50" placeholder="">
 					<label>Tel</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="address2" size="50">
+					<input type="text" name="birth" id="birth" size="50">
 					<label>birthday</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" size="50">
+					<input type="email" name="email" id="email" size="50">
 					<label>Email</label>
 				</td></tr>
 			</table>
@@ -102,50 +103,64 @@
 			<c:if test="${br eq 'on'}">
 			<table align="center">
 				<tr><td>
-					<input type="text" name="id" size="40">
+					<input type="text" name="id" id="id" size="40">
 					<label>ID</label>
 					<button>중복확인</button>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="pw" size="50">
+					<input type="password" name="pw" id="pw" size="50">
 					<label>PassWorld</label>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="repw" size="50">
+					<input type="password" name="repw" id="repw" size="50">
 					<label>Confirm PassWorld</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="name" size="50">
+					<input type="text" name="name" id="name" size="50">
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="position" size="50">
+					<input type="text" name="position" id="position" size="50">
 					<label>Position</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" size="50">
+					<input type="email" name="email" id="email" size="50">
 					<label>Email</label>
 				</td></tr>
+				<!-- 다음 우편 시작 -->
 				<tr><td>
-					<input type="text" name="branch" size="50">
-					<label>Branch</label>
+				<input type="text" id="sample2_postcode" size="50"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
+				<label>우편번호</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="address1" size="40">
-					<label>Address1</label>
-					<button>찾기</button>
+				<input type="text" id="sample2_address" size="50"><br>
+				<label>Address</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="address2" size="50">
-					<label>Address2</label>
+				<input type="text" id="sample2_detailAddress" size="50"> <input type="text" id="sample2_extraAddress" placeholder="참고항목">
+				<label>detail_Address2</label>
+				</td></tr>	
+				<!-- 여기서 끝 -->
+				<tr><td>
+					<input type="text" name="branch" id="branch" size="50">
+					<label>BranchName</label>
 				</td></tr>
 				<tr><td>
-					<input type="tel" name="tel" size="50">
+					<input type="tel" name="tel" id="tel" size="50">
 					<label>Tel</label>
 				</td></tr>
 			</table>
+			
+			<!-- 다음 우편번호 iframe 을 위한 div -->
+			<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+			<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+			<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+			</div>
+			<script src="<c:url value="/resources/public/js/getaddress.js"/>"></script>
+			<!-- 여기서 다음 우편 참고 끝 -->
+			
 			</c:if>
-			<div align="center"><button>회원가입완료</button></div>
+			<div align="center"><button onclick="inputCheck()">회원가입완료</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</div>
 	</section>

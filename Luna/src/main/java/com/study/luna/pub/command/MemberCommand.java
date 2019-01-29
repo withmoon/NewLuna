@@ -1,9 +1,9 @@
-package com.study.luna.pub.cmd;
+package com.study.luna.pub.command;
 
 import lombok.Getter;
 import lombok.Setter;
-
-@Getter @Setter 
+@Getter
+@Setter
 public class MemberCommand {
 	String id;
 	String pw;
@@ -16,4 +16,5 @@ public class MemberCommand {
 	String branchAddr1;
 	String branchAddr2;
 	String position;
+	
 }

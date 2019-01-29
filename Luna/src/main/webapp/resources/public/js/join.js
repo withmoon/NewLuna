@@ -18,53 +18,84 @@ function isMem(){
 	window.location=url;
 }
 
-function inputCheck() {
-	/*일반 회원*/
-	if (document.join.id.value == "") {
+function idCheck(){
+	var id=$("#id").val();
+	if (id=='') {
 		alert("아이디를 입력해 주세요.");
-		document.join.id.focus();
+		$("#id").focus();
+		return;
+	}else{
+		var popupX = (window.screen.width / 2) - (200 / 2);
+		var popupY= (window.screen.height /2) - (300 / 2);
+		
+		/* post */
+		var form = document.createElement("form");
+		url="idCheck.do";
+		window.open("","form",'status=no, width=200,height=10,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+		
+		form.method="post";
+		form.action=url;
+		form.target="form";
+		var input = document.createElement('input');
+		input.type = 'hidden';
+		input.name = 'id';
+		input.value = id;
+		form.appendChild(input);
+		document.body.appendChild(form);
+		
+		form.submit();
+		
+		document.body.removeChild(form);
+	}
+}
+
+function inputCheck() {
+	//일반 회원
+	if ($("#id").val()=='') {
+		alert("아이디를 입력해 주세요.");
+		$("#id").focus();
 		return;
 	}
 
-	if (document.join.pass.value == "") {
+	if ($("#pw").val()=='') {
 		alert("비밀번호를 입력해주세요.");
-		document.join.pw.focus();
+		$("#pw").focus();
 		return;
 	}
 
-	if (document.join.repass.value == "") {
+	if ($("#repw").val()=='') {
 		alert("비밀번호를 확인해주세요.");
-		document.join.repw.focus();
+		$("#repw").focus();
 		return;
 	}
 
-	if (document.join.pass.value != document.join.repass.value) {
+	if ($("#pw").val() != $("#repw").val()) {
 		alert("비밀번호가 일치하지 않습니다.");
-		document.join.repw.focus();
+		$("#repw").focus();
 		return;
 	}
 
-	if (document.join.name.value == "") {
+	if ($("#name").val()=='') {
 		alert("이름을 입력해 주세요.");
-		document.join.name.focus();
+		$("#name").focus();
 		return;
 	}
 
-	if (document.join.phone.value == "") {
+	if ($("#tel").val()=='') {
 		alert("전화번호를 입력해주세요.");
-		document.join.phone.focus();
+		$("#tel").focus();
 		return;
 	}
 
-	if (document.join.birth.value == "") {
+	if ($("#birth").val()=='') {
 		alert("생일를 입력해주세요");
-		document.join.birth.focus();
+		$("#birth").focus();
 		return;
 	}
 
-	var str = document.join.email.value;
+	var str = $("#email").val();
 	var atPos = str.indexOf('@');
-	var atLasPos = str.lastIndexOf('@');
+	var atLastPos = str.lastIndexOf('@');
 	var dotPos = str.indexOf('.');
 	var spacePos = str.indexOf(' ');
 	var commaPos = str.indexOf(',');
@@ -75,16 +106,12 @@ function inputCheck() {
 		;
 	else {
 		alert("E-mail주소 형식이 잘못되었습니다.\n\r다시 입력해 주세요!");
-		document.join.email.focus();
+		$("#email").focus();
 		return;
 	}
 
-	/*지점장*/
-	if (document.join.branch.value = "") {
-		alert("지점명을 입력해주세요");
-		document.join.branch.focus();
-		return;
-	}
+	//지점장
+	
 
 	if (document.join.address1.value = "") {
 		alert("주소를 입력해주세요.");
@@ -95,6 +122,12 @@ function inputCheck() {
 	if (document.join.address2.value = "") {
 		alert("상세주소를 입력해주세요.");
 		document.join.address2.focus();
+		return;
+	}
+	
+	if (document.join.branch.value = "") {
+		alert("지점명을 입력해주세요");
+		document.join.branch.focus();
 		return;
 	}
 
