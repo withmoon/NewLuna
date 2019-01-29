@@ -1,0 +1,147 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>예약 시간대</title>
+</head>
+<body>
+
+	<!-- 월별 예약 확인 테이블 -->
+	<h2>분기별</h2>
+	<table width="80%" border="1">
+		<tr>
+			<td>월/예약</td>
+			<td>인실</td>
+			<td>AGE</td>
+			<td>비율</td>
+			<td>남성:여성</td>
+		</tr>
+		<tr>
+			<td rowspan="24">1월</td>
+			<td rowspan="6">1인</td>
+			<td>10대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>20대</td>
+			<td>35%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>30대</td>
+			<td>25%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>40대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>50대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>60대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td rowspan="6">2인</td>
+			<td>10대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>20대</td>
+			<td>35%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>30대</td>
+			<td>25%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>40대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>50대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>60대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td rowspan="6">3인</td>
+			<td>10대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>20대</td>
+			<td>35%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>30대</td>
+			<td>25%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>40대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>50대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>60대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td rowspan="6">4인 이상</td>
+			<td>10대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>20대</td>
+			<td>35%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>30대</td>
+			<td>25%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>40대</td>
+			<td>15%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>50대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+		<tr>
+			<td>60대</td>
+			<td>5%</td>
+			<td>1:3</td>
+		</tr>
+	</table>
+</body>
+</html>
