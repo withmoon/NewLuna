@@ -17,7 +17,7 @@
 			<li class="menu"><a id="a" href="#"><img src="../images/menu02.png" alt="게시판관리" />게시판관리</a>
 				<ul class="hide">
 					<li>자유 게시판</li>
-					<li>문의 게시판</li>
+					<li>문의 게시판(고객의 소리.자주묻는질문)</li>
 					<li>이벤트 게시판</li>
 					<li>공지사항</li>
 				</ul>
@@ -27,21 +27,20 @@
 				<ul class="hide">
 					<li>월 매출</li>
 					<li>Market 매출</li>
-					<li>메뉴3</li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="../images/menu01.png" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
 					<li>연령별</li>
-					<li>계졀별</li>
-					<li>남성,여성</li>
+					<li>계절별</li>
+					<li>남성,여성 선호 시간</li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="../images/menu03.png" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
 				<ul class="hide">
-					<li>메뉴1</li>
-					<li>메뉴2</li>
-					<li>메뉴3</li>
+					<li>방등록</li>
+					<li>방수정</li>
+					<li>방삭제</li>
 				</ul>
 			</li>
 				<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
