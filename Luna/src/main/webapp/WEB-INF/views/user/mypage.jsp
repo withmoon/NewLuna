@@ -21,7 +21,7 @@
 			<li>&emsp;&nbsp;&nbsp;</li>
 			<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li> 
 			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="myPage.udo"/>" style="text-decoration: underline;">마이페이지</a></li>
+			<li><a href="<c:url value="mypage.udo"/>" style="text-decoration: underline;">마이페이지</a></li>
 			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			<li><a href="#">로그아웃</a></li>
 			</ul>

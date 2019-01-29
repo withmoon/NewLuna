@@ -193,12 +193,10 @@ input[type=date]{
 }
 
 /* footer */
-footer {
-	width:80%;
-	height:1%;
-	border-top:1px solid darkgray;
-	margin:0 1% 1% 0;
+footer{
 	position:absolute;
-	left: 10%;
-	top: 173%;
+	bottom: -85%;
+	left:6%;
+	margin:0 -5% 0 0;
+	z-index: -1;
 }
