@@ -55,7 +55,7 @@
 	</tx:advice>
 	
 	 <aop:config>
-	 	<aop:pointcut id="txPointcut" expression="execution(* com.springbook.biz..*(..))" />
+	 	<aop:pointcut id="txPointcut" expression="execution(* com.study.luna..*(..))" />
 	 	<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
 	 </aop:config>
 	

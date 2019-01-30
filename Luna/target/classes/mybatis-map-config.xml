@@ -3,10 +3,15 @@
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+	<typeAliases>
+		<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
+	</typeAliases>
+
 	<mappers>
-		<mapper resource="mapping/member-mapper.xml"/>
-		
+		<mapper resource="mapping/member-mapper.xml" />
+
 		<!-- 지점장 -->
-		<mapper resource="mapping/manager-mapper.xml"/>
+		<mapper resource="mapping/manager-mapper.xml" />
 	</mappers>
 </configuration>

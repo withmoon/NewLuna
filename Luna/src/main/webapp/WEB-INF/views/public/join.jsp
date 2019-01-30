@@ -63,16 +63,15 @@
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 			
 			<!-- 일반회원가입 -->
-			<c:if test="${br eq 'off'}">
 			<table align="center">
 				<c:if test="${kid eq null}"><!-- 카카오 로그인이 아닐시 출력 -->
 				<tr><td>
-					<input type="text" name="id" id="id" size="40">
+					<input type="text" name="id" id="id" size="40" value="${member.id}">
 					<label>ID</label>
 					<button onclick="idCheck()">중복확인</button>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="pw" id="pw" size="50" required="required">
+					<input type="password" name="pw" id="pw" size="50" value="${member.pw}" required="required" >
 					<label>PassWord</label>
 				</td></tr>
 				<tr><td>
@@ -80,16 +79,15 @@
 					<label>Confirm PassWord</label>
 				</td></tr>
 				</c:if><!-- 카카오 로그인시 여기까지 비출력 -->
-				
-				
+				<!-- 여기서 부터 그냥 회원 -->
 				<tr><td>
 					<input type="text" name="name" id="name" size="50" value="${knic}">
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
 					<input type="tel" name="tel" id="tel" size="13" placeholder="">-
-					<input type="tel1" name="tel1" id="tel1" size="13" placeholder="">-
-					<input type="tel2" name="tel2" id="tel2" size="17.5" placeholder="">
+					<input type="tel" name="tel1" id="tel1" size="13" placeholder="">-
+					<input type="tel" name="tel2" id="tel2" size="17.5" placeholder="">
 					<label>Tel</label>
 				</td></tr>
 				<tr><td>
@@ -100,36 +98,10 @@
 					<input type="email" name="email" id="email" size="50">
 					<label>Email</label>
 				</td></tr>
-			</table>
-			</c:if>
-			
-			<c:if test="${br eq 'on'}">
-			<table align="center">
-				<tr><td>
-					<input type="text" name="id" id="id" size="40">
-					<label>ID</label>
-					<button>중복확인</button>
-				</td></tr>
-				<tr><td>
-					<input type="password" name="pw" id="pw" size="50">
-					<label>PassWorld</label>
-				</td></tr>
-				<tr><td>
-					<input type="password" name="repw" id="repw" size="50">
-					<label>Confirm PassWorld</label>
-				</td></tr>
-				<tr><td>
-					<input type="text" name="name" id="name" size="50">
-					<label>Name</label>
-				</td></tr>
-				<tr><td>
-					<input type="text" name="position" id="position" size="50">
-					<label>Position</label>
-				</td></tr>
-				<tr><td>
-					<input type="email" name="email" id="email" size="50">
-					<label>Email</label>
-				</td></tr>
+				<!-- 여기까지 그냥 회원 -->
+				
+				<!-- 여기서부터 지점장 회원 -->
+				<c:if test="${br eq 'on'}">
 				<!-- 다음 우편 시작 -->
 				<tr><td>
 				<input type="text" id="sample2_postcode" size="50"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
@@ -148,11 +120,6 @@
 					<input type="text" name="branch" id="branch" size="50">
 					<label>BranchName</label>
 				</td></tr>
-				<tr><td>
-					<input type="tel" name="tel" id="tel" size="50">
-					<label>Tel</label>
-				</td></tr>
-			</table>
 			
 			<!-- 다음 우편번호 iframe 을 위한 div -->
 			<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -161,8 +128,10 @@
 			</div>
 			<script src="<c:url value="/resources/public/js/getaddress.js"/>"></script>
 			<!-- 여기서 다음 우편 참고 끝 -->
-			
 			</c:if>
+			</table>
+			
+			
 			<div align="center"><button onclick="inputCheck()">회원가입완료</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</div>
