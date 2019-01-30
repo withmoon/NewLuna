@@ -11,13 +11,13 @@
 	<insert id="insertMember">
 		insert into member
 		<if test="kid==''">
-			(id,pw,name,phone,birth,email) values(#{id},#{pw},#{name},#{phone},#{birth},#{email});
+			(id,pw,name,phone,birth,email) values(#{id},#{pw},#{name},#{phone},#{birth},#{email})
 		</if>
 		<if test="kid!=''">
-			(id,pw,name,phone,birth,email) values(#{kid},#{pw},#{name},#{phone},#{birth},#{email});
+			(id,pw,name,phone,birth,email) values(#{kid},#{pw},#{name},#{phone},#{birth},#{email})
 		</if> 
-		<if test="branchName!=''">
-			values(#{id},#{pw},#{name},#{phone},#{birth},#{email},#{branchName},#{zipcode},#{branchAddr1},#{branchAddr2}#{branchAddr3},'지점장',-1);
+		<if test="branchName!=null">
+			values(#{id},#{pw},#{name},#{phone},#{birth},#{email},#{branchName},#{zipcode},#{branchAddr1},#{branchAddr2}#{branchAddr3},'지점장',-1)
 		</if>
 	</insert>
 

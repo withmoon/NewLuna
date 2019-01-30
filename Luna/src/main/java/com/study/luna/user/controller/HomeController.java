@@ -21,25 +21,13 @@ public class HomeController {
 	}
 	@RequestMapping(value="/home.udo", method=RequestMethod.POST)
 	public String homeloginView(MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) {
-		System.out.println(memcom.getName());
-		System.out.println("카카오로그인===>"+kid);
-		System.out.println("카카오로그인===>"+knic);
 		
-		if(kid.equals("")) {
-			//pw 암호화 후 주입
-			System.out.println("여기가 회원 또는 지점장 로긘");
-			
-			System.out.println(memcom.getPhone());
-			
-			//memser.insertMember(memcom);
-		}else{
+		if(!kid.equals("")) { //일반 또는 지점장 회원시
 			memcom.setKid(kid);
-			memcom.setName(knic);
-			
-			//kic 암호화 후 pw 주입
-			System.out.println("카카오 로그인");
-			memser.insertMember(memcom);
+			memcom.setPw(knic);
 		}
+		
+		memser.insertMember(memcom);
 		
 		return "home";
 	}
