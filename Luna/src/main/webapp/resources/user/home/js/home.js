@@ -77,7 +77,6 @@ $('document').ready(function() {
 /* 찾기 버튼 이벤트 */
 $(function() {
 	$('.find').hide();
-	
 	$('.btn_find').click(function() {
 		$('.find').show();
 	});

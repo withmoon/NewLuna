@@ -80,16 +80,16 @@ function inputCheck() {
 	}
 	
 	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
-	var tel=$("#tel").val();
+	var tel=$("#phone").val();
 	
 	if (tel=='') {
 		alert("전화번호를 입력해주세요.");
-		$("#tel").focus();
+		$("#phone").focus();
 		return;
 	}
 	if(!regExphone.test(tel)){
 		alert("원활할 예약을 위해 적절한 전화번호를 입력해주세요");
-		$("#tel").focus();
+		$("#phone").focus();
 		return;
 	}
 	
