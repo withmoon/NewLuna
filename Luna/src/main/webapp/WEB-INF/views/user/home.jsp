@@ -49,7 +49,7 @@
         	MoimCenter : 22센터    StudyCenter: 349센터    WorkCenter: 9센터
         </div>
         <div onmouseover="view2(true)" onmouseout="view2(false)">
-    		<img class="previous" alt="전체지점수" src="<c:url value="/resources/user/home/images/previous.png"/>"
+    		<img class="previous" alt="전월이용고객님" src="<c:url value="/resources/user/home/images/previous.png"/>"
 				onmouseout="this.src='<c:url value="/resources/user/home/images/previous.png"/>'"
 				onmouseover="this.src='<c:url value="/resources/user/home/images/previous2.png"/>'">
 		</div>
@@ -58,7 +58,7 @@
         	MoimCenter : 1,934명   StudyCenter: 20,098명    WorkCenter: 680명
         </div>
         <div onmouseover="view3(true)" onmouseout="view3(false)">
-    		<img class="accumulate" alt="전체지점수" src="<c:url value="/resources/user/home/images/accumulate.png"/>"
+    		<img class="accumulate" alt="고객님이용횟수" src="<c:url value="/resources/user/home/images/accumulate.png"/>"
 				onmouseout="this.src='<c:url value="/resources/user/home/images/accumulate.png"/>'"
 				onmouseover="this.src='<c:url value="/resources/user/home/images/accumulate2.png"/>'">
 		</div>
@@ -72,34 +72,55 @@
 	</div>
 
 	<!-- 선택창 -->
+	<!-- 시/도 -->
 	<div align="center">
-	<select>
-		<option value="서울">서울</option>
-		<option value="부산">부산</option>
-		<option value="대구">대구</option>
-		<option value="인천">인천</option>
-		<option value="광주">광주</option>
-		<option value="대전">대전</option>
-		<option value="울산">울산</option>
-		<option value="경기">경기</option>
-		<option value="강원">강원</option>
-		<option value="세종">세종</option>
-		<option value="충청남도">충청남도</option>
-		<option value="충청북도">충청북도</option>
-		<option value="전라남도">전라남도</option>
-		<option value="전라북도">전라북도</option>
-		<option value="경상남도">경상남도</option>
-		<option value="경상북도">경상북도</option>
-		<option value="제주">제주</option>
-	</select>
-
-	<select>
-		<option value="서울지점">서울지점</option>
-		<option value="경기지점">경기지점</option>
-		<option value="대구지점">대구지점</option>
-	</select>
+	<select name="sido"></select>
+	<!-- 시/군/구 -->
+	<select name="gugun"></select>
 	
-	<button>찾기</button>
+	<button class="btn_find">찾기</button><p>
+	<table class="find">
+			<thead>
+				<tr>
+					<th scope="cols">지점</th>
+					<th scope="cols">룸</th>
+					<th scope="cols">장소</th>
+					<th scope="cols">전화번호</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>서울지점</td>
+					<td>스터디 1룸</td>
+					<td>서울시 동대문구 장안동</td>
+					<td>02.2222.2222</td>
+				</tr>
+				<tr>
+					<td>서울지점</td>
+					<td>VIP실</td>
+					<td>서울시 강남구 압구정동</td>
+					<td>02-3511-2889</td>
+				</tr>
+				<tr>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+				</tr>
+				<tr>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+				</tr>
+				<tr>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>&nbsp;
 	
 	<!-- 인기순/조회수/new -->

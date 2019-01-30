@@ -40,7 +40,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:43%;
+	top:44%;
 	width: 10%;
 	left: 25%;
 
@@ -70,7 +70,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:43%;
+	top:44%;
 	width: 10%; 
 	left: 45%;
 }
@@ -99,7 +99,7 @@ header{
 	clear:both; 
 	position:absolute; 
 	/*float: left; */
-	top:43%;
+	top:44%;
 	width: 10%;  
 	left: 65%;
 }
@@ -149,13 +149,38 @@ button:hover{
     background-color: #bb9540;
 }
 
+/*찾기 결과*/
+table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    width: 70%;
+
+}
+table thead th {
+    font-weight: bold;
+    vertical-align: top;
+    color: #836e5b;;
+    border:0;
+    border-top: 3px solid #836e5b;;
+    border-bottom: 3px solid #836e5b;;
+
+
+}
+table td {
+    vertical-align: top;
+    border:0;
+    border-bottom: 1px solid #ccc;
+
+}
+
 /*인기순 / 조회순*/
 p{ font-size : 40px; color : #836e5b; }
 
  /* 리뷰 */
 .review{
    position:absolute;
-   top:185%;
+   /* top:220%; */
    left:19%;
    width:56%;
    height:auto;
@@ -184,7 +209,7 @@ p{ font-size : 40px; color : #836e5b; }
 /* footer */
 footer{
 	position:absolute;
-	bottom:-200%;
-	left:15%;
+	bottom:-300%;
+	left:7%;
 	margin:0 -5% 0 0;
 }
