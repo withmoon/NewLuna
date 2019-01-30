@@ -49,45 +49,44 @@ function idCheck(){
 	}
 }
 
-function inputCheck() {
-	
+function inputCheck() {	
 	//일반 회원
-	if ($("#id").val()=='') {
+	if ($("#id").val() == "") {
 		alert("아이디를 입력해 주세요.");
 		$("#id").focus();
-		return;
+		return false;
 	}
-	if ($("#pw").val()=='') {
+	if ($("#pw").val() == "") {
 		alert("비밀번호를 입력해주세요.");
 		$("#pw").focus();
-		return;
+		return false;
 	}
-	if ($("#repw").val()=='') {
+	if ($("#repw").val() == "") {
 		alert("비밀번호를 확인해주세요.");
 		$("#repw").focus();
-		return;
+		return false;
 	}
 	if ($("#pw").val() != $("#repw").val()) {
 		alert("비밀번호가 일치하지 않습니다.");
 		$("#repw").focus();
-		return;
+		return false;
 	}
 	
-	if ($("#name").val()=='') {
+	if ($("#name").val() == "") {
 		alert("이름을 입력해 주세요.");
 		$("#name").focus();
-		return;
+		return false;
 	}
 	
 	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
 	var tel=$("#phone").val();
 	
-	if (tel=='') {
+	if (tel == "") {
 		alert("전화번호를 입력해주세요.");
 		$("#phone").focus();
-		return;
+		return false;
 	}
-	if(!regExphone.test(tel)){
+	/*if(!regExphone.test(tel)){
 		alert("원활할 예약을 위해 적절한 전화번호를 입력해주세요");
 		$("#phone").focus();
 		return;
@@ -138,7 +137,7 @@ function inputCheck() {
 		alert("지점명을 입력해주세요");
 		$("#branch").focus();
 		return;
-	}
+	}*/
 	
 	$("join").submit();
 }

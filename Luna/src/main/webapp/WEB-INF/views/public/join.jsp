@@ -54,7 +54,7 @@
 		</c:if>
 		
 		<!-- 회원가입 폼 -->
-		<form class="join" name="join" action="home.udo" method="post">
+		<form class="join" name="join" action="home.udo" onsubmit="return inputCheck()" method="post">
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 			<input type="hidden" name="kid" value="${kid}"/>
 			<input type="hidden" name="knic" value="${knic}"/>
@@ -63,39 +63,39 @@
 			<table align="center">
 				<c:if test="${kid eq null}"><!-- 카카오 로그인이 아닐시 출력 -->
 				<tr><td>
-					<input type="text" name="id" id="id" size="40" value="${member.id}">
+					<input type="text" name="id" id="id" size="43" value="${member.id}">
 					<label>ID</label>
 					<button onclick="idCheck()">중복확인</button>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="pw" id="pw" size="50" value="${member.pw}" required="required" >
+					<input type="password" name="pw" id="pw" size="53" value="${member.pw}" required="required" >
 					<label>PassWord</label>
 				</td></tr>
 				<tr><td>
-					<input type="password" name="repw" id="repw" size="50" required="required">
+					<input type="password" name="repw" id="repw" size="53" required="required">
 					<label>Confirm PassWord</label>
 				</td></tr>
 				</c:if><!-- 카카오 로그인시 여기까지 비출력 -->
 				<!-- 여기서 부터 그냥 회원 -->
 				<tr><td>
 					<c:if test="${kid eq null}">
-					<input type="text" name="name" id="name" size="50" value="${member.name}">
+					<input type="text" name="name" id="name" size="53" value="${member.name}">
 					</c:if>
 					<c:if test="${kid ne null}">
-					<input type="text" name="name" id="name" size="50" value="${knic}">
+					<input type="text" name="name" id="name" size="53" value="${knic}">
 					</c:if>
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="phone" id="phone" size="50" value="${member.phone}" placeholder="'-' 포함 입력">
-					<label>Tel</label>
+					<input type="text" name="phone" id="phone" size="53" value="${member.phone}">
+					<label>Tel / '-' 포함 입력</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="birth" id="birth" size="50" value="${member.birth}" placeholder="6자리 입력 ex)820215">
-					<label>birthday</label>
+					<input type="text" name="birth" id="birth" size="53" value="${member.birth}">
+					<label>birthday / 6자리 입력 ex)820215</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" id="email" size="50" value="${member.email}">
+					<input type="email" name="email" id="email" size="53" value="${member.email}">
 					<label>Email</label>
 				</td></tr>
 				<!-- 여기까지 그냥 회원 -->
@@ -133,7 +133,7 @@
 			</table>
 			
 			
-			<div align="center"><button onclick="inputCheck()">회원가입완료</button></div>
+			<div align="center"><button type="submit">회원가입완료</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</form>
 	</section>
