@@ -86,23 +86,24 @@ function inputCheck() {
 		$("#phone").focus();
 		return false;
 	}
-	/*if(!regExphone.test(tel)){
+	if(!regExphone.test(tel)){
 		alert("원활할 예약을 위해 적절한 전화번호를 입력해주세요");
 		$("#phone").focus();
-		return;
+		return false;
 	}
 	
 	var regExpbirth = /^[0-9]+$/;
+	
 	var birth=$("#birth").val();
-	if (birth=='') {
+	if (birth == "") {
 		alert("생일를 입력해주세요");
 		$("#birth").focus();
-		return;
+		return false;
 	}
 	if(!regExpbirth.test(birth)){
 		alert("생일에 숫자만 입력해주세요");
 		$("#birth").focus();
-		return;
+		return false;
 	}
 	
 	var str = $("#email").val();
@@ -116,28 +117,28 @@ function inputCheck() {
 	if (!(atPos > 1 && atPos == atLastPos && dotPos > 3 && spacePos == -1&& commaPos == -1 && atPos + 1 < dotPos && dotPos + 1 < eMailSize)){
 		alert("E-mail주소 형식이 잘못되었습니다.\n\r다시 입력해 주세요!");
 		$("#email").focus();
-		return;
+		return false;
 	}
 	if ($("#sample2_postcode").val() == "") {
 		alert("우편번호를 입력해주세요.");
 		$("#sample2_postcode").focus();
-		return;
+		return false;
 	}
 	if($("#sample2_address").val() == ""){
 		alert("주소를 입력해주세요");
 		$("#sample2_address").focus();
-		return;
+		return false;
 	}
 	if ($("#sample2_detailAddress").val() == "") {
 		alert("상세주소를 입력해주세요.");
 		$("#sample2_detailAddress").focus();
-		return;
+		return false;
 	}
 	if ($("#branch").val() == "") {
 		alert("지점명을 입력해주세요");
 		$("#branch").focus();
-		return;
-	}*/
+		return false;
+	}
 	
 	$("join").submit();
 }
