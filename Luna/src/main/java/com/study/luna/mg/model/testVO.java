@@ -3,7 +3,7 @@ package com.study.luna.mg.model;
 import java.util.Date;
 
 public class testVO {
-	private String name;
+/*	private String name;
 	private int age;
 	private Date regDate;
 	public String getName() {
@@ -28,6 +28,6 @@ public class testVO {
 	public String toString() {
 		return "testVO [name=" + name + ", age=" + age + ", regDate=" + regDate + "]";
 	}
-
+*/
 		
 }

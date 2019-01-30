@@ -1,17 +1,8 @@
 package com.study.luna.mg.DAO;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import com.study.luna.mg.model.testVO;
-import com.study.luna.mg.util.SqlSessionFactoryBean;
-
-@Repository
+/*@Repository*/
 public class testDAO {
-	@Autowired
+/*	@Autowired
 	private SqlSession mybatis;
 	
 	public testDAO() {
@@ -23,5 +14,5 @@ public class testDAO {
 		
 		return mybatis.selectList("testDAO.selectTest",vo);
 		
-	}
+	}*/
 }
