@@ -6,6 +6,7 @@
 <title>매출현황</title>
 </head>
 <body>
+	<h2>매출현황</h2>
 	<table border="1">
 		<tr>
 			<td>DATE</td>
