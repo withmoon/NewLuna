@@ -25,14 +25,15 @@ nav {
 .regis{
 	position: absolute;
 	width: 10%;
-	top:0;
+	top:6%;
 	left:43.2%;
 }
 .registt{
 	position: absolute;
-	top:5%;
+	top:10%;
 	left:53.2%;
 	color:#e8e8e8;
+	font-size:1.5vw;
 }
 .logo {
 	position: absolute;
@@ -79,10 +80,10 @@ input[type=text],[type=password]{
 input[type=password]{
 	top:58%;
 }
-/* log.jsp(로그인,회원가입 버튼) sign.jsp(회원가입 버튼) */
+/* 로그인 버튼  / 카카오 버튼 */
 .loginBtn{
 	position:absolute;
-	top:47.5%;
+	top:50%;
 	left:57%;
 	padding:2%;
 	font-size:1.7vw;

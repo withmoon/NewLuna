@@ -46,7 +46,7 @@
 	<script src="<c:url value="/resources/public/js/login.js"/>"></script>
 	</div>
 	
-	<form name="kform" action="join.do" method="post">
+	<form name="kform" action="join.do?br=off" method="post">
 		<input type="hidden" name="kid" value="1"/>
 		<input type="hidden" name="knic" value="2"/>
 	</form>
