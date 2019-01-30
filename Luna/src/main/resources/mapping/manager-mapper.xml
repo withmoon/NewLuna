@@ -4,9 +4,9 @@
 
 <mapper namespace="testDAO">
 
-	<select id="selectTest" resultType="test">
+<!-- 	<select id="selectTest" resultType="test">
 		select * from testBoard
-	</select>
+	</select> -->
 
 	<!-- <select id="getSomething" parameterType="int" resultType="#package.#modelname">
 		SELECT

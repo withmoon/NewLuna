@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class mgcalendarController {
-	@RequestMapping(value="/refound.mdo", method=RequestMethod.GET)
+/*	@RequestMapping(value="/refound.mdo", method=RequestMethod.GET)
 	public String mgCalendarView() {
 		return "refound";
-	} 
+	} */
 }

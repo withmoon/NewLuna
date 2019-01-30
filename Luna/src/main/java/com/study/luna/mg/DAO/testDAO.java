@@ -1,7 +1,7 @@
 package com.study.luna.mg.DAO;
 
 /*@Repository*/
-public class testDAO { 
+public class testDAO {
 /*	@Autowired
 	private SqlSession mybatis;
 	

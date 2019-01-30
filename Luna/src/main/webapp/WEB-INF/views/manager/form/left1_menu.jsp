@@ -16,7 +16,7 @@
 		<ul>
 			<li class="menu"><a id="a" href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>"/>게시판관리</a>
 				<ul class="hide">
-					<li>문의 게시판</li>
+					<li><a href="board.mdo">문의 게시판</a></li>
 					<li>이벤트 게시판</li>
 					<li>메뉴1</li>
 					<li>메뉴2</li>
