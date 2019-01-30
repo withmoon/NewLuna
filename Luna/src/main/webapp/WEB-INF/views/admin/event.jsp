@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>승인 페이지</title>
+<title>이벤트 페이지</title>
 </head>
 <body>
    <nav class="navbar navbar-default">
@@ -45,7 +45,7 @@
       </div>
    </nav>
    <center>
-      <h3>승인페이지</h3>
+      <h3>EVENT</h3>
    </center>
    <br></br>
    <div class="container">
@@ -53,22 +53,22 @@
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
-               <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">승인</th>
-               </tr>
+            <tr>
+            <th style="background-color:#eeeeee; text-align:center;">번호</th>
+            <th style="background-color:#eeeeee; text-align:center;">작성자</th>
+            <th style="background-color:#eeeeee; text-align:center;">제목</th>
+            <th style="background-color:#eeeeee; text-align:center;">내용</th>
+            </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>왕십리점 승인</td>
-                  <td>신영</td>
-                  <td><input type="checkbox" name="approval" value="approval"></td>
-               </tr>
+            <tr>
+            <td>1</td>
+            <td>박은별</td>
+            <td>은별스타</td>
+            <td><input type="button" value="삭제"></td>
+            </tr>
             </tbody>
-         </table>
+            </table>
          <div class="btn btn-primary pull-right">삭제</div><div class="btn btn-primary pull-right">수락</div>
       </div>
    </div>

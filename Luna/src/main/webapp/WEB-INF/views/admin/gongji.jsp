@@ -46,7 +46,7 @@
       </div>
    </nav>
    <center>
-      <h3>승인페이지</h3>
+      <h3>공지사항</h3>
    </center>
    <br></br>
    <div class="container">
@@ -54,24 +54,23 @@
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
-               <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">승인</th>
-               </tr>
+            <tr>
+            <th style="background-color:#eeeeee; text-align:center;">번호</th>
+            <th style="background-color:#eeeeee; text-align:center;">이름</th>
+            <th style="background-color:#eeeeee; text-align:center;">아이디</th>
+            <th style="background-color:#eeeeee; text-align:center;">날짜</th>
+            </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>왕십리점 승인</td>
-                  <td>신영</td>
-                  <td><input type="checkbox" name="approval" value="approval"></td>
-               </tr>
+            <tr>
+            <td>1</td>
+            <td>박은별</td>
+            <td>은별스타</td>
+            <td><input type=date></td>
+            </tr>
             </tbody>
-         </table>
-         <div class="btn btn-primary pull-right">삭제</div><div class="btn btn-primary pull-right">수락</div>
-      </div>
+            </table>
+      
    </div>
 
 
