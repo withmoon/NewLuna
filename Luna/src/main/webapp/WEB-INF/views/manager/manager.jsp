@@ -21,7 +21,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/>
+				<a href="manager.mdo"></a><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/><a></a>
 			</div>
 			<jsp:include page="form/TopMenu1.jsp"></jsp:include>
 		</div>

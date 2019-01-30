@@ -4,12 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="<c:url value="/resources/manager/js/date.js"/>"></script>
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script> 
-<script type="text/javascript" src="<c:url value="/resources/manager/js/mjs.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/board.js"/>"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
@@ -54,12 +50,13 @@
 				<form>
 					<table id="searchtable">
 						<tr>
-							<td id="searchtd"><label id="write" onclick="#">글쓰기</label>
+							<td id="searchtd"><a id="write" onclick=" insertboard()" href="#">글쓰기</a>
 								<select name="searchbaord">
 									<option value="TITLE">제목</option>
 									<option value="WITER">작성자</option>
-							</select> <input name="searchboard" type="text"> <input
-								id="search" type="button" value="검색"></td>
+							</select> 
+							<input name="searchboard" type="text"> <input	id="search" type="button" value="검색">
+							</td>
 						</tr>
 					</table>
 				</form>
@@ -74,7 +71,17 @@
 					</tr>
 					<!-- db에서 읽어들어와야하는 부분 -->
 					<!-- 예시로 데이터 작업 -->
-					<tr id="tr2">
+					<c:forEach var="list" items="${list }">
+						<tr>
+							<td>${list.num }</td>			
+							<td>${list.title }</td>	
+							<td>${list.writer }</td>
+							<td>${list.ref }</td>
+							<td>${list.regdate }</td>
+						</tr>
+					</c:forEach>
+
+			<!-- 		<tr id="tr2">
 						<td>1</td>
 						<td>제목제목제목제목제목</td>
 						<td>김김김</td>
@@ -101,7 +108,7 @@
 						<td>김김김</td>
 						<td>5</td>
 						<td>19/01/01</td>
-					</tr>
+					</tr> -->
 				</table>
 			</div>
 		</section>

@@ -2,7 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="testDAO">
+<mapper namespace="managerDAO">
+	<select id="QList" resultType="QBoard">
+		SELECT * FROM QUESTIONBOARD
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- 	<select id="selectTest" resultType="test">
 		select * from testBoard
