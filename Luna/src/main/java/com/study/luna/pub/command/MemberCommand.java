@@ -6,7 +6,6 @@ import lombok.Setter;
 @Setter
 public class MemberCommand {
 	String kid;
-	String knic;
 	String id;
 	String pw;
 	String name;
@@ -17,7 +16,5 @@ public class MemberCommand {
 	String zipcode;
 	String branchAddr1;
 	String branchAddr2;
-	String branchAddr3;
-	String position;
-	
+	String branchAddr3;	
 }

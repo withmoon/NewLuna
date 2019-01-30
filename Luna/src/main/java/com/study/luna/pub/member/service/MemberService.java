@@ -4,4 +4,5 @@ import com.study.luna.pub.command.MemberCommand;
 
 public interface MemberService {
 	Integer idCheck(MemberCommand memcom);
+	void insertMember(MemberCommand memcom);
 }

@@ -79,23 +79,23 @@
 				<!-- 여기서 부터 그냥 회원 -->
 				<tr><td>
 					<c:if test="${kid eq null}">
-					<input type="text" name="name" id="name" size="53" value="${member.name}">
+					<input type="text" name="name" id="name" size="50" value="${member.name}">
 					</c:if>
 					<c:if test="${kid ne null}">
-					<input type="text" name="name" id="name" size="53" value="${knic}">
+					<input type="text" name="name" id="name" size="50" value="${knic}">
 					</c:if>
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="tel" name="tel" id="tel" size="53" value="${member.phone}">
-					<label>Tel / '-' 포함 입력</label>
+					<input type="text" name="phone" id="phone" size="50" value="${member.phone}" placeholder="'-' 포함 입력">
+					<label>Tel</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="birth" id="birth" size="53" value="${member.birth}">
-					<label>birthday / 6자리 입력 ex)820215</label>
+					<input type="text" name="birth" id="birth" size="50" value="${member.birth}" placeholder="6자리 입력 ex)820215">
+					<label>birthday</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" id="email" size="53" value="${member.email}">
+					<input type="email" name="email" id="email" size="50" value="${member.email}">
 					<label>Email</label>
 				</td></tr>
 				<!-- 여기까지 그냥 회원 -->
