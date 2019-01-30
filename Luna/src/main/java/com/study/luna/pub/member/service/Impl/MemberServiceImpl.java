@@ -7,7 +7,7 @@ import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
 
-@Service("memberService")
+@Service
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
