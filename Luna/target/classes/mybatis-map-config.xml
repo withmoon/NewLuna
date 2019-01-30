@@ -5,5 +5,8 @@
 <configuration>
 	<mappers>
 		<mapper resource="mapping/member-mapper.xml"/>
+		
+		<!-- 지점장 -->
+		<mapper resource="mapping/manager-mapper.xml"/>
 	</mappers>
 </configuration>
