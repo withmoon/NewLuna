@@ -15,8 +15,6 @@ public class IdCheckDAOImpl implements IdCheckDAO {
 
 	@Override
 	public Integer idCheck(MemberCommand memcom) {	
-		System.out.println("daoImpl 에서의 멤" +memcom.getId());
-		
 		return sqlSession.selectOne("memberDAO.idCheck", memcom);
 	}
 

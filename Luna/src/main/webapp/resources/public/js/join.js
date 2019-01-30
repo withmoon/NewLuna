@@ -50,49 +50,62 @@ function idCheck(){
 }
 
 function inputCheck() {
+	
 	//일반 회원
 	if ($("#id").val()=='') {
 		alert("아이디를 입력해 주세요.");
 		$("#id").focus();
 		return;
 	}
-
 	if ($("#pw").val()=='') {
 		alert("비밀번호를 입력해주세요.");
 		$("#pw").focus();
 		return;
 	}
-
 	if ($("#repw").val()=='') {
 		alert("비밀번호를 확인해주세요.");
 		$("#repw").focus();
 		return;
 	}
-
 	if ($("#pw").val() != $("#repw").val()) {
 		alert("비밀번호가 일치하지 않습니다.");
 		$("#repw").focus();
 		return;
 	}
-
+	
 	if ($("#name").val()=='') {
 		alert("이름을 입력해 주세요.");
 		$("#name").focus();
 		return;
 	}
-
-	if ($("#tel").val()=='') {
+	
+	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
+	var tel=$("#tel").val();
+	
+	if (tel=='') {
 		alert("전화번호를 입력해주세요.");
 		$("#tel").focus();
 		return;
 	}
-
-	if ($("#birth").val()=='') {
+	if(!regExphone.test(tel)){
+		alert("원활할 예약을 위해 적절한 전화번호를 입력해주세요");
+		$("#tel").focus();
+		return;
+	}
+	
+	var regExpbirth = /^[0-9]+$/;
+	var birth=$("#birth").val();
+	if (birth=='') {
 		alert("생일를 입력해주세요");
 		$("#birth").focus();
 		return;
 	}
-
+	if(!regExpbirth.test(birth)){
+		alert("생일에 숫자만 입력해주세요");
+		$("#birth").focus();
+		return;
+	}
+	
 	var str = $("#email").val();
 	var atPos = str.indexOf('@');
 	var atLastPos = str.lastIndexOf('@');
@@ -100,36 +113,32 @@ function inputCheck() {
 	var spacePos = str.indexOf(' ');
 	var commaPos = str.indexOf(',');
 	var eMailSize = str.length;
-
-	if (atPos > 1 && atPos == atLastPos && dotPos > 3 && spacePos == -1
-			&& commaPos == -1 && atPos + 1 < dotPos && dotPos + 1 < eMailSize)
-		;
-	else {
+	
+	if (!(atPos > 1 && atPos == atLastPos && dotPos > 3 && spacePos == -1&& commaPos == -1 && atPos + 1 < dotPos && dotPos + 1 < eMailSize)){
 		alert("E-mail주소 형식이 잘못되었습니다.\n\r다시 입력해 주세요!");
 		$("#email").focus();
 		return;
 	}
-
-	//지점장
-	
-
-	if (document.join.address1.value = "") {
-		alert("주소를 입력해주세요.");
-		document.join.address1.focus();
+	if ($("#sample2_postcode").val() == "") {
+		alert("우편번호를 입력해주세요.");
+		$("#sample2_postcode").focus();
 		return;
 	}
-
-	if (document.join.address2.value = "") {
+	if($("#sample2_address").val() == ""){
+		alert("주소를 입력해주세요");
+		$("#sample2_address").focus();
+		return;
+	}
+	if ($("#sample2_detailAddress").val() == "") {
 		alert("상세주소를 입력해주세요.");
-		document.join.address2.focus();
+		$("#sample2_detailAddress").focus();
+		return;
+	}
+	if ($("#branch").val() == "") {
+		alert("지점명을 입력해주세요");
+		$("#branch").focus();
 		return;
 	}
 	
-	if (document.join.branch.value = "") {
-		alert("지점명을 입력해주세요");
-		document.join.branch.focus();
-		return;
-	}
-
-	document.join.submit();
+	$("join").submit();
 }

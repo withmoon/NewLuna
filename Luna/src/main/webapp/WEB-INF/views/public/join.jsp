@@ -14,11 +14,6 @@
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">회원가입</div>
 
-	<form name="kform" action="join.do" method="post">
-		<input type="hidden" name="kid" value="${kid}"/>
-		<input type="hidden" name="knic" value="${knic}"/>
-	</form>
-
 	<!-- 회원가입 버튼 -->
 	<section>
 	<c:if test="${kid ne null }">
@@ -59,8 +54,10 @@
 		</c:if>
 		
 		<!-- 회원가입 폼 -->
-		<div class="join">
+		<form class="join" name="join" action="home.udo" method="post">
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
+			<input type="hidden" name="kid" value="${kid}"/>
+			<input type="hidden" name="knic" value="${knic}"/>
 			
 			<!-- 일반회원가입 -->
 			<table align="center">
@@ -81,43 +78,47 @@
 				</c:if><!-- 카카오 로그인시 여기까지 비출력 -->
 				<!-- 여기서 부터 그냥 회원 -->
 				<tr><td>
+					<c:if test="${kid eq null}">
+					<input type="text" name="name" id="name" size="50" value="${member.name}">
+					</c:if>
+					<c:if test="${kid ne null}">
 					<input type="text" name="name" id="name" size="50" value="${knic}">
+					</c:if>
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="tel" name="tel" id="tel" size="13" placeholder="">-
-					<input type="tel" name="tel1" id="tel1" size="13" placeholder="">-
-					<input type="tel" name="tel2" id="tel2" size="17.5" placeholder="">
+					<input type="tel" name="tel" id="tel" size="50" value="${member.phone}" placeholder="'-' 포함 입력">
 					<label>Tel</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="birth" id="birth" size="50">
+					<input type="text" name="birth" id="birth" size="50" value="${member.birth}" placeholder="6자리 입력 ex)820215">
 					<label>birthday</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" id="email" size="50">
+					<input type="email" name="email" id="email" size="50" value="${member.email}">
 					<label>Email</label>
 				</td></tr>
 				<!-- 여기까지 그냥 회원 -->
 				
 				<!-- 여기서부터 지점장 회원 -->
 				<c:if test="${br eq 'on'}">
+				<input type="hidden" name="position" value="지점장"/>
 				<!-- 다음 우편 시작 -->
 				<tr><td>
-				<input type="text" id="sample2_postcode" size="50"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
+				<input type="text" id="sample2_postcode" size="35" value="${member.zipcode}"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
 				<label>우편번호</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" id="sample2_address" size="50"><br>
+				<input type="text" id="sample2_address" size="50" value="${member.branchAddr1}"><br>
 				<label>Address</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" id="sample2_detailAddress" size="50"> <input type="text" id="sample2_extraAddress" placeholder="참고항목">
+				<input type="text" id="sample2_detailAddress" size="50" value="${member.branchAddr2}"> <input type="text" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
 				<label>detail_Address2</label>
 				</td></tr>	
 				<!-- 여기서 끝 -->
 				<tr><td>
-					<input type="text" name="branch" id="branch" size="50">
+					<input type="text" name="branch" id="branch" size="50" value="${member.branchName}">
 					<label>BranchName</label>
 				</td></tr>
 			
@@ -134,7 +135,7 @@
 			
 			<div align="center"><button onclick="inputCheck()">회원가입완료</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
-		</div>
+		</form>
 	</section>
 	<footer>
 <section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>

@@ -26,8 +26,7 @@ public class IdCheckController {
 		String message=result==1?"중복된 아이디입니다":"사용가능한 아이디입니다.";
 		String btnMessage=result==1?"다시입력":"사용하기";
 		
-		mav.addObject("id",memcom.getId());
-		
+		mav.addObject("member",memcom);
 		mav.addObject("message",message); //존재하는 아이디 입니다.
 		mav.addObject("btnMessage",btnMessage); //닫기
 		mav.setViewName("idCheck");
