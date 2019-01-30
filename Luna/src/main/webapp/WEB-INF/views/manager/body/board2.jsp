@@ -10,23 +10,29 @@ header {
 	text-align: left;
 	padding-left: 10px;
 	padding-top: 30px;
-	font-size: 20pt; 
+	font-size: 20pt;
 }
-#searchtable{
-width: 35%; 
-min-width: 450px;
-}
-#boardtable{
+
+#searchtable {
 	width: 35%;
 	min-width: 450px;
 }
-#searchtd{
+
+#boardtable {
+	width: 35%;
+	min-width: 450px;
+}
+
+#searchtd {
 	text-align: right;
 }
-#write{
+
+a
+#write {
 	float: left;
 	padding: 2px 1px;
 }
+
 #board {
 	margin-left: 20%;
 	margin-top: 5%;
@@ -38,11 +44,13 @@ min-width: 450px;
 	border-spacing: 0px;
 	border-collapse: collapse;
 }
-#boardtable tr td{
+
+#boardtable tr td {
 	text-align: center;
 	padding: 5px 10px;
 }
-#boardtable tr th{
+
+#boardtable tr th {
 	padding: 10px 5px;
 	text-align: center;
 }
@@ -56,20 +64,17 @@ min-width: 450px;
 	<div id="board">
 		<form>
 			<table id="searchtable">
-				<tr>	
-					<td id="searchtd">
-						<label id="write" onclick="#">글쓰기</label>
-						<select name="searchbaord" >
-						<option value="TITLE">제목</option>
-						<option value="WITER">작성자</option>
-						</select>
-						<input name="searchboard" type="text">
-						<input id="search" type="button" value="검색">
-					</td>
+				<tr>
+					<td id="searchtd"><label id="write" onclick="#">글쓰기</label> <select
+						name="searchbaord">
+							<option value="TITLE">제목</option>
+							<option value="WITER">작성자</option>
+					</select> <input name="searchboard" type="text"> <input id="search"
+						type="button" value="검색"></td>
 				</tr>
 			</table>
 		</form>
-	
+
 		<table id="boardtable">
 			<tr id="th1">
 				<th>번호</th>
