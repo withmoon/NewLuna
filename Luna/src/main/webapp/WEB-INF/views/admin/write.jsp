@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<title>글쓰기</title>
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
-<link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>Q N A</title>
+<link rel="stylesheet"
+   href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 </head>
 <body>
    <nav class="navbar navbar-default">
@@ -19,7 +21,8 @@
                class="icon-bar"></span>
          </button>
          <div class="navbar-brand">
-            <img src="<c:url value="/resources/admin/달빛.png"/>" width="100" height="100">
+            <img src="<c:url value="/resources/admin/달빛.png"/>" width="100"
+               height="100">
          </div>
       </div>
       <div class="collapse navbar-collapse"
@@ -42,46 +45,53 @@
          </ul>
       </div>
    </nav>
-   <center>
-      <h3>Q N A</h3>
-   </center>
-   <br></br>
+   <br><br><br>
+
    <div class="container">
-      <div class="row">
-         <table class="table table-striped"
-            style="text-align: center; border: 1px solid #dddddd">
-            <thead>
+      <table class="table table-bordered">
+         <thead>
+         <caption>글쓰기</caption>
+         </thead>
+         <tbody>
+            <form action="writepro.jsp" method="post"
+               encType="multiplart/form-data">
                <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">내용</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
-                  <th style="background-color: #eeeeee; text-align: center;"></th>
-                  <th style="background-color: #eeeeee; text-align: center;">삭제</th>
+                  <th>번호:</th>
+                  <td><input type="text" placeholder="number " name="number"
+                     class="form-control" /></td>
                </tr>
-            </thead>
-            <tbody>
+               
                <tr>
-                  <td>1</td>
-                  <td>배송언제오나요?</td>
-                  <td>오늘갑니다</td>
-                  <td>2019/1/27</td>
-                  <td><input type="checkbox" name="delete" value="delete"></td>
-                  <td><a href="deletepro.jsp" class="btn-outline-primary">삭제</a></td>
+                  <th>제목:</th>
+                  <td><input type="text" placeholder="subject" name="subject"
+                     class="form-control" /></td>
                </tr>
-            </tbody>
-         </table>
-         <a href="write.ado" class="btn btn-primary pull-right">글쓰기</a>
-      </div>
+               
+               <tr>
+                  <th>내용:</th>
+                  <td><textarea cols="10" placeholder="content " name="content"
+                        class="form-control"></textarea></td>
+               </tr>
+               <tr>
+                  <th>작성일:</th>
+                  <td><input type="date" placeholder="date" name="date"
+                     class="form-control" /></td>
+               </tr>
+               <tr>
+                  <td colspan="2"><input type="button" value="등록" onclick="sendData()" class="pull-right" /> 
+                  <input type="button" value="글 목록" class="pull-right" onclick="javascript:location.href='board.ado'" /> 
+               <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
+                    <a class="btn btn-default" type="reset"> reset </a>
+                    <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
+                  </td>
+               </tr>
+            </form>
+         </tbody>
+      </table>
    </div>
-
-
-
-
 
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
-   
 </body>
 </html>
