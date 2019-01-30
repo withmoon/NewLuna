@@ -1,6 +1,6 @@
 package com.study.luna.mg.controller;
 
-public class TestClient {
+public class TestClient { 
 	public static void main(String[] args) {
 	/*	testDAO testDAO = new testDAO();
 		testVO vo = new testVO();

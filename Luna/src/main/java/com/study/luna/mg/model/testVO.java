@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class testVO {
 /*	private String name;
-	private int age;
+	private int age; 
 	private Date regDate;
 	public String getName() {
 		return name;
