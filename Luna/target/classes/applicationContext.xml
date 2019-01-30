@@ -20,7 +20,7 @@
 	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
 	<mvc:annotation-driven/>
 	
@@ -58,7 +58,7 @@
 	 	<aop:pointcut id="txPointcut" expression="execution(* com.study.luna..*(..))" />
 	 	<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
 	 </aop:config>
-	
+
 	<!-- 2. SqlSessionFactory설정(dataSource,Mapper파일설정) -->
     <bean id="sqlSession" 
                         class="org.mybatis.spring.SqlSessionFactoryBean">

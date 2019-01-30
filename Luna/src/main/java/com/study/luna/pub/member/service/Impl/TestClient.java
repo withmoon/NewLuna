@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.study.luna.pub.command.MemberCommand;
-import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 
 public class TestClient {
 	public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class TestClient {
 		
 		MemberCommand mem = new MemberCommand(); 
 		  
-		  mem.setId("test1");
+		  mem.setId("test");
 		  
 		  Integer result = idsImpl.idCheck(mem);
 		  
