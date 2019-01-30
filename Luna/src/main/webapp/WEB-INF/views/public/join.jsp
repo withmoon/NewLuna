@@ -102,23 +102,22 @@
 				
 				<!-- 여기서부터 지점장 회원 -->
 				<c:if test="${br eq 'on'}">
-				<input type="hidden" name="position" value="지점장"/>
 				<!-- 다음 우편 시작 -->
 				<tr><td>
-				<input type="text" id="sample2_postcode" size="35" value="${member.zipcode}"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
+				<input type="text" name="zipcode" id="sample2_postcode" size="35" value="${member.zipcode}"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
 				<label>우편번호</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" id="sample2_address" size="50" value="${member.branchAddr1}"><br>
+				<input type="text" name="branchAddr1" id="sample2_address" size="50" value="${member.branchAddr1}">
 				<label>Address</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" id="sample2_detailAddress" size="50" value="${member.branchAddr2}"> <input type="text" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
+				<input type="text" name="branchAddr2" id="sample2_detailAddress" size="50" value="${member.branchAddr2}"> <input type="text" name="branchAddr3" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
 				<label>detail_Address2</label>
 				</td></tr>	
 				<!-- 여기서 끝 -->
 				<tr><td>
-					<input type="text" name="branch" id="branch" size="50" value="${member.branchName}">
+					<input type="text" name="branchName" id="branch" size="50" value="${member.branchName}">
 					<label>BranchName</label>
 				</td></tr>
 			

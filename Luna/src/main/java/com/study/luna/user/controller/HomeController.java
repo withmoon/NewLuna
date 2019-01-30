@@ -27,6 +27,14 @@ public class HomeController {
 			memcom.setPw(knic);
 		}
 		
+		memcom.setBranchAddr2(memcom.getBranchAddr2()+"#"+memcom.getBranchAddr3());
+		
+		//값 넘김 테스트 js 확인용
+		System.out.println(memcom.getZipcode());
+		System.out.println(memcom.getBranchAddr1());
+		System.out.println(memcom.getBranchAddr2());
+		System.out.println(memcom.getBranchName());
+		
 		memser.insertMember(memcom);
 		
 		return "home";

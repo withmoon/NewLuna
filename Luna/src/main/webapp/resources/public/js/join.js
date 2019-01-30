@@ -119,6 +119,7 @@ function inputCheck() {
 		$("#email").focus();
 		return false;
 	}
+	/*
 	if ($("#sample2_postcode").val() == "") {
 		alert("우편번호를 입력해주세요.");
 		$("#sample2_postcode").focus();
@@ -139,6 +140,6 @@ function inputCheck() {
 		$("#branch").focus();
 		return false;
 	}
-	
+	*/
 	$("join").submit();
 }
