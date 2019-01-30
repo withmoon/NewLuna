@@ -45,10 +45,10 @@
 			</li>
 				<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
 				<ul class="hide">
-					<li>매출현황</li>
-					<li>예약현황</li>
-					<li>방문현황</li>
-					<li>환불현황</li>
+					<a href="body/presentCondition/pc_sales.jsp"><li>매출현황</li></a>
+					<a href="body/presentCondition/pc_reserve.jsp"><li>예약현황</li>
+					<a href="body/presentCondition/pc_visit.jsp"><li>방문현황</li>
+					<a href="body/presentCondition/pc_refund.jsp"><li>환불현황</li>
 				</ul>
 			</li>
 		</ul>
