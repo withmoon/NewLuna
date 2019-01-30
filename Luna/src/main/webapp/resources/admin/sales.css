@@ -212,6 +212,7 @@ article table#board th{
    width: 175px;
    
    margin-top: 20px;
+   margin-right: 200px;
    
    
 }
@@ -255,6 +256,23 @@ article table#board th{
 
 
 #chart{
-   width: 1700px;
-   height: 700px;
+   width: 1300px;
+   height: 750px;
+
+}
+
+#img-button {
+   margin-bottom:0%;
+   width: 30px;
+   height: 30px;
+   background: url("search2.PNG");
+   background-repeat: no-repeat;
+   cursor: pointer;
+   border: none;
+}
+
+#search {
+   width: 140px;
+   height: 30px;
+   border: 1px solid purple;
 }
