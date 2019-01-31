@@ -59,7 +59,7 @@
 				</li>
 				<li>날짜 : <input type="date">
 				</li>
-				<li id="exb"><input type="button" value="검색"></li>
+				<li id="exb"><input type="button" value="조회"></li>
 			</ul>
 		</div>
 
