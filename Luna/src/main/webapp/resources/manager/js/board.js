@@ -18,7 +18,7 @@
 
 });
 */
-function insertboard() {
+function insertboard() { 
 	$("#board").load("boardinsert.mdo");
 }
 
