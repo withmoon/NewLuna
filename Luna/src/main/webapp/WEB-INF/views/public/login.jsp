@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
-<script src="<c:url value="/resources/public/js/login.js"/>"></script>
+<script src="<c:url value="/resources/public/js/conlog.js"/>"></script>
 </head>
 
 <body style="background-image: url('<c:url value="/resources/public/images/galaxy.gif"/>');">
@@ -33,19 +33,19 @@
 <div class="top">로그인</div>
 
 	<div>
-	<form id="logForm" method="post" action="home.udo" onsubmit="return logon()">
+	<form id="logForm" method="post" action="home.udo">
 	
 	<label class="ilabel"><b>ID : &nbsp;&nbsp;</b></label> 
 	<input type="text" name="id" id="id" size="20">
 	<label class="plabel"><b>PW: &nbsp;&nbsp;</b></label> 
 	<input type="password" name="pw" id="pw" size="20"/><br/>
-	<script src="<c:url value="/resources/public/js/conlog.js"/>"></script>
-	<button type="submit" class="loginBtn" style="background-image: url('<c:url value="/resources/public/images/litgal.PNG"/>');">접속</button>
+	<button onclick="logon()" class="loginBtn" style="background-image: url('<c:url value="/resources/public/images/litgal.PNG"/>');">접속</button>
 	&emsp;
 	</form>
 	
 	<a id="kakao-login-btn"></a>
 	<a href="http://developers.kakao.com/logout"></a>
+	<script src="<c:url value="/resources/public/js/login.js"/>"></script>
 	</div>
 	
 	<form name="kform" action="join.do?br=off" method="post">
