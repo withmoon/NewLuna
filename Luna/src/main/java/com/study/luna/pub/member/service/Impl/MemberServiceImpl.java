@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
-import com.study.luna.util.BCrypt;
 import com.study.luna.util.SHA256;
 
 @Service
@@ -20,6 +20,8 @@ public class MemberServiceImpl implements MemberService{
 	InsertMemberDAOImpl instMemberDAOImpl;
 	@Autowired
 	PassCheckDAOImpl pcDAOimpl;
+	@Autowired
+	GetBrNameDAOImpl getbrDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -41,6 +43,11 @@ public class MemberServiceImpl implements MemberService{
 		boolean result=realpass.equals(shaPass)? true :false;
 		
 		return result;
+	}
+
+	@Override
+	public String getBrName(String id) {
+		return getbrDAOImpl.getBrName(id);
 	}
 	
 }

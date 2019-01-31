@@ -6,4 +6,5 @@ public interface MemberService {
 	Integer idCheck(MemberCommand memcom);
 	void insertMember(MemberCommand memcom);
 	boolean passCheck(String id,String pass) throws Exception;
+	String getBrName(String id);
 }

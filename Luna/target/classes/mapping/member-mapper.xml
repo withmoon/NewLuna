@@ -14,7 +14,7 @@
 	</select>
 	
 	<!-- 포지션 찾기 -->
-	<select id="getPosition" resultType="String">
+	<select id="getBrName" resultType="String">
 		select branchName from member where id=#{id}
 	</select>
 	
