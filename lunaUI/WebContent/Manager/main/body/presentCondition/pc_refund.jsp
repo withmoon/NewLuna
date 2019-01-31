@@ -17,10 +17,11 @@
 #ex ul li {
 	display: inline;
 	padding-left: 20px;
+	
 }
 
 #exb {
-	float: right;
+	float: center;
 	margin-right: 5%;
 }
 
@@ -52,12 +53,8 @@
 	<div>
 		<div id="ex">
 			<ul>
-				<li>검색창 : <select name="select">
-						<option value="name">이름</option>
-						<option value="tel">전화번호</option>
-				</select>
-				</li>
-				<li>날짜 : <input type="date">
+				<li>
+					<input type="text" class="text" placeholder="ID or 연락처를 입력하세요">
 				</li>
 				<li id="exb"><input type="button" value="조회"></li>
 			</ul>

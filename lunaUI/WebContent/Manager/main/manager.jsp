@@ -41,6 +41,7 @@
 				<jsp:include page="form/left1_menu.jsp"></jsp:include>
 			</aside>
 		</div>
+		
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
@@ -56,14 +57,14 @@
 						<div id="su2">예약수</div>
 						<div id="su3">????</div>
 
-						<div id="tsu">
+						<!--<div id="tsu">
 							<ul>
 								<li>회원 <label>몇명el태그</label></li>
 								<li>예약<label>몇명el태그</label></li>
 								<li>회원가입<label>몇명el태그</label></li>
 								<li>방문 <label>몇명el태그</label></li>
 							</ul>
-						</div>
+						</div>-->
 					</div>
 				</div>
 
@@ -75,29 +76,26 @@
 			</div>
 			<!-- <div id="chart_div"></div> -->
 		</section>
+		
 		<aside id="right">
 			<div id="rtd">
 				<div class="rdiv">최신소식</div>
 				<ul id="rul">
-					<li>asasdasd</li>
-					<li>asdasda</li>
-					<li>asfsaf</li>
-					<li>asdsadas</li>
-					<li>asdasdasd</li>
+					<li>오픈예정</li>
+					<li>리모델링</li>
+					<li>연애인이 떳다</li>
 				</ul>
 			</div>
 			
 			<div id="re">
 				<div class="rdiv">최신댓글</div>
 				<ul id="rul">
-					<li>asasdasd</li>
-					<li>asdasda</li>
-					<li>asfsaf</li>
-					<li>asdsadas</li>
-					<li>asdasdasd</li>
+					<li>좋아요</li>
+					<li>멋져요</li>
+					<li>예뻐요</li>
+					<li>아름다워요</li>
 				</ul>
 			</div>
-			
 		</aside>
 	</div>
 	<footer>
