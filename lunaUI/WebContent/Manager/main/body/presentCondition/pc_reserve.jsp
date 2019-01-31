@@ -5,7 +5,7 @@
 <head>
 <style type="text/css">
 #ex {
-	background-color: lightgreen;
+	background-color: lightblue;
 	height: 30px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 #ttr1 {
-	background-color: lightgreen;
+	background-color: lightblue;
 }
 </style>
 <meta charset="UTF-8">
@@ -66,7 +66,7 @@
 		<!-- db데이터 -->
 		<table id="t">
 			<tr id="ttr1"> 
-				<th>No.</th>
+				<th>예약No.</th>
 				<th>ID</th>
 				<th>AGE</th>
 				<th>결제일</th>
