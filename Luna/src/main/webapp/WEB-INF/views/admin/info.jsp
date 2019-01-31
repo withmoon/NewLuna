@@ -1,16 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
+<title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>승인 페이지</title>
+
+<style>
+   .type1 {
+      padding :0px;
+      padding-top: 250px;
+      padding-left: 620px;
+      }
+   /*
+   .vv{
+   position: fixed;
+   top:180px;
+   left:0px;
+   width: 940px;
+   height: 200px;
+   }
+   */
+   .vv2{
+   position: fixed;
+   top:180px;
+   right:0px;
+   width: 980px;
+   height: 200px;
+   }
+</style>
 </head>
-<body>
-   <nav class="navbar navbar-default">
+
+
+<nav class="navbar navbar-default">
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -19,7 +43,7 @@
                class="icon-bar"></span>
          </button>
          <div class="navbar-brand">
-            <img src="<c:url value="/resources/admin/달빛.png"/>" width="100" height="100">
+         <img src="<c:url value="/resources/admin/달빛.png"/>" width="100" height="100">
          </div>
       </div>
       <div class="collapse navbar-collapse"
@@ -46,40 +70,36 @@
       </div>
    </nav>
    <center>
-      <h3>승인페이지</h3>
+   <h3>지점장정보 게시판입니다</h3>
    </center>
-   <br></br>
+<br></br>
    <div class="container">
       <div class="row">
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
-               <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                  <th style="background-color: #eeeeee; text-align: center;">승인</th>
-               </tr>
+            <tr>
+            <th style="background-color:#eeeeee; text-align:center;">번호</th>
+            <th style="background-color:#eeeeee; text-align:center;">이름</th>
+            <th style="background-color:#eeeeee; text-align:center;">아이디</th>
+            <th style="background-color:#eeeeee; text-align:center;">관리</th>
+            </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>왕십리점 승인</td>
-                  <td>신영</td>
-                  <td><input type="checkbox" name="approval" value="approval"></td>
-               </tr>
+            <tr>
+            <td>1</td>
+            <td>박은별</td>
+            <td>은별스타</td>
+            <td><input type="button" value="삭제"></td>
+            </tr>
             </tbody>
-         </table>
-         <div class="btn btn-primary pull-right">삭제</div><div class="btn btn-primary pull-right">수락</div>
-      </div>
-   </div>
-
-
-
-
-
-   <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+            </table>
+            </div>
+   
+   
+            <script
+               src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+           <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
 </body>
+
 </html>
