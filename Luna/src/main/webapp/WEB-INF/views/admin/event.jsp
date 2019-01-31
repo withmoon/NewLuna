@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/admin/event.css"/>" />
 <title>이벤트 페이지</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
             <li><a href="gongji.ado">공지사항</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="info.ado">지점장 정보</a></li>
+            <li><a href="member.ado">지점장 정보</a></li>
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -46,33 +47,37 @@
       </div>
    </nav>
    <center>
-      <h3>EVENT</h3>
+   <table>
+   <tr>
+   <td>
+      <h1>EVENT</h1>
+      </tr></td>
+      </table>
    </center>
    <br></br>
-   <div class="container">
-      <div class="row">
-         <table class="table table-striped"
-            style="text-align: center; border: 1px solid #dddddd">
-            <thead>
-            <tr>
-            <th style="background-color:#eeeeee; text-align:center;">번호</th>
-            <th style="background-color:#eeeeee; text-align:center;">작성자</th>
-            <th style="background-color:#eeeeee; text-align:center;">제목</th>
-            <th style="background-color:#eeeeee; text-align:center;">내용</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td>1</td>
-            <td>박은별</td>
-            <td>은별스타</td>
-            <td><input type="button" value="삭제"></td>
-            </tr>
-            </tbody>
-            </table>
-         <div class="btn btn-primary pull-right">삭제</div><div class="btn btn-primary pull-right">수락</div>
-      </div>
-   </div>
+  
+    <div class="event-container">
+
+        <ul class="top-navigate">
+            <li>이벤트</li>
+        </ul>
+        <ul class="eventTap">
+            <li><a href="event.ado">전체이벤트</a></li>
+            <li><a href="event.ado">진행중인이벤트</a></li>
+            <li><a href="event.ado">종료된이벤트</a></li>
+        </ul>
+        <span class="title">진행중인 이벤트</span>
+        <ul class="event-ul">
+            <div class='emptyEvent'>진행중인 이벤트가 없습니다.</div>
+        </ul>
+        <span class="title">종료된 이벤트</span>
+        
+        <li class="eventbox">
+            <a href='javascript:void(0);' class='eventImg' style="background:url('/storage/event/75251273_event_6195.png');"></a>
+            <ul>
+                <li><a href='javascript:void(0);'>잇츠 달빛 타임! 이벤트 당첨자 발표</a></li>
+                <li><a href='javascript:void(0);'>중고교재 70%할인 이벤트</a></li>
+            </ul>
 
 
 
