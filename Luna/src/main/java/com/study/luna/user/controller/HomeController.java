@@ -1,10 +1,16 @@
 package com.study.luna.user.controller;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
@@ -17,11 +23,18 @@ public class HomeController {
 	@Autowired
 	MemberService memser;
 	
+	//카카오로그인
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
-	public String homeView() {
+	public String homeViewtget(@RequestParam(value="id", required=false) String id,HttpServletRequest request) {
+		
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		System.out.println("카카오 로그인==>"+flashMap.get("id"));
+		
 		return "home";
 	}
-	@RequestMapping(value="/home.udo", method=RequestMethod.POST)
+	
+	//회원가입 로그인
+	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
 	public String homeloginView(MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) {
 		
 		if(!kid.equals("")) { //일반 또는 지점장 회원시
@@ -46,6 +59,20 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	//일반 로그인
+	@RequestMapping(value="home.udo", method=RequestMethod.POST)
+	public ModelAndView homeView(MemberCommand memcom) {
+		ModelAndView mav=new ModelAndView();
+		
+		if(memcom.getBranchName()==null) {
+			System.out.println("회원 로그인 ==>"+memcom.getId());
+		}else {
+			System.out.println("매니저 로그인");
+		}
+		return mav;
+	}
+
 }
 /*
 //값 넘김 테스트 js 확인용

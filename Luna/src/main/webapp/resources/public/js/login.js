@@ -25,5 +25,4 @@
        alert(JSON.stringify(err));
       }
     });
-    
-  	// ]]>
+// ]]>

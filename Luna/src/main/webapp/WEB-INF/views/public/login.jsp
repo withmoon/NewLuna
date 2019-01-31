@@ -32,14 +32,16 @@
 <div class="top">로그인</div>
 
 	<div>
+	<form method="post" action="home.udo">
 	
 	<label class="ilabel"><b>ID : &nbsp;&nbsp;</b></label> 
 	<input type="text" name="id" size="20">
 	<label class="plabel"><b>PW: &nbsp;&nbsp;</b></label> 
-	<input type="password" name="pass" size="20"/><br/>
+	<input type="password" name="pw" size="20"/><br/>
 	
-	<button class="loginBtn" style="background-image: url('<c:url value="/resources/public/images/litgal.PNG"/>');">접속</button>
+	<button type="submit" class="loginBtn" style="background-image: url('<c:url value="/resources/public/images/litgal.PNG"/>');">접속</button>
 	&emsp;
+	</form>
 	
 	<a id="kakao-login-btn"></a>
 	<a href="http://developers.kakao.com/logout"></a>

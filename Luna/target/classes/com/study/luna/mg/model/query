@@ -1,0 +1,28 @@
+문의 게시판 쿼리문... 전 개인DB사용이라 기재해놓고 사용해봅니다!
+create table QuestionBoard(
+    num number(7,0),
+    title varchar2(30),
+    writer varchar(12),
+    ref number(5,0),
+    regdate timestamp(6),
+    contents varchar2(100)
+);
+
+create sequence Question_seq 
+start with 1
+increment by 1
+nomaxvalue  -- 최대값이 무한 천만미만
+nocache
+nocycle;
+
+
+insert into QuestionBoard values
+(2,
+'제목1',
+'홍',
+0,
+sysdate,
+'aaasaaaa');
+
+select * FROM QuestionBoard;
+commit;

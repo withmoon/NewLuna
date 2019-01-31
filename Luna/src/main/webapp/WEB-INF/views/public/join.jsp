@@ -54,7 +54,7 @@
 		</c:if>
 		
 		<!-- 회원가입 폼 -->
-		<form class="join" name="join" action="home.udo" onsubmit="return inputCheck()" method="post">
+		<form class="join" name="join" action="/join/home.udo" onsubmit="return inputCheck()" method="post">
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 			<input type="hidden" name="kid" value="${kid}"/>
 			<input type="hidden" name="knic" value="${knic}"/>
