@@ -67,9 +67,14 @@
             <li><a href="event.ado">종료된이벤트</a></li>
         </ul>
         <span class="title">진행중인 이벤트</span>
+     
         <ul class="event-ul">
             <div class='emptyEvent'>진행중인 이벤트가 없습니다.</div>
+           
         </ul>
+        <div align="right">
+         <a href="eventwrite.ado"><input type="button" value="글쓰기" /></a>
+        </div>
         <span class="title">종료된 이벤트</span>
         
         <li class="eventbox">
