@@ -17,12 +17,10 @@
 #ex ul li {
 	display: inline;
 	padding-left: 20px;
-	
 }
 
 #exb {
 	float: center;
-	margin-right: 5%;
 }
 
 #t {
