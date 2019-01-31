@@ -22,14 +22,17 @@ public class HomeController {
 	
 	@Autowired
 	MemberService memser;
+	//로그인 없이 들어옴
+	@RequestMapping(value="/nolog/home.udo", method=RequestMethod.GET)
+	public String nologViewhome() {
+		return"home";
+	}
 	
 	//카카오로그인
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
-	public String homeViewtget(@RequestParam(value="id", required=false) String id,HttpServletRequest request) {
-		
+	public String homeViewtget(HttpServletRequest request) {
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		System.out.println("카카오 로그인==>"+flashMap.get("id"));
-		
 		return "home";
 	}
 	
@@ -67,8 +70,10 @@ public class HomeController {
 		
 		if(memcom.getBranchName()==null) {
 			System.out.println("회원 로그인 ==>"+memcom.getId());
+			mav.setViewName("home");
 		}else {
-			System.out.println("매니저 로그인");
+			System.out.println("매니저 로그인==>"+memcom.getId());
+			mav.setViewName("redirect:/manager.mdo");
 		}
 		return mav;
 	}
