@@ -63,7 +63,7 @@
 			<table align="center">
 				<c:if test="${kid eq null}"><!-- 카카오 로그인이 아닐시 출력 -->
 				<tr><td>
-					<input type="text" name="id" id="id" size="43" value="${member.id}">
+					<input type="text" name="id" id="id" size="43" value="${member.id}" required="required">
 					<label>ID</label>
 					<button onclick="idCheck()">중복확인</button>
 				</td></tr>

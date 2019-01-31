@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
-	public String mainView() {
+	public String mainView(){
+		return "login";
+	}
+	
+	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	public String mainViews(){
+		
 		return "login";
 	}
 }

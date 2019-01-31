@@ -8,6 +8,11 @@
 		select count(*) from member where id=#{id}
 	</select>
 	
+	<!-- 로그인 비번 확인 -->
+	<select id="getPass" resultType="String">
+		select pw from member where id=#{id}
+	</select>
+	
 	<!-- 포지션 찾기 -->
 	<select id="getPosition" resultType="String">
 		select branchName from member where id=#{id}

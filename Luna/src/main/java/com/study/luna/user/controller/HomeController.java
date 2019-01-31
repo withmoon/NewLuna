@@ -14,7 +14,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
-import com.study.luna.util.BCrypt;
 import com.study.luna.util.SHA256;
 
 @Controller
@@ -38,25 +37,17 @@ public class HomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public String homeloginView(MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) {
+	public String homeloginView(MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
 		
 		if(!kid.equals("")) { //일반 또는 지점장 회원시
 			memcom.setKid(kid);
 			memcom.setPw(knic);
 		}
 		memcom.setBranchAddr2(memcom.getBranchAddr2()+"#"+memcom.getBranchAddr3());
-		
+		//비번 암호화
 		SHA256 sha=SHA256.getInsatnce();
-		String shaPass="";
-		String bcPass="";
-		try {
-			shaPass = sha.getSha256(memcom.getPw().getBytes());
-			bcPass=BCrypt.hashpw(shaPass, BCrypt.gensalt());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		memcom.setPw(bcPass);
+		String shaPass=sha.getSha256(memcom.getPw().getBytes());
+		memcom.setPw(shaPass);
 		
 		memser.insertMember(memcom);
 		
@@ -64,12 +55,12 @@ public class HomeController {
 	}
 	
 	//일반 로그인
-	@RequestMapping(value="home.udo", method=RequestMethod.POST)
-	public ModelAndView homeView(MemberCommand memcom) {
+	@RequestMapping(value="/log/home.udo", method=RequestMethod.GET)
+	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(memcom.getBranchName()==null) {
-			System.out.println("회원 로그인 ==>"+memcom.getId());
+			System.out.println("회원 로그인 ==>"+flashMap.get("id"));
 			mav.setViewName("home");
 		}else {
 			System.out.println("매니저 로그인==>"+memcom.getId());

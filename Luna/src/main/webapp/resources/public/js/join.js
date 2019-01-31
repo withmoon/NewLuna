@@ -30,7 +30,7 @@ function idCheck(){
 		
 		/* post */
 		var form = document.createElement("form");
-		url="idCheck.do";
+		url="join/idCheck.do";
 		window.open("","form",'status=no, width=200,height=10,left='+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
 		
 		form.method="post";
@@ -56,16 +56,14 @@ function inputCheck() {
 		$("#id").focus();
 		return false;
 	}
-	if ($("#pw").val() == "") {
-		alert("비밀번호를 입력해주세요.");
-		$("#pw").focus();
+	var sub=$("#id").val();
+	
+	if(sub.substring(0,2)=="k#"){
+		alert("사용할수 없는 아이디입니다.");
+		$("#id").focus();
 		return false;
 	}
-	if ($("#repw").val() == "") {
-		alert("비밀번호를 확인해주세요.");
-		$("#repw").focus();
-		return false;
-	}
+	
 	if ($("#pw").val() != $("#repw").val()) {
 		alert("비밀번호가 일치하지 않습니다.");
 		$("#repw").focus();
