@@ -6,6 +6,7 @@
 
 	<typeAliases>
 		<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
+		<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
 	</typeAliases>
 
 	<mappers>
