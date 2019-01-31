@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
@@ -37,7 +38,8 @@ public class HomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public String homeloginView(MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
+	public ModelAndView homeloginView(RedirectAttributes rdab,MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
+		ModelAndView mav=new ModelAndView();
 		
 		if(!kid.equals("")) { //일반 또는 지점장 회원시
 			memcom.setKid(kid);
@@ -51,7 +53,15 @@ public class HomeController {
 		
 		memser.insertMember(memcom);
 		
-		return "home";
+		String branchName=memcom.getBranchName();
+		rdab.addFlashAttribute("id", memcom.getId());
+		if(branchName==null) {
+			mav.setViewName("redirect:/log/home.udo");
+			return mav;
+		}else{
+			mav.setViewName("redirect:/manager.mdo");
+			return mav;
+		}
 	}
 	
 	//일반 로그인
@@ -59,13 +69,9 @@ public class HomeController {
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		if(memcom.getBranchName()==null) {
-			System.out.println("회원 로그인 ==>"+flashMap.get("id"));
-			mav.setViewName("home");
-		}else {
-			System.out.println("매니저 로그인==>"+memcom.getId());
-			mav.setViewName("redirect:/manager.mdo");
-		}
+		System.out.println("회원 로그인 ==>"+flashMap.get("id"));
+		mav.setViewName("home");
+		
 		return mav;
 	}
 
