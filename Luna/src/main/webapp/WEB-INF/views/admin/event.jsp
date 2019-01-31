@@ -73,10 +73,10 @@
         <span class="title">종료된 이벤트</span>
         
         <li class="eventbox">
-            <a href='javascript:void(0);' class='eventImg' style="background:url('/storage/event/75251273_event_6195.png');"></a>
+            <a href="event.ado" class='eventimg' style="background:url('/storage/event/75251273_event_6195.png');"></a>
             <ul>
-                <li><a href='javascript:void(0);'>잇츠 달빛 타임! 이벤트 당첨자 발표</a></li>
-                <li><a href='javascript:void(0);'>중고교재 70%할인 이벤트</a></li>
+                <li><a href="event.ado" >잇츠 달빛 타임! 이벤트 당첨자 발표</a></li>
+                <li><a href="event.ado" >중고교재 70%할인 이벤트</a></li>
             </ul>
 
 

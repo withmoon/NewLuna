@@ -39,8 +39,7 @@
    display: flex;
    width: 100%;
    height: 45px;
-   flex-wrap: nowrap;
-   -webkit-flex-wrap: nowrap;
+  
    box-sizing: border-box;
    border-top: 1px solid #e9e9eb;
    border-left: 1px solid #e9e9eb;
@@ -49,7 +48,7 @@
 
 .event-container .eventTap li {
    display: flex-block;
-   width: 12.5%;
+   width: 100%;
    border-right: 1px solid #e9e9eb;
    border-bottom: 1px solid #e9e9eb;
    box-sizing: border-box;
@@ -62,7 +61,7 @@
 
 .event-container .eventTap li:hover, .event-container .eventTap li.active
    {
-   background-color: #2F62CB;
+   background-color: #c0c0c0;
 }
 
 .event-container .eventTap li:hover a, .event-container .eventTap li.active a
@@ -77,15 +76,7 @@
    text-decoration: none;
 }
 
-.clamp {
-   display: inline-block;
-   width: 5px;
-   height: 8px;
-   background: url('/img/bbs/sprite.png') -17px -30px;
-   background-repeat: no-repeat;
-   margin: 0px 5px;
-   vertical-align: 1px;
-}
+
 
 .title {
    list-style: none; display : inline-block;
@@ -110,20 +101,7 @@
    text-align: center;
 }
 
-.announce {
-   position: absolute;
-   left: 0px;
-   top: 0px;
-   padding: 5px 10px;
-   background: #D50000;
-   color: #fff;
-   font-size: 14px;
-   line-height: 14px;
-}
 
-#right-quick-menu {
-   top: -8px;
-}
 
 .event-ul {
    list-style: none; display : flex;
@@ -136,7 +114,7 @@
    display: flex;
 }
 
-.event-ul li.evbox {
+.event-ul li.eventbox {
    display: flex-inline;
    position: relative;
    width: 253px;
@@ -144,11 +122,11 @@
    box-sizing: border-box;
 }
 
-.event-ul li.evbox:nth-child(4n) {
+.event-ul li.eventbox:nth-child(4n) {
    margin-right: 0px;
 }
 
-.event-ul li.evbox .eventImg {
+.event-ul li.eventbox.eventimg {
    display: inline-block;
    position: relative;
    width: 253px;
@@ -162,20 +140,20 @@
    line-height: 0px;
 }
 
-.event-ul li.evbox ul {
+.event-ul li.eventbox ul {
    margin: 17px 0px 5px 0px;
 }
 
-.event-ul li.evbox ul li {
+.event-ul li.eventbox ul li {
    text-align: center;
    padding: 5px 0px;
 }
 
-.event-ul li.evbox ul:hover a {
+.event-ul li.eventbox ul:hover a {
    border-bottom: 1px solid #737373;
 }
 
-.event-ul li.evbox ul li:nth-child(1), .event-ul li.evbox ul li:nth-child(1) a
+.event-ul li.eventbox ul li:nth-child(1), .event-ul li.eventbox ul li:nth-child(1) a
    {
    font-size: 13px;
    line-height: 13px;
@@ -183,7 +161,7 @@
    text-decoration: none;
 }
 
-.event-ul li.evbox ul li:nth-child(2), .event-ul li.evbox ul li:nth-child(2) a
+.event-ul li.eventbox ul li:nth-child(2), .event-ul li.eventbox ul li:nth-child(2) a
    {
    font-size: 13px;
    line-height: 13px;
