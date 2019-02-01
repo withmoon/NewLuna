@@ -76,10 +76,3 @@ public class HomeController {
 	}
 
 }
-/*
-//값 넘김 테스트 js 확인용
-System.out.println(memcom.getZipcode());
-System.out.println(memcom.getBranchAddr1());
-System.out.println(memcom.getBranchAddr2());
-System.out.println(memcom.getBranchName());
-*/

@@ -79,23 +79,23 @@
 				<!-- 여기서 부터 그냥 회원 -->
 				<tr><td>
 					<c:if test="${kid eq null}">
-					<input type="text" name="name" id="name" size="53" value="${member.name}">
+					<input type="text" name="name" id="name" size="53" value="${member.name}" required="required">
 					</c:if>
 					<c:if test="${kid ne null}">
-					<input type="text" name="name" id="name" size="53" value="${knic}">
+					<input type="text" name="name" id="name" size="53" value="${knic}" required="required">
 					</c:if>
 					<label>Name</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="phone" id="phone" size="53" value="${member.phone}">
+					<input type="text" name="phone" id="phone" size="53" value="${member.phone}" required="required">
 					<label>Tel / '-' 포함 입력</label>
 				</td></tr>
 				<tr><td>
-					<input type="text" name="birth" id="birth" size="53" value="${member.birth}">
+					<input type="text" name="birth" id="birth" size="53" value="${member.birth}" required="required">
 					<label>birthday / 6자리 입력 ex)820215</label>
 				</td></tr>
 				<tr><td>
-					<input type="email" name="email" id="email" size="53" value="${member.email}">
+					<input type="email" name="email" id="email" size="53" value="${member.email}" required="required">
 					<label>Email</label>
 				</td></tr>
 				<!-- 여기까지 그냥 회원 -->
@@ -104,20 +104,20 @@
 				<c:if test="${br eq 'on'}">
 				<!-- 다음 우편 시작 -->
 				<tr><td>
-				<input type="text" name="zipcode" id="sample2_postcode" size="35" value="${member.zipcode}"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
+				<input type="text" name="zipcode" id="sample2_postcode" size="35" value="${member.zipcode}" required="required"> <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
 				<label>우편번호</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" name="branchAddr1" id="sample2_address" size="50" value="${member.branchAddr1}">
+				<input type="text" name="branchAddr1" id="sample2_address" size="50" value="${member.branchAddr1}" required="required">
 				<label>Address</label>
 				</td></tr>
 				<tr><td>
-				<input type="text" name="branchAddr2" id="sample2_detailAddress" size="50" value="${member.branchAddr2}"> <input type="text" name="branchAddr3" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
+				<input type="text" name="branchAddr2" id="sample2_detailAddress" size="50" value="${member.branchAddr2}" required="required"> <input type="text" name="branchAddr3" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
 				<label>detail_Address2</label>
 				</td></tr>	
 				<!-- 여기서 끝 -->
 				<tr><td>
-					<input type="text" name="branchName" id="branch" size="50" value="${member.branchName}">
+					<input type="text" name="branchName" id="branch" size="50" value="${member.branchName}" required="required">
 					<label>BranchName</label>
 				</td></tr>
 			

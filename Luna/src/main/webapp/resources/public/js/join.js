@@ -50,12 +50,7 @@ function idCheck(){
 }
 
 function inputCheck() {	
-	//일반 회원
-	if ($("#id").val() == "") {
-		alert("아이디를 입력해 주세요.");
-		$("#id").focus();
-		return false;
-	}
+	
 	var sub=$("#id").val();
 	
 	if(sub.substring(0,2)=="k#"){
@@ -70,20 +65,9 @@ function inputCheck() {
 		return false;
 	}
 	
-	if ($("#name").val() == "") {
-		alert("이름을 입력해 주세요.");
-		$("#name").focus();
-		return false;
-	}
-	
 	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
 	var tel=$("#phone").val();
 	
-	if (tel == "") {
-		alert("전화번호를 입력해주세요.");
-		$("#phone").focus();
-		return false;
-	}
 	if(!regExphone.test(tel)){
 		alert("원활할 예약을 위해 적절한 전화번호를 입력해주세요");
 		$("#phone").focus();
@@ -93,11 +77,7 @@ function inputCheck() {
 	var regExpbirth = /^[0-9]+$/;
 	
 	var birth=$("#birth").val();
-	if (birth == "") {
-		alert("생일를 입력해주세요");
-		$("#birth").focus();
-		return false;
-	}
+
 	if(!regExpbirth.test(birth)){
 		alert("생일에 숫자만 입력해주세요");
 		$("#birth").focus();
@@ -117,28 +97,6 @@ function inputCheck() {
 		$("#email").focus();
 		return false;
 	}
-	/*
-	if ($("#sample2_postcode").val() == "") {
-		alert("우편번호를 입력해주세요.");
-		$("#sample2_postcode").focus();
-		return false;
-	}
-	if($("#sample2_address").val() == ""){
-		alert("주소를 입력해주세요");
-		$("#sample2_address").focus();
-		return false;
-	}
-	if ($("#sample2_detailAddress").val() == "") {
-		alert("상세주소를 입력해주세요.");
-		$("#sample2_detailAddress").focus();
-		return false;
-	}
-	if ($("#branch").val() == "") {
-		alert("지점명을 입력해주세요");
-		$("#branch").focus();
-		return false;
-	}
-	*/
 	
 	alert($("#name").val()+"님 환영합니다.");
 	
