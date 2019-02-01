@@ -33,7 +33,7 @@
             <li><a href="approve.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
-             <li><a href="event.ado">이벤트</a></li>
+            <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
             <li><a href="info.ado">지점장 정보</a></li>
          </ul>
@@ -48,49 +48,45 @@
          </ul>
       </div>
    </nav>
-   <br><br><br>
+   <br>
+   <br>
+   <br>
 
    <div class="container">
+   <form id="form1" name="form1" action="insert.ado" method="post">
       <table class="table table-bordered">
-         <thead>
-         <caption>글쓰기</caption>
-         </thead>
+         <h4>글쓰기</h4>
          <tbody>
-            <form action="writepro.jsp" method="post"
-               encType="multiplart/form-data">
-               <tr>
-                  <th>번호:</th>
-                  <td><input type="text" placeholder="number " name="number"
-                     class="form-control" /></td>
-               </tr>
-               
                <tr>
                   <th>제목:</th>
-                  <td><input type="text" placeholder="subject" name="subject"
+                  <td><input type="text" placeholder="subject" id="subject" name="subject"
                      class="form-control" /></td>
                </tr>
-               
+
                <tr>
                   <th>내용:</th>
-                  <td><textarea cols="10" placeholder="content " name="content"
+                  <td><textarea cols="10" placeholder="content " id="content" name="content"
                         class="form-control"></textarea></td>
                </tr>
                <tr>
                   <th>작성일:</th>
-                  <td><input type="date" placeholder="date" name="date"
+                  <td><input type="date" placeholder="date" id="regdate" name="regdate"
                      class="form-control" /></td>
                </tr>
                <tr>
-                  <td colspan="2"><input type="button" value="등록" onclick="sendData()" class="pull-right" /> 
-                  <input type="button" value="글 목록" class="pull-right" onclick="javascript:location.href='board.ado'" /> 
-               <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
+                  <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
+                  <input type="button" value="글 목록"
+                     class="pull-right" onclick="javascript:location.href='board.ado'" />
+
+                     <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
                     <a class="btn btn-default" type="reset"> reset </a>
                     <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
                   </td>
                </tr>
-            </form>
+            
          </tbody>
       </table>
+      </form>
    </div>
 
    <script

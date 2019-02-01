@@ -4,15 +4,17 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<typeAliases>
-		<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
-		<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
-	</typeAliases>
+   <typeAliases>
+      <typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
+      <typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
+      <typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
+   </typeAliases>
  
-	<mappers>
-		<mapper resource="mapping/member-mapper.xml" />
-
-		<!-- 지점장 -->
-		<mapper resource="mapping/manager-mapper.xml" />
-	</mappers>
+   <mappers>
+      <mapper resource="mapping/member-mapper.xml" />
+      <!-- 지점장 -->
+      <mapper resource="mapping/manager-mapper.xml" />
+      <!-- 관리자 -->
+      <mapper resource="mapping/admin-mapper.xml" />
+   </mappers>
 </configuration>
