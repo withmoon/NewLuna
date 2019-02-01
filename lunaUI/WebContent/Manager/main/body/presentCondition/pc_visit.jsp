@@ -20,8 +20,7 @@
 }
 
 #exb {
-	float: right;
-	margin-right: 5%;
+	float: center;
 }
 
 #t {
@@ -52,20 +51,20 @@
 	<div>
 		<div id="ex">
 			<ul>
-				<li>검색창 : <select name="select">
-						<option value="name">이름</option>
-						<option value="tel">전화번호</option>
+				<li>
+				<select name="select">
+						<option>선택하세요</option>
+						<option value="name">매장방문</option>
+						<option value="tel">사이트방문</option>
 				</select>
 				</li>
-				<li>날짜 : <input type="date">
-				</li>
-				<li id="exb"><input type="button" value="검색"></li>
+				<li id="exb"><input type="button" value="조회"></li>
 			</ul>
 		</div>
 
 		<!-- db데이터 -->
 		<table id="t">
-			<tr id="ttr1"> 
+			<tr id="ttr1">
 				<th>매장방문</th>
 				<th>방문횟수</th>
 				<th>ID</th>

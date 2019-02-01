@@ -20,8 +20,7 @@
 }
 
 #exb {
-	float: right;
-	margin-right: 5%;
+	float: center;
 }
 
 #t {
@@ -52,14 +51,10 @@
 	<div>
 		<div id="ex">
 			<ul>
-				<li>검색창 : <select name="select">
-						<option value="name">이름</option>
-						<option value="tel">전화번호</option>
-				</select>
+				<li>
+					<input type="text" class="text" placeholder="DATE를 입력하세요.">
 				</li>
-				<li>날짜 : <input type="date">
-				</li>
-				<li id="exb"><input type="button" value="검색"></li>
+				<li id="exb"><input type="button" value="조회"></li>
 			</ul>
 		</div>
 
