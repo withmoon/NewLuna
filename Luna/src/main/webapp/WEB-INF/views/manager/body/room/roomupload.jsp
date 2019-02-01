@@ -1,53 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 <head>
-<style type="text/css">
-#roominsert {
-	width: 60%;
-	border-bottom: 1px solid black;
-	height: 300px;
-	border-right: 1px solid black;
-}
-
-#image {
-	float: left;
-}
-
-#img {
-	border: 1px solid black;
-	width: 300px;
-	height: 200px;
-}
-
-#room {
-	margin-left: 360px;
-	float: none;
-}
-
-#form2 {
-	width: 60%;
-	
-}
-
-#file {
-	float: left;
-	
-}
-
-#roomtext {
-	margin-left: 350px;
-	float: none;
-	border-right: 1px solid black;
-}
-
-.bt { 
-	height: 25px;
-	width: 60px;
-	margin-left: 10px;
-}
-</style>
+<link type="text/css" rel="stylesheet"  href="<c:url value="/resources/manager/css/manager2.css"/>"/>
+<link type="text/css" rel="stylesheet"  href="<c:url value="/resources/manager/css/roomupload.css"/>"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -65,19 +24,20 @@
 			</div>
 
 			<div id="room">
-				<p>방소개글
-				<p>
-					<input type="text"><input class="bt" type="button"
-						value="추가"><br /> <input type="text"><br /> <input
-						type="text"><br /> <input type="text"><br /> <input
-						type="text"><br /> <label>추가 버튼?</label>
+				<p>방소개글	<p>
+					소개1 : <input type="text"><br />
+					소개2 : <input type="text"><br />
+					소개3 : <input type="text"><br /> 
+					소개4 : <input type="text"><br /> 
 			</div>
 		</div>
 
 		<div id="form2">
 			<div id="file">
-				<input type="file"><input class="bt" type="button"
-					value="추가">
+			방 이미지1 : <input type="file"><br />
+			방 이미지2 : <input type="file"><br />	
+			방 이미지3 : <input type="file"><br />
+			방 이미지4 : <input type="file">
 			</div>
 
 			<div id="roomtext">

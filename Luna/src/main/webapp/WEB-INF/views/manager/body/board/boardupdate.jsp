@@ -18,7 +18,7 @@ table, th, td {
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>글 작성</h2>
+	<h2>글 수정</h2>
 	<form>
 		<table>
 			<tr>
@@ -36,7 +36,8 @@ table, th, td {
 				<td><textarea rows="15" cols="60"></textarea></td>
 			</tr>
 		</table>
-			<input type="submit" value="수정">
+			<input type="submit" value="등록">
+			<input type="reset" value="초기화">
 			<input type="button" value="취소">
 	</form>
 </body>

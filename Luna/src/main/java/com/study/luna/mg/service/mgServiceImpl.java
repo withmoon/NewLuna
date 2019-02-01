@@ -24,6 +24,13 @@ public class mgServiceImpl  implements MgService{
 		return boardDAO.QboardList(vo);
 	}
 
+	@Override
+	public QBoardVO QbaordRead(String title) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("QboardRead ¼­ºñ½º");
+		return boardDAO.QbaordRead(title);
+	}
+
 
 
 }

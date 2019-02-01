@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+
 <style type="text/css">
 header {
 	border-bottom: 1px solid blue;
@@ -55,11 +56,94 @@ header {
 		chart.draw(data, options);
 	}
 </script>
-<meta charset="UTF-8">
+
+
+<title>예약 시간대</title>
 </head>
 <body>
+
+	<!-- 시간대별 예약 확인 테이블 -->
+	<h2>연령대</h2>
+	<table width="80%" border="1">
+		<tr>
+			<td>연령/예약</td>
+			<td>TIME</td>
+			<td>인실</td>
+			<td>예약수치</td>
+		</tr>
+		<tr>
+			<td rowspan="16">10대</td>
+			<td rowspan="4">AM 8:00-9:00</td>
+			<td>1인</td>
+			<td>15%</td>
+		</tr>
+		<tr>
+			<td>2인</td>
+			<td>35%</td>
+		</tr>
+		<tr>
+			<td>3인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td>4인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td rowspan="4">AM 9:00-10:00</td>
+			<td>1인</td>
+			<td>15%</td>
+		</tr>
+		<tr>
+			<td>2인</td>
+			<td>35%</td>
+		</tr>
+		<tr>
+			<td>3인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td>4인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td rowspan="4">AM 10:00-11:00</td>
+			<td>1인</td>
+			<td>15%</td>
+		</tr>
+		<tr>
+			<td>2인</td>
+			<td>35%</td>
+		</tr>
+		<tr>
+			<td>3인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td>4인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td rowspan="4">AM 11:00-12:00</td>
+			<td>1인</td>
+			<td>15%</td>
+		</tr>
+		<tr>
+			<td>2인</td>
+			<td>35%</td>
+		</tr>
+		<tr>
+			<td>3인</td>
+			<td>25%</td>
+		</tr>
+		<tr>
+			<td>4인</td>
+			<td>25%</td>
+		</tr>
+	</table>
+	
 	<div id=header>
-		<header>예약 시간 통계</header>
+		<header>연령별 예약 시간 통계</header>
 	</div>
 
 	<div id="chart_div" style="width: 900px; height: 500px;"></div>

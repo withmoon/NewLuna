@@ -26,6 +26,13 @@ public class BoardDAOImpl  implements BoardDAO{
 		System.out.println("QboardList DAO 수행처리 ");
 		return SqlSession.selectList("managerDAO.QList",vo);
 	}
+
+	@Override
+	public QBoardVO QbaordRead(String title) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("QbaordRead DAO");
+		return SqlSession.selectOne("managerDAO.QRead",title); 
+	}
 	
 
 }

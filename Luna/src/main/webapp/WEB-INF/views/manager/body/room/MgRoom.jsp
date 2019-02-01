@@ -5,7 +5,7 @@
 <head>
 <style type="text/css">
 #ex {
-	background-color: gray;
+	background-color: lightblue;
 	height: 30px;
 }
 
@@ -40,14 +40,14 @@
 }
 
 #ttr1 {
-	background-color: gray;
+	background-color: lightblue;
 }
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>방 생성</title>
 </head>
 <body>
-	<h2>예약현황</h2>
+	<h2>방 생성</h2>
 	<hr>
 	<div>
 		<div id="ex">
@@ -59,49 +59,42 @@
 				</li>
 				<li>날짜 : <input type="date">
 				</li>
+				<li id="exb"><input type="button" value="방생성"></li>
 				<li id="exb"><input type="button" value="검색"></li>
 			</ul>
 		</div>
 
 		<!-- db데이터 -->
 		<table id="t">
-			<tr id="ttr1">
-				<th>a</th>
-				<th>b</th>
-				<th>c</th>
-				<th>d</th>
-				<th>e</th>
-				<th>f</th>
+			<tr id="ttr1"> 
+				<th>ROOM.NO</th>
+				<th>지점명</th>
+				<th>등록일</th>
+				<th>인원</th>
+				<th>주소</th>
 			</tr>
 			<tr>
 				<td>1</td>
+				<td>도곡점</td>
+				<td>19/01/01</td>
+				<td>3인실</td>
+				<td>경기도 고양시</td>
+			</tr>
+			<tr>
 				<td>2</td>
+				<td>상왕점</td>
+				<td>19/01/02</td>
+				<td>3인실</td>
+				<td>경기도 안양시</td>
+			</tr>
+			<tr>
 				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-			</tr>
-
-			<tr>
-				<td>7</td> 
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-			</tr>
-
-			<tr>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>16</td>
-				<td>17</td>
-				<td>18</td>
+				<td>체인점</td>
+				<td>19/01/03</td>
+				<td>2인실</td>
+				<td>경기도 삼성시</td>
 			</tr>
 		</table>
-
 	</div>
-
 </body>
 </html>

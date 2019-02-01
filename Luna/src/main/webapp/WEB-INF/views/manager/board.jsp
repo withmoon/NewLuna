@@ -74,41 +74,12 @@
 					<c:forEach var="list" items="${list }">
 						<tr>
 							<td>${list.num }</td>			
-							<td>${list.title }</td>	
+							<td><a href="boardview.mdo?title=${list.num}"  >${list.title}</a></td>	
 							<td>${list.writer }</td>
 							<td>${list.ref }</td>
 							<td>${list.regdate }</td>
 						</tr>
 					</c:forEach>
-
-			<!-- 		<tr id="tr2">
-						<td>1</td>
-						<td>제목제목제목제목제목</td>
-						<td>김김김</td>
-						<td>5</td>
-						<td>19/01/01</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>제목제목제목제목제목</td>
-						<td>김김김</td>
-						<td>5</td>
-						<td>19/01/01</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>제목제목제목제목제목</td>
-						<td>김김김</td>
-						<td>5</td>
-						<td>19/01/01</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>제목제목제목제목제목</td>
-						<td>김김김</td>
-						<td>5</td>
-						<td>19/01/01</td>
-					</tr> -->
 				</table>
 			</div>
 		</section>

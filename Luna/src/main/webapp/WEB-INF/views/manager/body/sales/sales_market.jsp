@@ -5,7 +5,7 @@
 <head>
 <style type="text/css">
 #ex {
-	background-color: gray;
+	background-color: yellow;
 	height: 30px;
 }
 
@@ -40,14 +40,20 @@
 }
 
 #ttr1 {
-	background-color: gray;
+	background-color: yellow;
 }
+
+/*
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}*/
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Market 매출</title>
 </head>
 <body>
-	<h2>예약현황</h2>
+	<h2>카운터</h2>
 	<hr>
 	<div>
 		<div id="ex">
@@ -65,43 +71,36 @@
 
 		<!-- db데이터 -->
 		<table id="t">
-			<tr id="ttr1">
-				<th>a</th>
-				<th>b</th>
-				<th>c</th>
-				<th>d</th>
-				<th>e</th>
-				<th>f</th>
+			<tr id="ttr1"> 
+				<th>MARKET</th>
+				<th colspan="3">음식판매</th>
+				<th>합계</th>
 			</tr>
 			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
+				<td>음료</td>
+				<td>식혜</td>
+				<td>바나나쉐이크</td>
+				<td>딸기스무디</td>
+				<td>21000</td>
 			</tr>
-
 			<tr>
-				<td>7</td> 
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
+				<td>커피</td>
+				<td>카라멜마끼아또</td>
+				<td>카푸치노</td>
+				<td>아메리카노</td>
+				<td>24000</td>
 			</tr>
-
 			<tr>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>16</td>
-				<td>17</td>
-				<td>18</td>
+				<td>빵</td>
+				<td>초코범벅</td>
+				<td>찐빵</td>
+				<td>카스테라</td>
+				<td>23000</td>
+			</tr>
+			<tr>
+				
 			</tr>
 		</table>
-
 	</div>
-
 </body>
 </html>
