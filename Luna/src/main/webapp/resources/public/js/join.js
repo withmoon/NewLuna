@@ -98,7 +98,5 @@ function inputCheck() {
 		return false;
 	}
 	
-	alert($("#name").val()+"님 환영합니다.");
-	
 	$("join").submit();
 }

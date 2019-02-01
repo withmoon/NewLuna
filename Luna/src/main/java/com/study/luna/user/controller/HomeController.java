@@ -1,8 +1,10 @@
 package com.study.luna.user.controller;
 
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,8 +40,18 @@ public class HomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public ModelAndView homeloginView(RedirectAttributes rdab,MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
+	public ModelAndView homeloginView(HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
 		ModelAndView mav=new ModelAndView();
+		
+		int result = memser.idCheck(memcom);
+		if (result == 1) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			response.setCharacterEncoding("utf-8");
+			out.println("<script>alert('중복된 아이디 입니다. 아이디 입력후 중복체크를 해주세요'); history.go(-1);</script>");
+			out.flush();
+			return null;
+		}
 		
 		if(!kid.equals("")) { //일반 또는 지점장 회원시
 			memcom.setKid(kid);
