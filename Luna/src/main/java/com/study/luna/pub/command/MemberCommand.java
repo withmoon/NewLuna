@@ -17,5 +17,6 @@ public class MemberCommand {
 	String branchAddr1;
 	String branchAddr2;
 	String branchAddr3;	
+	String brStatus;
 	String position;
 }

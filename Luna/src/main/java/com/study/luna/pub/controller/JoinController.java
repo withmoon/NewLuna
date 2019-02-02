@@ -33,7 +33,6 @@ public class JoinController {
 		int result=memser.idCheck(memcom);
 		
 		if(result==1) {
-			
 			rdab.addFlashAttribute("id", memcom.getId());
 			mav.setViewName("redirect:/home.udo");
 			return mav;

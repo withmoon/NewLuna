@@ -36,16 +36,14 @@ public class LoginCheckController {
 			boolean check=memser.passCheck(id, pass);
 			if(check) {
 				String branchName=memser.getBrName(id);
+				rdab.addFlashAttribute("id", memcom.getId());
 				if(branchName==null) {
-					rdab.addFlashAttribute("id", memcom.getId());
 					mav.setViewName("redirect:/log/home.udo");
 					return mav;
 				}else if(branchName.equals("관리자")) {
-					rdab.addFlashAttribute("id", memcom.getId());
 					mav.setViewName("redirect:/administrator.ado");
 					return mav;
 				}else {
-					rdab.addFlashAttribute("id", memcom.getId());
 					mav.setViewName("redirect:/manager.mdo");
 					return mav;
 				}
