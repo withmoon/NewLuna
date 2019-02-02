@@ -33,6 +33,16 @@ public class LoginCheckController {
 			out.println("<script>alert('등록되지 않은 아이디거나, 아이디나 비밀번호가 틀렸습니다.'); history.go(-1);</script>");
 			out.flush();
 		}else {
+			//로그인 상태 체크 들어갈 예정
+			//boolean status=memser.;
+			//status 가 1이면 true 아니면 로그인 진행
+			/*
+			if(status){
+				
+			}else {
+				
+			}
+			*/
 			boolean check=memser.passCheck(id, pass);
 			if(check) {
 				String branchName=memser.getBrName(id);
