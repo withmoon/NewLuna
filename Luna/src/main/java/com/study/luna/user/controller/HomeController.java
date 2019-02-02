@@ -63,17 +63,23 @@ public class HomeController {
 		String shaPass=sha.getSha256(memcom.getPw().getBytes());
 		memcom.setPw(shaPass);
 		
+		//회원가입
 		memser.insertMember(memcom);
 		
 		String branchName=memcom.getBranchName();
 		rdab.addFlashAttribute("id", memcom.getId());
+		//회원은 회원으로 
 		if(branchName==null) {
 			mav.setViewName("redirect:/log/home.udo");
 			return mav;
-		}else{
-			mav.setViewName("redirect:/manager.mdo");
-			return mav;
+		}else{ //지점장 회원가입시 alert띄우고 메인으로 돌아옴
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			response.setCharacterEncoding("utf-8");
+			out.println("<script>alert('지점장 등록이 완료되셨습니다. 승인이 완료되면 이메일로 알려드리겠습니다.'); window.location='/luna/main.do'; </script>");
+			out.flush();
 		}
+		return null;
 	}
 	
 	//일반 로그인
@@ -81,9 +87,10 @@ public class HomeController {
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		System.out.println("회원 로그인 ==>"+flashMap.get("id"));
+		System.out.println("회원 로그인 ==>"+flashMap.get("id").toString());
+		memcom.setId(flashMap.get("id").toString());
+		mav.addObject("member", memcom);
 		mav.setViewName("home");
-		
 		return mav;
 	}
 

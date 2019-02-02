@@ -25,6 +25,7 @@ public class LoginCheckController {
 	public ModelAndView idCehcklogin(RedirectAttributes rdab,MemberCommand memcom, @RequestParam("id") String id,@RequestParam("pw") String pass, HttpServletResponse response)throws Exception {
 		ModelAndView mav=new ModelAndView();
 		memcom.setId(id);
+		//아이디 존재 여부 확인
 		int result = memser.idCheck(memcom);
 		if (result == 0) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -33,36 +34,44 @@ public class LoginCheckController {
 			out.println("<script>alert('등록되지 않은 아이디거나, 아이디나 비밀번호가 틀렸습니다.'); history.go(-1);</script>");
 			out.flush();
 		}else {
-			//로그인 상태 체크 들어갈 예정
-			//boolean status=memser.;
-			//status 가 1이면 true 아니면 로그인 진행
-			/*
-			if(status){
-				
-			}else {
-				
-			}
-			*/
-			boolean check=memser.passCheck(id, pass);
-			if(check) {
-				String branchName=memser.getBrName(id);
-				rdab.addFlashAttribute("id", memcom.getId());
-				if(branchName==null) {
-					mav.setViewName("redirect:/log/home.udo");
-					return mav;
-				}else if(branchName.equals("관리자")) {
-					mav.setViewName("redirect:/administrator.ado");
-					return mav;
-				}else {
-					mav.setViewName("redirect:/manager.mdo");
-					return mav;
-				}
-			}else { //안맞으면 돌려보냄
+			//로그인 상태 체크
+			int status=memser.getStatus(memcom);
+
+			if(status==-1){
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				response.setCharacterEncoding("utf-8");
-				out.println("<script>alert('등록되지 않은 아이디거나, 아이디나 비밀번호가 틀렸습니다.'); history.go(-1);</script>");
+				out.println("<script>alert('승인 되지 않은 아이디입니다.'); history.go(-1);</script>");
 				out.flush();
+			}else if(status==1){
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				response.setCharacterEncoding("utf-8");
+				out.println("<script>alert('이미 사용중인 아이디 입니다.'); history.go(-1);</script>");
+				out.flush();
+			}else {
+				boolean check=memser.passCheck(id, pass);
+				if(check) {
+					String branchName=memser.getBrName(id);
+					rdab.addFlashAttribute("id", memcom.getId());
+					memser.upStatus(memcom);
+					if(branchName==null) {
+						mav.setViewName("redirect:/log/home.udo");
+						return mav;
+					}else if(branchName.equals("관리자")) {
+						mav.setViewName("redirect:/administrator.ado");
+						return mav;
+					}else {
+						mav.setViewName("redirect:/manager.mdo");
+						return mav;
+					}
+				}else { //비번 안맞으면 돌려보냄
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					response.setCharacterEncoding("utf-8");
+					out.println("<script>alert('등록되지 않은 아이디거나, 아이디나 비밀번호가 틀렸습니다.'); history.go(-1);</script>");
+					out.flush();
+				}
 			}
 		}
 		return null;

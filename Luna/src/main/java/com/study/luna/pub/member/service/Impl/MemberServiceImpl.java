@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
+import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
+import com.study.luna.pub.member.dao.Impl.UpStatusDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.util.SHA256;
 
@@ -22,6 +24,10 @@ public class MemberServiceImpl implements MemberService{
 	PassCheckDAOImpl pcDAOimpl;
 	@Autowired
 	GetBrNameDAOImpl getbrDAOImpl;
+	@Autowired
+	GetStatusDAOImpl getStDAOImpl;
+	@Autowired
+	UpStatusDAOImpl upStDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -48,6 +54,16 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String getBrName(String id) {
 		return getbrDAOImpl.getBrName(id);
+	}
+
+	@Override
+	public int getStatus(MemberCommand memcom) {
+		return getStDAOImpl.getStatus(memcom);
+	}
+
+	@Override
+	public void upStatus(MemberCommand memcom) {
+		upStDAOImpl.upStatus(memcom);		
 	}
 	
 }
