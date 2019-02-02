@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class HomeController {
 	
 	@Autowired
 	MemberService memser;
+	
 	//로그인 없이 들어옴
 	@RequestMapping(value="/nolog/home.udo", method=RequestMethod.GET)
 	public String nologViewhome() {
@@ -32,10 +34,14 @@ public class HomeController {
 	
 	//카카오로그인
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
-	public String homeViewtget(HttpServletRequest request) {
+	public ModelAndView homeViewtget(MemberCommand memcom,HttpServletRequest request) {
+		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		System.out.println("카카오 로그인==>"+flashMap.get("id"));
-		return "home";
+		memcom.setId(flashMap.get("id").toString());
+		mav.addObject("member", memcom);
+		mav.setViewName("home");
+		return mav;
 	}
 	
 	//회원가입 로그인
@@ -84,12 +90,18 @@ public class HomeController {
 	
 	//일반 로그인
 	@RequestMapping(value="/log/home.udo", method=RequestMethod.GET)
-	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request) throws Exception {
+	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		System.out.println("회원 로그인 ==>"+flashMap.get("id").toString());
-		memcom.setId(flashMap.get("id").toString());
-		mav.addObject("member", memcom);
+		
+		if(memcom.getCount()==0) {
+			Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+			System.out.println("회원 로그인 ==>"+flashMap.get("id").toString());
+			memcom.setId(flashMap.get("id").toString());
+			session.setAttribute("member", memcom);
+			memcom.setCount(1);
+		}
+		
+		mav.addObject("member", session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;
 	}

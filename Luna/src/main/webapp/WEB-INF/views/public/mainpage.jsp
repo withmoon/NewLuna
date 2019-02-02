@@ -33,14 +33,17 @@
 <!-- 이벤트  로그인/회원가입 -->
 <nav> 
 <ul class="topUl">
-<li><a href="#">이벤트</a></li>
+<li><a href="<c:url value="/event.udo"/>">이벤트</a></li>
+<c:if test="${member.id eq null }">
 <li>&emsp;&nbsp;&nbsp;</li>
 <li><a href="login.do">로그인&nbsp;/&nbsp;회원가입</a></li><!-- login.do -->
-<!-- 
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="#">마이페이지</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="#">로그아웃</a></li> -->
+</c:if>
+<c:if test="${member.id ne null }">
+<li>&emsp;&nbsp;&nbsp;</li>
+<li><a href="<c:url value="myPage.udo"/>">마이페이지</a></li>
+<li>&emsp;&nbsp;&nbsp;</li>
+<li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
+</c:if>
 </ul>
 </nav>
 

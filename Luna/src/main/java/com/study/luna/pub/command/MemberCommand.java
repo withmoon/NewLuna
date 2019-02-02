@@ -19,4 +19,5 @@ public class MemberCommand {
 	String branchAddr3;	
 	String brStatus;
 	String position;
+	int count;
 }

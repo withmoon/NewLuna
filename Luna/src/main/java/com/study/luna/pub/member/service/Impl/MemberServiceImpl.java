@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.dao.Impl.DnStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
@@ -28,6 +29,8 @@ public class MemberServiceImpl implements MemberService{
 	GetStatusDAOImpl getStDAOImpl;
 	@Autowired
 	UpStatusDAOImpl upStDAOImpl;
+	@Autowired
+	DnStatusDAOImpl dnStDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -64,6 +67,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void upStatus(MemberCommand memcom) {
 		upStDAOImpl.upStatus(memcom);		
+	}
+
+	@Override
+	public void dnStatus(MemberCommand memcom) {
+		dnStDAOImpl.dnStatus(memcom);
 	}
 	
 }

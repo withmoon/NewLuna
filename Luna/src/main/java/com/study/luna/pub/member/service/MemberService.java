@@ -9,4 +9,5 @@ public interface MemberService {
 	String getBrName(String id);
 	int getStatus(MemberCommand memcom);
 	void upStatus(MemberCommand memcom);
+	void dnStatus(MemberCommand memcom);
 }

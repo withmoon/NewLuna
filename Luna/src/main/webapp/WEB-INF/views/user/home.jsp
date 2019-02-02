@@ -15,9 +15,9 @@
 	<!-- 상단메뉴 -->
 	<header>
 		<ul class="topUl">
-			<li><a href="<c:url value="event.udo"/>">이벤트</a></li>
+			<li><a href="<c:url value="/event.udo"/>">이벤트</a></li>
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="foundbranch.udo"/>">지점 찾기</a></li>
+			<li><a href="<c:url value="/foundbranch.udo"/>">지점 찾기</a></li>
 			
 			<c:if test="${member.id eq null}">
 			<li>&emsp;&nbsp;&nbsp;</li>
@@ -26,9 +26,9 @@
 			
 			<c:if test="${member.id ne null}">
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="myPage.udo"/>">마이페이지</a></li>
+			<li><a href="<c:url value="/myPage.udo"/>">마이페이지</a></li>
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="#">로그아웃</a></li>
+			<li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
 			</c:if>
 			
 			<li>&emsp;&nbsp;&nbsp;</li>
@@ -51,7 +51,7 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/whole2.png"/>'">
 		</div>
 		<div id="whole2">
-    		<b>전국 380개의 지점수</b><br>
+    		<b>전국 380개의 지점수</b><br> <!-- 지점명이 있고 상태가 0인 지점 갯수 넣어주기 -->
         	MoimCenter : 22센터    StudyCenter: 349센터    WorkCenter: 9센터
         </div>
         <div onmouseover="view2(true)" onmouseout="view2(false)">
@@ -60,7 +60,7 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/previous2.png"/>'">
 		</div>
 		<div id="previous2">
-    		<b>22,712명 고객님들 감사합니다~</b><br>
+    		<b>22,712명 고객님들 감사합니다~</b><br> <!-- 지점명이 없는 유저들의 명수 넣어주기 -->
         	MoimCenter : 1,934명   StudyCenter: 20,098명    WorkCenter: 680명
         </div>
         <div onmouseover="view3(true)" onmouseout="view3(false)">
@@ -69,8 +69,8 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/accumulate2.png"/>'">
 		</div>
 		<div id="accumulate2">
-    		<b>22,712명 고객님들이 증명합니다</b><br>
-        	MoimCenter : 1,934명   StudyCenter: 20,098명    WorkCenter: 680명
+    		<b>22,712명 고객님들이 증명합니다</b><br> <!-- 전일/ 전월 예약 명수 넣기 -->
+        	전일 예약수 : 1,934명  전월예약 수 : 20,098명
         </div>
 		<div align="center"  id="banner">
 			<img alt="studyhome" src="<c:url value="/resources/user/home/images/studyhome.png"/>" >
@@ -98,7 +98,7 @@
 				<tr>
 					<td>서울지점</td>
 					<td>스터디 1룸</td>
-					<td>서울시 동대문구 장안동</td>
+					<td><a href="<c:url value="/lookover.udo"/>">서울시 동대문구 장안동</a></td>
 					<td>02.2222.2222</td>
 				</tr>
 				<tr>
