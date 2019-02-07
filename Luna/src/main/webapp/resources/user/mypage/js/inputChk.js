@@ -1,3 +1,11 @@
+function showUpdateForm(){
+	$("#upInfo").display="";
+	$("#upInfo").show();
+}
+function hideUpdateForm(){
+	$("#upInfo").hide();
+}
+
 function inputCheck() {	
 	
 	var sub=$("#id").val();

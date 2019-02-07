@@ -29,7 +29,7 @@
 			<p>${member.name}님 환영합니다.</p>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}
-			<button class="update">정보수정</button><br>
+			<button class="update" onclick="showUpdateForm()">정보수정</button><br>
 			<div class="deer"><img alt="" src="<c:url value="/resources/user/mypage/images/deer.png"/>"></div>
 			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>
@@ -195,7 +195,7 @@
 	
 	
 	<!-- 정보수정 div -->
-		<div class="upInfo">
+		<div id="upInfo" class="upInfo">
 			<form name="update" action="mypage.udo" onsubmit="return inputCheck()" method="post">
 			<table>
 				<tr><td>
@@ -227,7 +227,7 @@
 					<input type="email" name="email" id="email" size="30" value="${member.email}" required="required">
 				</td></tr>
 				<tr><td align="center"><br/>
-					<button type="submit">수정 완료</button>&emsp;&emsp;<button>취소</button>
+					<button type="submit">수정 완료</button>&emsp;&emsp;<button onclick="hideUpdateForm()">취소</button>
 				</td></tr>
 			</table>
 		</form>
