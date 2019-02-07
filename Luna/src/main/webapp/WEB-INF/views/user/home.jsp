@@ -14,27 +14,7 @@
 <body>
 	<!-- 상단메뉴 -->
 	<header>
-		<ul class="topUl">
-			<li><a href="<c:url value="/event.udo"/>">이벤트</a></li>
-			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="/foundbranch.udo"/>">지점 찾기</a></li>
-			
-			<c:if test="${member.id eq null}">
-			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
-			</c:if>
-			
-			<c:if test="${member.id ne null}">
-			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="/mypage.udo"/>">마이페이지</a></li>
-			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
-			</c:if>
-			
-			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li>
-			
-		</ul>
+		<%@ include file="../public/topmenu.jsp" %>
 	</header>
 	
 	<!-- 상단로고 -->
@@ -131,28 +111,28 @@
 	
 	<!-- 인기순/조회수/new -->
 	<div align="center">
-		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	인기순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">	인기순	<img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table border="0">
 			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
 			</tr>
 			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
 			</tr>
 		</table>
-		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	조회순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">	조회순	<img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table border="0">
 			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
+				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
 			</tr>
 		</table>
-	<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+	<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
    </div>
    </section>
    
@@ -163,7 +143,7 @@
       <div class="rbox">
          작성자 : 선비냥이<br/>
          작성날짜 : 2019-01-01<br/><br/>
-         흠..
+         흠.. <a href="#">수정</a>&emsp;<a href="#">삭제</a><br/>
       </div>
 
       <div class="rbox">
@@ -192,17 +172,19 @@
       <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
       
    </section>
-   
   	<!-- footer -->
 	<footer>
 	<section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
 	&nbsp;Shining in the dark 
 	&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+	&emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	㈜2조시스템즈/사업자등록번호 : 112 01 12321 /대표이사 대표다/서울 성동구 왕십리동 빌드빌딩 4층<br/> 
 	<Strong>MoonLight</Strong> StudyCafe
 	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	©2019. 2JOSYSTEMS Corp.
 	</footer>
 </body>

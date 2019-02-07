@@ -19,21 +19,7 @@
 <body style="overflow-x:hidden">
 <!-- 상단 메뉴 -->
 <nav>
-<ul class="topUl">
-<li><a href="<c:url value="event.udo"/>">이벤트</a></li>
-<li>&emsp;&nbsp;&nbsp;</li>
-
-<li><a href="<c:url value="foundbranch.udo"/>">지점 찾기</a></li>
-<li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
-<li>&emsp;&nbsp;&nbsp;</li>
-<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li>
-<!-- 
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="<c:url value="myPage.udo"/>">마이페이지</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-<li><a href="#">로그아웃</a></li> -->
-</ul>
+<%@ include file="../public/topmenu.jsp" %>
 </nav>
 
 <!-- 상단로고 -->

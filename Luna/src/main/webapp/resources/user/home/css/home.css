@@ -4,9 +4,7 @@
  
 /* 로그인 */
 header{
-	position:absolute;
-	top:1%;
-	right:10%;
+	float:right;
 }
 .topUl li a{
 	font-size: 1.3vw;

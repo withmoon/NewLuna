@@ -15,7 +15,7 @@ public class UpUserInfoDAOImpl implements UpUserInfoDAO {
 
 	@Override
 	public void upUserInfo(MemberCommand memcom) {
-		sqlSession.update("memberDAO.upMyPageInfo");
+		sqlSession.update("memberDAO.upMyPageInfo",memcom);
 	}
 
 }
