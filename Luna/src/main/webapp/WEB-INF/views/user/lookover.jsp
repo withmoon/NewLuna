@@ -19,7 +19,7 @@
 </nav>
 
 <!-- 상단로고 -->
-<a href="<c:url value="home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/nolog/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">방 찾기</div>
 
 <!-- 지점 지정 -->

@@ -19,13 +19,13 @@
 	</header>
 	
 	<!-- 상단로고 -->
-	<a href="<c:url value="home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+	<a href="<c:url value="/nolog/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">MyPage</div>
 
 	<section>
 		<!-- 회원정보 -->
 		<div class="myinformation">
-			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<img src="<c:url value="/resources/user/mypage/images/line.png"/>">
 			<p>${member.name}님 환영합니다.</p>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}

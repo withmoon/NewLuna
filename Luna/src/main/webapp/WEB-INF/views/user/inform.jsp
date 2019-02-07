@@ -17,7 +17,7 @@
 </nav>
 
 <!-- 상단로고 -->
-<a href="<c:url value="home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="<c:url value="/nolog/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">고객센터</div>
 <!-- 고/공/자 이미지 -->
 <section class="menu">
