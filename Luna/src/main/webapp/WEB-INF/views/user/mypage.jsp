@@ -15,15 +15,23 @@
 	<header>
 		<nav>
 			<ul class="topUl">
-			<li><a href="<c:url value="event.udo"/>">이벤트</a></li>
+			
+			<li><a href="<c:url value="/event.udo"/>">이벤트</a></li>
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="foundbranch.udo"/>">지점 찾기</a></li>
+			<li><a href="<c:url value="/foundbranch.udo"/>">지점 찾기</a></li>
+			
+			<c:if test="${member.id eq null}">
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li> 
-			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="mypage.udo"/>" style="text-decoration: underline;">마이페이지</a></li>
-			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			<li><a href="#">로그아웃</a></li>
+			<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
+			</c:if>
+			
+			<c:if test="${member.id ne null}">
+			<li>&emsp;&nbsp;&nbsp;</li>
+			<li><a href="<c:url value="/mypage.udo"/>"  style="text-decoration: underline;">마이페이지</a></li>
+			<li>&emsp;&nbsp;&nbsp;</li>
+			<li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
+			</c:if>
+			
 			</ul>
 		</nav>
 	</header>
@@ -36,9 +44,9 @@
 		<!-- 회원정보 -->
 		<div class="myinformation">
 			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">
-			<p>- 테스트님 -</p>
-			&emsp;전화번호&ensp;010-1111-1111 <br>
-			&emsp;이메일 &ensp;email@email.com
+			<p>${member.name}님 환영합니다.</p>
+			&emsp;전화번호&ensp;${member.phone} <br>
+			&emsp;이메일 &ensp;${member.email}
 			<button class="update">정보수정</button><br>
 			<div class="deer"><img alt="" src="<c:url value="/resources/user/mypage/images/deer.png"/>"></div>
 			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">

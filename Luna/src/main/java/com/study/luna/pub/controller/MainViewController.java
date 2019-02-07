@@ -16,6 +16,7 @@ public class MainViewController {
 	public ModelAndView mainView(HttpSession session,MemberCommand memcom) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("member",session.getAttribute("member"));
+		session.setAttribute("member", session.getAttribute("member"));
 		mav.setViewName("mainpage");
 		return mav;
 	}

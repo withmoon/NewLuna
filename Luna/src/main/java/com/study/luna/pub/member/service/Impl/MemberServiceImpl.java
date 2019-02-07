@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.DnStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
+import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
@@ -31,6 +32,8 @@ public class MemberServiceImpl implements MemberService{
 	UpStatusDAOImpl upStDAOImpl;
 	@Autowired
 	DnStatusDAOImpl dnStDAOImpl;
+	@Autowired
+	GetMyPageInfoDAOImpl getMyInfoDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -72,6 +75,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void dnStatus(MemberCommand memcom) {
 		dnStDAOImpl.dnStatus(memcom);
+	}
+
+	@Override
+	public MemberCommand getMyPageInfo(MemberCommand memcom) {
+		return getMyInfoDAOImpl.getMyPageInfo(memcom);
 	}
 	
 }

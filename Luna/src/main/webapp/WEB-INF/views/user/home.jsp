@@ -26,7 +26,7 @@
 			
 			<c:if test="${member.id ne null}">
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="/myPage.udo"/>">마이페이지</a></li>
+			<li><a href="<c:url value="/mypage.udo"/>">마이페이지</a></li>
 			<li>&emsp;&nbsp;&nbsp;</li>
 			<li><a href="<c:url value='/logout.do'/>">로그아웃</a></li>
 			</c:if>

@@ -93,15 +93,16 @@ public class HomeController {
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		
-		if(memcom.getCount()==0) {
-			Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-			System.out.println("회원 로그인 ==>"+flashMap.get("id").toString());
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
-			memcom.setCount(1);
+		}else {
+			memcom=(MemberCommand)session.getAttribute("member");
+			session.setAttribute("member", memcom);
 		}
-		
-		mav.addObject("member", session.getAttribute("member"));
+		System.out.println("홈에서의 아이디=="+memcom.getId());
+		mav.addObject("member",session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;
 	}
