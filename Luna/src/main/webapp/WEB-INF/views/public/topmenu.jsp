@@ -16,7 +16,7 @@
 
 			<c:if test="${member.id eq null}">
 				<li>&emsp;&nbsp;&nbsp;</li>
-				<li><a href="<c:url value="login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
+				<li><a href="<c:url value="/login.do"/>">로그인&nbsp;/&nbsp;회원가입</a></li>
 			</c:if>
 
 			<c:if test="${member.id ne null}">
@@ -27,7 +27,7 @@
 			</c:if>
 
 			<li>&emsp;&nbsp;&nbsp;</li>
-			<li><a href="<c:url value="inform.udo"/>">고객 센터</a></li>
+			<li><a href="<c:url value="/inform.udo"/>">고객 센터</a></li>
 
 		</ul>
 	</header>

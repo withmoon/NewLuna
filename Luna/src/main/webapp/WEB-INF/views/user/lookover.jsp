@@ -25,8 +25,8 @@
 <!-- 지점 지정 -->
 <section class="searchArea">
 <p>날짜 적용후 이미지에 마우스를 올리시면 자세한 스케줄 확인이 가능합니다^^</p>
-<select id="branchSido">
-		<option value="서울">서울</option>
+<select id="branchSido" title="시/도 선택">
+		<option value="" selected disabled hidden="true">시/도 선택</option>
 		<option value="부산">부산</option>
 		<option value="대구">대구</option>
 		<option value="인천">인천</option>
@@ -46,6 +46,7 @@
 </select>
 
 <select id="branchBranch">
+		<option value="" selected disabled hidden="true">구/군 선택</option>
 		<option value="서울지점">서울지점</option>
 		<option value="경기지점">경기지점</option>
 		<option value="대구지점">대구지점</option>
@@ -96,6 +97,7 @@
 
 </div>
 
+<!-- 스케줄 구간 -->
 <div id="showSchedule">
 <p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>
 <p>선택하신 날짜 : <b><label>0월 0일 00</label>방</b>의 스케줄입니다.</p><br/>

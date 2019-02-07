@@ -21,11 +21,13 @@
 <div class="top">고객센터</div>
 <!-- 고/공/자 이미지 -->
 <section class="menu">
-<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value="/resources/user/inform/images/announce.png"/>"/>
-<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value="/resources/user/inform/images/question.png"/>"/>
-<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value="/resources/user/inform/images/user.png"/>"/>
+<a href="inform.udo?cmd=''"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/></a>
+<a href="inform.udo?cmd=quest"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/></a>
+<a href="inform.udo?cmd=gokso"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/></a>
 </section>
-<!-- 
+
+<!-- 공지 +자주묻는 질문 -->
+<c:if test="${cmd ne 'gokso'}">
 <section class="list_tab">
 <table>
 <tr>
@@ -38,7 +40,7 @@
 <td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
 <td>2019-01-01</td>
 </tr>
-<!-- 이것들은 다 예시일뿐임..(페이지 사이즈 조절용) 
+<!-- 이것들은 다 예시일뿐임..(페이지 사이즈 조절용) -->
 <tr>
 <td>2</td>
 <td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
@@ -62,7 +64,12 @@
 </table>
 </section>
 <div class="pnum"><a href="#">[이전]</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">[다음]</a></div>
- -->
+</c:if>
+
+
+
+<!-- 고객의 소리 구간-->
+<c:if test="${cmd eq 'gokso'}">
 <section class="list_tab2">
 <table>
 <tr>
@@ -71,7 +78,6 @@
 <th>이메일</th>
 <td><input type="email" size="30" name="email" placeholder="email@email.com"></td>
 </tr>
-
 <tr>
 <th>전화번호</th>
 <td><input type="text" size="30" name="number" placeholder="-포함 입력"></td>
@@ -87,28 +93,24 @@
 </select>
 </td>
 </tr>
-
 <tr>
 <th>내용</th>
 <td colspan="3"><textarea cols="120" rows="10"></textarea></td>
 </tr>
-
 <tr>
 <th>파일업로드</th>
 <td colspan="3"><input type="file" name="uploadFile"/></td>
 </tr>
-
 <tr>
 <td colspan="4"><img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<a href="#">보내기</a></td>
 </tr>
-
-
 </table>
 </section>
+</c:if>
+</body>
 
 <!-- footer -->
 <footer>
 <%@ include file="../public/footer.jsp" %>
 </footer>
-</body>
 </html>

@@ -8,28 +8,27 @@ nav{
 	float:right;
 }
 .topUl li a{
-	font-size: 1.3vw;
+	font-size: 1.7vw;
 }
 .logo{
 	position:absolute;
-	width:5%;
-	left:10%;
+	width:10%;
 }
 /* 타이틀 */
 .top{
 	position:absolute;
 	top:3%;
-	left:15%;
+	left:10%;
 	width:auto;
 	text-align:center;
-	font-size: 2vw;
+	font-size: 3vw;
 	color: #686868; 
 }
 /* 상단 이미지 메뉴 */
 .menu{
 	position:absolute;
 	top:20%;
-	left:38%;
+	left:28%;
 	
 }
 .menu img{
@@ -39,7 +38,7 @@ nav{
 .list_tab{
 	position:absolute;
 	top:41%;
-	left:26%;
+	left:20%;
 }
 table{
 	text-align: center;
@@ -53,7 +52,7 @@ table th{
 	width:200px;
 }
 table td{
-	font-size: 1.5vw;
+	font-size: 2vw;
 	padding:3%;
 }
 a{
@@ -67,16 +66,16 @@ a:hover{
 
 .pnum{
 	position:absolute;
-	top:94%;
-	left:42%;
-	font-size: 1.5vw;
+	top:79%;
+	left:40%;
+	font-size: 2vw;
 }
 
 /* 고객의 소리 */
 .list_tab2 table{
 	position:absolute;
-	top:44%;
-	left:25%;
+	top:38%;
+	left:8%;
 	text-align: center;
 	border:2px solid #686868;
 	border-collapse: collapse;
@@ -108,7 +107,7 @@ textarea{
 
 footer{
 	position:absolute;
-	bottom:-40%;
-	left:15%;
-	margin:0 -5% 0 0;
+	left:0.5%;
+	bottom:0%;
+	margin:0 0 30px 0;
 }
