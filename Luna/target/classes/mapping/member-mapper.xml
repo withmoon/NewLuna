@@ -53,8 +53,8 @@
 	</select>
 	
 	<!-- 정보수정 --> <!-- 매니저 추가로 들어가도 됨 -->
-	<update id="upMyPageInfo">
-		update member set name=#{name} where id=#{id}
+	<update id="upMyPageInfo" parameterType="member">
+		update member set name=#{name},phone=#{phone},email=#{email} where id=#{id}
 	</update>
 
 </mapper>

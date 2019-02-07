@@ -12,7 +12,7 @@ import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
 
 @Controller
-public class MypageController {
+public class UserMypageController {
 	
 	@Autowired
 	MemberService memser;
@@ -35,6 +35,7 @@ public class MypageController {
 		ModelAndView mav=new ModelAndView();
 		
 		MemberCommand memcomID=(MemberCommand)session.getAttribute("member");
+		
 		System.out.println("<=====여기부터 마이페이지 정보수정=====>");
 		System.out.println("이름==>"+memcom.getName());
 		System.out.println("이메일==>"+memcom.getEmail());

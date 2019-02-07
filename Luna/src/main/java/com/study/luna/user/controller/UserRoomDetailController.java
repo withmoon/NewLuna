@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class RoomDetailController {
+public class UserRoomDetailController {
 	@RequestMapping(value="/roomDetail.udo", method=RequestMethod.GET)
 	public String roomDetailView() {
 		return "roomDetail";

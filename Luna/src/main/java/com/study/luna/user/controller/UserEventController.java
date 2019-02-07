@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class EventController {
+public class UserEventController {
 	@RequestMapping(value="/event.udo", method=RequestMethod.GET)
 	public String eventView() {
 		return "event";

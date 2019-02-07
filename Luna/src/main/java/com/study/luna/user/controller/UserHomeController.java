@@ -21,7 +21,7 @@ import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.util.SHA256;
 
 @Controller
-public class HomeController {
+public class UserHomeController {
 	
 	@Autowired
 	MemberService memser;
