@@ -8,7 +8,9 @@
 <link href="<c:url value="/resources/user/mypage/css/mypage.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
+<script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
+
 </head>
 <body>
 	<!-- 로그인 -->
@@ -210,6 +212,46 @@
 			</tbody>
 		</table>
 	</section>
+	
+	
+	<!-- 정보수정 div -->
+		<div class="upInfo">
+			<form name="update" action="mypage.udo" onsubmit="return inputCheck()" method="post">
+			<table>
+				<tr><td>
+					<label>ID</label><br/>
+					<input type="text" name="id" id="id" size="30" value="${member.id}" disabled="disabled">
+				</td></tr>
+				<tr><td>
+					<label>PassWord</label><br/>
+					<input type="password" name="pw" id="pw" size="30" value="${member.pw}" required="required" >
+				</td></tr>
+				<tr><td>
+					<label>Confirm PassWord</label><br/>
+					<input type="password" name="repw" id="repw" size="30" required="required">		
+				</td></tr>
+				<tr><td>
+					<label>Name</label><br/>
+					<input type="text" name="name" id="name" size="30" value="${member.name}" required="required">
+				</td></tr>
+				<tr><td>
+					<label>Tel [ / '-' 포함 입력 ]</label><br/>
+					<input type="text" name="phone" id="phone" size="30" value="${member.phone}" required="required">	
+				</td></tr>
+				<tr><td>
+					<label>birthday [ / 6자리 입력 ex)820215 ]</label><br/>
+					<input type="text" name="birth" id="birth" size="30" value="${member.birth}" required="required" disabled="disabled">			
+				</td></tr>
+				<tr><td>
+					<label>Email</label><br/>
+					<input type="email" name="email" id="email" size="30" value="${member.email}" required="required">
+				</td></tr>
+				<tr><td align="center"><br/>
+					<button type="submit">수정 완료</button>&emsp;&emsp;<button>취소</button>
+				</td></tr>
+			</table>
+		</form>
+		</div>
 	
 	<!-- footer -->
 	<footer>

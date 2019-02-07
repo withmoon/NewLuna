@@ -12,6 +12,7 @@ import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.UpStatusDAOImpl;
+import com.study.luna.pub.member.dao.Impl.UpUserInfoDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.util.SHA256;
 
@@ -34,6 +35,8 @@ public class MemberServiceImpl implements MemberService{
 	DnStatusDAOImpl dnStDAOImpl;
 	@Autowired
 	GetMyPageInfoDAOImpl getMyInfoDAOImpl;
+	@Autowired
+	UpUserInfoDAOImpl upUsInfDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -80,6 +83,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberCommand getMyPageInfo(MemberCommand memcom) {
 		return getMyInfoDAOImpl.getMyPageInfo(memcom);
+	}
+
+	@Override
+	public void upUserInfo(MemberCommand memcom) {
+		upUsInfDAOImpl.upUserInfo(memcom);
 	}
 	
 }

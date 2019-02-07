@@ -12,7 +12,7 @@
 </head>
 <body>
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-	<div class="top">회원가입</div>
+	<div class="top">${jbtn}</div>
 
 	<!-- 회원가입 버튼 -->
 	<section>
@@ -55,6 +55,7 @@
 		
 		<!-- 회원가입 폼 -->
 		<form class="join" name="join" action="join/home.udo" onsubmit="return inputCheck()" method="post">
+		
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 			<input type="hidden" name="kid" value="${kid}"/>
 			<input type="hidden" name="knic" value="${knic}"/>
@@ -132,7 +133,7 @@
 			</table>
 			
 			
-			<div align="center"><button type="submit">회원가입완료</button></div>
+			<div align="center"><button type="submit">${jbtn}</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</form>
 	</section>

@@ -11,4 +11,5 @@ public interface MemberService {
 	void upStatus(MemberCommand memcom);
 	void dnStatus(MemberCommand memcom);
 	MemberCommand getMyPageInfo(MemberCommand memcom);
+	void upUserInfo(MemberCommand memcom);
 }

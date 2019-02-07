@@ -22,8 +22,6 @@ public class LogOutController {
 		memcom=(MemberCommand) session.getAttribute("member");
 		memser.dnStatus(memcom);
 		session.invalidate();
-		memcom.setCount(0);
-		mav.addObject("member",memcom);
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}

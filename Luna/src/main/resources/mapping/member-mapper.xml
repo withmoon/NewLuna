@@ -49,7 +49,12 @@
 	
 	<!-- 마이페이지 기제 정보 가져오기 -->
 	<select id="getMyPageInfo" resultType="member">
-		select id,name,phone,email from member where id=#{id}
+		select id,name,phone,birth,email from member where id=#{id}
 	</select>
+	
+	<!-- 정보수정 --> <!-- 매니저 추가로 들어가도 됨 -->
+	<update id="upMyPageInfo">
+		update member set name=#{name} where id=#{id}
+	</update>
 
 </mapper>

@@ -12,7 +12,7 @@ import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
 
 @Controller
-public class Mypage {
+public class MypageController {
 	
 	@Autowired
 	MemberService memser;
@@ -24,11 +24,33 @@ public class Mypage {
 		memcom=(MemberCommand)session.getAttribute("member");
 		session.setAttribute("member", memcom);
 		
-		System.out.println("마이페이지 아이디=="+memcom.getId());
-		
 		memcom=memser.getMyPageInfo(memcom);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
+	}
+	
+	@RequestMapping(value="/mypage.udo", method=RequestMethod.POST)
+	public ModelAndView mainView(MemberCommand memcom,HttpSession session){
+		ModelAndView mav=new ModelAndView();
+		
+		MemberCommand memcomID=(MemberCommand)session.getAttribute("member");
+		System.out.println("<=====여기부터 마이페이지 정보수정=====>");
+		System.out.println("이름==>"+memcom.getName());
+		System.out.println("이메일==>"+memcom.getEmail());
+		System.out.println("번호==>"+memcom.getPhone());
+		System.out.println("비번==>"+memcom.getPw());
+		
+		memcom.setId(memcomID.getId());
+		
+		memser.upUserInfo(memcom);
+		
+		session.setAttribute("member", memcomID);
+		
+		memcom=memser.getMyPageInfo(memcom);
+		
+		mav.addObject("member",memcom);
+		mav.setViewName("mypage");
+		return mav;	
 	}
 }

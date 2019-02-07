@@ -42,6 +42,27 @@ p{
 	font-weight:bold
 }
 
+.upInfo{
+	position:fixed;
+	top:10%;
+	left:55%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: #836e5b;
+	padding:2%;
+}
+.upInfo td{
+	border:0;
+}
+.upInfo input{
+	font-size:1.8vw;
+}
+.upInfo button{
+	font-size:1.8vw;
+	background-color:white;
+}
+
 .update {
 	/* position:relative; */
 	-moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
