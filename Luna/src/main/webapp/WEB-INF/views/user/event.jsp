@@ -7,6 +7,7 @@
 <title>스터디카페 달빛</title>
 <link href="<c:url value="/resources/user/event/css/event.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
+<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/admin/event.css"/>" /> --%>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
@@ -20,6 +21,16 @@
 <div class="top">이벤트</div>
 
 <!-- 이벤트목록 -->
+<section>
+	<div class="event-container">
+	<ul class="eventTap">
+		<li><a href="event.ado">전체이벤트</a></li>
+		<li><a href="event.ado">진행중인이벤트</a></li>
+		<li><a href="event.ado">종료된이벤트</a></li>
+	</ul>
+	</div>
+</section>
+
 <section class="list_tab">
 <table>
 <tr>
