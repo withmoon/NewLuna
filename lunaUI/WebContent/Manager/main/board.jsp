@@ -11,20 +11,19 @@
 <!--<script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>-->
 <script type="text/javascript" src="../js/mjs.js"></script>
 <script>
-/* 	$(document).ready(function(){
-		$("button").click(function(){
-			$("#border2").html("<img src='../images/book2.png' border='0'/>");
-			
-			<!--$("#border2").html("<a href='body/presentCondition/pc_refund.jsp'/>");-->
-		});
-	});
- */</script>
-
-<script>
 	$(document).ready(function(){
 		//[환불현황] 버튼을 누르면 pc_refund.jsp 페이지가 실행된다
-		$("button").click(function(){
+		$("#btn1").click(function(){
 			$("#border2").load("body/presentCondition/pc_refund.jsp");
+		});
+		$("#btn2").click(function(){
+			$("#border2").load("body/presentCondition/pc_visit.jsp");
+		});
+		$("#btn3").click(function(){
+			$("#border2").load("body/presentCondition/pc_reserve.jsp");
+		});
+		$("#btn4").click(function(){
+			$("#border2").load("body/presentCondition/pc_sales.jsp");
 		});
 	});
 </script>

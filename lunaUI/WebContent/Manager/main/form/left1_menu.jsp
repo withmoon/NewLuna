@@ -5,17 +5,6 @@
 <head>
 <script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js/left1.js"></script>
-
-<!--왜 안먹지?????????????????
-<script>
-	$(document).ready(function(){
-		
-		//[환불현황] 버튼을 누르면 pc_refund.jsp 페이지가 실행된다
-		$("button").click(function(){
-			$("#result").load("presentCondition/pc_refund.jsp");
-		});
-	});
-</script>-->
 <meta charset="UTF-8">
 <title>매니저 좌측 메뉴</title>
 </head>
@@ -40,12 +29,14 @@
 					<li><a href="body/sales/sales_market.jsp">Market 매출</a></li>
 				</ul>
 			</li>
+			
 			<li class="menu"><a href="#"><img src="../images/menu01.png" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
 					<li><a href="body/reserveTime/age.jsp">연령별</a></li>
 					<li><a href="body/reserveTime/season.jsp">분기별</a></li>
 				</ul>
 			</li>
+			
 			<li class="menu"><a href="#"><img src="../images/menu03.png" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
 				<ul class="hide">
 					<li>방등록</li>
@@ -53,12 +44,13 @@
 					<li>방삭제</li>
 				</ul>
 			</li>
-				<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
+			
+			<li class="menu"><a href="#"><img src="../images/menu02.png" alt="현황보기" />현황보기</a>
 				<ul class="hide">
-					<li><a href="body/presentCondition/pc_sales.jsp">매출현황</a></li>
-					<li><a href="body/presentCondition/pc_reserve.jsp">예약현황</a></li>
-					<li><a href="body/presentCondition/pc_visit.jsp">방문현황</a></li>
-					<li><button>환불현황</button></li>
+					<li><button id="btn4">매출현황</button></li>
+					<li><button id="btn3">예약현황</button></li>
+					<li><button id="btn2">방문현황</button></li>
+					<li><button id="btn1">환불현황</button></li>
 				</ul>
 			</li>
 		</ul>
