@@ -56,7 +56,7 @@ public class LoginCheckController {
 					rdab.addFlashAttribute("id", memcom.getId());
 					memser.upStatus(memcom);
 					if(branchName==null) {
-						mav.setViewName("redirect:/log/home.udo");
+						mav.setViewName("redirect:/home.udo");
 						return mav;
 					}else if(branchName.equals("관리자")) {
 						mav.setViewName("redirect:/administrator.ado");

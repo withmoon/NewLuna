@@ -26,6 +26,7 @@ function view3(opt) {
 	}
 }
 
+
 /*주소 select 시/군/도*/
 $('document').ready(function() {
 	var area0 = ["시/도 ","서울","부산","대구","인천","광주","대전","울산","경기","강원", "세종","충청남도","충청북도","전라남도","전라북도","경상남도","경상북도","제주도"];
@@ -71,13 +72,5 @@ $('document').ready(function() {
 				$gugun.append("<option value='"+this+"'>"+this+"</option>");
 			});
 		}
-	});
-});
-
-/* 찾기 버튼 이벤트 */
-$(function() {
-	$('.find').hide();
-	$('.btn_find').click(function() {
-		$('.find').show();
 	});
 });

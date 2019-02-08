@@ -34,7 +34,7 @@ public class JoinController {
 		
 		if(result==1) {
 			rdab.addFlashAttribute("id", memcom.getId());
-			mav.setViewName("redirect:/home.udo");
+			mav.setViewName("redirect:kakao/home.udo");
 			return mav;
 
 		}else{

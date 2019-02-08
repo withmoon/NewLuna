@@ -25,22 +25,18 @@ public class UserHomeController {
 	
 	@Autowired
 	MemberService memser;
-	
-	//로그인 없이 들어옴
-	@RequestMapping(value="/nolog/home.udo", method=RequestMethod.GET)
-	public String nologViewhome() {
-		return"home";
-	}
-	
+
 	//카카오로그인
-	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
-	public ModelAndView homeViewtget(MemberCommand memcom,HttpServletRequest request) {
+	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
+	public ModelAndView homeViewtget(RedirectAttributes rdab,MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		System.out.println("카카오 로그인==>"+flashMap.get("id"));
 		memcom.setId(flashMap.get("id").toString());
-		mav.addObject("member", memcom);
-		mav.setViewName("home");
+		
+		rdab.addFlashAttribute("id", memcom.getId());
+		
+		mav.setViewName("redirect:/home.udo");
 		return mav;
 	}
 	
@@ -76,7 +72,7 @@ public class UserHomeController {
 		rdab.addFlashAttribute("id", memcom.getId());
 		//회원은 회원으로 
 		if(branchName==null) {
-			mav.setViewName("redirect:/log/home.udo");
+			mav.setViewName("redirect:/home.udo");
 			return mav;
 		}else{ //지점장 회원가입시 alert띄우고 메인으로 돌아옴
 			response.setContentType("text/html; charset=UTF-8");
@@ -89,7 +85,7 @@ public class UserHomeController {
 	}
 	
 	//일반 로그인
-	@RequestMapping(value="/log/home.udo", method=RequestMethod.GET)
+	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		
@@ -101,10 +97,8 @@ public class UserHomeController {
 			memcom=(MemberCommand)session.getAttribute("member");
 			session.setAttribute("member", memcom);
 		}
-		System.out.println("홈에서의 아이디=="+memcom.getId());
 		mav.addObject("member",session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;
 	}
-
 }
