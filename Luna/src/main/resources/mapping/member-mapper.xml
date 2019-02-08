@@ -56,15 +56,9 @@
 	<update id="upMyPageInfo" parameterType="member">
 		update member set name=#{name},phone=#{phone},email=#{email} where id=#{id}
 	</update>
-	
-	<!-- 방찾기용 -->
-	<!-- 시/도 가져오기 -->
-	<select id="getSido" resultType="member">
-		select branchAddr1 from member
-	</select>
 
 	<!-- 회원목록 -->
    <select id="memberList" resultType="member">
-	select * from member
+	select * from member where position is null
    </select>
 </mapper>

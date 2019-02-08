@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="roomDAO">
+	<!-- 방찾기용 -->
+	<!-- 시/도 가져오기 -->
+	<select id="getSido" resultType="member">
+		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장';
+	</select>
+</mapper>

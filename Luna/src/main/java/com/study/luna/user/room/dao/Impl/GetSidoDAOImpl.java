@@ -1,4 +1,4 @@
-package com.study.luna.user.area.dao.Impl;
+package com.study.luna.user.room.dao.Impl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.study.luna.pub.command.MemberCommand;
-import com.study.luna.user.area.dao.GetSidoDAO;
+import com.study.luna.user.room.dao.GetSidoDAO;
 @Repository
 public class GetSidoDAOImpl implements GetSidoDAO {
 
@@ -16,7 +16,7 @@ public class GetSidoDAOImpl implements GetSidoDAO {
 	
 	@Override
 	public List<MemberCommand> getSido() {
-		return sqlSession.selectList("memberDAO.getSido");
+		return sqlSession.selectList("roomDAO.getSido");
 	}
 
 }
