@@ -4,7 +4,12 @@
 <mapper namespace="roomDAO">
 	<!-- 방찾기용 -->
 	<!-- 시/도 가져오기 -->
-	<select id="getSido" resultType="member">
-		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장';
+	<select id="getSido" resultType="String">
+		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장'
+	</select>
+	
+	<select id="getGugun" resultType="String">
+		<![CDATA[select DISTINCT SUBSTR(branchaddr1,INSTR(branchaddr1, ' ', 1,1)+1,INSTR(branchaddr1, ' ',1,1)+1)  
+		from member where branchaddr1 like #{sido}|| '%']]>
 	</select>
 </mapper>

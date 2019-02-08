@@ -102,7 +102,7 @@ public class UserHomeController {
 			session.setAttribute("member", memcom);
 		}
 		
-		List<MemberCommand> sido=roomser.getSido();
+		List<String> sido=roomser.getSido();
 		
 		mav.addObject("sido",sido);
 		mav.addObject("member",session.getAttribute("member"));

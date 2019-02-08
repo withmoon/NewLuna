@@ -67,12 +67,11 @@
 		</c:forEach>
 	</select>
 	<!-- 시/군/구 -->
-	<select name="gugun">
+	<select name="gugun" id="gugun_select"></select>
 	
-	</select>
-	
-	<button class="btn_find">찾기</button><p>
+	<button class="btn_find" onclick="findRoom()">찾기</button><p>
 	</div>&nbsp;
+	<!-- 여기까지 선택창 -->
 	
 	<!-- 인기순/조회수/new -->
 	<div align="center">
@@ -104,11 +103,10 @@
    <!-- review --> <!-- 최신 리뷰 순으로 5개만 보여줌 페이지 블럭 없음 -->
    <section class="review">
       <img src="<c:url value="/resources/user/home/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/home/images/star.png"/>">
-      <br/>여러분의 <a href="#" onclick="rivDown('pnum')">한줄후기</a> 를 들려주세요<br/><br/>
       <div class="rbox">
          작성자 : 선비냥이<br/>
          작성날짜 : 2019-01-01<br/><br/>
-         흠.. <a href="#">수정</a>&emsp;<a href="#">삭제</a><br/>
+         흠.. <br/>
       </div>
 
       <div class="rbox">

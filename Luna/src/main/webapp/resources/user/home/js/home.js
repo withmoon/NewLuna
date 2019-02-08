@@ -26,6 +26,15 @@ function view3(opt) {
 	}
 }
 
+/* 방 찾기 넘어갈때 */
+function findRoom(){
+	var sido=$("#sido_select option:selected").val();
+	var gugun=$("#gugun_select option:selected").val();
+	alert(sido+" " +gugun);
+	var url='lookover.udo?sido='+sido+'&gugun='+gugun;
+	window.location=url;
+}
+
 
 /* 주소 select 시/군/도 */
 $('document').ready(function() {

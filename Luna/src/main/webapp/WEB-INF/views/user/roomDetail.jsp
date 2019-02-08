@@ -9,12 +9,14 @@
 <link href="<c:url value="/resources/user/roomDetail/css/roomDetail.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<script src="../../Public/jquery/jquery-3.3.1.min.js"></script>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
+
+<script src="<c:url value="https://developers.kakao.com/sdk/js/kakao.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="https://dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"/>"></script>
+
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/FoundBranch.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/kakaoPop.js"/>"></script>
-<script src="js/textAuto.js"></script>
+<script src="<c:url value="/resources/user/roomDetail/js/textAuto.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
 <!-- 상단 메뉴 -->
