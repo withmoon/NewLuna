@@ -1,6 +1,7 @@
 package com.study.luna.user.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.room.service.RoomService;
 import com.study.luna.util.SHA256;
 
 @Controller
@@ -25,6 +27,8 @@ public class UserHomeController {
 	
 	@Autowired
 	MemberService memser;
+	@Autowired
+	RoomService roomser;
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
@@ -98,7 +102,7 @@ public class UserHomeController {
 			session.setAttribute("member", memcom);
 		}
 		
-		String []sido= {"서울","부산","인천","경기"};
+		List<MemberCommand> sido=roomser.getSido();
 		
 		mav.addObject("sido",sido);
 		mav.addObject("member",session.getAttribute("member"));
