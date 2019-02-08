@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>Q N A</title>
+<title>게시판 목록</title>
+
 </head>
 <body>
    <nav class="navbar navbar-default">
@@ -25,14 +26,12 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-             <li><a href="administrator.ado">홈</a></li>
+          <li><a href="administrator.ado">홈</a></li>
             <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="approve.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="info.ado">지점장 정보</a></li>
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -51,6 +50,7 @@
    <br></br>
    <div class="container">
       <div class="row">
+      <form action="board.ado" method="post">
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
@@ -59,22 +59,28 @@
                   <th style="background-color: #eeeeee; text-align: center;">제목</th>
                   <th style="background-color: #eeeeee; text-align: center;">내용</th>
                   <th style="background-color: #eeeeee; text-align: center;">작성일</th>
-                  <th style="background-color: #eeeeee; text-align: center;"></th>
-                  <th style="background-color: #eeeeee; text-align: center;">삭제</th>
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>배송언제오나요?</td>
-                  <td>오늘갑니다</td>
-                  <td>2019/1/27</td>
-                  <td><input type="checkbox" name="delete" value="delete"></td>
-                  <td><a href="deletepro.jsp" class="btn-outline-primary">삭제</a></td>
-               </tr>
+            <!-- 
+            <c:forEach items="${boardList}" var="board">
+            <tr>
+            <td>${board.num}</td>
+            </tr>
+            </c:forEach>
+             -->
+             <c:forEach var="row" items="${map.list}">
+             <tr>
+             <td>${row.num}</td>
+             <td>${row.subject}</td>
+             <td>${row.content}</td>
+             <td>${row.regdate}</td>
+             </tr>
+             </c:forEach>
             </tbody>
          </table>
          <a href="write.ado" class="btn btn-primary pull-right">글쓰기</a>
+         </form>
       </div>
    </div>
 

@@ -10,4 +10,11 @@
          values ( (select nvl(max(num), 0) + 1 from adminqnaboard), #{subject}, #{content}, #{regdate})
          ]]>
    </insert>
+
+   <select id="listAll" resultType="adminQnABoardVO">
+
+      select * from adminqnaboard
+
+   </select>
+
 </mapper>
