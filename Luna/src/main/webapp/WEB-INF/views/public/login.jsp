@@ -23,7 +23,7 @@
 <!-- 상단로고 -->
 <a href="join.do?br=off" title="회원가입"><img class="regis" src="<c:url value="/resources/public/images/regis.gif"/>"/></a>
 <p class="registt">← ← 회원가입은 토끼를 클릭해주세요</p>
-<a href="#" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<a href="main.do" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">로그인</div>
 
 	<div>
