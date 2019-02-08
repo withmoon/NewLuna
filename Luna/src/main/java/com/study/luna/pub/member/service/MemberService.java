@@ -1,5 +1,7 @@
 package com.study.luna.pub.member.service;
 
+import java.util.List;
+
 import com.study.luna.pub.command.MemberCommand;
 
 public interface MemberService {
@@ -12,4 +14,5 @@ public interface MemberService {
 	void dnStatus(MemberCommand memcom);
 	MemberCommand getMyPageInfo(MemberCommand memcom);
 	void upUserInfo(MemberCommand memcom);
+	List<MemberCommand> memberList(MemberCommand mc);
 }

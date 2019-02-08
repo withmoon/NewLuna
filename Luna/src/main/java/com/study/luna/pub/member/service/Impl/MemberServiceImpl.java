@@ -1,8 +1,11 @@
 package com.study.luna.pub.member.service.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.study.luna.admin.model.dao.MemberDAOImpl;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.DnStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
@@ -37,6 +40,8 @@ public class MemberServiceImpl implements MemberService{
 	GetMyPageInfoDAOImpl getMyInfoDAOImpl;
 	@Autowired
 	UpUserInfoDAOImpl upUsInfDAOImpl;
+	@Autowired
+	MemberDAOImpl memberDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -88,6 +93,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void upUserInfo(MemberCommand memcom) {
 		upUsInfDAOImpl.upUserInfo(memcom);
+	}
+
+	@Override
+	public List<MemberCommand> memberList(MemberCommand mc) {
+		return memberDAOImpl.memberList(mc);
 	}
 	
 }

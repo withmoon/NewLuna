@@ -79,19 +79,26 @@
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
             <tr>
-            <th style="background-color:#eeeeee; text-align:center;">번호</th>
+            <!-- <th style="background-color:#eeeeee; text-align:center;">번호</th> -->
             <th style="background-color:#eeeeee; text-align:center;">이름</th>
             <th style="background-color:#eeeeee; text-align:center;">아이디</th>
             <th style="background-color:#eeeeee; text-align:center;">관리</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            	<c:forEach var="member" items="${memberList }">
+            		<tr>
+            			<td>${member.name }</td>
+            			<td>${member.id }</td>
+            			<td><input type="button" value="삭제"></td>
+            		</tr>
+            	</c:forEach>
+            <!-- <tr>
             <td>1</td>
             <td>박은별</td>
             <td>은별스타</td>
             <td><input type="button" value="삭제"></td>
-            </tr>
+            </tr> -->
             </tbody>
             </table>
             </div>
