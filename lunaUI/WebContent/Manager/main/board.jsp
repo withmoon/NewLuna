@@ -3,12 +3,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../js/date.js"></script>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/date.js"></script>
+<!--<script type="text/javascript" src="../jquery/jquery-3.3.1.min.js"></script>-->
 <script type="text/javascript" src="../js/mjs.js"></script>
+<script>
+/* 	$(document).ready(function(){
+		$("button").click(function(){
+			$("#border2").html("<img src='../images/book2.png' border='0'/>");
+			
+			<!--$("#border2").html("<a href='body/presentCondition/pc_refund.jsp'/>");-->
+		});
+	});
+ */</script>
+
+<script>
+	$(document).ready(function(){
+		//[환불현황] 버튼을 누르면 pc_refund.jsp 페이지가 실행된다
+		$("button").click(function(){
+			$("#border2").load("body/presentCondition/pc_refund.jsp");
+		});
+	});
+</script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="../css/manager2.css">
 <title>지점장 관리화면</title>
@@ -42,16 +61,17 @@
 		</div>
 		<!-- 중앙세션 -->
 		<section id="msec">
+			<div id="border2">
 			<div id=header>
 				<header>문의 게시판</header>
 			</div>
 
 
-			<div id="board">
+			<div id="board2">
 				<form>
 					<table id="searchtable">
 						<tr>
-							<td id="searchtd"><label id="write" onclick="#">글쓰기</label>
+							<td id="searchtd"><label id="write" >글쓰기</label>
 								<select name="searchbaord">
 									<option value="TITLE">제목</option>
 									<option value="WITER">작성자</option>
@@ -101,11 +121,11 @@
 					</tr>
 				</table>
 			</div>
+			</div>
 		</section>
 	</div>
 	<footer>
 		<jsp:include page="form/footer.jsp"></jsp:include>
 	</footer>
 </body>
-
 </html>
