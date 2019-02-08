@@ -25,23 +25,21 @@
 
 			<li class="menu"><a href="#"><img src="../images/menu02.png" alt="매출통계" />매출통계</a>
 				<ul class="hide">
-					<li><a href="body/sales/sales_reserve.jsp">월 매출</a></li>
-					<li><a href="body/sales/sales_market.jsp">Market 매출</a></li>
+					<li><button id="btn9">월 매출</button></li>
+					<li><button id="btn8">Market 매출</button></li>
 				</ul>
 			</li>
 			
 			<li class="menu"><a href="#"><img src="../images/menu01.png" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
-					<li><a href="body/reserveTime/age.jsp">연령별</a></li>
-					<li><a href="body/reserveTime/season.jsp">분기별</a></li>
+					<li><button id="btn7">연령별</button></li>
+					<li><button id="btn6">분기별</button></li>
 				</ul>
 			</li>
 			
 			<li class="menu"><a href="#"><img src="../images/menu03.png" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
 				<ul class="hide">
-					<li>방등록</li>
-					<li>방수정</li>
-					<li>방삭제</li>
+					<li><button id="btn5">방등록/수정/삭제</button></li>
 				</ul>
 			</li>
 			

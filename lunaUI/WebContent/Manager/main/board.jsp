@@ -25,6 +25,21 @@
 		$("#btn4").click(function(){
 			$("#border2").load("body/presentCondition/pc_sales.jsp");
 		});
+		$("#btn5").click(function(){
+			$("#border2").load("body/presentCondition/pc_sales.jsp");
+		});
+		$("#btn6").click(function(){
+			$("#border2").load("body/reserveTime/season.jsp");
+		});
+		$("#btn7").click(function(){
+			$("#border2").load("body/reserveTime/age.jsp");
+		});
+		$("#btn8").click(function(){
+			$("#border2").load("body/sales/sales_market.jsp");
+		});
+		$("#btn9").click(function(){
+			$("#border2").load("body/sales/sales_reserve.jsp");
+		});
 	});
 </script>
 <meta charset="UTF-8">
