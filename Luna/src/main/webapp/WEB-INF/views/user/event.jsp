@@ -7,7 +7,8 @@
 <title>스터디카페 달빛</title>
 <link href="<c:url value="/resources/user/event/css/event.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
-<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/admin/event.css"/>" /> --%>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="<c:url value="/resources/user/js/event.js"/>"></script>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
@@ -22,48 +23,57 @@
 
 <!-- 이벤트목록 -->
 <section>
-	<div class="event-container">
+<div class="event-container">
 	<ul class="eventTap">
-		<li><a href="event.ado">전체이벤트</a></li>
-		<li><a href="event.ado">진행중인이벤트</a></li>
-		<li><a href="event.ado">종료된이벤트</a></li>
+		<li>진행중인이벤트</li>
+		<li>종료된이벤트</li>
 	</ul>
-	</div>
+</div>
 </section>
+
 
 <section class="list_tab">
 <table>
-<tr>
-<th>번호</th>
-<th>제목</th>
-<th>날짜</th>
-</tr>
-<tr>
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>날짜</th>
+	</tr>
+	<c:forEach items="${eventList }" var="event">
+	<tr>
+		<td>${event.seq }</td>
+		<td>${event.title }</td>
+		<td>${event.writer }</td>
+		<td>${event.startDate } ~ ${event.endDate }</td>
+	</tr>
+	</c:forEach>
+<!-- <tr>
 <td>1</td>
 <td><a href="showForm.jsp">☆5월 이벤트☆</a></td>
-<td>2019-01-01</td>
+<td>2019-01-01 ~ 2019-01-01</td>
 </tr>
 
 <tr>
 <td>2</td>
 <td><a href="showForm.jsp">☆4월 이벤트☆</a></td>
-<td>2019-01-01</td>
+<td>2019-01-01 ~ 2019-01-01</td>
 </tr>
 <tr>
 <td>3</td>
 <td><a href="showForm.jsp">☆3월 이벤트☆</a></td>
-<td>2019-01-01</td>
+<td>2019-01-01 ~ 2019-01-01</td>
 </tr>
 <tr>
 <td>4</td>
 <td><a href="showForm.jsp">☆2월 이벤트☆</a></td>
-<td>2019-01-01</td>
+<td>2019-01-01 ~ 2019-01-01</td>
 </tr>
 <tr>
 <td>5</td>
 <td><a href="showForm.jsp">☆1월 이벤트☆</a></td>
-<td>2019-01-01</td>
-</tr>
+<td>2019-01-01 ~ 2019-01-01</td>
+</tr> -->
 </table>
 </section>
 <div class="pnum"><a href="#">[이전]</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">[다음]</a></div>

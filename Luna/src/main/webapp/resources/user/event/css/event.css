@@ -8,21 +8,21 @@ nav{
 	float:right;
 }
 .topUl li a{
-	font-size: 1.3vw;
+	font-size: 1.8vw;
 }
 .logo{
 	position:absolute;
-	width:5%;
+	width:9%;
 	left:10%;
 }
 /* 타이틀 */
 .top{
 	position:absolute;
 	top:3%;
-	left:15%;
+	left:20%;
 	width:auto;
 	text-align:center;
-	font-size: 2vw;
+	font-size: 3vw;
 	color: #686868; 
 }
 
@@ -47,8 +47,9 @@ nav{
    display: flex-block;
    width: 100%;
    border : 1px solid #e9e9eb;
-   box-sizing: border-box;
-   text-align: center;
+   box-sizing: borde -box;
+   text-align:center;
+   padding:1%;
 }
 
 .eventTap li {
@@ -58,20 +59,8 @@ nav{
 .eventTap li:hover, .eventTap li.active
    {
    background-color: #c0c0c0;
+   color: white;
 }
-
-.eventTap li:hover a, .eventTap li.active a
-   {
-   color: #fff;
-}
-
-.eventTap a {
-   font-size: 13px;
-   line-height: 40px;
-   color: #333;
-   text-decoration: none;
-}
-
 
 /* 목록 */
 .list_tab{
@@ -88,11 +77,11 @@ table{
 table th{
 	border-top:2px solid #686868; 
 	border-bottom:2px solid #686868; 
-	width:300px;
+	width:230px;
 }
 table td{
 	font-size: 1.5vw;
-	padding:3%;
+	padding:1%;
 }
 
 a{

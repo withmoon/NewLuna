@@ -8,6 +8,7 @@
       <typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
       <typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
       <typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
+      <typeAlias alias="eBoard" type="com.study.luna.user.board.vo.EventBoardVO"/>
    </typeAliases>
  
    <mappers>
@@ -19,5 +20,7 @@
       <mapper resource="mapping/manager-mapper.xml" />
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />
+      <!-- 이벤트 -->
+      <mapper resource="mapping/eventBoard-mapper.xml" />
    </mappers>
 </configuration>
