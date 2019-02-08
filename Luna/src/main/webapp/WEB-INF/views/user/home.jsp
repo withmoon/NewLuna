@@ -60,8 +60,11 @@
 	<!-- 선택창 -->
 	<!-- 시/도 -->
 	<div align="center">
-	<select name="sido">
-		
+	<select name="sido" id="sido_select">
+	<option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
+		<c:forEach  var="sidoList" items="${sido}">
+			<option value="${sidoList}">${sidoList}</option>
+		</c:forEach>
 	</select>
 	<!-- 시/군/구 -->
 	<select name="gugun">

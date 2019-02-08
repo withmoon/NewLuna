@@ -97,6 +97,10 @@ public class UserHomeController {
 			memcom=(MemberCommand)session.getAttribute("member");
 			session.setAttribute("member", memcom);
 		}
+		
+		String []sido= {"서울","부산","인천","경기"};
+		
+		mav.addObject("sido",sido);
 		mav.addObject("member",session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;
