@@ -63,4 +63,8 @@
 		select branchAddr1 from member
 	</select>
 
+	<!-- 회원목록 -->
+   <select id="memberList" resultType="member">
+	select * from member
+   </select>
 </mapper>
