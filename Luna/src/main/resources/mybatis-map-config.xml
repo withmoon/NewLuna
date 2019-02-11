@@ -9,6 +9,7 @@
       <typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
       <typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
       <typeAlias alias="eBoard" type="com.study.luna.user.board.vo.EventBoardVO"/>
+      <typeAlias alias="room" type="com.study.luna.user.dto.RoomDTO"/>
    </typeAliases>
  
    <mappers>

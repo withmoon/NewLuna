@@ -12,4 +12,8 @@
 		<![CDATA[select DISTINCT SUBSTR(branchaddr1,INSTR(branchaddr1, ' ', 1,1)+1,INSTR(branchaddr1, ' ',1,1)+1)  
 		from member where branchaddr1 like #{sido}|| '%']]>
 	</select>
+	
+	<select id="getRoomAllInfo" resultType="room">
+		select * from room
+	</select>
 </mapper>

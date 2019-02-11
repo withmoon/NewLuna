@@ -12,11 +12,10 @@
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 
 <script src="<c:url value="https://developers.kakao.com/sdk/js/kakao.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="https://dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"/>"></script>
 
-<script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/FoundBranch.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/kakaoPop.js"/>"></script>
 <script src="<c:url value="/resources/user/roomDetail/js/textAuto.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/rdjsgroup.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
 <!-- 상단 메뉴 -->
@@ -56,12 +55,11 @@
 <script type='text/javascript' src="<c:url value="/resources/user/roomDetail/js/kakaolink.js"/>"></script>
 
 <!-- 찜 안찜 -->
-
-<img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/notChoiceList.png"/>" onclick="this.src='<c:url value="/resources/user/roomDetail/images/choice.png"/>'"/>
+<img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/notChoiceList.png"/>" onclick="changeChoiceImg(this)"/>
 
 <div id="showSchedule">
 <p>선택하신 날짜 : <b><label>0월 0일</label> </b>의 스케줄입니다.</p><br/>
-<table>
+<table id="schdule">
 <tr>
 <th>오전</th>
 <td style="background-color:#b5a495;">00:00</td>
@@ -87,13 +85,13 @@
 <td>10:00</td>
 <td>10:30</td>
 <td>11:00</td>
-<td>11:30</td>
+<td style="background-color:#b5a495;">11:30</td>
 </tr>
 <tr>
 <th>오후</th>
-<td>12:00</td>
-<td>12:30</td>
-<td>13:00</td>
+<td style="background-color:#b5a495;">12:00</td>
+<td style="background-color:#b5a495;">12:30</td>
+<td style="background-color:#b5a495;">13:00</td>
 <td>13:30</td>
 <td>14:00</td>
 <td>14:30</td>
@@ -121,60 +119,17 @@
 
 <!-- 오른쪽 달력 바 -->
 <div class="right1">
-<input type="date"><br/><br/>
+<input type="date"><br/>
 <button class="look">스케줄 보기</button>	
 </div>
 
 <!-- 오른쪽 예약 바 -->
 <div class="right2">
 	<!-- 로그인 페이지 들어가야 함 -->	
+<c:if test="${member.id eq null}">
 예약은 <a href="#">로그인</a> 필수<br/>
 입니다.<br/><br/>
-[입장시간]<br/>
-<select>
-	<option value="a00">00</option>
-	<option value="a01">01</option>
-	<option value="a01">02</option>
-	<option value="a03">03</option>
-	<option value="a04">04</option>
-	<option value="a05">05</option>
-	<option value="a06">06</option>
-	<option value="a07">07</option>
-	<option value="a08">08</option>
-	<option value="a09">09</option>
-	<option value="a10">10</option>
-	<option value="a11">11</option>
-	<option value="p12">12</option>
-	<option value="p13">13</option>
-	<option value="p14">14</option>
-	<option value="p15">15</option>
-	<option value="p16">16</option>
-	<option value="p17">17</option>
-	<option value="p18">18</option>
-	<option value="p19">19</option>
-	<option value="p20">20</option>
-	<option value="p21">21</option>
-	<option value="p22">22</option>
-	<option value="p23">23</option>
-</select>
-<select>
-	<option value="m00">00</option>
-	<option value="m30">30</option>
-</select>
-<br/><br/>
-[이용시간]<br/>
-<select>
-	<option value="tl_2">02</option>
-	<option value="tl_3">03</option>
-	<option value="tl_4">04</option>
-	<option value="tl_5">05</option>
-	<option value="tl_6">06</option>
-	<option value="tl_7">07</option>
-	<option value="tl_8">08</option>
-	<option value="tl_9">09</option>
-	<option value="tl_10">10</option>
-</select>
-<br/><br/>
+</c:if>
 가격: 40000 원
 <button class="rsbtn" onclick="kakapop()">예약&amp;결제</button>
 </div>
@@ -182,7 +137,7 @@
 <!-- 스프링 효과 -->
 
 <img class="springEf" src="<c:url value="/resources/user/roomDetail/images/spring.png"/>"/>
-<img style="right:9%" class="springEf" src="<c:url value="/resources/user/roomDetail/images/spring.png"/>"/>
+<img style="right:9%" class="springEf2" src="<c:url value="/resources/user/roomDetail/images/spring.png"/>"/>
 
 <section class="content">
 
@@ -234,6 +189,8 @@
 <!-- 다음 지도 시작 -->
 <section>
 <div id="map" style="width:100%; height:300px" ></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
+<script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/branchLocate.js"/>"></script>
 </section>
 </section>
 
