@@ -13,10 +13,16 @@ public class EventBoardServiceImpl implements EventBoardService {
 	@Autowired
 	EventBoardDAOImpl eventBoardImpl;
 
-	//이벤트목록
+	//이벤트 목록
 	@Override
 	public List<EventBoardVO> eventList(EventBoardVO ebVO) {
 		return eventBoardImpl.eventList(ebVO);
+	}
+
+	//이벤트 상세보기
+	@Override
+	public EventBoardVO read(int seq) throws Exception {
+		return eventBoardImpl.read(seq);
 	}
 
 }

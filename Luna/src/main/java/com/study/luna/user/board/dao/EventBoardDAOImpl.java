@@ -11,12 +11,20 @@ import com.study.luna.user.board.vo.EventBoardVO;
 @Repository
 public class EventBoardDAOImpl implements EventBoardDAO  {
 	@Autowired
-	SqlSessionTemplate sqlSession;
+	SqlSessionTemplate SqlSession;
 
+	//이벤트 목록
 	@Override
 	public List<EventBoardVO> eventList(EventBoardVO ebVO) {
-		System.out.println("===> 이벤트목록");
-		return sqlSession.selectList("eventBoardDAO.eventList", ebVO);
+		System.out.println("===> 이벤트 목록");
+		return SqlSession.selectList("eventBoardDAO.eventList", ebVO);
+	}
+
+	//이벤트 상세보기
+	@Override
+	public EventBoardVO read(int seq) throws Exception {
+		System.out.println("===> 이벤트 상세보기");
+		return SqlSession.selectOne("eventBoardDAO.viewEvent", seq);
 	}
 
 }

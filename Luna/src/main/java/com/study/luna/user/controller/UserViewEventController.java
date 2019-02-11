@@ -1,28 +1,27 @@
 package com.study.luna.user.controller;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.user.board.service.EventBoardService;
-import com.study.luna.user.board.vo.EventBoardVO;
 
 @Controller
-public class UserEventController {
+public class UserViewEventController {
 	@Autowired
 	EventBoardService evntBoardService;
 	
-	//이벤트 목록
-	@RequestMapping(value="/event.udo", method=RequestMethod.GET)
-	public ModelAndView eventView(EventBoardVO ebVO) {
-		List<EventBoardVO> eventList = evntBoardService.eventList(ebVO);
+	//이벤트 상세보기
+	@RequestMapping(value="/viewEvent.udo", method=RequestMethod.GET)
+	public ModelAndView viewEventView(@RequestParam int seq, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("eventList", eventList);
-
+		mav.setViewName("viewEvent");
+		mav.addObject("ebv", evntBoardService.read(seq));
 		return mav;
 	}
 }

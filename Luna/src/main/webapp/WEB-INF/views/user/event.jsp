@@ -43,7 +43,7 @@
 	<c:forEach items="${eventList }" var="event">
 	<tr>
 		<td>${event.seq }</td>
-		<td><a onclick="window.open('insertEvent.udo','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
+		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${event.title }</a></td>
 		<td>${event.writer }</td>
 		<td>${event.startDate } ~ ${event.endDate }</td>

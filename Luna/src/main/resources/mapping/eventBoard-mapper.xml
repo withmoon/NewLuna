@@ -2,8 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="eventBoardDAO">
-	<!-- 이벤트목록 -->
+	<!-- 이벤트 목록 -->
 	<select id="eventList" resultType="eBoard">
 		select * from eventboard
+	</select>
+	
+	<!-- 이벤트 상세보기 -->
+	<select id="viewEvent" resultType="eBoard">
+		select * from eventboard where seq=#{seq}
 	</select>
 </mapper>
