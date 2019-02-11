@@ -32,10 +32,10 @@
 <img id="roomExpImg" src="<c:url value="/resources/user/roomDetail/images/cafe.jpg"/>">
 <div id="roomExplain">
 <b>방소개</b><br/><br/>
-<label id="ex1">30인</label><br/><br/>
-<label id="ex2">빔프로젝터 구비</label><br/><br/>
-<label id="ex3">큐브형 룸</label><br/><br/>
-<label id="ex4">쾌적한환경과 조절가능한 조명</label>
+<label id="ex1">${roomInfo.roomEx1}</label><br/><br/>
+<label id="ex2">${roomInfo.roomEx2}</label><br/><br/>
+<label id="ex3">${roomInfo.roomEx3}</label><br/><br/>
+<label id="ex4">${roomInfo.roomEx4}</label>
 </div>
 <div class="rsec"></div>
 <div id="branchExplain">

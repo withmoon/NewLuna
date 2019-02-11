@@ -13,7 +13,23 @@
 		from member where branchaddr1 like #{sido}|| '%']]>
 	</select>
 	
-	<select id="getRoomAllInfo" resultType="room">
+	<!-- 방정보 가져오기 -->
+	<select id="getRoomInfo" resultType="roomInfo">
 		select * from room
 	</select>
+	
+	<!-- 스케줄 가져오기 -->
+	<select id="getRoomSchedule">
+		<![CDATA[select reservstate from roomReserv where roomNum=#{roomNum} and regdate>to_date(to_char(sysdate,'yyyy-mm-dd'))
+		]]>
+	</select>
+	
+	<!-- 예약 집어넣기 -->
+	<insert id="inReserveRoom">
+		<![CDATA[insert into roomReserv values(#{roomNum},#{reservstate},sysdate)]]>
+	</insert>
+	<update id="upReserveRoom">
+		<![CDATA[update roomReserv set reservstate=concat(reservstate,#{reservstate})]]>
+	</update>
+	
 </mapper>
