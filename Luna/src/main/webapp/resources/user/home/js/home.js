@@ -30,7 +30,6 @@ function view3(opt) {
 function findRoom(){
 	var sido=$("#sido_select option:selected").val();
 	var gugun=$("#gugun_select option:selected").val();
-	alert(sido+" " +gugun);
 	var url='lookover.udo?sido='+sido+'&gugun='+gugun;
 	window.location=url;
 }

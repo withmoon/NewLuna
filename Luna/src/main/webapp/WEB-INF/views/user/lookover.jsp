@@ -25,34 +25,28 @@
 <!-- 지점 지정 -->
 <section class="searchArea">
 <p>날짜 적용후 이미지에 마우스를 올리시면 자세한 스케줄 확인이 가능합니다^^</p>
-<select id="branchSido" title="시/도 선택">
-		<option value="" selected disabled hidden="true">시/도 선택</option>
-		<option value="부산">부산</option>
-		<option value="대구">대구</option>
-		<option value="인천">인천</option>
-		<option value="광주">광주</option>
-		<option value="대전">대전</option>
-		<option value="울산">울산</option>
-		<option value="경기">경기</option>
-		<option value="강원">강원</option>
-		<option value="세종">세종</option>
-		<option value="충청남도">충청남도</option>
-		<option value="충청북도">충청북도</option>
-		<option value="전라남도">전라남도</option>
-		<option value="전라북도">전라북도</option>
-		<option value="경상남도">경상남도</option>
-		<option value="경상북도">경상북도</option>
-		<option value="제주">제주</option>
+
+<select name="sido" id="sido_select">
+<c:if test="${sel_sido eq ''}">
+<option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
+</c:if>
+	<c:forEach  var="sidoList" items="${sido}">
+		<c:if test="${sidoList eq sel_sido}">
+			<option value="${sidoList}" selected="selected">${sidoList}</option>
+		</c:if>
+		<c:if test="${sidoList ne sel_sido}">
+			<option value="${sidoList}">${sidoList}</option>
+		</c:if>
+	</c:forEach>
 </select>
 
-<select id="branchBranch">
-		<option value="" selected disabled hidden="true">구/군 선택</option>
-		<option value="서울지점">서울지점</option>
-		<option value="경기지점">경기지점</option>
-		<option value="대구지점">대구지점</option>
-</select>
-<input type="date">
-<button class="look">적용</button>	
+<!-- 시/군/구 -->
+<select name="gugun" id="gugun_select"></select>
+
+<input id="reservDate" type="date">
+<button class="look" onclick="findCanReservRoom()">적용</button>
+
+<input type="hidden" id="sel_gugun" value="${sel_gugun}"/>	
 </section>
 
 <!-- 검색결과 보여주는 곳 -->

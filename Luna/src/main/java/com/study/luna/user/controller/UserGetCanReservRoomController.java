@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.study.luna.user.room.service.RoomServiceImpl;
 
 @Controller
-public class UserGetBranchSidoguController {
-	
+public class UserGetCanReservRoomController {
 	@Autowired
 	RoomServiceImpl roomser;
 
-	@RequestMapping(value="/getSidoGugun.udo")
-	public @ResponseBody List<String> getSidoGugung(@RequestParam("undefined")String sido){
+	@RequestMapping(value="/getCanReservRoom.udo")
+	public @ResponseBody List<String> getSidoGugung(@RequestParam(value="sido" ,required=false,defaultValue="")String sido){
 		System.out.println("현재 지역 ===>"+sido);
 		List<String> list=roomser.getGugun(sido);
 		return list;
