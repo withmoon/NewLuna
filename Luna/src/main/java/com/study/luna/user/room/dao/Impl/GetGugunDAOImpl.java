@@ -16,7 +16,6 @@ public class GetGugunDAOImpl implements GetGugunDAO {
 
 	@Override
 	public List<String> getGugun(String sido) {
-		System.out.println("디에오에서 받은 시도==>"+sido);
 		return sqlSession.selectList("roomDAO.getGugun",sido);
 	}
 

@@ -16,8 +16,12 @@ public class UserGetCanReservRoomController {
 	RoomServiceImpl roomser;
 
 	@RequestMapping(value="/getCanReservRoom.udo")
-	public @ResponseBody List<String> getSidoGugung(@RequestParam(value="sido" ,required=false,defaultValue="")String sido){
+	public @ResponseBody List<String> getSidoGugung(@RequestParam(value="sido" ,required=false,defaultValue="")String sido,
+														@RequestParam(value="gugun" ,required=false,defaultValue="")String gugun,
+														@RequestParam(value="seldate" ,required=false,defaultValue="")String seldate){
 		System.out.println("현재 지역 ===>"+sido);
+		System.out.println("현재 구군===>"+gugun);
+		System.out.println("선택한 날짜===>"+seldate);
 		List<String> list=roomser.getGugun(sido);
 		return list;
 	}

@@ -73,16 +73,23 @@ function findCanReservRoom(){
 	
 	
 	var thisdate=year+month+day;
-	/*
+	var selsplit=seldate.split("-");
+	var selspdate="";
 	
-	if()
-	$.ajax({      
-		 type:"GET",  
-		 url:"getCanReservRoom.udo",    
-	     data:{sido:sido, gugun:gugun, seldate:seldate},     
-	     success:function(data){  
-	    	 alert("갔다았습니당 ㅎ");
-	     }
-	});
-	*/  
+	for ( var i in selsplit ) {
+        selspdate+=selsplit[i];
+     }
+	
+	if(selspdate<thisdate){
+		alert("날짜를 확인해주세요^^");
+	}else{
+		$.ajax({      
+			type:"GET",  
+			url:"getCanReservRoom.udo",    
+			data:{sido:sido, gugun:gugun, seldate:seldate},     
+			success:function(data){  
+				alert("갔다았습니당 ㅎ");
+			}
+		});
+	}
 }

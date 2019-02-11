@@ -18,7 +18,6 @@ public class UserGetBranchSidoguController {
 
 	@RequestMapping(value="/getSidoGugun.udo")
 	public @ResponseBody List<String> getSidoGugung(@RequestParam("undefined")String sido){
-		System.out.println("현재 지역 ===>"+sido);
 		List<String> list=roomser.getGugun(sido);
 		return list;
 	}
