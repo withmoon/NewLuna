@@ -8,7 +8,7 @@
 <link href="<c:url value="/resources/user/event/css/event.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script src="<c:url value="/resources/user/js/event.js"/>"></script>
+<script src="<c:url value="/resources/user/event/js/event.js"/>"></script>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
@@ -43,7 +43,8 @@
 	<c:forEach items="${eventList }" var="event">
 	<tr>
 		<td>${event.seq }</td>
-		<td>${event.title }</td>
+		<td><a onclick="window.open('insertEvent.udo','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
+			${event.title }</a></td>
 		<td>${event.writer }</td>
 		<td>${event.startDate } ~ ${event.endDate }</td>
 	</tr>
