@@ -4,17 +4,36 @@
 
 <mapper namespace="luna.admin.board">
 
-   <insert id="insertQnABoard" parameterType="adminQnABoardVO">
+   	<insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
-         values ( (select nvl(max(num), 0) + 1 from adminqnaboard), #{subject}, #{content}, #{regdate})
+         values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, #{regdate})
          ]]>
-   </insert>
+	</insert>
 
-   <select id="listAll" resultType="adminQnABoardVO">
+	<select id="listAll" resultType="adminQnABoardVO">
 
-      select * from adminqnaboard
+		select num,subject,content,regdate from adminqnaboard order by num desc
 
-   </select>
+	</select>
+
+
+	<select id="read" resultType="adminQnABoardVO">
+
+		select * from adminqnaboard where num=#{num}
+
+	</select>
+
+	<update id="update" parameterType="adminQnABoardVO">
+
+		update adminqnaboard set subject= #{subject}, content= #{content} where
+		num=#{num}
+
+	</update>
+
+	<delete id="delete" parameterType="adminQnABoardVO">
+
+		delete from adminqnaboard where num=#{num}
+	</delete>
 
 </mapper>

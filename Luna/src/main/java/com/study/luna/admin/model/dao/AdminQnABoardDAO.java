@@ -7,10 +7,13 @@ import com.study.luna.admin.model.vo.AdminQnABoardVO;
 public interface AdminQnABoardDAO {
 
    public void insert(AdminQnABoardVO adminQnABoardVO) throws Exception;
+   
+   public void delete(int num) throws Exception;
 
- //  public List<AdminQnABoardVO> adminqnaboard(AdminQnABoardVO adminQnABoardVO) throws Exception;
+   public List<AdminQnABoardVO> listAll() throws Exception;
 
-public List<AdminQnABoardVO> listAll() throws Exception;
+   public void update(AdminQnABoardVO vo) throws Exception;
 
- // upadate , delete 
+   public AdminQnABoardVO read(int num) throws Exception;
+
 }

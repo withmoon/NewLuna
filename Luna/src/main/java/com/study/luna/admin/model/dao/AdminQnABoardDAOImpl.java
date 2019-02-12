@@ -1,6 +1,5 @@
 package com.study.luna.admin.model.dao;
 
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -29,4 +28,21 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
       return sqlsession.selectList("luna.admin.board.listAll");
    }
 
+   @Override
+   public AdminQnABoardVO read(int num) throws Exception {
+      return  sqlsession.selectOne("luna.admin.board.read",num);
+
+   }
+
+   @Override
+   public void update(AdminQnABoardVO vo) throws Exception {
+      sqlsession.update("luna.admin.board.update",vo);
+      
+   }
+
+   @Override
+   public void delete(int num) throws Exception {
+      sqlsession.delete("luna.admin.board.delete",num);
+      
+   }
 }

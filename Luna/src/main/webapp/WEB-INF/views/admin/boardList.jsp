@@ -62,17 +62,10 @@
                </tr>
             </thead>
             <tbody>
-            <!-- 
-            <c:forEach items="${boardList}" var="board">
-            <tr>
-            <td>${board.num}</td>
-            </tr>
-            </c:forEach>
-             -->
              <c:forEach var="row" items="${map.list}">
              <tr>
              <td>${row.num}</td>
-             <td>${row.subject}</td>
+             <td><a href="qnaview.ado?num=${row.num}">${row.subject}</a></td>
              <td>${row.content}</td>
              <td>${row.regdate}</td>
              </tr>

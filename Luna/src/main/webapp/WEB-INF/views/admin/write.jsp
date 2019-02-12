@@ -77,10 +77,6 @@
                   <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
                   <input type="button" value="글 목록"
                      class="pull-right" onclick="javascript:location.href='board.ado'" />
-
-                     <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
-                    <a class="btn btn-default" type="reset"> reset </a>
-                    <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
                   </td>
                </tr>
             

@@ -9,4 +9,10 @@ public interface AdminQnABoardService {
 
    public List<AdminQnABoardVO> listAll() throws Exception;
 
+   public AdminQnABoardVO read(int num) throws Exception;
+
+   public void update(AdminQnABoardVO vo) throws Exception;
+
+   public void delete(int num) throws Exception;
+
 }
