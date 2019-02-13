@@ -13,18 +13,18 @@ nav{
 	font-size: 1.3vw;
 }
 .logo{
-	position:absolute;
+	position:relative;
 	width:7%;
 	left:3%;
 }
 
 /* 방 간략 소개 구간 */
 .roomExp{
-	position:absolute;
-	top:14%;
+	position:relative;
+	top:20px;
 	left:2%;
 	width:77%;
-	height:35%;
+	height:260px;
 	background-color:#b5a495;
 	font-size: 1.5vw;
 }
@@ -89,8 +89,8 @@ nav{
 
 /* 스케줄 */
 #showSchedule{
-	position:absolute;
-	top:51%;
+	position:relative;
+	top:45px;
 	left:2%;
 	width:74.5%;
 	height:15%;
@@ -161,8 +161,8 @@ input[type=date]{
 
 /* 내용 삽입 구간 */
 .content{
-	position:absolute;
-	top:72%;
+	position:relative;
+	top:70px;
 	left:2%;
 	width:70.8%;
 	height:auto;
@@ -186,8 +186,8 @@ input[type=date]{
 
 /* 리뷰 */
 .review{
-	position:absolute;
-	top:253%;
+	position:relative;
+	top:100px;
 	left:2%;
 	width:70.8%;
 	height:auto;
@@ -214,13 +214,14 @@ input[type=date]{
 }
 
 footer{
-	position:absolute;
-	bottom:-260%;
+	position:relative;
+	bottom:-200px;
 	left:2%;
 	font-size:1.23vw;
 }
 .sec{
-	position:absolute;
-	top:-40%;
+	position:relative;
+	top:-40;
 	left:0%;
+	width:78%;
 }

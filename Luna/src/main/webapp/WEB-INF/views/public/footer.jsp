@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<section class="sec" style="width:100%; height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
+<section class="sec" style="height:1%; border-top:1px solid darkgray; margin:0 1% 1% 0;"></section>
 &nbsp;Shining in the dark 
 &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;
 &emsp;&emsp;
