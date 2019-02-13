@@ -144,16 +144,13 @@
 <!-- 방소개 시작 -->
 <section class="f_roomExplain">
 <b style="text-decoration:underline;">방소개</b><br/>
-<textarea class="etx1" style="overflow-y:hidden" cols="115">
-방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개방소개
-방소개
-방소개
-방소개
-방소개
-방소개
-방소개
-방소개
-방소개
+<script>
+var str=$('#etx1').val();
+str=str.replaceAll("<br/>","\r\n");
+$('#etx1').val(str);
+</script>
+<textarea class="etx1" id="etx1" style="overflow-y:hidden" cols="115" disabled="disabled">
+${roomInfo.roomExplain}
 </textarea>
 <br/>
 <!-- 방 사진 -->
@@ -167,7 +164,7 @@
 <!-- 주의사항 시작 -->
 <section>
 <b style="color:gray; font-size:1.2vw;">※주의사항</b><br/>
-<textarea class="etx2" style="color:gray; overflow-y:hidden" cols="115">
+<textarea class="etx2" style="color:gray; overflow-y:hidden" cols="115" disabled="disabled">
 주의사항
 주의사항
 주의사항
@@ -179,7 +176,7 @@
 <!-- 위치설명 시작 -->
 <section>
 <b style="text-decoration:underline;">오시는 길</b><br/>
-<textarea class="etx3" style="overflow-y:hidden" cols="115">
+<textarea class="etx3" style="overflow-y:hidden" cols="115" disabled="disabled">
 왕십리역 2번출구 에서 직진후
 바로 보이는 골목으로 들어오시면 
 1층에 떡볶이집이 있는 빌딩 4층입니다^^
