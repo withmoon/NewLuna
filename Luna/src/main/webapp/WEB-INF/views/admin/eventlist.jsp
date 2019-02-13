@@ -73,7 +73,7 @@
         
         <div class="event-container">
       <div class="row">
-      <form action="event.ado" method="post">
+      <form action="eventlist.ado" method="post">
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>

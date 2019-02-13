@@ -51,43 +51,38 @@
    <br><br><br>
 
    <div class="container">
+   <form id="form1" name="form1" action="insert1.ado" method="post">
       <table class="table table-bordered">
          <thead>
          <caption>글쓰기</caption>
          </thead>
          <tbody>
-            <form action="writepro.jsp" method="post"
-               encType="multiplart/form-data">
-               <tr>
-                  <th>번호:</th>
-                  <td><input type="text" placeholder="number " name="number"
-                     class="form-control" /></td>
-               </tr>
-               
+            
                <tr>
                   <th>제목:</th>
-                  <td><input type="text" placeholder="subject" name="subject"
+                  <td><input type="text"  placeholder="subject" name="subject"
                      class="form-control" /></td>
                </tr>
                
                <tr>
                   <th>내용:</th>
-                  <td><textarea cols="10" placeholder="content " name="content"
+                  <td><textarea cols="10" rows="16" placeholder="content " name="content"
                         class="form-control"></textarea></td>
                </tr>
                <tr>
                   <th>작성일:</th>
-                  <td><input type="date" placeholder="date" name="date"
+                  <td><input type="date" placeholder="date" name="regdate"
                      class="form-control" /></td>
                </tr>
-               <tr>
-                  <td colspan="2"><input type="button" value="등록" onclick="sendData()" class="pull-right" /> 
-                  <input type="button" value="글 목록" class="pull-right" onclick="javascript:location.href='board.ado'" /> 
-               <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
-                    <a class="btn btn-default" type="reset"> reset </a>
-                    <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
+                <tr>
+                  <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
+                  <input type="button" value="글 목록"
+                     class="pull-right" onclick="javascript:location.href='event.ado'" />
+
+                     
                   </td>
                </tr>
+            
             </form>
          </tbody>
       </table>

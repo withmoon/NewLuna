@@ -7,6 +7,10 @@
    margin: 0px auto;
 }
 
+
+
+
+
 .event-container .top-navigate {
    list-style-type: square;
    display: flex;
@@ -84,9 +88,10 @@
    font-size: 15px;
    font-weight: 500;
    line-height: 45px;
+   line-width : 50px;
    margin: 35px 0px 0px 0px;
    color: #333;
-   border-bottom: 2px solid #333;
+   border-bottom: 1px solid #333;
    display: inline-block;
 }
 

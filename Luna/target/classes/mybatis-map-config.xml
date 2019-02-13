@@ -12,6 +12,9 @@
       <typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
        <typeAlias alias="roomFile" type="com.study.luna.user.dto.RoomFileDTO"/>
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>
+         <typeAlias alias="adminEventBoardVO" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
+  
+        
    </typeAliases>
  
    <mappers>

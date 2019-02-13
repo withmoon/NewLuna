@@ -4,6 +4,8 @@
 
 <mapper namespace="luna.admin.board">
 
+<!-- QnABoard -->
+
    	<insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
@@ -35,5 +37,36 @@
 
 		delete from adminqnaboard where num=#{num}
 	</delete>
+
+
+
+<!-- eventBoard  -->
+
+<insert id="insertEventBoard" parameterType="adminEventBoardVO">
+   <![CDATA[
+   insert into adminevent (num, subject, content, regdate)
+   values ((select nvl(max(num)+1, 1)from adminevent), #{subject}, #{content}, #{regdate} )
+   ]]>
+   </insert>
+   
+   <select id="listAlls" resultType="adminEventBoardVO">
+   select * from adminevent
+   </select>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>
