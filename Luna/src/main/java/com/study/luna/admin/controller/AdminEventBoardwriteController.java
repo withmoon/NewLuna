@@ -27,7 +27,7 @@ public class AdminEventBoardwriteController {
       public String insert(@ModelAttribute AdminEventBoardVO adminEventBoardVO) throws Exception {
 
       adminEventBoardService.insert(adminEventBoardVO);
-         return "eventlist";
+         return "redirect:/eventlist.ado";
       }
    
    

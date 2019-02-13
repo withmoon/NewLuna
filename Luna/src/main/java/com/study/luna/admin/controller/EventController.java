@@ -23,7 +23,7 @@ public class EventController {
     
     @RequestMapping(value="/event.ado", method=RequestMethod.GET)
      public String mainView() {
-        return "event";
+    	return "redirect:/eventlist.ado";
 }
 }
     

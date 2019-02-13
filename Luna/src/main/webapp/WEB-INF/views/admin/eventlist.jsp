@@ -81,17 +81,25 @@
                   <th style="background-color: #eeeeee; text-align: center;">번호</th>
                   <th style="background-color: #eeeeee; text-align: center;">제목</th>
                   <th style="background-color: #eeeeee; text-align: center;">내용</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
+                  <th style="background-color: #eeeeee; text-align: center;">작성자</th>
+                  <th style="background-color: #eeeeee; text-align: center;">이벤트시작일</th>
+                  <th style="background-color: #eeeeee; text-align: center;">이벤트종료일</th>
+                  <th style="background-color: #eeeeee; text-align: center;">이미지업로드</th>
+                  <th style="background-color: #eeeeee; text-align: center;">파일업로드</th>
                </tr>
             </thead>
             <tbody>
          
              <c:forEach var="row" items="${map.list}">
              <tr>
-             <td>${row.num}</td>
-             <td>${row.subject}</td>
+             <td>${row.seq}</td>
+             <td>${row.title}</td>
              <td>${row.content}</td>
-             <td>${row.regdate}</td>
+             <td>${row.writer}</td>
+               <td>${row.startdate}</td>
+                 <td>${row.enddate}</td>
+                   <td>${row.image}</td>
+                     <td>${row.files}</td>
              </tr>
              </c:forEach>
             </tbody>

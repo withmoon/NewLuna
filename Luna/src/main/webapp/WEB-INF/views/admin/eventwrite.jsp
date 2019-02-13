@@ -57,10 +57,10 @@
          <caption>글쓰기</caption>
          </thead>
          <tbody>
-            
+             
                <tr>
                   <th>제목:</th>
-                  <td><input type="text"  placeholder="subject" name="subject"
+                  <td><input type="text"  placeholder="title" name="title"
                      class="form-control" /></td>
                </tr>
                
@@ -70,10 +70,33 @@
                         class="form-control"></textarea></td>
                </tr>
                <tr>
-                  <th>작성일:</th>
-                  <td><input type="date" placeholder="date" name="regdate"
+                  <th>작성자:</th>
+                  <td><input type="text" placeholder="writer" name="writer"
                      class="form-control" /></td>
                </tr>
+                <tr>
+                  <th>이벤트시작일:</th>
+                  <td><input type="date"  placeholder="startdate" name="startdate"
+                     class="form-control" /></td>
+               </tr>
+                <tr>
+                  <th>이벤트종료일:</th>
+                  <td><input type="date"  placeholder="enddate" name="enddate"
+                     class="form-control" /></td>
+               </tr>
+                <tr>
+                  <th>이미지업로드:</th>
+                  <td><input type="text"  placeholder="image" name="image"
+                     class="form-control" /></td>
+               </tr>
+                <tr>
+                  <th>파일업로드:</th>
+                  <td><input type="text"  placeholder="files" name="files"
+                     class="form-control" /></td>
+               </tr>
+                
+               
+               
                 <tr>
                   <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
                   <input type="button" value="글 목록"
@@ -82,6 +105,7 @@
                      
                   </td>
                </tr>
+               
             
             </form>
          </tbody>

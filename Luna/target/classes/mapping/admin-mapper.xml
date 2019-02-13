@@ -44,8 +44,8 @@
 
 <insert id="insertEventBoard" parameterType="adminEventBoardVO">
    <![CDATA[
-   insert into adminevent (num, subject, content, regdate)
-   values ((select nvl(max(num)+1, 1)from adminevent), #{subject}, #{content}, #{regdate} )
+   insert into adminevent (seq, title, writer, content, startdate, enddate, image, files)
+   values  ( (select nvl(max(seq)+1,1) from adminevent ), #{title}, #{writer}, #{content}, #{startdate}, #{enddate}, #{image}, #{files})
    ]]>
    </insert>
    
@@ -53,8 +53,14 @@
    select * from adminevent
    </select>
    
+   
+   <select id="readlist" resultType="adminEventBoardVO">
+   
+   select * from adminevent where seq=#{seq}
+   
+   </select>
 
-
+ 
 
 
 

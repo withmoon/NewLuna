@@ -3,44 +3,71 @@ package com.study.luna.admin.model.vo;
 import java.sql.Date;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class AdminEventBoardVO {
-   private int num;
-      private String subject;
+   private int seq;
+   private String title;
+   private String writer;
+   
       private String content;
-      private Date regdate;
-      
-   public int getNum() {
-      return num;
-   }
-   public void setNum(int num) {
-      this.num = num;
-   }
-   public String getSubject() {
-      return subject;
-   }
-   public void setSubject(String subject) {
-      this.subject = subject;
-   }
-   public String getContent() {
-      return content;
-   }
-   public void setContent(String content) {
-      this.content = content;
-   }
-   public Date getRegdate() {
-      return regdate;
-   }
-   public void setRegdate(Date regdate) {
-      this.regdate = regdate;
-   }
-   @Override
-   public String toString() {
-      return "AdminEventBoardVO [num=" + num + ", subject=" + subject + ", content=" + content + ", regdate="
-            + regdate + "]";
-   }
-      
-      
-
+      private Date startdate;
+      private Date enddate;
+      private String image;
+      private String files;
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
+	}
+	public Date getEnddate() {
+		return enddate;
+	}
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getFiles() {
+		return files;
+	}
+	public void setFiles(String files) {
+		this.files = files;
+	}
+	@Override
+	public String toString() {
+		return "AdminEventBoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content
+				+ ", startdate=" + startdate + ", enddate=" + enddate + ", image=" + image + ", files=" + files + "]";
+	}
+	
 }
