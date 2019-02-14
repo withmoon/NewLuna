@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.study.luna.user.board.service.EventBoardService;
+import com.study.luna.admin.board.service.AdminEventBoardService;
 
 @Controller
 public class UserViewEventController {
 	@Autowired
-	EventBoardService evntBoardService;
+	AdminEventBoardService evntBoardService;
 	
 	//이벤트 상세보기
 	@RequestMapping(value="/viewEvent.udo", method=RequestMethod.GET)

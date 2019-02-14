@@ -8,7 +8,7 @@
       <typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
       <typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
       <typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
-      <typeAlias alias="eBoard" type="com.study.luna.user.board.vo.EventBoardVO"/>
+      <typeAlias alias="eBoard" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
       <typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
        <typeAlias alias="roomFile" type="com.study.luna.user.dto.RoomFileDTO"/>
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>

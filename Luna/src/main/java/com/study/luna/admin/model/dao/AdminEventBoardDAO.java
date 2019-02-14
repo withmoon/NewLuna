@@ -7,12 +7,17 @@ import com.study.luna.admin.model.vo.AdminEventBoardVO;
 
 public interface AdminEventBoardDAO {
 
-    public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//³Ö±â
+    public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//ï¿½Ö±ï¿½
     
     
-   public List<AdminEventBoardVO> listAlls() throws Exception;//¸®½ºÆ®ºÒ·¯¿À±â
+   public List<AdminEventBoardVO> listAlls() throws Exception;//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
     
-    //»ó¼¼º¸±â
-    //¼öÁ¤
-    //»èÁ¦
+    //ï¿½ó¼¼ºï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½
+   
+   /*user/event.jsp*/
+   public List<AdminEventBoardVO> eventList(AdminEventBoardVO ebVO); //ì§„í–‰ì´ë²¤íŠ¸ ëª©ë¡
+   public List<AdminEventBoardVO> eventEndList(AdminEventBoardVO ebVO); //ì§„í–‰ì´ë²¤íŠ¸ ëª©ë¡
+   public AdminEventBoardVO read(int seq) throws Exception; //ì´ë²¤íŠ¸ ìƒì„¸ë³´ê¸°
 }

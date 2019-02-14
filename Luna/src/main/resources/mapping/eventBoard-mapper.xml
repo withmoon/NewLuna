@@ -2,13 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="eventBoardDAO">
-	<!-- 이벤트 목록 -->
+	<!-- 진행이벤트 목록 -->
 	<select id="eventList" resultType="eBoard">
-		select * from eventboard
+		select * from adminqnaboard where startdate>sysdate
+	</select>
+	
+	<!-- 마감인벤트목록 -->
+	<select id="eventEndList" resultType="eBoard">
+		select * from adminqnaboard where sysdate>enddate
 	</select>
 	
 	<!-- 이벤트 상세보기 -->
 	<select id="viewEvent" resultType="eBoard">
-		select * from eventboard where seq=#{seq}
+		select * from adminqnaboard where seq=#{seq}
 	</select>
 </mapper>
