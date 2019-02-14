@@ -3,7 +3,6 @@ package com.study.luna.pub.member.service;
 import java.util.List;
 
 import com.study.luna.pub.command.MemberCommand;
-import com.study.luna.user.board.vo.EventBoardVO;
 
 public interface MemberService {
 	Integer idCheck(MemberCommand memcom);
