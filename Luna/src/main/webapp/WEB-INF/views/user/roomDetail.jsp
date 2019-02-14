@@ -131,7 +131,7 @@
 입니다.<br/><br/>
 </c:if>
 가격: 40000 원
-<button class="rsbtn" onclick="kakapop()">예약&amp;결제</button>
+<a onclick="kakapop()"><img class="rsbtn" src="<c:url value="/resources/user/roomDetail/images/payment_icon_yellow_medium.png"/>;"></a>
 </div>
 
 <!-- 스프링 효과 -->

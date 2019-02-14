@@ -62,7 +62,7 @@
 		"redirectToUrlWithMethod": moveToUrl
 	};
 
-})(jQuery);
+});
 
 
 

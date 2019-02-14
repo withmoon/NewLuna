@@ -7,20 +7,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/kakaopay/tesla/20180108/pg_web/css/common.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-    <script src="//t1.daumcdn.net/kakaopay/tesla/20180108/pg_web/js/lib/jquery.min.js"></script>
+    <script src="<c:url value="http://t1.daumcdn.net/kakaopay/tesla/20180108/pg_web/js/lib/jquery.min.js"/>"></script>
+    <script src="<c:url value="http://t1.daumcdn.net/kakaopay/tesla/20180108/pg_web/js/lib/spin.min.js"/>"></script>
 
-<script>
-        var hash = "74bc05bfac2157024721d4f44f0cd38c5aa2ac1b852d388bc63c683c8e8002cc";
-        var failUrl = "https://developers.kakao.com/payment/web/fail/dcdea86d-f5ca-4a7c-875b-912810506405";
-        var remainingSec = 899;
-        var cancelUrl = "https://developers.kakao.com/payment/web/cancel/dcdea86d-f5ca-4a7c-875b-912810506405";
-        var isCancelPost = false;
-        var isFailPost = false;
-        var isApprovalPost = false;
-</script>
-<script type="text/javascript" src="js/common_payment.js"></script>
-<script type="text/javascript" src="js/user_info.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/user_info.js?v=version"/>"></script>
+
 
 </head>
 <body>
@@ -62,16 +53,17 @@
             </div>
             <div class="layer_foot">
                 <button id="confirmCancelButton" class="btn_layer2">취소</button>
-                <button id="confirmOkButton" class="btn_layer2">확인</button>
+                <button id="confirmOkButton" class="btn_layer2" onclick="javascript:self.close()">확인</button>
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
 
     <!-- /* ---------------------------------- 곧 제거 될 것 임 ------------------------------------------ */ -->
-    function closeTalkPgWebview() {
+	 function closeTalkPgWebview() {
         
         window.location = "app://kakaopay/close";
     }
@@ -113,7 +105,7 @@
         };
 
         $("#confirmOkButton").click(function () {
-        	self.close();
+        	//self.close();
             onOk();
         });
         $("#confirmCancelButton").click(function () {
@@ -124,7 +116,6 @@
         });
     }
     <!-- /* ---------------------------------- 곧 제거 될 것 임 ------------------------------------------ */ -->
-
 
     (function() {
         function closeTalkPgWebview() {
@@ -198,7 +189,7 @@
 			</div>
 			<div class="layer_body">
 				<p class="txt_step">결제요청 메시지 전송을 위해<br> 카카오페이에 가입된<br>휴대폰 번호와 생년월일 6자리를 입력해주세요.</p>
-				<form id="userPost" method="post" action="/v1/74bc05bfac2157024721d4f44f0cd38c5aa2ac1b852d388bc63c683c8e8002cc/uinfo" >
+				<form id="userPost" method="post" action="kakaopayReady.udo" >
 					<fieldset>
 						<legend class="screen_out">휴대폰 번호 및 생년월일 입력</legend>
 						<div class="info_data">

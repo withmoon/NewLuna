@@ -18,16 +18,6 @@ var userInfo = (function (jq) {
 		jq("#tfPhone").on("change keyup paste input cut", checkTelFormat);
 		jq("#tfBirthday").on("change keyup paste input cut", checkBirthdayFormat);
 
-		/*[-
-		 *	핸드폰번호, 생년월일 제출
-		 * -]*/
-		jq("#userPost").submit(function (e) {
-			var tel = jq("#tfPhone").val();
-			var birthDate = jq("#tfBirthday").val();
-			e.preventDefault();
-			sendUserInfo(tel, birthDate);
-		});
-
 		jq(".btn_close").on('click', function () {
             teslaBaseCommon.payConfirm(paymentStopMsg,
 				function(){return teslaCommonPayment.paymentStop(hash, isCancelPost, blockUserEvents, "#actionPost");}
@@ -90,28 +80,6 @@ var userInfo = (function (jq) {
 				e.preventDefault();
 			}
 		)
-	}
-
-	function sendUserInfo(tel, birthDate) {
-		var tmsInfo = {tel: tel, birthDate: birthDate};
-		jq.ajax({
-			type: "POST",
-			url : '/v1/'+hash+'/uinfo',
-			data: tmsInfo
-		}).done(function (data, status) {
-			/*[- *	동일 url GET 요청 * -]*/
-			location.reload(true);
-		}).fail(function ($xhr, status) {
-			var response = $xhr.responseJSON;
-
-			if ($xhr.status == 500) {
-                teslaBaseCommon.payAlert(response.client_message,
-                    function() {return teslaCommonPayment.redirectToUrlWithMethod(isFailPost, failUrl, "#actionPost");}
-                );
-            }
-
-            teslaBaseCommon.payAlert(response.client_message);
-		})
 	}
 
 	return {
