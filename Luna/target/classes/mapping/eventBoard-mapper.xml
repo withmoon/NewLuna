@@ -4,16 +4,16 @@
 <mapper namespace="eventBoardDAO">
 	<!-- 진행이벤트 목록 -->
 	<select id="eventList" resultType="eBoard">
-		select * from adminqnaboard where startdate>sysdate
+		select * from adminevent where enddate>sysdate
 	</select>
 	
 	<!-- 마감인벤트목록 -->
 	<select id="eventEndList" resultType="eBoard">
-		select * from adminqnaboard where sysdate>enddate
+		select * from adminevent where sysdate>enddate
 	</select>
 	
 	<!-- 이벤트 상세보기 -->
 	<select id="viewEvent" resultType="eBoard">
-		select * from adminqnaboard where seq=#{seq}
+		select * from adminevent where seq=#{seq}
 	</select>
 </mapper>

@@ -25,13 +25,13 @@
 	<section>
 		<!-- 회원정보 -->
 		<div class="myinformation">
-			<img src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<img class="line" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 			<p>${member.name}님 환영합니다.</p>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}
 			<button class="update" onclick="showUpdateForm()">정보수정</button><br>
 			<div class="deer"><img alt="" src="<c:url value="/resources/user/mypage/images/deer.png"/>"></div>
-			<img alt="" src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<img class="line" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>
 		
 		<!-- 즐겨찾기 -->

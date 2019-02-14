@@ -7,23 +7,22 @@ header{
 	float:right;
 }
 .topUl li a{
-	font-size: 1.3vw;
+	font-size: 1.8vw;
 }
-
-/* 상단로고 */
 .logo{
 	position:absolute;
-	width:5%;
+	width:9%;
 	left:10%;
 }
 
+/* 타이틀 */
 .top{
 	position:absolute;
-	top:3%;
-	left:15%;
+	top:4%;
+	left:20%;
 	width:auto;
 	text-align:center;
-	font-size: 2vw;
+	font-size: 3vw;
 	color: #686868; 
 }
 
@@ -31,9 +30,11 @@ header{
 .myinformation{
 	position: absolute;
 	top: 15%;
-	left: 18%;
+	left: 5%;
 	font-size: x-large
 }
+
+img { width:95%; }
 
 p{
 	color: #686868;
@@ -104,10 +105,11 @@ p{
 	top:1px;
 }
 
+/*사슴*/
 .deer {
 	position:absolute;
 	right: 30%;
-	top:23%;
+	top:28%;
 	font-size:medium;
 	background-color: white;
 }
@@ -117,7 +119,7 @@ p{
 	position:absolute;
 	font-size: xx-large;
 	top: 39%;
-	left: 18%;
+	left: 5%;
 }
 
 .favorites2 {
@@ -155,13 +157,13 @@ table td {
 	position:absolute;
 	font-size: xx-large;
 	top: 72%;
-	left: 18%;
+	left: 5%;
 }
 
 .line2 {
 	position:absolute;
 	top:83%;
-	left: 18%;
+	left: 5%;
 }
 
 input[type=date]{
@@ -172,8 +174,8 @@ input[type=date]{
 
 .schedule {
 	position:absolute;
-	top:81%;
-	right:35%;
+	top:80%;
+	right:26%;
 	font-size: x-large;
 	color: white;
 }
@@ -181,13 +183,13 @@ input[type=date]{
 .noroom {
 	position:absolute;
 	top: 93%;
-	left: 38%;
+	left: 28%;
 }
 
 .reservation2 {
 	position: absolute;
-	top: 92%;
-	left: 48%;
+	top: 91%;
+	left: 45%;
 	font-size: large;
 }
 
@@ -203,7 +205,7 @@ input[type=date]{
 	position:absolute;
 	font-size: xx-large;
 	top: 139%;
-	left: 18%;
+	left: 5%;
 }
 
 .notification2 {
@@ -216,8 +218,6 @@ input[type=date]{
 /* footer */
 footer{
 	position:absolute;
-	bottom: -85%;
-	left:15%;
+	bottom:-90%;
 	margin:0 -5% 0 0;
-	z-index: -1;
 }

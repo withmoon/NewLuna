@@ -31,9 +31,9 @@
 </div>
 </section>
 
-
 <section class="list_tab">
-<table>
+<!-- 진행 이벤트 목록 -->
+<table class="eventNow2">
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
@@ -49,32 +49,33 @@
 		<td>${event.startDate } ~ ${event.endDate }</td>
 	</tr>
 	</c:forEach>
-<!-- <tr>
-<td>1</td>
-<td><a href="showForm.jsp">☆5월 이벤트☆</a></td>
-<td>2019-01-01 ~ 2019-01-01</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td><a href="showForm.jsp">☆4월 이벤트☆</a></td>
-<td>2019-01-01 ~ 2019-01-01</td>
-</tr>
-<tr>
-<td>3</td>
-<td><a href="showForm.jsp">☆3월 이벤트☆</a></td>
-<td>2019-01-01 ~ 2019-01-01</td>
-</tr>
-<tr>
-<td>4</td>
-<td><a href="showForm.jsp">☆2월 이벤트☆</a></td>
-<td>2019-01-01 ~ 2019-01-01</td>
-</tr>
-<tr>
-<td>5</td>
-<td><a href="showForm.jsp">☆1월 이벤트☆</a></td>
-<td>2019-01-01 ~ 2019-01-01</td>
-</tr> -->
+	<%-- <c:forEach items="${entEventList }" var="endEvent">
+	<tr>
+		<td>${endEvent.seq }</td>
+		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
+			${endEvent.title }</a></td>
+		<td>${endEvent.writer }</td>
+		<td>${endEvent.startDate } ~ ${endEvent.endDate }</td>
+	</tr>
+	</c:forEach> --%>
+</table>
+<!-- 종료 이벤트 목록 -->
+<table class="eventFinsh2">
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>날짜</th>
+	</tr>
+	<c:forEach items="${endEventList }" var="endEvent">
+	<tr>
+		<td>${endEvent.seq }</td>
+		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
+			${endEvent.title }</a></td>
+		<td>${endEvent.writer }</td>
+		<td>${endEvent.startDate } ~ ${endEvent.endDate }</td>
+	</tr>
+	</c:forEach>
 </table>
 </section>
 <div class="pnum"><a href="#">[이전]</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">[다음]</a></div>
