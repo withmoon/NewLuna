@@ -18,7 +18,7 @@ public class UserViewEventController {
 	
 	//이벤트 상세보기
 	@RequestMapping(value="/viewEvent.udo", method=RequestMethod.GET)
-	public ModelAndView viewEventView(@RequestParam int seq, HttpSession session) throws Exception {
+	public ModelAndView viewEventView( int seq, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("viewEvent");
 		mav.addObject("ebv", evntBoardService.read(seq));

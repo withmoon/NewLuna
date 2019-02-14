@@ -7,28 +7,32 @@ header{
 	float:right;
 }
 .topUl li a{
-	font-size: 1.3vw;
+	font-size: 1.8vw;
 }
-
-/* 상단로고 */
 .logo{
-	position:relative;
-	width:5%;
+	position:absolute;
+	width:9%;
 	left:10%;
 }
 
+/* 타이틀 */
 .top{
 	position:absolute;
-	top:3%;
-	left:16%;
+	top:4%;
+	left:20%;
 	width:auto;
 	text-align:center;
-	font-size: 2vw;
+	font-size: 3vw;
 	color: #686868; 
 }
 
 /*배너*/
-#banner img{
+.banner {
+	position:absolute;
+	top:15%;
+}
+
+#banner {
 	width:80%;
 	height:10%;
 }
@@ -37,8 +41,7 @@ header{
 .whole {
 	clear:both; 
 	position:absolute; 
-	/*float: left; */
-	top:30%;
+	top:37%;
 	width: 10%;
 	left: 25%;
 
@@ -49,7 +52,7 @@ header{
 	position:absolute;
 	width: 40%;
 	left: 30%;
-	top: 13%;;
+	top: 20%;
 	z-index: 1;
 	font-size: 1m;
 	line-height: 1.5em;
@@ -67,8 +70,7 @@ header{
 .previous {
 	clear:both; 
 	position:absolute; 
-	/*float: left; */
-	top:30%;
+	top:37%;
 	width: 10%; 
 	left: 45%;
 }
@@ -78,7 +80,7 @@ header{
 	position:absolute;
 	width: 40%;
 	left: 30%;
-	top: 13%;
+	top: 20%;
 	z-index: 1;
 	font-size: 1em;
 	line-height: 1.5em;
@@ -96,8 +98,7 @@ header{
 .accumulate {
 	clear:both; 
 	position:absolute; 
-	/*float: left; */
-	top:30%;
+	top:37%;
 	width: 10%;  
 	left: 65%;
 }
@@ -107,7 +108,7 @@ header{
 	position:absolute;
 	width: 40%;
 	left: 30%;
-	top: 13%;;
+	top: 20%;
 	z-index: 1;
 	font-size: 1em;
 	line-height: 1.5em;
@@ -132,6 +133,18 @@ select {
  border-color : #836e5b;
 }
 
+#sido_select{
+	position:absolute;
+	top: 45%;
+	left:35%;
+}
+
+#gugun_select{
+	position:absolute;
+	top: 45%;
+	left:48%;
+}
+
 /*button*/
 button{
     background-color: #836e5b;
@@ -142,7 +155,11 @@ button{
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    position:relative;
+    top:327px;
+    left:620px;
 }
+
 button:hover{
     background-color: #bb9540;
 }

@@ -4,7 +4,7 @@
 <mapper namespace="eventBoardDAO">
 	<!-- 진행이벤트 목록 -->
 	<select id="eventList" resultType="eBoard">
-		select * from adminevent where enddate>sysdate
+		select * from adminevent where enddate > sysdate
 	</select>
 	
 	<!-- 마감인벤트목록 -->

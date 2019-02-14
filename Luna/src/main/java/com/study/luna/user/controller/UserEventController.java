@@ -1,11 +1,15 @@
 package com.study.luna.user.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminEventBoardService;
@@ -28,12 +32,21 @@ public class UserEventController {
 	}
 	
 	//마감
-	@RequestMapping(value="/event.udo")
-	public ModelAndView eventEndView(AdminEventBoardVO ebVO) {
-		List<AdminEventBoardVO> eventEndList = evntBoardService.eventEndList(ebVO);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("eventEndList", eventEndList);
+	@RequestMapping(value="/eventChange.udo", method=RequestMethod.GET)
+	public @ResponseBody List<AdminEventBoardVO> eventEndView(AdminEventBoardVO adebv,@RequestParam(value="eEvnet", required=false,defaultValue="")String eEvent) {
 
-		return mav;
+		List<AdminEventBoardVO> eventList = new ArrayList<AdminEventBoardVO>();	
+		if(eEvent=="end") {
+			adebv.setSeq(4);
+			adebv.setTitle("종료된 이벤트");
+			adebv.setWriter("종료됐지롱");
+			adebv.setStartdate(new Date());
+			adebv.setEnddate(new Date());
+			eventList.add(adebv);
+		}else {
+			eventList = evntBoardService.eventList(adebv);
+		}
+		return eventList;
 	}
+	
 }

@@ -25,6 +25,10 @@
 	<section>
 	<!-- 배너 -->
 	<div>
+		<div align="center"  class="banner">
+			<img id="banner" src="<c:url value="/resources/user/home/images/studyhome.png"/>" >
+		</div>
+		
 		<div onmouseover="view1(true)" onmouseout="view1(false)">
     		<img class="whole" alt="전체지점수" src="<c:url value="/resources/user/home/images/whole.png"/>"
 				onmouseout="this.src='<c:url value="/resources/user/home/images/whole.png"/>'"
@@ -52,11 +56,8 @@
     		<b>22,712명 고객님들이 증명합니다</b><br> <!-- 전일 : 현재날짜에서 하루 빠진 날의 예약 수 count(*)  전월 : 현재날짜에서 한달빼고 나온 월의 예약수 count-->
         	전일 예약수 : 1,934명  전월예약 수 : 20,098명
         </div>
-		<div align="center"  id="banner">
-			<img alt="studyhome" src="<c:url value="/resources/user/home/images/studyhome.png"/>" >
-		</div>
 	</div>
-
+	
 	<!-- 선택창 -->
 	<!-- 시/도 -->
 	<div align="center">
@@ -68,9 +69,8 @@
 	</select>
 	<!-- 시/군/구 -->
 	<select name="gugun" id="gugun_select"></select>
-	
 	<button class="btn_find" onclick="findRoom()">찾기</button><p>
-	</div>&nbsp;
+	</div>
 	<!-- 여기까지 선택창 -->
 	
 	<!-- 인기순/조회수/new -->

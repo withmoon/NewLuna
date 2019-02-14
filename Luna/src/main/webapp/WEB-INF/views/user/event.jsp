@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +26,8 @@
 <section>
 <div class="event-container">
 	<ul class="eventTap">
-		<li>진행중인이벤트</li>
-		<li>종료된이벤트</li>
+		<li><a onclick="eventChanging()">진행중인이벤트</a></li>
+		<li><a onclick="eventChange()">종료된이벤트</a></li>
 	</ul>
 </div>
 </section>
@@ -40,43 +41,19 @@
 		<th>작성자</th>
 		<th>날짜</th>
 	</tr>
+	<tbody id="my-tbody">
 	<c:forEach items="${eventList }" var="event">
-	<tr>
+		<<tr>
 		<td>${event.seq }</td>
 		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${event.title }</a></td>
 		<td>${event.writer }</td>
-		<td>${event.startDate } ~ ${event.endDate }</td>
-	</tr>
+		<td><fmt:formatDate value="${event.startdate }" pattern="yy/MM/dd" /> ~ <fmt:formatDate value="${event.enddate }" pattern="yy/MM/dd" /></td>
+		</tr>
 	</c:forEach>
-	<%-- <c:forEach items="${entEventList }" var="endEvent">
-	<tr>
-		<td>${endEvent.seq }</td>
-		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
-			${endEvent.title }</a></td>
-		<td>${endEvent.writer }</td>
-		<td>${endEvent.startDate } ~ ${endEvent.endDate }</td>
-	</tr>
-	</c:forEach> --%>
+	</tbody>
 </table>
-<!-- 종료 이벤트 목록 -->
-<table class="eventFinsh2">
-	<tr>
-		<th>번호</th>
-		<th>제목</th>
-		<th>작성자</th>
-		<th>날짜</th>
-	</tr>
-	<c:forEach items="${endEventList }" var="endEvent">
-	<tr>
-		<td>${endEvent.seq }</td>
-		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
-			${endEvent.title }</a></td>
-		<td>${endEvent.writer }</td>
-		<td>${endEvent.startDate } ~ ${endEvent.endDate }</td>
-	</tr>
-	</c:forEach>
-</table>
+
 </section>
 <div class="pnum"><a href="#">[이전]</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">[다음]</a></div>
 

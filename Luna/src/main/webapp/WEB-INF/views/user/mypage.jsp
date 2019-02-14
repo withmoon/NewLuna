@@ -160,13 +160,11 @@
 		<table class="notification2">
 			<tbody>
 				<tr>
-					<td><img alt="" src="<c:url value="/resources/user/mypage/images/message1.png"/>"></td>
 					<td>관리자</td>
 					<td>서울지점 예약이 취소되었습니다.</td>
 					<td>01.05 11:50</td>
 				</tr>
 				<tr>
-					<td><img alt="" src="<c:url value="/resources/user/mypage/images/message2.png"/>"></td>
 					<td>관리자</td>
 					<td>서울지점 환불처리 완료</td>
 					<td>12.21 08:00</td>
