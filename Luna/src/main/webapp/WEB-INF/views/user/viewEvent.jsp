@@ -17,12 +17,15 @@
 <img class="line1" src="<c:url value="/resources/user/viewEvent/images/line1.png"/>">
 <p><b>${ebv.title }</b>
 <span class="date">
-	<fmt:formatDate value="${ebv.startDate }"></fmt:formatDate> ~ <fmt:formatDate value="${ebv.endDate }"></fmt:formatDate>
+	<fmt:formatDate value="${ebv.startdate }" pattern="yy-MM-dd" /> ~ <fmt:formatDate value="${ebv.enddate }" pattern="yy-MM-dd" />
 </span></p>
 <img class="line2" src="<c:url value="/resources/user/viewEvent/images/line2.png"/>">
 </header>
 <section>
-<div>${ebv.content }</div>
+<div>
+	${ebv.content } <p>
+	${ebv.image }
+</div>
 <img class="line1" src="<c:url value="/resources/user/viewEvent/images/line1.png"/>"><p>
 <button type="button" onclick="windowClose()">닫기</button>
 </section>

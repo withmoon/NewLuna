@@ -35,14 +35,10 @@ public class UserEventController {
 	@RequestMapping(value="/eventChange.udo", method=RequestMethod.GET)
 	public @ResponseBody List<AdminEventBoardVO> eventEndView(AdminEventBoardVO adebv,@RequestParam(value="eEvnet", required=false,defaultValue="")String eEvent) {
 
+		System.out.println("eEvent ==> "+eEvent);
 		List<AdminEventBoardVO> eventList = new ArrayList<AdminEventBoardVO>();	
-		if(eEvent=="end") {
-			adebv.setSeq(4);
-			adebv.setTitle("종료된 이벤트");
-			adebv.setWriter("종료됐지롱");
-			adebv.setStartdate(new Date());
-			adebv.setEnddate(new Date());
-			eventList.add(adebv);
+		if(eEvent.equals("end")) {
+			eventList = evntBoardService.eventEndList(adebv);
 		}else {
 			eventList = evntBoardService.eventList(adebv);
 		}

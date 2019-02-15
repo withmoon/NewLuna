@@ -26,8 +26,8 @@
 <section>
 <div class="event-container">
 	<ul class="eventTap">
-		<li><a onclick="eventChanging()">진행중인이벤트</a></li>
-		<li><a onclick="eventChange()">종료된이벤트</a></li>
+		<li class="eventNow">진행중인이벤트</li>
+		<li class="eventFinsh">종료된이벤트</li>
 	</ul>
 </div>
 </section>
@@ -43,12 +43,12 @@
 	</tr>
 	<tbody id="my-tbody">
 	<c:forEach items="${eventList }" var="event">
-		<<tr>
+		<tr>
 		<td>${event.seq }</td>
 		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${event.title }</a></td>
 		<td>${event.writer }</td>
-		<td><fmt:formatDate value="${event.startdate }" pattern="yy/MM/dd" /> ~ <fmt:formatDate value="${event.enddate }" pattern="yy/MM/dd" /></td>
+		<td><fmt:formatDate value="${event.startdate }" pattern="yy-MM-dd" /> ~ <fmt:formatDate value="${event.enddate }" pattern="yy-MM-dd" /></td>
 		</tr>
 	</c:forEach>
 	</tbody>

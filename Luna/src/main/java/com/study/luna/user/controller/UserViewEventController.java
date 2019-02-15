@@ -14,14 +14,14 @@ import com.study.luna.admin.board.service.AdminEventBoardService;
 @Controller
 public class UserViewEventController {
 	@Autowired
-	AdminEventBoardService evntBoardService;
+	AdminEventBoardService eventBoardService;
 	
 	//이벤트 상세보기
 	@RequestMapping(value="/viewEvent.udo", method=RequestMethod.GET)
 	public ModelAndView viewEventView( int seq, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("viewEvent");
-		mav.addObject("ebv", evntBoardService.read(seq));
+		mav.addObject("ebv", eventBoardService.read(seq));
 		return mav;
 	}
 }
