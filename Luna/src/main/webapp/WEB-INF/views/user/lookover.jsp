@@ -51,43 +51,16 @@
 
 <!-- 검색결과 보여주는 곳 -->
 <div class="showRoom" style="overflow-y:scroll;">
-<div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafe8.jpg"/>"></a><br/>
-<a href="#">첫번째이미지</a><br/>
-<label>설명1</label><br/>
-<label>설명2설명2</label><br/>
-<label>설명3설명3설명3</label>
-</div>
 
+<c:forEach var="roomList" items="${roomList}">
 <div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafeGp.jpg"/>"></a><br/>
-<a href="#">두번째이미지</a><br/>
-<label>설명1</label><br/>
-<label>설명2설명2설명2설명2</label><br/>
-<label>설명3설명3설명3</label>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="/room/${roomList.fname}"/></a><br/>
+<a href="#">${roomList.roomName}</a><br/>
+<label>${roomList.roomEx1}</label><br/>
+<label>${roomList.roomEx2}</label><br/> 
+<label>${roomList.roomEx3}</label>
 </div>
-<div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/WinunStudyCafe.jpg"/>"></a><br/>
-<a href="#">세번째이미지</a><br/>
-<label>설명1</label><br/>
-<label>설명2설명2설명2설명2</label><br/>
-<label>설명3설명3설명3설명3설명3</label>
-</div>
-<div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/TheBigStudyCafeGp2.png"/>"></a><br/>
-<a href="#">네번째이미지</a><br/>
-<label>설명1</label><br/>
-<label>설명2설명2설명2설명2</label><br/>
-<label>설명3설명3설명3설명3설명3</label>
-</div>
-
-<div class="showView">
-<a href="#"><img src="<c:url value="/resources/user/lookover/sampleImg/HollicStudyCafeCt.jpg"/>"></a><br/>
-<a href="#">다섯번째이미지</a><br/>
-<label>설명1</label><br/>
-<label>설명2설명2설명2설명2</label><br/>
-<label>설명3설명3설명3설명3설명3</label>
-</div>
+</c:forEach>
 
 </div>
 

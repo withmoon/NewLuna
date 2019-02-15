@@ -30,7 +30,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public RoomInfoDTO getRoomInfo(RoomInfoDTO romin) {
+	public List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin) {
 		return grifDAOImpl.getRoomInfo(romin);
 	}
 

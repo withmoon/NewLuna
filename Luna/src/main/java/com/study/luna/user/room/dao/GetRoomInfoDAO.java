@@ -1,7 +1,9 @@
 package com.study.luna.user.room.dao;
 
+import java.util.List;
+
 import com.study.luna.user.dto.RoomInfoDTO;
 
 public interface GetRoomInfoDAO {
-	RoomInfoDTO getRoomInfo(RoomInfoDTO romin);
+	List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin);
 }

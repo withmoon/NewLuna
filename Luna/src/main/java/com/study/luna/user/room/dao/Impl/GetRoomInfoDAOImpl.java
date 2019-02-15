@@ -1,5 +1,7 @@
 package com.study.luna.user.room.dao.Impl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,8 +16,8 @@ public class GetRoomInfoDAOImpl implements GetRoomInfoDAO {
 	SqlSessionTemplate sqlSession;
 	
 	@Override
-	public RoomInfoDTO getRoomInfo(RoomInfoDTO romin) {
-		return sqlSession.selectOne("roomDAO.getRoomInfo",romin);
+	public List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin) {
+		return sqlSession.selectList("roomDAO.getRoomInfo",romin);
 	}
 
 }

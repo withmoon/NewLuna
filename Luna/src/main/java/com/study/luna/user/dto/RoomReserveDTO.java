@@ -9,5 +9,5 @@ import lombok.Setter;
 public class RoomReserveDTO {
 	int roomNum;
     String reservstate;
-    Date regdate;
+    Date startdate;
 }

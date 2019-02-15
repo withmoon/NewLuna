@@ -8,5 +8,5 @@ public interface RoomService {
 	List<String> getSido();
 	List<String> getGugun(String sido);
 	
-	RoomInfoDTO getRoomInfo(RoomInfoDTO romin);
+	List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin);
 }

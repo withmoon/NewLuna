@@ -25,8 +25,8 @@ public class UserRoomDetailController {
 		memcom = (MemberCommand) session.getAttribute("member");
 		session.setAttribute("member", memcom);
 		
-		roomInfo.setRoomNum(1);
-		roomInfo=romser.getRoomInfo(roomInfo);
+		//roomInfo.setRoomNum(1);
+		//roomInfo=romser.getRoomInfo(roomInfo);
 		
 		mav.addObject("roomInfo",roomInfo);
 		mav.addObject("member", session.getAttribute("member"));

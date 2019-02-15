@@ -17,4 +17,6 @@ public class RoomInfoDTO {
 	String roomWarn;
 	String comeRoute;
 	String roomLocate;
+	
+	String fname;
 }
