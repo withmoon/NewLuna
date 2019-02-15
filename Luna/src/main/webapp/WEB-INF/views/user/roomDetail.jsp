@@ -18,6 +18,12 @@
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/rdjsgroup.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
+  
+  <form id="theForm" action="mypage.udo" method="POST">
+    	<input type="hidden" id="theField" name="theField">
+    	<br><input hidden="true" type="submit" value="Send" onclick="window.open('kakaopay.udo','','height=400,width=400'); return false;">
+  </form>
+  
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
@@ -218,7 +224,7 @@ ${roomInfo.comeRoute}
 <br/>
 <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
 <br/>
-<input type="text" size="120"><button>후기 올리기</button>
+<input type="text" size="110"><button>후기 올리기</button>
 </section>
 
 

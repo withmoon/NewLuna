@@ -43,19 +43,20 @@ public class UserMypageController {
 	}
 	
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.POST)
-	public ModelAndView mainView(RedirectAttributes rdab,MemberCommand memcom,HttpSession session) throws Exception{
+	public ModelAndView mainView(HttpServletRequest req,RedirectAttributes rdab,MemberCommand memcom,HttpSession session) throws Exception{
 		ModelAndView mav=new ModelAndView();
+		String msg=req.getParameter("theField");
 		
 		MemberCommand memcomID=(MemberCommand)session.getAttribute("member");
-		
 		memcom.setId(memcomID.getId());
-		
-		SHA256 sha=SHA256.getInsatnce();
-		String shaPass=sha.getSha256(memcom.getPw().getBytes());
-		memcom.setPw(shaPass);
-		
-		memser.upUserInfo(memcom);
-
+		if(msg==null) {
+			SHA256 sha=SHA256.getInsatnce();
+			String shaPass=sha.getSha256(memcom.getPw().getBytes());
+			memcom.setPw(shaPass);
+			memser.upUserInfo(memcom);
+		}else {
+			System.out.println("실례하겠숩다!~"+msg);
+		}
 		rdab.addFlashAttribute("id", memcom.getId());
 		mav.setViewName("redirect:/mypage.udo");
 		return mav;	
