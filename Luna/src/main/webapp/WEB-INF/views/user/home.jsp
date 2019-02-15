@@ -74,29 +74,29 @@
 	<!-- 여기까지 선택창 -->
 	
 	<!-- 인기순/조회수/new -->
-	<div align="center">
-		<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">	인기순	<img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+	<div class="roomTable" align="center">
+		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	인기순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table border="0">
 			<tr>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
+				<td><img class="roomImage"" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
 			</tr>
 			<tr>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
 			</tr>
 		</table>
-		<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">	조회순	<img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	조회순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table border="0">
 			<tr>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room1.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room2.png"/>" width="400" height="250"></td>
-				<td><img alt="" src="<c:url value="/resources/user/home/images/room3.png"/>" width="400" height="250"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
+				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
 			</tr>
 		</table>
-	<p><img alt="" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img alt="" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+	<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
    </div>
    </section>
    

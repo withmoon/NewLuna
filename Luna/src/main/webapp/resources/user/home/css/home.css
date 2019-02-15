@@ -157,7 +157,7 @@ button{
     cursor: pointer;
     position:relative;
     top:327px;
-    left:620px;
+    left:340px;
 }
 
 button:hover{
@@ -196,10 +196,15 @@ p{ font-size : 40px; color : #836e5b; }
 
 .roomImage { width: 300px; }
 
+.roomTable {
+	position: relative;
+	top: 300px;
+}
+
  /* 리뷰 */
 .review{
    position:absolute;
-   /* top:220%; */
+   top:195%; 
    left:19%;
    width:56%;
    height:auto;
@@ -225,10 +230,10 @@ p{ font-size : 40px; color : #836e5b; }
    border-color:#fdc606;
 }
 
-/* footer */
+
 /* footer */
 footer{
 	position:absolute;
-	top:300%;
+	top:270%;
 	margin:0 -5% 0 0;
 }
