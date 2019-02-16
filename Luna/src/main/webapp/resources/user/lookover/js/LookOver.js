@@ -60,6 +60,7 @@ $('document').ready(function() {
 
 });
 
+//날짜 입력후 ajax로 데이터 처리
 function findCanReservRoom(){
 	var sido=$("#sido_select option:selected").val();
 	var gugun=$("#gugun_select option:selected").val();

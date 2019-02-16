@@ -15,10 +15,13 @@
 	
 	<!-- 방정보 가져오기 for LookOver -->
 	<select id="getRoomInfo" resultType="roomInfo">
-		<![CDATA[select branchName,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
-				 join roomfile romf on rom.roomNum=romf.roomNum where romf.filenum=1]]>
+		<![CDATA[select rom.branchName,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
+				 join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName 
+				 where romf.filenum=1 ]]>
+		<if test="sidogugun!=''">
+		<![CDATA[ and mem.branchAddr1 like #{sidogugun}||'%']]>
+		</if>
 	</select>
-	
 	<!-- 방상세 정보 가져오기 for roomDetail -->
 	<select id="getDetailRoomInfo" resultType="roomInfo">
 		select * from room
@@ -26,7 +29,12 @@
 	
 	<!-- 스케줄 가져오기 -->
 	<select id="getRoomSchedule">
-		<![CDATA[select reservstate from roomReserv where roomNum=#{roomNum} and regdate>to_date(to_char(sysdate,'yyyy-mm-dd'))
+		<![CDATA[
+		select rom.roomNum, reservstate
+		from roomreserv romrs 
+		join room rom on rom.roomNum=romrs.roomNum
+		join member mem on rom.branchName=mem.branchName  
+		where mem.branchAddr1  like #{sidogugun}||'%' and startdate>to_date(to_char(sysdate,'yyyy-mm-dd'))
 		]]>
 	</select>
 	

@@ -30,7 +30,7 @@ nav{
 	top:14%;
 	background-color:#e0e0e0; 
 	border:3px solid #836e5b;
-	width:93.6%;
+	width:93.4%;
 	height:5%;
 	padding:3%;
 }
@@ -98,15 +98,15 @@ input[type=date]{
 .showRoom{
 	position:absolute;
 	top:31.6%;
-	width:97.6%;
-	height:70%;
+	width:97.4%;
+	height:125%;
 	border:3px solid #836e5b;
 	padding:1%;
 }
 .showRoom .showView{
 	display:inline-block;
-	width:21%;
-	height:60%;
+	width:25%;
+	height:28%;
 	background-color:#b3a091;
 	margin:1%;
 	padding:0.5%;
@@ -129,7 +129,7 @@ input[type=date]{
 }
 .showRoom .showView img{
 	width:100%; 
-	height:60%;
+	height:56%;
 
 }
 /* 스케줄 */
@@ -155,6 +155,6 @@ input[type=date]{
 footer{
 	font-size:1.5vw;
 	position:absolute;
-	bottom:-20%;
+	bottom:-70%;
 	margin:0 0 20px 0;
 }

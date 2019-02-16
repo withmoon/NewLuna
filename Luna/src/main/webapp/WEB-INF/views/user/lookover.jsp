@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>스터디카페 달빛</title>
-<link rel="stylesheet" href="<c:url value="/resources/user/lookover/css/LookOver.css"/>"/>
+<%-- --%><link rel="stylesheet" href="<c:url value="/resources/user/lookover/css/LookOver.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/public/css/topmenu.css"/>"/>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
@@ -25,9 +25,8 @@
 <!-- 지점 지정 -->
 <section class="searchArea">
 <p>날짜 적용후 이미지에 마우스를 올리시면 자세한 스케줄 확인이 가능합니다^^</p>
-
 <select name="sido" id="sido_select">
-<c:if test="${sel_sido eq ''}">
+<c:if test="${sel_sido eq '시/도 선택'}">
 <option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
 </c:if>
 	<c:forEach  var="sidoList" items="${sido}">

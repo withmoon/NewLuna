@@ -26,11 +26,23 @@ public class UserLookOverRoomController {
 
 		List<String> sido=roomser.getSido();
 		List<String> gugun=new ArrayList<String>();
+		
+		List<RoomInfoDTO> roomAllList=new ArrayList<RoomInfoDTO>();
+		//시/도를 선택한 상태로 가져왔을 경우
 		if(!sel_sido.equals("")) {
+			//선택된 시/도에대한 도 가져오기
 			gugun=roomser.getGugun(sel_sido);
+			
+			romin.setSidogugun(sel_sido+" "+sel_gugun);
+			// 시 / 구 로 구별해서 가지고 옴
+			roomAllList=roomser.getRoomInfo(romin); 
+		}else{ //미 선택된 경우
+			roomAllList=roomser.getRoomInfo(romin);
 		}
 		
-		List<RoomInfoDTO> roomAllList=roomser.getRoomInfo(romin);
+		
+		
+		
 		//RoomInfoDTO rom=roomAllList.get(0);
 		
 		//System.out.println("받아온 방의 갯수===>"+rom.getRoomName());

@@ -19,4 +19,6 @@ public class RoomInfoDTO {
 	String roomLocate;
 	
 	String fname;
+	
+	String sidogugun;
 }
