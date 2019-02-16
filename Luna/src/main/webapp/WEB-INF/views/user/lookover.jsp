@@ -54,8 +54,9 @@
 
 <c:forEach var="roomList" items="${roomList}">
 <div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="/room/${roomList.fname}"/></a><br/>
+<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/rooms/${roomList.fname}"/>"/></a><br/>
 <a href="#">${roomList.roomName}</a><br/>
+<label>(${roomList.branchName})</label><br/>
 <label>${roomList.roomEx1}</label><br/>
 <label>${roomList.roomEx2}</label><br/> 
 <label>${roomList.roomEx3}</label>

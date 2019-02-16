@@ -15,7 +15,7 @@
 	
 	<!-- 방정보 가져오기 for LookOver -->
 	<select id="getRoomInfo" resultType="roomInfo">
-		<![CDATA[select roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
+		<![CDATA[select branchName,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
 				 join roomfile romf on rom.roomNum=romf.roomNum where romf.filenum=1]]>
 	</select>
 	
