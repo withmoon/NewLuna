@@ -21,33 +21,30 @@ public class UserLookOverRoomController {
 	
 	@RequestMapping(value="/lookover.udo", method=RequestMethod.GET)
 	public ModelAndView lookOverView(@RequestParam(value="sido",required=false,defaultValue="")String sel_sido,
-										@RequestParam(value="gugun",required=false,defaultValue="")String sel_gugun,RoomInfoDTO romin) {
+										@RequestParam(value="gugun",required=false,defaultValue="")String sel_gugun,
+										@RequestParam(value="seldate",required=false,defaultValue="")String sel_date,
+										RoomInfoDTO romin) {
 		ModelAndView mav=new ModelAndView();
 
 		List<String> sido=roomser.getSido();
 		List<String> gugun=new ArrayList<String>();
 		
 		List<RoomInfoDTO> roomAllList=new ArrayList<RoomInfoDTO>();
+		
+		romin.setSidogugun(sel_sido+" "+sel_gugun);
 		//시/도를 선택한 상태로 가져왔을 경우
-		if(!sel_sido.equals("")) {
+		if(!sel_sido.equals("시/도 선택")) {
 			//선택된 시/도에대한 도 가져오기
 			gugun=roomser.getGugun(sel_sido);
-			
-			romin.setSidogugun(sel_sido+" "+sel_gugun);
+			romin.setStartdate(sel_date);
 			// 시 / 구 로 구별해서 가지고 옴
-			roomAllList=roomser.getRoomInfo(romin); 
-		}else{ //미 선택된 경우
+			roomAllList=roomser.getRoomInfoAndSchedule(romin);
+		}else{ //미 선택된 경우 
+			System.out.println("미선택 됬을때"+romin.getSidogugun()+"이다냥");
 			roomAllList=roomser.getRoomInfo(romin);
 		}
-		
-		
-		
-		
-		//RoomInfoDTO rom=roomAllList.get(0);
-		
-		//System.out.println("받아온 방의 갯수===>"+rom.getRoomName());
+
 		mav.addObject("roomList",roomAllList);
-		
 		mav.addObject("sido",sido);
 		mav.addObject("gugun",gugun);
 		mav.addObject("sel_sido",sel_sido);

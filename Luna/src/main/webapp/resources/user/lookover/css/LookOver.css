@@ -36,7 +36,7 @@ nav{
 }
 .searchArea p{
 	position:absolute;
-	left:36%;
+	left:30%;
 	top:10%;
 }
 /* select list */
@@ -46,13 +46,13 @@ select{
  	font-size : large;
  	border-color : #836e5b;
 }
-#branchSido{
+#sido_select{
+	position:relative;
+	left:28%;
+}
+#gugun_select{
 	position:relative;
 	left:30%;
-}
-#branchBranch{
-	position:relative;
-	left:31%;
 }
 input[type=date]{
 	width :10%;

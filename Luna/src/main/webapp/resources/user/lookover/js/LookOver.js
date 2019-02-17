@@ -81,9 +81,10 @@ function findCanReservRoom(){
         selspdate+=selsplit[i];
      }
 	
+	
 	if(selspdate<thisdate){
 		alert("날짜를 확인해주세요^^");
-	}else{
+	}else{		
 		$.ajax({      
 			type:"GET",  
 			url:"getCanReservRoom.udo",    

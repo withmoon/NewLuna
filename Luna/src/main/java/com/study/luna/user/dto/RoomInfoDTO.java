@@ -21,4 +21,7 @@ public class RoomInfoDTO {
 	String fname;
 	
 	String sidogugun;
+	
+	String reservstate;
+    String startdate;
 }

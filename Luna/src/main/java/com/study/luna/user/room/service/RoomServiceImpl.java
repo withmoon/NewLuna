@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.room.dao.Impl.GetGugunDAOImpl;
+import com.study.luna.user.room.dao.Impl.GetRoomInfoAndScheduleDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetRoomInfoDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetSidoDAOImpl;
 
@@ -18,6 +19,8 @@ public class RoomServiceImpl implements RoomService {
 	GetGugunDAOImpl getGgDAOImpl;
 	@Autowired
 	GetRoomInfoDAOImpl grifDAOImpl;
+	@Autowired
+	GetRoomInfoAndScheduleDAOImpl grifasDAOImpl;
 	
 	@Override
 	public List<String> getSido() {
@@ -32,6 +35,11 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin) {
 		return grifDAOImpl.getRoomInfo(romin);
+	}
+
+	@Override
+	public List<RoomInfoDTO> getRoomInfoAndSchedule(RoomInfoDTO romin) {
+		return grifasDAOImpl.getRoomInfoAndSchedule(romin);
 	}
 
 }
