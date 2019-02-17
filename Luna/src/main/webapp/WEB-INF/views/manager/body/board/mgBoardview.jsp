@@ -17,7 +17,34 @@ table, th, td {
 	border-spacing: 0px;
 	border-collapse: collapse;
 }
+#cssdiv{
+	margin-left: 5%;
+	margin-top: 5%;
+}
+#tablecss{
+ 	width: 90%;
+}
+#tablecss tr{
+	height: 35px;
+}
+#areacss{
+	resize: none;
+	width:  100%;
+	height:  100%;
+	margin-bottom: 0%;
+}
+
 </style>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#btnList").click(function() {
+		alert("버튼클릭");
+		location.href="mgBoard.mdo"
+		//curPage=${curPage}&searchOption=${searchOption}&{keyword}=${keyword}
+	});
+});
+//URLEncoder. encodeURIComponent
+</script>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -52,10 +79,10 @@ table, th, td {
 		<div id=header>
 				<header>문의 게시판</header>
 		</div>
-		
-		<h2>글 상세보기</h2>
-	<form name="form" method="post">
-		<table>
+	<div id="cssdiv">
+	<h2>글 상세보기</h2>
+	<form name="form1" method="post">
+		<table id="tablecss">
 			<tr>
 				<td>제목</td>
 				<td><input type="text"  value="${view.title}"/></td>
@@ -65,17 +92,22 @@ table, th, td {
 				<td>작성자</td>
 				<td><input id="writer" type="text"  value="${view.writer}"/>
 				<!-- 등록일date얻어와서 작성 -->
-				등록일<input type="date"   value="${view.regdate}"/></td>
-				
+				등록일<input type="text"   value="${view.regdate}"/></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea rows="15" cols="60" >${view.content}</textarea></td>
+				<td><textarea id="areacss" rows="15" cols="60" >${view.content}</textarea></td>
 			</tr>
 		</table>
-			<input type="submit" value="수정">
-			<input type="button" value="취소">
+			<input  type="hidden" name="num" value="${view.num }">
+		<%-- 본인이 쓴거에 한정시키는 조건문 
+				<c:if test=" ${sessionScope.userId==dto.writer}">
+				<button type="button" id="btnUpdate">수정</button>
+				<button type="button" id="btnDelete">삭제</button>
+			</c:if> --%>
+			<button type="button" id="btnList">목록</button>
 	</form>
+	</div>
 		</section>
 	</div>
 	<footer>

@@ -26,3 +26,160 @@ sysdate,
 
 select * FROM QuestionBoard;
 commit;
+
+----------------------------------------
+
+매출현황테이블
+
+create table Mg_sales(
+    dates timestamp(6),
+    Roominone number(1,0),
+    su number (4,0),
+    sales1 number(8,0),
+    market varchar2(15),
+    sales2 number(8,0),
+    total number(8,0)
+);
+select * from Mg_sales;
+insert into Mg_sales values(TO_date('19/1/4','RR/MM/DD'),1,1,10000,'음료',10000,20000);
+commit;
+
+
+create table RoomFile(
+    idx int,
+    Roomidx int,
+    ofileName varchar2(260),
+    sfileName  varchar2(36),
+    filesize int,
+    creadtm timestamp default sysdate,
+    creaid varchar2(30),
+    delgb varchar2(1) default 'n'
+);
+select * from roomfile;
+commit;
+
+
+월매출
+create table Salesreserve(
+    month varchar2(10),
+    roomsu varchar2(15),
+    cash number(8,0),
+    gunsu number(4,0),
+    refund number(2,0),
+    total number(8,0)
+);
+insert into Salesreserve values('1월','1인',10000,20,1,190000);
+insert into Salesreserve values('1월','2인',18000,20,1,360000);
+insert into Salesreserve values('1월','3인',27000,10,1,270000);
+insert into Salesreserve values('1월','4인 이상',36000,10,1,720000);
+
+insert into Salesreserve values('2월','1인',10000,20,1,190000);
+insert into Salesreserve values('2월','2인',18000,20,1,360000);
+insert into Salesreserve values('2월','3인',27000,10,1,270000);
+insert into Salesreserve values('2월','4인 이상',36000,20,1,720000);
+
+select * from salesreserve;
+commit;
+
+
+마켓매출
+create table Salesmarket(
+    market varchar2(10),
+    foodsales varchar2(100),
+    total number(8,0)
+);
+
+insert into Salesmarket values('음료','식혜 바나나쉐이크 딸기스무디',21000);
+insert into Salesmarket values('커피','카라멜마끼아또 카푸치노 아메리카노',21000);
+insert into Salesmarket values('빵','초코범벅 찐빵 카스테라',21000);
+select * from Salesmarket;
+commit;
+
+create table Reserve(
+   suno number(4,0),
+    id varchar2(20),
+    age varchar2(15),
+    date1 TIMESTAMP,
+    inone varchar2(15),
+    date2 TIMESTAMP default sysdate,
+    chc varchar2(15)
+);
+insert into Reserve values('3', 'GD' ,'10대',TO_date('19/2/4','RR/MM/DD'),'3인',TO_date('19/2/6','RR/MM/DD'),'예약완료');
+select * from Reserve;
+commit;
+
+
+
+create table roomdb(
+     roomnum number(3,0),
+     branchName varchar2(60),
+     roomName varchar2(60),
+     roomEx1 varchar(50),
+     roomEx2 varchar(50),
+     roomEx3 varchar(50),
+     roomEx4 varchar(50),
+     roomExplain varchar(3000),
+     roomWarn varchar(3000),
+     comeRoute varchar2(600),
+     roomLocate varchar2(300)
+);
+
+create table roomfile(
+    roomnum number(3,0),
+    filenum number(3,0),
+    Oname varchar(250),
+    Fname varchar(100)
+);
+
+create sequence roomdb_seq 
+start with 1
+increment by 1
+nomaxvalue  -- 최대값이 무한 천만미만
+nocache
+nocycle;
+create sequence roomfile_seq 
+start with 1
+increment by 1
+maxvalue 5  -- 최대값이 무한 천만미만
+nocache
+nocycle;
+alter sequence roomfile_seq increment by 1;
+
+
+commit;
+
+INSERT INTO roomdb (roomnum,osiengil,osiengi2) VALUES(roomdb_seq.nextval,'test','test1' );
+
+drop table roomfile;
+drop table roomdb;
+drop sequence file_seq;
+drop SEQUENCE roomdb_seq;
+
+select * from roomdb;
+select * from roomfile;
+
+delete roomfile where filenum = 1 
+
+
+
+create sequence logincount_seq 
+start with 1
+increment by 1
+nomaxvalue  -- 최대값이 무한 천만미만
+nocache
+nocycle;
+
+create table logincount(
+    su number(2,0), 
+    login number(8,0)
+);
+insert into logincount values ( logincount_seq.nextval , 0);
+drop table logincount;
+alter tabel logincount modify (login default 0);
+select * from logincount;
+update logincount set login=login+1 where su=1;
+
+select * from logincount where su=1;
+select login from logincount;
+
+commit;

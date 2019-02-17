@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MgReserveTimeController {
-
+	//통계화면
 	
-	@RequestMapping(value="/MgAge.mdo",method=RequestMethod.GET)
+	@RequestMapping(value="/mgAge.mdo",method=RequestMethod.GET)
 	public String mgAgeView() {
-		return "body/reserveTime/age";
+		return "body/reserveTime/mgAge";
 	}
 	
-	@RequestMapping(value="/MgSeason.mdo",method=RequestMethod.GET)
+	@RequestMapping(value="/mgSeason.mdo",method=RequestMethod.GET)
 	public String mgSeasonView() {
-		return "body/reserveTime/season";
+		return "body/reserveTime/mgSeason";
 	}
 	
 	

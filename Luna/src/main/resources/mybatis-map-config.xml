@@ -6,7 +6,11 @@
 
    <typeAliases>
       <typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
-      <typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
+      	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
+      <typeAlias alias="Room" type="com.study.luna.mg.model.RoomVO"/>
+	  <typeAlias alias="Sales" type="com.study.luna.mg.model.SalesVO"/>
+	  <typeAlias alias="File" type="com.study.luna.mg.model.uploadfileVO"/>
+		<typeAlias alias="manager" type="com.study.luna.mg.model.managerVO"/>
       <typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
       <typeAlias alias="eBoard" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
       <typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
@@ -22,11 +26,14 @@
       <mapper resource="mapping/member-mapper.xml" />
       <!-- 룸 관련 -->
       <mapper resource="mapping/room-mapper.xml"/>
-      <!-- 지점장 -->
-      <mapper resource="mapping/manager-mapper.xml" />
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />
       <!-- 이벤트 -->
       <mapper resource="mapping/eventBoard-mapper.xml" />
+       <!-- 지점장 -->
+      <mapper resource="mapping/manager-mapper.xml" />
+	  <mapper resource="mapping/mgQBoard-mapper.xml"/>
+	  <mapper resource="mapping/mgRoom-mapper.xml"/>
+	  <mapper resource="mapping/mgSales-mapper.xml"/>
    </mappers>
 </configuration>

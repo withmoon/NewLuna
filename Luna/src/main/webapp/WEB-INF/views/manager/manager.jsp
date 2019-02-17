@@ -49,19 +49,21 @@
 				<div id="today">
 					<div id="tmember">
 						<div id="day">
-							today
+							TODAY
 							<p id="date"></p>
 						</div>
-						<div id="su1">방문수</div>
-						<div id="su2">예약수</div>
-						<div id="su3">????</div>
-
+						<div id="su1">방문수<br/><div id="su11">${count}</div></div>
+						<div id="su2">예약수<br/><div id="su11">${count}</div></div>
+						<div id="su3">????<br/><div id="su11">${count}</div></div>
+						
+						
+						
 						<div id="tsu">
 							<ul>
-								<li>회원 <label>몇명el태그</label></li>
-								<li>예약<label>몇명el태그</label></li>
-								<li>회원가입<label>몇명el태그</label></li>
-								<li>방문 <label>몇명el태그</label></li>
+								<li>회원 <label>${count} 명</label></li>
+								<li>예약<label>${count} 명</label></li>
+								<li>회원가입<label>${count} 명</label></li>
+								<li>방문 <label>${count} 명</label></li>
 							</ul>
 						</div>
 					</div>

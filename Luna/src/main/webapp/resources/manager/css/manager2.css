@@ -84,7 +84,6 @@ ul.top li a:hover {
 	height :100%;
 	width: auto;
 	float: left;
-	border-right: 1px solid black;
 }
 
 /* 왼측 검색창 */
@@ -154,6 +153,7 @@ header{
 	opacity: 0.6;
 	float: left;
 	border-right: 1px solid black;
+	border-left: 1px solid black;
 }
 #today {
 	margin-left:4%;
@@ -175,6 +175,7 @@ header{
 #day { 
 	width:97%;
 	background-color: gray;
+	color: white;
 }
 #date {
 	display: inline;
@@ -186,28 +187,48 @@ header{
 	height: 110%;	
 	background-color: red;
 	float: left;
+	color: white;
+}
+#su11{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
 }
 #su2{
 	width: 22%;
 	height: 110%;		
 	background-color: black;
 	float: left;
+	color: white;
+}
+#su22{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
 }
 #su3{
 	width: 22%;
 	height: 110%;	
 	background-color: blue;
 	float: left;
+	color: white;
+}
+#su33{
+	padding-top: 17%;
+	height: 100%;
+	font-size: 50pt;
 }
 #tsu{
 	float: left;
 	margin-left: 4%;
-	margin-top: 3%;
+	margin-top: 2%;
 	
 }
 #tsu li{
 	border-bottom: 1px solid black;
 	width: 230px;
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 #tsu li label{
 	float: right; 

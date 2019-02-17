@@ -12,10 +12,14 @@ public interface BoardDAO {
 	public void insertBoard(QBoardVO vo);
 
 	//게시글 목록
-	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
+	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword);
+	//public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
 	
 	//게시글 상세보기
-	public QBoardVO QbaordRead(String  title) throws Exception;
+	public QBoardVO QbaordRead(int num) throws Exception;
+
+	//레코드 계산
+	public int countArticle(String searchOption, String keyword) throws Exception;
 		
 	}
 

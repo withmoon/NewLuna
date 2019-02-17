@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgSalesReserveDAO">
+
+	<!-- 월 매출 게시판 카운트 -->
+	<select id="countArticle" resultType="int">
+		<!-- <![CDATA[
+			select count(num) from ??? where num>0
+		]]> -->
+	</select>
+	
+	
+	<!-- 월매출 전체목록 조회 및 검색조회 -->
+	<select id="listAll" resultType="QBoard" resultMap="read">
+		<include refid="pagingHeader"></include>	
+			select * from ???
+		<include refid="search"></include>	 
+		order by num DESC, regdate desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- 검색조건 sql -->
+	  <sql id="search">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 -->
+	 		<when test="searchOption='all'">
+	 			where (writer like '%'||#{keyword}||'%' or title like '%'||#{keyword}||'%')
+	 		</when>
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader">
+	 	select * from ( select num as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+
+
+
+</mapper> 
+

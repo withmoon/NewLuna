@@ -17,19 +17,35 @@ public class mgServiceImpl  implements MgService{
 	@Autowired
 	private BoardDAO boardDAO;
 
+	
+	//게시글 페이징/검색
 	@Override
-	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
+	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("QboardList 서비스");
+		return  boardDAO.listAll(start,end, searchOption,keyword);
+	}
+/*	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QboardList 서비스 리턴");
-		return boardDAO.QboardList(vo);
+		return boardDAO.QboardList(vo); 
 	}
-
+*/
+	//게시글 상세보기
 	@Override
-	public QBoardVO QbaordRead(String title) throws Exception {
+	public QBoardVO QbaordRead(int num) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QboardRead 서비스");
-		return boardDAO.QbaordRead(title);
+		return boardDAO.QbaordRead(num);
 	}
+	//레코드계산
+	@Override
+	public int countArticle(String searchOption, String keyword)throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("countArticle 레코드계산");
+		return boardDAO.countArticle(searchOption, keyword);
+	}
+
 
 
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgRoomDAO">
+
+	<!--  <resultMap id="roommap" type="Room" >
+ 			<result property="roomnum" column="ROOMNUM" />
+ 			<result property="branchName" column="branchName" />
+ 			<result property="roomName" column="roomName" />
+ 			<result property="roomEx1" column="roomEx1" />
+ 			<result property="roomEx2" column="roomEx2" />
+ 			<result property="roomEx3" column="roomEx3" />
+ 			<result property="roomEx4" column="roomEx4" />
+ 			<result property="inown" column="inown" />
+ 			<result property="joosu" column="joosu" />
+ 			<result property="day1" column="day1" />
+ 			<result property="roomExplain" column="roomExplain" />
+ 			<result property="roomWarn" column="roomWarn" />
+ 			<result property="comeRoute" column="comeRoute" />
+ 			<result property="roomLocate" column="roomLocate" />
+ 			<result property="id" column="id" />
+ 	</resultMap>   -->
+
+	<!-- 룸 테이블 -->
+	<select id="RoomList" resultType="Room">
+		SELECT ROOMNUM,BRANCHNAME,DAY1,INOWN,JOOSU FROM ROOMDB
+	</select>
+
+
+	<!-- 방생성 파일 -->
+	<insert id="RoomText" parameterType="Room">
+		 <![CDATA[
+		  INSERT INTO ROOMDB (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,INOWN,JOOSU) 
+		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{inown},#{joosu})
+  		 ]]>
+	</insert>
+	<insert id="RoomFile" parameterType="hashmap">
+		 <![CDATA[
+		  INSERT INTO ROOMFILE (ROOMNUM,FILENUM,ONAME,FNAME,SAVEPATH) 
+		  							VALUES ( #{roomnum},#{filenum}, #{originalfileName}, #{saveFileName},#{savePath})
+  		 ]]>
+	</insert>
+
+	<!-- 방상세보기 text -->
+	<select id="RoomSelect" resultType="Room">
+	<![CDATA[
+	 	SELECT * FROM ROOMDB WHERE ROOMNUM = #{roomnum}
+	 	]]>
+	</select>
+	<!-- 방상세보기 file  -->
+	<select id="RoomFileSelect" resultType="File">
+	<![CDATA[
+		SELECT ROOMNUM,FILENUM,ONAME,FNAME FROM ROOMFILE WHERE  ROOMNUM = #{roomnum} ORDER BY FILENUM
+		]]>
+	</select>
+	
+	<!-- 방업데이트text -->
+	<update id="RoomTextInsert"  parameterType="Room" >
+	 <![CDATA[
+	 UPDATE ROOMDB SET  ROOMNAME=#{roomName},  BRANCHNAME=#{branchName},  
+	 ROOMEX1=#{roomEx1},ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4}
+	ROOMEXPLAIN=#{roomExplain}, ROOMWARN=#{roomWarn}, 	INOWN=#{inown}, 	JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
+	  ]]>
+	</update><!--  inown=#{inown} ,joosu=#{joosu} 
+	  	roomex1=#{roomEx1},roomex2=#{roomEx2},roomex3=#{roomEx3},roomex4=#{roomEx4}
+		roomexplain=#{roomExplain}, roomwarn=#{roomWarn} -->
+	<!-- UPDATE ROOMDB SET  ROOMNAME=#{roomName},  BRANCHNAME=#{branchName},  
+	 ROOMEX1=#{roomEx1},ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4}
+	ROOMEXPLAIN=#{roomExplain}, ROOMWARN=#{roomWarn}, 	INOWN=#{inown}, 	JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
+	 -->
+	<!-- 방업데이트file -->
+	<update id="RoomFileInsert" parameterType="hashmap">
+	 <![CDATA[
+	 update ROOMFILE SET ONAME= #{originalfileName},FNAME=#{saveFileName}, SAVEPATH=#{savePath}
+	 WHERE ROOMNUM= #{roomnum} and  FILENUM = #{filenum}
+	 ]]>
+	</update>
+	
+	<!-- 방삭제하기 -->
+	<delete id="RoomDelete">
+	 <![CDATA[
+		DELETE ROOMDB WHERE ROOMNUM=#{roomnum}    
+		]]>
+	</delete>
+	<delete id="RoomFileDelete">
+	 <![CDATA[
+	DELETE ROOMFILE WHERE ROOMNUM=#{roomnum}    
+	]]>
+	</delete>
+	
+	
+
+</mapper> 
+
