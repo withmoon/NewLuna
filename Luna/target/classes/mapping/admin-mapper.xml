@@ -9,7 +9,7 @@
 	
 	<select id="approveList" resultType="adminManagerApproveVO">
 
-		select id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position from member where brStatus = -1 
+		select * from member where brStatus = -1 
 
 	</select>
 
@@ -32,7 +32,7 @@
 	
 	<select id="noticeList" resultType="adminNoticeBoardVO">
 
-		select num,title,content,regdate from adminnoticeboard order by num desc
+		select * from adminnoticeboard order by num desc
 
 	</select>
 	
