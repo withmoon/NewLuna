@@ -64,8 +64,8 @@
 
 </div>
 
-<!-- 스케줄 구간 -->
-<div id="showSchedule">
+<!-- 스케줄 구간
+<div class="showSchedule">
 <p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>
 <p>선택하신 날짜 : <b><label>0월 0일 00</label>방</b>의 스케줄입니다.</p><br/>
 <table>
@@ -125,7 +125,7 @@
 </tr>
 </table>
 </div>
-
+ -->
 <footer>
 <%@ include file="../public/footer.jsp" %>
 </footer>
