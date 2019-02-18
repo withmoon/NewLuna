@@ -59,10 +59,6 @@ public class UserGetCanReservRoomController {
 		romin.setRoomNum(roomnum);
 
 		romin=roomser.getRoomSchedule(romin);
-		
-		if(romin.getReservstate()==null){
-			romin.setReservstate("0,0");
-		}
 
 		return romin;
 	}

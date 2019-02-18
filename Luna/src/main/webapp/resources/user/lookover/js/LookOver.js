@@ -7,14 +7,20 @@ function showSd(num){
 		type:"GET",  
 		url:"getSchedule.udo",    
 		data:{roomnum:num, seldate:seldate},     
-		success:function(data){  
+		success:function(data){
 			var sch=data.reservstate;
-			var splitsch=sch.split(",");
-			var spschresult="";
+			console.log("sch="+sch);
+			if(sch==undefined){
+				$(".showSchedule").display="";
+				$(".showSchedule").show();
+				return;
+			}else{
+				var splitsch=sch.split(",");
+				var spschresult="";
 			
-			var time="";
-			for ( var i in splitsch ) {
-				time=(splitsch[i]=='00:00'?"#am1":splitsch[i]=='00:30'?"#am2":
+				var time="";
+				for ( var i in splitsch ) {
+					time=(splitsch[i]=='00:00'?"#am1":splitsch[i]=='00:30'?"#am2":
 					  splitsch[i]=='01:00'?"#am3":splitsch[i]=='01:30'?"#am4":
 					  splitsch[i]=='02:00'?"#am5":splitsch[i]=='02:30'?"#am6":
 					  splitsch[i]=='03:00'?"#am7":splitsch[i]=='03:30'?"#am8":
@@ -41,9 +47,12 @@ function showSd(num){
 					  splitsch[i]=='23:00'?"#pm23":splitsch[i]=='23:30'?"#pm24":""
 				);
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
-		    }
+				}
+			}
+			
 			$(".showSchedule").display="";
 			$(".showSchedule").show();
+			
 		}
 	});
 }
