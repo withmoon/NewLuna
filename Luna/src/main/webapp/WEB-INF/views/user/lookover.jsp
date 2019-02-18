@@ -53,7 +53,7 @@
 
 <c:forEach var="roomList" items="${roomList}">
 <div class="showView">
-<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()"><img src="<c:url value="/resources/rooms/${roomList.fname}"/>"/></a><br/>
+<a href="#"><img src="<c:url value="/resources/rooms/${roomList.fname}"/>"/></a><br/>
 <a href="#">${roomList.roomName}</a><br/>
 <label>(${roomList.branchName})</label><br/>
 <label>${roomList.roomEx1}</label><br/>
@@ -64,68 +64,68 @@
 
 </div>
 
-<!-- 스케줄 구간
+<!-- 스케줄 구간 -->
 <div class="showSchedule">
 <p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>
 <p>선택하신 날짜 : <b><label>0월 0일 00</label>방</b>의 스케줄입니다.</p><br/>
 <table>
 <tr>
 <th>오전</th>
-<td>00:00</td>
-<td>00:30</td>
-<td>01:00</td>
-<td>01:30</td>
-<td>02:00</td>
-<td>02:30</td>
-<td>03:00</td>
-<td>03:30</td>
-<td>04:00</td>
-<td>04:30</td>
-<td>05:00</td>
-<td>05:30</td>
-<td>06:00</td>
-<td>06:30</td>
-<td>07:00</td>
-<td>07:30</td>
-<td>08:00</td>
-<td>08:30</td>
-<td>09:00</td>
-<td>09:30</td>
-<td>10:00</td>
-<td>10:30</td>
-<td>11:00</td>
-<td>11:30</td>
+<td id="am1">00:00</td>
+<td id="am2">00:30</td>
+<td id="am3">01:00</td>
+<td id="am4">01:30</td>
+<td id="am5">02:00</td>
+<td id="am6">02:30</td>
+<td id="am7">03:00</td>
+<td id="am8">03:30</td>
+<td id="am9">04:00</td>
+<td id="am10">04:30</td>
+<td id="am11">05:00</td>
+<td id="am12">05:30</td>
+<td id="am13">06:00</td>
+<td id="am14">06:30</td>
+<td id="am15">07:00</td>
+<td id="am16">07:30</td>
+<td id="am17">08:00</td>
+<td id="am18">08:30</td>
+<td id="am19">09:00</td>
+<td id="am20">09:30</td>
+<td id="am21">10:00</td>
+<td id="am22">10:30</td>
+<td id="am23">11:00</td>
+<td id="am24">11:30</td>
 </tr>
 <tr>
 <th>오후</th>
-<td>12:00</td>
-<td>12:30</td>
-<td>13:00</td>
-<td>13:30</td>
-<td>14:00</td>
-<td>14:30</td>
-<td>15:00</td>
-<td>15:30</td>
-<td>16:00</td>
-<td>16:30</td>
-<td>17:00</td>
-<td>17:30</td>
-<td>18:00</td>
-<td>18:30</td>
-<td>19:00</td>
-<td>19:30</td>
-<td>20:00</td>
-<td>20:30</td>
-<td>21:00</td>
-<td>21:30</td>
-<td>22:00</td>
-<td>22:30</td>
-<td>23:00</td>
-<td>23:30</td>
+<td id="pm1">12:00</td>
+<td id="pm2">12:30</td>
+<td id="pm3">13:00</td>
+<td id="pm4">13:30</td>
+<td id="pm5">14:00</td>
+<td id="pm6">14:30</td>
+<td id="pm7">15:00</td>
+<td id="pm8">15:30</td>
+<td id="pm9">16:00</td>
+<td id="pm10">16:30</td>
+<td id="pm11">17:00</td>
+<td id="pm12">17:30</td>
+<td id="pm13">18:00</td>
+<td id="pm14">18:30</td>
+<td id="pm15">19:00</td>
+<td id="pm16">19:30</td>
+<td id="pm17">20:00</td>
+<td id="pm18">20:30</td>
+<td id="pm19">21:00</td>
+<td id="pm20">21:30</td>
+<td id="pm21">22:00</td>
+<td id="pm22">22:30</td>
+<td id="pm23">23:00</td>
+<td id="pm24">23:30</td>
 </tr>
 </table>
 </div>
- -->
+
 <footer>
 <%@ include file="../public/footer.jsp" %>
 </footer>

@@ -39,19 +39,8 @@ public class UserLookOverRoomController {
 		List<RoomInfoDTO> roomAllList=new ArrayList<RoomInfoDTO>();
 		
 		romin.setSidogugun(sel_sido+" "+sel_gugun);
-		//시/도를 선택한 상태로 가져왔을 경우
-		if(!sel_date.equals("")) {
-			//선택된 시/도에대한 도 가져오기
-			gugun=roomser.getGugun(sel_sido);
-			romin.setStartdate(sel_date);
-			// 시 / 구 로 구별해서 가지고 옴
-			System.out.println("여기까지 왔다 냥");
-			roomAllList=roomser.getRoomInfoAndSchedule(romin);
-			System.out.println("그다음 찍힌거다==>"+roomAllList.get(0).getFname()); 
-		}else{ //미 선택된 경우 
-			//System.out.println("미선택 됬을때"+romin.getSidogugun()+"이다냥");
-			roomAllList=roomser.getRoomInfo(romin);
-		}
+
+		roomAllList=roomser.getAllRoomInfo(romin);
 
 		mav.addObject("roomList",roomAllList);
 		mav.addObject("sido",sido);

@@ -1,8 +1,53 @@
-function showSd(){
-	$(".showSchedule").display="";
-	$(".showSchedule").show();
+function showSd(num){
+	$(".showSchedule table tr td").css({"text-decoration":"","color":""});
+	
+	var seldate=$("#reservDate").val(); 
+	
+	$.ajax({      
+		type:"GET",  
+		url:"getSchedule.udo",    
+		data:{roomnum:num, seldate:seldate},     
+		success:function(data){  
+			var sch=data.reservstate;
+			var splitsch=sch.split(",");
+			var spschresult="";
+			
+			var time="";
+			for ( var i in splitsch ) {
+				time=(splitsch[i]=='00:00'?"#am1":splitsch[i]=='00:30'?"#am2":
+					  splitsch[i]=='01:00'?"#am3":splitsch[i]=='01:30'?"#am4":
+					  splitsch[i]=='02:00'?"#am5":splitsch[i]=='02:30'?"#am6":
+					  splitsch[i]=='03:00'?"#am7":splitsch[i]=='03:30'?"#am8":
+					  splitsch[i]=='04:00'?"#am9":splitsch[i]=='04:30'?"#am10":
+					  splitsch[i]=='05:00'?"#am11":splitsch[i]=='05:30'?"#am12":
+					  splitsch[i]=='06:00'?"#am13":splitsch[i]=='06:30'?"#am14":
+					  splitsch[i]=='07:00'?"#am15":splitsch[i]=='07:30'?"#am16":
+					  splitsch[i]=='08:00'?"#am17":splitsch[i]=='08:30'?"#am18":
+					  splitsch[i]=='09:00'?"#am19":splitsch[i]=='09:30'?"#am20":
+					  splitsch[i]=='10:00'?"#am21":splitsch[i]=='10:30'?"#am22":
+					  splitsch[i]=='11:00'?"#am23":splitsch[i]=='11:30'?"#am24":
+					  //pm
+					  splitsch[i]=='12:00'?"#pm1":splitsch[i]=='12:30'?"#pm2":
+					  splitsch[i]=='13:00'?"#pm3":splitsch[i]=='13:30'?"#pm4":
+					  splitsch[i]=='14:00'?"#pm5":splitsch[i]=='14:30'?"#pm6":
+					  splitsch[i]=='15:00'?"#pm7":splitsch[i]=='15:30'?"#pm8":
+					  splitsch[i]=='16:00'?"#pm9":splitsch[i]=='16:30'?"#pm10":
+					  splitsch[i]=='17:00'?"#pm11":splitsch[i]=='17:30'?"#pm12":
+					  splitsch[i]=='18:00'?"#pm13":splitsch[i]=='18:30'?"#pm14":
+					  splitsch[i]=='19:00'?"#pm15":splitsch[i]=='19:30'?"#pm16":
+					  splitsch[i]=='20:00'?"#pm17":splitsch[i]=='20:30'?"#pm18":
+					  splitsch[i]=='21:00'?"#pm19":splitsch[i]=='21:30'?"#pm20":
+					  splitsch[i]=='22:00'?"#pm21":splitsch[i]=='22:30'?"#pm22":
+					  splitsch[i]=='23:00'?"#pm23":splitsch[i]=='23:30'?"#pm24":""
+				);
+				$(time).css({"text-decoration":"line-through double","color":"gray"});
+		    }
+			$(".showSchedule").display="";
+			$(".showSchedule").show();
+		}
+	});
 }
-function hideSd(){
+function hideSd(num){
 	$(".showSchedule").hide();
 }
 
@@ -94,98 +139,16 @@ function findCanReservRoom(){
 				$(".showView").remove();
 				for(var i=0; i<data.length; i++){
 					strDom+='<div class="showView">';
-					strDom+='<a href="#" onmouseenter="showSd()" onmouseleave="hideSd()">';
+					strDom+='<a href="#" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd('+data[i].roomNum+')">';
 					strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
 					strDom+='<a href="#">'+data[i].roomName+'</a><br/>';
 					strDom+='<label>('+data[i].branchName+')</label><br/>';
 					strDom+='<label>'+data[i].roomEx1+'</label><br/>';
 					strDom+='<label>'+data[i].roomEx2+'</label><br/>';
 					strDom+='<label>'+data[i].roomEx3+'</label></div>';
-					var sch=splitSchedule(data[i],seldate);
 				}
-				$('.showRoom').append(strDom,sch);
+				$('.showRoom').append(strDom);
 			}
 		});
 	}
-}
-
-function splitSchedule(obj,seldate){
-	var schdiv="";
-	
-	var sch=obj.reservstate;
-	
-	var splitsch=sch.split(",");
-	
-	for ( var i in selsplit ) {
-        selspdate+=splitsch[i];
-    }
-	
-	schdiv+='<div class="showSchedule">';
-	schdiv+='<p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>';
-	schdiv+='<p>선택하신 날짜 : <b><label>'+seldate+'&nbsp;&nbsp;&nbsp;</label>'+obj.roomName+'방</b>의 스케줄입니다.</p><br/>';
-	
-	
-	/*
-	
-	
-	
-	<table>
-	<tr>
-	<th>오전</th>
-	<td>00:00</td>
-	<td>00:30</td>
-	<td>01:00</td>
-	<td>01:30</td>
-	<td>02:00</td>
-	<td>02:30</td>
-	<td>03:00</td>
-	<td>03:30</td>
-	<td>04:00</td>
-	<td>04:30</td>
-	<td>05:00</td>
-	<td>05:30</td>
-	<td>06:00</td>
-	<td>06:30</td>
-	<td>07:00</td>
-	<td>07:30</td>
-	<td>08:00</td>
-	<td>08:30</td>
-	<td>09:00</td>
-	<td>09:30</td>
-	<td>10:00</td>
-	<td>10:30</td>
-	<td>11:00</td>
-	<td>11:30</td>
-	</tr>
-	<tr>
-	<th>오후</th>
-	<td>12:00</td>
-	<td>12:30</td>
-	<td>13:00</td>
-	<td>13:30</td>
-	<td>14:00</td>
-	<td>14:30</td>
-	<td>15:00</td>
-	<td>15:30</td>
-	<td>16:00</td>
-	<td>16:30</td>
-	<td>17:00</td>
-	<td>17:30</td>
-	<td>18:00</td>
-	<td>18:30</td>
-	<td>19:00</td>
-	<td>19:30</td>
-	<td>20:00</td>
-	<td>20:30</td>
-	<td>21:00</td>
-	<td>21:30</td>
-	<td>22:00</td>
-	<td>22:30</td>
-	<td>23:00</td>
-	<td>23:30</td>
-	</tr>
-	</table>
-	</div>
-	*/
-	return sch;
 }

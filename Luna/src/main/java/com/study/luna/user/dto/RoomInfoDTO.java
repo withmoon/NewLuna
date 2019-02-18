@@ -24,4 +24,6 @@ public class RoomInfoDTO {
 	
 	String reservstate;
     String startdate;
+    
+    String notinRoomNum;
 }

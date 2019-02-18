@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.room.dao.Impl.GetGugunDAOImpl;
-import com.study.luna.user.room.dao.Impl.GetRoomInfoAndScheduleDAOImpl;
-import com.study.luna.user.room.dao.Impl.GetRoomInfoDAOImpl;
+import com.study.luna.user.room.dao.Impl.GetAllRoomInfoDAOImpl;
+import com.study.luna.user.room.dao.Impl.GetExcRoomNumDAOImpl;
+import com.study.luna.user.room.dao.Impl.GetRoomScheduleDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetSidoDAOImpl;
 
 @Service
@@ -18,9 +19,11 @@ public class RoomServiceImpl implements RoomService {
 	@Autowired
 	GetGugunDAOImpl getGgDAOImpl;
 	@Autowired
-	GetRoomInfoDAOImpl grifDAOImpl;
+	GetAllRoomInfoDAOImpl grifDAOImpl;
 	@Autowired
-	GetRoomInfoAndScheduleDAOImpl grifasDAOImpl;
+	GetRoomScheduleDAOImpl grsDAOImpl;
+	@Autowired
+	GetExcRoomNumDAOImpl gernDAOImpl;
 	
 	@Override
 	public List<String> getSido() {
@@ -33,13 +36,18 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin) {
-		return grifDAOImpl.getRoomInfo(romin);
+	public List<RoomInfoDTO> getAllRoomInfo(RoomInfoDTO romin) {
+		return grifDAOImpl.getAllRoomInfo(romin);
 	}
 
 	@Override
-	public List<RoomInfoDTO> getRoomInfoAndSchedule(RoomInfoDTO romin) {
-		return grifasDAOImpl.getRoomInfoAndSchedule(romin);
+	public RoomInfoDTO getRoomSchedule(RoomInfoDTO romin) {
+		return grsDAOImpl.getRoomSchedule(romin);
+	}
+
+	@Override
+	public List<RoomInfoDTO> getExcRoomNum(RoomInfoDTO romin) {
+		return gernDAOImpl.getExcRoomNum(romin);
 	}
 
 }

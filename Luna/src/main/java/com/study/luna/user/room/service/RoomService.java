@@ -9,7 +9,9 @@ public interface RoomService {
 	List<String> getSido();
 	List<String> getGugun(String sido);
 	//미 선택시 가져오는 쿼리
-	List<RoomInfoDTO> getRoomInfo(RoomInfoDTO romin);
-	// 시도 선택시 가져오는 쿼리
-	List<RoomInfoDTO> getRoomInfoAndSchedule(RoomInfoDTO romin);
+	List<RoomInfoDTO> getAllRoomInfo(RoomInfoDTO romin);
+	//방 스케줄 가져오기
+	RoomInfoDTO getRoomSchedule(RoomInfoDTO romin);
+	//검색에서 제외할 방 가져옴
+	List<RoomInfoDTO> getExcRoomNum(RoomInfoDTO romin);
 }

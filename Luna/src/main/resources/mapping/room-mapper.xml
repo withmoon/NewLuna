@@ -15,36 +15,44 @@
 	
 	<!-- for LookOver -->
 	<!-- 선택 안돼있을시 방정보 가져오기 -->
-	<select id="getRoomInfo" resultType="roomInfo">
-		<![CDATA[select rom.branchName,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
+	<select id="getAllRoomInfo" resultType="roomInfo">
+		<![CDATA[select rom.branchName,rom.roomNum,roomName,roomEx1,roomEx2,roomEx3,romf.Fname from room rom 
 				 join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName 
 				 where romf.filenum=1 ]]>
 		<if test="sidogugun!='시/도 선택 '">
-		<![CDATA[ and mem.branchAddr1 like #{sidogugun}||'%']]>
+			<![CDATA[ and mem.branchAddr1 like #{sidogugun}||'%']]>
+		</if>
+		<if test="notinRoomNum!=null">
+			<![CDATA[ and rom.roomNum not in (#{notinRoomNum})]]>
 		</if>
 	</select>
 	
-	<!-- 스케줄 가져오기 -->
-	<select id="getRoomInfoAndSchedule" resultType="roomInfo">
-		<![CDATA[
-		WITH CTE AS 
-		(
-		select rom.branchName,roomName,rom.roomNum,roomEx1,roomEx2,roomEx3,romf.Fname,reservstate from room rom 
-		join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName join roomreserv romrs on rom.roomNum=romrs.roomNum
-		where romf.filenum=1 and mem.branchAddr1 like #{sidogugun}||'%' and to_char(startdate,'yyyy-mm-dd') like #{startdate}
-		)
-     	SELECT roomNum, count(regexp_substr (reservstate, '[^,]+', 1, rn)) as reservstatecount, branchName,roomName,roomEx1,roomEx2,roomEx3,fname,reservstate
-     	FROM   cte
-     	CROSS JOIN 
-     	(
+	<!-- 해당날짜중 제외하고 들고올 방 설정 -->
+	<select id="getExcRoomNum" resultType="roomInfo">
+	<![CDATA[
+	WITH CTE AS 
+	(
+	select rom.roomNum,reservstate from room rom 
+	join roomfile romf on rom.roomNum=romf.roomNum join member mem on rom.branchName=mem.branchName join roomreserv romrs on rom.roomNum=romrs.roomNum
+	where romf.filenum=1 and mem.branchAddr1 like #{sidogugun}||'%' and to_char(startdate,'yyyy-mm-dd') like #{startdate}
+	)
+     SELECT roomNum
+     FROM   cte
+     CROSS JOIN 
+     (
           SELECT ROWNUM rn
-          FROM  (SELECT MAX (LENGTH (regexp_replace (reservstate, '[^,]+'))) + 1 max_l from cte)
-          connect by level <= max_l
-         )
-     	WHERE regexp_substr (reservstate, '[^,]+', 1, rn) IS NOT NULL
-    	 group by roomNum, branchName, roomName, roomEx1, roomEx2, roomEx3, fname, reservstate having count(regexp_substr (reservstate, '[^,]+', 1, rn))<=44
-   		 order by roomNum
-		]]>
+          FROM  (SELECT MAX (LENGTH (regexp_replace (reservstate, '[^,]+'))) + 1 max_l from cte
+      )
+         connect by level <= max_l
+     )
+     WHERE regexp_substr (reservstate, '[^,]+', 1, rn) IS NOT NULL
+     group by roomNum having count(regexp_substr (reservstate, '[^,]+', 1, rn))>44
+     ]]>
+	</select>
+	
+	<!-- 스케줄 가져오기 -->
+	<select id="getRoomSchedule" resultType="roomInfo">
+		<![CDATA[select to_char(startdate,'yyyy-mm-dd') as startdate,reservstate from roomreserv where to_char(startdate,'yyyy-mm-dd') like #{startdate} and roomnum=#{roomNum}]]>
 	</select>
 	
 	<!--  for roomDetail  -->

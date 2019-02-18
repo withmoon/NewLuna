@@ -18,7 +18,7 @@ public class UserGetCanReservRoomController {
 	RoomServiceImpl roomser;
 
 	@RequestMapping(value="/getCanReservRoom.udo")
-	public @ResponseBody List<RoomInfoDTO> getSidoGugung(@RequestParam(value="sido" ,required=false,defaultValue="")String sel_sido,
+	public @ResponseBody List<RoomInfoDTO> getCanReservRoom(@RequestParam(value="sido" ,required=false,defaultValue="")String sel_sido,
 														@RequestParam(value="gugun" ,required=false,defaultValue="")String sel_gugun,
 														@RequestParam(value="seldate" ,required=false,defaultValue="")String sel_date,
 														RoomInfoDTO romin
@@ -26,14 +26,44 @@ public class UserGetCanReservRoomController {
 		List<RoomInfoDTO> roomAllList=new ArrayList<RoomInfoDTO>();
 		
 		romin.setSidogugun(sel_sido+" "+sel_gugun);
-		//시/도를 선택한 상태로 가져왔을 경우
-
 		romin.setStartdate(sel_date);
-		// 시 / 구 로 구별해서 가지고 옴
-		System.out.println("여기까지 왔다 냥");
-		roomAllList=roomser.getRoomInfoAndSchedule(romin);
-		System.out.println("그다음 찍힌거다==>"+roomAllList.get(0).getFname());
-			
-		return roomAllList;
+		
+		//제외할 방 설정
+		roomAllList=roomser.getExcRoomNum(romin);
+		
+		StringBuilder sb=new StringBuilder();
+		
+		if(roomAllList.size()!=0) {
+			if(roomAllList.get(0).getRoomNum()!=0) {
+			//csv 형식으로 전환
+			for(int i=0; i<roomAllList.size(); i++) {
+				sb.append(roomAllList.get(i).getRoomNum());
+				if(roomAllList.size()==i+2) {
+					sb.append(",");
+				}
+			}
+			romin.setNotinRoomNum(sb.toString());
+			}
+		}
+		
+		roomAllList=roomser.getAllRoomInfo(romin);
+
+		return roomAllList; 
+	}
+	
+	@RequestMapping(value="/getSchedule.udo")
+	public @ResponseBody RoomInfoDTO getSchedule(@RequestParam(value="roomnum" ,required=false,defaultValue="")int roomnum,
+											@RequestParam(value="seldate" ,required=false,defaultValue="")String sel_date,
+			RoomInfoDTO romin){
+		romin.setStartdate(sel_date);
+		romin.setRoomNum(roomnum);
+
+		romin=roomser.getRoomSchedule(romin);
+		
+		if(romin.getReservstate()==null){
+			romin.setReservstate("0,0");
+		}
+
+		return romin;
 	}
 }
