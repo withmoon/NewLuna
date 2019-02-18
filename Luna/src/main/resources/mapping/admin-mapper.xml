@@ -6,6 +6,55 @@
 
 <!-- QnABoard -->
 
+	
+	<select id="approveList" resultType="adminManagerApproveVO">
+
+		select id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position from member where brStatus = -1 
+
+	</select>
+
+	<update id="approveupdate" parameterType="adminManagerApproveVO">
+	
+	update member set brStatus=#{brStatus}+0 where id=#{id}
+	
+	</update>
+
+	<delete id="approvedelete">
+	
+	delete from member where id=#{id}
+	</delete>
+	
+	<insert id="noticeinsert" parameterType="adminNoticeBoardVO">
+		insert into adminnoticeboard (num, title, content, regdate)
+		values ( (select nvl(max(num)+1,1) from adminnoticeboard), #{title},
+		#{content}, #{regdate})
+	</insert>
+	
+	<select id="noticeList" resultType="adminNoticeBoardVO">
+
+		select num,title,content,regdate from adminnoticeboard order by num desc
+
+	</select>
+	
+	<select id="noticeread" resultType="adminNoticeBoardVO">
+
+		select * from adminnoticeboard where num=#{num}
+
+	</select>
+	
+	<update id="noticeupdate" parameterType="adminNoticeBoardVO">
+
+		update adminnoticeboard set title= #{title}, content= #{content} where
+		num=#{num}
+
+	</update>
+	
+	<delete id="noticedelete" parameterType="adminNoticeBoardVO">
+
+		delete from adminnoticeboard where num=#{num}
+	</delete>
+	
+
    	<insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
@@ -18,14 +67,15 @@
 		select num,subject,content,regdate from adminqnaboard order by num desc
 
 	</select>
-
+	
 
 	<select id="read" resultType="adminQnABoardVO">
 
 		select * from adminqnaboard where num=#{num}
 
 	</select>
-
+	
+	
 	<update id="update" parameterType="adminQnABoardVO">
 
 		update adminqnaboard set subject= #{subject}, content= #{content} where
@@ -37,6 +87,7 @@
 
 		delete from adminqnaboard where num=#{num}
 	</delete>
+
 
 
 
