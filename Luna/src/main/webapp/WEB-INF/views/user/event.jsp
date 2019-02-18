@@ -35,17 +35,19 @@
 <section class="list_tab">
 <!-- 진행 이벤트 목록 -->
 <table class="eventNow2">
+<thead>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
 		<th>작성자</th>
 		<th>날짜</th>
 	</tr>
+</thead>
 	<tbody id="my-tbody">
 	<c:forEach items="${eventList }" var="event">
 		<tr>
 		<td>${event.seq }</td>
-		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','window_name','width=700,height=720,location=no,status=no,scrollbars=yes');">
+		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${event.title }</a></td>
 		<td>${event.writer }</td>
 		<td><fmt:formatDate value="${event.startdate }" pattern="yy-MM-dd" /> ~ <fmt:formatDate value="${event.enddate }" pattern="yy-MM-dd" /></td>
