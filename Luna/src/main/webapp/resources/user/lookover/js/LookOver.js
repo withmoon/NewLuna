@@ -9,7 +9,7 @@ function showSd(num){
 		data:{roomnum:num, seldate:seldate},     
 		success:function(data){
 			var sch=data.reservstate;
-			console.log("sch="+sch);
+			//console.log("sch="+sch);
 			if(sch==undefined){
 				$(".showSchedule").display="";
 				$(".showSchedule").show();
@@ -58,6 +58,10 @@ function showSd(num){
 }
 function hideSd(num){
 	$(".showSchedule").hide();
+}
+
+function goDetail(num){
+	alert("하이롱");
 }
 
 /* 주소 select 시/군/도 */
@@ -148,7 +152,7 @@ function findCanReservRoom(){
 				$(".showView").remove();
 				for(var i=0; i<data.length; i++){
 					strDom+='<div class="showView">';
-					strDom+='<a href="#" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd('+data[i].roomNum+')">';
+					strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd('+data[i].roomNum+')">';
 					strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
 					strDom+='<a href="#">'+data[i].roomName+'</a><br/>';
 					strDom+='<label>('+data[i].branchName+')</label><br/>';

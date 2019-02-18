@@ -14,4 +14,6 @@ public interface RoomService {
 	RoomInfoDTO getRoomSchedule(RoomInfoDTO romin);
 	//검색에서 제외할 방 가져옴
 	List<RoomInfoDTO> getExcRoomNum(RoomInfoDTO romin);
+	//roomDetail에 사용할 방 상세 정보 가져오기
+	RoomInfoDTO getDetailRoomInfo(RoomInfoDTO romin);
 }
