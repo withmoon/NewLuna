@@ -46,10 +46,12 @@ public class UserHomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public ModelAndView homeloginView(HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam("kid") String kid, @RequestParam("knic") String knic) throws Exception {
+	public ModelAndView homeloginView(HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		
-		int result = memser.idCheck(memcom);
+		int result =0;
+		if(kid.equals("")) {
+			result= memser.idCheck(memcom);
+		}
 		if (result == 1) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -59,7 +61,7 @@ public class UserHomeController {
 			return null;
 		}
 		
-		if(!kid.equals("")) { //일반 또는 지점장 회원시
+		if(!kid.equals("")) { //카카오 로그인시
 			memcom.setKid(kid);
 			memcom.setPw(knic);
 		}
@@ -73,7 +75,11 @@ public class UserHomeController {
 		memser.insertMember(memcom);
 		
 		String branchName=memcom.getBranchName();
-		rdab.addFlashAttribute("id", memcom.getId());
+		if(kid.equals("")) {
+			rdab.addFlashAttribute("id", memcom.getId());
+		}else {
+			rdab.addFlashAttribute("id", memcom.getKid());
+		}
 		//회원은 회원으로 
 		if(branchName==null) {
 			mav.setViewName("redirect:/home.udo");
@@ -94,9 +100,11 @@ public class UserHomeController {
 		ModelAndView mav=new ModelAndView();
 		
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		System.out.println("카카오 사용자 왔냥1");
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
+			System.out.println("카카오 아이디==>"+memcom.getId());
 		}else {
 			memcom=(MemberCommand)session.getAttribute("member");
 			session.setAttribute("member", memcom);
