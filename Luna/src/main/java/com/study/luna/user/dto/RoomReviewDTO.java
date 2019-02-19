@@ -1,11 +1,14 @@
 package com.study.luna.user.dto;
 
-import java.sql.Date;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class RoomReviewDTO {
 	 int roomNum;
      String reviewContent;
      String name;
      String id;
-     Date writedate;
+     String writedate;
 }

@@ -68,18 +68,8 @@
 	
 	<!-- review 가져오기 -->
 	<select id="getRoomAllReview" resultType="roomReview">
-		select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr join member mem on romr.id=mem.id where roomNum=#{roomNum}
+		<![CDATA[select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
+				 join member mem on romr.id=mem.id where roomNum=#{roomNum}]]>
 	</select>
-	<!-- 예약 집어넣기 -->
-	<insert id="inReserveRoom">
-		<![CDATA[insert into roomReserv values(select nvl(max(reservNumber)+1,1),#{roomNum},#{reservstate},sysdate)]]>
-	</insert>
-	<!-- startDate로 오늘 날짜가 있는 방은 update로 뒤에 어펜드 처리 -->
-	<update id="upReserveRoom">
-		<![CDATA[
-		update roomReserv set reservstate=concat(reservstate,','||#{reservstate}) 
-		where roomNum=(select nvl(max(reservNumber),1) from roomreserv where roomNum=#{roomNum})
-		]]>
-	</update>
 	
 </mapper>

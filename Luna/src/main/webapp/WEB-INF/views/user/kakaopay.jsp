@@ -10,11 +10,22 @@
 	<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script> <!-- 아임포트를 사용한 카카오 페이 -->
 </head>
 <body>
-<script>
+<!-- 여기서 쓰고 말거 -->
+<input type="hidden" id="roomName" name="roomName" value="${roomInfo.roomName}"/>
+<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
+<input type="hidden" id="payAmount" name="payAmount" value="${roomPay.payAmount}"/>
 
-var email="";
-var name="";
-var tel="";
+<input type="hidden" id="email" name="email" value="${member.email}"/>
+<input type="hidden" id="email" name="email" value="${member.name}"/>
+<input type="hidden" id="phone" name="phone" value="${member.phone}"/>
+
+<script>
+var roomname=$("#roomName").val();
+var payamount=$("#payAmount").val();
+var branchName=$("#branchName").val();
+var email=$("#email").val();
+var name=$("#name").val();
+var phone=$("#phone").val();
 
 IMP.init('imp55565811'); 
 
@@ -22,12 +33,12 @@ IMP.request_pay({
     pg : 'kakaopay',
     pay_method : 'card',
     merchant_uid : 'merchant_' + new Date().getTime(),
-    name : 'room', //아이템 명
-    amount : 1000, //총결제 금액
-    buyer_email : 'iamport@siot.do', //구매자 이메일
-    buyer_name : '구매자이름', //id
-    buyer_tel : '010-1234-5678', //번호
-    company : '달빛 스터디카페'+'지점명' //지점명
+    name : roomname, //아이템 명
+    amount : payamount, //총결제 금액
+    buyer_email : email, //구매자 이메일
+    buyer_name : name, //id
+    buyer_tel : phone, //번호
+    company : '달빛 스터디카페'+branchName //지점명
 }, function(rsp) {
     if ( rsp.success ) {
        var result = '';
@@ -38,12 +49,21 @@ IMP.request_pay({
         result += 'pg사 거래고유번호:' + rsp.pg_tid+':';
         result += '결제승인시각:' +rsp.paid_at+':';
         result += 'pg사에서 발행된 거래 매출 전표:' + rsp.receipt_url;
-        
+
         var doc = window.opener.document,
         theForm = doc.getElementById("theForm"),
-        theField = doc.getElementById("theField");
- 	   	theField.value ="";
- 	   
+        branchName = doc.getElementById("branchName");
+       	//alert(branchName.value);
+ 	   	/*
+ 	   		<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
+ 	  		<input type="hidden" id="roomNum" name="roomNum" value="${roomInfo.roomNum}"/>
+ 			<input type="hidden" id="reserveTime" name="reserveTime" value="${roomPay.reserveTime}"/>
+ 	        <input type="hidden" id="imp_uid" name="imp_uid" value="${roomPay.imp_uid}"/>
+ 	        <input type="hidden" id="merchant_uid" name="merchant_uid" value="${roomPay.merchant_uid}"/>
+ 	        <input type="hidden" id="payAmount" name="payAmount" value="${roomPay.payAmount}"/>
+ 	        <input type="hidden" id="paid_at" name="paid_at" value="${roomPay.paid_at}"/>
+ 	        <input type="hidden" id="receipt_url" name="receipt_url" value="${roomPay.receipt_url}"/> 
+ 	   */
  	   	window.close();
    	 	theForm.submit();
  		
@@ -58,6 +78,5 @@ IMP.request_pay({
     }
 });
 </script>
-
 </body>
 </html>

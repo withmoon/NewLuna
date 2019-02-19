@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.user.dto.RoomFileDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
+import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.room.service.RoomService;
 
 @Controller
@@ -25,7 +26,7 @@ public class UserRoomDetailController {
 	@RequestMapping(value = "/roomDetail.udo", method = RequestMethod.GET)
 	public ModelAndView roomDetailView(@RequestParam(value="roomnum",required=false,defaultValue="")int roomnum,
 			@RequestParam(value="seldate",required=false,defaultValue="")String seldate,
-			RoomInfoDTO roomin,MemberCommand memcom, HttpSession session)
+			RoomInfoDTO roomin,MemberCommand memcom,RoomPaymentDTO roomPay, HttpSession session)
 			throws Exception {
 		ModelAndView mav = new ModelAndView();
 		memcom = (MemberCommand) session.getAttribute("member");
@@ -36,6 +37,7 @@ public class UserRoomDetailController {
 		
 		List<RoomFileDTO> roomImgList=romser.getRoomAllimg(roomnum);
 		
+		mav.addObject("roomPay",roomPay);
 		mav.addObject("roomInfo",roomin);
 		mav.addObject("roomImgList",roomImgList);
 		mav.addObject("sel_date",seldate);

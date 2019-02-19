@@ -106,7 +106,9 @@ nav{
 #showSchedule table td{
    border:1px solid black;
 }
-
+#showSchedule table td:hover{
+	cursor: pointer;
+}
 /* 스케줄 바 */
 .right1{
    position:fixed;

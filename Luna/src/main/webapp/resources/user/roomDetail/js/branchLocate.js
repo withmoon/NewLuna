@@ -1,3 +1,6 @@
+var addr=$("#bex2").text();
+var branchName=$("#bex1").text();
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -11,7 +14,7 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 var geocoder = new daum.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('서울특별시 서초구 반포동 18-3 토즈스터디센터 반포래미안퍼스티지센터점', function(result, status) {
+geocoder.addressSearch(addr, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
      if (status === daum.maps.services.Status.OK) {
@@ -26,7 +29,7 @@ geocoder.addressSearch('서울특별시 서초구 반포동 18-3 토즈스터디
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new daum.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">달빛 대로도라점</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+branchName+'</div>'
         });
         infowindow.open(map, marker);
 

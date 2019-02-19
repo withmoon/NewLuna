@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="roomDAO">
+	<!-- 예약 집어넣기 -->
+	<insert id="inReserveRoom">
+		<![CDATA[insert into roomReserv values(select nvl(max(reservNumber)+1,1),#{roomNum},#{reservstate},sysdate)]]>
+	</insert>
+	<!-- startDate로 오늘 날짜가 있는 방은 update로 뒤에 어펜드 처리 -->
+	<update id="upReserveRoom">
+		<![CDATA[
+		update roomReserv set reservstate=concat(reservstate,','||#{reservstate}) 
+		where roomNum=(select nvl(max(reservNumber),1) from roomreserv where roomNum=#{roomNum})
+		]]>
+	</update>
+	
+</mapper>

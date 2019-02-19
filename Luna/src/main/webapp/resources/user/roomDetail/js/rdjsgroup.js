@@ -1,5 +1,11 @@
+var rnum=getParameterByName('roomnum'); //방번호 가져오기
+
+var reservtime="";
+var count=0;
+
 $('document').ready(function($) {
-	showSd(3);
+	showSd(rnum);
+	writeReview(rnum);
 });
 //날짜에 따른 스케줄
 function showSd(num){
@@ -29,32 +35,7 @@ function showSd(num){
 			
 				var time="";
 				for ( var i in splitsch ) {
-					time=(splitsch[i]=='00:00'?"#am1":splitsch[i]=='00:30'?"#am2":
-					  splitsch[i]=='01:00'?"#am3":splitsch[i]=='01:30'?"#am4":
-					  splitsch[i]=='02:00'?"#am5":splitsch[i]=='02:30'?"#am6":
-					  splitsch[i]=='03:00'?"#am7":splitsch[i]=='03:30'?"#am8":
-					  splitsch[i]=='04:00'?"#am9":splitsch[i]=='04:30'?"#am10":
-					  splitsch[i]=='05:00'?"#am11":splitsch[i]=='05:30'?"#am12":
-					  splitsch[i]=='06:00'?"#am13":splitsch[i]=='06:30'?"#am14":
-					  splitsch[i]=='07:00'?"#am15":splitsch[i]=='07:30'?"#am16":
-					  splitsch[i]=='08:00'?"#am17":splitsch[i]=='08:30'?"#am18":
-					  splitsch[i]=='09:00'?"#am19":splitsch[i]=='09:30'?"#am20":
-					  splitsch[i]=='10:00'?"#am21":splitsch[i]=='10:30'?"#am22":
-					  splitsch[i]=='11:00'?"#am23":splitsch[i]=='11:30'?"#am24":
-					  //pm
-					  splitsch[i]=='12:00'?"#pm1":splitsch[i]=='12:30'?"#pm2":
-					  splitsch[i]=='13:00'?"#pm3":splitsch[i]=='13:30'?"#pm4":
-					  splitsch[i]=='14:00'?"#pm5":splitsch[i]=='14:30'?"#pm6":
-					  splitsch[i]=='15:00'?"#pm7":splitsch[i]=='15:30'?"#pm8":
-					  splitsch[i]=='16:00'?"#pm9":splitsch[i]=='16:30'?"#pm10":
-					  splitsch[i]=='17:00'?"#pm11":splitsch[i]=='17:30'?"#pm12":
-					  splitsch[i]=='18:00'?"#pm13":splitsch[i]=='18:30'?"#pm14":
-					  splitsch[i]=='19:00'?"#pm15":splitsch[i]=='19:30'?"#pm16":
-					  splitsch[i]=='20:00'?"#pm17":splitsch[i]=='20:30'?"#pm18":
-					  splitsch[i]=='21:00'?"#pm19":splitsch[i]=='21:30'?"#pm20":
-					  splitsch[i]=='22:00'?"#pm21":splitsch[i]=='22:30'?"#pm22":
-					  splitsch[i]=='23:00'?"#pm23":splitsch[i]=='23:30'?"#pm24":""
-				);
+					var time=getSelTime(splitsch[i]);
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
 				}
 			}
@@ -80,10 +61,89 @@ function changeChoiceImg(img){
 $(function(){
 $("#schdule tr td").click(function(){
 	var txt = $(this).text();
-	alert(txt);
+
+	var sel_time=getSelTime(txt);
+	var backcolor = $(sel_time).css("background-color");
+	var color=$(sel_time).css("color");
+	
+	if(color=='rgb(128, 128, 128)'){
+		color='';
+		return;
+	}
+	
+	if(backcolor=='rgb(255, 255, 0)'){
+		$(sel_time).css("background-color","white");
+		var sptime=reservtime.split(txt+",");
+		reservtime=sptime[0]+sptime[1];
+		count--;
+	}else{
+		$(sel_time).css("background-color","yellow");
+		if(reservtime==undefined){ reservtime=txt+",";} 
+		else{reservtime+=txt+",";}
+		count++;
+	}
+	var roomprice=$("#payPrice").val();
+	var realprice=roomprice*count;
+	$(".payArea").text("☆가격☆ ￦"+realprice);
+	$("#payAmount").val(realprice);
 });
 });
 
+
+function getSelTime(txt){
+	var sel_time=(txt=='00:00'?"#am1":txt=='00:30'?"#am2":
+	txt=='01:00'?"#am3":txt=='01:30'?"#am4":
+	txt=='02:00'?"#am5":txt=='02:30'?"#am6":
+	txt=='03:00'?"#am7":txt=='03:30'?"#am8":
+	txt=='04:00'?"#am9":txt=='04:30'?"#am10":
+	txt=='05:00'?"#am11":txt=='05:30'?"#am12":
+	txt=='06:00'?"#am13":txt=='06:30'?"#am14":
+	txt=='07:00'?"#am15":txt=='07:30'?"#am16":
+	txt=='08:00'?"#am17":txt=='08:30'?"#am18":
+	txt=='09:00'?"#am19":txt=='09:30'?"#am20":
+	txt=='10:00'?"#am21":txt=='10:30'?"#am22":
+	txt=='11:00'?"#am23":txt=='11:30'?"#am24":
+	//pm
+	txt=='12:00'?"#pm1":txt=='12:30'?"#pm2":
+	txt=='13:00'?"#pm3":txt=='13:30'?"#pm4":
+	txt=='14:00'?"#pm5":txt=='14:30'?"#pm6":
+	txt=='15:00'?"#pm7":txt=='15:30'?"#pm8":
+	txt=='16:00'?"#pm9":txt=='16:30'?"#pm10":
+	txt=='17:00'?"#pm11":txt=='17:30'?"#pm12":
+	txt=='18:00'?"#pm13":txt=='18:30'?"#pm14":
+	txt=='19:00'?"#pm15":txt=='19:30'?"#pm16":
+	txt=='20:00'?"#pm17":txt=='20:30'?"#pm18":
+	txt=='21:00'?"#pm19":txt=='21:30'?"#pm20":
+	txt=='22:00'?"#pm21":txt=='22:30'?"#pm22":
+	txt=='23:00'?"#pm23":txt=='23:30'?"#pm24":"");
+ return sel_time;
+}
+
 function writeReview(){
-	
+	$.ajax({      
+		type:"GET",  
+		url:"getRoomAllReview.udo",    
+		data:{roomnum:rnum},     
+		success:function(data){
+			$(".rbox").remove();
+			var strDom="";
+			for(var i=0; i<data.length; i++){
+				strDom+='<div class="rbox">';
+				strDom+='작성자 : '+data[i].name+'<br/>';
+				strDom+='작성날짜 : '+data[i].writedate+'<br/><br/>';
+				strDom+=data[i].reviewContent+'<br/>';
+				strDom+='</div>'
+			}
+			$('#rboxsec').append(strDom);
+		}
+	});
+}
+
+//url가져온는 function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    return results[2];
 }

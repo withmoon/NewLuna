@@ -22,7 +22,14 @@
 <body style="overflow-x:hidden">
   
   <form id="theForm" action="mypage.udo" method="POST">
-    	<input type="hidden" id="theField" name="theField">
+  		<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
+  		<input type="hidden" id="roomNum" name="roomNum" value="${roomInfo.roomNum}"/>
+		<input type="hidden" id="reserveTime" name="reserveTime" value="${roomPay.reserveTime}"/>
+        <input type="hidden" id="imp_uid" name="imp_uid" value="${roomPay.imp_uid}"/>
+        <input type="hidden" id="merchant_uid" name="merchant_uid" value="${roomPay.merchant_uid}"/>
+        <input type="hidden" id="payAmount" name="payAmount" value="${roomPay.payAmount}"/>
+        <input type="hidden" id="paid_at" name="paid_at" value="${roomPay.paid_at}"/>
+        <input type="hidden" id="receipt_url" name="receipt_url" value="${roomPay.receipt_url}"/> 
     	<br><input hidden="true" type="submit" value="Send" onclick="window.open('kakaopay.udo','','height=400,width=400'); return false;">
   </form>
   
@@ -139,8 +146,12 @@
 예약은 <a href="login.do">로그인</a> 필수<br/>
 입니다.<br/><br/>
 </c:if>
-가격: 40000 원
+<input type="hidden" id="payPrice" value="${roomInfo.roomprice}"/>
+<label class="payArea">☆가격☆<br/>(30분당: ${roomInfo.roomprice})원</label><br/><br/>
+<label>기본예약 시간은 <br/><b>2시간</b>입니다♡</label>
+<c:if test="${member.id ne null}">
 <a onclick="kakapop()"><img class="rsbtn" src="<c:url value="/resources/user/roomDetail/images/payment_icon_yellow_medium.png"/>;"></a>
+</c:if>
 </div>
 
 <!-- 스프링 효과 -->
@@ -192,44 +203,15 @@ ${roomInfo.comeRoute}
 
 <!-- 리뷰 시작 -->
 <section class="review">
-
 <img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
 <br/>여러분의 <a href="#" onclick="rivDown('pnum')">한줄후기</a> 를 들려주세요<br/><br/>
-<div class="rbox">
-작성자 : 선비냥이<br/>
-작성날짜 : 2019-01-01<br/><br/>
-흠.. <a href="#">수정</a>&emsp;<a href="#">삭제</a><br/>
-</div>
-
-<div class="rbox">
-작성자 : 냥냥펀치님<br/>
-작성날짜 : 2019-01-01<br/><br/>
-아래 작성자 넌 뭐냥 왜 고냥이 말밖에 못하냥 어디서 순고양이가 인간세계에와서 어울리냥<br/>
-</div>
-
-<div class="rbox">
-작성자 : 고냥이님<br/>
-작성날짜 : 2019-01-01<br/><br/>
-냥냥냥 냥냥~~냥냥 0ㅁ0 냥냥냥~~~~~~<br/>
-</div>
-
-<div class="rbox">
-작성자 : 프로리뷰어님<br/>
-작성날짜 : 2019-01-01<br/><br/>
-공기정화기 덕분에 숨통도 잘 트이고 조명조절이 가능해서 오늘 프레젠테이션하는데 있어 너무나도 편리했습니다.<br/>
-</div>
-
-<div class="rbox">
-작성자 : 난강사다<br/>
-작성날짜 : 2019-01-01<br/><br/>
-강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
-</div>
+<section id="rboxsec">
+</section>
 <br/>
 <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
 <br/>
 <input type="text" size="110"><button onclick="writeReview()">후기 올리기</button>
 </section>
-
 
 <!-- footer -->
 <footer>
