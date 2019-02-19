@@ -78,8 +78,8 @@ public class UserMypageController {
 			//예약 테이블 확인
 			romre.setReservstate(formattedDtm);
 			romre.setRoomNum(romin.getRoomNum());
-			romre.setStartdate(formattedDtm.substring(11));
-			int sdresult=parser.checkReservStartdate(romre);
+			romre.setStartdate(formattedDtm.substring(0,10));
+			Integer sdresult=parser.checkReservStartdate(romre);
 			
 			//예약 테이블에 집어넣기
 			romre.setReservstate(rompay.getReserveTime());
@@ -87,11 +87,13 @@ public class UserMypageController {
 			System.out.println("예약하신 시간==>"+romre.getReservstate()+"시간 서브한 결과==>"+romre.getStartdate());
 			
 			//row가 없으면 insert
-			if(sdresult==0) {
+			if(sdresult==null) {
 				parser.inReserveRoom(romre);
 			}else{//있으면 update
 				parser.upReserveRoom(romre);
 			}
+			rompay.setId(memcom.getId());
+			parser.inRoomPayment(rompay);
 			rompay.setStatus(0);
 		}
 			

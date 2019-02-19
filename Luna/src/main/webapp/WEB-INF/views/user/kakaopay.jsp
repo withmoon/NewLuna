@@ -39,6 +39,7 @@ IMP.request_pay({
     company : '달빛 스터디카페'+branchName //지점명
 }, function(rsp) {
     if ( rsp.success ) {
+    	//alert(rsp.receipt_url);
         $(opener.document).find("#imp_uid").val(rsp.imp_uid);
         $(opener.document).find("#merchant_uid").val(rsp.merchant_uid);
         $(opener.document).find("#paid_ats").val(rsp.paid_at);

@@ -28,7 +28,7 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Autowired
 	GetUserPayInfoDAOImpl gupiDAOImpl;
 	@Override
-	public int checkReservStartdate(RoomReserveDTO romre) {
+	public Integer checkReservStartdate(RoomReserveDTO romre) {
 		return crsdDAOImpl.checkReservStartdate(romre);
 	}
 	@Override

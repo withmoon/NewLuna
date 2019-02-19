@@ -105,7 +105,7 @@
 			&emsp;날짜 &ensp; 2019.01.02<br>
 			&emsp;시간 &ensp; ${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}
 			<button class="update">취소/환불</button>
-			<button class="update" onclick="window.open(${reserInfo.get(0).getReceipt_url()})">영수증</button>
+			<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
 		</div>
 		<table class="availability">
 			<thead>

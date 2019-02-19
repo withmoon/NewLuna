@@ -4,19 +4,19 @@
 <mapper namespace="payAndReservDAO">
 	
 	<!-- 예약 테이블에 현재날짜을 가지고 있는 room이 있는지 -->
-	<select id="checkReservStartdate" resultType="int">
-		<![CDATA[select roomnum from roomreserv where roomnum=#{roomnum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
+	<select id="checkReservStartdate" resultType="Integer">
+		<![CDATA[select roomnum from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
 	</select>
 	
 	<!-- 예약 집어넣기 -->
 	<insert id="inReserveRoom">
-		<![CDATA[insert into roomReserv values((select nvl(max(reservNumber)+1,1) from roomreserv),#{roomNum},#{reservstate},#{startdate})]]>
+		<![CDATA[insert into roomReserv values((select nvl(max(reservNumber)+1,1) from roomreserv),#{startdate},#{roomNum},#{reservstate})]]>
 	</insert>
 	<!-- startDate로 오늘 날짜가 있는 방은 update로 뒤에 어펜드 처리 -->
 	<update id="upReserveRoom">
 		<![CDATA[
 		update roomReserv set reservstate=concat(reservstate,#{reservstate}) 
-		where roomNum=(select nvl(max(reservNumber),1) from roomreserv where roomNum=#{roomNum})
+		where reservNumber=(select nvl(max(reservNumber),1) from roomreserv where roomNum=#{roomNum})
 		]]>
 	</update>
 	

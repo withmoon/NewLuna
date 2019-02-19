@@ -14,7 +14,7 @@ public class CheckReservStartdateDAOImpl implements CheckReservStartdateDAO {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public int checkReservStartdate(RoomReserveDTO romre) {
+	public Integer checkReservStartdate(RoomReserveDTO romre) {
 		return sqlSession.selectOne("payAndReservDAO.checkReservStartdate",romre);
 	}
 
