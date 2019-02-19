@@ -31,6 +31,9 @@
       <mapper resource="mapping/member-mapper.xml" />
       <!-- 룸 관련 -->
       <mapper resource="mapping/room-mapper.xml"/>
+      <!-- 예약/결제 관련 -->
+      <mapper resource="mapping/payment-mapper.xml"/>
+
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />
       <!-- 이벤트 -->
