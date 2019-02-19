@@ -105,16 +105,17 @@
 			&emsp;날짜 &ensp; 2019.01.02<br>
 			&emsp;시간 &ensp; pm7:00~pm8:30
 			<button class="update">취소/환불</button>
-			<button class="update">리뷰</button>
+			<button class="update">영수증</button>
 		</div>
 		<table class="availability">
 			<thead>
 				<tr>
-					<th scope="cols">지점</th>
-					<th scope="cols">룸</th>
-					<th scope="cols">날짜</th>
-					<th scope="cols">시간</th>
-					<th scope="cols">예약</th>
+					<th>지점</th>
+					<th>룸</th>
+					<th>날짜</th>
+					<th>시간</th>
+					<th>예약</th>
+					<th>비고</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -124,13 +125,17 @@
 					<td>2019.01.02</td>
 					<td>pm7:00~pm8:30</td>
 					<td>예약 완료</td>
+					<td>
+					<button class="update">리뷰쓰기</button>
+					<button class="update">영수증</button>
+					</td>
 				</tr>
 				<tr>
 					<td>서울지점</td>
 					<td>스터디 2룸</td>
 					<td>2019.01.02</td>
 					<td>pm7:00~pm8:30</td>
-					<td>예약 미완료</td>
+					<td>환불 요청</td>
 				</tr>
 				<tr>
 					<td><br></td>

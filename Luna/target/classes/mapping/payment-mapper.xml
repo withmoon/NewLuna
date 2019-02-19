@@ -10,7 +10,7 @@
 	
 	<!-- 예약 집어넣기 -->
 	<insert id="inReserveRoom">
-		<![CDATA[insert into roomReserv values(select nvl(max(reservNumber)+1,1),#{roomNum},#{reservstate},#{startdate})]]>
+		<![CDATA[insert into roomReserv values((select nvl(max(reservNumber)+1,1) from roomreserv),#{roomNum},#{reservstate},#{startdate})]]>
 	</insert>
 	<!-- startDate로 오늘 날짜가 있는 방은 update로 뒤에 어펜드 처리 -->
 	<update id="upReserveRoom">
@@ -21,6 +21,21 @@
 	</update>
 	
 	<!-- 결제 집어넣기 -->
+	<insert id="inRoomPayment">
+		<![CDATA[insert into roompayment values
+		(#{imp_uid},#{merchant_uid},#{branchName},#{roomNum},#{id},#{reserveTime},#{payAmount},#{status},#{paid_at},#{receipt_url},#{pg_provider},#{pg_tid}
+		,(select nvl(max(seq)+1,1) from roompayment))]]>
+	</insert>
 	
+	<!-- for MyPage -->
+	<select id="getUserPayInfo" resultType="myPageInfo">
+	<![CDATA[
+		select mem.branchAddr1,rom.roomName,romp.branchName,
+		to_char(paid_at,'yyyy-mm-dd') as paid_at,SUBSTR(reserveTime,0,4) as starttime,
+		SUBSTR(reserveTime,LENGTH(reserveTime)-3) as endtime,status,receipt_url 
+		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
+		where romp.id=#{id}
+		]]>
+	</select>
 	
 </mapper>

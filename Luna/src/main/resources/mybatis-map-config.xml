@@ -10,6 +10,8 @@
        	<typeAlias alias="roomFile" type="com.study.luna.user.dto.RoomFileDTO"/>
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>
         <typeAlias alias="roomReview" type="com.study.luna.user.dto.RoomReviewDTO"/>
+        <typeAlias alias="roomPay" type="com.study.luna.user.dto.RoomPaymentDTO"/>
+        <typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
         
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>

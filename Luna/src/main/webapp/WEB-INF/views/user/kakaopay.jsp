@@ -23,6 +23,7 @@ var branchName=$(opener.document).find("#branchName").val();
 var email=$("#email").val();
 var name=$("#name").val();
 var phone=$("#phone").val();
+var item=branchName+" "+roomname;
 
 IMP.init('imp55565811'); 
 
@@ -30,7 +31,7 @@ IMP.request_pay({
     pg : 'kakaopay',
     pay_method : 'card',
     merchant_uid : 'merchant_' + new Date().getTime(),
-    name : roomname, //아이템 명
+    name : item, //아이템 명
     amount : payamount, //총결제 금액
     buyer_email : email, //구매자 이메일
     buyer_name : name, //id

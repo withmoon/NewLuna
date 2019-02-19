@@ -62,7 +62,7 @@ public class UserMypageController {
 		
 		if(paystatus==1) {
 			//날짜로 변환
-			DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			long unixTime = rompay.getPaid_ats();
 			String formattedDtm = Instant.ofEpochSecond(unixTime).atZone(ZoneId.of("GMT-4")).format(formatter);
 			rompay.setPaid_at(formattedDtm);
@@ -70,25 +70,26 @@ public class UserMypageController {
 			//예약 테이블 확인
 			romre.setReservstate(formattedDtm);
 			romre.setRoomNum(romin.getRoomNum());
+			romre.setStartdate(formattedDtm.substring(11));
 			int sdresult=parser.checkReservStartdate(romre);
 			
 			//예약 테이블에 집어넣기
 			romre.setReservstate(rompay.getReserveTime());
 			
-			System.out.println(romre.getReservstate());
+			System.out.println("예약하신 시간==>"+romre.getReservstate()+"시간 서브한 결과==>"+romre.getStartdate());
 			
 			//row가 없으면 insert
 			if(sdresult==0) {
-				//예약 집어넣기
-				
+				parser.inReserveRoom(romre);
 			}else{//있으면 update
-				
+				parser.upReserveRoom(romre);
 			}
 			
 			rompay.setStatus(0);
 		}
 			
 		String pw=memcom.getPw();
+		System.out.println("여기서의 pw"+pw);
 		if(pw!=null) {
 			System.out.println("너가 왜 여기있냐..");
 			SHA256 sha=SHA256.getInsatnce();
