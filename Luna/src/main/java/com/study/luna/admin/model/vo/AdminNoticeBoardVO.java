@@ -9,6 +9,7 @@ public class AdminNoticeBoardVO {
 
 	private int num;
 	private String title;
+	private String writer;
 	private String content;
 	private Date regdate;
 	public int getNum() {
@@ -23,6 +24,12 @@ public class AdminNoticeBoardVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public String getContent() {
 		return content;
 	}
@@ -35,11 +42,15 @@ public class AdminNoticeBoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "AdminNoticeBoardVO [num=" + num + ", title=" + title + ", content=" + content + ", regdate=" + regdate
-				+ "]";
+		return "AdminNoticeBoardVO [num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content
+				+ ", regdate=" + regdate + "]";
 	}
+	
+	
 	
 	
 }

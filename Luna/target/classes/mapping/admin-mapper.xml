@@ -9,7 +9,7 @@
 	
 	<select id="approveList" resultType="adminManagerApproveVO">
 
-		select * from member where brStatus = -1 
+		select id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position from member where brStatus = -1 
 
 	</select>
 
@@ -25,33 +25,33 @@
 	</delete>
 	
 	<insert id="noticeinsert" parameterType="adminNoticeBoardVO">
-		insert into adminnoticeboard (num, title, content, regdate)
-		values ( (select nvl(max(num)+1,1) from adminnoticeboard), #{title},
+		insert into noticeboard (num,writer, title, content, regdate)
+		values ( (select nvl(max(num)+1,1) from noticeboard),#{writer},#{title},
 		#{content}, #{regdate})
 	</insert>
 	
 	<select id="noticeList" resultType="adminNoticeBoardVO">
 
-		select * from adminnoticeboard order by num desc
+		select num,writer,title,content,regdate from noticeboard order by num desc
 
 	</select>
 	
 	<select id="noticeread" resultType="adminNoticeBoardVO">
 
-		select * from adminnoticeboard where num=#{num}
+		select * from noticeboard where num=#{num}
 
 	</select>
 	
 	<update id="noticeupdate" parameterType="adminNoticeBoardVO">
 
-		update adminnoticeboard set title= #{title}, content= #{content} where
+		update noticeboard set title= #{title}, content= #{content} where
 		num=#{num}
 
 	</update>
 	
 	<delete id="noticedelete" parameterType="adminNoticeBoardVO">
 
-		delete from adminnoticeboard where num=#{num}
+		delete from noticeboard where num=#{num}
 	</delete>
 	
 
