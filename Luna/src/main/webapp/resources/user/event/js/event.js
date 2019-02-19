@@ -54,7 +54,7 @@ $(function() {
 		$.ajax({      
 			 type:"GET",  
 			 url:"eventChange.udo",    
-		     data:{"eEvnet":"end"},      
+		     data:{"eEvnet":"endEv"},      
 		     success:function(data){   
 		    	 var my_tbody = document.getElementById('my-tbody');
 		    	 var new_tbody=document.createElement('tbody');
@@ -96,6 +96,9 @@ $(function() {
 		     }
 		});   
 	});
-	
-	
 });
+
+//페이지
+function eventList(page) {
+	location.href="event.udo?curPage="+page;
+}

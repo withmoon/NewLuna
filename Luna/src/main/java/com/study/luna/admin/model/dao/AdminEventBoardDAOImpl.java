@@ -1,6 +1,8 @@
 package com.study.luna.admin.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
 
@@ -37,25 +40,39 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 
 
      /*user/event.jsp*/
-     //진행
+     //진행이벤트 목록
 	@Override
-	public List<AdminEventBoardVO> eventList(AdminEventBoardVO ebVO) {
-		System.out.println("===> 진행이벤트 목록");
-		return SqlSession.selectList("eventBoardDAO.eventList", ebVO);
+  	public List<AdminEventBoardVO> eventAll(int start, int end) {
+     	 System.out.println("===> 진행이벤트 목록");
+     	 
+     	 //BETWEEN #{start}, #{end}에 입력될 값을 맵에
+     	 Map<String, Object> map = new HashMap<String, Object>();
+     	 map.put("start", start);
+     	 map.put("end", end);
+  		 return SqlSession.selectList("eventBoardDAO.eventAll", map);
+     }
+
+    //종료이벤트목록
+	@Override
+ 	public List<AdminEventBoardVO> eventEndAll(int start, int end) {
+    	 System.out.println("===> 마감이벤트 목록");
+    	 
+    	 Map<String, Object> map = new HashMap<String, Object>();
+    	 map.put("start", start);
+    	 map.put("end", end);
+    	 return SqlSession.selectList("eventBoardDAO.eventEndAll", map);
+ 	}
+
+	//이벤트글 갯수
+	@Override
+	public int count(ModelAndView mav) {
+		return SqlSession.selectOne("eventBoardDAO.count", mav);
 	}
 
-
-	@Override
-	public List<AdminEventBoardVO> eventEndList(AdminEventBoardVO ebVO) {
-		System.out.println("===> 마감이벤트 목록");
-		return SqlSession.selectList("eventBoardDAO.eventEndList", ebVO);
-	}
-
-
+    //상세보기
 	@Override
 	public AdminEventBoardVO read(int seq) throws Exception {
 		System.out.println("===> 이벤트 상세보기");
 		return SqlSession.selectOne("eventBoardDAO.viewEvent", seq);
 	}
-
    }

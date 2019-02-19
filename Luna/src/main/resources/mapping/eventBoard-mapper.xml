@@ -3,14 +3,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="eventBoardDAO">
 	<!-- 진행이벤트 목록 -->
-	<select id="eventList" resultType="eBoard">
+	<select id="eventAll" resultType="eBoard">
+		<include refid="pagingHeader"></include>
 		select * from adminevent where enddate > sysdate
+		<include refid="pagingFooter"></include>
 	</select>
 	
-	<!-- 마감인벤트목록 -->
-	<select id="eventEndList" resultType="eBoard">
-		select * from adminevent where sysdate>enddate
+	<!-- 종료인벤트목록 -->
+	<select id="eventEndAll" resultType="eBoard">
+		<include refid="pagingHeader"></include>
+		select * from adminevent where sysdate > enddate
+		<include refid="pagingFooter"></include>
 	</select>
+	
+	<!-- 게시글갯수 -->
+	<select id="count" resultType="int">
+		select count(*) from adminevent
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select seq as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
 	
 	<!-- 이벤트 상세보기 -->
 	<select id="viewEvent" resultType="eBoard">

@@ -55,9 +55,40 @@
 	</c:forEach>
 	</tbody>
 </table>
-
+<!-- 페이지 처리 -->
+<table class="pageT">
+	<tr>
+		<td>
+			 <!-- 처음페이지로 이동 : 현재페이지 블럭이 1보다크면 -->
+			<c:if test="${boardPager.curBlock > 1}">
+				<a href="javascript:eventList('1')">[처음]</a>
+			</c:if>
+			<!-- 이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
+			<c:if test="${boardPager.curBlock > 1}">
+				<a href="javascript:eventList('${boardPager.prevPage}')">[이전]</a>
+			</c:if>
+			<!-- 페이지 블럭 처음부터 마지막 블럭까지 1씩 증가하는 페이지 출력 -->
+			<c:forEach var="seq" begin="${boardPager.blockBegin}" end="${boardPager.blockEnd}">
+				<!-- 현재페이지이면 하이퍼링크 제거 -->
+				<c:choose>
+					<c:when test="${seq == boardPager.curPage}">${seq}&nbsp;</c:when>
+					<c:otherwise>
+						<a href="javascript:eventList('${seq}')">${seq}</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<!-- 다음페이지 블록으로 이동 -->
+			<c:if test="${boardPager.curBlock <= boardPager.totBlock}">
+				<a href="javascript:eventList('${boardPager.nextPage}')">[다음]</a>
+			</c:if>
+			<!-- 끝페이지로 이동 -->
+			<c:if test="${boardPager.curBlock <= map.boardPager.totPage}">
+				<a href="javascript:eventList(' ${boardPager.totPage}')">[끝]</a>
+			</c:if>
+		</td>
+	</tr>
+</table>
 </section>
-<div class="pnum"><a href="#">[이전]</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">[다음]</a></div>
 
 <!-- footer -->
 <footer>

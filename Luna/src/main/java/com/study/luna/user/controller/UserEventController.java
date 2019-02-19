@@ -1,8 +1,9 @@
 package com.study.luna.user.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminEventBoardService;
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
+import com.study.luna.mg.model.BoardPager;
 
 @Controller
 public class UserEventController {
@@ -21,27 +23,49 @@ public class UserEventController {
 	AdminEventBoardService evntBoardService;
 	
 	//이벤트 목록
-	//진행중
+	//진행중인이벤트
 	@RequestMapping(value="/event.udo", method=RequestMethod.GET)
-	public ModelAndView eventView(AdminEventBoardVO ebVO) {
-		List<AdminEventBoardVO> eventList = evntBoardService.eventList(ebVO);
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView eventView(@RequestParam(defaultValue="1") int curPage,
+									ModelAndView mav, HttpSession session) {
+		//페이징처리
+		int count = evntBoardService.count(mav);
+		
+		BoardPager boardPager = new BoardPager(count, curPage);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
+		List<AdminEventBoardVO> eventList = evntBoardService.eventAll(start, end, session);
+		
 		mav.addObject("eventList", eventList);
-
+		mav.addObject("boardPager", boardPager);
+		
 		return mav;
 	}
 	
-	//마감
+	//종료이벤트
 	@RequestMapping(value="/eventChange.udo", method=RequestMethod.GET)
-	public @ResponseBody List<AdminEventBoardVO> eventEndView(AdminEventBoardVO adebv,@RequestParam(value="eEvnet", required=false,defaultValue="")String eEvent) {
-
+	public @ResponseBody List<AdminEventBoardVO> eventEndView(@RequestParam(defaultValue="1") int curPage,
+																@RequestParam(value="eEvnet", required=false,defaultValue="")String eEvent,
+																ModelAndView mav, HttpSession session) {
 		System.out.println("eEvent ==> "+eEvent);
+		
+		//페이징처리
+		int count = evntBoardService.count(mav);
+		
+		BoardPager boardPager = new BoardPager(count, curPage);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
 		List<AdminEventBoardVO> eventList = new ArrayList<AdminEventBoardVO>();	
-		if(eEvent.equals("end")) {
-			eventList = evntBoardService.eventEndList(adebv);
+		if(eEvent.equals("endEv")) {
+			eventList = evntBoardService.eventEndAll(start, end, session);
 		}else {
-			eventList = evntBoardService.eventList(adebv);
+			eventList = evntBoardService.eventAll(start, end, session);
 		}
+
+		mav.addObject("eventList", eventList);
+		mav.addObject("boardPager", boardPager);
+		
 		return eventList;
 	}
 	
