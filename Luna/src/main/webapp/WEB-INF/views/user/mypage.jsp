@@ -98,14 +98,14 @@
 		
 		<div class="noroom"><img alt="" src="<c:url value="/resources/user/mypage/images/noroom.png"/>"></div>
 		<div class="reservation2">
-			<p>현재 서울 지점 예약되었습니다.</p>
+			<p>현재 ${reserInfo.get(0).getBranchName()} 예약되었습니다.</p>
 			&emsp;전화번호&ensp;02.2222.2222 <br>
-			&emsp;주소 &ensp;서울시 동대문구 장안동 <br>
-			&emsp;룸 &ensp;스터디 1룸<br>
+			&emsp;주소 &ensp;${reserInfo.get(0).getBranchAddr1()} <br>
+			&emsp;룸 &ensp;${reserInfo.get(0).getRoomName()}<br>
 			&emsp;날짜 &ensp; 2019.01.02<br>
-			&emsp;시간 &ensp; pm7:00~pm8:30
+			&emsp;시간 &ensp; ${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}
 			<button class="update">취소/환불</button>
-			<button class="update">영수증</button>
+			<button class="update" onclick="window.open(${reserInfo.get(0).getReceipt_url()})">영수증</button>
 		</div>
 		<table class="availability">
 			<thead>

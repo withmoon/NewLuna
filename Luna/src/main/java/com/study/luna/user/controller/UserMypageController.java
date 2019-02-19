@@ -3,6 +3,8 @@ package com.study.luna.user.controller;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
@@ -44,8 +47,13 @@ public class UserMypageController {
 			memcom=(MemberCommand)session.getAttribute("member");
 		}
 		session.setAttribute("member", memcom);
+
+		//마이페이지 예약 정보 가져옴
+		List<MyPageInfoDTO> mypReservInfo=new ArrayList<MyPageInfoDTO>();
+		mypReservInfo=parser.getUserPayInfo(memcom);
 		
 		memcom=memser.getMyPageInfo(memcom);
+		mav.addObject("reserInfo",mypReservInfo);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
@@ -84,7 +92,6 @@ public class UserMypageController {
 			}else{//있으면 update
 				parser.upReserveRoom(romre);
 			}
-			
 			rompay.setStatus(0);
 		}
 			

@@ -36,6 +36,7 @@ function showSd(num){
 				var time="";
 				for ( var i in splitsch ) {
 					var time=getSelTime(getTimeTxt(splitsch[i]));
+					//var time=getSelTime(splitsch[i]);
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
 				}
 			}
@@ -62,7 +63,7 @@ $(function(){
 $("#schdule tr td").click(function(){
 	var txt = $(this).text();
 
-	var sel_time=getSelTime(txt);
+	var sel_time=getSelTime(getTimeTxt(txt));
 	var backcolor = $(sel_time).css("background-color");
 	var color=$(sel_time).css("color");
 	
@@ -78,7 +79,7 @@ $("#schdule tr td").click(function(){
 		count--;
 	}else{
 		$(sel_time).css("background-color","yellow");
-		if(reservtime==undefined){ reservtime=getTimeTxt(txt)+",";} 
+		if(reservtime==undefined||reservtime==''){ reservtime=getTimeTxt(txt)+",";} 
 		else{reservtime+=getTimeTxt(txt)+",";}
 		count++;
 	}
@@ -87,7 +88,8 @@ $("#schdule tr td").click(function(){
 	$(".payArea").text("☆가격☆ ￦"+realprice);
 	$("#payAmount").val(realprice);
 	$("#reserveTime").val(reservtime);
-	//console.log(reservtime);
+	
+	console.log(reservtime+" count 치사량=>"+count);
 	
 });
 });
