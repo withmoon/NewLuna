@@ -18,7 +18,7 @@ public class UserKakaopayController {
 	@Autowired
 	MemberService memser;
 	
-	@RequestMapping(value="/kakaopay.udo", method=RequestMethod.POST)
+	@RequestMapping(value="/kakaopay.udo", method=RequestMethod.GET)
 	public ModelAndView kakaopayView(RoomInfoDTO roomin,MemberCommand memcom,RoomPaymentDTO roomPay,HttpSession session) {
 		ModelAndView mav=new ModelAndView();
 		

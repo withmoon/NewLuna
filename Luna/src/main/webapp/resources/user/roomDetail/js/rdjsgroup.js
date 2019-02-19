@@ -86,6 +86,8 @@ $("#schdule tr td").click(function(){
 	var realprice=roomprice*count;
 	$(".payArea").text("☆가격☆ ￦"+realprice);
 	$("#payAmount").val(realprice);
+	$("#reserveTime").val(reservtime);
+	
 });
 });
 

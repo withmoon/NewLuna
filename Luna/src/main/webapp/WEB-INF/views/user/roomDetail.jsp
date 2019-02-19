@@ -21,16 +21,20 @@
 </head>
 <body style="overflow-x:hidden">
   
-  <form id="theForm" action="mypage.udo" method="POST">
+  
+  <form id="theForm" action="" method="POST">
+  		<input type="hidden" id="status" name="status" value="${roomPay.status}"/>
   		<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
   		<input type="hidden" id="roomNum" name="roomNum" value="${roomInfo.roomNum}"/>
+  		<input type="hidden" id="roomName" name="roomName" value="${roomInfo.roomName}"/>
 		<input type="hidden" id="reserveTime" name="reserveTime" value="${roomPay.reserveTime}"/>
         <input type="hidden" id="imp_uid" name="imp_uid" value="${roomPay.imp_uid}"/>
         <input type="hidden" id="merchant_uid" name="merchant_uid" value="${roomPay.merchant_uid}"/>
         <input type="hidden" id="payAmount" name="payAmount" value="${roomPay.payAmount}"/>
-        <input type="hidden" id="paid_at" name="paid_at" value="${roomPay.paid_at}"/>
+        <input type="hidden" id="paid_ats" name="paid_ats" value="${roomPay.paid_ats}"/>
         <input type="hidden" id="receipt_url" name="receipt_url" value="${roomPay.receipt_url}"/> 
-    	<br><input hidden="true" type="submit" value="Send" onclick="window.open('kakaopay.udo','','height=400,width=400'); return false;">
+        <input type="hidden" id="pg_provider" name="pg_provider" value="${roomPay.pg_provider}"/>
+        <input type="hidden" id="pg_tid" name="pg_tid" value="${roomPay.pg_tid}"/> 
   </form>
   
 <!-- 상단 메뉴 -->
