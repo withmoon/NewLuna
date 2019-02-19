@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/user/lookover/js/LookOver.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/js/getSchedule.js"/>"></script>
 </head>
 <body style="overflow-x:hidden;">
 <!-- 상단 기본 바 -->
@@ -67,7 +68,7 @@
 <!-- 스케줄 구간 -->
 <div class="showSchedule">
 <p style="color:white">방을 예약하시려면 이미지를 클릭해주세요^^</p>
-<p>선택하신 날짜 : <b><label>0월 0일 00</label>방</b>의 스케줄입니다.</p><br/>
+<p>선택하신 날짜 : <b><label id="startdate">0월 0일 00</label><label id="scroomname">방</label></b>의 스케줄입니다.</p><br/>
 <table>
 <tr>
 <th>오전</th>

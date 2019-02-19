@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class RoomReservLogDTO {
+public class RoomPaymentDTO {
 int seq;
 String imp_uid;
 String merchant_uid;

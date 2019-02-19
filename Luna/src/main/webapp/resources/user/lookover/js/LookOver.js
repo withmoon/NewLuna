@@ -11,6 +11,11 @@ function showSd(num){
 			var sch=data.reservstate;
 			//console.log("sch="+sch);
 			if(sch==undefined){
+				$("#startdate").text("");
+				$("#startdate").text(seldate);
+				$("#scroomname").text("");
+				$("#scroomname").text(" "+$(".roomname"+num).text()+"방");
+				
 				$(".showSchedule").display="";
 				$(".showSchedule").show();
 				return;
@@ -49,19 +54,19 @@ function showSd(num){
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
 				}
 			}
-			
+			$("#startdate").text("");
+			$("#startdate").text(seldate);
+			$("#scroomname").text("");
+			$("#scroomname").text(" "+$(".roomname"+num).text()+"방");
 			$(".showSchedule").display="";
 			$(".showSchedule").show();
 			
 		}
 	});
 }
-function hideSd(num){
-	$(".showSchedule").hide();
-}
 
-function goDetail(num){
-	alert("하이롱");
+function hideSd(){
+	$(".showSchedule").hide();
 }
 
 /* 주소 select 시/군/도 */
@@ -152,9 +157,9 @@ function findCanReservRoom(){
 				$(".showView").remove();
 				for(var i=0; i<data.length; i++){
 					strDom+='<div class="showView">';
-					strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd('+data[i].roomNum+')">';
+					strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'&seldate='+seldate+'" onmouseenter="showSd('+data[i].roomNum+')" onmouseleave="hideSd()">';
 					strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
-					strDom+='<a href="#">'+data[i].roomName+'</a><br/>';
+					strDom+='<a href="#" class="roomname'+data[i].roomNum+'">'+data[i].roomName+'</a><br/>';
 					strDom+='<label>('+data[i].branchName+')</label><br/>';
 					strDom+='<label>'+data[i].roomEx1+'</label><br/>';
 					strDom+='<label>'+data[i].roomEx2+'</label><br/>';

@@ -58,9 +58,18 @@
 	<!--  for roomDetail  -->
 	<!-- 방상세 정보 가져오기-->
 	<select id="getDetailRoomInfo" resultType="roomInfo">
-		select * from room
+		select mem.branchAddr1,rom.* from room rom join member mem on rom.branchName=mem.branchName where roomnum=#{roomNum}
 	</select>
 	
+	<!-- 방 사진 가져오기  -->
+	<select id="getRoomAllimg" resultType="roomFile">
+		select roomnum,filenum,fname from roomfile where roomnum=#{roomNum}
+	</select>
+	
+	<!-- review 가져오기 -->
+	<select id="getRoomAllReview" resultType="roomReview">
+		select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr join member mem on romr.id=mem.id where roomNum=#{roomNum}
+	</select>
 	<!-- 예약 집어넣기 -->
 	<insert id="inReserveRoom">
 		<![CDATA[insert into roomReserv values(select nvl(max(reservNumber)+1,1),#{roomNum},#{reservstate},sysdate)]]>

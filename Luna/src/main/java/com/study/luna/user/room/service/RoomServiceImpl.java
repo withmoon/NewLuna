@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.study.luna.user.dto.RoomFileDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.room.dao.Impl.GetAllRoomInfoDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetDetailRoomInfoDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetExcRoomNumDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetGugunDAOImpl;
+import com.study.luna.user.room.dao.Impl.GetRoomAllimgDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetRoomScheduleDAOImpl;
 import com.study.luna.user.room.dao.Impl.GetSidoDAOImpl;
 
@@ -27,6 +29,8 @@ public class RoomServiceImpl implements RoomService {
 	GetExcRoomNumDAOImpl gernDAOImpl;
 	@Autowired
 	GetDetailRoomInfoDAOImpl gdriDAOImpl;
+	@Autowired
+	GetRoomAllimgDAOImpl graiDAOImpl;
 	
 	@Override
 	public List<String> getSido() {
@@ -56,6 +60,11 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public RoomInfoDTO getDetailRoomInfo(RoomInfoDTO romin) {
 		return gdriDAOImpl.getDetailRoomInfo(romin);
+	}
+
+	@Override
+	public List<RoomFileDTO> getRoomAllimg(int roomnum) {
+		return graiDAOImpl.getRoomAllimg(roomnum);
 	}
 
 }

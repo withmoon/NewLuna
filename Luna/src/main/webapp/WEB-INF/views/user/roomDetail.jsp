@@ -10,11 +10,13 @@
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
-
+<!-- 카카오링크 developer -->
 <script src="<c:url value="https://developers.kakao.com/sdk/js/kakao.min.js"/>"></script>
-
+<!-- 카카오 결제창 띄움 -->
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/kakaoPop.js"/>"></script>
+<!-- textArea  조절 js -->
 <script src="<c:url value="/resources/user/roomDetail/js/textAuto.js"/>"></script>
+<!-- roomDetail 고유 js -->
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/rdjsgroup.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
@@ -34,8 +36,7 @@
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 
 <div class="roomExp">
-
-<img id="roomExpImg" src="<c:url value="/resources/user/roomDetail/images/cafe.jpg"/>">
+<img id="roomExpImg" src="<c:url value="/resources/rooms/${roomImgList.get(0).getFname()}"/>">
 <div id="roomExplain">
 <b>방소개</b><br/><br/>
 <label id="ex1">${roomInfo.roomEx1}</label><br/><br/>
@@ -46,16 +47,17 @@
 <div class="rsec"></div>
 <div id="branchExplain">
 <b>지점소개</b><br/><br/>
-<label id="bex1">강남점</label><br/><br/>
-<label id="bex2">도로명 도로명 도로명 </label><br/><br/>
+<label id="bex1">${roomInfo.branchName}</label><br/><br/>
+<label id="bex2">${roomInfo.branchAddr1}</label><br/><br/>
 <label id="bex3">010-1121-1131</label><br/><br/>
 <label id="bex4">카페 겸비, 조용한 시설</label>
 </div>
 </div>
-
+<input type="hidden" id="rname" value="${roomInfo.roomName}"/>
 <!-- 카카오 링크 -->
 <a id="kakao-link-btn" title="카카오링크로 공유하기" href="javascript:sendLink()">
 <img style="width:50%;" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+
 </a>
 
 <script type='text/javascript' src="<c:url value="/resources/user/roomDetail/js/kakaolink.js"/>"></script>
@@ -63,77 +65,78 @@
 <!-- 찜 안찜 -->
 <img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/notChoiceList.png"/>" onclick="changeChoiceImg(this)"/>
 
+<!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p>선택하신 날짜 : <b><label>0월 0일</label> </b>의 스케줄입니다.</p><br/>
+<p>선택하신 날짜 : <b><label id="startdate">${sel_date}</label></b>의 스케줄입니다.</p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>
-<td style="background-color:#b5a495;">00:00</td>
-<td style="background-color:#b5a495;">00:30</td>
-<td style="background-color:#b5a495;">01:00</td>
-<td style="background-color:#b5a495;">01:30</td>
-<td>02:00</td>
-<td>02:30</td>
-<td>03:00</td>
-<td>03:30</td>
-<td>04:00</td>
-<td>04:30</td>
-<td>05:00</td>
-<td>05:30</td>
-<td>06:00</td>
-<td>06:30</td>
-<td>07:00</td>
-<td>07:30</td>
-<td>08:00</td>
-<td>08:30</td>
-<td>09:00</td>
-<td>09:30</td>
-<td>10:00</td>
-<td>10:30</td>
-<td>11:00</td>
-<td style="background-color:#b5a495;">11:30</td>
+<td id="am1">00:00</td>
+<td id="am2">00:30</td>
+<td id="am3">01:00</td>
+<td id="am4">01:30</td>
+<td id="am5">02:00</td>
+<td id="am6">02:30</td>
+<td id="am7">03:00</td>
+<td id="am8">03:30</td>
+<td id="am9">04:00</td>
+<td id="am10">04:30</td>
+<td id="am11">05:00</td>
+<td id="am12">05:30</td>
+<td id="am13">06:00</td>
+<td id="am14">06:30</td>
+<td id="am15">07:00</td>
+<td id="am16">07:30</td>
+<td id="am17">08:00</td>
+<td id="am18">08:30</td>
+<td id="am19">09:00</td>
+<td id="am20">09:30</td>
+<td id="am21">10:00</td>
+<td id="am22">10:30</td>
+<td id="am23">11:00</td>
+<td id="am24">11:30</td>
 </tr>
 <tr>
 <th>오후</th>
-<td style="background-color:#b5a495;">12:00</td>
-<td style="background-color:#b5a495;">12:30</td>
-<td style="background-color:#b5a495;">13:00</td>
-<td>13:30</td>
-<td>14:00</td>
-<td>14:30</td>
-<td>15:00</td>
-<td>15:30</td>
-<td>16:00</td>
-<td>16:30</td>
-<td>17:00</td>
-<td>17:30</td>
-<td>18:00</td>
-<td>18:30</td>
-<td>19:00</td>
-<td>19:30</td>
-<td>20:00</td>
-<td>20:30</td>
-<td>21:00</td>
-<td>21:30</td>
-<td>22:00</td>
-<td>22:30</td>
-<td>23:00</td>
-<td>23:30</td>
+<td id="pm1">12:00</td>
+<td id="pm2">12:30</td>
+<td id="pm3">13:00</td>
+<td id="pm4">13:30</td>
+<td id="pm5">14:00</td>
+<td id="pm6">14:30</td>
+<td id="pm7">15:00</td>
+<td id="pm8">15:30</td>
+<td id="pm9">16:00</td>
+<td id="pm10">16:30</td>
+<td id="pm11">17:00</td>
+<td id="pm12">17:30</td>
+<td id="pm13">18:00</td>
+<td id="pm14">18:30</td>
+<td id="pm15">19:00</td>
+<td id="pm16">19:30</td>
+<td id="pm17">20:00</td>
+<td id="pm18">20:30</td>
+<td id="pm19">21:00</td>
+<td id="pm20">21:30</td>
+<td id="pm21">22:00</td>
+<td id="pm22">22:30</td>
+<td id="pm23">23:00</td>
+<td id="pm24">23:30</td>
 </tr>
 </table>
 </div>
 
 <!-- 오른쪽 달력 바 -->
 <div class="right1">
-<input type="date"><br/>
-<button class="look">스케줄 보기</button>	
+<input type="date" id="reservDate" value="${sel_date}"><br/>
+<button class="look" onclick='showSd(${roomInfo.roomNum})'>스케줄 보기</button>	
 </div>
 
 <!-- 오른쪽 예약 바 -->
 <div class="right2">
 	<!-- 로그인 페이지 들어가야 함 -->	
 <c:if test="${member.id eq null}">
-예약은 <a href="#">로그인</a> 필수<br/>
+예약은 <a href="login.do">로그인</a> 필수<br/>
 입니다.<br/><br/>
 </c:if>
 가격: 40000 원
@@ -157,10 +160,10 @@ ${roomInfo.roomExplain}
 <br/>
 <!-- 방 사진 -->
 <b style="text-decoration:underline;">방사진</b><br/>
-
-<img src="<c:url value="/resources/user/roomDetail/images/cafe.jpg"/>">
-<img src="<c:url value="/resources/user/roomDetail/images/cafecube.png"/>">
-<img src="<c:url value="/resources/user/roomDetail/images/jonggakRoom.JPG"/>">
+<img src="<c:url value="/resources/rooms/${roomImgList.get(1).getFname()}"/>">
+<img src="<c:url value="/resources/rooms/${roomImgList.get(2).getFname()}"/>">
+<img src="<c:url value="/resources/rooms/${roomImgList.get(3).getFname()}"/>">
+<img src="<c:url value="/resources/rooms/${roomImgList.get(4).getFname()}"/>">
 </section>
 <br/>
 <!-- 주의사항 시작 -->
@@ -224,7 +227,7 @@ ${roomInfo.comeRoute}
 <br/>
 <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
 <br/>
-<input type="text" size="110"><button>후기 올리기</button>
+<input type="text" size="110"><button onclick="writeReview()">후기 올리기</button>
 </section>
 
 

@@ -13,7 +13,6 @@ $(document).ready(function(){
 	textEle3[0].style.height = 'auto';
 	var textEleHeight = textEle3.prop('scrollHeight');
 	textEle3.css('height', textEleHeight);
-
 });
 function rivDown(pnum){
 	 var offset = $("." + pnum).offset();
