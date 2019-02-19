@@ -9,6 +9,7 @@
       	<typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
        	<typeAlias alias="roomFile" type="com.study.luna.user.dto.RoomFileDTO"/>
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>
+        <typeAlias alias="roomReview" type="com.study.luna.user.dto.RoomReviewDTO"/>
         
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
@@ -21,7 +22,7 @@
      	<typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
       	<typeAlias alias="eBoard" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
         <typeAlias alias="adminEventBoardVO" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
-         <typeAlias alias="adminManagerApproveVO" type="com.study.luna.admin.model.vo.AdminManagerApproveVO"/>
+        <typeAlias alias="adminManagerApproveVO" type="com.study.luna.admin.model.vo.AdminManagerApproveVO"/>
       	<typeAlias alias="adminNoticeBoardVO" type="com.study.luna.admin.model.vo.AdminNoticeBoardVO"/>
    </typeAliases>
  
