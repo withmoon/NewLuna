@@ -24,14 +24,28 @@
 
 	<!-- 룸 테이블 -->
 	<select id="RoomList" resultType="Room">
-		SELECT ROOMNUM,BRANCHNAME,DAY1,INOWN,JOOSU FROM ROOMDB
+		SELECT * FROM ROOM
+		<include refid="search"></include>
+		ORDER BY ROOMNUM
 	</select>
+	<!-- 검색조건 sql -->
+	  <sql id="search">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 -->
+	 		<when test="searchOption='all'">
+	 			where (ROOMNAME like '%'||#{keyword}||'%' or ROOMNUM like '%'||#{keyword}||'%')
+	 		</when>
+	 		<otherwise>
+	 			where ${searchOption} like '%'||#{keyword}||'%'
+	 		</otherwise>
+	 	</choose>
+	 </sql>
 
 
 	<!-- 방생성 파일 -->
 	<insert id="RoomText" parameterType="Room">
 		 <![CDATA[
-		  INSERT INTO ROOMDB (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,INOWN,JOOSU) 
+		  INSERT INTO ROOM (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,INOWN,JOOSU) 
 		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{inown},#{joosu})
   		 ]]>
 	</insert>
@@ -45,7 +59,7 @@
 	<!-- 방상세보기 text -->
 	<select id="RoomSelect" resultType="Room">
 	<![CDATA[
-	 	SELECT * FROM ROOMDB WHERE ROOMNUM = #{roomnum}
+	 	SELECT * FROM ROOM WHERE ROOMNUM = #{roomnum}
 	 	]]>
 	</select>
 	<!-- 방상세보기 file  -->
@@ -58,14 +72,14 @@
 	<!-- 방업데이트text -->
 	<update id="RoomTextInsert"  parameterType="Room" >
 	 <![CDATA[
-	 UPDATE ROOMDB SET  ROOMNAME=#{roomName},  BRANCHNAME=#{branchName},  
-	 ROOMEX1=#{roomEx1},ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4}
-	ROOMEXPLAIN=#{roomExplain}, ROOMWARN=#{roomWarn}, 	INOWN=#{inown}, 	JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
+	 UPDATE ROOM SET ROOMNAME=#{roomName},BRANCHNAME=#{branchName},ROOMEX1=#{roomEx1},
+	 ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4},ROOMEXPLAIN=#{roomExplain},
+	 ROOMWARN=#{roomWarn},INOWN=#{inown},JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
 	  ]]>
 	</update><!--  inown=#{inown} ,joosu=#{joosu} 
 	  	roomex1=#{roomEx1},roomex2=#{roomEx2},roomex3=#{roomEx3},roomex4=#{roomEx4}
 		roomexplain=#{roomExplain}, roomwarn=#{roomWarn} -->
-	<!-- UPDATE ROOMDB SET  ROOMNAME=#{roomName},  BRANCHNAME=#{branchName},  
+	<!-- UPDATE room SET  ROOMNAME=#{roomName},  BRANCHNAME=#{branchName},  
 	 ROOMEX1=#{roomEx1},ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4}
 	ROOMEXPLAIN=#{roomExplain}, ROOMWARN=#{roomWarn}, 	INOWN=#{inown}, 	JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
 	 -->
@@ -80,7 +94,7 @@
 	<!-- 방삭제하기 -->
 	<delete id="RoomDelete">
 	 <![CDATA[
-		DELETE ROOMDB WHERE ROOMNUM=#{roomnum}    
+		DELETE ROOM WHERE ROOMNUM=#{roomnum}    
 		]]>
 	</delete>
 	<delete id="RoomFileDelete">

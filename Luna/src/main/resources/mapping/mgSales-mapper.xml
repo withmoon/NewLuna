@@ -4,15 +4,59 @@
 
 <mapper namespace="mgSalesDAO">
 
+	<!-- 매출현황 카운트 -->
+	<select id="countArticle" resultType="int">
+		<![CDATA[
+			select count(su) from sales where su>0
+		]]>
+	</select>
+
+
 	<!-- 매출현황 테이블컬럼 -->
 	<resultMap id="sales" type="Sales">
 		<result property="date" column="dates" />
 		<result property="inone" column="Roominone" />
 	</resultMap>
-	<!-- 매출현황게시판 -->
-	<select id="SRead" resultType="Sales" resultMap="sales">
-		SELECT * FROM SALES
+	
+	<!-- 질문게시판 전체목록 조회 및 검색조회 -->
+	<select id="listAll" resultType="Sales" resultMap="sales">
+		<include refid="pagingHeader"></include>	
+		select * from sales
+		<include refid="search"></include>	 
+		order by dates
+		<include refid="pagingFooter"></include>
 	</select>
+
+	<!-- 검색조건 sql -->
+	  <sql id="search">
+	 	<choose>
+	 		<!-- 검색옵션이 전체 검색일 경우 -->
+	 		<when test="searchOption='all'">
+	 			where (dates like '%'||#{keyword}||'%')
+	 		</when>
+	 		<otherwise>
+	 			where dates like '%'||'#{keyword}'||'%'
+	 			<!-- where dates like '%'||TO_char(to_date(#{keyword},'YYYY/mm/DD'),'YY/mm/dd')||'%' -->
+	 			
+	 			<!-- where dates like '%'||TO_char(to_date('#{keyword}','YYYY/mm/DD'),'YY/mm/dd')||'%'; -->
+	 			
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 <sql id="pagingHeader">
+	 	select * from ( select (select count(su) from sales where su>0) as rn,A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
+	 
+	 
+	 
+	 <select id="ReserveList" resultType="Sales" resultMap="sales">
+	 	SELECT SEQ,IMP_UID,BRANCHNAME,ROOMNUM,PAID_AT,STATUS FROM ROOMPAYMENT ORDER BY SEQ
+	 </select>
+	 
 	
 </mapper> 
 
