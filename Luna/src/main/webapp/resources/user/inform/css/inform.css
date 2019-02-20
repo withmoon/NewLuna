@@ -40,34 +40,48 @@ nav{
 	top:41%;
 	left:20%;
 }
+
+/*공지사항_자주묻는질문*/
 table{
 	text-align: center;
-	border-top:2px solid #686868;
-	border-bottom:2px solid #686868;
+	border-top:2px solid #686868; 
+	border-bottom:2px solid #686868; 
 	border-collapse: collapse;
+	position:relative;
+	right:90px;
 }
 table th{
-	border-top:2px solid #686868;
-	border-bottom:2px solid #686868;
-	width:200px;
+	border-top:2px solid #686868; 
+	border-bottom:2px solid #686868; 
+	width:230px;
+	font-size: 2vw;
 }
 table td{
 	font-size: 2vw;
-	padding:3%;
+	padding:1%;
 }
+
 a{
 	text-decoration: none;
 	color:black;
+}
+
+table td a{
+	text-decoration: none;
+	color:#fc6b97; 
 }
 
 a:hover{
 	color:orange;
 }
 
-.pnum{
-	position:absolute;
-	top:79%;
-	left:40%;
+/*페이지*/
+.pageT {
+	border-right:none;
+	border-left:none;
+	border-top:none;
+	border-bottom:none;
+	width: 100%;
 	font-size: 2vw;
 }
 
@@ -80,26 +94,30 @@ a:hover{
 	border:2px solid #686868;
 	border-collapse: collapse;
 }
+
 .list_tab2 table th{
 	border:2px solid #686868;
-	padding:2%;
-	width:120px;
 }
+
 .list_tab2 table td{
 	border-top:2px solid #686868;
 	border-bottom:2px solid #686868;
-	padding:2%;
-	width:305px;
 }
+
 input{
-	font-size:1vw;
+	font-size:1.5vw;
+	border:0;
 }
+
 select{
-	font-size:1.4vw;
-	width:90px;
+	font-size:1.5vw;
+	padding:1%;
 }
+
 textarea{
 	resize: none;
+	width:100%;
+	border:0;
 }
 .list_tab2 img{
 	width:5%;
@@ -107,7 +125,10 @@ textarea{
 
 footer{
 	position:absolute;
-	left:0.5%;
-	bottom:0%;
-	margin:0 0 30px 0;
+	bottom:-20%;
+	margin:0 0 -5% 0;
+}
+
+input:focus, textarea:focus{
+    outline: none;
 }

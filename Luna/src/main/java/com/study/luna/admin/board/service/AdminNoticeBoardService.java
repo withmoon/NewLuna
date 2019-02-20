@@ -2,6 +2,10 @@ package com.study.luna.admin.board.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.servlet.ModelAndView;
+
 import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 
 
@@ -17,4 +21,7 @@ public interface AdminNoticeBoardService {
 	
 	public AdminNoticeBoardVO noticeread(int num)throws Exception;
 
+	/*user_inform*/
+	public List<AdminNoticeBoardVO> noticeAll(int start, int end, HttpSession session); //공지사항목록
+	public int countNotice(ModelAndView mav); //글 갯수
 }

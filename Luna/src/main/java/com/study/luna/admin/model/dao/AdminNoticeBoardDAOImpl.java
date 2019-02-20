@@ -1,11 +1,16 @@
 package com.study.luna.admin.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 
@@ -14,6 +19,8 @@ public class AdminNoticeBoardDAOImpl implements AdminNoticeBoardDAO {
 
 	@Inject
 	SqlSession sqlsession;
+	@Autowired
+	SqlSessionTemplate SqlSession;
 
 	@Override
 	public void noticeinsert(AdminNoticeBoardVO vo) throws Exception {
@@ -45,6 +52,21 @@ public class AdminNoticeBoardDAOImpl implements AdminNoticeBoardDAO {
 		
 		sqlsession.delete("luna.admin.board.noticedelete",num);
 	}
-	
 
+	/*user_inform*/
+	//공지사항 목록
+	public List<AdminNoticeBoardVO> noticeAll(int start, int end) {
+		System.out.println("===> 공지사항 목록");
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+     	map.put("start", start);
+     	map.put("end", end);
+    
+		return SqlSession.selectList("noticeBoardDAO.noticeAll", map);
+	}
+
+	//글 갯수
+	public int countNotice(ModelAndView mav) {
+		return SqlSession.selectOne("noticeBoardDAO.countNotice", mav);
+	}
 }

@@ -70,6 +70,7 @@ nav{
 }
 table{
 	text-align: center;
+
 	border-top:2px solid #686868; 
 	border-bottom:2px solid #686868; 
 	border-collapse: collapse;
@@ -78,9 +79,10 @@ table th{
 	border-top:2px solid #686868; 
 	border-bottom:2px solid #686868; 
 	width:230px;
+	font-size: 2vw;
 }
 table td{
-	font-size: 1.5vw;
+	font-size: 2vw;
 	padding:1%;
 }
 
@@ -98,19 +100,6 @@ a:hover{
 	color:orange;
 }
 
-.pnum{
-	position:absolute;
-	top:85%;
-	left:43%;
-	font-size: 1.8vw;
-}
-
-footer{
-	position:absolute;
-	bottom:-3%;
-	margin:0 -5% 0 0;
-}
-
 /*페이지*/
 .pageT {
 	border-right:none;
@@ -119,4 +108,12 @@ footer{
 	border-bottom:none;
 	
 	width: 100%;
+	font-size: 2vw;
+}
+
+/*footer*/
+footer{
+	position:absolute;
+	bottom:-3%;
+	margin:0 -5% 0 0;
 }
