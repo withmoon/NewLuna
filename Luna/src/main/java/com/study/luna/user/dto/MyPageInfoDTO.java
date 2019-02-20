@@ -14,4 +14,5 @@ public class MyPageInfoDTO {
 	String endtime;
 	String status;
 	String receipt_url;
+	String roomNum;
 }

@@ -60,12 +60,9 @@ function inputCheck() {
 	}
 	
 	if($("#pw").val()!=''){
-		if ($("#pw").val()=='') {
-			$("#pw").focus();
-			return false;
-		}
 		if ($("#repw").val()=='') {
 			$("#repw").focus();
+			alert("확인용 비밀번호를 입력해주세요");
 			return false;
 		}
 		if ($("#pw").val() != $("#repw").val()) {
@@ -73,10 +70,10 @@ function inputCheck() {
 			$("#repw").focus();
 			return false;
 		}
-		$("join").attr("action","mypage.udo?stat=1").submit();
+		$("#update").attr("action","mypage.udo?stat=1").submit();
 		
 	}else{
-		$("join").attr("action","mypage.udo?stat=2").submit();
+		$("#update").attr("action","mypage.udo?stat=2").submit();
 		
 	}
 	

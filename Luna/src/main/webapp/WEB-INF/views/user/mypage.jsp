@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+
 <meta charset="UTF-8">
 <title>MyPage</title>
 <link href="<c:url value="/resources/user/mypage/css/mypage.css"/>" type="text/css" rel="stylesheet" />
@@ -97,7 +101,14 @@
 		
 		<!-- 예약 현황 -->
 		
-		<div class="noroom"><img alt="" src="<c:url value="/resources/user/mypage/images/noroom.png"/>"></div>
+		<div class="noroom">
+		<c:if test="${fn:length(reserInfo) ne 0}">
+			<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>">
+		</c:if>
+		<c:if test="${fn:length(reserInfo) eq 0}">
+			<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>"><label>예약하신 룸이 없습니다.</label>
+		</c:if>
+		</div>
 		<div class="reservation2">
 		<c:if test="${fn:length(reserInfo) ne 0}">
 			<p>현재 ${reserInfo.get(0).getBranchName()} 예약되었습니다.</p>
@@ -127,12 +138,12 @@
 				<c:forEach  var="reserInfo" items="${reserInfo}">
 				<tr>
 					<td>${reserInfo.branchName}</td>
-					<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=3'">${reserInfo.roomName}</a></td>
+					<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${reserInfo.roomNum}'">${reserInfo.roomName}</a></td>
 					<td>${reserInfo.reservdate}</td>
 					<td>${reserInfo.starttime}~${reserInfo.endtime}</td>
 					<td>예약 완료</td>
 					<td>
-					<button class="update" onclick="openReview()">리뷰쓰기</button>
+					<button class="update" onclick="openReview(${reserInfo.roomNum})">리뷰쓰기</button>
 					<button class="update" onclick="window.open('${reserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
 					</td>
 				</tr>
@@ -181,7 +192,7 @@
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">
-			<form name="update" action="" method="post">
+			<form id="update" name="update" action="" method="post">
 			<table>
 				<tr><td>
 					<label>ID</label><br/>

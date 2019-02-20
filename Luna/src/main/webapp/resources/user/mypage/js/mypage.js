@@ -1,5 +1,6 @@
 var count=0;
 function openReview(num){
+	console.log(num);
 	$(".review").display="";
 	$(".review").show();
 }
