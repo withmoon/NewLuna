@@ -93,7 +93,8 @@
              <c:forEach var="row" items="${map.list}">
              <tr>
              <td>${row.seq}</td>
-             <td>${row.title}</td>
+               <td><a href="eventview.ado?seq=${row.seq}">${row.title}</a></td>
+
              <td>${row.content}</td>
              <td>${row.writer}</td>
                <td>${row.startdate}</td>

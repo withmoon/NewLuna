@@ -86,7 +86,7 @@
                </tr>
                 <tr>
                   <th>이미지업로드:</th>
-                  <td><input type="text"  placeholder="image" name="image"
+                  <td><input type="file"  placeholder="image" name="image"
                      class="form-control" /></td>
                </tr>
                 <tr>
