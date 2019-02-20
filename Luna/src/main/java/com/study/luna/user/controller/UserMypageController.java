@@ -76,15 +76,14 @@ public class UserMypageController {
 			rompay.setPaid_at(formattedDtm);
 			
 			//예약 테이블 확인
-			romre.setReservstate(formattedDtm);
 			romre.setRoomNum(romin.getRoomNum());
-			romre.setStartdate(formattedDtm.substring(0,10));
+			romre.setStartdate(rompay.getReservdate());
 			Integer sdresult=parser.checkReservStartdate(romre);
 			
 			//예약 테이블에 집어넣기
 			romre.setReservstate(rompay.getReserveTime());
 			
-			System.out.println("예약하신 시간==>"+romre.getReservstate()+"시간 서브한 결과==>"+romre.getStartdate());
+			System.out.println("예약하신 시간==>"+romre.getStartdate()+"시간 서브한 결과==>"+romre.getReservstate());
 			
 			//row가 없으면 insert
 			if(sdresult==null) {

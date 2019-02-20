@@ -21,4 +21,5 @@ public class RoomPaymentDTO {
 	String receipt_url; //결제 영수증
 	String pg_provider; //결제승인된 pg사
 	String pg_tid; //pg사 거래고유번호
+	String reservdate; //예약 날짜
 }

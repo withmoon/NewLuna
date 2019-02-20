@@ -35,6 +35,7 @@
         <input type="hidden" id="receipt_url" name="receipt_url" value="${roomPay.receipt_url}"/> 
         <input type="hidden" id="pg_provider" name="pg_provider" value="${roomPay.pg_provider}"/>
         <input type="hidden" id="pg_tid" name="pg_tid" value="${roomPay.pg_tid}"/> 
+        <input type="hidden" id="reservdate" name="reservdate" value="${roomPay.reservdate}"/> 
   </form>
   
 <!-- 상단 메뉴 -->
@@ -78,7 +79,7 @@
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p>선택하신 날짜 : <b><label id="startdate">${sel_date}</label></b>의 스케줄입니다.</p><br/>
+<p>선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.</p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>
@@ -214,7 +215,6 @@ ${roomInfo.comeRoute}
 <br/>
 <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
 <br/>
-<input type="text" size="110"><button onclick="writeReview()">후기 올리기</button>
 </section>
 
 <!-- footer -->

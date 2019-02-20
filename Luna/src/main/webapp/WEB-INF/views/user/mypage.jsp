@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
-
+<script src="<c:url value="/resources/user/mypage/js/mypage.js"/>"></script>
 </head>
 <body>
 
@@ -98,14 +99,16 @@
 		
 		<div class="noroom"><img alt="" src="<c:url value="/resources/user/mypage/images/noroom.png"/>"></div>
 		<div class="reservation2">
+		<c:if test="${fn:length(reserInfo) ne 0}">
 			<p>현재 ${reserInfo.get(0).getBranchName()} 예약되었습니다.</p>
 			&emsp;전화번호&ensp;02.2222.2222 <br>
 			&emsp;주소 &ensp;${reserInfo.get(0).getBranchAddr1()} <br>
 			&emsp;룸 &ensp;${reserInfo.get(0).getRoomName()}<br>
-			&emsp;날짜 &ensp; 2019.01.02<br>
+			&emsp;날짜 &ensp; ${reserInfo.get(0).getReservdate()}<br>
 			&emsp;시간 &ensp; ${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}
 			<button class="update">취소/환불</button>
 			<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+		</c:if>
 		</div>
 		<table class="availability">
 			<thead>
@@ -119,45 +122,23 @@
 				</tr>
 			</thead>
 			<tbody>
+			<c:if test="${fn:length(reserInfo) ne 0}">
+			<c:if test="${reserInfo.get(1).getBranchName() ne null}">
+				<c:forEach  var="reserInfo" items="${reserInfo}">
 				<tr>
-					<td>서울지점</td>
-					<td>스터디 1룸</td>
-					<td>2019.01.02</td>
-					<td>pm7:00~pm8:30</td>
+					<td>${reserInfo.branchName}</td>
+					<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=3'">${reserInfo.roomName}</a></td>
+					<td>${reserInfo.reservdate}</td>
+					<td>${reserInfo.starttime}~${reserInfo.endtime}</td>
 					<td>예약 완료</td>
 					<td>
-					<button class="update">리뷰쓰기</button>
-					<button class="update">영수증</button>
+					<button class="update" onclick="openReview()">리뷰쓰기</button>
+					<button class="update" onclick="window.open('${reserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
 					</td>
 				</tr>
-				<tr>
-					<td>서울지점</td>
-					<td>스터디 2룸</td>
-					<td>2019.01.02</td>
-					<td>pm7:00~pm8:30</td>
-					<td>환불 요청</td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
+				</c:forEach>
+				</c:if>
+				</c:if>
 			</tbody>
 		</table>
 		
@@ -208,11 +189,21 @@
 				</td></tr>
 				<tr><td>
 					<label>PassWord</label><br/>
+					<c:if test="${fn:substring(member.id, 0, 2) ne 'k#'}">
 					<input type="password" name="pw" id="pw" size="30" value="${member.pw}" required="required" >
+					</c:if>
+					<c:if test="${fn:substring(member.id, 0, 2) eq 'k#'}">
+					<input type="password" name="pw" id="pw" size="30" disabled="disabled">
+					</c:if>
 				</td></tr>
 				<tr><td>
 					<label>Confirm PassWord</label><br/>
-					<input type="password" name="repw" id="repw" size="30" required="required">		
+					<c:if test="${fn:substring(member.id, 0, 2) ne 'k#'}">
+					<input type="password" name="repw" id="repw" size="30" required="required">
+					</c:if>
+					<c:if test="${fn:substring(member.id, 0, 2) eq 'k#'}">
+					<input type="password" name="repw" id="repw" size="30" disabled="disabled">
+					</c:if>		
 				</td></tr>
 				<tr><td>
 					<label>Name</label><br/>
@@ -235,6 +226,16 @@
 				</td></tr>
 			</table>
 		</form>
+		</div>
+		
+		<div class="review">
+			<img id="star1" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star2" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star3" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star4" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star5" class="star" src="<c:url value="/resources/util/unstar.png"/>"/><label>별점 :<b id="starcount">0</b>점</label>
+			<img onclick="closeReview()" src="<c:url value="/resources/util/xicon.png"/>"/><br/><br/>
+			<input type="text" size="100" placeholder="최대 100자">&nbsp;<button>후기 올리기</button>
 		</div>
 	
 	<!-- footer -->

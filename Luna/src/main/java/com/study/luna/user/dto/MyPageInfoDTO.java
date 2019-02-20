@@ -9,7 +9,7 @@ public class MyPageInfoDTO {
 	String branchAddr1;
 	String roomName;
 	String branchName;
-	String paid_at;
+	String reservdate;
 	String starttime;
 	String endtime;
 	String status;

@@ -214,7 +214,37 @@ input[type=date]{
 	top: 150%;
 	left: 18%;
 }
+/* 리뷰쓰기 */
+.review{
+	display:none;
+	border:2px solid gray;
+	padding:3%;
+	background-color:white;
+	position:fixed;
+	top:45%;
+	left:6%;
+	width:82%;
 
+}
+.review button{
+	font-size:1.5vw;
+	border-radius:10px 0;
+	background-color:lightgray;
+}
+.review input{
+	font-size:1.7vw;
+	border:1px solid gray;
+}
+.review img{
+	position:relative;
+	top:-15px;
+	float:right;
+	width:3%;
+}
+.review .star{
+	float:left;
+	width:4%;
+}
 /* footer */
 footer{
 	position:absolute;

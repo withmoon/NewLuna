@@ -13,6 +13,8 @@ function showSd(num){
 	
 	var seldate=$("#reservDate").val(); 
 	
+	$("#reservdate").val(seldate); 
+	
 	$.ajax({      
 		type:"GET",  
 		url:"getSchedule.udo",    
@@ -21,8 +23,8 @@ function showSd(num){
 			var sch=data.reservstate;
 			//console.log("sch="+sch);
 			if(sch==undefined){
-				$("#startdate").text("");
-				$("#startdate").text(seldate);
+				$("#startdat").text("");
+				$("#startdat").text(seldate);
 				$("#scroomname").text("");
 				$("#scroomname").text(" "+$(".roomname"+num).text()+"방");
 				
@@ -40,8 +42,8 @@ function showSd(num){
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
 				}
 			}
-			$("#startdate").text("");
-			$("#startdate").text(seldate);
+			$("#startdat").text("");
+			$("#startdat").text(seldate);
 			$(".showSchedule").display="";
 			$(".showSchedule").show();
 			
