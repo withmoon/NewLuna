@@ -5,14 +5,6 @@ function showUpdateForm(){
 function hideUpdateForm(){
 	$("#upInfo").hide();
 }
-var email="";
-var phone="";
-var pw="";
-
-$(document).ready(function(){
-	email=$("#email").val();
-	phone=$("#phone").val();
-});
 var stat=0;
 function inputCheck() {	
 	

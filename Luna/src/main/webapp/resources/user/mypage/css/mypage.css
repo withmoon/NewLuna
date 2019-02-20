@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 * { font-family: 'Gamja Flower', cursive; }
-
 /* 로그인 */
 header{
 	float:right;
 }
+
 .topUl li a{
 	font-size: 1.8vw;
 }
@@ -28,29 +28,47 @@ header{
 
 /*정보*/
 .myinformation{
-	position: absolute;
-	top: 15%;
+	position: relative;
+	top: 50px;
 	left: 5%;
-	font-size: x-large
+	font-size: x-large;
+	color: #686868; 
 }
-
-img { width:95%; }
-
-p{
-	color: #686868;
-	font-weight:bold
+/*사슴*/
+.deer {
+	width:9%;
+	position:relative;
+	float:right;
+	left:-17%;
+	top:-55px;
+	border:1px solid tan;
+	background-color:seashell;
 }
-
+.infoline1{ 
+	width:90%;
+	positon:relative;
+	left:10px;
+}
+.infoline2{ 
+	width:90%;
+	positon:relative;
+	left:10px;
+}
+b{
+	position:relative;
+	left:30px;
+	color:black;
+}
+/*정보수정 div*/
 .upInfo{
 	display:none;
-	
 	position:fixed;
 	top:10%;
 	left:55%;
 	font-size:1.8vw;
 	width:270px;
 	height:460px;
-	background-color: #836e5b;
+	background-color: lightgray;
 	padding:2%;
 }
 .upInfo td{
@@ -61,155 +79,160 @@ p{
 }
 .upInfo button{
 	font-size:1.8vw;
-	background-color:white;
-}
-
-.update {
-	/* position:relative; */
-	-moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
-	box-shadow:inset 0px 1px 0px 0px #a6827e;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
-	background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
-	background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
-	background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
-	background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
-	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
-	background-color:#7d5d3b;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	border:1px solid #54381e;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #4d3534;
-}
-
-.update:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
-	background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
-	background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
-	background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
-	background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
-	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
-	background-color:#634b30;
-}
-.update:active {
-	position:relative;
-	top:1px;
-}
-
-/*사슴*/
-.deer {
-	position:absolute;
-	right: 30%;
-	top:28%;
-	font-size:medium;
-	background-color: white;
 }
 
 /*즐겨찾기*/
 .favorites1{
-	position:absolute;
-	font-size: xx-large;
-	top: 39%;
-	left: 5%;
+	position:relative;
+	font-size: 2.6vw;
+	color: teal;
+	top: 70px;
+	left: 6%;
+}
+.favorlist{
+	position:relative;
+	top:14px;
+	border:15px groove BurlyWood ;
+	background-color:DarkSlateGray ;
+	width:80%;
+	height:550px;;
+	left:3%;
+}
+.favorlist div{
+	position:relative;
+	float:left;
+	margin:3% 8%;
+}
+.favorlist img{
+	width:250px;
+	height:140px;
+	margin:5%;
+}
+.favorites1 a{
+	font-size:1.8vw;
+	color: teal;
+}
+.favorites1 a:hover{
+	color:coral;
+}
+.favorlist div a{
+	color:white;
 }
 
-.favorites2 {
-	position: absolute;
-	width: 65%;
-	top: 52%;
-	left: 18%;
+/*예약현황타이틀*/
+.reservation{
+	position: relative;
+	top:120px;
+	left:5%;
 }
-
-table {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-
+.reservation img{
+	width:220px;
+	height:120px;
 }
-table thead th {
-    font-weight: bold;
-    vertical-align: top;
-    color: #836e5b;;
-    border:0;
-    border-top: 3px solid #836e5b;;
-    border-bottom: 3px solid #836e5b;;
-
-
+.reservlabel{
+	font-size: 2.6vw;
 }
-table td {
-    vertical-align: top;
-    border:0;
-    border-bottom: 1px solid #ccc;
-
+#display2{
+	position:relative;
+	left:10px;
+	font-size:1.8vw;
+	color:black;
 }
-
-/*예약현황*/
-.reservation1 {
-	position:absolute;
-	font-size: xx-large;
-	top: 72%;
-	left: 5%;
+#display2:hover{
+	color:coral;
 }
-
+.rslist{
+	position:relative;
+	top:10px;
+	text-align:center;
+	border:20px groove lightgray;
+	width:760px;
+	height:530px;
+	padding:5%;
+}
+.rslist table{
+	margin:2% 0 0 0;
+	text-align:center;
+	border-top:2px solid black;
+	border-bottom:2px solid black;
+	border-collapse: collapse;
+}
+.rslist table tr th{
+	border-bottom:2px solid black;
+	width:1.5%;
+}
+.rslist table tr td{
+	border-bottom:2px dotted black;
+	width:1.5%;
+}
+/* 예약 달력 */
 .line2 {
-	position:absolute;
-	top:83%;
-	left: 5%;
+	text-align:center;
+	position:relative;
+	border-top:1.5px solid teal;
+	border-bottom:1.5px solid teal;
+	top:45px;
+	left:18%;
+	padding:2%;
+	width:60%;
+}
+
+.line2 button{
+	font-size:1.2vw;
 }
 
 input[type=date]{
-	font-size : large;
+	font-size : 1.2vw;
  	border:1px solid #836e5b;
 	position:relative;
 }
+#lastReservList{
+	position:relative;
+	top:50px;
 
-.schedule {
-	position:absolute;
-	top:80%;
-	right:26%;
-	font-size: x-large;
-	color: white;
 }
-
+/*룸없을때 나타남*/
 .noroom {
-	position:absolute;
-	top: 93%;
-	left: 28%;
+	text-align:center;
+	position:relative;
+	top: 80px;
 }
-
-.reservation2 {
-	position: absolute;
-	top: 91%;
-	left: 45%;
-	font-size: large;
+.noroom label{
+	position:relative;
+	top: -30px;
+	left:2%;
+	font-size:x-large;
+	color:gray;
 }
-
-.availability {
-	position: absolute;
-	width: 65%;
-	top: 118%;
-	left: 18%;
-}
-
 /*알림*/
+.allnon{
+	position:relative;
+	top:140px;
+	color:mediumpurple;
+}
+.allnon table{
+	text-align:center;
+	border-collapse:collapse;
+	border:2px solid mediumpurple;
+	position:relative;
+	left:6%;
+	font-size:1.7vw;
+	color:black;
+	width:87%;
+	
+}
+.allnon table td{
+	border-bottom:1px solid black;
+}
 .notification1 {
-	position:absolute;
+	position:relative;
 	font-size: xx-large;
 	top: 139%;
 	left: 5%;
 }
 
 .notification2 {
-	position: absolute;
+	position: relative;
 	width: 65%;
 	top: 150%;
 	left: 18%;
@@ -245,9 +268,26 @@ input[type=date]{
 	float:left;
 	width:4%;
 }
+.lastSearch{
+	position:relative;
+	top:30px;
+}
+.lastSearch b{
+	color:teal;
+}
+.pagcls{
+	text-decoration:none;
+}
+.pagcls li{
+	position:relative;
+	left:360px;
+	display:table-cell;
+}
 /* footer */
 footer{
-	position:absolute;
-	bottom:-90%;
+	position:relative;
+	top:200px;
+	left:0%;
+	width:102%;
 	margin:0 -5% 0 0;
 }

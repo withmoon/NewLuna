@@ -17,7 +17,7 @@
 <script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypage.js"/>"></script>
 </head>
-<body>
+<body style="overflow-x:hidden">
 
 	<!-- 로그인 -->
 	<header>
@@ -28,167 +28,213 @@
 	<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">MyPage</div>
 
-	<section>
 		<!-- 회원정보 -->
 		<div class="myinformation">
-			<img class="line" src="<c:url value="/resources/user/mypage/images/line.png"/>">
-			<p>${member.name}님 환영합니다.</p>
+			<img class="infoline1" src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<br/><b>${member.name}님 환영합니다.</b><br/>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}
-			<button class="update" onclick="showUpdateForm()">정보수정</button><br>
-			<div class="deer"><img alt="" src="<c:url value="/resources/user/mypage/images/deer.png"/>"></div>
-			<img class="line" src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<button class="update" onclick="showUpdateForm()">정보수정</button>
+			<img class="deer" onclick="goToNotice()" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
+			
+			<img class="infoline2" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>
 		
-		<!-- 즐겨찾기 -->
-		<p class="favorites1">- 내가 찜한 방 -</p>
-		<table class="favorites2">
-			<thead>
-				<tr>
-					<th>지점</th>
-					<th>룸</th>
-					<th>장소</th>
-					<th>전화번호</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>서울지점</td>
-					<td>스터디 1룸</td>
-					<td>서울시 동대문구 장안동</td>
-					<td>02.2222.2222</td>
-				</tr>
-				<tr>
-					<td>서울지점</td>
-					<td>VIP실</td>
-					<td>서울시 강남구 압구정동</td>
-					<td>02-3511-2889</td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<!-- 일정 -->
-		<p class="reservation1">- 예약현황 -</p>
-		<div class="line2"><img alt="" src="<c:url value="/resources/user/mypage/images/line2.png"/>"></div>
-		<div class="schedule">
-			<br>
-			<input type="date" class="calendal"> <!-- 달력 -->
-			당일<input type="radio" name="schedule" value="today" checked>
-			일주일<input type="radio" name="schedule" value="week">
-			한달<input type="radio" name="schedule" value="month">
-			3개월<input type="radio" name="schedule" value="3months"> <!-- 일정 -->
-			<button class="update">적용</button>
-			<br>
+		<!-- 내가찜한방 -->
+		<div class="favorites1">
+		<label>❣ 내가 찜한 방 ❣</label><a href="#" id="display1" onclick="displayBoard(1)">찜리스트 보이기</a>
+			<div class="favorlist">
+			<div>
+				<img src="<c:url value="/resources/rooms/pome.jpg"/>"><br/><a href="#">방이름</a>
+			</div>
+			<div>
+			<img src="<c:url value="/resources/rooms/samo.jpg"/>"><br/><a href="#">방이름</a></div>
+			<div>
+			<img src="<c:url value="/resources/rooms/samo.jpg"/>"><br/><a href="#">방이름</a></div>
+			<div>
+			<img src="<c:url value="/resources/rooms/pome.jpg"/>"><br/><a href="#">방이름</a></div>
+			<p>페이징</p>
+			</div>
 		</div>
 		
-		<!-- 예약 현황 -->
 		
-		<div class="noroom">
-		<c:if test="${fn:length(reserInfo) ne 0}">
-			<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>">
-		</c:if>
-		<c:if test="${fn:length(reserInfo) eq 0}">
-			<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>"><label>예약하신 룸이 없습니다.</label>
-		</c:if>
-		</div>
-		<div class="reservation2">
-		<c:if test="${fn:length(reserInfo) ne 0}">
-			<p>현재 ${reserInfo.get(0).getBranchName()} 예약되었습니다.</p>
-			&emsp;전화번호&ensp;02.2222.2222 <br>
-			&emsp;주소 &ensp;${reserInfo.get(0).getBranchAddr1()} <br>
-			&emsp;룸 &ensp;${reserInfo.get(0).getRoomName()}<br>
-			&emsp;날짜 &ensp; ${reserInfo.get(0).getReservdate()}<br>
-			&emsp;시간 &ensp; ${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}
-			<button class="update">취소/환불</button>
-			<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-		</c:if>
-		</div>
-		<table class="availability">
-			<thead>
-				<tr>
-					<th>지점</th>
-					<th>룸</th>
-					<th>날짜</th>
-					<th>시간</th>
-					<th>예약</th>
-					<th>비고</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:if test="${fn:length(reserInfo) ne 0}">
-			<c:if test="${reserInfo.get(1).getBranchName() ne null}">
-				<c:forEach  var="reserInfo" items="${reserInfo}">
-				<tr>
-					<td>${reserInfo.branchName}</td>
-					<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${reserInfo.roomNum}'">${reserInfo.roomName}</a></td>
-					<td>${reserInfo.reservdate}</td>
-					<td>${reserInfo.starttime}~${reserInfo.endtime}</td>
-					<td>예약 완료</td>
-					<td>
-					<button class="update" onclick="openReview(${reserInfo.roomNum})">리뷰쓰기</button>
-					<button class="update" onclick="window.open('${reserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-					</td>
-				</tr>
-				</c:forEach>
+		<!-- 예약 현황 보기-->
+		<div class="reservation">
+			<label class="reservlabel">※ 예약현황 ※</label><a href="#" id="display2" onclick="displayBoard(2)">현황 보이기</a>
+			<div class="rslist">
+				<!-- 방없을시 -->
+				<c:if test="${fn:length(reserInfo) eq 0}">
+				<div class="noroom">
+					<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>"><label>예약하신 룸이 없습니다.</label>
+				</div>
 				</c:if>
+				<!-- 방 있으면 -->
+				<!-- 최근내역중  -->
+				<c:if test="${fn:length(reserInfo) ne 0}">
+					<div id="latelyReservList">
+					<b>최근 예약 내역</b>
+					<table>
+						<thead>
+							<tr>
+								<th>예약하신 날짜</th>
+								<th>지점명</th>
+								<th>예약하신 룸 이름</th>
+								<th>지점 전화번호</th>
+								<th>지점주소</th>
+								<th>예약 시간</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>${reserInfo.get(0).getReservdate()}</td>
+								<td>${reserInfo.get(0).getBranchName()}</td>
+								<td>${reserInfo.get(0).getRoomName()}</td>
+								<td>02.2222.2222</td>
+								<td>${reserInfo.get(0).getBranchAddr1()}</td>
+								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
+								<td>
+								<button class="update">취소/환불</button>
+								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>${reserInfo.get(0).getReservdate()}</td>
+								<td>${reserInfo.get(0).getBranchName()}</td>
+								<td>${reserInfo.get(0).getRoomName()}</td>
+								<td>02.2222.2222</td>
+								<td>${reserInfo.get(0).getBranchAddr1()}</td>
+								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
+								<td>
+								<a class="update">환불요청중</a>
+								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>${reserInfo.get(0).getReservdate()}</td>
+								<td>${reserInfo.get(0).getBranchName()}</td>
+								<td>${reserInfo.get(0).getRoomName()}</td>
+								<td>02.2222.2222</td>
+								<td>${reserInfo.get(0).getBranchAddr1()}</td>
+								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
+								<td>
+								<label class="update">환불완료</label>
+								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul class="pagcls">
+						<li>페</li>
+						<li>이</li>
+						<li>징</li>
+						<li>처</li>
+						<li>리</li>
+					</ul>
+					
+				</div>
+				
+				<label class="lastSearch"><b>지난 예약 조회</b></label>
+				<div class="line2">
+					<input type="date" id="stdate">&emsp;~&emsp;<input type="date" id="endate">
+					&emsp;<button class="update">적용</button>
+				</div>
+				
+				<div id="lastReservList">
+				<table>
+					<thead>
+						<tr>
+							<th>지점</th>
+							<th>룸</th>
+							<th>날짜</th>
+							<th>시간</th>
+							<th>예약</th>
+							<th>비고</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:if test="${fn:length(reserInfo) ne 0}">
+					<c:if test="${reserInfo.get(1).getBranchName() ne null}">
+					<c:forEach  var="reserInfo" items="${reserInfo}">
+					<tr>
+						<td>${reserInfo.branchName}</td>
+						<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${reserInfo.roomNum}'">${reserInfo.roomName}</a></td>
+						<td>${reserInfo.reservdate}</td>
+						<td>${reserInfo.starttime}~${reserInfo.endtime}</td>
+						<td>예약 완료</td>
+						<td>
+						<button class="update" onclick="openReview(${reserInfo.roomNum})">리뷰쓰기</button>
+						<button class="update" onclick="window.open('${reserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+						</td>
+					</tr>
+					</c:forEach>
+					</c:if>
+					</c:if>
+				</tbody>
+				</table>
+				<ul class="pagcls">
+						<li>페</li>
+						<li>이</li>
+						<li>징</li>
+						<li>처</li>
+						<li>리</li>
+					</ul>
+				</div>
 				</c:if>
-			</tbody>
-		</table>
-		
+			</div>
+		</div>
+
 		<!-- 알림 -->
-		<p class="notification1">- 알림 -</p>
+		<div class="allnon">
+		<p class="notification1">☏ 알림 ☏</p>
 		<table class="notification2">
 			<tbody>
 				<tr>
+					<td>1</td>
 					<td>관리자</td>
 					<td>서울지점 예약이 취소되었습니다.</td>
 					<td>01.05 11:50</td>
 				</tr>
 				<tr>
+					<td>2</td>
 					<td>관리자</td>
 					<td>서울지점 환불처리 완료</td>
 					<td>12.21 08:00</td>
 				</tr>
 				<tr>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td><br></td>
+					<td>3</td>
 					<td><br></td>
 					<td><br></td>
 					<td><br></td>
 				</tr>
 				<tr>
+					<td>4</td>
 					<td><br></td>
 					<td><br></td>
 					<td><br></td>
+				</tr>
+				<tr>
+					<td>5</td>
 					<td><br></td>
+					<td><br></td>
+					<td><br></td>
+				</tr>
+				<tr>
+				<td colspan="4">
+					<ul class="pagcls">
+						<li>페</li>
+						<li>이</li>
+						<li>징</li>
+						<li>처</li>
+						<li>리</li>
+					</ul>
+				</td>
 				</tr>
 			</tbody>
 		</table>
-	</section>
-	
+		</div>
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">
@@ -233,7 +279,7 @@
 					<input type="email" name="email" id="email" size="30" value="${member.email}" required="required">
 				</td></tr>
 				<tr><td align="center"><br/>
-					<button onclick="inputCheck()">수정 완료</button>&emsp;&emsp;<button onclick="hideUpdateForm()">취소</button>
+					<button onclick="inputCheck()">수정 완료</button>&emsp;&emsp;<input type="button" onclick="hideUpdateForm()" value="취소">
 				</td></tr>
 			</table>
 		</form>

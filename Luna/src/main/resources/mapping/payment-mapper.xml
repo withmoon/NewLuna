@@ -30,7 +30,7 @@
 	<!-- for MyPage -->
 	<select id="getUserPayInfo" resultType="myPageInfo">
 	<![CDATA[
-		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,
+		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,
 		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,2,2) as starttime,
 		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
 		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
