@@ -12,4 +12,6 @@ public interface AdminManagerApproveDAO {
 	public void approveupdate(AdminManagerApproveVO vo)throws Exception;
 	
 	public void approvedelete(String id)throws Exception;
+	
+	public List<AdminManagerApproveVO> infoList() throws Exception;
 }

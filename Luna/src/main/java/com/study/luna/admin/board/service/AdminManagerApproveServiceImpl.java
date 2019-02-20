@@ -32,5 +32,10 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 		approveDAO.approvedelete(id);
 		
 	}
+	@Override
+	public List<AdminManagerApproveVO> infoList() throws Exception {
+		// TODO Auto-generated method stub
+		return approveDAO.infoList();
+	} 
 
 }

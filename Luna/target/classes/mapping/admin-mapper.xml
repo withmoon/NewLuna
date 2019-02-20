@@ -6,6 +6,11 @@
 
 <!-- QnABoard -->
 
+	<select id="infoList" resultType="adminManagerApproveVO">
+
+		select id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position from member <if test="btStatus=0"></if>where position='지점장' 
+
+	</select>
 	
 	<select id="approveList" resultType="adminManagerApproveVO">
 

@@ -33,5 +33,10 @@ public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 		sqlsession.delete("luna.admin.board.approvedelete",id);
 		
 	}
+	@Override
+	public List<AdminManagerApproveVO> infoList() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList("luna.admin.board.infoList");
+	}
 
 }

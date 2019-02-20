@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet"
 	href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>승인페이지</title>
+<title>지점장정보</title>
 
 </head>
 <body>
@@ -49,12 +49,12 @@
 		</div>
 	</nav>
 	<center>
-		<h3>지점장 승인</h3>
+		<h3>지점장정보</h3>
 	</center>
 	<br></br>
 	<div class="container">
 		<div class="row">
-			<form action="approveList.ado" method="get">
+			<form action="infoList.ado" method="get">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<thead>
@@ -68,8 +68,7 @@
 							<th style="background-color: #eeeeee; text-align: center;">zipcode</th>
 							<th style="background-color: #eeeeee; text-align: center;">branchAddr1</th>
 							<th style="background-color: #eeeeee; text-align: center;">branchAddr2</th>
-							<th style="background-color: #eeeeee; text-align: center;">승인</th>
-							<th style="background-color: #eeeeee; text-align: center;">거절</th>
+							<th style="background-color: #eeeeee; text-align: center;">삭제</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,11 +83,8 @@
 								<td>${row.zipcode}</td>
 								<td>${row.branchAddr1}</td>
 								<td>${row.branchAddr2}</td>
-								<td><input type="button" value="승인"
-									class="btn btn-primary pull-right"
-									onclick="javascript:location.href='approval.ado?id=${row.id}'" />
 									<input type="hidden" name="id" value="${row.id}" />
-								<td><input type="button" value="거절" class="btn btn-primary pull-right" onclick="javascript:location.href='approvedelete.ado?id=${row.id}'"/>
+								<td><input type="button" value="삭제" class="btn btn-primary pull-right" onclick="javascript:location.href='approvedelete.ado?id=${row.id}'"/>
 								</td>
 							</tr>
 						</c:forEach>

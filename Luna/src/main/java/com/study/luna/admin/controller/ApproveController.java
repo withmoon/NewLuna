@@ -53,4 +53,15 @@ public class ApproveController {
 	  return mav;
 	 }
 	 
+	 @RequestMapping(value = "/infoList.ado")
+	  public ModelAndView lists()throws Exception{ 
+	  List<AdminManagerApproveVO> list = adminManagerApproveService.infoList(); 
+	  ModelAndView mav= new ModelAndView();
+	  mav.setViewName("infoList");
+	  Map<String,Object> map = new HashMap<>();
+	  map.put("list",list);
+	  mav.addObject("map",map);
+	  return mav;
+	 }
+	 
 }

@@ -9,4 +9,5 @@ public interface AdminManagerApproveService {
 public List<AdminManagerApproveVO> approveList()throws Exception;
 public void approveupdate(AdminManagerApproveVO vo)throws Exception;
 public void approvedelete(String id)throws Exception;
+public List<AdminManagerApproveVO> infoList()throws Exception; 
 }

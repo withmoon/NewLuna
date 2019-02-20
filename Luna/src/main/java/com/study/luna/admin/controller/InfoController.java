@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class InfoController {
    @RequestMapping(value="/info.ado", method=RequestMethod.GET)
     public String mainView() {
-       return "info";
-}
+	   return  "redirect:/infoList.ado";
+} 
    
 }
