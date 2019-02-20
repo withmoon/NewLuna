@@ -22,8 +22,6 @@
 		
 		<!-- Admin -->
      	<typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
-      	<typeAlias alias="eBoard" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
-      	<typeAlias alias="nBoard" type="com.study.luna.admin.model.vo.AdminNoticeBoardVO"/>
         <typeAlias alias="adminEventBoardVO" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
         <typeAlias alias="adminManagerApproveVO" type="com.study.luna.admin.model.vo.AdminManagerApproveVO"/>
       	<typeAlias alias="adminNoticeBoardVO" type="com.study.luna.admin.model.vo.AdminNoticeBoardVO"/>
@@ -43,6 +41,9 @@
       <mapper resource="mapping/eventBoard-mapper.xml" />
       <!-- 공지사항 -->
       <mapper resource="mapping/noticeBoard-mapper.xml" />
+      <!-- 자주묻는질문 -->
+      <mapper resource="mapping/qnaBoard-mapper.xml" />
+      
        <!-- 지점장 -->
       <mapper resource="mapping/manager-mapper.xml" />
 	  <mapper resource="mapping/mgQBoard-mapper.xml"/>
