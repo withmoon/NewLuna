@@ -2,6 +2,8 @@ package com.study.luna.admin.model.dao;
 
 import java.util.List;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import com.study.luna.admin.model.vo.AdminQnABoardVO;
 
 public interface AdminQnABoardDAO {
@@ -16,4 +18,7 @@ public interface AdminQnABoardDAO {
 
    public AdminQnABoardVO read(int num) throws Exception;
 
+   /*user_inform*/
+   public List<AdminQnABoardVO> qnaAll(int start, int end); //질문목록
+   public int countQnA(ModelAndView mav); //질문갯수
 }

@@ -1,11 +1,16 @@
 package com.study.luna.admin.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.model.vo.AdminQnABoardVO;
 
@@ -14,6 +19,8 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
 
    @Inject
    SqlSession sqlsession;
+   @Autowired
+   SqlSessionTemplate SqlSession;
 
    @Override
    public void insert(AdminQnABoardVO adminQnABoardVO) throws Exception {
@@ -44,5 +51,22 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
    public void delete(int num) throws Exception {
       sqlsession.delete("luna.admin.board.delete",num);
       
+   }
+
+   /*user_inform*/
+   //질문목록
+   public List<AdminQnABoardVO> qnaAll(int start, int end) {
+	   System.out.println("===> 질문 목록");
+  	 
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("start", start);
+	   map.put("end", end);
+  	 
+	   return SqlSession.selectList("qnaBoardDAO.qnaAll", map);
+   }
+
+   //질문갯수
+   public int countQnA(ModelAndView mav) {
+	   return SqlSession.selectOne("qnaBoardDAO.countQnA", mav);
    }
 }

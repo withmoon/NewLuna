@@ -9,6 +9,8 @@
 <link href="<c:url value="/resources/user/inform/css/inform.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="<c:url value="/resources/user/inform/js/inform.js"/>"></script>
 </head>
 <body>
 
@@ -22,8 +24,12 @@
 <div class="top">고객센터</div>
 <!-- 고/공/자 이미지 -->
 <section class="menu">
-<a href="inform.udo?cmd=''"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/></a>
-<a href="inform.udo?cmd=quest"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/></a>
+<a class="informNotice" href="inform.udo?cmd=''">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/>
+</a> <!-- 공지사항 -->
+<a class="informQnA" href="inform.udo?cmd=quest">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/>
+</a> <!-- 자주묻는질문 -->
 <a href="inform.udo?cmd=gokso"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/></a>
 </section>
 
@@ -39,11 +45,11 @@
 		<th>날짜</th>
 	</tr>
 </thead>
-<tbody id="inform-T">
+<tbody id="inform_table">
 <c:forEach items="${noticeList }" var="notice">
 	<tr>
 		<td>${notice.num }</td>
-		<td><a onclick="window.open('showForm.udo?num=${notice.num}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
+		<td><a onclick="window.open('viewNotice.udo?num=${notice.num}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${notice.title }</a></td>
 		<td>${notice.writer }</td>
 		<td><fmt:formatDate value="${notice.regdate }" pattern="yy-MM-dd"/></td>
@@ -79,7 +85,7 @@
 </table>
 <!-- 페이지 처리 -->
 <table class="pageT">
-<tbody class="inform-P">
+<tbody class="inform_page">
 	<tr>
 		<td>
 			 <!-- 처음페이지로 이동 : 현재페이지 블럭이 1보다크면 -->

@@ -73,6 +73,6 @@ public class AdminNoticeBoardDAOImpl implements AdminNoticeBoardDAO {
 	//공지사항 상세보기
 	public AdminNoticeBoardVO read(int num) {
 		System.out.println("===> 공지사항 상세보기");
-		return SqlSession.selectOne("noticeBoardDAO.showNotice", num);
+		return SqlSession.selectOne("noticeBoardDAO.viewNotice", num);
 	}
 }
