@@ -38,6 +38,29 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
          return sqlsession.selectList("luna.admin.board.listAlls");
       }
 
+     @Override
+     public AdminEventBoardVO read1(int seq) throws Exception {
+        return  sqlsession.selectOne("luna.admin.board.readevent",seq);
+
+     }
+
+     @Override
+     public void update(AdminEventBoardVO adminEventBoardVO) throws Exception {
+        sqlsession.update("luna.admin.board.updateevent",adminEventBoardVO);
+        
+     }
+
+     @Override
+     public void delete(int seq) throws Exception {
+        sqlsession.delete("luna.admin.board.deleteevent",seq);
+        
+     }
+
+     
+     
+     
+     
+     
 
      /*user/event.jsp*/
      //진행이벤트 목록

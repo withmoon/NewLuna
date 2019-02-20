@@ -14,9 +14,17 @@ public interface AdminEventBoardDAO {
     
    public List<AdminEventBoardVO> listAlls() throws Exception;//����Ʈ�ҷ�����
     
-    //�󼼺���
-    //����
-    //����
+   public AdminEventBoardVO read1(int seq) throws Exception;
+   //상세보기
+      
+      
+      public void update(AdminEventBoardVO adminEventBoardVO) throws Exception;
+   //수정
+      
+      
+      public void delete(int seq) throws Exception;//삭제
+
+
    
    /*user/event.jsp*/
    public List<AdminEventBoardVO> eventAll(int start, int end); //진행 이벤트 목록

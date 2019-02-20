@@ -31,6 +31,29 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
     public List<AdminEventBoardVO> listAlls() throws Exception{
        return adminEventBoardDAO.listAlls();
     }
+    
+    @Override
+    public AdminEventBoardVO read1(int seq) throws Exception {
+       return adminEventBoardDAO.read(seq);
+    }
+
+    @Override
+    public void update(AdminEventBoardVO adminEventBoardVO) throws Exception {
+       // TODO Auto-generated method stub
+        adminEventBoardDAO.update(adminEventBoardVO);
+    }
+
+    @Override
+    public void delete(int seq) throws Exception {
+       // TODO Auto-generated method stub
+        adminEventBoardDAO.delete(seq);
+    }
+
+    
+    
+    
+    
+    
 
 
     /*user/event.jsp*/

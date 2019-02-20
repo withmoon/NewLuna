@@ -14,6 +14,13 @@ public interface AdminEventBoardService {
     
    public List<AdminEventBoardVO> listAlls() throws Exception;//����Ʈ�ҷ�����
    
+   public AdminEventBoardVO read1(int seq) throws Exception;//상세
+
+   public void update(AdminEventBoardVO adminEventBoardVO) throws Exception;//수정
+
+   public void delete(int seq) throws Exception;//삭제
+   
+   
    /*user/event.jsp*/
    public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session); //진행 이벤트 목록
    public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session); //마감이벤트 목록

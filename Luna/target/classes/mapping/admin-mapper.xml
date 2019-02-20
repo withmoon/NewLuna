@@ -101,15 +101,28 @@
    </insert>
    
    <select id="listAlls" resultType="adminEventBoardVO">
-   select * from adminevent
+   select * from adminevent order by seq desc
    </select>
    
-   
-   <select id="readlist" resultType="adminEventBoardVO">
+    <select id="readevent" resultType="adminEventBoardVO">
    
    select * from adminevent where seq=#{seq}
    
    </select>
+
+
+   <update id="updateevent" parameterType="adminEventBoardVO">
+
+      update adminevent set title= #{title}, content= #{content}, startdate=#{startdate}, enddate=#{enddate}, image=#{image}, files=#{files} where
+      seq=#{seq}
+
+   </update>
+ 
+   <delete id="deleteevent" parameterType="adminEventBoardVO">
+
+      delete from adminevent where seq=#{seq}
+   </delete>
+
 
  
 

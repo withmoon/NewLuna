@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminEventBoardService;
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
+
 
 
 
@@ -47,4 +49,26 @@ public class AdminEventBoardwriteController {
          mav.addObject("map",map);
          return mav;
    }
+         
+         @RequestMapping(value = "/updateevent.ado" ,method=RequestMethod.POST)
+         public String View(@ModelAttribute AdminEventBoardVO adminEventBoardVO)throws Exception{
+            adminEventBoardService.update(adminEventBoardVO);
+         return "redirect:/eventlist.ado";
+         }
+         
+         @RequestMapping(value = "/deleteevent.ado")
+         public String deleteView(@RequestParam int seq)throws Exception{
+            adminEventBoardService.delete(seq);  
+         return "redirect:/eventlist.ado";
+         }
+         
+         @RequestMapping(value = "/eventview.ado", method = RequestMethod.GET)
+         public ModelAndView view(@RequestParam int seq) throws Exception {
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("eventview");
+            mav.addObject("seq", adminEventBoardService.read(seq));
+            return mav;
+         }
+         
+         
 }

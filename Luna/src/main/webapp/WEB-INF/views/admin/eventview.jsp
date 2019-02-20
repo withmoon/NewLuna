@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>글쓰기</title>
+<title>이벤트 상세보기</title>
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet"
    href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
@@ -33,7 +33,7 @@
             <li><a href="approve.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
-             <li><a href="event.ado">이벤트</a></li>
+            <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
             <li><a href="info.ado">지점장 정보</a></li>
          </ul>
@@ -48,62 +48,56 @@
          </ul>
       </div>
    </nav>
-   <br><br><br>
-
+   <br>
+   <br>
+   <br>
    <div class="container">
-   <form id="form1" name="form1" action="insert1.ado" method="post">
+   <form name="form2" action="updateevent.ado" method="post">
       <table class="table table-bordered">
-         <thead>
-         <caption>글쓰기</caption>
-         </thead>
+       
          <tbody>
-             
+ 
                <tr>
                   <th>제목:</th>
                   <td><input type="text"  placeholder="title" name="title"
-                     class="form-control" /></td>
+                      value="${seq.title}" class="form-control" />
+                     <input type="hidden" name="seq" value="${seq.seq}" /></td>
                </tr>
                
                <tr>
                   <th>내용:</th>
                   <td><textarea cols="10" rows="16" placeholder="content " name="content"
-                        class="form-control"></textarea></td>
+                        class="form-control">${seq.content}</textarea></td>
                </tr>
-               <tr>
-                  <th>작성자:</th>
-                  <td><input type="text" placeholder="writer" name="writer"
-                     class="form-control" /></td>
-               </tr>
+               
                 <tr>
                   <th>이벤트시작일:</th>
                   <td><input type="date"  placeholder="startdate" name="startdate"
-                     class="form-control" /></td>
+                     value="${seq.startdate}" class="form-control" /></td>
                </tr>
                 <tr>
                   <th>이벤트종료일:</th>
                   <td><input type="date"  placeholder="enddate" name="enddate"
+                  value="${seq.enddate}"
                      class="form-control" /></td>
                </tr>
                 <tr>
                   <th>이미지업로드:</th>
                   <td><input type="text"  placeholder="image" name="image"
+                  value="${seq.image}"
                      class="form-control" /></td>
                </tr>
                 <tr>
                   <th>파일업로드:</th>
-                  <td><input type="file"  placeholder="files" name="files"
+                  <td><input type="text"  placeholder="files" name="files"
+                  value="${seq.files}"
                      class="form-control" /></td>
                </tr>
                 
-               
-               
                 <tr>
-                  <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
-                  <input type="button" value="글 목록"
-                     class="pull-right" onclick="javascript:location.href='event.ado'" />
-
-                     
-                  </td>
+               <td colspan="2"><input type="submit" id="update" value="수정" class="btn btn-primary pull-right" /> 
+                <input type="button" value="삭제"
+                     class="btn btn-primary pull-right" onclick="javascript:location.href='deleteevent.ado?seq=${seq.seq}'" /></td>
                </tr>
                
             
@@ -111,6 +105,7 @@
          </tbody>
       </table>
    </div>
+
 
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
