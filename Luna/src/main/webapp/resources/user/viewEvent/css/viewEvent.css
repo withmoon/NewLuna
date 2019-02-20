@@ -20,6 +20,11 @@ b {
     left: 5%;
 }
 
+.writer {
+    position:absolute;
+    right: 15%;
+}
+
 .date {
     position:absolute;
     right:5%

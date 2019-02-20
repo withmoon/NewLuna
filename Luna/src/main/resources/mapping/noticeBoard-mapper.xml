@@ -22,4 +22,9 @@
 	 		)A
 	 	)where rn  between #{start} and #{end}
 	 </sql>
+	 
+	 <!-- 공지사항 상세보기 -->
+	 <select id="showNotice" resultType="nBoard">
+	 	select * from noticeBoard where num=#{num}
+	 </select>
 </mapper>

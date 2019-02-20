@@ -22,4 +22,5 @@ public interface AdminNoticeBoardDAO {
 	/*user_inform*/
 	public List<AdminNoticeBoardVO> noticeAll(int start, int end); //공지사항목록
 	public int countNotice(ModelAndView mav); //글 갯수
+	public AdminNoticeBoardVO read(int num) throws Exception; //공지사항 상세보기
 }

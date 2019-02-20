@@ -67,4 +67,10 @@ public class AdminNoticeBoardServiceImpl implements AdminNoticeBoardService {
 		return noticeBoardDAOImpl.countNotice(mav);
 	}
 
+	//공지사항 상세보기
+	@Override
+	public AdminNoticeBoardVO read(int num) throws Exception {
+		return noticeBoardDAOImpl.read(num);
+	}
+
 }
