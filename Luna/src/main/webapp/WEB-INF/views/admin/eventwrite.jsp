@@ -97,6 +97,7 @@
                 
                
                
+               
                 <tr>
                   <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
                   <input type="button" value="글 목록"

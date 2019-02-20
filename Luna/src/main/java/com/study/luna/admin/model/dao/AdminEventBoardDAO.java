@@ -22,6 +22,7 @@ public interface AdminEventBoardDAO {
    //수정
       
       
+      
       public void delete(int seq) throws Exception;//삭제
 
 

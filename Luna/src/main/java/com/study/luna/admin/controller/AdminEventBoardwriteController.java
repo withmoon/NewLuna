@@ -37,6 +37,7 @@ public class AdminEventBoardwriteController {
       public String mainView() {
          return "eventwrite";
      }
+     
 
          
          @RequestMapping(value = "/eventlist.ado")

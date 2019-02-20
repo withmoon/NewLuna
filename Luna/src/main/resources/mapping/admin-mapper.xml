@@ -111,6 +111,7 @@
    </select>
 
 
+
    <update id="updateevent" parameterType="adminEventBoardVO">
 
       update adminevent set title= #{title}, content= #{content}, startdate=#{startdate}, enddate=#{enddate}, image=#{image}, files=#{files} where

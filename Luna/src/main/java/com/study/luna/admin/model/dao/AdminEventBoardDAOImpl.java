@@ -30,6 +30,7 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
          sqlsession.insert("luna.admin.board.insertEventBoard", adminEventBoardVO);
 
       }
+    
 
 
      @Override

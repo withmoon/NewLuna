@@ -19,6 +19,8 @@ public interface AdminEventBoardService {
    public void update(AdminEventBoardVO adminEventBoardVO) throws Exception;//수정
 
    public void delete(int seq) throws Exception;//삭제
+
+   
    
    
    /*user/event.jsp*/

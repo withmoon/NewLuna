@@ -54,6 +54,7 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
     
     
     
+    
 
 
     /*user/event.jsp*/
