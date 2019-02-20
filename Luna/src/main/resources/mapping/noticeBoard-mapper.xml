@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="noticeBoardDAO">
 	<!-- 공지사항 목록 -->
-	<select id="noticeAll" resultType="nBoard">
+	<select id="noticeAll" resultType="adminNoticeBoardVO">
 		<include refid="pagingHeader"></include>
 		select * from noticeBoard order by regdate
 		<include refid="pagingFooter"></include>
@@ -24,7 +24,7 @@
 	 </sql>
 	 
 	 <!-- 공지사항 상세보기 -->
-	 <select id="showNotice" resultType="nBoard">
+	 <select id="viewNotice" resultType="adminNoticeBoardVO">
 	 	select * from noticeBoard where num=#{num}
 	 </select>
 </mapper>
