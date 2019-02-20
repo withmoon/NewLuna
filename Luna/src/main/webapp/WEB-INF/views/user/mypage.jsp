@@ -41,10 +41,10 @@
 		<table class="favorites2">
 			<thead>
 				<tr>
-					<th scope="cols">지점</th>
-					<th scope="cols">룸</th>
-					<th scope="cols">장소</th>
-					<th scope="cols">전화번호</th>
+					<th>지점</th>
+					<th>룸</th>
+					<th>장소</th>
+					<th>전화번호</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -181,7 +181,7 @@
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">
-			<form name="update" action="mypage.udo" onsubmit="return inputCheck()" method="post">
+			<form name="update" action="" method="post">
 			<table>
 				<tr><td>
 					<label>ID</label><br/>
@@ -190,7 +190,7 @@
 				<tr><td>
 					<label>PassWord</label><br/>
 					<c:if test="${fn:substring(member.id, 0, 2) ne 'k#'}">
-					<input type="password" name="pw" id="pw" size="30" value="${member.pw}" required="required" >
+					<input type="password" name="pw" id="pw" size="30" value="${member.pw}">
 					</c:if>
 					<c:if test="${fn:substring(member.id, 0, 2) eq 'k#'}">
 					<input type="password" name="pw" id="pw" size="30" disabled="disabled">
@@ -199,7 +199,7 @@
 				<tr><td>
 					<label>Confirm PassWord</label><br/>
 					<c:if test="${fn:substring(member.id, 0, 2) ne 'k#'}">
-					<input type="password" name="repw" id="repw" size="30" required="required">
+					<input type="password" name="repw" id="repw" size="30">
 					</c:if>
 					<c:if test="${fn:substring(member.id, 0, 2) eq 'k#'}">
 					<input type="password" name="repw" id="repw" size="30" disabled="disabled">
@@ -222,7 +222,7 @@
 					<input type="email" name="email" id="email" size="30" value="${member.email}" required="required">
 				</td></tr>
 				<tr><td align="center"><br/>
-					<button type="submit">수정 완료</button>&emsp;&emsp;<button onclick="hideUpdateForm()">취소</button>
+					<button onclick="inputCheck()">수정 완료</button>&emsp;&emsp;<button onclick="hideUpdateForm()">취소</button>
 				</td></tr>
 			</table>
 		</form>

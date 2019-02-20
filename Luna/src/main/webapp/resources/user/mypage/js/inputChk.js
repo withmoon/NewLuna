@@ -5,7 +5,15 @@ function showUpdateForm(){
 function hideUpdateForm(){
 	$("#upInfo").hide();
 }
+var email="";
+var phone="";
+var pw="";
 
+$(document).ready(function(){
+	email=$("#email").val();
+	phone=$("#phone").val();
+});
+var stat=0;
 function inputCheck() {	
 	
 	var sub=$("#id").val();
@@ -16,11 +24,7 @@ function inputCheck() {
 		return false;
 	}
 	
-	if ($("#pw").val() != $("#repw").val()) {
-		alert("비밀번호가 일치하지 않습니다.");
-		$("#repw").focus();
-		return false;
-	}
+	
 	
 	var regExphone = /^\d{3}-\d{3,4}-\d{4}$/;
 	var tel=$("#phone").val();
@@ -55,5 +59,25 @@ function inputCheck() {
 		return false;
 	}
 	
-	$("join").submit();
+	if($("#pw").val()!=''){
+		if ($("#pw").val()=='') {
+			$("#pw").focus();
+			return false;
+		}
+		if ($("#repw").val()=='') {
+			$("#repw").focus();
+			return false;
+		}
+		if ($("#pw").val() != $("#repw").val()) {
+			alert("비밀번호가 일치하지 않습니다.");
+			$("#repw").focus();
+			return false;
+		}
+		$("join").attr("action","mypage.udo?stat=1").submit();
+		
+	}else{
+		$("join").attr("action","mypage.udo?stat=2").submit();
+		
+	}
+	
 }

@@ -54,7 +54,11 @@
 	
 	<!-- 정보수정 --> <!-- 매니저 추가로 들어가도 됨 -->
 	<update id="upMyPageInfo" parameterType="member">
-		update member set name=#{name},phone=#{phone},email=#{email} where id=#{id}
+		update member set name=#{name},phone=#{phone},email=#{email} 
+			<if test="pw!=null and pw!=''">
+			,pw=#{pw} 
+			</if>
+			where id=#{id}
 	</update>
 
 	<!-- 회원목록 -->

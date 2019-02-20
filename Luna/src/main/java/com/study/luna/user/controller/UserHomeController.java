@@ -35,7 +35,6 @@ public class UserHomeController {
 	public ModelAndView homeViewtget(RedirectAttributes rdab,MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		System.out.println("카카오 로그인==>"+flashMap.get("id"));
 		memcom.setId(flashMap.get("id").toString());
 		
 		rdab.addFlashAttribute("id", memcom.getId());
@@ -100,11 +99,9 @@ public class UserHomeController {
 		ModelAndView mav=new ModelAndView();
 		
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		System.out.println("카카오 사용자 왔냥1");
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
-			System.out.println("카카오 아이디==>"+memcom.getId());
 		}else {
 			memcom=(MemberCommand)session.getAttribute("member");
 			session.setAttribute("member", memcom);

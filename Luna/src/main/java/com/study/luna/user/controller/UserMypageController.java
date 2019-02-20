@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -60,7 +61,7 @@ public class UserMypageController {
 	}
 	
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.POST)
-	public ModelAndView mainView(RoomReserveDTO romre,HttpServletRequest req,RedirectAttributes rdab,HttpSession session,MemberCommand memcom,RoomInfoDTO romin, RoomPaymentDTO rompay) throws Exception{
+	public ModelAndView mainView(@RequestParam(value="stat", required=false,defaultValue="")String stat,RoomReserveDTO romre,HttpServletRequest req,RedirectAttributes rdab,HttpSession session,MemberCommand memcom,RoomInfoDTO romin, RoomPaymentDTO rompay) throws Exception{
 		ModelAndView mav=new ModelAndView();
 		
 		MemberCommand memcomID=(MemberCommand)session.getAttribute("member");
@@ -97,14 +98,19 @@ public class UserMypageController {
 		}
 			
 		String pw=memcom.getPw();
-		System.out.println("여기서의 pw"+pw);
-		if(pw!=null) {
-			System.out.println("너가 왜 여기있냐..");
+		System.out.println("여기서의 pw"+pw+" 여기서 stat="+stat);
+		if(stat.equals("1")) {
+			System.out.println("비번 바뀜");
 			SHA256 sha=SHA256.getInsatnce();
 			String shaPass=sha.getSha256(memcom.getPw().getBytes());
 			memcom.setPw(shaPass);
 			memser.upUserInfo(memcom);
+			memcom.setPw("");
+		}else if(stat.equals("2")) {
+			System.out.println("비번 안바뀜");
+			memser.upUserInfo(memcom);
 		}
+		
 		
 		rdab.addFlashAttribute("id", memcom.getId());
 		mav.setViewName("redirect:/mypage.udo");
