@@ -82,8 +82,8 @@
 						지점명 : <input type="text" name="text2" value="${text.branchName}"><br/>
 						방이름 : <input type="text" name="roomName" value="${text.roomName }"><br/>
 						<%-- 등록일 : <input type="text" name="text3" value="<fmt:formatDate value='${text.day1}'/>"><br/> --%>
-						방인원 : <input type="text" name="text4" value="${text.inown}"><br/>
-				        주 &nbsp;&nbsp;소 : <input type="text" name="text5" value="${text.joosu}">
+						가 &nbsp;&nbsp;격 :<input type="text" name="text4" value="${text.Roomlocate}"><br/>
+				     	   주 &nbsp;&nbsp;소 : <input type="text" name="text5" value="${text.roomPrice}">
 					</div>
 
 

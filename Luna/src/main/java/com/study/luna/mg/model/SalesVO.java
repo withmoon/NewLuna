@@ -11,6 +11,15 @@ public class SalesVO {
 	private Integer sales2;
 	private Integer total;
 	
+	private int seq; //¹øÈ£
+	private String imp_uid; //id
+	private String merchant_uid;
+	private String branchname;
+	private String roomnum; 
+	private Date paid_at;
+	private int status; //½ÂÀÎ
+	private String stats; //½ÂÀÎÇÑ±Û 
+	
 	
 	public Date getDate() {
 		return date;
@@ -54,6 +63,49 @@ public class SalesVO {
 	public void setTotal(Integer total) {
 		this.total = total;
 	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getImp_uid() {
+		return imp_uid;
+	}
+	public void setImp_uid(String imp_uid) {
+		this.imp_uid = imp_uid;
+	}
+	public String getMerchant_uid() {
+		return merchant_uid;
+	}
+	public void setMerchant_uid(String merchant_uid) {
+		this.merchant_uid = merchant_uid;
+	}
+	public String getBranchname() {
+		return branchname;
+	}
+	public void setBranchname(String branchname) {
+		this.branchname = branchname;
+	}
+	public String getRoomnum() {
+		return roomnum;
+	}
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
+	public Date getPaid_at() {
+		return paid_at;
+	}
+	public void setPaid_at(Date paid_at) {
+		this.paid_at = paid_at;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	
 	
 }

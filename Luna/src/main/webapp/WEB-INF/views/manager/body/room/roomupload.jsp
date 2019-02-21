@@ -66,7 +66,7 @@
 						방이름 : <input type="text" name="roomName"><br/>
 						<!-- 등록일 : <input type="text" name="day1"><br/> -->
 						가 &nbsp;&nbsp;격 : <input type="text" name="Roomlocate"><br/>
-				        주 &nbsp;&nbsp;소 : <input type="text" name="roomPrice">
+				      	  주 &nbsp;&nbsp;소 : <input type="text" name="roomPrice">
 					</div>
 
 

@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,17 +38,31 @@ public class MgRoomController {
 	String filePath = "C:\\myProject\\mySpring\\main.zip_expanded\\Luna\\src\\main\\webapp\\resources\\manager\\file\\";
 
 	// 规包府 拳搁
-	@RequestMapping(value = "/mgRoom.mdo", method = RequestMethod.GET)
-	public ModelAndView mgRoomList(RoomVO vo) throws Exception {
-		List<RoomVO> list = mgRoomService.RoomList(vo);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("body/room/mgRoom");
-		mv.addObject("list", list);
+		@RequestMapping(value = "/mgRoom.mdo")
+		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="roomName")String searchOption,
+				@RequestParam(defaultValue="")String keyword) throws Exception {
+			// 叼泛配府积己 
+			File dir = new File(filePath); 
+			if (!dir.isDirectory()) {
+				System.out.println("叼泛配府积己");
+				dir.mkdirs();
+			}
 
-		System.out.println("list" + list.toString());
-		System.out.println("mv" + mv.toString());
-		return mv;
-	}
+			List<RoomVO> list = mgRoomService.RoomList(vo,searchOption,keyword);
+			
+			Map<String, Object> map = new HashMap<String,Object>();
+			map.put("list", list); 
+			map.put("searchOption", searchOption);
+			map.put("keyword", keyword);
+			
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("body/room/mgRoom");
+			mv.addObject("map", map);
+
+			System.out.println("list" + map.toString());
+			System.out.println("mv" + mv.toString());
+			return mv;
+		}
 
 	// 规 积己 拳搁
 	@RequestMapping(value = "/RoomUpload.mdo", method = RequestMethod.GET)

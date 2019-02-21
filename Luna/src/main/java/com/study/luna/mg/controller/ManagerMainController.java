@@ -33,4 +33,15 @@ public class ManagerMainController {
 		
 		return mv;
 	} 
+	
+	@RequestMapping(value="/loginX.mdo", method=RequestMethod.GET)
+	public ModelAndView logincheck() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("body/loginX");
+		
+		return mv;
+	} 
+	
+	
 }

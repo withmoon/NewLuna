@@ -16,11 +16,16 @@ public class MgPCServiceImpl implements MgPCService {
 	@Autowired
 	private SalesDAO SalesDAO;
 	
-	/*매출현황 리스트 DB*/
+	/*매출현황 리스트 DB*/ 
 	@Override
-	public List<SalesVO> SalesList(SalesVO vo) throws Exception {
+	public List<SalesVO> SalesList(int start, int end, String keyword) throws Exception {
 		System.out.println("SalesList 서비스");
-		return SalesDAO.SalesList(vo);
+		return SalesDAO.SalesList(start,end,keyword); 
+	}
+	@Override
+	public int countArticle(String keyword) {
+		System.out.println("countArticle 서비스");
+		return SalesDAO.countArticle(keyword);
 	}
 	/*매출현황 엑셀*/
 	@Override
@@ -43,6 +48,12 @@ public class MgPCServiceImpl implements MgPCService {
 	@Override
 	public List<Object> excelList(SalesVO vo) {
 		System.out.println("SalesExcel 서비스");
-		return SalesDAO.getSales(vo);
+		return SalesDAO.getSales(vo); 
+	}
+	@Override
+	public List<SalesVO> mgReserveList(SalesVO vo) {
+		System.out.println("mgReserveList 서비스");
+		
+		return SalesDAO.mgReserveList(vo);
 	}
 }

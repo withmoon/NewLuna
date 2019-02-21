@@ -2,6 +2,7 @@ package com.study.luna.mg.DAO;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,13 @@ public class RoomDAOImpl implements RoomDAO {
 	private SqlSession SqlSession;
 
 	@Override //방 생성 테이블 읽어오기
-	public List<RoomVO> mgRoomList(RoomVO vo) {
+	public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword) {
 		System.out.println("roomList select");
-		return SqlSession.selectList("mgRoomDAO.RoomList",vo);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		//map.put("vo",vo);
+		return SqlSession.selectList("mgRoomDAO.RoomList",map);
 	}
 	@Override //룸 text db
 	public int roomupload(RoomVO vo) {

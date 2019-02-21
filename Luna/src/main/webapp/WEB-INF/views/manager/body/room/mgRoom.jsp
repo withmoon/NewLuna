@@ -86,20 +86,24 @@
 				<header>방 생성</header>
 			</div>
 			<div>
+			
+			<form id="form1" method="post"  action="mgRoom.mdo?">
 				<div id="ex">
 					<ul>
-						<li>검색창 : <select name="select">
-								<option value="name">이름</option>
-								<option value="tel">전화번호</option>
-						</select>
+						<li>
+							검색창 : <select name="searchOption">
+								<option value="all"  <c:out value="${list.searchOption=='all' ? 'selected' : '' }" />>전체</option>
+								<option value="roomName"  <c:out value="${list.searchOption=='roomName' ? 'selected' : '' }" />>방/지점 이름</option>
+								<option value="roomnum"  <c:out value="${list.searchOption=='roomnum' ? 'selected' : '' }" />>방 번호</option>
+							</select>
 						</li>
-						<li>날짜 : <input type="date">
+						<li>검색 : <input type="text" name="keyword">
 						</li>
-						<li id="exb"><input type="button" value="방생성"
-							onclick="location.href='RoomUpload.mdo'"></li>
-						<li id="exb"><input type="button" value="검색"></li>
+						<li id="exb"><input type="button" value="방생성" 	onclick="location.href='RoomUpload.mdo'"></li>
+						<li id="exb"><input type="submit" value="검색"></li>
 					</ul>
 				</div>
+			</form>
 
 				<!-- db데이터 -->
 				<table id="t">
