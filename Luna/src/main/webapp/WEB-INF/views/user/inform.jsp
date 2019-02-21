@@ -24,24 +24,24 @@
 <div class="top">고객센터</div>
 <!-- 고/공/자 이미지 -->
 <section class="menu">
-<a class="informNotice" href="inform.udo?cmd=''">
+<a class="informNotice">
 	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/announcein.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/announce.png"/>'"  src="<c:url value='/resources/user/inform/images/announce.png'/>"/>
 </a> <!-- 공지사항 -->
-<a class="informQnA" href="inform.udo?cmd=quest">
+<a class="informQnA">
 	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/questionin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/question.png"/>'" src="<c:url value='/resources/user/inform/images/question.png'/>"/>
 </a> <!-- 자주묻는질문 -->
-<a href="inform.udo?cmd=gokso"><img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/></a>
+<a class="informUser">
+	<img onmouseenter="this.src='<c:url value="/resources/user/inform/images/userin.png"/>'" onmouseleave="this.src='<c:url value="/resources/user/inform/images/user.png"/>'" src="<c:url value='/resources/user/inform/images/user.png'/>"/>
+</a> <!-- 고객의 소리 -->
 </section>
 
 <!-- 공지 +자주묻는 질문 -->
-<c:if test="${cmd ne 'gokso'}">
 <section class="list_tab">
 <table>
 <thead>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
-		<th>작성자</th>
 		<th>날짜</th>
 	</tr>
 </thead>
@@ -51,37 +51,10 @@
 		<td>${notice.num }</td>
 		<td><a onclick="window.open('viewNotice.udo?num=${notice.num}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
 			${notice.title }</a></td>
-		<td>${notice.writer }</td>
 		<td><fmt:formatDate value="${notice.regdate }" pattern="yy-MM-dd"/></td>
 	</tr>
 </c:forEach>
 </tbody>
-<!-- <tr>
-<td>1</td>
-<td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
-<td>2019-01-01</td>
-</tr>
-이것들은 다 예시일뿐임..(페이지 사이즈 조절용)
-<tr>
-<td>2</td>
-<td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
-<td>2019-01-01</td>
-</tr>
-<tr>
-<td>3</td>
-<td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
-<td>2019-01-01</td>
-</tr>
-<tr>
-<td>4</td>
-<td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
-<td>2019-01-01</td>
-</tr>
-<tr>
-<td>5</td>
-<td><a href="showForm.jsp">오늘의 공지입니다아</a></td>
-<td>2019-01-01</td>
-</tr> -->
 </table>
 <!-- 페이지 처리 -->
 <table class="pageT">
@@ -119,12 +92,10 @@
 </tbody>
 </table>
 </section>
-</c:if>
 
 
 
 <!-- 고객의 소리 구간-->
-<c:if test="${cmd eq 'gokso'}">
 <section class="list_tab2">
 <table>
 <tr>
@@ -161,7 +132,7 @@
 </tr>
 </table>
 </section>
-</c:if>
+
 <!-- footer -->
 <footer>
 <%@ include file="../public/footer.jsp" %>

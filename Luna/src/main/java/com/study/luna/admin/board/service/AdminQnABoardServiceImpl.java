@@ -63,4 +63,9 @@ public class AdminQnABoardServiceImpl implements AdminQnABoardService {
 	   return qnaBoardDAOImpl.countQnA(mav);
    }
 
+   //질문상세보기
+   @Override
+   public AdminQnABoardVO qnaRead(int num) throws Exception {
+	   return qnaBoardDAOImpl.qnaRead(num);
+}
 }

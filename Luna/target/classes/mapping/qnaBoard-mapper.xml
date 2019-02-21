@@ -24,7 +24,7 @@
 	 </sql>
 	 
 	 <!-- 질문 상세보기 -->
-	 <!-- <select id="viewNotice" resultType="adminNoticeBoardVO">
+	 <select id="viewQnA" resultType="adminQnABoardVO">
 	 	select * from ADMINQNABOARD where num=#{num}
-	 </select> -->
+	 </select>
 </mapper>

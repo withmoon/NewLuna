@@ -22,5 +22,5 @@ public interface AdminQnABoardService {
    /*user_inform*/
    public List<AdminQnABoardVO> qnaAll(int start, int end, HttpSession session); //질문목록
    public int countQnA(ModelAndView mav); //질문 갯수
-
+   public AdminQnABoardVO qnaRead(int num) throws Exception; //질문 상세보기
 }

@@ -69,4 +69,11 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
    public int countQnA(ModelAndView mav) {
 	   return SqlSession.selectOne("qnaBoardDAO.countQnA", mav);
    }
+
+   //질문 상세보기
+   @Override
+   public AdminQnABoardVO qnaRead(int num) throws Exception {
+	   System.out.println("===> 질문 상세보기");
+	   return SqlSession.selectOne("qnaBoardDAO.viewQnA", num);
+   }
 }
