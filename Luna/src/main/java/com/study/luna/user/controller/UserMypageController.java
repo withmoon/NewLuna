@@ -21,6 +21,8 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.alamandqa.service.AlamServiceImpl;
+import com.study.luna.user.dto.AlamDTO;
 import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
@@ -35,9 +37,11 @@ public class UserMypageController {
 	MemberService memser;
 	@Autowired
 	PayAndReserveService parser;
+	@Autowired
+	AlamServiceImpl alser;
 	
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.GET)
-	public ModelAndView mypageView(HttpSession session, MemberCommand memcom,HttpServletRequest request) {
+	public ModelAndView mypageView(AlamDTO alam,HttpSession session, MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
@@ -58,12 +62,15 @@ public class UserMypageController {
 		List<MyPageInfoDTO> myReservedInfo=new ArrayList<MyPageInfoDTO>();
 		myReservedInfo=parser.getUserReservedInfo(memcom);
 		
-		//알림 정보 가져오기 읽지 않은건 count로 표시해줌
+		//알림 정보 가져오기
+		List<AlamDTO> myalam=new ArrayList<AlamDTO>();
+		myalam=alser.getAlamlist(memcom);
 		
 		
 		memcom=memser.getMyPageInfo(memcom);
 		mav.addObject("latelyreserInfo",mypReservInfo);
 		mav.addObject("lastreserInfo",myReservedInfo);
+		mav.addObject("alamlist",myalam);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;

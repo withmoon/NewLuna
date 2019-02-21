@@ -71,6 +71,16 @@ b{
 	background-color: lightgray;
 	padding:2%;
 }
+.showElse{
+	position:fixed;
+	top:10%;
+	left:45%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: lightgray;
+	padding:2%;
+}
 .upInfo td{
 	border:0;
 }

@@ -169,33 +169,30 @@
 
 		<!-- 알림 -->
 		<div class="allnon">
-		<p class="notification1">☏ 알림 ☏</p> <!-- 지금  -->
+		<p class="notification1">☏ 알림 ☏</p> <!-- 지금  --><ul class="pagcls"><li>페</li><li>이</li><li>징</li><li>처</li><li>리</li></ul>
 		<table class="notification2">
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>관리자</td>
-					<td>서울지점 예약이 취소되었습니다.</td>
-					<td>01.05 11:50</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>관리자</td>
-					<td>서울지점 환불처리 완료</td>
-					<td>12.21 08:00</td>
-				</tr>
-
-				<tr>
-				<td colspan="4">
-					<ul class="pagcls">
-						<li>페</li>
-						<li>이</li>
-						<li>징</li>
-						<li>처</li>
-						<li>리</li>
-					</ul>
-				</td>
-				</tr>
+			<c:if test="${fn:length(alamlist) eq 0}">
+				<tr><td colspan="4"></td></tr>
+			</c:if>
+			<c:if test="${fn:length(alamlist) ne 0}">
+				<c:forEach  var="alamlist" items="${lastreserInfo}" begin='${fn:length(alamlist)}' end=1 step=-1>
+					<tr>
+						<td>${step}</td>
+						<td>${alamlist.fromwho}</td>
+						<td>${alamlist.content}</td>
+						<td>${alamlist.almdate}</td>
+						<td>
+							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
+								<button onclick="confirmCancle(${alamlist.seq})">확인완료표시</button>
+							</c:if>
+							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
+								<button onclick="openElse(${alamlist.seq})">내용보기</button>
+							</c:if>
+						</td>						
+					</tr>
+				</c:forEach>
+			</c:if>
 			</tbody>
 		</table>
 		</div>
@@ -263,6 +260,23 @@
 		<div class="ccReserDiv">
 			정말로 환불하시겠습니까?<br/><br/>
 			<button onclick="goCancle()">예</button> <button onclick="noCancle()">아니요</button>
+		</div>
+		
+		<!--  -->
+		<div id="showElse" class="showElse">
+			<table>
+				<tr>
+					<td>제목</td>
+					<td id="elsett"></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td id="elsect"></td>
+				</tr>
+				<tr>
+					<td id="elsebtn">답장보내기</td>
+				</tr>
+			</table>
 		</div>
 	
 	<!-- footer -->
