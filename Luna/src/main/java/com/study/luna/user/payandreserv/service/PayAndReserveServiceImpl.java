@@ -12,6 +12,7 @@ import com.study.luna.user.dto.RoomReserveDTO;
 import com.study.luna.user.payandreserv.dao.Impl.CancleReserveDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.CheckReservStartdateDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayInfoDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetUserReservedInfoDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.InReserveRoomDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.InRoomPaymentDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.UpReserveRoomDAOImpl;
@@ -30,6 +31,8 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	GetUserPayInfoDAOImpl gupiDAOImpl;
 	@Autowired
 	CancleReserveDAOImpl crDAOImpl;
+	@Autowired
+	GetUserReservedInfoDAOImpl guriDAOImpl;
 	
 	@Override
 	public Integer checkReservStartdate(RoomReserveDTO romre) {
@@ -54,5 +57,9 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Override
 	public void cancleReserve(MyPageInfoDTO mpif) {
 		crDAOImpl.cancleReserve(mpif);
+	}
+	@Override
+	public List<MyPageInfoDTO> getUserReservedInfo(MemberCommand memcom) {
+		return guriDAOImpl.getUserReservedInfo(memcom);
 	}
 }

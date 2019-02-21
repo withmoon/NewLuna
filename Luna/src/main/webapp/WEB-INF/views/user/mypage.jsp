@@ -86,7 +86,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:if test="${fn:length(latelyreserInfo) eq 0}"><!-- 지금 -->
+						<c:if test="${fn:length(latelyreserInfo) eq 0}">
 							<tr><td colspan="7">최근 예약된 방이 없습니다.</td></tr>
 						</c:if>
 						<c:if test="${fn:length(latelyreserInfo) ne 0}">
@@ -136,25 +136,23 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:if test="${fn:length(reserInfo) eq 0}">
+					<c:if test="${fn:length(lastreserInfo) eq 0}">
 						<tr><td colspan="7">6개월간 예약된 방이 없습니다.</td></tr>
 					</c:if>
-					<c:if test="${fn:length(reserInfo) ne 0}">
-					<c:if test="${reserInfo.get(0).getBranchName() ne null}">
-					<c:forEach  var="reserInfo" items="${reserInfo}">
-					<tr>
-						<td>${reserInfo.branchName}</td>
-						<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${reserInfo.roomNum}'">${reserInfo.roomName}</a></td>
-						<td>${reserInfo.reservdate}</td>
-						<td>${reserInfo.starttime}~${reserInfo.endtime}</td>
-						<td>예약 완료</td>
-						<td>
-						<button class="update" onclick="openReview(${reserInfo.roomNum})">리뷰쓰기</button>
-						<button class="update" onclick="window.open('${reserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-						</td>
-					</tr>
-					</c:forEach>
-					</c:if>
+					<c:if test="${fn:length(lastreserInfo) ne 0}">
+						<c:forEach  var="lastreserInfo" items="${lastreserInfo}">
+						<tr>
+							<td>${lastreserInfo.branchName}</td>
+							<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${lastreserInfo.roomNum}'">${lastreserInfo.roomName}</a></td>
+							<td>${lastreserInfo.reservdate}</td>
+							<td>${lastreserInfo.starttime}~${lastreserInfo.endtime}</td>
+							<td>예약 완료</td>
+							<td>
+							<button class="update" onclick="openReview(${lastreserInfo.roomNum})">리뷰쓰기</button>
+							<button class="update" onclick="window.open('${lastreserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+							</td>
+						</tr>
+						</c:forEach>
 					</c:if>
 				</tbody>
 				</table>
@@ -171,7 +169,7 @@
 
 		<!-- 알림 -->
 		<div class="allnon">
-		<p class="notification1">☏ 알림 ☏</p>
+		<p class="notification1">☏ 알림 ☏</p> <!-- 지금  -->
 		<table class="notification2">
 			<tbody>
 				<tr>
@@ -186,24 +184,7 @@
 					<td>서울지점 환불처리 완료</td>
 					<td>12.21 08:00</td>
 				</tr>
-				<tr>
-					<td>3</td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td><br></td>
-					<td><br></td>
-					<td><br></td>
-				</tr>
+
 				<tr>
 				<td colspan="4">
 					<ul class="pagcls">
@@ -279,7 +260,7 @@
 		</div>
 		
 		<!-- 환불요청 div -->
-		<div class="ccReserDiv"><!-- 지금  -->
+		<div class="ccReserDiv">
 			정말로 환불하시겠습니까?<br/><br/>
 			<button onclick="goCancle()">예</button> <button onclick="noCancle()">아니요</button>
 		</div>

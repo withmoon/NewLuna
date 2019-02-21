@@ -50,11 +50,20 @@ public class UserMypageController {
 		
 		session.setAttribute("member", memcom);
 
-		//마이페이지 예약 정보 가져옴
+		//마이페이지 최근 예약 정보 가져옴
 		List<MyPageInfoDTO> mypReservInfo=new ArrayList<MyPageInfoDTO>();
 		mypReservInfo=parser.getUserPayInfo(memcom);
+
+		//지난 예약 정보 가져옴
+		List<MyPageInfoDTO> myReservedInfo=new ArrayList<MyPageInfoDTO>();
+		myReservedInfo=parser.getUserReservedInfo(memcom);
+		
+		//알림 정보 가져오기 읽지 않은건 count로 표시해줌
+		
+		
 		memcom=memser.getMyPageInfo(memcom);
 		mav.addObject("latelyreserInfo",mypReservInfo);
+		mav.addObject("lastreserInfo",myReservedInfo);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
