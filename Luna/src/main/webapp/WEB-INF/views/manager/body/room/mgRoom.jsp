@@ -106,17 +106,17 @@
 					<tr id="ttr1">
 						<th>ROOM.NO</th>
 						<th>지점명</th>
-						<th>등록일</th>
-						<th>인원</th>
+						<th>방이름</th>
 						<th>주소</th>
+						<th>가격</th>
 					</tr>
 					<c:forEach items="${list}" var="list">
 						<tr>
 							<td>${list.roomnum}</td>
 							<td><a href="mgRoomView.mdo?roomnum=${list.roomnum}">${list.branchName}</a></td>
-							<td><fmt:formatDate value="${list.day1}" pattern="yyyy.MM.dd"/>  </td>
-							<td>${list.inown}</td>
-							<td>${list.joosu}</td>
+							<td>${list.roomName }  </td>
+							<td>${list.roomLocate}</td>
+							<td>${list.roomPrice}</td>
 						</tr>
 					</c:forEach>
 				</table>

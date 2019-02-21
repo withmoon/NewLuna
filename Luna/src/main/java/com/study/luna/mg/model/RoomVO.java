@@ -20,9 +20,26 @@ public class RoomVO {
 	private String roomWarn;
 	private String comeRoute;
 	private String roomLocate;
+	private int roomPrice;
+	private String keyword;
 	private String id;
+	
+	
+	
 
 	
+	public int getRoomPrice() {
+		return roomPrice;
+	}
+	public void setRoomPrice(int roomPrice) {
+		this.roomPrice = roomPrice;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public Date getDay1() {
 		return day1;
 	}

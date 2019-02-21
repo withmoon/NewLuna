@@ -12,8 +12,8 @@ import com.study.luna.mg.service.managerService;
 public class ManagerMainController {
 	//메인화면
 	
-	@Autowired
-	private managerService managerService;
+	@Autowired 
+	private managerService managerService; 
 	
 	@RequestMapping(value="/manager.mdo", method=RequestMethod.GET)
 	public ModelAndView mainView() {
