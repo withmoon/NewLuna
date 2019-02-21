@@ -47,14 +47,14 @@ public class UserMypageController {
 		}else {
 			memcom=(MemberCommand)session.getAttribute("member");
 		}
+		
 		session.setAttribute("member", memcom);
 
 		//마이페이지 예약 정보 가져옴
 		List<MyPageInfoDTO> mypReservInfo=new ArrayList<MyPageInfoDTO>();
 		mypReservInfo=parser.getUserPayInfo(memcom);
-		
 		memcom=memser.getMyPageInfo(memcom);
-		mav.addObject("reserInfo",mypReservInfo);
+		mav.addObject("latelyreserInfo",mypReservInfo);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
@@ -84,12 +84,14 @@ public class UserMypageController {
 			//예약 테이블에 집어넣기
 			romre.setReservstate(rompay.getReserveTime());
 			
-			System.out.println("예약하신 시간==>"+romre.getStartdate()+"시간 서브한 결과==>"+romre.getReservstate());
+			System.out.println("눌른 스케줄==>"+romre.getReservstate());
 			
 			//row가 없으면 insert
 			if(sdresult==null) {
+				System.out.println("인서트 할꺼당"+romre.getStartdate());
 				parser.inReserveRoom(romre);
 			}else{//있으면 update
+				System.out.println("업뎃 할꺼당"+romre.getStartdate());
 				parser.upReserveRoom(romre);
 			}
 			rompay.setId(memcom.getId());

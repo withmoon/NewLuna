@@ -4,8 +4,10 @@ function openReview(num){
 	console.log(num);
 	$(".review").display="";
 	$(".review").show();
+	$('body > *:not(.review) ').css('filter',filterVal10);
 }
 function closeReview(){
+	$('body > *:not(.review) ').css('filter',filterVal0);
 	$(".star").attr('src','resources/util/unstar.png');
 	count=0;
 	$("#starcount").text(0);

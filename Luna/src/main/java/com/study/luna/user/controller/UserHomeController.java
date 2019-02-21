@@ -81,6 +81,7 @@ public class UserHomeController {
 		}
 		//회원은 회원으로 
 		if(branchName==null) {
+			System.out.println("홈에서 아이디==>"+memcom.getId());
 			mav.setViewName("redirect:/home.udo");
 			return mav;
 		}else{ //지점장 회원가입시 alert띄우고 메인으로 돌아옴

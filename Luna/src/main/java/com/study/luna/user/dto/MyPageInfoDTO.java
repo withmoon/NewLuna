@@ -12,7 +12,9 @@ public class MyPageInfoDTO {
 	String reservdate;
 	String starttime;
 	String endtime;
-	String status;
 	String receipt_url;
 	String roomNum;
+	String imp_uid;
+	int status;
+	String id;
 }

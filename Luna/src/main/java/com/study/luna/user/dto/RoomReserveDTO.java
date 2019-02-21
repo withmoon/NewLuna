@@ -9,4 +9,5 @@ public class RoomReserveDTO {
 	int roomNum;
     String reservstate;
     String startdate;
+    int reservNumber;
 }

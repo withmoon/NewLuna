@@ -151,7 +151,6 @@ b{
 	padding:5%;
 }
 .rslist table{
-	margin:2% 0 0 0;
 	text-align:center;
 	border-top:2px solid black;
 	border-bottom:2px solid black;
@@ -282,6 +281,31 @@ input[type=date]{
 	position:relative;
 	left:360px;
 	display:table-cell;
+}
+/*환불 div*/
+.ccReserDiv{
+	display:none;
+	padding:2%;
+	position:fixed;
+	background-color:skyblue;
+	border:2px solid gray;
+	top:30%;
+	left:42%;
+	text-align:center;
+}
+.ccReserDiv button{
+	margin:0 10px;;
+}
+/*최근내역 테이블*/
+#latelyReservList table{
+	position:relative;
+	top:-30px;
+}
+/*페이징 몰이*/
+#latelyPg{
+	position:relative;
+	top:-35px;
+	left:30%;
 }
 /* footer */
 footer{

@@ -1,8 +1,10 @@
 function showUpdateForm(){
+	$('body > *:not(#upInfo) ').css('filter',filterVal10);
 	$("#upInfo").display="";
 	$("#upInfo").show();
 }
 function hideUpdateForm(){
+	$('body > *:not(#upInfo) ').css('filter',filterVal0);
 	$("#upInfo").hide();
 }
 var stat=0;

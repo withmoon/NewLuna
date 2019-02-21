@@ -18,4 +18,6 @@ public interface PayAndReserveService {
 	void inRoomPayment(RoomPaymentDTO rompay);
 	// mypage용 예약&결제 테이블 가져옴
 	List<MyPageInfoDTO> getUserPayInfo(MemberCommand memcom);
+	//사용자측에서 환불요청
+	void cancleReserve(MyPageInfoDTO mpif);
 }

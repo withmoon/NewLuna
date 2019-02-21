@@ -18,6 +18,7 @@
 <script src="<c:url value="/resources/user/roomDetail/js/textAuto.js"/>"></script>
 <!-- roomDetail 고유 js -->
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/rdjsgroup.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/js/getSchedule.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
   

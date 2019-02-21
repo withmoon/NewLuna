@@ -5,7 +5,7 @@
 	
 	<!-- 예약 테이블에 현재날짜을 가지고 있는 room이 있는지 -->
 	<select id="checkReservStartdate" resultType="Integer">
-		<![CDATA[select roomnum from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
+		<![CDATA[select roomnum,reservNumber from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
 	</select>
 	
 	<!-- 예약 집어넣기 -->
@@ -16,7 +16,7 @@
 	<update id="upReserveRoom">
 		<![CDATA[
 		update roomReserv set reservstate=concat(reservstate,#{reservstate}) 
-		where reservNumber=(select nvl(max(reservNumber),1) from roomreserv where roomNum=#{roomNum})
+		where reservNumber=#{reservNumber}
 		]]>
 	</update>
 	
@@ -28,14 +28,29 @@
 	</insert>
 	
 	<!-- for MyPage -->
+	<!-- lastely list -->
 	<select id="getUserPayInfo" resultType="myPageInfo">
 	<![CDATA[
-		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,
-		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,2,2) as starttime,
+		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
+		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
 		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
 		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
-		where romp.id=#{id}
+		where romp.id=#{id} and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')
 		]]>
 	</select>
+	<!-- last list -->
+	<select id="getUserReservedInfo" resultType="myPageInfo">
+	<![CDATA[
+		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
+		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
+		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
+		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
+		where romp.id=#{id} and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')
+		]]>
+	</select>
+	
+	<update id="cancleReserve">
+		<![CDATA[update roompayment set status=-2 where id=#{id} and imp_uid=#{imp_uid}]]>
+	</update>
 	
 </mapper>

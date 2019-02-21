@@ -16,6 +16,7 @@
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypage.js"/>"></script>
+<script src="<c:url value="/resources/user/mypage/js/mypajax.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
 
@@ -63,16 +64,15 @@
 			<label class="reservlabel">※ 예약현황 ※</label><a href="#" id="display2" onclick="displayBoard(2)">현황 보이기</a>
 			<div class="rslist">
 				<!-- 방없을시 -->
-				<c:if test="${fn:length(reserInfo) eq 0}">
+				<c:if test="${fn:length(latelyreserInfo) eq 0}">
 				<div class="noroom">
 					<img src="<c:url value="/resources/user/mypage/images/noroom.png"/>"><label>예약하신 룸이 없습니다.</label>
 				</div>
 				</c:if>
-				<!-- 방 있으면 -->
-				<!-- 최근내역중  -->
-				<c:if test="${fn:length(reserInfo) ne 0}">
-					<div id="latelyReservList">
-					<b>최근 예약 내역</b>
+
+				<!-- 최근내역중  -->	
+				<div id="latelyReservList">
+					<b>최근 예약 내역</b><ul id="latelyPg" class="pagcls">	<li>&lt;&emsp;</li><li>페&emsp;</li><li>이&emsp;</li><li>징&emsp;</li><li>&gt;<li></ul>
 					<table>
 						<thead>
 							<tr>
@@ -86,54 +86,35 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>${reserInfo.get(0).getReservdate()}</td>
-								<td>${reserInfo.get(0).getBranchName()}</td>
-								<td>${reserInfo.get(0).getRoomName()}</td>
-								<td>02.2222.2222</td>
-								<td>${reserInfo.get(0).getBranchAddr1()}</td>
-								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
-								<td>
-								<button class="update">취소/환불</button>
-								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-								</td>
-							</tr>
-							
-							<tr>
-								<td>${reserInfo.get(0).getReservdate()}</td>
-								<td>${reserInfo.get(0).getBranchName()}</td>
-								<td>${reserInfo.get(0).getRoomName()}</td>
-								<td>02.2222.2222</td>
-								<td>${reserInfo.get(0).getBranchAddr1()}</td>
-								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
-								<td>
-								<a class="update">환불요청중</a>
-								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-								</td>
-							</tr>
-							
-							<tr>
-								<td>${reserInfo.get(0).getReservdate()}</td>
-								<td>${reserInfo.get(0).getBranchName()}</td>
-								<td>${reserInfo.get(0).getRoomName()}</td>
-								<td>02.2222.2222</td>
-								<td>${reserInfo.get(0).getBranchAddr1()}</td>
-								<td>${reserInfo.get(0).getStarttime()}~${reserInfo.get(0).getEndtime()}</td>
-								<td>
-								<label class="update">환불완료</label>
-								<button class="update" onclick="window.open('${reserInfo.get(0).getReceipt_url()}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
-								</td>
-							</tr>
+						<c:if test="${fn:length(latelyreserInfo) eq 0}"><!-- 지금 -->
+							<tr><td colspan="7">최근 예약된 방이 없습니다.</td></tr>
+						</c:if>
+						<c:if test="${fn:length(latelyreserInfo) ne 0}">
+							<c:forEach  var="latelyreserInfo" items="${latelyreserInfo}">
+								<tr>
+									<td>${latelyreserInfo.reservdate}</td>
+									<td>${latelyreserInfo.branchName}</td>
+									<td>${latelyreserInfo.roomName}</td>
+									<td>02.2222.2222</td>
+									<td>${latelyreserInfo.branchAddr1}</td>
+									<td>${latelyreserInfo.starttime}~${reserInfo.endtime}</td>
+									<td id="${latelyreserInfo.imp_uid}">
+									<c:if test="${latelyreserInfo.status eq 1}">
+										<button class="cancle" onclick='cancleReserve("${member.id}","${latelyreserInfo.imp_uid}",${latelyreserInfo.status})'>취소/환불</button>
+										<button class="showRecipe" onclick="window.open('${latelyreserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+									</c:if>
+									<c:if test="${latelyreserInfo.status eq -2}">
+										<label>환불요청중</label>
+									</c:if>
+									<c:if test="${latelyreserInfo.status eq -1}">
+										<<label>환불완료</label>
+									</c:if>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:if>
 						</tbody>
 					</table>
-					<ul class="pagcls">
-						<li>페</li>
-						<li>이</li>
-						<li>징</li>
-						<li>처</li>
-						<li>리</li>
-					</ul>
-					
 				</div>
 				
 				<label class="lastSearch"><b>지난 예약 조회</b></label>
@@ -155,8 +136,11 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:if test="${fn:length(reserInfo) eq 0}">
+						<tr><td colspan="7">6개월간 예약된 방이 없습니다.</td></tr>
+					</c:if>
 					<c:if test="${fn:length(reserInfo) ne 0}">
-					<c:if test="${reserInfo.get(1).getBranchName() ne null}">
+					<c:if test="${reserInfo.get(0).getBranchName() ne null}">
 					<c:forEach  var="reserInfo" items="${reserInfo}">
 					<tr>
 						<td>${reserInfo.branchName}</td>
@@ -182,7 +166,6 @@
 						<li>리</li>
 					</ul>
 				</div>
-				</c:if>
 			</div>
 		</div>
 
@@ -284,7 +267,7 @@
 			</table>
 		</form>
 		</div>
-		
+		<!-- 리뷰 받는 div -->
 		<div class="review">
 			<img id="star1" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
 			<img id="star2" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
@@ -293,6 +276,12 @@
 			<img id="star5" class="star" src="<c:url value="/resources/util/unstar.png"/>"/><label>별점 :<b id="starcount">0</b>점</label>
 			<img onclick="closeReview()" src="<c:url value="/resources/util/xicon.png"/>"/><br/><br/>
 			<input type="text" size="100" placeholder="최대 100자">&nbsp;<button>후기 올리기</button>
+		</div>
+		
+		<!-- 환불요청 div -->
+		<div class="ccReserDiv"><!-- 지금  -->
+			정말로 환불하시겠습니까?<br/><br/>
+			<button onclick="goCancle()">예</button> <button onclick="noCancle()">아니요</button>
 		</div>
 	
 	<!-- footer -->
