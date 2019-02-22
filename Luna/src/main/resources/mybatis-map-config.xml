@@ -6,6 +6,7 @@
    <typeAliases>
    		<!-- User -->
    		<typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
+   		<typeAlias alias="kroom" type="com.study.luna.user.dto.KeepRoomDTO"/>
    		<!-- User, Public -->
       	<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
       	<typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
@@ -38,6 +39,8 @@
       <mapper resource="mapping/payment-mapper.xml"/>
       <!-- 알림질문 -->
       <mapper resource="mapping/alam-mapper.xml" />
+        <!-- 알림질문 -->
+      <mapper resource="mapping/keeproom-mapper.xml" />
 
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />
