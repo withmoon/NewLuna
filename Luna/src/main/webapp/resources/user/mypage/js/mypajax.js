@@ -37,5 +37,26 @@ function gogoCC(){
 			alert("환불이 완료되었습니다");
 		}
 	});
-
+}
+/*환불완료 확인완료*/
+function confirmCancle(seq){
+	
+}
+/*else 내용 열기*/
+function openElse(seq){
+	$('body > *:not(.showElse) ').css('filter',filterVal10);
+	
+	/*var tt=${alamlist.get(seq).getFormwhat()};*/
+	$("#elsett").val(tt);
+	/*"elsect"*/
+	
+	$(".showElse").display="";
+	$(".showElse").show();
+}
+function closeElse(){
+	$(".showElse").hide();
+	$('body > *:not(.showElse) ').css('filter',filterVal0);
+}
+function sendReply(){
+	
 }

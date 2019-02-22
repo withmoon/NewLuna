@@ -71,15 +71,20 @@ b{
 	background-color: lightgray;
 	padding:2%;
 }
+/* 내용 보여줌 */
 .showElse{
+	display:none;
 	position:fixed;
-	top:10%;
-	left:45%;
+	top:18%;
+	left:35%;
 	font-size:1.8vw;
 	width:270px;
-	height:460px;
+	height:350px;
 	background-color: lightgray;
 	padding:2%;
+}
+.showElse table td{
+	border:1px solid white;
 }
 .upInfo td{
 	border:0;

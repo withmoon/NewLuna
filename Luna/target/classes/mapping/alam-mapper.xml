@@ -3,14 +3,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="alamDAO">
 	<!-- 문의게시판에 대한 알람을 제외한 나머지것들 가져옴 --> 
-	<select id="getAlamlist" resultType="">
+	<select id="getAlamlist" resultType="alam">
 		<![CDATA[select * from alam where id=#{id} and fromwhat!='question']]>
 	</select>
 	
 	
 	
 	<!-- 문의게시판에대한 것들 가져옴 --> 
-	<select id="getQuestionlist" resultType="">
+	<select id="getQuestionlist" resultType="alam">
 		<![CDATA[select * from alam where id=#{id} and fromwhat=='question']]>
 	</select>
 	

@@ -169,24 +169,24 @@
 
 		<!-- 알림 -->
 		<div class="allnon">
-		<p class="notification1">☏ 알림 ☏</p> <!-- 지금  --><ul class="pagcls"><li>페</li><li>이</li><li>징</li><li>처</li><li>리</li></ul>
+		<p class="notification1">☏ 알림 ☏</p> <ul class="pagcls"><li>페</li><li>이</li><li>징</li><li>처</li><li>리</li></ul>
 		<table class="notification2">
 			<tbody>
 			<c:if test="${fn:length(alamlist) eq 0}">
-				<tr><td colspan="4"></td></tr>
+				<tr><td colspan="4">알림이 없습니다.</td></tr>
 			</c:if>
 			<c:if test="${fn:length(alamlist) ne 0}">
-				<c:forEach  var="alamlist" items="${lastreserInfo}" begin='${fn:length(alamlist)}' end=1 step=-1>
+				<c:forEach  var="alamlist" items="${alamlist}">
 					<tr>
-						<td>${step}</td>
 						<td>${alamlist.fromwho}</td>
 						<td>${alamlist.content}</td>
 						<td>${alamlist.almdate}</td>
+						
 						<td>
 							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
 								<button onclick="confirmCancle(${alamlist.seq})">확인완료표시</button>
 							</c:if>
-							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
+							<c:if test="${alamlist.numforwhat eq -1}"><!-- 지금  -->
 								<button onclick="openElse(${alamlist.seq})">내용보기</button>
 							</c:if>
 						</td>						
@@ -262,19 +262,21 @@
 			<button onclick="goCancle()">예</button> <button onclick="noCancle()">아니요</button>
 		</div>
 		
-		<!--  -->
-		<div id="showElse" class="showElse">
+		<!-- 알림 else 내용  -->
+		<div id="showElse" class="showElse"><!-- 지금  -->
 			<table>
 				<tr>
 					<td>제목</td>
-					<td id="elsett"></td>
+					<td><input id="elsett" type="text" size="30" disabled="disabled"/></td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">내용</td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td id="elsect"></td>
+				<td colspan="2"><textarea id="elsect" cols="43" rows="14" disabled="disabled"></textarea></td>
 				</tr>
-				<tr>
-					<td id="elsebtn">답장보내기</td>
+				<tr align="center">
+					<td id="elsebtn" colspan="2"><button onclick="sendReply()">답장보내기</button><button onclick="closeElse()">닫기</button></td>
 				</tr>
 			</table>
 		</div>
