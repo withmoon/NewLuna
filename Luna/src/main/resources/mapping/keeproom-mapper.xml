@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="keepRoomDAO">
+	<select id="getKeeplist" resultType="roomInfo">
+	<![CDATA[
+		select krom.roomnum,fname,roomname from keeproom krom join roomfile romf on romf.roomnum=krom.roomnum 
+		join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1]]>
+	</select>
+	<insert id="keeproom">
+		insert into keeproom values(#{id},#{roomnum})
+	</insert>
+	<delete id="deletekroom">
+		delete keeproom where id=#{id} and roomnum=#{roomnum}
+	</delete>
+</mapper>
