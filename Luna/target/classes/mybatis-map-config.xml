@@ -4,6 +4,9 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
    <typeAliases>
+   		<!-- User -->
+   		<typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
+   		<typeAlias alias="kroom" type="com.study.luna.user.dto.KeepRoomDTO"/>
    		<!-- User, Public -->
       	<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
       	<typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
@@ -11,7 +14,7 @@
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>
         <typeAlias alias="roomReview" type="com.study.luna.user.dto.RoomReviewDTO"/>
         <typeAlias alias="roomPay" type="com.study.luna.user.dto.RoomPaymentDTO"/>
-        <typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
+        <typeAlias alias="alam" type="com.study.luna.user.dto.AlamDTO"/>
         
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
@@ -25,6 +28,7 @@
         <typeAlias alias="adminEventBoardVO" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
         <typeAlias alias="adminManagerApproveVO" type="com.study.luna.admin.model.vo.AdminManagerApproveVO"/>
       	<typeAlias alias="adminNoticeBoardVO" type="com.study.luna.admin.model.vo.AdminNoticeBoardVO"/>
+      	<typeAlias alias="adminInquireBoardVO" type="com.study.luna.admin.model.vo.AdminInquireBoardVO"/>
    </typeAliases>
  
    <mappers>
@@ -34,6 +38,10 @@
       <mapper resource="mapping/room-mapper.xml"/>
       <!-- 예약/결제 관련 -->
       <mapper resource="mapping/payment-mapper.xml"/>
+      <!-- 알림질문 -->
+      <mapper resource="mapping/alam-mapper.xml" />
+        <!-- 알림질문 -->
+      <mapper resource="mapping/keeproom-mapper.xml" />
 
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />
@@ -50,5 +58,6 @@
 	  <mapper resource="mapping/mgRoom-mapper.xml"/>
 	  <mapper resource="mapping/mgSales-mapper.xml"/>
    </mappers>
+
 
 </configuration>
