@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.user.dto.KeepRoomDTO;
 import com.study.luna.user.dto.RoomFileDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
+import com.study.luna.user.keeproom.service.RoomKeepService;
 import com.study.luna.user.room.service.RoomService;
 
 @Controller
@@ -23,11 +25,13 @@ public class UserRoomDetailController {
 	
 	@Autowired
 	RoomService romser;
+	@Autowired
+	RoomKeepService rkser;
 	
 	@RequestMapping(value = "/roomDetail.udo", method = RequestMethod.GET)
 	public ModelAndView roomDetailView(@RequestParam(value="roomnum",required=false,defaultValue="")int roomnum,
 			@RequestParam(value="seldate",required=false,defaultValue="")String seldate,
-			RoomInfoDTO roomin,MemberCommand memcom,RoomPaymentDTO roomPay,RoomReserveDTO romre, HttpSession session)
+			KeepRoomDTO krd,RoomInfoDTO roomin,MemberCommand memcom,RoomPaymentDTO roomPay,RoomReserveDTO romre, HttpSession session)
 			throws Exception {
 		ModelAndView mav = new ModelAndView();
 		memcom = (MemberCommand) session.getAttribute("member");
@@ -38,8 +42,14 @@ public class UserRoomDetailController {
 		
 		List<RoomFileDTO> roomImgList=romser.getRoomAllimg(roomnum);
 		
+		krd.setId(memcom.getId());
+		krd.setRoomnum(roomnum);
+		
+		Integer keepstate=rkser.getKeepStatus(krd);
+		
 		mav.addObject("roomPay",roomPay);
 		mav.addObject("roomInfo",roomin);
+		mav.addObject("keepstate",keepstate);
 		mav.addObject("roomImgList",roomImgList);
 		mav.addObject("sel_date",seldate);
 		mav.addObject("romre",romre);

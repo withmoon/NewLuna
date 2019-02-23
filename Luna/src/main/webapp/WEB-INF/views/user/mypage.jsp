@@ -41,19 +41,22 @@
 			<img class="infoline2" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>
 		
-		<!-- 내가찜한방 -->
+		<!-- 내가찜한방 keeplist-->
 		<div class="favorites1">
 		<label>❣ 내가 찜한 방 ❣</label><a href="#" id="display1" onclick="displayBoard(1)">찜리스트 보이기</a>
 			<div class="favorlist">
-			<div>
-				<img src="<c:url value="/resources/rooms/pome.jpg"/>"><br/><a href="#">방이름</a>
-			</div>
-			<div>
-			<img src="<c:url value="/resources/rooms/samo.jpg"/>"><br/><a href="#">방이름</a></div>
-			<div>
-			<img src="<c:url value="/resources/rooms/samo.jpg"/>"><br/><a href="#">방이름</a></div>
-			<div>
-			<img src="<c:url value="/resources/rooms/pome.jpg"/>"><br/><a href="#">방이름</a></div>
+			<c:if test="${fn:length(keeplist) eq 0}">
+				<div>
+					ㅜ찜한방이 아직 없습니다ㅜ
+				</div>
+			</c:if>
+			<c:if test="${fn:length(keeplist) ne 0}">
+				<c:forEach  var="keeplist" items="${keeplist}">
+					<div><a href="roomDetail.udo?roomnum=${keeplist.roomNum}"><img src="<c:url value="/resources/rooms/${keeplist.fname}"/>"><br/>${keeplist.roomName}</a></div>
+				</c:forEach>
+			</c:if>
+			
+
 			<p>페이징</p>
 			</div>
 		</div>
@@ -177,17 +180,26 @@
 			</c:if>
 			<c:if test="${fn:length(alamlist) ne 0}">
 				<c:forEach  var="alamlist" items="${alamlist}">
-					<tr>
-						<td>${alamlist.fromwho}</td>
-						<td>${alamlist.content}</td>
-						<td>${alamlist.almdate}</td>
+					<tr> 
+						<!-- 읽은거는 color처리 -->
+						<c:if test="${alamlist.readst eq 1}">
+							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.fromwho}</td>
+							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.content}</td>
+							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.almdate}</td>
+						</c:if>
+						<!-- 안 읽은거 colorX -->
+						<c:if test="${alamlist.readst eq 0}">
+							<td class="conf${alamlist.seq}">${alamlist.fromwho}</td>
+							<td class="conf${alamlist.seq}">${alamlist.content}</td>
+							<td class="conf${alamlist.seq}">${alamlist.almdate}</td>
+						</c:if>
 						
 						<td>
 							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
-								<button onclick="confirmCancle(${alamlist.seq})">확인완료표시</button>
+								<button id="conf${alamlist.seq}" onclick="confirmCancle(${alamlist.seq})">확인완료</button>
 							</c:if>
 							<c:if test="${alamlist.numforwhat eq -1}"><!-- 지금  -->
-								<button onclick="openElse(${alamlist.seq})">내용보기</button>
+								<button onclick="openElse(${alamlist.seq},'${alamlist.content}','${alamlist.fromwhat}')">내용보기</button>
 							</c:if>
 						</td>						
 					</tr>
@@ -276,7 +288,7 @@
 				<td colspan="2"><textarea id="elsect" cols="43" rows="14" disabled="disabled"></textarea></td>
 				</tr>
 				<tr align="center">
-					<td id="elsebtn" colspan="2"><button onclick="sendReply()">답장보내기</button><button onclick="closeElse()">닫기</button></td>
+					<td id="elsebtn" colspan="2"><button onclick="closeElse()">닫기</button></td>
 				</tr>
 			</table>
 		</div>

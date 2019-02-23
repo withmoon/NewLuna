@@ -2,18 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="alamDAO">
-	<!-- 문의게시판에 대한 알람을 제외한 나머지것들 가져옴 --> 
+	<!-- 알람 모두 가져옴--> 
 	<select id="getAlamlist" resultType="alam">
 		<![CDATA[select * from alam where id=#{id} and fromwhat!='question']]>
 	</select>
 	
+	<!-- 읽음 표시 --> 
+	<update id="readAlam">
+		update alam set readst=1 where id=#{id} and seq=#{seq}
+	</update>
 	
 	
-	<!-- 문의게시판에대한 것들 가져옴 --> 
-	<select id="getQuestionlist" resultType="alam">
-		<![CDATA[select * from alam where id=#{id} and fromwhat=='question']]>
-	</select>
-	
-	<!-- 답장하기 클릭시 다 문의게시판으로 insert됨 -->
 	
 </mapper>

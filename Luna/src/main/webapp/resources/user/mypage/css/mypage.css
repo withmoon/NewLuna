@@ -116,7 +116,10 @@ b{
 .favorlist div{
 	position:relative;
 	float:left;
-	margin:3% 8%;
+	margin:3% 6%;
+	padding:1%;
+	width:35%;
+	border:1px solid white;
 }
 .favorlist img{
 	width:250px;

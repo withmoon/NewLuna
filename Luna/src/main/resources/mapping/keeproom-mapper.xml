@@ -7,6 +7,11 @@
 		select krom.roomnum,fname,roomname from keeproom krom join roomfile romf on romf.roomnum=krom.roomnum 
 		join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1]]>
 	</select>
+	
+	<select id="getKeepStatus" resultType="int">
+		select count(*) from keeproom where id=#{id} and roomnum=#{roomnum}
+	</select>
+	
 	<insert id="keeproom">
 		insert into keeproom values(#{id},#{roomnum})
 	</insert>

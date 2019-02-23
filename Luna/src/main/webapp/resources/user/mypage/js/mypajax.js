@@ -3,6 +3,7 @@ var imp_uid="";
 var id="";
 var filterVal10 = 'blur(10px)';
 var filterVal0 = 'blur(0px)';
+var alamseq='';
 //환불 요청 ajax 
 function cancleReserve(id,imp,st){
 	
@@ -40,23 +41,40 @@ function gogoCC(){
 }
 /*환불완료 확인완료*/
 function confirmCancle(seq){
-	
+	$.ajax({      
+		type:"POST",  
+		url:"readalam.udo",    
+		data:{seq:seq},     
+		success:function(){
+			$("#conf"+seq).remove();
+			readTd(seq);
+		}
+	});
 }
 /*else 내용 열기*/
-function openElse(seq){
+function openElse(seq,content,fromwhat){
+	alamseq=seq;
 	$('body > *:not(.showElse) ').css('filter',filterVal10);
 	
-	/*var tt=${alamlist.get(seq).getFormwhat()};*/
-	$("#elsett").val(tt);
-	/*"elsect"*/
+	$("#elsett").val(content);
+	$("#elsect").val(fromwhat);
 	
 	$(".showElse").display="";
 	$(".showElse").show();
+	
+	$.ajax({      
+		type:"POST",  
+		url:"readalam.udo",    
+		data:{seq:seq},     
+		success:function(){
+			readTd(seq);
+		}
+	});
+}
+function readTd(seq){
+	$(".conf"+seq).css({"color":"gray"});
 }
 function closeElse(){
 	$(".showElse").hide();
 	$('body > *:not(.showElse) ').css('filter',filterVal0);
-}
-function sendReply(){
-	
 }

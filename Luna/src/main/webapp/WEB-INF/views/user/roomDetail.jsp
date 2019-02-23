@@ -75,8 +75,14 @@
 
 <script type='text/javascript' src="<c:url value="/resources/user/roomDetail/js/kakaolink.js"/>"></script>
 
-<!-- 찜 안찜 -->
-<img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/notChoiceList.png"/>" onclick="changeChoiceImg(this)"/>
+<!-- 안찜한 상태  -->
+<c:if test="${keepstate eq 0}">
+	<img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/notChoiceList.png"/>" onclick="changeChoiceImg(this)"/>
+</c:if>
+<!-- 찜한 상태 -->
+<c:if test="${keepstate ne 0}">
+	<img title="찜하기" id="keep" src="<c:url value="/resources/user/roomDetail/images/choice.png"/>" onclick="changeChoiceImg(this)"/>
+</c:if>
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
@@ -210,7 +216,6 @@ ${roomInfo.comeRoute}
 <!-- 리뷰 시작 -->
 <section class="review">
 <img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
-<br/>여러분의 <a href="#" onclick="rivDown('pnum')">한줄후기</a> 를 들려주세요<br/><br/>
 <section id="rboxsec">
 </section>
 <br/>

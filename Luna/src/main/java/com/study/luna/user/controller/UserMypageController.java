@@ -27,6 +27,7 @@ import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
+import com.study.luna.user.keeproom.service.RoomKeepService;
 import com.study.luna.user.payandreserv.service.PayAndReserveService;
 import com.study.luna.util.SHA256;
 
@@ -39,6 +40,8 @@ public class UserMypageController {
 	PayAndReserveService parser;
 	@Autowired
 	AlamServiceImpl alser;
+	@Autowired
+	RoomKeepService rkser;
 	
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.GET)
 	public ModelAndView mypageView(AlamDTO alam,HttpSession session, MemberCommand memcom,HttpServletRequest request) {
@@ -66,11 +69,16 @@ public class UserMypageController {
 		List<AlamDTO> myalam=new ArrayList<AlamDTO>();
 		myalam=alser.getAlamlist(memcom);
 		
+		//찜리스트 가져오기
+		List<RoomInfoDTO> keeplist=new ArrayList<RoomInfoDTO>();
+		keeplist=rkser.getKeeplist(memcom.getId());
+		
 		
 		memcom=memser.getMyPageInfo(memcom);
 		mav.addObject("latelyreserInfo",mypReservInfo);
 		mav.addObject("lastreserInfo",myReservedInfo);
 		mav.addObject("alamlist",myalam);
+		mav.addObject("keeplist",keeplist);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
