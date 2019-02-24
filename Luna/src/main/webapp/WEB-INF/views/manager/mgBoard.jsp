@@ -7,6 +7,7 @@
 <head>
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script> 
 <script type="text/javascript" src="<c:url value="/resources/manager/js/board.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/manager2.js"/>"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
@@ -24,7 +25,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/></a>
+				<a href="javascript:manager();"><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/></a>
 			</div>
 			<jsp:include page="form/TopMenu1.jsp"></jsp:include>
 		</div>
@@ -85,7 +86,8 @@
 							<td><a href="mgBoardview.mdo?num=${list.num}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
 							<td>${list.writer }</td>
 							<td>${list.ref }</td>
-							<td>${list.regdate}</td>
+							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
+							
 						</tr>
 					</c:forEach>
 					<tr>

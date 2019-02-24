@@ -28,7 +28,8 @@ table, th, td {
 			<tr>
 				<td>작성자</td>
 				<!-- 값얻어와서 로그인한 아이디로 작성 변경불가능하게 -->
-				<td><input id="writer" type="text" />등록일<input type="date" /></td>
+				<td><input id="writer" type="text" />
+				등록일<input type="date" /></td>
 				<!-- 등록일date얻어와서 작성 -->
 			</tr>
 			<tr>

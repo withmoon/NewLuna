@@ -20,10 +20,10 @@ public class mgServiceImpl  implements MgService{
 	
 	//게시글 페이징/검색
 	@Override 
-	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword) throws Exception {
+	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword,String id) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QboardList 서비스");
-		return  boardDAO.listAll(start,end, searchOption,keyword);
+		return  boardDAO.listAll(start,end, searchOption,keyword,id);
 	}
 /*	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -33,17 +33,17 @@ public class mgServiceImpl  implements MgService{
 */
 	//게시글 상세보기
 	@Override
-	public QBoardVO QbaordRead(int num) throws Exception {
+	public QBoardVO QbaordRead(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QboardRead 서비스");
-		return boardDAO.QbaordRead(num);
+		return boardDAO.QbaordRead(vo);
 	}
 	//레코드계산
 	@Override
-	public int countArticle(String searchOption, String keyword)throws Exception {
+	public int countArticle(String searchOption, String keyword,String id)throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("countArticle 레코드계산");
-		return boardDAO.countArticle(searchOption, keyword);
+		return boardDAO.countArticle(searchOption, keyword,id);
 	}
 
 

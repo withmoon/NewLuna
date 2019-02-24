@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,6 @@ table, th, td {
 <script type="text/javascript">
 $(document).ready(function () {
 	$("#btnList").click(function() {
-		alert("버튼클릭");
 		location.href="mgBoard.mdo"
 		//curPage=${curPage}&searchOption=${searchOption}&{keyword}=${keyword}
 	});
@@ -92,7 +92,8 @@ $(document).ready(function () {
 				<td>작성자</td>
 				<td><input id="writer" type="text"  value="${view.writer}"/>
 				<!-- 등록일date얻어와서 작성 -->
-				등록일<input type="text"   value="${view.regdate}"/></td>
+				<%-- 등록일<input type="text"   value="${view.regdate}"/> --%>
+				등록일<input type="text" value="<fmt:formatDate value='${view.regdate}' pattern='yyyy.MM.dd'/>"/></td>
 			</tr>
 			<tr>
 				<td>내용</td>
