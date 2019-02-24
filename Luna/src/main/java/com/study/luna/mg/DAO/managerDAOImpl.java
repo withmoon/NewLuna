@@ -10,14 +10,14 @@ public class managerDAOImpl implements managerDAO{
 
 	@Autowired 
 	private SqlSession SqlSession;
-	//·Î±×ÀÎ¼ö
+	//ë¡œê·¸ì¸ ë¦¬ìŠ¤íŠ¸
 	@Override
 	public int login() {
 		System.out.println("logincount DAO");
 		return SqlSession.selectOne("managerDAO.login");
 	}
 	
-	//·Î±×ÀÎ¼ö+1
+	//ë¡œê·¸ì¸ ìˆ˜ +1
 	@Override
 	public void logincount() {
 		System.out.println("logincount+1 DAO");

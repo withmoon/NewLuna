@@ -18,31 +18,31 @@ public class mgServiceImpl  implements MgService{
 	private BoardDAO boardDAO;
 
 	
-	//°Ô½Ã±Û ÆäÀÌÂ¡/°Ë»ö
-	@Override
+	//ê²Œì‹œê¸€ í˜ì´ì§•/ê²€ìƒ‰
+	@Override 
 	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("QboardList ¼­ºñ½º");
+		System.out.println("QboardList ì„œë¹„ìŠ¤");
 		return  boardDAO.listAll(start,end, searchOption,keyword);
 	}
 /*	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("QboardList ¼­ºñ½º ¸®ÅÏ");
+		System.out.println("QboardList ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return boardDAO.QboardList(vo); 
 	}
 */
-	//°Ô½Ã±Û »ó¼¼º¸±â
+	//ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸°
 	@Override
 	public QBoardVO QbaordRead(int num) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("QboardRead ¼­ºñ½º");
+		System.out.println("QboardRead ì„œë¹„ìŠ¤");
 		return boardDAO.QbaordRead(num);
 	}
-	//·¹ÄÚµå°è»ê
+	//ë ˆì½”ë“œê³„ì‚°
 	@Override
 	public int countArticle(String searchOption, String keyword)throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("countArticle ·¹ÄÚµå°è»ê");
+		System.out.println("countArticle ë ˆì½”ë“œê³„ì‚°");
 		return boardDAO.countArticle(searchOption, keyword);
 	}
 

@@ -6,17 +6,17 @@ import java.util.Map;
 import com.study.luna.mg.model.SalesVO;
 
 public interface MgPCService {
-	// ¸®½ºÆ® °Ë»ö ÆäÀÌÂ¡
+	// ë¦¬ìŠ¤íŠ¸ ê²€ìƒ‰ í˜ì´ì§•
 	public List<SalesVO> SalesList(int start, int end, String keyword) throws Exception;
 
-	// °Ô½Ã±Û Ä«¿îÆ®
+	// ê²Œì‹œê¸€ ì¹´ìš´íŠ¸
 	public int countArticle(String keyword);
 
-	// ¿¢¼¿
+	// ì—‘ì…€
 	public List<Object> getExcelObject(Map<String, Object> paramMap);
 
 	public List<Object> excelList(SalesVO vo);
 
-	// ¿¹¾àÇöÈ²
+	// ì˜ˆì•½í˜„í™©
 	public List<SalesVO> mgReserveList(SalesVO vo);
 }

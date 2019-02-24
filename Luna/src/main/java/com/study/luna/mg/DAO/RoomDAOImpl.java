@@ -17,7 +17,7 @@ public class RoomDAOImpl implements RoomDAO {
 	@Autowired
 	private SqlSession SqlSession;
 
-	@Override //¹æ »ı¼º Å×ÀÌºí ÀĞ¾î¿À±â
+	@Override //ë°© ìƒì„± í…Œì´ë¸” ì½ì–´ì˜¤ê¸°
 	public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword) {
 		System.out.println("roomList select");
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -26,42 +26,42 @@ public class RoomDAOImpl implements RoomDAO {
 		//map.put("vo",vo);
 		return SqlSession.selectList("mgRoomDAO.RoomList",map);
 	}
-	@Override //·ë text db
+	@Override //ë£¸ text db
 	public int roomupload(RoomVO vo) {
-		System.out.println("roomtext DB ÀúÀå");
+		System.out.println("roomtext DB ï¿½ï¿½ï¿½ï¿½");
 		return SqlSession.insert("mgRoomDAO.RoomText",vo);
 	}
-	@Override  //·ë file db
+	@Override  //ë£¸ file db
 	public int uploadFile(HashMap<String, Object> hm) throws Exception {
-		System.out.println("roomfile DB ÀúÀå");
+		System.out.println("roomfile DB ï¿½ï¿½ï¿½ï¿½");
 		return SqlSession.insert("mgRoomDAO.RoomFile",hm); 
 	}
-	//·ë »ó¼¼º¸±â text
+	//ë£¸ ìƒì„¸ë³´ê¸° text
 	@Override
 	public RoomVO mgRoomRead(int roomnum) throws Exception {
-		System.out.println("roomList »ó¼¼º¸±â DAO");
+		System.out.println("roomList ï¿½ó¼¼ºï¿½ï¿½ï¿½ DAO");
 		return SqlSession.selectOne("mgRoomDAO.RoomSelect",roomnum);
 	}
-	//·ë »ó¼¼º¸±â file
+	//ë£¸ ìƒì„¸ë³´ê¸° file
 	@Override
 	public List<uploadfileVO> mgRoomFile(int roomnum) {
-		System.out.println("roomfile »ó¼¼º¸±â DAO");
+		System.out.println("roomfile ï¿½ó¼¼ºï¿½ï¿½ï¿½ DAO");
 		return SqlSession.selectList("mgRoomDAO.RoomFileSelect",roomnum);
 	}
 	
-	//¾÷µ¥ÀÌÆ® ¼öÁ¤ÇÏ±â
+	//ì—…ë°ì´íŠ¸ ìˆ˜ì •í•˜ê¸°
 	@Override
 	public void mgRoomTextupdate(RoomVO vo) {
 		System.out.println("roomtext  update DAO");
 		SqlSession.update("mgRoomDAO.RoomTextInsert",vo);
 	}
-	@Override //ÆÄÀÏ¼öÁ¤
+	@Override //íŒŒì¼ìˆ˜ì •
 	public void mgRoomFileupdate(HashMap<String, Object> hm) {
 		System.out.println("roomfile update DAO");
 		SqlSession.update("mgRoomDAO.RoomFileInsert",hm);
 	}
 	
-	//»èÁ¦ÇÏ±â
+	//ì‚­ì œí•˜ê¸°
 	@Override
 	public void mgRoomDelete(int roomnum) {
 		// TODO Auto-generated method stub

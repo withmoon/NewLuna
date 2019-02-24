@@ -30,21 +30,21 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
 @Controller
 public class MgRoomController {
-	//¹æ»ı¼ºÈ­¸é
+	//ë°©ìƒì„±í™”ë©´
 	
 	@Autowired
 	public MgRoomService mgRoomService;
-	// ÀúÀåÇÒ ÆÄÀÏÆú´õ
+	//ì €ì¥í•  íŒŒì¼í´ë”
 	String filePath = "C:\\myProject\\mySpring\\main.zip_expanded\\Luna\\src\\main\\webapp\\resources\\manager\\file\\";
 
-	// ¹æ°ü¸® È­¸é
+	//ë°©ê´€ë¦¬í™”ë©´
 		@RequestMapping(value = "/mgRoom.mdo")
 		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="roomName")String searchOption,
 				@RequestParam(defaultValue="")String keyword) throws Exception {
-			// µğ·ºÅä¸®»ı¼º 
+			//ë””ë ‰í† ë¦¬ ì—†ìœ¼ë©´ ìƒì„±
 			File dir = new File(filePath); 
 			if (!dir.isDirectory()) {
-				System.out.println("µğ·ºÅä¸®»ı¼º");
+				System.out.println("ë””ë ‰í† ë¦¬ìƒì„±");
 				dir.mkdirs();
 			}
 
@@ -64,28 +64,28 @@ public class MgRoomController {
 			return mv;
 		}
 
-	// ¹æ »ı¼º È­¸é
+	//ë°©ìƒì„± í™”ë©´
 	@RequestMapping(value = "/RoomUpload.mdo", method = RequestMethod.GET)
 	public String mgRoomUpload() {
 		return "body/room/roomupload";
 	}
 
-	// ¹æ»ı¼º insert
+	//ë°©ìƒì„± insert
 	@RequestMapping(value = "/uploadFile.mdo", method = RequestMethod.POST)
 	public ModelAndView mginsertRoom(HttpServletRequest req, MultipartHttpServletRequest mrequest,
 			@ModelAttribute("room") RoomVO vo) throws Exception, IllegalStateException {
-		System.out.println("·ë ¾÷·Îµå ÄÁÆ®·Ñ·¯ ½ÃÀÛ");
-		System.out.println("ÆÄÀÏ¾÷·ÎµåÅ×½ºÆ®");
+		System.out.println("ë£¸ ì—…ë¡œë“œ ì»¨íŠ¸ë¡¤ëŸ¬ ì‹œì‘");
+		System.out.println("íŒŒì¼ì—…ë¡œë“œ í…ŒìŠ¤íŠ¸");
 
-		// textarea ÁÙ³»¸² dbÀÎ½Ä Ã³¸®
+		// textarea ì¤„ë‚´ë¦¼ db ì¸ì‹ ì²˜ë¦¬
 		if (vo.getRoomExplain() == null) {
-			System.out.println("»ó¼¼³»¿ë ¾øÀ½");
+			System.out.println("ìƒì„¸ë‚´ìš© ì—†ìŒ");
 		} else {
 			String roomExplain = vo.getRoomExplain().replace("\r\n", "<br>");
 			vo.setRoomExplain(roomExplain);
 		}
 		if (vo.getRoomWarn() == null) {
-			System.out.println("ÁÖÀÇ»çÇ×³»¿ë ¾øÀ½");
+			System.out.println("ì£¼ì˜ì‚¬í•­ë‚´ìš© ì—†ìŒ");
 		} else {
 			String roomWarn = vo.getRoomWarn().replace("\r\n", "<br>");
 			vo.setRoomWarn(roomWarn);
@@ -99,33 +99,33 @@ public class MgRoomController {
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		// ³Ñ¾î¿Â ÆÄÀÏÀ» ¸®½ºÆ®·Î ÀúÀå
+		// ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		List<MultipartFile> mf = mrequest.getFiles("input_img");
 		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
-			System.out.println("ÆÄÀÏÀÌ ¾øÀ½");
+			System.out.println("íŒŒì¼ì´ ì—†ìŒ");
 		} else {
-			System.out.println("ÆÄÀÏ ÃßÃâ");
+			System.out.println("íŒŒì¼ ì¶”ì¶œ");
 			System.out.println(mf.size());
 			for (int i = 0; i < mf.size(); i++) {
-					vo.setFilenum(i + 1); //ÆÄÀÏ³Ñ¹ö 
+					vo.setFilenum(i + 1); //íŒŒì¼ë„˜ë²„
 				if (!mf.get(i).getOriginalFilename().equals("")) {
-					System.out.println("Æ÷¹®" + i);
-					// ÆÄÀÏ Áßº¹¸í Ã³¸®
+					System.out.println("í¬ë¬¸" + i);
+					// íŒŒì¼ ì¤‘ë³µëª… ì²˜ë¦¬
 					String genId = UUID.randomUUID().toString();
-					// º»·¡ ÆÄÀÏ¸í
+					// ë³¸ë˜ íŒŒì¼ëª…
 					String originalfileName = mf.get(i).getOriginalFilename();
-					String saveFileName = genId + "." + FilenameUtils.getExtension(originalfileName); // È®ÀåÀÚ
-					// ÀúÀåµÇ´Â ÆÄÀÏ ÀÌ¸§
-					String savePath = filePath + saveFileName; // ÀúÀå µÉ ÆÄÀÏ °æ·Î
-					// long fileSize = mf.get(i).getSize(); // ÆÄÀÏ »çÀÌÁî
-					mf.get(i).transferTo(new File(savePath)); // ÆÄÀÏ ÀúÀå
+					String saveFileName = genId + "." + FilenameUtils.getExtension(originalfileName); // È®ï¿½ï¿½ï¿½ï¿½
+					// ì €ì¥ë˜ëŠ” íŒŒì¼ ì´ë¦„
+					String savePath = filePath + saveFileName; // ì €ì¥ ë  íŒŒì¼ ê²½ë¡œ
+					// long fileSize = mf.get(i).getSize(); // íŒŒì¼ ì‚¬ì´ì¦ˆ
+					mf.get(i).transferTo(new File(savePath)); // íŒŒì¼ ì €ì¥
 
-					System.out.println("¿À¸®Áö³ÎÀÌ¸§ " + originalfileName);
-					System.out.println("ÆÄÀÏ»çÀÌÁî " + saveFileName);
-					// System.out.println("ÄÜÅÙÃ÷Å¸ÀÔ " + fileSize);
+					System.out.println("ì˜¤ë¦¬ì§€ë„ì´ë¦„" + originalfileName);
+					System.out.println("íŒŒì¼ì‚¬ì´ì¦ˆ " + saveFileName);
+					// System.out.println("ì½˜í…íŠ¸íƒ€ì… " + fileSize);
 					mgRoomService.fileUpload(originalfileName, saveFileName, vo, savePath);
 				}else {
-					//ÆÄÀÏÀÌ¾øÀ»¶§ °ø°£È®º¸¸¸<jsp¿¡¼­ ÀĞ¾îµéÀÏ¶§ index=null ¹®Á¦¸¦ ¸·±âÀ§ÇÑ ÀÓ½Ã¿¹¿ÜÃ³¸®>
+					//íŒŒì¼ì´ì—†ì„ë•Œ ê³µê°„í™•ë³´ë§Œ<jspì—ì„œ ì½ì–´ë“¤ì¼ë•Œ index=null ë¬¸ì œë¥¼ ë§‰ê¸°ìœ„í•œ ì„ì‹œì˜ˆì™¸ì²˜ë¦¬>
 					String originalfileName="X", saveFileName ="X",savePath="X"  ;
 					mgRoomService.fileUpload(originalfileName, saveFileName, vo, savePath);
 				}
@@ -134,21 +134,21 @@ public class MgRoomController {
 		return new ModelAndView("redirect:mgRoom.mdo");
 	}
 
-	// ¹æ »ó¼¼º¸±â
+	//ë°© ìƒì„¸ë³´ê¸°
 	@RequestMapping(value="mgRoomView.mdo")
 	public ModelAndView roomupdateView(@RequestParam int roomnum ,HttpSession session,@ModelAttribute(value="vo") RoomVO vo,@ModelAttribute(value="file") uploadfileVO file) throws Exception {
-	    vo=	(RoomVO) mgRoomService.RoomRead(roomnum); //»ó¼¼º¸±â ÇÒ ¹æ Á¤º¸È®ÀÎ
-	    //ÁÙ³»¸² Ã³¸®
+	    vo=	(RoomVO) mgRoomService.RoomRead(roomnum); //ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
+	  //ì¤„ë‚´ë¦¼ ì²˜ë¦¬
 	    System.out.println(vo.getRoomExplain());
 	    System.out.println(vo.getRoomWarn());
 	    if(vo.getRoomExplain()==null){
-	    	System.out.println("»ó¼¼³»¿ë ¾øÀ½");
+	    	System.out.println("ìƒì„¸ë‚´ìš© ì—†ìŒ");
 	    }else {
 		String roomExplain = vo.getRoomExplain().replace( "<br>","\r\n");
 		vo.setRoomExplain(roomExplain); 
 	    }
 	    if(vo.getRoomWarn()==null) {
-	    System.out.println("ÁÖÀÇ»çÇ×³»¿ë ¾øÀ½");
+	    	System.out.println("ì£¼ì˜ì‚¬í•­ë‚´ìš© ì—†ìŒ");
 	    }else {
 		String roomWarn = vo.getRoomWarn().replace( "<br>","\r\n");
 		vo.setRoomWarn(roomWarn);
@@ -160,7 +160,7 @@ public class MgRoomController {
 				list.add(i).
 			}
 		}*/
-		//È­¸éÀÌµ¿ - text + file 
+		//í™”ë©´ì´ë™ - text + file 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/room/roomupdate");
 		mv.addObject("text",vo);
@@ -169,12 +169,12 @@ public class MgRoomController {
 		
 	}
 
-	// ¼öÁ¤ÇÏ±â
+	// ìˆ˜ì •í•˜ê¸°
 	@RequestMapping(value = "updateRoom.mdo")
 	public ModelAndView updateRoom(HttpServletRequest req, @RequestParam int roomnum,
 			MultipartHttpServletRequest mrequest, @ModelAttribute("vo") RoomVO vo)
 			throws Exception, IllegalStateException {
-		System.out.println("·ë ¾÷µ¥ÀÌÆ® ÄÁÆ®·Ñ·¯ ½ÃÀÛ");
+		System.out.println("ë£¸ ì—…ë°ì´íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬ ì‹œì‘");
 		vo.setRoomnum(Integer.parseInt(req.getParameter("text1")));
 		vo.setBranchName(req.getParameter("text2"));
 		vo.setRoomName(req.getParameter("roomName"));
@@ -187,15 +187,15 @@ public class MgRoomController {
 		vo.setRoomExplain(req.getParameter("area1"));
 		vo.setRoomWarn(req.getParameter("area2"));
 		
-		// textarea ÁÙ³»¸² dbÀÎ½Ä Ã³¸®
+		// textarea ì¤„ë‚´ë¦¼ dbì¸ì‹ ì²˜ë¦¬
 		if (vo.getRoomExplain() == null) {
-			System.out.println("»ó¼¼³»¿ë ¾øÀ½");
+			System.out.println("ìƒì„¸ë‚´ìš© ì—†ìŒ");
 		} else {
 			String roomExplain = vo.getRoomExplain().replace("\r\n", "<br>");
 			vo.setRoomExplain(roomExplain);
 		}
 		if (vo.getRoomWarn() == null) {
-			System.out.println("ÁÖÀÇ»çÇ×³»¿ë ¾øÀ½");
+			System.out.println("ì£¼ì˜ì‚¬í•­ë‚´ìš© ì—†ìŒ");
 		} else {
 			String roomWarn = vo.getRoomWarn().replace("\r\n", "<br>");
 			vo.setRoomWarn(roomWarn);
@@ -209,41 +209,41 @@ public class MgRoomController {
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		// ¼öÁ¤ÇÒ½Ã ±âÁ¸ ÆÄÀÏ »èÁ¦ÀÛ¾÷ ¼öÇàÇØ¾ßÇÔ
+		// ìˆ˜ì •í• ì‹œ ê¸°ì¡´ íŒŒì¼ ì‚­ì œì‘ì—… ìˆ˜í–‰í•´ì•¼í•¨
 		List<uploadfileVO> list = new ArrayList<uploadfileVO>();
 		list = mgRoomService.RoomFile(roomnum);
-		// ³Ñ¾î¿Â ÆÄÀÏÀ» ¸®½ºÆ®·Î ÀúÀå
+		// ë„˜ì–´ì˜¨ íŒŒì¼ì„ ë¦¬ìŠ¤íŠ¸ë¡œ ì €ì¥
 		List<MultipartFile> mf = mrequest.getFiles("input_img");
 		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
-			System.out.println("ÆÄÀÏÀÌ ¾øÀ½");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		} else {
-			System.out.println("ÆÄÀÏ ÃßÃâ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			System.out.println(mf.size());
 			for (int i = 0; i < mf.size(); i++) {
-				vo.setFilenum(i + 1);// ÀúÀåÇÒ ÆÄÀÏ³Ñ¹ö
+				vo.setFilenum(i + 1);// ì €ì¥í•  íŒŒì¼ë„˜ë²„
 				if (!mf.get(i).getOriginalFilename().equals("")) {
-					System.out.println("Æ÷¹®" + i);
-					System.out.println("¼öÁ¤ÇÒ ±âÁ¸ ÆÄÀÏ »èÁ¦ÀÛ¾÷¼öÇà");
+					System.out.println("í¬ë¬¸" + i);
+					System.out.println("ìˆ˜ì •í•  ê¸°ì¡´ íŒŒì¼ ì‚­ì œì‘ì—…ìˆ˜í–‰");
 
-					// ÆÄÀÏ »èÁ¦
+					//íŒŒì¼ ì‚­ì œ
 					File file = new File(filePath + list.get(i).getFname());
 					if (file.exists() == true) {
 						file.delete();
 					}
 					
-					// ÆÄÀÏ Áßº¹¸í Ã³¸®
+					// íŒŒì¼ ì¤‘ë³µëª… ì²˜ë¦¬
 					String genId = UUID.randomUUID().toString();
-					// º»·¡ ÆÄÀÏ¸í
+					// ë³¸ë˜ íŒŒì¼ëª…
 					String originalfileName = mf.get(i).getOriginalFilename();
-					String saveFileName = genId + "." + FilenameUtils.getExtension(originalfileName); // È®ÀåÀÚ
-					// ÀúÀåµÇ´Â ÆÄÀÏ ÀÌ¸§
-					String savePath = filePath + saveFileName; // ÀúÀå µÉ ÆÄÀÏ °æ·Î
-					// long fileSize = mf.get(i).getSize(); // ÆÄÀÏ »çÀÌÁî
-					mf.get(i).transferTo(new File(savePath)); // ÆÄÀÏ ÀúÀå
+					String saveFileName = genId + "." + FilenameUtils.getExtension(originalfileName); // È®ï¿½ï¿½ï¿½ï¿½
+					// ì €ì¥ë˜ëŠ” íŒŒì¼ ì´ë¦„
+					String savePath = filePath + saveFileName; // ì €ì¥ ë  íŒŒì¼ ê²½ë¡œ
+					// long fileSize = mf.get(i).getSize(); // íŒŒì¼ ì‚¬ì´ì¦ˆ
+					mf.get(i).transferTo(new File(savePath)); // íŒŒì¼ ì €ì¥
 
-					System.out.println("¿À¸®Áö³ÎÀÌ¸§ " + originalfileName);
-					System.out.println("ÆÄÀÏ»çÀÌÁî " + saveFileName);
-					// System.out.println("ÄÜÅÙÃ÷Å¸ÀÔ " + fileSize);
+					System.out.println("ì˜¤ë¦¬ì§€ë„ì´ë¦„ " + originalfileName);
+					System.out.println("íŒŒì¼ì‚¬ì´ì¦ˆ " + saveFileName);
+					// System.out.println("ì½˜í…ì¸ íƒ€ì… " + fileSize);
 					mgRoomService.fileUpdate(originalfileName, saveFileName, vo, savePath);
 				}
 			}
@@ -252,22 +252,22 @@ public class MgRoomController {
 		return new ModelAndView("redirect:mgRoom.mdo");
 	}
 
-	// »èÁ¦ÇÏ±â
+	// ì‚­ì œí•˜ê¸°
 	@RequestMapping(value = "deleteRoom.mdo")
 	public ModelAndView roomupdateView(RoomVO vo, @RequestParam int roomnum) throws Exception {
 
 		mgRoomService.RoomDelete(roomnum);
-		// ½ÇÁ¦ ÆÄÀÏ »èÁ¦ÀÛ¾÷ ¼öÇàÇØ¾ßÇÔ
+		// ì‹¤ì œ íŒŒì¼ ì‚­ì œì‘ì—… ìˆ˜í–‰í•´ì•¼í•¨
 		List<uploadfileVO> list = new ArrayList<uploadfileVO>();
 		list = mgRoomService.RoomFile(roomnum);
 		for (int i = 0; i < 5; i++) {
-			// ÆÄÀÏ »èÁ¦
+			// íŒŒì¼ ì‚­ì œ
 			File file = new File(filePath + list.get(i).getFname());
 			if (file.exists() == true) {
 				file.delete();
 			}
 		}
-		mgRoomService.filDelete(roomnum);// ÆÄÀÏ °æ·Î »èÁ¦½Ã ½ÇÁ¦ÆÄÀÏ »èÁ¦ ¼­ºñ½º ±¸ÇöÇØ¾ßÇÔ
+		mgRoomService.filDelete(roomnum);// íŒŒì¼ ê²½ë¡œ ì‚­ì œì‹œ ì‹¤ì œíŒŒì¼ ì‚­ì œ ì„œë¹„ìŠ¤ êµ¬í˜„í•´ì•¼í•¨
 		return new ModelAndView("redirect:mgRoom.mdo");
 	}
 }

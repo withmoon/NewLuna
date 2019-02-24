@@ -16,7 +16,7 @@ public class MgRoomServiceImpl implements MgRoomService {
 	@Autowired
 	public RoomDAO RoomDAO;
 
-	// ±Û insert / ÆÄÀÏ insert
+	// ê¸€ insert / íŒŒì¼ insert
 	@Override
 	public void mgRoomUpload(RoomVO vo) throws Exception {
 		RoomDAO.roomupload(vo);
@@ -31,51 +31,51 @@ public class MgRoomServiceImpl implements MgRoomService {
 		hm.put("filenum", vo.getFilenum());
 		hm.put("roomnum", vo.getRoomnum());
 		hm.put("savePath", savePath);
-		System.out.println("ÆÄÀÏ ÀÌ¸§ ¸ÊÀúÀå ¼­ºñ½º·ÎÁ÷");
+		System.out.println("íŒŒì¼ ì´ë¦„ ë§µì €ì¥ ì„œë¹„ìŠ¤ë¡œì§");
 		RoomDAO.uploadFile(hm);
 	}
 
-	// È­¸é °Ô½ÃÆÇ ÀĞ¾î¿À±â
+	// í™”ë©´ ê²Œì‹œíŒ ì½ì–´ì˜¤ê¸°
 	@Override
 	public List<RoomVO> RoomList(RoomVO vo, String searchOption, String keyword) throws Exception {
-		System.out.println("roomlist ¼­ºñ½º");
+		System.out.println("roomlist ì„œë¹„ìŠ¤");
 		return RoomDAO.mgRoomList(vo, searchOption, keyword);
 	}
 
-	// »ó¼¼º¸±â ±Û/file ÀĞ¾î¿À±â
+	// ìƒì„¸ë³´ê¸° ê¸€/file ì½ì–´ì˜¤ê¸°
 	@Override
 	public Object RoomRead(int roomnum) throws Exception {
-		System.out.println("roomRead ¼­ºñ½º");
+		System.out.println("roomRead ì„œë¹„ìŠ¤");
 		return RoomDAO.mgRoomRead(roomnum);
 	}
 
 	@Override // file
 	public List<uploadfileVO> RoomFile(int roomnum) throws Exception {
-		System.out.println("roomfile ¼­ºñ½º");
+		System.out.println("roomfile ì„œë¹„ìŠ¤");
 		return RoomDAO.mgRoomFile(roomnum);
 	}
 
-	// ¼öÁ¤ÇÏ±â ±Û / file update ÇÏ±â
+	// ìˆ˜ì •í•˜ê¸° ê¸€ / file update í•˜ê¸°
 	@Override
 	public void mgRoomUpdate(RoomVO vo) throws Exception {
-		System.out.println("roomTextupdate ¼­ºñ½º");
+		System.out.println("roomTextupdate ì„œë¹„ìŠ¤");
 		RoomDAO.mgRoomTextupdate(vo);
 	}
 
 	@Override // file update
 	public void fileUpdate(String originalfileName, String saveFileName, RoomVO vo, String savePath) throws Exception {
-		System.out.println("roomFileupdate ¼­ºñ½º");
+		System.out.println("roomFileupdate ì„œë¹„ìŠ¤");
 		HashMap<String, Object> hm = new HashMap<>();
 		hm.put("originalfileName", originalfileName);
 		hm.put("saveFileName", saveFileName);
 		hm.put("filenum", vo.getFilenum());
 		hm.put("roomnum", vo.getRoomnum());
 		hm.put("savePath", savePath);
-		System.out.println("ÆÄÀÏ ÀÌ¸§ ¸ÊÀúÀå ¼­ºñ½º·ÎÁ÷");
+		System.out.println("íŒŒì¼ ì´ë¦„ ë§µì €ì¥ ì„œë¹„ìŠ¤ë¡œì§");
 		RoomDAO.mgRoomFileupdate(hm);
 	}
 
-	// »èÁ¦ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	@Override
 	public void RoomDelete(int roomnum) throws Exception {
 		RoomDAO.mgRoomDelete(roomnum);

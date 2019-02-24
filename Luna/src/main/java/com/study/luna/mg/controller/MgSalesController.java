@@ -19,27 +19,26 @@ import org.springframework.web.servlet.View;
 import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.service.MgPCService;
-import com.study.luna.mg.util.excelView;
 import com.study.luna.mg.util.listExcelDownload;
 
 @Controller
 public class MgSalesController {
-	// ÇöÈ²º¸±â
+	// í˜„í™©ë³´ê¸°
 
 	@Autowired
 	private MgPCService MgPCService;
 
-	// ¸ÅÃâÇöÈ²
+	// ë§¤ì¶œí˜„í™©
 	@RequestMapping(value = "/mgSales.mdo")
 	public ModelAndView mgSalesView(SalesVO vo, @RequestParam(defaultValue = "") String keyword,
 			@RequestParam(defaultValue = "1") int curPage) throws Exception {
 
-		// ·¹ÄÚµå°è»ê
+		// ë ˆì½”ë“œê³„ì‚°
 		int count = MgPCService.countArticle(keyword);
 
-		System.out.println("Å°¿öµå :" + keyword.toString());
+		System.out.println("Å°ï¿½ï¿½ï¿½ï¿½ :" + keyword.toString());
 
-		// ÆäÀÌÁö ³ª´©±âÃ³¸®
+		// í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
@@ -56,11 +55,11 @@ public class MgSalesController {
 		mv.setViewName("body/presentCondition/mgSales");
 		mv.addObject("map", map);
 
-		System.out.println("Mg_sales ÄÁÆ®·Ñ·¯");
+		System.out.println("Mg_sales ï¿½ï¿½Æ®ï¿½Ñ·ï¿½");
 		return mv;
 	}
 
-	// ¸ÅÃâÇöÈ² excel ´Ù¿î·Îµå
+	// ë§¤ì¶œí˜„í™© excel ë‹¤ìš´ë¡œë“œ
 /*	@RequestMapping(value = "/excelDownload.mdo")
 	public View excelTransform(Map<String, Object> modelmap, Model model, SalesVO vo, HttpServletResponse response)
 			throws Exception {
@@ -73,7 +72,7 @@ public class MgSalesController {
 
 		// List<Object> excelList = MgPCService.excelList(vo);
 		// List<SalesVO> list = MgPCService.SalesList(vo);
-		// ÆÄÀÏº¯È¯ Å¸°Ù ¾ò¾î¿À±â
+		// ï¿½ï¿½ï¿½Ïºï¿½È¯ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	 		String type = model.get("Mgsales").toString();
 		// model.addAttribute("list", list);
 		return new excelView();
@@ -84,12 +83,12 @@ public class MgSalesController {
 //	         return  new ModelAndView("excelView",model);    //"excelView";
 
 		
-		 * //Å¸ÄÏÀÌ ¾È±¸ÇØÁü ¸µÅ©¶û °ü·ÃÀÌÀÖ´Â°Í°°Àºµ¥ String target = paramMap.get("target").toString();
-		 * response.setHeader("content-disposition", "attachment; filename=¸ÅÃâÇöÈ².xmlx");
+		 * //Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½È±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Â°Í°ï¿½ï¿½ï¿½ï¿½ï¿½ String target = paramMap.get("target").toString();
+		 * response.setHeader("content-disposition", "attachment; filename=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È².xmlx");
 		 * List<Object> excelList = MgPCService.getExcelObject(paramMap);
 		 * ModelMap.put("excelList", excelList); ModelMap.put("target", target);
 		 * 
-		 * System.out.println("¿¢¼¿´Ù¿î¸µÅ©"); return "excelView";
+		 * System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ù¿î¸µÅ©"); return "excelView";
 		 
 	}*/
 
@@ -104,7 +103,7 @@ public class MgSalesController {
 		return new listExcelDownload();
 	}
 
-	// ¿¹¾àÇöÈ²
+	// ì˜ˆì•½í˜„í™©
 	@RequestMapping(value = "/mgReserve.mdo")
 	public ModelAndView mgReserveView(SalesVO vo) {
 
@@ -117,7 +116,7 @@ public class MgSalesController {
 		return mv;
 	}
 
-	// ¹æ¹®ÇöÈ²
+	// ë°©ë¬¸í˜„í™©
 	@RequestMapping(value = "/mgVisit.mdo", method = RequestMethod.GET)
 	public String mgVisitView() {
 		return "body/presentCondition/mgVisit";

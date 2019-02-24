@@ -72,12 +72,6 @@
             class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSession" />    
     </bean>
-    
-    
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-		<property name="order" value="1" />
-	</bean>
-    <bean name="excelView" class="com.study.luna.mg.util.excelView" />
 	
 	<!-- 파일 업로드 설정 -->
 	<beans>

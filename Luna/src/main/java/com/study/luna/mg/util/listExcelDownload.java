@@ -25,88 +25,86 @@ public class listExcelDownload extends AbstractXlsxView {
 	protected void buildExcelDocument(Map<String, Object> modelMap, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		 String sCurTime = null;
-	        sCurTime = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(new Date());
-	     
-	        String excelName = sCurTime + "_»ùÇÃ¿¢¼¿´Ù¿î·Îµå.xlsx";
-	        Sheet worksheet = null;
-	        Row row = null;
-	        CellStyle style = workbook.createCellStyle(); // ¼¿ ½ºÅ¸ÀÏÀ» À§ÇÑ º¯¼ö
-	       // style.setAlignment(CellStyle.ALIGN_CENTER); // ±Û À§Ä¡¸¦ Áß¾ÓÀ¸·Î ¼³Á¤
-	         
-	        List<SalesVO> listExcel = (List<SalesVO>) modelMap.get("list");
-	         
-	        // »õ·Î¿î sheet¸¦ »ı¼ºÇÑ´Ù.
-	        worksheet = workbook.createSheet("¿¢¼¿ ¸ñ·Ï");
-	         
-	        // °¡Àå Ã¹¹øÂ° ÁÙ¿¡ Á¦¸ñÀ» ¸¸µç´Ù.
-	        row = worksheet.createRow(0);
-	         
-	        // Ä®·³ ±æÀÌ ¼³Á¤
-	        int columnIndex = 0;
-	        while (columnIndex < 7) {
-	             
-	            if(columnIndex == 0) {
-	                worksheet.setColumnWidth(columnIndex, 3000);
-	            } else if (columnIndex == 1) {
-	                worksheet.setColumnWidth(columnIndex, 4000);
-	            } else if (columnIndex == 2) {
-	                worksheet.setColumnWidth(columnIndex, 6000);
-	            } else if (columnIndex == 3) {
-	                worksheet.setColumnWidth(columnIndex, 4000);
-	            } else if (columnIndex == 4) {
-	                worksheet.setColumnWidth(columnIndex, 7000);
-	            } else if (columnIndex == 5) {
-	                worksheet.setColumnWidth(columnIndex, 3000);
-	            } else if (columnIndex == 6) {
-	                worksheet.setColumnWidth(columnIndex, 3000);
-	            }
-	            columnIndex++;
-	        }
-	         
-	        // Çì´õ ¼³Á¤
-	        row = worksheet.createRow(0);
-	        row.createCell(0).setCellValue("ID");
-	        row.createCell(1).setCellValue("Á¦¸ñ");
-	        row.createCell(2).setCellValue("³»¿ë");
-	        row.createCell(3).setCellValue("ÀÛ¼ºÀÚ");
-//	        row.createCell(4).setCellValue("µî·ÏÀÏ½Ã");
-	        row.createCell(5).setCellValue("Á¶È¸ ¼ö");
-	        row.createCell(6).setCellValue("´ñ±Û ¼ö");
-	         
-	        int rowIndex = 1;
-	         
-	        // °¢ ÇØ´çÇÏ´Â ¼¿¿¡ °ª°ú ½ºÅ¸ÀÏÀ» ³ÖÀ½
-	        for(SalesVO board: listExcel) {
-	            row = worksheet.createRow(rowIndex);
-	            row.createCell(0).setCellValue(board.getImp_uid());
-	            row.createCell(1).setCellValue(board.getBranchname());
-	            row.createCell(2).setCellValue(board.getRoomnum());
-	            row.createCell(3).setCellValue(board.getMarket());
+		String sCurTime = null;
+		sCurTime = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(new Date());
+
+		String excelName = sCurTime + "_ìƒ˜í”Œì—‘ì…€ë‹¤ìš´ë¡œë“œ.xlsx";
+		Sheet worksheet = null;
+		Row row = null;
+		CellStyle style = workbook.createCellStyle(); /// ì…€ ìŠ¤íƒ€ì¼ì„ ìœ„í•œ ë³€ìˆ˜
+		// style.setAlignment(CellStyle.ALIGN_CENTER); // ê¸€ ìœ„ì¹˜ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì„¤ì •
+
+		List<SalesVO> listExcel = (List<SalesVO>) modelMap.get("list");
+
+		// ìƒˆë¡œìš´ sheetë¥¼ ìƒì„±í•œë‹¤.
+		worksheet = workbook.createSheet("ì—‘ì…€ ëª©ë¡");
+
+		// ê°€ì¥ ì²«ë²ˆì§¸ ì¤„ì— ì œëª©ì„ ë§Œë“ ë‹¤.
+		row = worksheet.createRow(0);
+
+		// ì¹¼ëŸ¼ ê¸¸ì´ ì„¤ì •
+		int columnIndex = 0;
+		while (columnIndex < 7) {
+
+			if (columnIndex == 0) {
+				worksheet.setColumnWidth(columnIndex, 3000);
+			} else if (columnIndex == 1) {
+				worksheet.setColumnWidth(columnIndex, 4000);
+			} else if (columnIndex == 2) {
+				worksheet.setColumnWidth(columnIndex, 6000);
+			} else if (columnIndex == 3) {
+				worksheet.setColumnWidth(columnIndex, 4000);
+			} else if (columnIndex == 4) {
+				worksheet.setColumnWidth(columnIndex, 7000);
+			} else if (columnIndex == 5) {
+				worksheet.setColumnWidth(columnIndex, 3000);
+			} else if (columnIndex == 6) {
+				worksheet.setColumnWidth(columnIndex, 3000);
+			}
+			columnIndex++;
+		}
+
+		// í—¤ë” ì„¤ì •
+		row = worksheet.createRow(0);
+		row.createCell(0).setCellValue("ID");
+		row.createCell(1).setCellValue("ì œëª©");
+		row.createCell(2).setCellValue("ë‚´ìš©");
+		row.createCell(3).setCellValue("ì‘ì„±ì");
+//	        row.createCell(4).setCellValue("ë“±ë¡ì¼ì‹œ");
+		row.createCell(5).setCellValue("ì¡°íšŒ ìˆ˜");
+		row.createCell(6).setCellValue("ëŒ“ê¸€ ìˆ˜");
+
+		int rowIndex = 1;
+
+		// ê° í•´ë‹¹í•˜ëŠ” ì…€ì— ê°’ê³¼ ìŠ¤íƒ€ì¼ì„ ë„£ìŒ
+		for (SalesVO board : listExcel) {
+			row = worksheet.createRow(rowIndex);
+			row.createCell(0).setCellValue(board.getImp_uid());
+			row.createCell(1).setCellValue(board.getBranchname());
+			row.createCell(2).setCellValue(board.getRoomnum());
+			row.createCell(3).setCellValue(board.getMarket());
 //	            row.createCell(4).setCellValue(board.getDate().toLocaleString());
-	            row.createCell(5).setCellValue(board.getSeq());
-	            row.createCell(6).setCellValue(board.getRoomnum());
-	             
-	            rowIndex++;
-	        }
-	         
-	        // ¼¿ º´ÇÕ CellRangeAddress(½ÃÀÛ Çà, ³¡ Çà, ½ÃÀÛ ¿­, ³¡ ¿­)
-	        worksheet.addMergedRegion(
-	                new CellRangeAddress(listExcel.size() + 1, listExcel.size() + 1, 0, 6));
-	         
-	        // º´ÇÕ Å×½ºÆ®¸¦ À§ÇÑ ¼³Á¤
-	        row = worksheet.createRow(listExcel.size() + 1);
-	        row.createCell(0).setCellValue("¼¿ º´ÇÕ Å×½ºÆ®");
-	        row.getCell(0).setCellStyle(style); // ÁöÁ¤ÇÑ ½ºÅ¸ÀÏÀ» ÀÔÇôÁØ´Ù.
-	         
-	         
-	        try {
-	            response.setHeader("Content-Disposition", "attachement; filename=\""
-	                + java.net.URLEncoder.encode(excelName, "UTF-8") + "\";charset=\"UTF-8\"");
-	          } catch (UnsupportedEncodingException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	          }
+			row.createCell(5).setCellValue(board.getSeq());
+			row.createCell(6).setCellValue(board.getRoomnum());
+
+			rowIndex++;
+		}
+
+		// ì…€ ë³‘í•© CellRangeAddress(ì‹œì‘ í–‰, ë í–‰, ì‹œì‘ ì—´, ë ì—´)
+		worksheet.addMergedRegion(new CellRangeAddress(listExcel.size() + 1, listExcel.size() + 1, 0, 6));
+
+		// ë³‘í•© í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ì„¤ì •
+		row = worksheet.createRow(listExcel.size() + 1);
+		row.createCell(0).setCellValue("ì…€ ë³‘í•© í…ŒìŠ¤íŠ¸");
+		row.getCell(0).setCellStyle(style); // ì§€ì •í•œ ìŠ¤íƒ€ì¼ì„ ì…í˜€ì¤€ë‹¤.
+
+		try {
+			response.setHeader("Content-Disposition", "attachement; filename=\""
+					+ java.net.URLEncoder.encode(excelName, "UTF-8") + "\";charset=\"UTF-8\"");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

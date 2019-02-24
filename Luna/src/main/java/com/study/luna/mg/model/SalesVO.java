@@ -11,14 +11,14 @@ public class SalesVO {
 	private Integer sales2;
 	private Integer total;
 	
-	private int seq; //��ȣ
+	private int seq; //��ȣ
 	private String imp_uid; //id
 	private String merchant_uid;
 	private String branchname;
 	private String roomnum; 
 	private Date paid_at;
-	private int status; //����
-	private String stats; //�����ѱ� 
+	private int status; //����
+	private String stats; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 	
 	
 	public Date getDate() {

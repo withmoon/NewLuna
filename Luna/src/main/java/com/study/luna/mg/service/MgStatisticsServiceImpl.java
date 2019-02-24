@@ -16,13 +16,13 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 	
 	@Override
 	public int countArticle(String searchOption, String keyword) {
-		System.out.println("¿ù¸ÅÃâ°Ô½Ã±Û ¼­ºñ½º");
+		System.out.println("ì›”ë§¤ì¶œê²Œì‹œê¸€ ì„œë¹„ìŠ¤");
 		return DAO.countArticle(searchOption,keyword);
 	}
 
 	@Override
 	public List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword) {
-		System.out.println("¿ù¸ÅÃâ ¸®½ºÆ® ¼­ºñ½º");
+		System.out.println("ì›”ë§¤ì¶œ ë¦¬ìŠ¤íŠ¸ ì„œë¹„ìŠ¤");
 		return DAO.SalesReserveList(start,end,searchOption,keyword);
 	}
 

@@ -3,9 +3,9 @@ package com.study.luna.mg.DAO;
 import com.study.luna.mg.model.managerVO;
 
 public interface managerDAO {
-	//·Î±×ÀÎ ¼ö °¡Á®¿À±â
+	//ë¡œê·¸ì¸ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 	int login();
-	//·Î±×ÀÎ¼ö +1;
+	//ë¡œê·¸ì¸ìˆ˜+1;
 	void logincount();
 	
 }

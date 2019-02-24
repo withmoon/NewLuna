@@ -17,13 +17,13 @@ public class SalesDAOImpl implements SalesDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	/*¸ÅÃâÇöÈ² DBµ¥ÀÌÅÍ °¡Á®¿À±â*/
+	/*ë§¤ì¶œí˜„í™© DBë°ì´í„° ê°€ì ¸ì˜¤ê¸°*/
 	@Override
 	public List<SalesVO> SalesList(int start, int end,String keyword) throws Exception {
-		System.out.println("SalesList DAO ¼öÇà");
+		System.out.println("SalesList DAO ìˆ˜í–‰");
 		Map<String,Object> map = new HashMap<String,Object>(); 
 		map.put("keyword", keyword);
-		//#start #end ¿¡ ÀÔ·ÂµÉ °ª
+		//#start #end  ì— ì…ë ¥ë  ê°’
 		map.put("start",start);
 		map.put("end", end);
 		
@@ -31,31 +31,31 @@ public class SalesDAOImpl implements SalesDAO {
 	}
 	@Override
 	public int countArticle(String keyword) {
-		System.out.println("countArticle DAO ¼öÇà");
+		System.out.println("countArticle DAO ìˆ˜í–‰");
 		return sqlSession.selectOne("mgSalesDAO.countArticle",keyword);
 	}
 	
-	/*¸ÅÃâÇöÈ² ¿¢¼¿ÆÄÀÏ DB ÀüÃ¼µ¥ÀÌÅÍ °¡Á®¿À±â*/
+	/*ë§¤ì¶œí˜„í™© ì—‘ì…€íŒŒì¼ DB ì „ì²´ë°ì´í„° ê°€ì ¸ì˜¤ê¸°*/
 /*	@Override
 	public List<Object> getSales(Map<String, Object> searchMap) {
-		System.out.println("SalesExcelBooks DAO ¼öÇà");
+		System.out.println("SalesExcelBooks DAO ï¿½ï¿½ï¿½ï¿½");
 		return sqlSession.selectList("mgSalesDAO.SRead",searchMap);
 	}
-	¸ÅÃâÇöÈ² ¿¢¼¿ÆÄÀÏ Á¶°Ç¹® ¸®½ºÆ® °¡Á®¿À±â
+	ë§¤ì¶œí˜„í™© ì—‘ì…€íŒŒì¼ ì¡°ê±´ë¬¸ ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
 	@Override
 	public List<Object> getSalesDetail(Map<String, Object> searchMap) {
-		System.out.println("SalesExcelDetail DAO ¼öÇà");
+		System.out.println("SalesExcelDetail DAO ï¿½ï¿½ï¿½ï¿½");
 		return SqlSession.selectList("managerDAO.selectBooks",searchMap);
 		return null;
 	}*/
 	@Override
 	public List<Object> getSales(SalesVO vo) {
-		System.out.println("SalesExcel DAO ¼öÇà");
+		System.out.println("SalesExcel DAO ìˆ˜í–‰");
 		return sqlSession.selectList("mgSalesDAO.SRead",vo);
 	}
 	@Override
 	public List<SalesVO> mgReserveList(SalesVO vo) {
-		System.out.println("mgReserveList DAO ¼öÇà");
+		System.out.println("mgReserveList DAO ìˆ˜í–‰");
 		return sqlSession.selectList("mgSalesDAO.ReserveList",vo);
 	}
 

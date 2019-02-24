@@ -11,17 +11,17 @@ public class managerServiceImpl implements managerService {
 	@Autowired
 	private managerDAO managerDAO;
 
-	// ·Î±×ÀÎ¼ö +1
+	// ë¡œê·¸ì¸ìˆ˜ +1
 	@Override
 	public void logincount() {
-		System.out.println("logincount+1 ¼­ºñ½º");
+		System.out.println("logincount+1 ë”í•˜ê¸°");
 		managerDAO.logincount();
 	}
 
-	// ·Î±×ÀÎ¼ö °¡Á®¿À±â
+	// ë¡œê·¸ì¸ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 	@Override
 	public int login() {
-		System.out.println("logincount ¼­ºñ½º");
+		System.out.println("logincount ê°€ì ¸ì˜¤ê¸°");
 		return managerDAO.login();
 	}
 

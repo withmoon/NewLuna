@@ -7,22 +7,22 @@ import com.study.luna.mg.model.uploadfileVO;
 
 public interface MgRoomService {
 	
-	//¹æÅÇ
+	//ë°©íƒ­
 		public List<RoomVO> RoomList(RoomVO vo, String searchOption, String keyword) throws Exception;
 	
-	//¹æ¾÷·Îµå
+	//ë°©ì—…ë¡œë“œ
 	public void mgRoomUpload(RoomVO vo) throws Exception;
 	public void fileUpload(String originalfileName, String saveFileName,RoomVO vo,String savePath ) throws Exception,IllegalStateException;
 
-	//»ó¼¼º¸±â
+	//ìƒì„¸ë³´ê¸°
 	public Object RoomRead(int roomnum)throws Exception;
 	public List<uploadfileVO> RoomFile(int roomnum)throws Exception;
 
-	//¼öÁ¤ÇÏ±â
+	//ìˆ˜ì •í•˜ê¸°
 	public void mgRoomUpdate(RoomVO vo)throws Exception;
 	public void fileUpdate(String originalfileName, String saveFileName, RoomVO vo, String savePath)throws Exception;
 
-	//»èÁ¦ÇÏ±â
+	//ì‚­ì œí•˜ê¸°
 	public void RoomDelete(int roomnum)throws Exception;
 	public void filDelete(int roomnum)throws Exception;
 

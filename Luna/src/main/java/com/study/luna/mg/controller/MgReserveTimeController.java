@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MgReserveTimeController {
-	//Åë°èÈ­¸é
+	//ë§¤ì¶œí†µê³„
 	
 	@RequestMapping(value="/mgAge.mdo",method=RequestMethod.GET)
 	public String mgAgeView() {

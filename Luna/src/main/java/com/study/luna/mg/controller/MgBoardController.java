@@ -23,15 +23,15 @@ public class MgBoardController {
 	@Autowired
 	private MgService MgService;
 
-	/* ¹®ÀÇ°Ô½ÃÆÇ */
+	/* ë¬¸ì˜ê²Œì‹œíŒ */
 	@RequestMapping(value = "/mgBoard.mdo")
 	public ModelAndView mgBoardView(@RequestParam(defaultValue="title")String searchOption,
 						@RequestParam(defaultValue="")String keyword,
 						@RequestParam(defaultValue="1")int curPage) throws Exception {
-		//·¹ÄÚµå°è»ê
+		//ë ˆì½”ë“œê³„ì‚°
 		int count = MgService.countArticle(searchOption,keyword);
 		
-		//ÆäÀÌÁö ³ª´©±âÃ³¸®
+		//í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬
 		BoardPager boardPager= new BoardPager(count,curPage);
 		int start = boardPager.getPageBegin(); 
 		int end = boardPager.getPageEnd(); 
@@ -53,7 +53,7 @@ public class MgBoardController {
 		System.out.println("mv" + mv.toString());
 		return mv;
 	}
-	/* ¹®ÀÇ°Ô½ÃÆÇ */ //ÀÏ¹İÃ³¸®
+	/* ë¬¸ì˜ ê²Œì‹œíŒ  //ì¼ë°˜ì²˜ë¦¬
 /*	@RequestMapping(value = "/mgBoard.mdo", method = RequestMethod.GET)
 	public ModelAndView mgBoardView(QBoardVO vo) throws Exception {
 		List<QBoardVO> list = MgService.QboardList(vo);
@@ -66,20 +66,20 @@ public class MgBoardController {
 		return mv;
 	}
 */
-	/* °Ô½Ã±Û »ó¼¼º¸±â */
+	/* ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸° */
 	@RequestMapping(value = "/mgBoardview.mdo")
 	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage,
 				@RequestParam String searchOption,@RequestParam String keyword,HttpSession session ) throws Exception {
 		
 		
-//		Á¶È¸¼ö ´ëºñ MgService.increaseViewcnt(bno, session);*/
+//		ì¡°íšŒìˆ˜ ëŒ€ë¹„ MgService.increaseViewcnt(bno, session);*/
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/board/mgBoardview");
 		mv.addObject("view", MgService.QbaordRead(num));
 		return mv;
 	}
 	
-	/* »ó¼¼º¸±â È­¸éÃ³¸®
+	/* ìƒì„¸ë³´ê¸° í™”ë©´ì²˜ë¦¬
 	@RequestMapping(value = "/mgBoardview.mdo")
 	public ModelAndView mgboardinsertView(@RequestParam String title, HttpSession session) throws Exception {
 
@@ -89,7 +89,7 @@ public class MgBoardController {
 		return mv;
 	}
 */
-	/*¼öÁ¤ÇÏ±â*///¼öÁ¤ÇÒÇÊ¿ä¾ø¾î ÁÖ¼®Ã³¸®
+	/*ìˆ˜ì •í•˜ê¸°*///ìˆ˜ì •í•  í•„ìš”ì—†ì–´ ì£¼ì„ì²˜ë¦¬
 	 /* @RequestMapping(value = "/boardupdate.mdo", method = RequestMethod.GET)
 	 * public ModelAndView mgboardinsertView(@RequestParam String title, HttpSession
 	 * session)throws Exception {
@@ -98,7 +98,7 @@ public class MgBoardController {
 	 * mv.addObject("view",MgService.QbaordRead(title)); return mv; }
 	 */
 	
-	//È­¸é¸¸ ¿¬°áÇØµÒ ´ä±Û·Î È­¸é¼öÁ¤ÇØ¾ßÇÔ
+	//í™”ë©´ë§Œ ì—°ê²°í•´ë‘  ë‹µê¸€ë¡œ í™”ë©´ìˆ˜ì •í•´ì•¼í•¨
 	@RequestMapping(value = "/mgBoardinsert.mdo", method = RequestMethod.GET)
 	public String mgboardinsertView() {
 		return "/body/mgBoardinsert";
