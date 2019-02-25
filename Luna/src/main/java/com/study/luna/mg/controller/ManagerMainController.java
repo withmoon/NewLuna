@@ -30,12 +30,13 @@ public class ManagerMainController {
 	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session)
 			throws Exception {
 		System.out.println("로그인 아이디  받아오기");
-
-		if (flashMap.get("id") == null || flashMap.get("id").equals("") && session.getAttribute("id") == null) {
+		System.out.println("test 세션 :"+session.getAttribute("id"));
+		if ((flashMap.get("id") == null || flashMap.get("id").equals("")) && session.getAttribute("id") == null) {
 			System.out.println("카카오 로그인 실패");
 			return logincheck();
-
-		} else {
+		}else if(!(session.getAttribute("id")==null)){
+			System.out.println("세션에서 매니저ID 확인");
+		}else {
 			flashMap = RequestContextUtils.getInputFlashMap(request);
 			System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
 			session.setAttribute("id", flashMap.get("id"));
