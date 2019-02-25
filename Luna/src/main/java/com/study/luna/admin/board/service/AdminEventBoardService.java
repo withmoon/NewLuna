@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
+import com.study.luna.user.comment.vo.EventReplyVO;
 
 public interface AdminEventBoardService {
    public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//�ֱ�

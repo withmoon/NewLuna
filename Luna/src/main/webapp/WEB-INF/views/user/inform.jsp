@@ -37,7 +37,7 @@
 
 <!-- 공지 +자주묻는 질문 -->
 <section class="list_tab">
-<table>
+<table class="inform_list">
 <thead>
 	<tr>
 		<th>번호</th>
@@ -57,8 +57,8 @@
 </tbody>
 </table>
 <!-- 페이지 처리 -->
-<table class="pageT">
-<tbody class="inform_page">
+<table class="tbl paginated" id="tbl">
+<tbody id="inform_page">
 	<tr>
 		<td>
 			 <!-- 처음페이지로 이동 : 현재페이지 블럭이 1보다크면 -->
@@ -70,12 +70,12 @@
 				<a href="javascript:noticeList('${boardPager.prevPage}')">[이전]</a>
 			</c:if>
 			<!-- 페이지 블럭 처음부터 마지막 블럭까지 1씩 증가하는 페이지 출력 -->
-			<c:forEach var="seq" begin="${boardPager.blockBegin}" end="${boardPager.blockEnd}">
+			<c:forEach var="num" begin="${boardPager.blockBegin}" end="${boardPager.blockEnd}">
 				<!-- 현재페이지이면 하이퍼링크 제거 -->
 				<c:choose>
-					<c:when test="${seq == boardPager.curPage}">${seq}&nbsp;</c:when>
+					<c:when test="${num == boardPager.curPage}">${num}&nbsp;</c:when>
 					<c:otherwise>
-						<a href="javascript:noticeList('${seq}')">${seq}</a>&nbsp;
+						<a href="javascript:noticeList('${num}')">${num}</a>&nbsp;
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -84,7 +84,7 @@
 				<a href="javascript:noticeList('${boardPager.nextPage}')">[다음]</a>
 			</c:if>
 			<!-- 끝페이지로 이동 -->
-			<c:if test="${boardPager.curBlock <= map.boardPager.totPage}">
+			<c:if test="${boardPager.curBlock <= boardPager.totPage}">
 				<a href="javascript:noticeList(' ${boardPager.totPage}')">[끝]</a>
 			</c:if>
 		</td>
@@ -94,10 +94,9 @@
 </section>
 
 
-
 <!-- 고객의 소리 구간-->
 <section class="list_tab2">
-<table>
+<table class="inform_user">
 <tr>
 <th>이름</th>
 <td><input type="text" size="20" name="name" placeholder="이름"></td>

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,6 +51,7 @@ public class UserInformController {
 	//자주묻는 질문 목록
 	@RequestMapping(value="/informChange.udo", method=RequestMethod.GET)
 	public @ResponseBody List<?> informQnNAView(@RequestParam(value="informQ", required=false,defaultValue="")String informQ,
+												@RequestParam(value="qnaPage", required=false,defaultValue="")String qnaPage,
 												@RequestParam(defaultValue="1") int curPage, ModelAndView mav, HttpSession session) {
 		//페이징 처리
 		int count = qnaBoardService.countQnA(mav);
@@ -64,16 +67,13 @@ public class UserInformController {
 			qnaList = qnaBoardService.qnaAll(start, end, session);
 			informQ.equals("");
 			mav.addObject("qnaList", qnaList);
+			mav.addObject("boardPager", boardPager);
 			return qnaList;
 		} else {
 			noticeList = noticeBoardService.noticeAll(start, end, session);
 			mav.addObject("noticeList", noticeList);
+			mav.addObject("boardPager", boardPager);
 			return noticeList;
 		}
-		
-		//mav.addObject("cmd",cmd);
-		//mav.addObject("boardPager", boardPager); //페이징
-		
-		//return qnaList;
 	}
 }
