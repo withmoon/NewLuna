@@ -12,14 +12,16 @@ public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String mainView(HttpSession session,HttpServletRequest req){
 		String url=req.getHeader("REFERER");
-		
-		session.setAttribute("jbtn", "회원가입");
+		String redirectUrl=url.substring(26);
+		session.setAttribute("rdUrl", redirectUrl);
 		return "login";
 	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String mainViews(HttpSession session){
-		session.setAttribute("jbtn", "회원가입");
+	public String mainViews(HttpSession session,HttpServletRequest req){
+		String url=req.getHeader("REFERER");
+		String redirectUrl=url.substring(26);
+		session.setAttribute("rdUrl", redirectUrl);
 		return "login";
 	}
 }

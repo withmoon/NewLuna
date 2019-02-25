@@ -5,7 +5,7 @@
 	<!-- 방찾기용 home&LookOver 공용 -->
 	<!-- 시/도 가져오기 -->
 	<select id="getSido" resultType="String">
-		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장' and brstatus=0
+		select DISTINCT	SUBSTR(branchaddr1,0,2) from member where position='지점장' and brstatus!=-1
 	</select>
 	<!-- 선택된 시/도에 따른 구군 가져오기 -->
 	<select id="getGugun" resultType="String">

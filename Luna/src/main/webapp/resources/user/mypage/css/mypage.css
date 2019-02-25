@@ -40,9 +40,19 @@ header{
 	position:relative;
 	float:right;
 	left:-17%;
-	top:-55px;
+	top:35px;
 	border:1px solid tan;
 	background-color:seashell;
+}
+.deer2{
+	width:8.7%;
+	padding:4px;
+	position:relative;
+	float:right;
+	left:-21%;
+	top:4px;
+	border:1px solid gray;
+	background-color: lightgray;
 }
 .infoline1{ 
 	width:90%;
@@ -333,3 +343,8 @@ footer{
 	width:102%;
 	margin:0 -5% 0 0;
 }
+.clickable {cursor: pointer;}
+.hover {text-decoration: underline;}
+.odd{ background: #FFC;}
+.even{ background: #FF9;}
+.active{ width:10px; height:10px; background:#f60; color:white;}

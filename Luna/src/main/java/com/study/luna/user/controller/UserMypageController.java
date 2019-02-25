@@ -47,6 +47,7 @@ public class UserMypageController {
 	public ModelAndView mypageView(AlamDTO alam,HttpSession session, MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		
+		//여서부터
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
@@ -54,8 +55,9 @@ public class UserMypageController {
 		}else {
 			memcom=(MemberCommand)session.getAttribute("member");
 		}
-		
+				
 		session.setAttribute("member", memcom);
+		//여까지 고침
 
 		//마이페이지 최근 예약 정보 가져옴
 		List<MyPageInfoDTO> mypReservInfo=new ArrayList<MyPageInfoDTO>();

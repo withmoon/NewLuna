@@ -17,6 +17,7 @@
 <script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypage.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypajax.js"/>"></script>
+
 </head>
 <body style="overflow-x:hidden">
 
@@ -32,11 +33,14 @@
 		<!-- 회원정보 -->
 		<div class="myinformation">
 			<img class="infoline1" src="<c:url value="/resources/user/mypage/images/line.png"/>">
+			<img class="deer" onclick="goToNotice()" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
+			<img class="deer2" onclick="goToQandA()" src="<c:url value="/resources/user/mypage/images/que.png"/>" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/queg.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/que.png"/>'">
 			<br/><b>${member.name}님 환영합니다.</b><br/>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}
 			<button class="update" onclick="showUpdateForm()">정보수정</button>
-			<img class="deer" onclick="goToNotice()" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
+			
+			
 			
 			<img class="infoline2" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 		</div>
@@ -127,7 +131,7 @@
 				</div>
 				
 				<div id="lastReservList">
-				<table>
+				<table class="tbl paginated" id="tbl">
 					<thead>
 						<tr>
 							<th>지점</th>
@@ -151,8 +155,8 @@
 							<td>${lastreserInfo.starttime}~${lastreserInfo.endtime}</td>
 							<td>예약 완료</td>
 							<td>
-							<button class="update" onclick="openReview(${lastreserInfo.roomNum})">리뷰쓰기</button>
-							<button class="update" onclick="window.open('${lastreserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
+							<button class="reviewBtn${lastreserInfo.imp_uid}" onclick="openReview(${lastreserInfo.roomNum})">리뷰쓰기</button>
+							<button onclick="window.open('${lastreserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
 							</td>
 						</tr>
 						</c:forEach>
@@ -183,9 +187,9 @@
 					<tr> 
 						<!-- 읽은거는 color처리 -->
 						<c:if test="${alamlist.readst eq 1}">
-							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.fromwho}</td>
-							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.content}</td>
-							<td style="color:gray" class="conf${alamlist.seq}">${alamlist.almdate}</td>
+							<td style="color:gray">${alamlist.fromwho}</td>
+							<td style="color:gray">${alamlist.content}</td>
+							<td style="color:gray">${alamlist.almdate}</td>
 						</c:if>
 						<!-- 안 읽은거 colorX -->
 						<c:if test="${alamlist.readst eq 0}">
@@ -198,7 +202,7 @@
 							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
 								<button id="conf${alamlist.seq}" onclick="confirmCancle(${alamlist.seq})">확인완료</button>
 							</c:if>
-							<c:if test="${alamlist.numforwhat eq -1}"><!-- 지금  -->
+							<c:if test="${alamlist.numforwhat eq -1}">
 								<button onclick="openElse(${alamlist.seq},'${alamlist.content}','${alamlist.fromwhat}')">내용보기</button>
 							</c:if>
 						</td>						
@@ -208,6 +212,7 @@
 			</tbody>
 		</table>
 		</div>
+		<script src="<c:url value="/resources/user/mypage/js/pageajax.js"/>"></script>
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">
@@ -265,7 +270,7 @@
 			<img id="star4" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
 			<img id="star5" class="star" src="<c:url value="/resources/util/unstar.png"/>"/><label>별점 :<b id="starcount">0</b>점</label>
 			<img onclick="closeReview()" src="<c:url value="/resources/util/xicon.png"/>"/><br/><br/>
-			<input type="text" size="100" placeholder="최대 100자">&nbsp;<button>후기 올리기</button>
+			<input type="text" size="100" placeholder="최대 100자">&nbsp;<button onclick="writeReview()">후기 올리기</button>
 		</div>
 		
 		<!-- 환불요청 div -->
@@ -275,7 +280,7 @@
 		</div>
 		
 		<!-- 알림 else 내용  -->
-		<div id="showElse" class="showElse"><!-- 지금  -->
+		<div id="showElse" class="showElse">
 			<table>
 				<tr>
 					<td>제목</td>

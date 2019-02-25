@@ -2,7 +2,9 @@ package com.study.luna.user.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.user.dto.RoomInfoDTO;
@@ -26,11 +29,19 @@ public class UserLookOverRoomController {
 	public ModelAndView lookOverView(@RequestParam(value="sido",required=false,defaultValue="")String sel_sido,
 										@RequestParam(value="gugun",required=false,defaultValue="")String sel_gugun,
 										@RequestParam(value="seldate",required=false,defaultValue="")String sel_date,
-										RoomInfoDTO romin,HttpSession session,MemberCommand memcom) {
+										RoomInfoDTO romin,HttpSession session,MemberCommand memcom,HttpServletRequest request) {
 		//아이디 가져와서 저장
-		memcom=(MemberCommand)session.getAttribute("member");
-		session.setAttribute("member", memcom);
+		//여서부터
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		if(flashMap!=null) {
+			memcom.setId(flashMap.get("id").toString());
+			session.setAttribute("member", memcom);
+		}else {
+			memcom=(MemberCommand)session.getAttribute("member");
+		}
 		
+		session.setAttribute("member", memcom);
+		//여까지 고침
 		ModelAndView mav=new ModelAndView();
 
 		List<String> sido=roomser.getSido();

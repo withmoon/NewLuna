@@ -99,14 +99,17 @@ public class UserHomeController {
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		
+		//여서부터
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
 		}else {
 			memcom=(MemberCommand)session.getAttribute("member");
-			session.setAttribute("member", memcom);
 		}
+			
+		session.setAttribute("member", memcom);
+		//여까지 고침
 		
 		List<String> sido=roomser.getSido();
 		

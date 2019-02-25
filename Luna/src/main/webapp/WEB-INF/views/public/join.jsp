@@ -12,7 +12,7 @@
 </head>
 <body>
 	<a href="../Home/Home.jsp" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-	<div class="top">${jbtn}</div>
+	<div class="top">회원가입</div>
 
 	<!-- 회원가입 버튼 -->
 	<section>
@@ -133,7 +133,7 @@
 			</table>
 			
 			
-			<div align="center"><button type="submit">${jbtn}</button></div>
+			<div align="center"><button type="submit">회원가입</button></div>
 			<img src="<c:url value="/resources/public/images/line.png"/>"/>
 		</form>
 	</section>

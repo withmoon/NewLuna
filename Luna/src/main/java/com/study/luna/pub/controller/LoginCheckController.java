@@ -3,6 +3,7 @@ package com.study.luna.pub.controller;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class LoginCheckController {
 	MemberService memser;
 	
 	@RequestMapping(value = "login/loginCheck.do", method = RequestMethod.POST)
-	public ModelAndView idCehcklogin(RedirectAttributes rdab,MemberCommand memcom, @RequestParam("id") String id,@RequestParam("pw") String pass, HttpServletResponse response)throws Exception {
+	public ModelAndView idCehcklogin(HttpSession session,RedirectAttributes rdab,MemberCommand memcom, @RequestParam("id") String id,@RequestParam("pw") String pass, HttpServletResponse response)throws Exception {
 		ModelAndView mav=new ModelAndView();
 		memcom.setId(id);
 		//아이디 존재 여부 확인
@@ -55,8 +56,10 @@ public class LoginCheckController {
 					String branchName=memser.getBrName(id);
 					rdab.addFlashAttribute("id", memcom.getId());
 					memser.upStatus(memcom);
+					//사용자가 접속했던 곳으로 리턴해줌
+					String redirectUrl=(String)session.getAttribute("rdUrl");
 					if(branchName==null) {
-						mav.setViewName("redirect:/home.udo");
+						mav.setViewName("redirect:"+redirectUrl);
 						return mav;
 					}else if(branchName.equals("관리자")) {
 						mav.setViewName("redirect:/administrator.ado");

@@ -4,6 +4,9 @@ var id="";
 var filterVal10 = 'blur(10px)';
 var filterVal0 = 'blur(0px)';
 var alamseq='';
+function goToQandA(){
+	console.log("문의한거 나올꺼임");
+}
 //환불 요청 ajax 
 function cancleReserve(id,imp,st){
 	

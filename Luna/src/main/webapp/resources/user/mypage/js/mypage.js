@@ -1,7 +1,10 @@
 var count=0;
+
+var revroomNum='';
 //리뷰 열고 닫고 
 function openReview(num){
 	console.log(num);
+	revroomNum=num;
 	$(".review").display="";
 	$(".review").show();
 	$('body > *:not(.review) ').css('filter',filterVal10);
@@ -13,6 +16,21 @@ function closeReview(){
 	$("#starcount").text(0);
 	$(".review").hide();
 }
+
+//후기 올리기
+
+function writeReview(){
+	$.ajax({      
+		type:"POST",  
+		url:"writeReview.udo",    
+		data:{roomnum:revroomNum},     
+		success:function(){
+			$("#conf"+seq).remove();
+			readTd(seq);
+		}
+	});
+}
+
 //메신져이미지 누르면 알림으로 바로 내려감
 function goToNotice(){
 	scrollDown(".allnon");
