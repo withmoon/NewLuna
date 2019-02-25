@@ -46,14 +46,15 @@
 	<div class="rbox">
          작성자 : 선비냥이<br/>
          작성날짜 : 2019-01-01<br/><br/>
-         흠.. <br/>
+         흠.. 
+    <span><button>수정</button> <button>삭제</button></span><br/>
 	</div>
 
 	<div class="rbox">
          작성자 : 냥냥펀치님<br/>
          작성날짜 : 2019-01-01<br/><br/>
          아래 작성자 넌 뭐냥 왜 고냥이 말밖에 못하냥 어디서 순고양이가 인간세계에와서 어울리냥<br/>
-	</div>
+    </div>
 
 	<div class="rbox">
          작성자 : 고냥이님<br/>
@@ -73,8 +74,13 @@
          강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
 	</div><br/>
 	<div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
+	<div class="replytext">
+		<textarea rows="3" cols="65" placeholder="댓글을 작성해주세요"></textarea>
+    	<button>올리기</button>
+    </div>
 	</div>
 </div>
+<div class="button"><button onclick="window.open('inform.udo','_self');">목록</button></div>
 </div>
 </section>
 <!-- footer -->

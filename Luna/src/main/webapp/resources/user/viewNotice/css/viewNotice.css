@@ -68,6 +68,7 @@ nav{
 .reply{
    margin-bottom: 5px;
    border-top: 0.2vw solid gray;
+   border-bottom: 0.2vw solid gray;
    padding: 3%;
 }
 .reply b {
@@ -77,9 +78,62 @@ nav{
 	width:3%;
 }
 .rbox{
-   border-top: 0.2vw solid #bbbb;
-   border-bottom: 0.2vwsolid #bbbb;
+   border-top: 0.1vw solid #bbbb;
+   border-bottom: 0.1vw solid #bbbb;
    padding:1%;
+}
+.rbox span {
+	position:relative;
+	left: 85%;
+}
+/*댓글 올리기*/
+.replytext {
+	 border-top: 0.2vw solid #bbbb;
+	 padding:1%;
+}
+textarea {
+	border:0;
+	outline:none;
+	resize:none;
+	font-size: 2vw;
+}
+
+.replytext button {
+	width:15%;
+	font-size: 2vw;
+	padding:1%;
+	position:relative;
+	left: 2%; 
+	bottom: 23px;
+}
+
+/*button*/
+.button {
+	padding: 3%;
+	position:relative;
+	left: 38%; 
+}
+.button button {
+	width:20%;
+	font-size: 2vw;
+	padding:1%;
+}
+
+button{
+    background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    position:relative;
+    outline:none;
+}
+
+button:hover{
+    background-color: #bbbb;
+    color: white
 }
 /*footer*/
 footer{
