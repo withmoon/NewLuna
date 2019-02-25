@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+*{
+	margin:0;
+	font-family: 'Gamja Flower', cursive;
+}
+nav{
+	float:right;
+}
+.topUl li a{
+	font-size: 1.7vw;
+}
+.logo{
+	position:relative;
+	width:10%;
+}
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:3%;
+	left:10%;
+	width:auto;
+	text-align:center;
+	font-size: 3vw;
+	color: #686868; 
+}
+/*본문*/
+.border {
+	border-radius: 2em;
+	border-top-left-radius: 2em;
+	border-top-right-radius: 2em;
+	border-bottom-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+	border: 2px solid gray;
+    padding:1%;
+    position:relative;
+    top : 18%;
+    width: 80%;
+    left: 9%;
+    font-size: 2vw;
+}
+/*제목*/
+.title {
+	padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 0.2vw solid gray;
+}
+.title b { 
+    font-size : 3vw; color : #003366;
+    position:relative;
+    left: 5%;
+}
+
+.writer {
+    position:relative;
+    left: 60%;
+}
+
+.date {
+    position:relative;
+    left: 65%
+}
+/*내용*/
+.content {
+	padding: 5%;
+}
+/*댓글보기/닫기*/
+.reply{
+   margin-bottom: 5px;
+   border-top: 0.2vw solid gray;
+   padding: 3%;
+}
+.reply b {
+ font-size : 2vw; color : #777;
+}
+.reply img {
+	width:3%;
+}
+.rbox{
+   border-top: 0.2vw solid #bbbb;
+   border-bottom: 0.2vwsolid #bbbb;
+   padding:1%;
+}
+/*footer*/
+footer{
+	padding: 3% 0%;
+}

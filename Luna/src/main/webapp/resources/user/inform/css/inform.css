@@ -66,13 +66,10 @@ a{
 	color:black;
 }
 
-table td a{
-	text-decoration: none;
-	color:#fc6b97; 
-}
 
 a:hover{
-	color:orange;
+	
+	color:#bb9540;
 }
 
 /*페이지*/

@@ -49,7 +49,7 @@
 <c:forEach items="${noticeList }" var="notice">
 	<tr>
 		<td>${notice.num }</td>
-		<td><a onclick="window.open('viewNotice.udo?num=${notice.num}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
+		<td><a onclick="window.open('viewNotice.udo?num=${notice.num}','_self');">
 			${notice.title }</a></td>
 		<td><fmt:formatDate value="${notice.regdate }" pattern="yy-MM-dd"/></td>
 	</tr>

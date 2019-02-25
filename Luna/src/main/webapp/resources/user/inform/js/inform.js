@@ -31,7 +31,7 @@ $(function() {
 					newTitle.appendChild(a);
 					(function(num) {
 						a.addEventListener('click', function() {
-							window.open('viewNotice.udo?num='+num,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+							window.open('viewNotice.udo?num='+num,'_self');
 						}, false);
 					})(num);
 					
@@ -80,7 +80,7 @@ $(function() {
 					newSubject.appendChild(a);
 					(function(num) {
 						a.addEventListener('click', function() {
-							window.open('viewQnA.udo?num='+num,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+							window.open('viewQnA.udo?num='+num,'_self');
 						}, false);
 					})(num);
 					
