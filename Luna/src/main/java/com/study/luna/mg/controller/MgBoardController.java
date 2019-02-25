@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.study.luna.mg.model.BoardPager2;
+import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.service.MgService;
 
@@ -41,20 +41,18 @@ public class MgBoardController {
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id + "지점 문의게시글");
-		// 레코드계산 
+		// 레코드계산  
 		int count = MgService.countArticle(searchOption, keyword,id);
 		System.out.println(count+"개");
 
 		
-//		int page_scale = 3;
-		// 페이지 나누기처리
-//		BoardPager2 boardPager = new BoardPager2(count, curPage,page_scale);
-		BoardPager2 boardPager = null;
-		int page = 3; 
-		boardPager.setPAGE_SCALE(4);
-		System.out.println(boardPager.getPAGE_SCALE());
+		int page_scale = 7;
+		int block_sclae = 3;
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+//		boardPager.setPAGE_SCALE(5);
+		System.out.println("게시글수 : "+boardPager.getPAGE_SCALE());
 //		boardPager.setPAGE_SCALE(page);
-		boardPager = new BoardPager2(count, curPage);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 

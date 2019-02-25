@@ -2,9 +2,9 @@ package com.study.luna.mg.model;
 
 public class BoardPager {
 		// 페이지당 게시물 수
-		public static final int PAGE_SCALE = 10;
+		public int PAGE_SCALE = 10;
 		// 화면당 페이지 수
-		public static final int BLOCK_SCALE = 5;
+		public int BLOCK_SCALE = 5;
 		private int curPage; // 현재 페이지수
 		private int prevPage; // 이전 페이지
 		private int nextPage; // 파음 페이지
@@ -23,9 +23,11 @@ public class BoardPager {
 		
 		// 생성자
 		// BoardPager(레코드 갯수, 현재 페이지 번호)
-		public BoardPager(int count, int curPage){
+		public BoardPager(int count, int curPage,int page_scale,int block_sclae){
 			curBlock = 1; // 현재 페이지 블록 번호
 			this.curPage = curPage; // 현재 페이지 설정
+			this.PAGE_SCALE = page_scale;//게시글 수 설정
+			this.BLOCK_SCALE = block_sclae;
 			setTotPage(count); // 전페 페이지 갯수 곗산
 			setPageRange(); // 
 			setTotBlock(); // 전페 페이지 블록갯수 계산
@@ -135,4 +137,21 @@ public class BoardPager {
 		public void setBlockEnd(int blockEnd) {
 			this.blockEnd = blockEnd;
 		}
+
+		public int getPAGE_SCALE() {
+			return PAGE_SCALE;
+		}
+
+		public void setPAGE_SCALE(int pAGE_SCALE) {
+			PAGE_SCALE = pAGE_SCALE;
+		}
+
+		public int getBLOCK_SCALE() {
+			return BLOCK_SCALE;
+		}
+
+		public void setBLOCK_SCALE(int bLOCK_SCALE) {
+			BLOCK_SCALE = bLOCK_SCALE;
+		}
+		
 }

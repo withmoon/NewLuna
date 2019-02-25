@@ -40,12 +40,12 @@ public class ManagerMainController {
 			flashMap = RequestContextUtils.getInputFlashMap(request);
 			System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
 			session.setAttribute("id", flashMap.get("id"));
+			
+			// 로그인수+1
+			managerService.logincount();
+			// 예약수
+			// ???
 		}
-
-		// 로그인수+1
-		managerService.logincount();
-		// 예약수
-		// ???
 
 		// 로그인 수 가져오기 (로그인만 - 로그인컨트롤러에서 처리할것들)
 		int count = managerService.login();

@@ -38,8 +38,10 @@ public class MgSalesController {
 
 		System.out.println("Ű���� :" + keyword.toString());
 
+		int page_scale = 7;
+		int block_sclae = 3;
 		// 페이지 나누기처리
-		BoardPager boardPager = new BoardPager(count, curPage);
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
