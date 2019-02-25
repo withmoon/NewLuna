@@ -7,16 +7,16 @@ import com.study.luna.mg.model.QBoardVO;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public interface MgService {
-	// ¹®ÀÇ±Û ¸ñ·Ïº¸±â
-	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword)throws Exception;
+	// ë¬¸ì˜ê¸€ ëª©ë¡ë³´ê¸°
+	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String id)throws Exception;
 //	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
 
 
-	// °Ô½Ã±Û »ó¼¼º¸±â
-	public QBoardVO QbaordRead(int num) throws Exception;
+	// ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸°
+	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 
-	//·¹ÄÚµå°è»ê
-	public int countArticle(String searchOption, String keyword)throws Exception;
+	//ë ˆì½”ë“œê³„ì‚°
+	public int countArticle(String searchOption, String keyword, String id)throws Exception;
 	
 	
 }

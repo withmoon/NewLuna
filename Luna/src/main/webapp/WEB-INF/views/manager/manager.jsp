@@ -10,6 +10,7 @@
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script> 
 <script type="text/javascript" src="<c:url value="/resources/manager/js/mjs.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/manager/js/date.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/manager.js"/>"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <title>지점장 관리화면</title>
@@ -21,7 +22,7 @@
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"></a><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/><a></a>
+				<a href="#" id="logo" onclick="javascript:manager();"></a><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/><a></a>
 			</div>
 			<jsp:include page="form/TopMenu1.jsp"></jsp:include>
 		</div>

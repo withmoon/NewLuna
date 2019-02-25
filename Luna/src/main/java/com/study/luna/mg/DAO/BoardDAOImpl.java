@@ -21,15 +21,16 @@ public class BoardDAOImpl  implements BoardDAO{
 		// TODO Auto-generated method stub
 		
 	}
-	//¹®ÀÇ°Ô½ÃÆÇ ÀüÃ¼¸ñ·Ï
+	//ë¬¸ì˜ê²Œì‹œíŒ ì „ì²´ëª©ë¡
 	@Override
-	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword) {
+	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword,String id) {
 		// TODO Auto-generated method stub
-		//°Ë»ö ¿É¼Ç , Å°¿öµå ¸Ê¿¡ ÀúÀå
+		//ê²€ìƒ‰ì˜µì…˜ , í‚¤ì›Œë“œ ë§µì— ì €ì¥
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		//#start #end ¿¡ ÀÔ·ÂµÉ °ª
+		map.put("id", id);
+		//#start #end ì— ì…ë ¥ë  ê°’
 		map.put("start",start);
 		map.put("end", end);
 		
@@ -37,23 +38,24 @@ public class BoardDAOImpl  implements BoardDAO{
 	}
 	/*public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("QboardList DAO ¼öÇàÃ³¸® ");
+		System.out.println("QboardList DAO ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ");
 		return SqlSession.selectList("managerDAO.QList",vo);
 	}*/
 
-	//»ó¼¼º¸±â
+	//ìƒì„¸ë³´ê¸°
 	@Override
-	public QBoardVO QbaordRead(int num) throws Exception {
+	public QBoardVO QbaordRead(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QbaordRead DAO");
-		return SqlSession.selectOne("mgQBoard.QRead",num); 
+		return SqlSession.selectOne("mgQBoard.QRead",vo); 
 	}
 	@Override
-	public int countArticle(String searchOption, String keyword) throws Exception {
+	public int countArticle(String searchOption, String keyword,String id) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
+		map.put("id", id);
 		return SqlSession.selectOne("mgQBoard.countArticle", map);
 	}
 

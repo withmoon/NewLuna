@@ -9,14 +9,14 @@ import com.study.luna.mg.model.uploadfileVO;
 
 public interface RoomDAO {
 
-	//¸®½ºÆ® Å×ÀÌºí°¡Á®¿À±â
+	//ë¦¬ìŠ¤íŠ¸ í…Œì´ë¸”ê°€ì ¸ì˜¤ê¸°
 		public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword);
 	
 	//insert
 	public int uploadFile(HashMap<String, Object> hm)throws Exception;
 	public int roomupload(RoomVO vo)throws Exception;
 
-	//»ó¼¼º¸±â
+	//ìƒì„¸ë³´ê¸°
 	public RoomVO mgRoomRead(int roomnum)throws Exception;
 	public List<uploadfileVO> mgRoomFile(int roomnum);
 

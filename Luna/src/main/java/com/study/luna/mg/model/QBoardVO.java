@@ -3,19 +3,30 @@ package com.study.luna.mg.model;
 import java.util.Date;
 
 public class QBoardVO {
-	private String num;
+	private int num;
 	private String title;
 	private String writer;
 	private Date regdate;
 	private String content;
 	private Integer ref;
+	private String id;
 	
 	
-	public String getNum() {
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public int getNum() {
 		return num;
 	}
 
-	public void setNum(String num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 

@@ -5,7 +5,7 @@
 	<!-- 공지사항 목록 -->
 	<select id="noticeAll" resultType="adminNoticeBoardVO">
 		<include refid="pagingHeader"></include>
-		select * from noticeBoard order by regdate
+		select * from noticeBoard order by num desc, regdate desc
 		<include refid="pagingFooter"></include>
 	</select>
 	

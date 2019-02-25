@@ -5,7 +5,7 @@
 	<!-- 질문 목록 -->
 	<select id="qnaAll" resultType="adminQnABoardVO">
 		<include refid="pagingHeader"></include>
-		select * from ADMINQNABOARD order by regdate
+		select * from ADMINQNABOARD order by num desc, regdate desc
 		<include refid="pagingFooter"></include>
 	</select>
 	

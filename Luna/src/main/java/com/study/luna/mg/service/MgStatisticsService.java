@@ -6,9 +6,9 @@ import com.study.luna.mg.model.StatisticsVO;
 
 public interface MgStatisticsService {
 
-	//°Ô½Ã±Û Ä«¿îÆ®
+	//ê²Œì‹œê¸€ ì¹´ìš´íŠ¸
 	int countArticle(String searchOption, String keyword);
-	//¿ù¸ÅÃâ ¸®½ºÆ®
+	//ì›”ë§¤ì¶œ ë¦¬ìŠ¤íŠ¸
 	List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword);
 
 }

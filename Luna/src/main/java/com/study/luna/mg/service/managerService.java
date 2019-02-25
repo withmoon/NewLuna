@@ -2,10 +2,10 @@ package com.study.luna.mg.service;
 
 public interface managerService {
 
-	//·Î±×ÀÎ ¼ö +1
+	//ë¡œê·¸ì¸ìˆ˜ +1
 	void logincount();
 	
-	//·Î±×ÀÎ¼ö °¡Á®¿À±â
+	//ë¡œê·¸ì¸ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 	int login();
 
 	

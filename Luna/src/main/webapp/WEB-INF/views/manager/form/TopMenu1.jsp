@@ -8,9 +8,9 @@
 </head>
 <body>
 		<ul class="top">
-			<li class="topli"><a href="#">로그인</a></li>
+			<li class="topli"><a href="logout.mdo">로그아웃</a></li>
 			<li class="topli"><a href="#">내 정보</a></li>
-			<li><a href="#">메인 홈페이지</a></li>
+			<li><a href="home.udo">메인 홈페이지</a></li>
 		</ul>
 </body>
 </html>

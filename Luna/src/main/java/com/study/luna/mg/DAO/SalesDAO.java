@@ -7,16 +7,16 @@ import com.study.luna.mg.model.SalesVO;
 
 public interface SalesDAO {
 
-	// ¸ÅÃâÇöÈ²
+	// ë§¤ì¶œí˜„í™©
 	public List<SalesVO> SalesList(int start, int end, String keyword) throws Exception;
-
-	// Å×ÀÌºí Ä«¿îÆ®
+	
+	// í…Œì´ë¸” ì¹´ìš´íŠ¸
 	public int countArticle(String keyword);
 
-	// ¿¢¼¿ÆÄÀÏ
+	// ì—‘ì…€íŒŒì¼
 	public List<Object> getSales(SalesVO vo);
 
-	// ¿¹¾àÇöÈ²
+	// ì˜ˆì•½í˜„í™©
 	public List<SalesVO> mgReserveList(SalesVO vo);
 
 }

@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,28 +27,35 @@ public class MgBoardController {
 	@Autowired
 	private MgService MgService;
 
-	/* ¹®ÀÇ°Ô½ÃÆÇ */
-	@RequestMapping(value = "/mgBoard.mdo")
-	public ModelAndView mgBoardView(@RequestParam(defaultValue="title")String searchOption,
-						@RequestParam(defaultValue="")String keyword,
-						@RequestParam(defaultValue="1")int curPage) throws Exception {
-		//·¹ÄÚµå°è»ê
-		int count = MgService.countArticle(searchOption,keyword);
-		
-		//ÆäÀÌÁö ³ª´©±âÃ³¸®
-		BoardPager boardPager= new BoardPager(count,curPage);
-		int start = boardPager.getPageBegin(); 
-		int end = boardPager.getPageEnd(); 
-		
-		List<QBoardVO> list = MgService.QboardList(start,end,searchOption,keyword);
+	@Autowired
+	private JavaMailSender mailSender;
 
-		Map<String, Object> map = new HashMap<String,Object>();
-		map.put("list", list); 
+	/* ë¬¸ì˜ê²Œì‹œíŒ */
+	@RequestMapping(value = "/mgBoard.mdo")
+	public ModelAndView mgBoardView(@RequestParam(defaultValue = "title") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
+			HttpSession session)
+			throws Exception {
+		
+		String id = (String)session.getAttribute("id");
+		System.out.println(id + "ì§€ì  ë¬¸ì˜ê²Œì‹œê¸€");
+		// ë ˆì½”ë“œê³„ì‚° 
+		int count = MgService.countArticle(searchOption, keyword,id);
+		System.out.println(count+"ê°œ");
+		// í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬
+		BoardPager boardPager = new BoardPager(count, curPage);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+
+		List<QBoardVO> list = MgService.QboardList(start, end, searchOption, keyword,id);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
 		map.put("count", count);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("boardPager", boardPager);
-					
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("map", map);
 		mv.setViewName("mgBoard");
@@ -53,55 +64,89 @@ public class MgBoardController {
 		System.out.println("mv" + mv.toString());
 		return mv;
 	}
-	/* ¹®ÀÇ°Ô½ÃÆÇ */ //ÀÏ¹İÃ³¸®
-/*	@RequestMapping(value = "/mgBoard.mdo", method = RequestMethod.GET)
-	public ModelAndView mgBoardView(QBoardVO vo) throws Exception {
-		List<QBoardVO> list = MgService.QboardList(vo);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mgBoard");
-		mv.addObject("list", list);
 
-		System.out.println("list" + list.toString());
-		System.out.println("mv" + mv.toString());
-		return mv;
-	}
-*/
-	/* °Ô½Ã±Û »ó¼¼º¸±â */
+	/*
+	 * ë¬¸ì˜ ê²Œì‹œíŒ //ì¼ë°˜ì²˜ë¦¬ /* @RequestMapping(value = "/mgBoard.mdo", method =
+	 * RequestMethod.GET) public ModelAndView mgBoardView(QBoardVO vo) throws
+	 * Exception { List<QBoardVO> list = MgService.QboardList(vo); ModelAndView mv =
+	 * new ModelAndView(); mv.setViewName("mgBoard"); mv.addObject("list", list);
+	 * 
+	 * System.out.println("list" + list.toString()); System.out.println("mv" +
+	 * mv.toString()); return mv; }
+	 */
+	/* ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸° */
 	@RequestMapping(value = "/mgBoardview.mdo")
-	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage,
-				@RequestParam String searchOption,@RequestParam String keyword,HttpSession session ) throws Exception {
-		
-		
-//		Á¶È¸¼ö ´ëºñ MgService.increaseViewcnt(bno, session);*/
+	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage,QBoardVO vo,
+			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
+
+//		ì¡°íšŒìˆ˜ ëŒ€ë¹„ MgService.increaseViewcnt(bno, session);*/
+		vo.setId((String) session.getAttribute("id"));
+		vo.setNum(num);
+		System.out.println("ìƒì„¸ë³´ê¸° id"+vo.getId());
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/board/mgBoardview");
-		mv.addObject("view", MgService.QbaordRead(num));
+		mv.addObject("view", MgService.QbaordRead(vo));
 		return mv;
 	}
-	
-	/* »ó¼¼º¸±â È­¸éÃ³¸®
-	@RequestMapping(value = "/mgBoardview.mdo")
-	public ModelAndView mgboardinsertView(@RequestParam String title, HttpSession session) throws Exception {
 
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("body/board/mgBoardview");
-		mv.addObject("view", MgService.QbaordRead(title));
-		return mv;
-	}
-*/
-	/*¼öÁ¤ÇÏ±â*///¼öÁ¤ÇÒÇÊ¿ä¾ø¾î ÁÖ¼®Ã³¸®
-	 /* @RequestMapping(value = "/boardupdate.mdo", method = RequestMethod.GET)
+	/*
+	 * ìƒì„¸ë³´ê¸° í™”ë©´ì²˜ë¦¬
+	 * 
+	 * @RequestMapping(value = "/mgBoardview.mdo") public ModelAndView
+	 * mgboardinsertView(@RequestParam String title, HttpSession session) throws
+	 * Exception {
+	 * 
+	 * ModelAndView mv = new ModelAndView();
+	 * mv.setViewName("body/board/mgBoardview"); mv.addObject("view",
+	 * MgService.QbaordRead(title)); return mv; }
+	 */
+	/* ìˆ˜ì •í•˜ê¸° */// ìˆ˜ì •í•  í•„ìš”ì—†ì–´ ì£¼ì„ì²˜ë¦¬
+	/*
+	 * @RequestMapping(value = "/boardupdate.mdo", method = RequestMethod.GET)
 	 * public ModelAndView mgboardinsertView(@RequestParam String title, HttpSession
 	 * session)throws Exception {
 	 * 
 	 * ModelAndView mv = new ModelAndView(); mv.setViewName("body/boardupdate");
 	 * mv.addObject("view",MgService.QbaordRead(title)); return mv; }
 	 */
-	
-	//È­¸é¸¸ ¿¬°áÇØµÒ ´ä±Û·Î È­¸é¼öÁ¤ÇØ¾ßÇÔ
+
+	// í™”ë©´ë§Œ ì—°ê²°í•´ë‘  ë‹µê¸€ë¡œ í™”ë©´ìˆ˜ì •í•´ì•¼í•¨
 	@RequestMapping(value = "/mgBoardinsert.mdo", method = RequestMethod.GET)
 	public String mgboardinsertView() {
 		return "/body/mgBoardinsert";
+	}
+
+	// mailForm
+	@RequestMapping(value = "/mailForm.mdo")
+	public String mailForm() {
+
+		return "/body/mailForm";
+	}
+
+	// mailSending ì½”ë“œ
+	@RequestMapping(value = "/mailSending.mdo")
+	public String mailSending(HttpServletRequest request) {
+
+		String setfrom = "gur792816@gmail.com";
+		String tomail = request.getParameter("tomail"); // ë°›ëŠ” ì‚¬ëŒ ì´ë©”ì¼
+		String title = request.getParameter("title"); // ì œëª©
+		String content = request.getParameter("content"); // ë‚´ìš©
+		MimeMessage message = mailSender.createMimeMessage(); 
+		try {
+
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+
+			messageHelper.setFrom(setfrom); // ë³´ë‚´ëŠ”ì‚¬ëŒ ìƒëµí•˜ê±°ë‚˜ í•˜ë©´ ì •ìƒì‘ë™ì„ ì•ˆí•¨
+			messageHelper.setTo(tomail); // ë°›ëŠ”ì‚¬ëŒ ì´ë©”ì¼
+			messageHelper.setSubject(title); // ë©”ì¼ì œëª©ì€ ìƒëµì´ ê°€ëŠ¥í•˜ë‹¤
+			messageHelper.setText(content); // ë©”ì¼ ë‚´ìš©
+
+			mailSender.send(message);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return "/body/mailForm";
 	}
 
 }

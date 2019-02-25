@@ -6,10 +6,10 @@ import com.study.luna.mg.model.StatisticsVO;
 
 public interface StatisticsDAO {
 
-	//¿ù¸ÅÃâ ¸®½ºÆ®
+	//ì›”ë§¤ì¶œ ë¦¬ìŠ¤íŠ¸
 	List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword);
 
-	//¿ù¸ÅÃâ ±Û Ä«¿îÆ®
+	//ì›”ë§¤ì¶œ ê¸€ ì¹´ìš´íŠ¸
 	int countArticle(String searchOption, String keyword);
 
 }

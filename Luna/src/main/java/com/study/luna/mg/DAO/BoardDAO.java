@@ -11,15 +11,15 @@ public interface BoardDAO {
 	
 	public void insertBoard(QBoardVO vo);
 
-	//°Ô½Ã±Û ¸ñ·Ï
-	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword);
+	//ê²Œì‹œê¸€ ëª©ë¡
+	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword, String id);
 	//public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
 	
-	//°Ô½Ã±Û »ó¼¼º¸±â
-	public QBoardVO QbaordRead(int num) throws Exception;
+	//ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸°
+	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 
-	//·¹ÄÚµå °è»ê
-	public int countArticle(String searchOption, String keyword) throws Exception;
+	//ë ˆì½”ë“œ ê³„ì‹¼
+	public int countArticle(String searchOption, String keyword, String id) throws Exception;
 		
 	}
 

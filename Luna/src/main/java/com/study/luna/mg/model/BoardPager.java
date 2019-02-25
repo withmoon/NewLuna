@@ -1,74 +1,59 @@
 package com.study.luna.mg.model;
 
 public class BoardPager {
-		// ?˜?´ì§??‹¹ ê²Œì‹œë¬? ?ˆ˜
+		// í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ ìˆ˜
 		public static final int PAGE_SCALE = 10;
-		// ?™”ë©´ë‹¹ ?˜?´ì§? ?ˆ˜
+		// í™”ë©´ë‹¹ í˜ì´ì§€ ìˆ˜
 		public static final int BLOCK_SCALE = 5;
-		private int curPage; // ?˜„?¬ ?˜?´ì§??ˆ˜
-		private int prevPage; // ?´? „ ?˜?´ì§?
-		private int nextPage; // ?‹¤?Œ ?˜?´ì§?
-		private int totPage; // ? „ì²? ?˜?´ì§? ê°??ˆ˜
-		private int totBlock; // ? „ì²? ?˜?´ì§? ë¸”ë¡ ê°??ˆ˜
-		private int curBlock; // ?˜„?¬ ?˜?´ì§? ë¸”ë¡
-		private int prevBlock; // ?´? „ ?˜?´ì§? ë¸”ë¡
-		private int nextBlock; // ?‹¤?Œ ?˜?´ì§? ë¸”ë¡
+		private int curPage; // í˜„ì¬ í˜ì´ì§€ìˆ˜
+		private int prevPage; // ì´ì „ í˜ì´ì§€
+		private int nextPage; // íŒŒìŒ í˜ì´ì§€
+		private int totPage; // ì „ì²´ í˜ì´ì§€ ê°¯ìˆ˜
+		private int totBlock; // ì „í˜ í˜ì´ì§€ ë¸”ë¡ ê°¯ìˆ˜
+		private int curBlock; // í˜„ì¬ í˜ì´ì§€ ë¸”ë¡
+		private int prevBlock; // ì´ì „ í˜ì´ì§€ ë¸”ë¡
+		private int nextBlock; // ë‹¤ìŒ í˜ì´ì§€ ë¸”ë¡
 		// WHERE rn BETWEEN #{start} AND #{end}
 		private int pageBegin; // #{start}
 		private int pageEnd; // #{end}
-		// [?´? „] blockBegin -> 41 42 43 44 45 46 47 48 49 50 [ï¿½ï¿½ï¿½ï¿½]
-		private int blockBegin; // ?˜„?¬ ?˜?´ì§? ë¸”ë¡?˜ ?‹œ?‘ë²ˆí˜¸
-		// [?´? „] 41 42 43 44 45 46 47 48 49 50 <- blockEnd [ï¿½ï¿½ï¿½ï¿½]
-		private int blockEnd; // ?˜„?¬ ?˜?´ì§? ë¸”ë¡?˜ ?ë²ˆí˜¸
+		// [?ï¿½ï¿½?ï¿½ï¿½] blockBegin -> 41 42 43 44 45 46 47 48 49 50 [ë‹¤ìŒ]
+		private int blockBegin; // í˜„ì¬ í˜ì´ì§€ ë¸”ë¡ì˜ ì‹œì‘ë²ˆí˜¸
+		// [?ï¿½ï¿½?ï¿½ï¿½] 41 42 43 44 45 46 47 48 49 50 <- blockEnd [ë‹¤ìŒ]
+		private int blockEnd; // í˜„ì¬ í˜ì´ì§€ ë¸”ë¡ì˜ ëë²ˆí˜¸
 		
-		// ?ƒ?„±?
-		// BoardPager(? ˆì½”ë“œ ê°??ˆ˜, ?˜„?¬ ?˜?´ì§? ë²ˆí˜¸)
+		// ìƒì„±ì
+		// BoardPager(ë ˆì½”ë“œ ê°¯ìˆ˜, í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸)
 		public BoardPager(int count, int curPage){
-			curBlock = 1; // ?˜„?¬ ?˜?´ì§? ë¸”ë¡ ë²ˆí˜¸
-			this.curPage = curPage; // ?˜„?¬ ?˜?´ì§? ?„¤? •
-			setTotPage(count); // ? „ì²? ?˜?´ì§? ê°??ˆ˜ ê³„ì‚°
+			curBlock = 1; // í˜„ì¬ í˜ì´ì§€ ë¸”ë¡ ë²ˆí˜¸
+			this.curPage = curPage; // í˜„ì¬ í˜ì´ì§€ ì„¤ì •
+			setTotPage(count); // ì „í˜ í˜ì´ì§€ ê°¯ìˆ˜ ê³—ì‚°
 			setPageRange(); // 
-			setTotBlock(); // ? „ì²? ?˜?´ì§? ë¸”ë¡ ê°??ˆ˜ ê³„ì‚°
-			setBlockRange(); // ?˜?´ì§? ë¸”ë¡?˜ ?‹œ?‘, ? ë²ˆí˜¸ ê³„ì‚°
+			setTotBlock(); // ì „í˜ í˜ì´ì§€ ë¸”ë¡ê°¯ìˆ˜ ê³„ì‚°
+			setBlockRange(); //í˜ì´ì§€ ë¸”ë¡ì˜ ì‹œì‘, ë ë²ˆí˜¸ ê³„ì‚°
 		}
 
 		public void setBlockRange(){
-			// *?˜„?¬ ?˜?´ì§?ê°? ëª‡ë²ˆì§? ?˜?´ì§? ë¸”ë¡?— ?†?•˜?Š”ì§? ê³„ì‚°
-			// (?˜„?¬?˜?´ì§?-1)/?˜?´ì§? ë¸”ë¡?‹¨?œ„+1
-			// 1?˜?´ì§? => 1ë¸”ë¡ (1-1)/10 + 1 => 1
-			// 9?˜?´ì§? => 	1ë¸”ë¡ (9-1)/10 + 1 => 1
-			// 11?˜?´ì§? => 2ë¸”ë¡ (11-1)/10 + 1 => 2
-			// 57?˜?´ì§? => 6ë¸”ë¡(57-1)/10 + 1 => 6 
+			//í˜„ì œ í˜ì´ì§€ ëª‡ë²ˆì§¸ í˜ì´ì§€ ë¸”ë¡ì— ì†í•˜ëŠ”ì§€ ê³„ì‚°
 			curBlock = (int)Math.ceil((curPage-1) / BLOCK_SCALE)+1;
-			// *?˜„?¬ ?˜?´ì§? ë¸Œë¡?˜ ?‹œ?‘, ? ë²ˆí˜¸ ê³„ì‚°
-			// ?˜?´ì§? ë¸”ë¡?˜ ?‹œ?‘ë²ˆí˜¸
-			// (?˜„?¬ë¸”ë¡-1)*ë¸”ë¡?‹¨?œ„+1
-			// 1ë¸”ë¡ => (1-1)*10 + 1 => 1
-			// 2ë¸”ë¡ => (2-1)*10 + 1 => 11
-			// 6ë¸”ë¡ => (6-1)*10 + 1 => 51
+			// í˜„ì¬ í˜ì´ì§€ ë¸”ë¡ì˜ ì‹œì‘ , ë ë²ˆí˜¸ ê³„ì‚°
 			blockBegin = (curBlock-1)*BLOCK_SCALE+1;
-			// ?˜?´ì§? ë¸”ë¡?˜ ?ë²ˆí˜¸
-			// ë¸”ë¡?‹œ?‘ë²ˆí˜¸+ë¸”ë¡?‹¨?œ„-1;
-			// 1ë¸”ë¡ => 1+10-1 => 10
-			// 2ë¸”ë¡ => 11+10-1 => 20
-			// 6ë¸”ë¡ => 51+10-1 => 60 	
+			// í˜ì´ì§€ ë¸”ë¡ì˜ ëë²ˆí˜¸
 			blockEnd = blockBegin+BLOCK_SCALE-1;
-			// *ë§ˆì?ë§? ë¸”ë¡?´ ë²”ìœ„ë¥? ì´ˆê³¼?•˜ì§? ?•Š?„ë¡? ê³„ì‚°
-			// [?´? „] 61 62 => ?´?Ÿ¬?•œ ê²½ìš° 70ë²ˆê¹Œì§? ?‚˜?˜¤ì§? ?•Š?„ë¡? ?•˜ê¸? ?œ˜?•´?„œ
+			//ë§ˆì§€ë§‰ ë¸”ë¡ì´ ë²”ìœ„ë¥¼ ì´ˆê³¼í•˜ì§€ ì•Šë„ë¡ ê³„ì‚°
 			if(blockEnd > totPage) blockEnd = totPage;
-			// *?´? „?„ ?ˆŒ???„ ?•Œ ?´?™?•  ?˜?´ì§? ë²ˆí˜¸
+			//ì´ì „ì„ ëˆŒë €ì„ ë•Œ ì´ë™í•  í˜ì´ì§€ ë²ˆí˜¸
 			prevPage = (curPage == 1)? 1:(curBlock-1)*BLOCK_SCALE;
-			// *?‹¤?Œ?„ ?ˆŒ???„ ?•Œ ?´?™?•  ?˜?´ì§? ë²ˆí˜¸
+			//ë‹¤ìŒì„ ëˆŒë €ì„ ë•Œ ì´ë™í•  í˜ì´ì§€ ë²ˆí˜¸
 			nextPage = curBlock > totBlock ? (curBlock*BLOCK_SCALE) : (curBlock*BLOCK_SCALE)+1;
-			// ë§ˆì?ë§? ?˜?´ì§?ê°? ë²”ìœ„ë¥? ì´ˆê³¼?•˜ì§? ?•Š?„ë¡? ì²˜ë¦¬
+			//ë§ˆì§€ë§‰ í˜ì´ì§€ê°€ ë²”ìœ„ë¥¼ ì´ˆê³¼í•˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬
 			if(nextPage >= totPage) nextPage = totPage;
 		}
 		
 		public void setPageRange(){
 		// WHERE rn BETWEEN #{start} AND #{end}
-			// ?‹œ?‘ë²ˆí˜¸ = (?˜„?¬?˜?´ì§?-1)*?˜?´ì§??‹¹ ê²Œì‹œë¬¼ìˆ˜ +1
+			// ì‹œì‘ë²ˆí˜¸  = (í˜„ì¬í˜ì´ì§€-1)*í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ìˆ˜ +1
 			pageBegin = (curPage-1)*PAGE_SCALE+1;
-			// ?ë²ˆí˜¸ = ?‹œ?‘ë²ˆí˜¸+?˜?´ì§??‹¹ ê²Œì‹œë¬? ?ˆ˜ -1
+			// ëë²ˆí˜¸ = ì‹œì‘ë²ˆí˜¸ + í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ìˆ˜ -1
 			pageEnd = pageBegin+PAGE_SCALE-1;
 		}
 		
@@ -95,20 +80,16 @@ public class BoardPager {
 			return totPage;
 		}
 		public void setTotPage(int count) {
-			// 91ê°œì˜ ê²Œì‹œë¬¼ì„ 10ê°œì”© 9?˜?´ì§?ë¥? ì²˜ë¦¬?•˜ê³? ?‚¨?? 1ê°œì˜ ê²Œì‹œë¬¼ë„ ?˜?´ì§??— ì¶œë ¥?•˜ê¸? ?œ„?•´?„œ?Š”
-			// ?•­?ƒ ?˜¬ë¦¼ìœ¼ë¡? ì²˜ë¦¬?•´?•¼?•œ?‹¤
-			// Math.ceil(?‹¤?ˆ˜) ?˜¬ë¦¼ì²˜ë¦?
-			// ëª¨ë“  ?˜?´ì§??Š” ?˜¤ë¦¶ì²˜ë¦?
+			//ì‹¤ìˆ˜ ì˜¬ë¦¼ì²˜ë¦¬
 			totPage = (int) Math.ceil(count*1.0 / PAGE_SCALE);
 		}
 		public int getTotBlock() {
 			return totBlock;
 		}
 		
-		// ?˜?´ì§? ë¸”ë¡?˜ ê°??ˆ˜ ê³„ì‚°(ì´? 100?˜?´ì§??¼ë©? 10ê°œì˜ ë¸”ë¡)
+		//í˜ì´ì§€ ë¸”ë¡ì˜ ê°¯ìˆ˜ ê³„ì‚° ( ì´ 100í˜ì´ì§€ë¼ë©´ 100ê°œì˜ ë¸”ë¡)
 		public void setTotBlock() {
-			// ? „ì²? ?˜?´ì§? ê°??ˆ˜ / 10
-			// 91 / 10 => 9.1 => 10ê°?
+			//ì „í˜ í˜ì´ì§€ ê°¯ìˆ˜ / 10 
 			totBlock = (int)Math.ceil(totPage / BLOCK_SCALE);
 		}
 		

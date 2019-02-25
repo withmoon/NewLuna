@@ -16,43 +16,43 @@ public class MgPCServiceImpl implements MgPCService {
 	@Autowired
 	private SalesDAO SalesDAO;
 	
-	/*¸ÅÃâÇöÈ² ¸®½ºÆ® DB*/ 
+	/*ë§¤ì¶œí˜„í™© ë¦¬ìŠ¤íŠ¸ DB*/  
 	@Override
 	public List<SalesVO> SalesList(int start, int end, String keyword) throws Exception {
-		System.out.println("SalesList ¼­ºñ½º");
+		System.out.println("SalesList ì„œë¹„ìŠ¤");
 		return SalesDAO.SalesList(start,end,keyword); 
 	}
 	@Override
 	public int countArticle(String keyword) {
-		System.out.println("countArticle ¼­ºñ½º");
+		System.out.println("countArticle ì„œë¹„ìŠ¤");
 		return SalesDAO.countArticle(keyword);
 	}
-	/*¸ÅÃâÇöÈ² ¿¢¼¿*/
+	/*ë§¤ì¶œí˜„í™© ì—‘ì…€*/
 	@Override
 	public List<Object> getExcelObject(Map<String, Object> searchMap) {
 		return null;
-		/*	System.out.println("SalesExcel ¼­ºñ½º");
-		//ÄÁÆ®·Ñ·¯¿¡¼­ ³Ñ¾î¿Â target¿¡ µû¶ó dao ½ÇÇà±¸ºĞ
-		System.out.println("Mg_sales DB ¿¢¼¿");
+		/*	System.out.println("SalesExcel ì„œë¹„ìŠ¤");
+		//ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ë„˜ì–´ì˜¨ targetì— ë”°ë¼ dao ì‹¤í–‰êµ¬ë¶„
+		System.out.println("Mg_sales DB ì—‘ì…€");
 		return SalesDAO.getSales(searchMap);
 		
-		if("Mg_sales") {//DBÀÌ¸§
-			System.out.println("Mg_sales DB ¿¢¼¿");
+		if("Mg_sales") {//DBï¿½Ì¸ï¿½
+			System.out.println("Mg_sales DB ì—‘ì…€");
 			return SalesDAO.getSales(searchMap);
 		}
 		if(target.equals("booksDetail")) {
-			System.out.println("Mg_sales DB ¿¢¼¿ Á¶°Ç½Ä");
+			System.out.println("Mg_sales DBì—‘ì…€ ì¡°ê±´ì‹");
 			return SalesDAO.getSalesDetail(searchMap);
 		}*/
 	}
 	@Override
 	public List<Object> excelList(SalesVO vo) {
-		System.out.println("SalesExcel ¼­ºñ½º");
+		System.out.println("SalesExcel ì„œë¹„ìŠ¤");
 		return SalesDAO.getSales(vo); 
 	}
 	@Override
 	public List<SalesVO> mgReserveList(SalesVO vo) {
-		System.out.println("mgReserveList ¼­ºñ½º");
+		System.out.println("mgReserveList ì„œë¹„ìŠ¤");
 		
 		return SalesDAO.mgReserveList(vo);
 	}

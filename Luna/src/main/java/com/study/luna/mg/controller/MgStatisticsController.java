@@ -10,21 +10,21 @@ import com.study.luna.mg.service.MgStatisticsService;
 
 @Controller
 public class MgStatisticsController {
-	// ¸ÅÃâÅë°è
+	// ë§¤ì¶œí†µê³„
 
 		@Autowired
 		public MgStatisticsService MgStatisticsService;
 
-		// ¿ù¸ÅÃâ
+		// ì›”ë§¤ì¶œ
 		@RequestMapping(value = "/mgSalesreserve.mdo")
 		public ModelAndView mgSalesReserveView(/*@RequestParam(defaultValue = "title") String searchOption,*/
 				@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
 				throws Exception {
 
-			// ·¹ÄÚµå°è»ê 
+			// ë ˆì½”ë“œê³„ì‚° 
 			//int count = MgService.countArticle(searchOption, keyword);
 
-			// ÆäÀÌÁö ³ª´©±âÃ³¸®
+			// í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬
 			/*BoardPager boardPager = new BoardPager(count, curPage);
 			int start = boardPager.getPageBegin();
 			int end = boardPager.getPageEnd(); 
@@ -49,9 +49,9 @@ public class MgStatisticsController {
 		public ModelAndView mgSalesMarketView(/*@RequestParam(defaultValue = "title") String searchOption,*/
 				@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
 				throws Exception {
-			// ·¹ÄÚµå°è»ê
+			// ë ˆì½”ë“œê³„ì‚°
 			//int count = MgService.countArticle(searchOption, keyword);
-			// ÆäÀÌÁö ³ª´©±âÃ³¸®
+			// í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬
 			/*BoardPager boardPager = new BoardPager(count, curPage);
 			int start = boardPager.getPageBegin();
 			int end = boardPager.getPageEnd();*/

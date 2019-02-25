@@ -3,6 +3,7 @@ package com.study.luna.mg.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,51 +13,83 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.mg.service.managerService;
+import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.MemberService;
 
 @Controller
 public class ManagerMainController {
-	//¸ŞÀÎÈ­¸é
-	
-	@Autowired 
-	private managerService managerService; 
-	
-	@RequestMapping(value="/manager.mdo", method=RequestMethod.GET)
-	public ModelAndView mainView(HttpServletRequest request) {
-		/*System.out.println("¸Å´ÏÀú È­¸é È£Ãâ ·Î±×ÀÎ ÀÎÁõ");
-		System.out.println(request.getParameter("id")+"´Ô");
-		if(request.getParameter("id")==null || request.getParameter("id").equals("")) {
-			System.out.println("¸Å´ÏÀú ÀÎÁõ ½ÇÆĞ");
+	// ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½
+
+	@Autowired
+	private managerService managerService;
+
+	@Autowired
+	MemberService memser;
+
+	@RequestMapping(value = "/manager.mdo", method = RequestMethod.GET)
+	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session)
+			throws Exception {
+		System.out.println("ë¡œê·¸ì¸ ì•„ì´ë””  ë°›ì•„ì˜¤ê¸°");
+
+		if (flashMap.get("id") == null || flashMap.get("id").equals("") && session.getAttribute("id") == null) {
+			System.out.println("ì¹´ì¹´ì˜¤ ë¡œê·¸ì¸ ì‹¤íŒ¨");
 			return logincheck();
-		}else {
-			Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
-		    System.out.println("Ä«Ä«¿À ·Î±×ÀÎ==>"+flashMap.get("id"));
-		}*/
-		
-		
-		//·Î±×ÀÎ¼ö +1;
+
+		} else {
+			flashMap = RequestContextUtils.getInputFlashMap(request);
+			System.out.println("ì¹´ì¹´ì˜¤ ë¡œê·¸ì¸ ==>" + flashMap.get("id"));
+			session.setAttribute("id", flashMap.get("id"));
+		}
+
+		// ë¡œê·¸ì¸ìˆ˜+1
 		managerService.logincount();
-		//¿¹¾à¼ö  
-		//???
-		
-		//·Î±×ÀÎ ¼ö °¡Á®¿À±â(ÇöÀç ·Î±×ÀÎ ¼ö¸¸)
+		// ì˜ˆì•½ìˆ˜
+		// ???
+
+		// ë¡œê·¸ì¸ ìˆ˜ ê°€ì ¸ì˜¤ê¸° (ë¡œê·¸ì¸ë§Œ - ë¡œê·¸ì¸ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ì²˜ë¦¬í• ê²ƒë“¤)
 		int count = managerService.login();
-		System.out.println("login :"+count);
-		
+		System.out.println("login :" + count);
+
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("count",count);
+		mv.addObject("count", count);
 		mv.setViewName("manager");
-		
+
 		return mv;
-	} 
-	
-	@RequestMapping(value="/loginX.mdo", method=RequestMethod.GET)
+	}
+
+	@RequestMapping(value = "/manager.mdo", method = RequestMethod.POST)
+	public ModelAndView mainView() {
+
+		// ë¡œê·¸ì¸ ìˆ˜ ê°€ì ¸ì˜¤ê¸° (ë¡œê·¸ì¸ë§Œ - ë¡œê·¸ì¸ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ì²˜ë¦¬í• ê²ƒë“¤)
+		int count = managerService.login();
+		System.out.println("login :" + count);
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("count", count);
+		mv.setViewName("manager");
+
+		return mv;
+	}
+
+	// ë§¤ë‹ˆì € ì¸ì¦ ì‹¤íŒ¨ì‹œ
+	@RequestMapping(value = "/loginX.mdo", method = RequestMethod.GET)
 	public ModelAndView logincheck() {
-		System.out.println("·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿");
+		System.out.println("ë§¤ë‹ˆì € ì¸ì¦ ì‹¤íŒ¨ ë¡œê·¸ì¸í™”ë©´ìœ¼ë¡œ ì´ë™");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/loginX");
-		
+
 		return mv;
-	} 
-	
-	
+	}
+
+	@RequestMapping("/logout.mdo")
+	public ModelAndView logout(MemberCommand memcom, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		memcom.setId((String) session.getAttribute("id"));
+		System.out.println(memcom);
+		memser.dnStatus(memcom);
+		session.invalidate();
+		mav.setViewName("redirect:/home.udo");
+		return mav;
+	}
+
 }
