@@ -389,3 +389,20 @@ footer{
 #fvPaging li{
 	display:table-cell;
 }
+#fvPaging a{
+	color:white;
+}
+#fvPaging a:hover{
+	cursor:pointer;
+	color:orange;
+}
+#alpaging{
+	position:relative;
+	top:30px;
+	left:40px;
+	color:black;
+}
+a{
+	font-size:2vw;
+		margin:1%;
+}

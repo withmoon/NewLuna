@@ -4,7 +4,13 @@
 <mapper namespace="alamDAO">
 	<!-- 알람 모두 가져옴--> 
 	<select id="getAlamlist" resultType="alam">
-		<![CDATA[select * from alam where id=#{id} and fromwhat!='question']]>
+		<include refid="mgQBoard.pagingHeader"></include>	
+		<![CDATA[select rownum as num,alam.* from alam where id=#{id}]]>
+		<include refid="mgQBoard.pagingFooter"></include>
+	</select>
+	
+	<select id="getAlamCount" resultType="Integer">
+		<![CDATA[select count(*) from alam where id=#{id}]]>
 	</select>
 	
 	<!-- 읽음 표시 --> 

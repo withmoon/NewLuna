@@ -25,20 +25,19 @@ var lsPageBox=3; //페이지 제한수
 
 $(function(){
 	getKeepList(1);
-	
+	getalamList(1);
 	//최근		  //테이블 전체 글수   , 테이블 id    , 테이블 tr id ,페이지ul아이디, 게시글번호제한, 페이지번호제한
 	firstPageView(lateTableCount,lateTaleId,lateTableTrId,lateUlid,ltlistlimit,ltPageBox);
 	//지난
 	firstPageView(lastTableCount,lastTableId,lastTableTrId,lastUlid,lslistlimit,lsPageBox);
 });
-
+//찜 리스트 가져옴
 function getKeepList(kcurpage){
 	$.ajax({      
 		type:"GET",  
 		url:"keeproomlist.udo",    
 		data:{curpage:kcurpage},     
 		success:function(data){
-			console.log(data.kpager.totPage);
 			var kstrDom='';
 			//방있을때
 			$("#fvTable").children().remove();
@@ -61,16 +60,61 @@ function getKeepList(kcurpage){
 			if(data.klist.length==0){
 				$("#nonroom").show();
 			}
-			//페이지처리
-			$("#fvPaging").children().remove();
-			var kpageDom='';
-			for(var i=0; i<data.kpager.totPage; i++){
-				kpageDom+='<a onclick="getKeepList('+(i+1)+')"><li>'+(i+1)+'</li></a>';
-			}
-			$("#fvPaging").append(kpageDom);
+			blockPage("fvPaging",kcurpage,data.kpager.BLOCK_SCALE,data.kpager.totPage,"kpli","getKeepList");
 		}
 	});
-	return;
+}
+
+//알림리스트 가져옴
+function getalamList(acurpage){
+	$.ajax({      
+		type:"GET",  
+		url:"alamlist.udo",    
+		data:{curpage:acurpage},     
+		success:function(data){
+			var astrDom='';
+			//방있을때
+			$("#notification2").children().remove();
+			for(var i=0; i<data.alist.length; i++){
+				//읽은거
+				astrDom+='<tr>';
+				if(data.alist[i].readst==1){
+					astrDom+='<td style="color:gray">'+data.alist[i].fromwho+'</td>';
+					astrDom+='<td style="color:gray">'+data.alist[i].content+'</td>';
+					astrDom+='<td style="color:gray">'+data.alist[i].almdate+'</td>';
+					if(data.alist[i].numforwhat!=-1){
+						astrDom+='<td> </td>';
+					}
+				}
+				//안읽은거
+				if(data.alist[i].readst==0){
+					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].fromwho+'</td>';
+					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].content+'</td>';
+					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].almdate+'</td>';
+					//환불요청이면
+					if(data.alist[i].numforwhat!=-1){
+						astrDom+='<td><button id="conf'+data.alist[i].seq+'" onclick="confirmCancle('+data.alist[i].seq+')">확인완료</button></td>';
+					}
+				}
+				//환불외의것들
+				if(data.alist[i].numforwhat==-1){
+					astrDom+='<td><button onclick="openElse('+data.alist[i].seq+',&#039'+data.alist[i].content+'&#039,&#039'+data.alist[i].fromwhat+'&#039)">내용보기</button></td>';
+				} 
+				astrDom+='</tr>';
+			}
+			//없으면
+			if(data.alist.length==0){
+				astrDom+='<tr><td colspan="4">알림이 없습니다.</td></tr>';
+			}
+			//방 없을때
+			if(data.alist.length==0){
+				$("#nonroom").show();
+			}
+			$("#notification2").append(astrDom);
+			
+			blockPage("alpaging",acurpage,data.apager.BLOCK_SCALE,data.apager.totPage,"alli","getalamList");
+		}
+	});
 }
 
 //첫 로딩시테이블 나눔
@@ -163,7 +207,7 @@ function goNextPaging(pagenum,tableId,trId,ulid,pagingListCt,listLimit,pageBox){
 
 function changeClr(tag){
 	var x = document.getElementById(tag.id);
-    x.style.fontSize = "20px";           
+    x.style.fontSize = "2.2vw";           
     x.style.color = "orange"; 
-    $(x).siblings().css({"color": "black","font-size":"1.7vw"});
+    $(x).siblings().css({"color": "black","font-size":"2vw"});
 }

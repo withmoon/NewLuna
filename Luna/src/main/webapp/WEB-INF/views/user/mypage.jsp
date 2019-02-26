@@ -17,6 +17,7 @@
 <script src="<c:url value="/resources/user/mypage/js/inputChk.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypage.js"/>"></script>
 <script src="<c:url value="/resources/user/mypage/js/mypajax.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 
 </head>
 <body style="overflow-x:hidden">
@@ -160,41 +161,10 @@
 
 		<!-- 알림 -->
 		<div class="allnon">
-		<p class="notification1">☏ 알림 ☏</p> <ul class="pagcls"><li>페</li><li>이</li><li>징</li><li>처</li><li>리</li></ul>
-		<table class="notification2">
-			<tbody>
-			<c:if test="${fn:length(alamlist) eq 0}">
-				<tr><td colspan="4">알림이 없습니다.</td></tr>
-			</c:if>
-			<c:if test="${fn:length(alamlist) ne 0}">
-				<c:forEach  var="alamlist" items="${alamlist}">
-					<tr> 
-						<!-- 읽은거는 color처리 -->
-						<c:if test="${alamlist.readst eq 1}">
-							<td style="color:gray">${alamlist.fromwho}</td>
-							<td style="color:gray">${alamlist.content}</td>
-							<td style="color:gray">${alamlist.almdate}</td>
-						</c:if>
-						<!-- 안 읽은거 colorX -->
-						<c:if test="${alamlist.readst eq 0}">
-							<td class="conf${alamlist.seq}">${alamlist.fromwho}</td>
-							<td class="conf${alamlist.seq}">${alamlist.content}</td>
-							<td class="conf${alamlist.seq}">${alamlist.almdate}</td>
-						</c:if>
-						
-						<td>
-							<c:if test="${alamlist.readst eq 0 and alamlist.numforwhat ne -1}">
-								<button id="conf${alamlist.seq}" onclick="confirmCancle(${alamlist.seq})">확인완료</button>
-							</c:if>
-							<c:if test="${alamlist.numforwhat eq -1}">
-								<button onclick="openElse(${alamlist.seq},'${alamlist.content}','${alamlist.fromwhat}')">내용보기</button>
-							</c:if>
-						</td>						
-					</tr>
-				</c:forEach>
-			</c:if>
-			</tbody>
+		<p class="notification1">☏ 알림 ☏</p> 
+		<table id="notification2" class="notification2">
 		</table>
+		<ul id="alpaging" class="pagcls"></ul>
 		</div>
 	
 	<!-- 정보수정 div -->
