@@ -35,11 +35,11 @@ public class MgRoomController {
 	@Autowired
 	public MgRoomService mgRoomService;
 	//저장할 파일폴더
-	String filePath = "C:\\myProject\\mySpring\\main.zip_expanded\\Luna\\src\\main\\webapp\\resources\\manager\\file\\";
+	String filePath = "C:\\Users\\JudeKim\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
 
 	//방관리화면
 		@RequestMapping(value = "/mgRoom.mdo")
-		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="roomName")String searchOption,
+		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="all")String searchOption,
 				@RequestParam(defaultValue="")String keyword) throws Exception {
 			//디렉토리 없으면 생성
 			File dir = new File(filePath); 
@@ -99,7 +99,7 @@ public class MgRoomController {
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		// �Ѿ�� ������ ����Ʈ�� ����
+		// 방file insert 하기
 		List<MultipartFile> mf = mrequest.getFiles("input_img");
 		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
 			System.out.println("파일이 없음");
@@ -131,7 +131,7 @@ public class MgRoomController {
 				}
 			}
 		}
-		return new ModelAndView("redirect:mgRoom.mdo");
+		return new ModelAndView("redirect:/mgRoom.mdo");
 	}
 
 	//방 상세보기
@@ -155,6 +155,7 @@ public class MgRoomController {
 	    } 
 		List<uploadfileVO> list = new ArrayList<uploadfileVO>(/*Collections.nCopies(5 , file)*/);
 		list= mgRoomService.RoomFile(roomnum); 
+		
 /*		for(int i=0; i<5; i++) {
 			if(list.get(i).getFname()==null) {
 				list.add(i).

@@ -44,8 +44,8 @@
 	<!-- 방생성 파일 -->
 	<insert id="RoomText" parameterType="Room">
 		 <![CDATA[
-		  INSERT INTO ROOM (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,Roomlocate,roomprice) 
-		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{Roomlocate},#{roomprice})
+		  INSERT INTO ROOM (ROOMNUM,BRANCHNAME ,ROOMNAME, ROOMEX1,ROOMEX2,ROOMEX3,ROOMEX4, ROOMEXPLAIN,ROOMWARN ,ROOMLOCATE,ROOMPRICE) 
+		  						VALUES (#{roomnum},#{branchName} , #{roomName},#{roomEx1}, #{roomEx2},#{roomEx3},#{roomEx4},#{roomExplain},#{roomWarn},#{roomLocate},#{roomPrice})
   		 ]]>
 	</insert>
 	<insert id="RoomFile" parameterType="hashmap">
@@ -73,7 +73,7 @@
 	 <![CDATA[
 	 UPDATE ROOM SET ROOMNAME=#{roomName},BRANCHNAME=#{branchName},ROOMEX1=#{roomEx1},
 	 ROOMEX2=#{roomEx2},ROOMEX3=#{roomEx3},ROOMEX4=#{roomEx4},ROOMEXPLAIN=#{roomExplain},
-	 ROOMWARN=#{roomWarn},INOWN=#{inown},JOOSU=#{joosu} WHERE ROOMNUM=#{roomnum}
+	 ROOMWARN=#{roomWarn},ROOMPRICE=#{roomPrice},ROOMLOCATE=#{roomLocate} WHERE ROOMNUM=#{roomnum}
 	  ]]>
 	</update>
 	<!-- 방업데이트file -->

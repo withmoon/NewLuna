@@ -58,7 +58,14 @@ public class BoardDAOImpl  implements BoardDAO{
 		map.put("id", id);
 		return SqlSession.selectOne("mgQBoard.countArticle", map);
 	}
-
+	
+	
+	@Override
+	public int mailstatus(QBoardVO vo) {
+		System.out.println("메일체크 DAO");
+		return SqlSession.update("mgQBoard.mailstatus",vo);
+	}
+ 
 
 
 }

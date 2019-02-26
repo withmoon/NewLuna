@@ -71,7 +71,7 @@
 					<!-- 이미지 / 방소개영역 -->
 					<div id="image">
 						<div>
-							<img id="img"  src= "/img/${file.get(0).getFname()}"/><br />이미지 영역
+							<img id="img"  src= "<c:url value='/resources/rooms/${file.get(0).getFname()}'/>"/><br />이미지 영역
 						</div><%--"C:\myProject\mySpring\main.zip_expanded\Luna\src\main\webapp\resources\manager\file\5f92e21c-33f8-43f1-9a78-186625e8c35e.jpg"  --%>
 						<div>
 							<input id="input_img" type="file" name="input_img">
@@ -82,8 +82,8 @@
 						지점명 : <input type="text" name="text2" value="${text.branchName}"><br/>
 						방이름 : <input type="text" name="roomName" value="${text.roomName }"><br/>
 						<%-- 등록일 : <input type="text" name="text3" value="<fmt:formatDate value='${text.day1}'/>"><br/> --%>
-						가 &nbsp;&nbsp;격 :<input type="text" name="text4" value="${text.Roomlocate}"><br/>
-				     	   주 &nbsp;&nbsp;소 : <input type="text" name="text5" value="${text.roomPrice}">
+						가 &nbsp;&nbsp;격 :<input type="text" name="text4" value="${text.roomPrice}"><br/>
+				     	   주 &nbsp;&nbsp;소 : <input type="text" name="text5" value="${text.roomLocate}">
 					</div>
 
 
@@ -100,16 +100,16 @@
 					<div id="file">
 						<ul id="fileul">
 							<li>방 이미지1 : <input type="file" name="input_img" id="input_img2" ><br/>
-								<div><img id="img2"   src="/img/${file.get(1).getFname()}"/></div>
+								<div><img id="img2"   src="<c:url value='/resources/rooms/${file.get(1).getFname()}'/>"/></div>
 							</li>
 							<li>방 이미지2 : <input type="file" name="input_img" id="input_img3"><br/>
-								<div><img id="img3" src="/img/${file.get(2).getFname()}" ></div>
+								<div><img id="img3" src="<c:url value='/resources/rooms/${file.get(2).getFname()}'/>"/></div>
 							</li>
 							<li>방 이미지3 : <input type="file" name="input_img" id="input_img4"><br/>
-								<div><img id="img4" src="/img/${file.get(3).getFname()}"/> </div>
+								<div><img id="img4" src="<c:url value='/resources/rooms/${file.get(3).getFname()}'/>"/> </div>
 							</li>
 							<li>방 이미지4 : <input type="file" name="input_img" id="input_img5"><br/>
-								<div><img id="img5"  src="/img/${file.get(4).getFname()}" /></div>
+								<div><img id="img5"  src="<c:url value='/resources/rooms/${file.get(4).getFname()}'/>"/></div>
 							</li>
 						</ul>
 					</div>

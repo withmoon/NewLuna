@@ -20,6 +20,9 @@ public interface BoardDAO {
 
 	//레코드 계싼
 	public int countArticle(String searchOption, String keyword, String id) throws Exception;
-		
+	
+	//메일체크
+	public int mailstatus(QBoardVO vo);
+	
 	}
 

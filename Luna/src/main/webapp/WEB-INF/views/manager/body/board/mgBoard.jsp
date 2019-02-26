@@ -15,6 +15,12 @@
 	function list(page) {
 		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
+
+	function mail_0(num,email) {
+	   	alert("클릭");
+	   	var url = "mailForm.mdo?num="+num+"&email="+email;
+		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	} 
 </script>
 <title>지점장 관리화면</title>
 </head>
@@ -27,7 +33,7 @@
 			<div id="letflogo">
 				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/></a>
 			</div>
-			<jsp:include page="form/TopMenu1.jsp"></jsp:include>
+			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
 		</div>
 		<%-- <div id="TopMenu2">
 					<jsp:include page="form/TopMenu2.jsp" />
@@ -39,10 +45,10 @@
 		<!-- 왼측1 사이드 -->
 		<div id="left1div">
 			<div id="search">
-				<jsp:include page="form/search.jsp" />
+				<jsp:include page="../../form/search.jsp" />
 			</div>
 			<aside id="left1">
-				<jsp:include page="form/left1_menu.jsp"></jsp:include>
+				<jsp:include page="../../form/left1_menu.jsp"></jsp:include>
 			</aside>
 		</div>
 		<!-- 중앙세션 -->
@@ -56,7 +62,9 @@
 				<form name="form1" method="post" action="mgBoard.mdo?">
 					<table id="searchtable">
 						<tr>
-							<td id="searchtd"><a id="write" onclick=" insertboard()" href="#">글쓰기</a>
+							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->
+								<!-- 레코드의 갯수를 출력 -->
+								<div id="write">${map.count}개의 게시물이 있습니다.</div>
 								<select name="searchOption">
 									<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
 									<option value="WRITER"  <c:out value="${map.searchOption == 'writer'?'selected' : '' }"/> >작성자</option>
@@ -67,16 +75,17 @@
 						</tr>
 					</table>
 				</form>
-
-				<!-- 레코드의 갯수를 출력 -->
-				${map.count }개의 게시물이 있습니다.
+	
+				<br/>
+				
 				<table id="boardtable">
 					<tr id="th1">
 						<th>번호</th>
 						<th class="th">제목</th>
 						<th class="th">작성자</th>
-						<th class="th">조회수</th>
 						<th class="th">작성일</th>
+						<th class="th">답장여부</th>
+						
 					</tr>
 					<!-- db에서 읽어들어와야하는 부분 -->
 					<!-- 예시로 데이터 작업 -->
@@ -85,10 +94,15 @@
 							<td>${list.num }</td>			
 							<td><a href="mgBoardview.mdo?num=${list.num}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
 							<td>${list.writer }</td>
-							<td>${list.ref }</td>
-							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
+							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
+							<c:if test="${list.mail==0 }">
+								<td><button onclick="mail_0('${list.num}','${list.email}');">답장하기</button></td>
+							</c:if>
+							<c:if test="${list.mail==1}">
+								<td><a href="#">답장확인</a></td>
+							</c:if>
 							
-						</tr>
+						</tr> 
 					</c:forEach>
 					<tr>
 						<td colspan="5">
@@ -128,7 +142,7 @@
 		</section>
 	</div>
 	<footer>
-		<jsp:include page="form/footer.jsp"></jsp:include>
+		<jsp:include page="../../form/footer.jsp"></jsp:include>
 	</footer>
 </body>
 

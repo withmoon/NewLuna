@@ -17,6 +17,9 @@ public interface MgService {
 
 	//레코드계산
 	public int countArticle(String searchOption, String keyword, String id)throws Exception;
+
+	//메일보내기 체크
+	public int mailstatus(QBoardVO vo);
 	
 	
 }
