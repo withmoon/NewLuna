@@ -1,6 +1,8 @@
 package com.study.luna.user.keeproom.dao.Impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,12 @@ public class GetKeeplistDAOImpl implements GetKeepListDAO {
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<RoomInfoDTO> getKeeplist(String id) {
-		return sqlSession.selectList("keepRoomDAO.getKeeplist",id);
+	public List<RoomInfoDTO> getKeeplist(int start, int end,String id) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("start",start);
+		map.put("end", end);
+		return sqlSession.selectList("keepRoomDAO.getKeeplist",map);
 	}
 
 }

@@ -35,7 +35,7 @@
 		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
 		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
 		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
-		where romp.id=#{id} and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')
+		where romp.id=#{id} and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
 		]]>
 	</select>
 	<!-- 6개월 단위로 자름 last list -->
@@ -46,7 +46,7 @@
 		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
 		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
 		where romp.id=#{id} and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
-		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')
+		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
 		]]>
 	</select>
 	

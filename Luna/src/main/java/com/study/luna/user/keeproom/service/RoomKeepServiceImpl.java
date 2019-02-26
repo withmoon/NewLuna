@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.user.dto.KeepRoomDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.keeproom.dao.Impl.DeletekroomDAOImpl;
+import com.study.luna.user.keeproom.dao.Impl.GetKeepCountDAOImpl;
 import com.study.luna.user.keeproom.dao.Impl.GetKeepStatusDAOImpl;
 import com.study.luna.user.keeproom.dao.Impl.GetKeeplistDAOImpl;
 import com.study.luna.user.keeproom.dao.Impl.KeeproomDAOImpl;
@@ -23,11 +24,12 @@ public class RoomKeepServiceImpl implements RoomKeepService {
 	DeletekroomDAOImpl dkrDAOImpl;
 	@Autowired
 	GetKeepStatusDAOImpl gksDAOImpl;
-	
+	@Autowired
+	GetKeepCountDAOImpl gkcDAOImpl;
 	
 	@Override
-	public List<RoomInfoDTO> getKeeplist(String id) {
-		return gklDAOImpl.getKeeplist(id);
+	public List<RoomInfoDTO> getKeeplist(int start, int end,String id){
+		return gklDAOImpl.getKeeplist(start,end,id);
 	}
 
 
@@ -47,6 +49,12 @@ public class RoomKeepServiceImpl implements RoomKeepService {
 	@Override
 	public Integer getKeepStatus(KeepRoomDTO krd) {
 		return gksDAOImpl.getKeepStatus(krd);
+	}
+
+
+	@Override
+	public Integer getKeepCount(String id) {
+		return gkcDAOImpl.getKeepCount(id);
 	}
 
 }

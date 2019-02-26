@@ -2,19 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="keepRoomDAO">
+	<!-- 찜리스트 가져옴 -->
 	<select id="getKeeplist" resultType="roomInfo">
-	<![CDATA[
-		select krom.roomnum,fname,roomname from keeproom krom join roomfile romf on romf.roomnum=krom.roomnum 
-		join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1]]>
+		<include refid="mgQBoard.pagingHeader"></include>	
+		<![CDATA[
+			select rownum as num,krom.roomnum,fname,roomname from keeproom krom join roomfile romf on romf.roomnum=krom.roomnum 
+			join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1]]>
+		<include refid="mgQBoard.pagingFooter"></include>
 	</select>
-	
+	<!-- 찜 리스트 카운트 -->
+	<select id="getKeepCount" resultType="int">
+		select count(*) from keeproom where id=#{id}
+	</select>
+	<!-- 찜여부확인 -->
 	<select id="getKeepStatus" resultType="int">
 		select count(*) from keeproom where id=#{id} and roomnum=#{roomnum}
 	</select>
-	
+	<!-- 찜하기 -->
 	<insert id="keeproom">
 		insert into keeproom values(#{id},#{roomnum})
 	</insert>
+	<!-- 찜안함 -->
 	<delete id="deletekroom">
 		delete keeproom where id=#{id} and roomnum=#{roomnum}
 	</delete>

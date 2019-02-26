@@ -123,18 +123,25 @@ b{
 	height:550px;;
 	left:3%;
 }
-.favorlist div{
-	position:relative;
-	float:left;
-	margin:3% 6%;
-	padding:1%;
-	width:35%;
-	border:1px solid white;
-}
 .favorlist img{
 	width:250px;
 	height:140px;
-	margin:5%;
+}
+.favorlist table{
+	border-spacing:80px 20px;
+  	border-collapse: separate;
+	
+}
+.favorlist table tr td{
+	text-align:center;
+	width:10%;
+	padding:2%;
+	border:1px solid white;
+	border-radius:40px;
+}
+.favorlist table tr td a{
+	color:white;
+	text-decoration:none;
 }
 .favorites1 a{
 	font-size:1.8vw;
@@ -198,10 +205,10 @@ b{
 	position:relative;
 	border-top:1.5px solid teal;
 	border-bottom:1.5px solid teal;
-	top:45px;
-	left:18%;
+	top:20px;
+
 	padding:2%;
-	width:60%;
+	width:96%;
 }
 
 .line2 button{
@@ -215,8 +222,16 @@ input[type=date]{
 }
 #lastReservList{
 	position:relative;
-	top:50px;
+	top:30px;
 
+}
+#lastReservList table{
+	border-top:2px solid teal;
+	border-bottom:2px solid teal;
+}
+#lastReservList table th{
+	border-top:2px solid teal;
+	border-bottom:2px solid teal;
 }
 /*룸없을때 나타남*/
 .noroom {
@@ -297,18 +312,25 @@ input[type=date]{
 }
 .lastSearch{
 	position:relative;
-	top:30px;
+	top:10px;
+	left:-5px;
 }
 .lastSearch b{
 	color:teal;
 }
+/* 최근내역 페이징 css */
 .pagcls{
 	text-decoration:none;
 }
 .pagcls li{
 	position:relative;
-	left:360px;
+	left:350px;
+	top:-30px;
 	display:table-cell;
+}
+.pagcls a:hover{
+	color:orange;
+	cursor:pointer;
 }
 /*환불 div*/
 .ccReserDiv{
@@ -335,6 +357,20 @@ input[type=date]{
 	top:-35px;
 	left:30%;
 }
+/* 나중 내역 페이징 css */
+.lppagcls{
+	position:relative;
+	top:-10px;
+	text-decoration: none;
+}
+.lppagcls li{
+	clear:both;
+	display:table-cell;
+}
+.lppagcls a:hover{
+	color:orange;
+	cursor:pointer;
+}
 /* footer */
 footer{
 	position:relative;
@@ -343,8 +379,13 @@ footer{
 	width:102%;
 	margin:0 -5% 0 0;
 }
-.clickable {cursor: pointer;}
-.hover {text-decoration: underline;}
-.odd{ background: #FFC;}
-.even{ background: #FF9;}
-.active{ width:10px; height:10px; background:#f60; color:white;}
+#fvPaging{
+	position:relative;
+	top:-25px;
+	color:white;
+	text-decoration:none;
+	left:41%;
+}
+#fvPaging li{
+	display:table-cell;
+}

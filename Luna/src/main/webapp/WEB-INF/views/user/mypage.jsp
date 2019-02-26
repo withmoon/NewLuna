@@ -49,19 +49,11 @@
 		<div class="favorites1">
 		<label>❣ 내가 찜한 방 ❣</label><a href="#" id="display1" onclick="displayBoard(1)">찜리스트 보이기</a>
 			<div class="favorlist">
-			<c:if test="${fn:length(keeplist) eq 0}">
-				<div>
+				<div id="nonroom" hidden="true"><!-- 방 없을때만 나옴 -->
 					ㅜ찜한방이 아직 없습니다ㅜ
 				</div>
-			</c:if>
-			<c:if test="${fn:length(keeplist) ne 0}">
-				<c:forEach  var="keeplist" items="${keeplist}">
-					<div><a href="roomDetail.udo?roomnum=${keeplist.roomNum}"><img src="<c:url value="/resources/rooms/${keeplist.fname}"/>"><br/>${keeplist.roomName}</a></div>
-				</c:forEach>
-			</c:if>
-			
-
-			<p>페이징</p>
+			<table id="fvTable"></table>
+			<ul id="fvPaging"></ul>
 			</div>
 		</div>
 		
@@ -79,8 +71,8 @@
 
 				<!-- 최근내역중  -->	
 				<div id="latelyReservList">
-					<b>최근 예약 내역</b><ul id="latelyPg" class="pagcls">	<li>&lt;&emsp;</li><li>페&emsp;</li><li>이&emsp;</li><li>징&emsp;</li><li>&gt;<li></ul>
-					<table>
+					<b>최근 예약 내역</b><ul id="ltPaging" class="pagcls"></ul>
+					<table id="lateTable">
 						<thead>
 							<tr>
 								<th>예약하신 날짜</th>
@@ -97,8 +89,8 @@
 							<tr><td colspan="7">최근 예약된 방이 없습니다.</td></tr>
 						</c:if>
 						<c:if test="${fn:length(latelyreserInfo) ne 0}">
-							<c:forEach  var="latelyreserInfo" items="${latelyreserInfo}">
-								<tr>
+							<c:forEach  var="latelyreserInfo" items="${latelyreserInfo}" begin="1" end="${fn:length(lastreserInfo)}" step="1" varStatus="status">
+								<tr hidden="true" id="ltd${status.index}" >
 									<td>${latelyreserInfo.reservdate}</td>
 									<td>${latelyreserInfo.branchName}</td>
 									<td>${latelyreserInfo.roomName}</td>
@@ -131,14 +123,13 @@
 				</div>
 				
 				<div id="lastReservList">
-				<table class="tbl paginated" id="tbl">
+				<table id="lastTable">
 					<thead>
 						<tr>
-							<th>지점</th>
-							<th>룸</th>
 							<th>날짜</th>
 							<th>시간</th>
-							<th>예약</th>
+							<th>지점</th>
+							<th>룸</th>
 							<th>비고</th>
 						</tr>
 					</thead>
@@ -147,13 +138,12 @@
 						<tr><td colspan="7">6개월간 예약된 방이 없습니다.</td></tr>
 					</c:if>
 					<c:if test="${fn:length(lastreserInfo) ne 0}">
-						<c:forEach  var="lastreserInfo" items="${lastreserInfo}">
-						<tr>
-							<td>${lastreserInfo.branchName}</td>
-							<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${lastreserInfo.roomNum}'">${lastreserInfo.roomName}</a></td>
+						<c:forEach  var="lastreserInfo" items="${lastreserInfo}" begin="1" end="${fn:length(lastreserInfo)}" step="1" varStatus="status">
+						<tr hidden="true" id="ld${status.index}">
 							<td>${lastreserInfo.reservdate}</td>
 							<td>${lastreserInfo.starttime}~${lastreserInfo.endtime}</td>
-							<td>예약 완료</td>
+							<td>${lastreserInfo.branchName}</td>
+							<td><a href="javascript:window.location.href='roomDetail.udo?roomnum=${lastreserInfo.roomNum}'">${lastreserInfo.roomName}</a></td>
 							<td>
 							<button class="reviewBtn${lastreserInfo.imp_uid}" onclick="openReview(${lastreserInfo.roomNum})">리뷰쓰기</button>
 							<button onclick="window.open('${lastreserInfo.receipt_url}','window_name','width=500,height=750,location=no,status=no')">영수증</button>
@@ -163,13 +153,7 @@
 					</c:if>
 				</tbody>
 				</table>
-				<ul class="pagcls">
-						<li>페</li>
-						<li>이</li>
-						<li>징</li>
-						<li>처</li>
-						<li>리</li>
-					</ul>
+				<ul id="lastPaging" class="lppagcls"></ul>
 				</div>
 			</div>
 		</div>
@@ -212,7 +196,6 @@
 			</tbody>
 		</table>
 		</div>
-		<script src="<c:url value="/resources/user/mypage/js/pageajax.js"/>"></script>
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">
@@ -297,7 +280,7 @@
 				</tr>
 			</table>
 		</div>
-	
+	<script src="<c:url value="/resources/user/mypage/js/pageajax.js"/>"></script>
 	<!-- footer -->
 	<footer>
 		<%@ include file="../public/footer.jsp" %>

@@ -70,17 +70,11 @@ public class UserMypageController {
 		//알림 정보 가져오기
 		List<AlamDTO> myalam=new ArrayList<AlamDTO>();
 		myalam=alser.getAlamlist(memcom);
-		
-		//찜리스트 가져오기
-		List<RoomInfoDTO> keeplist=new ArrayList<RoomInfoDTO>();
-		keeplist=rkser.getKeeplist(memcom.getId());
-		
-		
+
 		memcom=memser.getMyPageInfo(memcom);
 		mav.addObject("latelyreserInfo",mypReservInfo);
 		mav.addObject("lastreserInfo",myReservedInfo);
 		mav.addObject("alamlist",myalam);
-		mav.addObject("keeplist",keeplist);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;
