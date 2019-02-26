@@ -66,10 +66,4 @@
 		select roomnum,filenum,fname from roomfile where roomnum=#{roomNum}
 	</select>
 	
-	<!-- review 가져오기 -->
-	<select id="getRoomAllReview" resultType="roomReview">
-		<![CDATA[select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
-				 join member mem on romr.id=mem.id where roomNum=#{roomNum}]]>
-	</select>
-	
 </mapper>

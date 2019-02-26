@@ -1,4 +1,4 @@
-package com.study.luna.user.room.dao.Impl;
+package com.study.luna.user.review.dao.Impl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.study.luna.user.dto.RoomReviewDTO;
-import com.study.luna.user.room.dao.GetRoomAllReviewDAO;
+import com.study.luna.user.review.dao.GetRoomAllReviewDAO;
 @Repository
 public class GetRoomAllReviewDAOImpl implements GetRoomAllReviewDAO {
 
@@ -16,7 +16,7 @@ public class GetRoomAllReviewDAOImpl implements GetRoomAllReviewDAO {
 	
 	@Override
 	public List<RoomReviewDTO> getRoomAllReview(int roomnum) {
-		return sqlSession.selectList("roomDAO.getRoomAllReview",roomnum);
+		return sqlSession.selectList("reviewDAO.getRoomAllReview",roomnum);
 	}
 
 }

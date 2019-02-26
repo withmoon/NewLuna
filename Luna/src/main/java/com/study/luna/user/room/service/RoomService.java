@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.study.luna.user.dto.RoomFileDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
-import com.study.luna.user.dto.RoomReviewDTO;
 
 public interface RoomService {
 	//--Home,LookOver--
@@ -23,6 +22,4 @@ public interface RoomService {
 	RoomInfoDTO getDetailRoomInfo(RoomInfoDTO romin);
 	//방 사진들 가져오기
 	List<RoomFileDTO> getRoomAllimg(int roomnum);
-	//리뷰 가져오기
-	List<RoomReviewDTO> getRoomAllReview(int roomnum);
 }

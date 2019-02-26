@@ -21,7 +21,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
-import com.study.luna.user.alamandqa.service.AlamServiceImpl;
 import com.study.luna.user.dto.AlamDTO;
 import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
@@ -62,6 +61,8 @@ public class UserMypageController {
 		//지난 예약 정보 가져옴
 		List<MyPageInfoDTO> myReservedInfo=new ArrayList<MyPageInfoDTO>();
 		myReservedInfo=parser.getUserReservedInfo(memcom);
+		
+		//review 작성한 방 번호 가지고옴
 		
 		
 

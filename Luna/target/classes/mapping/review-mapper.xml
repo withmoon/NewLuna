@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewDAO">
+	<!-- review 가져오기 -->
+	<select id="getRoomAllReview" resultType="roomReview">
+		<![CDATA[select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
+				 join member mem on romr.id=mem.id where roomNum=#{roomNum}]]>
+	</select>
+	
+	<!-- room 총점 가져옴 -->
+	<select id="getReviewStarAvg" resultType="String">
+		<![CDATA[select SUBSTR(Avg(starCt),1,4) from roomreview where roomNum=#{roomNum}]]>
+	</select>
+	
+	<!-- review 넣기 -->
+	<insert id="insertReview">
+		<![CDATA[insert into roomReview values(#{roomNum},#{reviewContent},#{id},default,#{starCt})]]>
+	</insert>
+</mapper>

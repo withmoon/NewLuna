@@ -41,8 +41,10 @@
       <mapper resource="mapping/payment-mapper.xml"/>
       <!-- 알림질문 -->
       <mapper resource="mapping/alam-mapper.xml" />
-        <!-- 알림질문 -->
+        <!-- 찜관련 -->
       <mapper resource="mapping/keeproom-mapper.xml" />
+      <!-- 예약관련 -->
+      <mapper resource="mapping/review-mapper.xml" />
 
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />

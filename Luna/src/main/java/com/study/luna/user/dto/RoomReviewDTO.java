@@ -11,4 +11,5 @@ public class RoomReviewDTO {
      String name;
      String id;
      String writedate;
+     int starCt;
 }

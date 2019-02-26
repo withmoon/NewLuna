@@ -1,4 +1,4 @@
-package com.study.luna.user.room.dao;
+package com.study.luna.user.review.dao;
 
 import java.util.List;
 
