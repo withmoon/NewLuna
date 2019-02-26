@@ -45,6 +45,12 @@ public class mgServiceImpl  implements MgService{
 		System.out.println("countArticle 레코드계산");
 		return boardDAO.countArticle(searchOption, keyword,id);
 	}
+	//메일보내기체크
+	@Override
+	public int mailstatus(QBoardVO vo) { 
+		System.out.println("mailstatus 서비스"); 
+		return boardDAO.mailstatus(vo);
+	}
 
 
 

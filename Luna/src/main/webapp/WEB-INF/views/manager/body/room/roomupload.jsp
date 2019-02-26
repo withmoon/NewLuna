@@ -48,8 +48,7 @@
 			<div id=header>
 				<header>방 생성</header>
 			</div>
-			<form name="form" id="form" method="post"
-				enctype="multipart/form-data" action="uploadFile.mdo">
+			<form name="form" id="form" method="post" enctype="multipart/form-data" action="uploadFile.mdo">
 				<div id="roominsert">
 					<!-- 이미지 / 방소개영역 -->
 					<div id="image">
@@ -65,7 +64,7 @@
 						지점명 : <input type="text" name="branchName"><br/>
 						방이름 : <input type="text" name="roomName"><br/>
 						<!-- 등록일 : <input type="text" name="day1"><br/> -->
-						가 &nbsp;&nbsp;격 : <input type="text" name="Roomlocate"><br/>
+						가 &nbsp;&nbsp;격 : <input type="text" name="roomLocate"><br/>
 				      	  주 &nbsp;&nbsp;소 : <input type="text" name="roomPrice">
 					</div>
 

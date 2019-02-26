@@ -28,31 +28,31 @@ public class RoomDAOImpl implements RoomDAO {
 	}
 	@Override //룸 text db
 	public int roomupload(RoomVO vo) {
-		System.out.println("roomtext DB ����");
+		System.out.println("roomtext DB 수행");
 		return SqlSession.insert("mgRoomDAO.RoomText",vo);
 	}
 	@Override  //룸 file db
 	public int uploadFile(HashMap<String, Object> hm) throws Exception {
-		System.out.println("roomfile DB ����");
+		System.out.println("roomfile DB 수행");
 		return SqlSession.insert("mgRoomDAO.RoomFile",hm); 
 	}
 	//룸 상세보기 text
 	@Override
 	public RoomVO mgRoomRead(int roomnum) throws Exception {
-		System.out.println("roomList �󼼺��� DAO");
+		System.out.println("roomList text DAO");
 		return SqlSession.selectOne("mgRoomDAO.RoomSelect",roomnum);
 	}
 	//룸 상세보기 file
 	@Override
 	public List<uploadfileVO> mgRoomFile(int roomnum) {
-		System.out.println("roomfile �󼼺��� DAO");
+		System.out.println("roomfile text DAO");
 		return SqlSession.selectList("mgRoomDAO.RoomFileSelect",roomnum);
 	}
 	
 	//업데이트 수정하기
 	@Override
 	public void mgRoomTextupdate(RoomVO vo) {
-		System.out.println("roomtext  update DAO");
+		System.out.println("roomtext update DAO");
 		SqlSession.update("mgRoomDAO.RoomTextInsert",vo);
 	}
 	@Override //파일수정

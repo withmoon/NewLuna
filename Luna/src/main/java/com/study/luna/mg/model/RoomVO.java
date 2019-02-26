@@ -124,6 +124,7 @@ public class RoomVO {
 	public void setComeRoute(String comeRoute) {
 		this.comeRoute = comeRoute;
 	}
+	
 	public String getRoomLocate() {
 		return roomLocate;
 	}

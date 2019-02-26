@@ -114,7 +114,7 @@
 						<th>주소</th>
 						<th>가격</th>
 					</tr>
-					<c:forEach items="${list}" var="list">
+					<c:forEach items="${map.list}" var="list">
 						<tr>
 							<td>${list.roomnum}</td>
 							<td><a href="mgRoomView.mdo?roomnum=${list.roomnum}">${list.branchName}</a></td>

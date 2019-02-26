@@ -36,8 +36,9 @@ public class MgSalesController {
 		// 레코드계산
 		int count = MgPCService.countArticle(keyword);
 
-		System.out.println("Ű���� :" + keyword.toString());
-
+		System.out.println("키워드 :" + keyword.toString());
+		System.out.println("카운트 :" + count);
+		
 		int page_scale = 7;
 		int block_sclae = 3;
 		// 페이지 나누기처리
@@ -57,7 +58,7 @@ public class MgSalesController {
 		mv.setViewName("body/presentCondition/mgSales");
 		mv.addObject("map", map);
 
-		System.out.println("Mg_sales ��Ʈ�ѷ�");
+		System.out.println("mgsales 화면");
 		return mv;
 	}
 

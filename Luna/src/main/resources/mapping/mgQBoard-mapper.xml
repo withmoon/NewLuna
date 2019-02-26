@@ -60,8 +60,10 @@
 		select * from  QUESTIONBOARD where title = #{title}
 	</select> -->
 
-
-
+	<!-- 메일체크 -->
+	<update id="mailstatus">
+		update QUESTIONBOARD set mail= 1 where num=#{num} and id=#{id}
+	</update>
 
 
 
