@@ -110,8 +110,11 @@
 							<td>${list.branchname }</td>
 							<td>${list.roomnum }</td>
 							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
+							<c:if test="${list.status==-2}">
+								<td><a href="#">환불신청</a></td>
+							</c:if>
 							<c:if test="${list.status==-1}">
-								<td><a href="mgRoomView.mdo?roomnum=${list.roomnum}">환불</a></td>
+								<td>환불완료</td>
 							</c:if>
 							<c:if test="${list.status==0}">
 								<td>결제실패</td>

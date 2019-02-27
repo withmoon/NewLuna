@@ -50,8 +50,8 @@
 	</insert>
 	<insert id="RoomFile" parameterType="hashmap">
 		 <![CDATA[
-		  INSERT INTO ROOMFILE (ROOMNUM,FILENUM,ONAME,FNAME,SAVEPATH) 
-		  							VALUES ( #{roomnum},#{filenum}, #{originalfileName}, #{saveFileName},#{savePath})
+		  INSERT INTO ROOMFILE (ROOMNUM,FILENUM,ONAME,FNAME) 
+		  							VALUES ( #{roomnum},#{filenum}, #{originalfileName})
   		 ]]>
 	</insert>
 
@@ -79,7 +79,7 @@
 	<!-- 방업데이트file -->
 	<update id="RoomFileInsert" parameterType="hashmap">
 	 <![CDATA[
-	 update ROOMFILE SET ONAME= #{originalfileName},FNAME=#{saveFileName}, SAVEPATH=#{savePath}
+	 update ROOMFILE SET ONAME= #{originalfileName},FNAME=#{saveFileName}
 	 WHERE ROOMNUM= #{roomnum} and  FILENUM = #{filenum}
 	 ]]>
 	</update>

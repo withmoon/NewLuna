@@ -128,8 +128,11 @@ public class MgBoardController {
 	// mailForm
 	@RequestMapping(value = "/mailForm.mdo")
 	public String mailForm() {
-
 		return "/body/mailForm";
+	}
+	@RequestMapping(value = "/mailView.mdo")
+	public String mailView() {
+		return "/body/mailView";
 	}
 
 	// mailSending 코드
@@ -157,7 +160,10 @@ public class MgBoardController {
 		}
 		vo.setNum(Integer.parseInt(request.getParameter("num")));  
 		vo.setEmail(request.getParameter("email"));
+		vo.setEmailtitle(request.getParameter("emailtitle"));
+		vo.setEmailcontent(request.getParameter("emailcontent"));
 		vo.setId((String)session.getAttribute("id"));
+		
 		MgService.mailstatus(vo);
 		
 		//리턴시 스크립트 화면이동이 막혀  모든 기능을 수행후  슬립

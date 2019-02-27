@@ -127,7 +127,14 @@ public class MgSalesController {
 
 	//
 	@RequestMapping(value = "/mgRefund.mdo", method = RequestMethod.GET)
-	public String mgRefundView() {
-		return "body/presentCondition/mgRefund";
+	public ModelAndView mgRefundView(SalesVO vo) {
+		
+		List<SalesVO> list = MgPCService.mgReserveList(vo);
+ 
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", list);
+		mv.setViewName("body/presentCondition/mgRefund");
+
+		return mv;
 	}
 }

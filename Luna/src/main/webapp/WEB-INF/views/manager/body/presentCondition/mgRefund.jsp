@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +53,7 @@
 </head>
 <body>
 	<!-- 상단바 -->
-	<nav id="TopNav">
+	<nav id="TopNav"> 
 		<!-- 상단 탭 -->
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
@@ -97,59 +98,28 @@
 					<tr id="ttr1">
 						<th>No.</th>
 						<th>ID</th>
-						<th>AGE</th>
-						<th>결제일</th>
-						<th>인원</th>
+						<th>방이름</th>
+						<th>룸번호</th>
 						<th>예약일</th>
 						<th>승인</th>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>GD</td>
-						<td>20대</td>
-						<td>19/01/01</td>
-						<td>3인</td>
-						<td>19/01/07 AM 9:00-10:00</td>
-						<td>환불완료</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>TOP</td>
-						<td>20대</td>
-						<td>19/01/02</td>
-						<td>3인</td>
-						<td>19/01/07 AM 9:00-10:00</td>
-						<td>처리중</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>TAEYANG</td>
-						<td>20대</td>
-						<td>19/01/03</td>
-						<td>2인</td>
-						<td>19/01/07 AM 9:00-10:00</td>
-						<td>처리중</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>J</td>
-						<td>20대</td>
-						<td>19/01/03</td>
-						<td>1인</td>
-						<td>19/01/07 AM 9:00-10:00</td>
-						<td>환불신청</td>
-						<td><button type="button">환불</button></td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>X</td>
-						<td>20대</td>
-						<td>19/01/03</td>
-						<td>1인</td>
-						<td>19/01/07 AM 9:00-10:00</td>
-						<td>환불신청</td>
-						<td><button type="button">환불</button></td>
-					</tr>
+					<c:forEach var="list" items="${list }">
+						<tr>
+							<c:if test="${list.status eq -2 || list.status eq -1}">
+							<td>${list.seq }</td>			
+							<td>${list.imp_uid}</td>	
+							<td>${list.branchname }</td>
+							<td>${list.roomnum }</td>
+							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
+							<c:if test="${list.status==-2}">
+								<td><a href="#">환불</a></td>
+							</c:if>
+							<c:if test="${list.status==-1}">
+								<td>환불완료</td>
+							</c:if>
+							</c:if>
+						</tr>
+					</c:forEach>
 				</table>
 			</div>
 		</section>

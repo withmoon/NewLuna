@@ -23,6 +23,5 @@ public interface BoardDAO {
 	
 	//메일체크
 	public int mailstatus(QBoardVO vo);
-	
 	}
 

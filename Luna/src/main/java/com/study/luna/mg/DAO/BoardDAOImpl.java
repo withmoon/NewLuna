@@ -65,7 +65,6 @@ public class BoardDAOImpl  implements BoardDAO{
 		System.out.println("메일체크 DAO");
 		return SqlSession.update("mgQBoard.mailstatus",vo);
 	}
- 
 
 
 }

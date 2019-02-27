@@ -64,8 +64,8 @@
 						지점명 : <input type="text" name="branchName"><br/>
 						방이름 : <input type="text" name="roomName"><br/>
 						<!-- 등록일 : <input type="text" name="day1"><br/> -->
-						가 &nbsp;&nbsp;격 : <input type="text" name="roomLocate"><br/>
-				      	  주 &nbsp;&nbsp;소 : <input type="text" name="roomPrice">
+						 가 &nbsp;&nbsp;격 : <input type="text" name="Price"><br/>
+				      	 주 &nbsp;&nbsp;소 : <input type="text" name="roomLocate">
 					</div>
 
 

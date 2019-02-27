@@ -83,17 +83,42 @@
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
-				<header>판매 현황</header>
+				<header>매출 현황</header>
 			</div>
 			
 			<div>
-		<div id="ex">
-			<ul>
-				<li><input type="text" class="text" placeholder="DATE를 입력하세요.">
+		<div id="ex"><%-- 
+		<form name="form1" method="post" action="mgBoard.mdo?">
+					<table id="searchtable">
+						<tr>
+							<td id="searchtd"><a id="write" onclick=" insertboard()" href="#">글쓰기</a>
+								<select name="searchOption">
+									<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
+									<option value="WRITER"  <c:out value="${map.searchOption == 'writer'?'selected' : '' }"/> >작성자</option>
+							</select> 
+							<input name="keyword"  value="${map.keyword }"> 
+							<input	 type="submit" value="검색">
+							</td>
+						</tr>
+					</table>
+				</form> --%>
+		<form name="form1" method="post" action="mgSales.mdo?">	
+			<ul id="serch">
+				<li>
+					<select  name="searchOption">
+						<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
+						<option value="WRITER"  <c:out value="${map.searchOption == 'writer'?'selected' : '' }"/> >작성자</option>
+					</select> 
+					<!-- <input type="text" class="text" placeholder="DATE를 입력하세요."> -->
 				</li>
-				<li id="exb"><input type="button" value="조회"></li>
-				<li><a href="excelDownload.mdo">엑셀 내려받기</a></li>
+				<li id="exb">
+					<input type="button" value="조회">
+				</li>
+				<li>
+					<a href="excelDownload.mdo">엑셀 내려받기</a>
+				</li>
 			</ul>
+		</form>
 		</div>
 
 		<!-- db데이터 -->

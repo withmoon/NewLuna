@@ -90,6 +90,7 @@ public class MgRoomController {
 			String roomWarn = vo.getRoomWarn().replace("\r\n", "<br>");
 			vo.setRoomWarn(roomWarn);
 		}
+		vo.setRoomPrice(Integer.parseInt(vo.getPrice()));
 		mgRoomService.mgRoomUpload(vo);
 
 		HttpSession session = req.getSession();
@@ -179,8 +180,8 @@ public class MgRoomController {
 		vo.setRoomnum(Integer.parseInt(req.getParameter("text1")));
 		vo.setBranchName(req.getParameter("text2"));
 		vo.setRoomName(req.getParameter("roomName"));
-		vo.setInown(req.getParameter("text4"));
-		vo.setJoosu(req.getParameter("text5"));
+		vo.setRoomPrice(Integer.parseInt( req.getParameter("roomPrice")));
+		vo.setRoomLocate(req.getParameter("roomLocate"));
 		vo.setRoomEx1(req.getParameter("text6"));
 		vo.setRoomEx2(req.getParameter("text7"));
 		vo.setRoomEx3(req.getParameter("text8"));

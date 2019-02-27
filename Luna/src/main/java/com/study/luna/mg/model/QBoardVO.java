@@ -5,13 +5,28 @@ import java.util.Date;
 public class QBoardVO {
 	private int num;
 	private String title;
+	private String emailtitle;
 	private String writer;
 	private Date regdate;
 	private String content;
 	private String email;
+	private String emailcontent;
 	private int mail;
 	private String id;
 	
+	
+	public String getEmailtitle() {
+		return emailtitle;
+	}
+	public void setEmailtitle(String emailtitle) {
+		this.emailtitle = emailtitle;
+	}
+	public String getEmailcontent() {
+		return emailcontent;
+	}
+	public void setEmailcontent(String emailcontent) {
+		this.emailcontent = emailcontent;
+	}
 	public int getNum() {
 		return num;
 	}

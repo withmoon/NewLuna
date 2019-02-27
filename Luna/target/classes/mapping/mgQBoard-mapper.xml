@@ -21,7 +21,7 @@
 		<include refid="pagingHeader"></include>	
 			select * from QUESTIONBOARD 
 		<include refid="search"></include>	 
-		order by num DESC, regdate desc
+		order by NUM DESC , regdate desc
 		<include refid="pagingFooter"></include>
 	</select>
 
@@ -42,7 +42,7 @@
 	 </sql>
 	 <sql id="pagingFooter">
 	 		)A
-	 	)where rn  between #{start} and #{end}
+	 	)where rn  between #{start} and #{end} 
 	 </sql>
 	
 	<!-- 질문게시판 -->
@@ -62,10 +62,9 @@
 
 	<!-- 메일체크 -->
 	<update id="mailstatus">
-		update QUESTIONBOARD set mail= 1 where num=#{num} and id=#{id}
+		update QUESTIONBOARD set mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where num=#{num} and id=#{id}
 	</update>
-
-
+	
 
 
 

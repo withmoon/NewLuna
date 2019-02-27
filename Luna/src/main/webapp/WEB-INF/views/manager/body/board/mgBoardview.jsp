@@ -49,6 +49,22 @@ table, th, td {
 		});
 	});
 	//URLEncoder. encodeURIComponent
+	
+	function list(page) {
+		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+	}
+
+	function mail_0(num,email) {
+	   	alert("클릭");
+	   	var url = "mailForm.mdo?num="+num+"&email="+email;
+		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	} 
+	
+	function mail_1(num,emailtitle,emailcontent,email) {
+	   	alert("클릭");
+	   	var url = "mailView.mdo?num="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	}
 </script>
 <title>지점장 관리화면</title>
 </head>
@@ -117,7 +133,7 @@ table, th, td {
 						<td><button onclick="mail_0('${view.num}','${view.email}');">답장하기</button></td>
 					</c:if>
 					<c:if test="${view.mail==1}">
-						<td><a href="#">답장확인</a></td>
+						<td><a href="#" onclick="mail_1('${view.num }','${view.emailtitle }','${view.emailcontent }','${view.email }')">답장확인</a></td>
 					</c:if>
 				</form>
 			</div>

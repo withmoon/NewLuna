@@ -41,25 +41,25 @@ window.close(); */
 				<!-- 받는 사람 이메일 -->
 				<input type="text" name="tomail" size="120" style="width: 100%"
 					value="${param.email}" class="form-control">
-			</div>
+			</div> 
 			<br>
 			<div align="center">
 				<!-- 제목 -->
-				<input type="text" name="emailtitle" size="120" style="width: 100%"
-					placeholder="제목을 입력해주세요" class="form-control">
+				<input type="text" name="title" size="120" style="width: 100%"
+					value="${param.emailtitle }" class="form-control">
 			</div>
 			<p>
 			<div align="center">
 				<!-- 내용 -->
-				<textarea name="emailcontent" cols="120" rows="12"
+				<textarea name="content" cols="120" rows="12"
 					style="width: 100%; resize: none" placeholder="내용#"
-					class="form-control"></textarea>
+					class="form-control">${param.emailcontent}</textarea>
 			</div>
 			<input type="hidden" value="${param.num }" name=num>
 			<input type="hidden" value="${param.email }" name=email>
 			<p>
 			<div align="center">
-				<input type="button" value="메일 보내기" onclick="mail()" class="btn btn-warning">
+				<input type="button" value="메일 재전송" onclick="mail()" class="btn btn-warning">
 				&nbsp; &nbsp;<button onclick="self.close()">닫기</button>
 			</div>
 		</form>

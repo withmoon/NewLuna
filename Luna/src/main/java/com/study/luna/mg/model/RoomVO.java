@@ -21,6 +21,7 @@ public class RoomVO {
 	private String comeRoute;
 	private String roomLocate;
 	private int roomPrice;
+	private String Price;
 	private String keyword;
 	private String id;
 	
@@ -28,6 +29,12 @@ public class RoomVO {
 	
 
 	
+	public String getPrice() {
+		return Price;
+	}
+	public void setPrice(String price) {
+		Price = price;
+	}
 	public int getRoomPrice() {
 		return roomPrice;
 	}
