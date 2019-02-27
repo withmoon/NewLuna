@@ -11,4 +11,6 @@ public interface AdminInquireBoardDAO {
 	public void inquireinsert(AdminInquireBoardVO vo)throws Exception;
 	
 	public AdminInquireBoardVO inquireread(Integer seq)throws Exception;
+	
+	public void inquiredelete(Integer seq)throws Exception;
 }

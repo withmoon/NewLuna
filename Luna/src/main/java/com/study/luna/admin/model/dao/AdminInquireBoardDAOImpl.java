@@ -34,4 +34,10 @@ public class AdminInquireBoardDAOImpl implements AdminInquireBoardDAO {
 		return sqlsession.selectOne("luna.admin.board.inquireread",seq);
 	}
 
+	@Override
+	public void inquiredelete(Integer seq) throws Exception {
+		// TODO Auto-generated method stub
+		sqlsession.delete("luna.admin.board.inquiredelete",seq);
+		
+	}
 }

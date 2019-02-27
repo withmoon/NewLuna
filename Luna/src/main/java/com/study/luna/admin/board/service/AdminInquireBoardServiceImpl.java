@@ -34,4 +34,9 @@ public class AdminInquireBoardServiceImpl implements AdminInquireBoardService {
 		return adminDAO.inquireread(seq);
 	}
 
+	@Override
+	public void inquiredelete(Integer seq) throws Exception {
+		// TODO Auto-generated method stub
+		adminDAO.inquiredelete(seq);
+	}
 }

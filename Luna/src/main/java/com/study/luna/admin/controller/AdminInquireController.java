@@ -79,4 +79,10 @@ public class AdminInquireController {
 		mav.addObject("map", map);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/inquiredelete.ado" ,method=RequestMethod.GET)
+    public String delete(@RequestParam int seq) throws Exception {
+    	service.inquiredelete(seq);
+       return "redirect:/inquireList.ado";
+    }   
 }

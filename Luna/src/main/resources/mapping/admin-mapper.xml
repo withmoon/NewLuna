@@ -6,8 +6,10 @@
 
 	<!-- QnABoard -->
 
-
-
+	
+	<delete id="inquiredelete">
+	delete from inquiryboard where seq=#{seq}
+	</delete>
 
 	<select id="inquireread" resultType="adminInquireBoardVO">
 

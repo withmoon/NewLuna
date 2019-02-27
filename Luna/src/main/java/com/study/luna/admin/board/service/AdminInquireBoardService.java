@@ -9,4 +9,5 @@ public interface AdminInquireBoardService {
 	public List<AdminInquireBoardVO> inquireList()throws Exception;
 	public void inquireinsert(AdminInquireBoardVO vo)throws Exception;
 	public AdminInquireBoardVO inquireread(Integer seq)throws Exception;
+	public void inquiredelete(Integer seq)throws Exception;
 }
