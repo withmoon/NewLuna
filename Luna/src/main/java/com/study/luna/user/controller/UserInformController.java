@@ -35,7 +35,12 @@ public class UserInformController {
 		//페이징 처리
 		int count = noticeBoardService.countNotice(mav);
 		
-		BoardPager boardPager = new BoardPager(count, curPage);
+
+		int page_scale = 3;
+		int block_sclae = 3;
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 		
@@ -56,7 +61,11 @@ public class UserInformController {
 		//페이징 처리
 		int count = qnaBoardService.countQnA(mav);
 		
-		BoardPager boardPager = new BoardPager(count, curPage);
+		int page_scale = 3;
+		int block_sclae = 3;
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 		
