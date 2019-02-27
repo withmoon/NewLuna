@@ -31,7 +31,7 @@ opener.parent.location="/luna/mgBoard.mdo";
 window.close(); */
 </script>
 <!-- document.getElementById('form1').submit(); -->
-<title>메일 보내기</title>
+<title>메일 확인</title>
 </head>
 <body>
 	<div class="container">

@@ -137,7 +137,7 @@ public class MgBoardController {
 
 	// mailSending 코드
 	@RequestMapping(value = "/mailSending.mdo" ,method=RequestMethod.POST)
-	public String mailSending(HttpServletRequest request,QBoardVO vo,HttpSession session) throws Exception {
+	public ModelAndView mailSending(HttpServletRequest request,QBoardVO vo,HttpSession session) throws Exception {
 
 //		String setfrom = "gur792816@gmail.com"; //보내는이?
 		String setfrom = "manager@gmail.com";
@@ -160,17 +160,17 @@ public class MgBoardController {
 		}
 		vo.setNum(Integer.parseInt(request.getParameter("num")));  
 		vo.setEmail(request.getParameter("email"));
-		vo.setEmailtitle(request.getParameter("emailtitle"));
-		vo.setEmailcontent(request.getParameter("emailcontent"));
+		vo.setEmailtitle(title);
+		vo.setEmailcontent(content);
 		vo.setId((String)session.getAttribute("id"));
 		
 		MgService.mailstatus(vo);
-		
+		 
 		//리턴시 스크립트 화면이동이 막혀  모든 기능을 수행후  슬립
 		Thread.sleep(20000);
-		
-		
-		return "/body/mailForm";
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/body/mailForm");
+		return mv;
 		
 	}
 

@@ -45,13 +45,13 @@ window.close(); */
 			<br>
 			<div align="center">
 				<!-- 제목 -->
-				<input type="text" name="emailtitle" size="120" style="width: 100%"
+				<input type="text" name="title" size="120" style="width: 100%"
 					placeholder="제목을 입력해주세요" class="form-control">
 			</div>
 			<p>
 			<div align="center">
 				<!-- 내용 -->
-				<textarea name="emailcontent" cols="120" rows="12"
+				<textarea name="content" cols="120" rows="12"
 					style="width: 100%; resize: none" placeholder="내용#"
 					class="form-control"></textarea>
 			</div>
