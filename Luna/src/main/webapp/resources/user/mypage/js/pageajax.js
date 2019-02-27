@@ -169,12 +169,13 @@ function latelyList(lrcurpage,data){
 	$("#lateTable tbody").children().remove();
 	var ltDom='';
 	if(data.rvlist.length==0){
-		ltDom+='<tr><td>최근예약내역이 없습니다.</td>';
+		$("#lateTable").css({"position":"relative","top":"0px"});
+		ltDom+='<tr><td colspan="7"> 최근 예약내역이 없습니다.</td>';
 	}else{
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
 			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
-			ltDom+='<td>'+data.rvlist[i].roomName+'</td>';
+			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
 			ltDom+='<td>02.2222.2222</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
@@ -204,8 +205,10 @@ function lastList(lrcurpage,data){
 	
 	var ltDom='';
 	var ltmDom='';
-	if(data.rvlist.length==0){
-		ltDom+='<tr><td> 몇개월간 등록하신 내역이 없습니다.</td>';
+	if(data.rvlist.length==0&&stdate==''){
+		ltDom+='<tr><td colspan="5"> 지난 6개월간의 예약정보가 없습니다.</td>';
+	}else if(data.rvlist.length==0&&stdate!=''){
+		ltDom+='<tr><td colspan="5"> 선택하신 날짜안의 지난 예약정보가 없습니다.</td>';
 	}else{
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
@@ -282,7 +285,6 @@ function lastSearch(){
 
 
 //별 갯수 환산
-
 	$("#star1").click(function(){
 		var image=$("#star1").attr('src');
 		if(image.match("star.png")){
