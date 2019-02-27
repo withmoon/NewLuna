@@ -21,7 +21,7 @@
 		<include refid="pagingHeader"></include>	
 			select * from QUESTIONBOARD 
 		<include refid="search"></include>	 
-		order by NUM DESC , regdate desc
+		order by NUM DESC
 		<include refid="pagingFooter"></include>
 	</select>
 
@@ -31,7 +31,7 @@
 	 		<!-- 검색옵션이 전체 검색일 경우 --> 
 	 		<when test="searchOption='all'">
 	 			where id = #{id} and (writer like '%'||#{keyword}||'%' or title like '%'||#{keyword}||'%')
-	 		</when>
+	 		</when> 
 	 		<otherwise>
 	 			where ${searchOption} like '%'||#{keyword}||'%'
 	 		</otherwise>
@@ -42,7 +42,7 @@
 	 </sql>
 	 <sql id="pagingFooter">
 	 		)A
-	 	)where rn  between #{start} and #{end} 
+	 	)where rn  between #{start} and #{end} order by mail asc
 	 </sql>
 	
 	<!-- 질문게시판 -->

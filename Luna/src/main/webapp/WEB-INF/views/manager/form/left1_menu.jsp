@@ -17,8 +17,8 @@
 			<li class="menu"><a id="a" href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>"/>게시판관리</a>
 				<ul class="hide">
 					<li><a href="mgBoard.mdo">문의 게시판<br/>(고객의 소리, 자주묻는질문)</a></li>
-					<li>이벤트 게시판</li>
-					<li>공지사항</li>
+					<li><a href="mgEvenet.mdo">이벤트 게시판</a></li>
+					<li><a href="mgGong.mdo">공지사항</a></li>
 					<li>자유게시판</li>
 					<li>메뉴3</li>
 				</ul>
@@ -26,14 +26,14 @@
 
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="매출통계" >매출통계</a>
 				<ul class="hide">
-					<li><a href="mgSalesreserve.mdo">월 매출</a></li>
-					<li><a href="mgSalesmarket.mdo">Market 매출</a></li>
-					<li>메뉴3</li>
+					<li><a href="mgSalesreserve.mdo">하루 매출</a></li>
+					<li><a href="mgSalesmarket.mdo">월 매출</a></li>
+					<li><a href="#">리포트올리기</a></li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu01.png"/>" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
-					<li><a href="mgAge.mdo">연령별</a></li>
+					<li><a href="mgAge.mdo">시간별</a></li>
 					<li><a href="mgSeason.mdo">분기별</a></li>
 					<li>메뉴3</li>
 				</ul>

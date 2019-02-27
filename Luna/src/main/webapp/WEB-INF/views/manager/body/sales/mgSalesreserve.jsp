@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,89 +89,52 @@ table {
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
-				<header>문의 게시판</header>
+				<header>하루 매출</header>
 			</div>
 			<div>
+			<form name="form1" method="post" action="mgSalesreserve.mdo?">
 				<div id="ex">
 					<ul>
-						<li>검색창 : <select name="select">
-								<option value="name">이름</option>
+						<li>검색창 : 
+							<select name="select">
+								<option value="name">일별 계산</option>
 								<option value="tel">전화번호</option>
-						</select>
+							</select>
 						</li>
-						<li>날짜 : <input type="date">
+							<li>날짜 : <input type="date">
 						</li>
 						<li id="exb"><input type="button" value="검색"></li>
 					</ul>
 				</div>
+			</form>
 
 				<!-- db데이터 -->
 				<table id="t">
 					<tr id="ttr1">
-						<th>MONTH</th>
-						<th>인실</th>
-						<th>금액</th>
+						<th>날짜</th>
 						<th>건수</th>
+						<th>금액</th>
 						<th>환불</th>
-						<th>합계</th>
 					</tr>
+					
+					<c:forEach var="list" items="${map.list }">
+						<tr>
+							<td>${list.num }</td>			
+							<td><a href="mgBoardview.mdo?num=${list.num}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
+							<td>${list.writer }</td>
+							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
+							<c:if test="${list.mail==0 }">
+								<td><button onclick="mail_0('${list.num}','${list.email}');">답장하기</button></td>
+							</c:if>
+							<c:if test="${list.mail==1}">
+								<td><a href="#" onclick="mail_1('${list.num }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
+							</c:if>
+							
+						</tr> 
+					</c:forEach>
+					
 					<tr>
-						<td rowspan="4">1월</td>
-						<td>1인</td>
-						<td>10000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>190000</td>
-					</tr>
-					<tr>
-						<td>2인</td>
-						<td>18000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>360000</td>
-					</tr>
-					<tr>
-						<td>3인</td>
-						<td>27000</td>
-						<td>10</td>
-						<td>1</td>
-						<td>270000</td>
-					</tr>
-					<tr>
-						<td>4인 이상</td>
-						<td>36000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>720000</td>
-					</tr>
-					<tr>
-						<td rowspan="4">2월</td>
-						<td>1인</td>
-						<td>10000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>190000</td>
-					</tr>
-					<tr>
-						<td>2인</td>
-						<td>18000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>360000</td>
-					</tr>
-					<tr>
-						<td>3인</td>
-						<td>27000</td>
-						<td>10</td>
-						<td>1</td>
-						<td>270000</td>
-					</tr>
-					<tr>
-						<td>4인 이상</td>
-						<td>36000</td>
-						<td>20</td>
-						<td>1</td>
-						<td>720000</td>
+						<td></td>
 					</tr>
 				</table>
 			</div>

@@ -1,17 +1,18 @@
 package com.study.luna.mg.model;
 
 public class StatisticsVO {
-	private String month;
+	private String reservdate;
 	private String inown;
 	private String money;
 	private int gunsu;
 	private int hb;
 	private int total;
-	public String getMonth() {
-		return month;
+	
+	public String getReservdate() {
+		return reservdate;
 	}
-	public void setMonth(String month) {
-		this.month = month;
+	public void setReservdate(String reservdate) {
+		this.reservdate = reservdate;
 	}
 	public String getInown() {
 		return inown;

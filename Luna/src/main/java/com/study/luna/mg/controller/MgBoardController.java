@@ -24,7 +24,8 @@ import com.study.luna.mg.service.MgService;
 
 @Controller
 public class MgBoardController {
-
+	//게시판관리
+	
 	@Autowired
 	private MgService MgService;
 
@@ -173,5 +174,18 @@ public class MgBoardController {
 		return mv;
 		
 	}
+	
+	
+	@RequestMapping(value = "/Event.mdo")
+	public String event() {
+		return "/body/mailView";
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }
