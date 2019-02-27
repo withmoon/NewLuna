@@ -30,12 +30,13 @@
          <ul class="nav navbar-nav">
             <li><a href="administrator.ado">홈</a></li>
             <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="approve.ado">지점장승인</a></li>
+           <li><a href="info.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
+            <li><a href="admininquiry.ado">문의게시판</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="info.ado">지점장 정보</a></li>
+         
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -44,6 +45,7 @@
                aria-expanded="false">메뉴<span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li class="active"><a href="login.jsp">로그아웃</a></li>
+                 <li class="active"><a href="adminmail.ado">공지알림</a></li>
                </ul></li>
          </ul>
       </div>
@@ -51,7 +53,7 @@
    <br><br><br>
 
    <div class="container">
-   <form id="form1" name="form1" action="insert1.ado" method="post">
+   <form id="form1" name="form1" action="insert1.ado" method="post" >
       <table class="table table-bordered">
          <thead>
          <caption>글쓰기</caption>
@@ -86,9 +88,44 @@
                </tr>
                 <tr>
                   <th>이미지업로드:</th>
-                  <td><input type="file"  placeholder="image" name="image"
-                     class="form-control" /></td>
+                  <td> <input type="file" name="image" id="image" 
+                     class="form-control"  /></td>
+                     <div id="holder"></div>
                </tr>
+
+               
+ <script>
+var upload = document.getElementsByTagName('input')[0],
+holder = document.getElementById('holder'),
+    state = document.getElementById('image');
+
+if (typeof window.FileReader === 'undefined') {
+  state.className = 'fail';
+} else {
+  state.className = 'success';
+  state.innerHTML = 'File API & FileReader available';
+}
+ 
+upload.onchange = function (e) {
+  e.preventDefault();
+
+  var file = upload.files[0],
+      reader = new FileReader();
+  reader.onload = function (event) {
+    var img = new Image();
+    img.src = event.target.result;
+    // note: no onload required since we've got the dataurl...I think! :)
+    if (img.width > 560) { // holder width
+      img.width = 560;
+    }
+    holder.innerHTML = '';
+    holder.appendChild(img);
+  };
+  reader.readAsDataURL(file);
+
+  return false;
+};
+</script>
                 <tr>
                   <th>파일업로드:</th>
                   <td><input type="file"  placeholder="files" name="files"

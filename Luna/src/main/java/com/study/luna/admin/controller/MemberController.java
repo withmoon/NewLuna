@@ -13,16 +13,17 @@ import com.study.luna.pub.member.service.MemberService;
 
 @Controller
 public class MemberController {
-	@Autowired
-	MemberService memberService;
-	
-	//1. 회원 목록
-	@RequestMapping(value="/member.ado", method=RequestMethod.GET)
+   @Autowired
+   MemberService memberService;
+   
+   //1. 회원 목록
+   @RequestMapping(value="/member.ado", method=RequestMethod.GET)
     public ModelAndView mainView(MemberCommand mc) {
-		List<MemberCommand> memberList = memberService.memberList(mc);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("memberList", memberList);
-		
+      List<MemberCommand> memberList = memberService.memberList(mc);
+      ModelAndView mav = new ModelAndView();
+      mav.addObject("memberList", memberList);
+      
        return mav;
-	}
+   }
+   
 }

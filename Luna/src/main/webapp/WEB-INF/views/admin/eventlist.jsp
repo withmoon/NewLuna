@@ -26,14 +26,15 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-            <li><a href="administrator.ado">홈</a></li>
+           
             <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="approve.ado">지점장승인</a></li>
+             <li><a href="info.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
+            <li><a href="admininquiry.ado">문의게시판</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="member.ado">지점장 정보</a></li>
+           
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -42,6 +43,7 @@
                aria-expanded="false">메뉴<span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li class="active"><a href="login.jsp">로그아웃</a></li>
+                 <li class="active"><a href="adminmail.ado">공지알림</a></li>
                </ul></li>
          </ul>
       </div>
@@ -58,14 +60,7 @@
   
     <div class="event-container">
 
-        <ul class="top-navigate">
-            <li>이벤트</li>
-        </ul>
-        <ul class="eventTap">
-            <li><a href="event.ado">전체이벤트</a></li>
-            <li><a href="event.ado">진행중인이벤트</a></li>
-            <li><a href="event.ado">종료된이벤트</a></li>
-        </ul>
+        
         <span class="title">진행중인 이벤트</span>
         <br>
         </br>
@@ -112,11 +107,11 @@
         
         
         
-        <span class="title">종료된 이벤트</span>
+        <span class="title">2월 27일 이벤트 당첨자 발표</span>
         
         
          <ul class="event-ul">
-            <div class='emptyEvent'>종료된 이벤트가 없습니다.</div>
+            <div class='emptyEvent'>위 게시판을 통해 확인하세요.</div>
               </ul>
            
 

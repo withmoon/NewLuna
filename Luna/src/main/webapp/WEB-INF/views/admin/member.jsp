@@ -49,14 +49,15 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-            <li><a href="administrator.ado">홈</a></li>
+          
             <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="approve.ado">지점장승인</a></li>
+          <li><a href="info.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
+             <li><a href="admininquiry.ado">문의게시판</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="info.ado">지점장 정보</a></li>
+           
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -65,12 +66,13 @@
                aria-expanded="false">메뉴<span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li class="active"><a href="login.jsp">로그아웃</a></li>
+                 <li class="active"><a href="adminmail.ado">공지알림</a></li>
                </ul></li>
          </ul>
       </div>
    </nav>
    <center>
-   <h3>회원관리 게시판입니다</h3>
+   <h3>회원관리 게시판</h3>
    </center>
 <br></br>
    <div class="container">
@@ -82,23 +84,24 @@
             <!-- <th style="background-color:#eeeeee; text-align:center;">번호</th> -->
             <th style="background-color:#eeeeee; text-align:center;">이름</th>
             <th style="background-color:#eeeeee; text-align:center;">아이디</th>
+             <th style="background-color:#eeeeee; text-align:center;">전화번호</th>
+              <th style="background-color:#eeeeee; text-align:center;">이메일</th>
             <th style="background-color:#eeeeee; text-align:center;">관리</th>
             </tr>
             </thead>
             <tbody>
-            	<c:forEach var="member" items="${memberList }">
-            		<tr>
-            			<td>${member.name }</td>
-            			<td>${member.id }</td>
-            			<td><input type="button" value="삭제"></td>
-            		</tr>
-            	</c:forEach>
-            <!-- <tr>
-            <td>1</td>
-            <td>박은별</td>
-            <td>은별스타</td>
-            <td><input type="button" value="삭제"></td>
-            </tr> -->
+               <c:forEach var="member" items="${memberList }">
+                  <tr>
+                     <td>${member.name }</td>
+                     <td>${member.id }</td>
+                     <td>${member.phone }</td>
+                     <td>${member.email }</td>
+                     <td><input type="button" value="탈퇴" onclick="javascript:location.href='memberdelete.ado?id=${member.id}'"/>
+                  </tr>
+               </c:forEach>
+            
+            
+            </tr> 
             </tbody>
             </table>
             </div>
