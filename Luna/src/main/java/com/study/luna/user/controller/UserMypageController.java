@@ -3,8 +3,6 @@ package com.study.luna.user.controller;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +19,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
-import com.study.luna.user.dto.AlamDTO;
-import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
@@ -37,12 +33,10 @@ public class UserMypageController {
 	@Autowired
 	PayAndReserveService parser;
 	
-	
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.GET)
-	public ModelAndView mypageView(AlamDTO alam,HttpSession session, MemberCommand memcom,HttpServletRequest request) {
+	public ModelAndView mypageView(HttpSession session, MemberCommand memcom,HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		
-		//여서부터
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
@@ -52,23 +46,8 @@ public class UserMypageController {
 		}
 				
 		session.setAttribute("member", memcom);
-		//여까지 고침
-
-		//마이페이지 최근 예약 정보 가져옴
-		List<MyPageInfoDTO> mypReservInfo=new ArrayList<MyPageInfoDTO>();
-		mypReservInfo=parser.getUserPayInfo(memcom);
-
-		//지난 예약 정보 가져옴
-		List<MyPageInfoDTO> myReservedInfo=new ArrayList<MyPageInfoDTO>();
-		myReservedInfo=parser.getUserReservedInfo(memcom);
 		
-		//review 작성한 방 번호 가지고옴
-		
-		
-
 		memcom=memser.getMyPageInfo(memcom);
-		mav.addObject("latelyreserInfo",mypReservInfo);
-		mav.addObject("lastreserInfo",myReservedInfo);
 		mav.addObject("member",memcom);
 		mav.setViewName("mypage");
 		return mav;

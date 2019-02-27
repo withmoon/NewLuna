@@ -5,7 +5,7 @@ var count=0;
 var userid='';
 $('document').ready(function($) {
 	showSd(rnum);
-	writeReview(rnum);
+	showReview(1);
 	userid = '@Request.RequestContext.HttpContext.Session["member"]';
 });
 //날짜에 따른 스케줄
@@ -112,29 +112,31 @@ $("#schdule tr td").click(function(){
 	$("#payAmount").val(realprice);
 	$("#reserveTime").val(reservtime);
 	
-	console.log(reservtime+" count 치사량=>"+count);
-	
 });
 });
-
-function writeReview(){
+//리뷰가져오기
+function showReview(rvcurpage){
 	$.ajax({      
 		type:"GET",  
 		url:"getRoomAllReview.udo",    
-		data:{roomnum:rnum},     
+		data:{curpage:rvcurpage ,roomnum:rnum},     
 		success:function(data){
 			$(".rbox").remove();
+			var rvtDom='';
 			var strDom="";
 			
 			if(data.length==0){
 				strDom+='<div class="rbox">';
 				strDom+='여러분의 한줄후기를 들려주세요</div>';
 			}else{
-				for(var i=0; i<data.length; i++){
+				rvtDom+='<b style="font-size:2vw">      총점 '+data.rvscore+' 점</b>';
+				$("#rvtitle").append(rvtDom);
+				
+				for(var i=0; i<data.rvlist.length; i++){
 					strDom+='<div class="rbox">';
-					strDom+='작성자 : '+data[i].name+'<br/>';
-					strDom+='작성날짜 : '+data[i].writedate+'<br/><br/>';
-					strDom+=data[i].reviewContent+'<br/>';
+					strDom+='작성자 : '+data.rvlist[i].name+'<br/>';
+					strDom+='작성날짜 : '+data.rvlist[i].writedate+'<br/><br/>';
+					strDom+=data.rvlist[i].reviewContent+'<br/>';
 					strDom+='</div>'
 				}
 			}

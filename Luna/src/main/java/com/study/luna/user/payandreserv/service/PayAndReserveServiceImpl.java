@@ -5,14 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
 import com.study.luna.user.payandreserv.dao.Impl.CancleReserveDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.CheckReservStartdateDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetUserPayCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayInfoDAOImpl;
-import com.study.luna.user.payandreserv.dao.Impl.GetUserReservedInfoDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.InReserveRoomDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.InRoomPaymentDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.UpReserveRoomDAOImpl;
@@ -32,7 +31,7 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Autowired
 	CancleReserveDAOImpl crDAOImpl;
 	@Autowired
-	GetUserReservedInfoDAOImpl guriDAOImpl;
+	GetUserPayCountDAOImpl gupcDAOImpl;
 	
 	@Override
 	public Integer checkReservStartdate(RoomReserveDTO romre) {
@@ -51,15 +50,15 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 		irpDAOImp.inRoomPayment(rompay);
 	}
 	@Override
-	public List<MyPageInfoDTO> getUserPayInfo(MemberCommand memcom) {
-		return gupiDAOImpl.getUserPayInfo(memcom);
+	public List<MyPageInfoDTO> getUserPayInfo(int start,int end,String status,String id,String startdate,String enddate) {
+		return gupiDAOImpl.getUserPayInfo(start,end,status,id,startdate,enddate);
 	}
 	@Override
 	public void cancleReserve(MyPageInfoDTO mpif) {
 		crDAOImpl.cancleReserve(mpif);
 	}
 	@Override
-	public List<MyPageInfoDTO> getUserReservedInfo(MemberCommand memcom) {
-		return guriDAOImpl.getUserReservedInfo(memcom);
+	public Integer getUserPayCount(String status, String id,String startdate,String enddate) {
+		return gupcDAOImpl.getUserPayCount(status, id,startdate,enddate);
 	}
 }

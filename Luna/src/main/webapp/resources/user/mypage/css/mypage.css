@@ -5,9 +5,13 @@
 header{
 	float:right;
 }
-
+ul a{
+	font-size:2vw;
+		margin:1%;
+}
 .topUl li a{
 	font-size: 1.6vw;
+	margin:0;
 }
 .logo{
 	position:absolute;
@@ -205,8 +209,6 @@ b{
 	position:relative;
 	border-top:1.5px solid teal;
 	border-bottom:1.5px solid teal;
-	top:20px;
-
 	padding:2%;
 	width:96%;
 }
@@ -222,8 +224,7 @@ input[type=date]{
 }
 #lastReservList{
 	position:relative;
-	top:30px;
-
+	top:-1.5px;
 }
 #lastReservList table{
 	border-top:2px solid teal;
@@ -312,8 +313,8 @@ input[type=date]{
 }
 .lastSearch{
 	position:relative;
-	top:10px;
-	left:-5px;
+	top:-10px;
+	left:-6px;
 }
 .lastSearch b{
 	color:teal;
@@ -347,6 +348,10 @@ input[type=date]{
 	margin:0 10px;;
 }
 /*최근내역 테이블*/
+#latelyReservList{
+	position:relative;
+	top:-20px;
+}
 #latelyReservList table{
 	position:relative;
 	top:-30px;
@@ -360,7 +365,7 @@ input[type=date]{
 /* 나중 내역 페이징 css */
 .lppagcls{
 	position:relative;
-	top:-10px;
+	top:-9px;
 	text-decoration: none;
 }
 .lppagcls li{
@@ -401,8 +406,4 @@ footer{
 	top:30px;
 	left:40px;
 	color:black;
-}
-a{
-	font-size:2vw;
-		margin:1%;
 }

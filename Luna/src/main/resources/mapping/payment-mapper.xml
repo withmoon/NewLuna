@@ -28,30 +28,67 @@
 	</insert>
 	
 	<!-- for MyPage -->
-	<!-- lastely list -->
+	<!-- user Payed ist -->
 	<select id="getUserPayInfo" resultType="myPageInfo">
+	<include refid="mgQBoard.pagingHeader"></include>	
 	<![CDATA[
-		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
+		select rownum as num,mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
 		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
-		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
+		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,receipt_url 
 		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
-		where romp.id=#{id} and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
+		where romp.id=#{id} 
+	]]>
+		<!-- 최근 내역 -->
+		<if test="status=='pay'">
+		<![CDATA[
+		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
 		]]>
+		</if>
+		<!-- 지난 내역 -->
+		<if test="status=='reserved'">	
+		<![CDATA[
+			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
+		]]>
+		</if>
+		<!-- 검색내역 -->
+		<if test="status=='search'">
+		<![CDATA[
+			and #{startdate}<=to_char(reservdate,'yyyy-mm-dd') and to_char(reservdate,'yyyy-mm-dd')<=#{enddate} order by reservdate desc
+		]]>
+		</if>
+		<include refid="mgQBoard.pagingFooter"></include>
 	</select>
-	<!-- 6개월 단위로 자름 last list -->
-	<select id="getUserReservedInfo" resultType="myPageInfo">
-	<![CDATA[
-		select mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
-		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
-		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,status,receipt_url 
-		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
-		where romp.id=#{id} and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
-		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
+	
+	<!-- user Payed Count -->
+	<select id="getUserPayCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from roompayment 
+			where id=#{id}]]>
+		<!-- 최근 내역 -->
+		<if test="status=='pay'">
+		<![CDATA[
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
 		]]>
+		</if>
+		<!-- 지난 내역 -->
+		<if test="status=='reserved'">	
+		<![CDATA[
+			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
+		]]>
+		</if>
+		<!-- 검색내역 -->
+		<if test="status=='search'">
+		<![CDATA[
+			and #{startdate}<=to_char(reservdate,'yyyy-mm-dd') and to_char(reservdate,'yyyy-mm-dd')<=#{enddate} order by reservdate desc
+		]]>
+		</if>
+		
 	</select>
 	
 	<update id="cancleReserve">
-		<![CDATA[update roompayment set status=-2 where id=#{id} and imp_uid=#{imp_uid}]]>
+		<![CDATA[update roompayment set status=-2 where imp_uid=#{imp_uid}]]>
 	</update>
 	
 </mapper>

@@ -215,11 +215,11 @@ ${roomInfo.comeRoute}
 
 <!-- 리뷰 시작 -->
 <section class="review">
-<img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
+<b id="rvtitle">한줄후기<img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"></b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
 <section id="rboxsec">
 </section>
 <br/>
-<div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div>
+<ul class="pnum"></ul>
 <br/>
 </section>
 

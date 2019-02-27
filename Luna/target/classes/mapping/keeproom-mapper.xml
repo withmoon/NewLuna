@@ -7,7 +7,7 @@
 		<include refid="mgQBoard.pagingHeader"></include>	
 		<![CDATA[
 			select rownum as num,krom.roomnum,fname,roomname from keeproom krom join roomfile romf on romf.roomnum=krom.roomnum 
-			join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1]]>
+			join room rom on rom.roomnum=krom.roomnum where id=#{id} and filenum=1 order by keepdate desc]]>
 		<include refid="mgQBoard.pagingFooter"></include>
 	</select>
 	<!-- 찜 리스트 카운트 -->
@@ -20,7 +20,7 @@
 	</select>
 	<!-- 찜하기 -->
 	<insert id="keeproom">
-		insert into keeproom values(#{id},#{roomnum})
+		insert into keeproom values(#{id},#{roomnum},default)
 	</insert>
 	<!-- 찜안함 -->
 	<delete id="deletekroom">

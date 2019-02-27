@@ -1,35 +1,30 @@
-//favorite id들
-var fvTableId="#fvTable";
-var fvTableTrId="fv";
-var fvTableCount=$("#fvTable tbody tr").length-1;
-var fvUlid="#fvPaging";
-var fvlistlimit=2; //게시글제한수
-var fvPageBox=5; //페이지 제한수
-
-//최근내역 id들
-var lateTaleId="#lateTable";
-var lateTableTrId="ltd";
-var lateTableCount=$("#lateTable tbody tr").length-1;
-var lateUlid="#ltPaging";
-var ltlistlimit=3; //게시글제한수
-var ltPageBox=3; //페이지 제한수
-
-//지난내역 id들
-var lastTableId="#lastTable";
-var lastTableTrId="ld";
-var lastTableliId="ltli"
-var lastTableCount=$("#lastTable tbody tr").length-1;
-var lastUlid="#lastPaging";
-var lslistlimit=5; //게시글제한수
-var lsPageBox=3; //페이지 제한수
-
+var stdate='';
+var endate='';
+var hasuserreview=new Array();
+var stcount=0;  //별 갯수
+var rvwroomNum='';  //리뷰선택시 해당 방번호
+//리뷰 열고 닫고 
+function openReview(num){
+	rvwroomNum=num;
+	$(".review").display="";
+	$(".review").show();
+	$('body > *:not(.review) ').css('filter',filterVal10);
+}
+function closeReview(){
+	$('body > *:not(.review) ').css('filter',filterVal0);
+	$(".star").attr('src','resources/util/unstar.png');
+	stcount=0;
+	$("#starcount").text(0);
+	$(".review").hide();
+}
 $(function(){
 	getKeepList(1);
 	getalamList(1);
-	//최근		  //테이블 전체 글수   , 테이블 id    , 테이블 tr id ,페이지ul아이디, 게시글번호제한, 페이지번호제한
-	firstPageView(lateTableCount,lateTaleId,lateTableTrId,lateUlid,ltlistlimit,ltPageBox);
-	//지난
-	firstPageView(lastTableCount,lastTableId,lastTableTrId,lastUlid,lslistlimit,lsPageBox);
+	//최근예약
+	getReservList('pay',1);
+	//지난예약
+	getUserReview();
+	getReservList('reserved',1);
 });
 //찜 리스트 가져옴
 function getKeepList(kcurpage){
@@ -116,98 +111,314 @@ function getalamList(acurpage){
 		}
 	});
 }
-
-//첫 로딩시테이블 나눔
-function firstPageView(pagingListCt,tableId,trId,ulid,listLimit,pageBox){
-	//페이징 번호								//3==listLimit
-	var pagecount=Math.floor(pagingListCt/listLimit)+1; //페이지 총 번호
-	
-	//번호에따른 li생성
-	var pageStr=''; 
-	for(var i=1; i<pagecount+1; i++){
-		if(i<=pageBox){ //page번호 매기기
-			pageStr+='<a id="'+ulid+i+'" onclick="javascript: changeClr(this); paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039);"><li>'+i+'</li></a>       '; 
-		}else if(i==(pageBox+1)){//한정숫자가 되면 다음페이지에 다음번호 기억
-			pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039,&#039'+ulid+'&#039,'+pagingListCt+')"><li>[다음]</li></a>       ';
-			break;
+//후기 올리기 //룸넘, 리뷰내용, 별 카운트 
+function writeReview(){
+	stcount=$("#starcount").text();
+	var rvwText=$("#rvwText").val();
+	$.ajax({      
+		type:"GET",  
+		url:"writeReview.udo",    
+		data:{starCount:stcount,roomnum:rvwroomNum,content:rvwText},     
+		success:function(){
+			closeReview();
+			alert("감사합니다. 앞으로 더 힘쓰겠습니다^^");
+			getUserReview("inreview");
+		}
+	});
+}
+//사용자가 달은 리뷰의 방 번호 가져오기
+function getUserReview(state){
+	$.ajax({      
+		type:"GET",  
+		url:"getUserReview.udo",         
+		success:function(data){
+			for(var i=0; i<data.length; i++){
+				hasuserreview[i]=data[i];
+			}
+			console.log("리1"+hasuserreview[0]);
+			console.log("리2"+hasuserreview[1]);
+			if(state=='inreview'){
+				if(stdate!=''){
+					getReservList("search",1); //지금이라네
+				}
+				if(stdate==''){
+					getReservList("reserved",1); //지금이라네
+				}
+			}
+		}
+	});
+}
+//결제내역 가져오기
+function getReservList(listType,lrcurpage){
+	$.ajax({      
+		type:"GET",  
+		url:"getReserveList.udo",    
+		data:{listType:listType,curpage:lrcurpage,startdate:stdate,enddate:endate},     
+		success:function(data){
+			if(listType=='pay'){ //최근내역
+				latelyList(lrcurpage,data);
+			}else{ //지난내역
+				console.log("리스트 타입"+listType);
+				lastList(lrcurpage,data);
+			}
+		}
+	});
+}
+//최근내역 불러오기
+function latelyList(lrcurpage,data){
+	$("#lateTable tbody").children().remove();
+	var ltDom='';
+	if(data.rvlist.length==0){
+		ltDom+='<tr><td>최근예약내역이 없습니다.</td>';
+	}else{
+		for(var i=0; i<data.rvlist.length; i++){
+			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
+			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			ltDom+='<td>'+data.rvlist[i].roomName+'</td>';
+			ltDom+='<td>02.2222.2222</td>';
+			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
+			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
+			ltDom+='<td id="'+data.rvlist[i].imp_uid+'">';
+			//환불가능상태
+			if(data.rvlist[i].status==1){
+				ltDom+='<button class="cancle" onclick=cancleReserve(&#039'+data.rvlist[i].imp_uid+'&#039)>취소/환불</button>';
+				ltDom+='<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button>';
+			}
+			//환불요청상태
+			if(data.rvlist[i].status==-2){
+				ltDom+='<label>환불진행중</label>';
+			}
+			//환불상태
+			if(data.rvlist[i].status==-1){
+				ltDom+='<label>환불완료</label>';
+				ltDom+='</td></tr>';
+			}
 		}
 	}
-	//3번째까지만 보여줌
-	for(var i=1; i<listLimit+1; i++){ //1  listLimit+1
-		$(tableId+" tbody #"+trId+i).show();
-	}
-	
-	$(ulid).append(pageStr);
+	$("#lateTable tbody").append(ltDom);
+	blockPage("ltPaging",lrcurpage,data.rvpager.BLOCK_SCALE,data.rvpager.totPage,"ltli","getReservList","pay");
 }
-//게시글 보이기
-function paging(listLimit,pageBox,pagenum,tableId,trId,ulid,pagingListCt){
+//지난내역 및 검색 불러오기
+function lastList(lrcurpage,data){
+	$("#lastTable tbody").children().remove();
 	
-	$(tableId+" tbody tr").hide();
-						   //listLimit-(listLimit-1)
-	var startnumber=pagenum*listLimit-(listLimit-1); //페이지 글 시작 번호
-
-	if(pagenum!=1&&pagenum%pageBox==1){ //1이 아니고  pagenum%pageBox==1
-		goNextPaging(pagenum,tableId,trId,ulid,pagingListCt,listLimit,pageBox); //3한정 페이지 넘어가면
-	}
-	
-	if(ulid!=null&&pagenum%pageBox==0){ //null이 아니고  pagenum%pageBox==0
-		goBeforePaging(pagenum,tableId,trId,ulid,pagingListCt,listLimit,pageBox);
-	}
-										//시작 번호부터 게시글 제한번호까지
-	for(var i=startnumber; i<startnumber+listLimit; i++){
-		$(tableId+" tbody #"+trId+i).show();
-	}
-}
-//이전 눌렀을때
-function goBeforePaging(pagenum,tableId,trId,ulid,pagingListCt,listLimit,pageBox){
-	$(ulid+" li").remove();
-	
-	//페이징 총 번호
-	var pagecount=Math.floor(pagingListCt/listLimit)+1; //pageListCt/listLimit +1
-	
-	//번호에따른 li생성
-	var pageStr=''; //pageBox보다 크면 이전 생성
-	if(pagenum!=pageBox){ //pageBox
-		pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+(pagenum-1)+',&#039'+tableId+'&#039,&#039'+trId+'&#039,&#039'+ulid+'&#039,'+pagingListCt+')"><li>[이전]</li></a>       ';
-	}
-	var startPagenum=pagenum-(pageBox-1); //pagenum-(pageBox-1)
-	for(var i=startPagenum; i<pagecount+1; i++){
-			if(i<=startPagenum+(pageBox-1)){ //startPagenum+(pageBox-1)
-				pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039)"><li>'+i+'</li></a>       ';
-			}else if(i==startPagenum+pageBox){ //startPagenum+pageBox
-				pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039,&#039'+ulid+'&#039,'+pagingListCt+')"><li>[다음]</li></a>       ';
-				break;
+	var ltDom='';
+	var ltmDom='';
+	if(data.rvlist.length==0){
+		ltDom+='<tr><td> 몇개월간 등록하신 내역이 없습니다.</td>';
+	}else{
+		for(var i=0; i<data.rvlist.length; i++){
+			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
+			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
+			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
+			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			if(data.rvlist[i].status==-2){
+				ltDom+='<td colspan="2"><label>환불진행중</label>';
+			}else if(data.rvlist[i].status==-1){
+				ltDom+='<td><label>환불완료/label>';
+				ltDom+='<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
+			}else{
+				for(var j=0; j<hasuserreview.length; j++){
+					if(data.rvlist[i].roomNum==hasuserreview[j]){
+						ltmDom='<td><button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
+						break;
+					}else{//(hasuserreview[j]!=data.rvlist[i].roomNum)
+						ltmDom='<td><button class="reviewBtn'+data.rvlist[i].imp_uid+'" onclick="openReview('+data.rvlist[i].roomNum+')">리뷰쓰기</button>'+
+						'<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
+					}
+				}
+				ltDom+=ltmDom;
+				
 			}
+			
+		}
 	}
 	
-	$(ulid).append(pageStr);
-	
+	$("#lastTable tbody").append(ltDom);
+	if(stdate!=''){
+		blockPage("lastPaging",lrcurpage,data.rvpager.BLOCK_SCALE,data.rvpager.totPage,"lstli","getReservList","search");
+	}else{
+		blockPage("lastPaging",lrcurpage,data.rvpager.BLOCK_SCALE,data.rvpager.totPage,"lstli","getReservList","reserved");
+	}
 }
-//다음 눌렀을때
-function goNextPaging(pagenum,tableId,trId,ulid,pagingListCt,listLimit,pageBox){
-	$(ulid+" li").remove();
+//적용시 처리
+function lastSearch(){
+	stdate=$("#stdate").val();
+	endate=$("#endate").val();
+
+	var localdate=new Date();
+	var month = (localdate.getMonth() + 101).toString().substring(1);
+	var day = (localdate.getDate() + 100).toString().substring(1);
+	var year = localdate.getFullYear();
+	var thisdate=year+month+day;
 	
-	//페이징 번호
-	var pagecount=Math.floor(pagingListCt/listLimit)+1; //pageListCt/listLimit +1
+	var selsplit=stdate.split("-");
+	var selstpdate="";
 	
-	//번호에따른 li생성
-	var pageStr=''; //이전 생성
-	pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+(pagenum-1)+',&#039'+tableId+'&#039,&#039'+trId+'&#039,&#039'+ulid+'&#039,'+pagingListCt+')"><li>[이전]</li></a>       ';
-	for(var i=pagenum; i<pagecount+1; i++){
-			if(i<=pagenum+(pageBox-1)){  //startPagenum+(pageBox-1)
-				pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039)"><li>'+i+'</li></a>       ';
-			}else if(i==pagenum+pageBox){ //startPagenum+pageBox
-				pageStr+='<a onclick="paging('+listLimit+','+pageBox+','+i+',&#039'+tableId+'&#039,&#039'+trId+'&#039,&#039'+ulid+'&#039,'+pagingListCt+')"><li>[다음]</li></a>       ';
-				break;
-			}
+	for ( var i in selsplit ) {
+		selstpdate+=selsplit[i];
+     }
+	
+	selsplit=endate.split("-");
+	var seledpdate="";
+	
+	for ( var i in selsplit ) {
+		seledpdate+=selsplit[i];
+     }
+	
+	
+	if(selstpdate>thisdate){
+		alert("지난내역은 오늘날짜 까지만 적용됩니다.");
+	}else if(seledpdate>thisdate){
+		alert("지난내역은 오늘날짜 까지만 적용됩니다.");
+	}else if(stdate==''){
+		alert("날짜를 모두 선택해주세요~ 하루만 선택시 두날짜 모두 같은날짜로 해주시면됩니다^^");
+	}else if(endate==''){
+		alert("날짜를 모두 선택해주세요~ 하루만 선택시 두날짜 모두 같은날짜로 해주시면됩니다^^");
+	}else{
+		getReservList('search',1,stdate,endate);
 	}
-	
-	$(ulid).append(pageStr);
 }
 
-function changeClr(tag){
-	var x = document.getElementById(tag.id);
-    x.style.fontSize = "2.2vw";           
-    x.style.color = "orange"; 
-    $(x).siblings().css({"color": "black","font-size":"2vw"});
-}
+
+//별 갯수 환산
+
+	$("#star1").click(function(){
+		var image=$("#star1").attr('src');
+		if(image.match("star.png")){
+			switch(stcount){
+			case 1:
+				$("#star1").attr('src','resources/util/unstar.png');	
+				stcount=0;
+				break;
+			case 2:
+				$("#star2").attr('src','resources/util/unstar.png');	
+				stcount=1;
+				break;
+			case 3:
+				$("#star2").attr('src','resources/util/unstar.png');	
+				$("#star3").attr('src','resources/util/unstar.png');	
+				stcount=1;
+				break;
+			case 4:
+				$("#star2").attr('src','resources/util/unstar.png');	
+				$("#star3").attr('src','resources/util/unstar.png');	
+				$("#star4").attr('src','resources/util/unstar.png');	
+				stcount=1;
+				break;
+			case 5:
+				$("#star2").attr('src','resources/util/unstar.png');	
+				$("#star3").attr('src','resources/util/unstar.png');	
+				$("#star4").attr('src','resources/util/unstar.png');
+				$("#star5").attr('src','resources/util/unstar.png');	
+				stcount=1;
+				break;
+			default : break;
+			}
+		}
+		if(image.match("unstar.png")){
+			$("#star1").attr('src','resources/util/star.png');
+			stcount=1;
+		}
+		$("#starcount").text(stcount);
+	});
+
+
+	$("#star2").click(function(){
+		var image=$("#star2").attr('src');
+		if(image.match("star.png")){
+			switch(stcount){
+			case 2:
+				$("#star2").attr('src','resources/util/unstar.png');	
+				stcount=1;
+				break;
+			case 3:
+				$("#star3").attr('src','resources/util/unstar.png');	
+				stcount=2;
+				break;
+			case 4:
+				$("#star3").attr('src','resources/util/unstar.png');	
+				$("#star4").attr('src','resources/util/unstar.png');	
+				stcount=2;
+				break;
+			case 5:
+				$("#star3").attr('src','resources/util/unstar.png');	
+				$("#star4").attr('src','resources/util/unstar.png');
+				$("#star5").attr('src','resources/util/unstar.png');	
+				stcount=2;
+				break;
+			default : break;
+			}
+		}
+		if(image.match("unstar.png")){
+			$("#star1").attr('src','resources/util/star.png');
+			$("#star2").attr('src','resources/util/star.png');
+			stcount=2;
+		}
+		$("#starcount").text(stcount);
+	});
+
+
+	$("#star3").click(function(){
+		var image=$("#star3").attr('src');
+		if(image.match("star.png")){
+			switch(stcount){
+			case 3:
+				$("#star3").attr('src','resources/util/unstar.png');	
+				stcount=2;
+				break;
+			case 4:
+				$("#star4").attr('src','resources/util/unstar.png');	
+				stcount=3;
+				break;
+			case 5:
+				$("#star4").attr('src','resources/util/unstar.png');
+				$("#star5").attr('src','resources/util/unstar.png');	
+				stcount=3;
+				break;
+			default : break;
+			}
+		}
+		if(image.match("unstar.png")){
+			$("#star1").attr('src','resources/util/star.png');
+			$("#star2").attr('src','resources/util/star.png');
+			$("#star3").attr('src','resources/util/star.png');
+			stcount=3;
+		}
+		$("#starcount").text(stcount);
+	});
+
+
+	$("#star4").click(function(){
+		var image=$("#star4").attr('src');
+		if(stcount==4&&image.match("star.png")){
+			$("#star4").attr('src','resources/util/unstar.png');
+			stcount=3;
+		}
+		if(stcount==5&&image.match("star.png")){
+			$("#star5").attr('src','resources/util/unstar.png');
+			stcount=4;
+		}
+		if(image.match("unstar.png")){
+			$("#star1").attr('src','resources/util/star.png');
+			$("#star2").attr('src','resources/util/star.png');
+			$("#star3").attr('src','resources/util/star.png');
+			$("#star4").attr('src','resources/util/star.png');
+			stcount=4;
+		}
+		$("#starcount").text(stcount);
+	});
+	$("#star5").click(function(){
+		var image=$("#star5").attr('src');
+		if(stcount==5&&image.match("star.png")){
+			$("#star5").attr('src','resources/util/unstar.png');
+			stcount=4;
+			$("#starcount").text(stcount);
+			return;
+		}
+		if(image.match("unstar.png")){
+			$(".star").attr('src','resources/util/star.png');
+			stcount=5;
+		}
+		$("#starcount").text(stcount);
+	});

@@ -4,8 +4,15 @@
 <mapper namespace="reviewDAO">
 	<!-- review 가져오기 -->
 	<select id="getRoomAllReview" resultType="roomReview">
-		<![CDATA[select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
-				 join member mem on romr.id=mem.id where roomNum=#{roomNum}]]>
+		<include refid="mgQBoard.pagingHeader"></include>	
+		<![CDATA[select rownum as num,name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
+				 join member mem on romr.id=mem.id where roomNum=#{roomNum} order by writedate desc]]>
+		<include refid="mgQBoard.pagingFooter"></include>
+	</select>
+	
+	<!-- 총 review갯수 가져옴 -->
+	<select id="getReviewCount" resultType="Integer">
+		select count(*) from roomReview where roomNum=#{roomNum}
 	</select>
 	
 	<!-- room 총점 가져옴 -->
@@ -17,4 +24,10 @@
 	<insert id="insertReview">
 		<![CDATA[insert into roomReview values(#{roomNum},#{reviewContent},#{id},default,#{starCt})]]>
 	</insert>
+	
+	<!-- 사용자의 리뷰 가져옴 -->
+	<select id="getUserReview" resultType="String">
+		<![CDATA[select roomnum from roomreview where id=#{id}]]>
+	</select>
+	
 </mapper>

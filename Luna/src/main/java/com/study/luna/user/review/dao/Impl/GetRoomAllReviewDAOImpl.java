@@ -1,6 +1,8 @@
 package com.study.luna.user.review.dao.Impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,12 @@ public class GetRoomAllReviewDAOImpl implements GetRoomAllReviewDAO {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<RoomReviewDTO> getRoomAllReview(int roomnum) {
-		return sqlSession.selectList("reviewDAO.getRoomAllReview",roomnum);
+	public List<RoomReviewDTO> getRoomAllReview(int start,int end,int roomnum) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("roomNum", roomnum);
+		map.put("start",start);
+		map.put("end", end);
+		return sqlSession.selectList("reviewDAO.getRoomAllReview",map);
 	}
 
 }

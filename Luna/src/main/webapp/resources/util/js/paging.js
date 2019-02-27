@@ -1,5 +1,4 @@
 		//번호넣을 ul아이디,현재페이지번호,블럭제한수,페이지블럭갯수,생성될li의 아이디(아무거나),click시 콜백메서드
-
 function blockPage(ulID,curpage,block_scale,totpage,liID,clickfuncname,param1){
 	console.log("나왔다"+param1);
 	$("#"+ulID).children().remove();
@@ -15,12 +14,11 @@ function blockPage(ulID,curpage,block_scale,totpage,liID,clickfuncname,param1){
 			dom+='<a onclick="'+clickfuncname+'('+i+')"><li>[다음]</li></a>';
 			break;
 		}
-		
-		if(param1!=undefined){
-			dom+='<a id="'+liID+i+'" onclick="'+clickfuncname+'(&#039'+param1+'&#039,'+i+')"><li>'+i+'</li></a>';
-		}
 		if(param1==undefined){
 			dom+='<a id="'+liID+i+'" onclick="'+clickfuncname+'('+i+')"><li>'+i+'</li></a>';
+		}
+		if(param1!=undefined){
+			dom+='<a id="'+liID+i+'" onclick="'+clickfuncname+'(&#039'+param1+'&#039,'+i+')"><li>'+i+'</li></a>';
 		}
 	}
 	$("#"+ulID).append(dom);
