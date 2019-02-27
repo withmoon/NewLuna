@@ -65,4 +65,8 @@
    <select id="memberList" resultType="member">
 	select * from member where position is null
    </select>
+   <!-- 전체 지점수 가져오기 -->
+   <select id="allBranchCount" resultType="Integer">
+   		select count(*) from member where branchName!='본점' and branchName is not Null
+   </select>
 </mapper>

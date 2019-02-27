@@ -90,5 +90,8 @@
 	<update id="cancleReserve">
 		<![CDATA[update roompayment set status=-2 where imp_uid=#{imp_uid}]]>
 	</update>
-	
+	<!-- 전월 예약수 -->
+	<select id="getPreMonth">
+		<![CDATA[select * from roompayment where to_char(reservdate,'yyyy-mm') like to_char(TRUNC(ADD_MONTHS(sysdate,-1)+1),'yyyy-mm')]]>
+	</select>
 </mapper>

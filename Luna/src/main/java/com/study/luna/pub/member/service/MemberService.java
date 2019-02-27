@@ -22,4 +22,6 @@ public interface MemberService {
 	//마이페이지 정보 수정
 	void upUserInfo(MemberCommand memcom);
 	List<MemberCommand> memberList(MemberCommand mc);
+	//전체 지점수 가져오기
+	Integer allBranchCount();
 }
