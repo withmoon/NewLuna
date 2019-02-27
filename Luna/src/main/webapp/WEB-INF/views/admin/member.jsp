@@ -88,6 +88,7 @@
               <th style="background-color:#eeeeee; text-align:center;">이메일</th>
             <th style="background-color:#eeeeee; text-align:center;">관리</th>
             </tr>
+            
             </thead>
             <tbody>
                <c:forEach var="member" items="${memberList }">

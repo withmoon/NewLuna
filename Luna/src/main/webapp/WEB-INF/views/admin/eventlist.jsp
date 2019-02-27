@@ -90,6 +90,7 @@
              <td>${row.seq}</td>
                <td><a href="eventview.ado?seq=${row.seq}">${row.title}</a></td>
 
+
              <td>${row.content}</td>
              <td>${row.writer}</td>
                <td>${row.startdate}</td>

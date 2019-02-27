@@ -23,6 +23,7 @@ public class AdminMailController {
   }
 
    
+    
    @RequestMapping(value = "mailSending.ado")
    public String mailSending(HttpServletRequest request) {
 

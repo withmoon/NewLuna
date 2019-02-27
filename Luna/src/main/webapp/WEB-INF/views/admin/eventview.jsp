@@ -84,6 +84,7 @@
                   value="${seq.enddate}"
                      class="form-control" /></td>
                </tr>
+               
                 <tr>
                   <th>이미지업로드:</th>
                   <td><input type="text"  placeholder="image" name="image"

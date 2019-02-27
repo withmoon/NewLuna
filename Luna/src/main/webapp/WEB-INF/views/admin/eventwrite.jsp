@@ -125,6 +125,7 @@ upload.onchange = function (e) {
 
   return false;
 };
+
 </script>
                 <tr>
                   <th>파일업로드:</th>
