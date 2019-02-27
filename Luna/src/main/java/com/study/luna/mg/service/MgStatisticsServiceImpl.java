@@ -16,7 +16,7 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 	
 	@Override
 	public int countArticle(String searchOption, String keyword) {
-		System.out.println("월매출게시글 서비스");
+		System.out.println("월매출 카운트 서비스");
 		return DAO.countArticle(searchOption,keyword);
 	}
 
@@ -24,6 +24,12 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 	public List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword) {
 		System.out.println("월매출 리스트 서비스");
 		return DAO.SalesReserveList(start,end,searchOption,keyword);
+	}
+
+	@Override
+	public List<StatisticsVO> SalesReservemonth(int start, int end, String searchOption, String keyword) {
+		System.out.println("월매출 리스트 서비스");
+		return DAO.SalesReservemonth(start,end,searchOption,keyword);
 	}
 
 }

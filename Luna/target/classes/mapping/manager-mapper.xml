@@ -12,6 +12,9 @@
 		update logincount set login=login+1 where su=1
 	</update>
 	
+	<select id="branchname" resultType="Statistics">
+		SELECT branchname FROM MEMBER
+	</select>	
 	
 
 

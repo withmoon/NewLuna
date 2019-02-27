@@ -24,4 +24,10 @@ public class managerDAOImpl implements managerDAO{
 		SqlSession.update("managerDAO.logincount");
 	}
 
+	@Override
+	public void branchname() {
+		System.out.println("branchname DAO");
+		SqlSession.update("managerDAO.branchname");
+	}
+
 }

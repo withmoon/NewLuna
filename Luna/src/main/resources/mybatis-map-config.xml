@@ -24,6 +24,7 @@
 	  	<typeAlias alias="Sales" type="com.study.luna.mg.model.SalesVO"/>
 	  	<typeAlias alias="File" type="com.study.luna.mg.model.uploadfileVO"/>
 		<typeAlias alias="manager" type="com.study.luna.mg.model.managerVO"/>
+		<typeAlias alias="Statistics" type="com.study.luna.mg.model.StatisticsVO"/> 
 		
 		<!-- Admin -->
      	<typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
@@ -65,6 +66,8 @@
 	  <mapper resource="mapping/mgQBoard-mapper.xml"/>
 	  <mapper resource="mapping/mgRoom-mapper.xml"/>
 	  <mapper resource="mapping/mgSales-mapper.xml"/>
+	  <mapper resource="mapping/mgSalesReserve-mapper.xml"/>
+	  
    </mappers>
 
 

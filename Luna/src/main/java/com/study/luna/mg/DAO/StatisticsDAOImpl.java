@@ -19,16 +19,28 @@ public class StatisticsDAOImpl implements StatisticsDAO{
 	@Override
 	public List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword) {
 		System.out.println("SalesReserveList DAO");
-		return null;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlSession.selectList("mgSalesReserveDAO.SalesReserveList");
 	}
 
-	@Override
+	@Override 
 	public int countArticle(String searchOption, String keyword) {
 		System.out.println("countArticle DAO");
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		return sqlSession.selectOne("mgSalesReserveDAO.countArticle", map);
+	}
+
+	@Override 
+	public List<StatisticsVO> SalesReservemonth(int start, int end, String searchOption, String keyword) {
+		System.out.println("SalesReservemonth DAO");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlSession.selectList("mgSalesReserveDAO.SalesReservemonth");
 	}
 	
 	

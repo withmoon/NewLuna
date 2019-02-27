@@ -89,21 +89,18 @@ table {
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
-				<header>하루 매출</header>
+				<header>일별 매출</header>
 			</div>
 			<div>
 			<form name="form1" method="post" action="mgSalesreserve.mdo?">
 				<div id="ex">
 					<ul>
-						<li>검색창 : 
-							<select name="select">
-								<option value="name">일별 계산</option>
-								<option value="tel">전화번호</option>
-							</select>
+						<li>
+							날짜 : <input type="date" name="date1"> ~ <input type="date" name="date2">
 						</li>
-							<li>날짜 : <input type="date">
+						<li id="exb">
+							<input type="button" value="검색">
 						</li>
-						<li id="exb"><input type="button" value="검색"></li>
 					</ul>
 				</div>
 			</form>
@@ -115,21 +112,19 @@ table {
 						<th>건수</th>
 						<th>금액</th>
 						<th>환불</th>
+						<th>환불진행</th>
 					</tr>
 					
 					<c:forEach var="list" items="${map.list }">
 						<tr>
-							<td>${list.num }</td>			
-							<td><a href="mgBoardview.mdo?num=${list.num}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
-							<td>${list.writer }</td>
-							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
-							<c:if test="${list.mail==0 }">
-								<td><button onclick="mail_0('${list.num}','${list.email}');">답장하기</button></td>
-							</c:if>
-							<c:if test="${list.mail==1}">
-								<td><a href="#" onclick="mail_1('${list.num }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
-							</c:if>
-							
+							<td>
+								<%-- <fmt:parseDate value='${list.reservdate}' var='reservdate_day' pattern='yyyymmdd'/> --%>
+								<fmt:formatDate value="${list.reservdate}" pattern="yyyy.MM.dd"/>
+							</td>			
+							<td>${list.gunsu}</td>	
+							<td>${list.total }</td>
+							<td>${list.status }</td>
+							<td>${list.status2 }</td>
 						</tr> 
 					</c:forEach>
 					

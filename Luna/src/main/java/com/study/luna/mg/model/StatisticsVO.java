@@ -1,30 +1,42 @@
 package com.study.luna.mg.model;
 
+import java.util.Date;
+
 public class StatisticsVO {
-	private String reservdate;
-	private String inown;
-	private String money;
+	//일별매출
+	private String branchname;
+	private Date date1;
+	private Date date2;
+	private Date reservdate;
 	private int gunsu;
-	private int hb;
 	private int total;
+	private int status;
+	private int status2;
 	
-	public String getReservdate() {
+	
+	public String getBranchname() {
+		return branchname;
+	}
+	public void setBranchname(String branchname) {
+		this.branchname = branchname;
+	}
+	public Date getDate1() {
+		return date1;
+	}
+	public void setDate1(Date date1) {
+		this.date1 = date1;
+	}
+	public Date getDate2() {
+		return date2;
+	}
+	public void setDate2(Date date2) {
+		this.date2 = date2;
+	}
+	public Date getReservdate() {
 		return reservdate;
 	}
-	public void setReservdate(String reservdate) {
+	public void setReservdate(Date reservdate) {
 		this.reservdate = reservdate;
-	}
-	public String getInown() {
-		return inown;
-	}
-	public void setInown(String inown) {
-		this.inown = inown;
-	}
-	public String getMoney() {
-		return money;
-	}
-	public void setMoney(String money) {
-		this.money = money;
 	}
 	public int getGunsu() {
 		return gunsu;
@@ -32,17 +44,23 @@ public class StatisticsVO {
 	public void setGunsu(int gunsu) {
 		this.gunsu = gunsu;
 	}
-	public int getHb() {
-		return hb;
-	}
-	public void setHb(int hb) {
-		this.hb = hb;
-	}
 	public int getTotal() {
 		return total;
 	}
 	public void setTotal(int total) {
 		this.total = total;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getStatus2() {
+		return status2;
+	}
+	public void setStatus2(int status2) {
+		this.status2 = status2;
 	}
 	
 	

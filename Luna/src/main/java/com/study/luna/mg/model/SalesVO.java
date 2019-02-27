@@ -3,6 +3,7 @@ package com.study.luna.mg.model;
 import java.util.Date;
 
 public class SalesVO {
+	//매출현황
 	private Date date;
 	private Integer inone;
 	private Integer su;
@@ -11,6 +12,7 @@ public class SalesVO {
 	private Integer sales2;
 	private Integer total;
 	
+	//예약현황
 	private int seq; //��ȣ
 	private String imp_uid; //id
 	private String merchant_uid;

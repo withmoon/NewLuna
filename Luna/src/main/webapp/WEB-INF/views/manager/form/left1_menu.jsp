@@ -27,7 +27,7 @@
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="매출통계" >매출통계</a>
 				<ul class="hide">
 					<li><a href="mgSalesreserve.mdo">하루 매출</a></li>
-					<li><a href="mgSalesmarket.mdo">월 매출</a></li>
+					<li><a href="mgSalesmonth.mdo">월 매출</a></li>
 					<li><a href="#">리포트올리기</a></li>
 				</ul>
 			</li>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +90,7 @@ table {
 		<!-- 중앙세션 -->
 		<section id="msec">
 			<div id=header>
-				<header>문의 게시판</header>
+				<header>월별 매출</header>
 			</div>
 			<div>
 				<div id="ex">
@@ -108,33 +109,27 @@ table {
 				<!-- db데이터 -->
 				<table id="t">
 					<tr id="ttr1">
-						<th>MARKET</th>
-						<th colspan="3">음식판매</th>
-						<th>합계</th>
+						<th>날짜</th>
+						<th>건수</th>
+						<th>금액</th>
+						<th>환불</th>
+						<th>환불진행</th>
 					</tr>
+					
+					<c:forEach var="list" items="${map.list }">
+						<tr>
+							<td>
+								<fmt:formatDate value="${list.reservdate}" pattern="yyyy.MM"/>
+							</td>			
+							<td>${list.gunsu}</td>	
+							<td>${list.total }</td>
+							<td>${list.status }</td>
+							<td>${list.status2 }</td>
+						</tr> 
+					</c:forEach>
+					
 					<tr>
-						<td>음료</td>
-						<td>식혜</td>
-						<td>바나나쉐이크</td>
-						<td>딸기스무디</td>
-						<td>21000</td>
-					</tr>
-					<tr>
-						<td>커피</td>
-						<td>카라멜마끼아또</td>
-						<td>카푸치노</td>
-						<td>아메리카노</td>
-						<td>24000</td>
-					</tr>
-					<tr>
-						<td>빵</td>
-						<td>초코범벅</td>
-						<td>찐빵</td>
-						<td>카스테라</td>
-						<td>23000</td>
-					</tr>
-					<tr>
-
+						<td></td>
 					</tr>
 				</table>
 			</div>

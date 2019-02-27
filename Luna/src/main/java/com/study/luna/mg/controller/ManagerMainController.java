@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.study.luna.mg.model.StatisticsVO;
 import com.study.luna.mg.service.managerService;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
@@ -27,7 +28,7 @@ public class ManagerMainController {
 	MemberService memser;
 
 	@RequestMapping(value = "/manager.mdo", method = RequestMethod.GET)
-	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session)
+	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,StatisticsVO vo)
 			throws Exception {
 		System.out.println("로그인 아이디  받아오기");
 		System.out.println("test 세션 :"+session.getAttribute("id"));
@@ -40,6 +41,10 @@ public class ManagerMainController {
 			flashMap = RequestContextUtils.getInputFlashMap(request);
 			System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
 			session.setAttribute("id", flashMap.get("id"));
+			managerService.branchname();
+			System.out.println("branchname :" +vo.getBranchname());
+			session.setAttribute("branchname",vo.getBranchname());
+			
 			
 			// 로그인수+1
 			managerService.logincount();

@@ -7,6 +7,9 @@ public interface managerService {
 	
 	//로그인 수 가져오기
 	int login();
+	
+	//branchname 구하기...
+	void branchname();
 
 	
 }
