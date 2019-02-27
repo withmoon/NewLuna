@@ -78,6 +78,7 @@
                   <th style="background-color: #eeeeee; text-align: center;">작성일</th>
                </tr>
             </thead>
+            
             <tbody>
          
              <c:forEach var="row" items="${map.list}">
