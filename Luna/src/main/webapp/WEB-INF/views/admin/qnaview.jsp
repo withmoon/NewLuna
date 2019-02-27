@@ -31,6 +31,7 @@
             <li><a href="administrator.ado">홈</a></li>
             <li><a href="sales.ado">판매현황</a></li>
           <li><a href="info.ado">지점장정보/승인</a></li>
+          <li><a href="inquireList.ado">문의게시판</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
             <li><a href="event.ado">이벤트</a></li>

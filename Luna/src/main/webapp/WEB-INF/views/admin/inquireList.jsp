@@ -29,6 +29,7 @@
           <li><a href="administrator.ado">홈</a></li>
             <li><a href="sales.ado">판매현황</a></li>
             <li><a href="info.ado">지점장정보/승인</a></li>
+            <li><a href="inquireList.ado">문의게시판</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
              <li><a href="event.ado">이벤트</a></li>
@@ -58,6 +59,7 @@
                <tr>
                   <th style="background-color: #eeeeee; text-align: center;">번호</th>
                   <th style="background-color: #eeeeee; text-align: center;">id</th>
+                  <th style="background-color: #eeeeee; text-align: center;">email</th>
                   <th style="background-color: #eeeeee; text-align: center;">내용</th>
                   <th style="background-color: #eeeeee; text-align: center;">지점</th>
                   <th style="background-color: #eeeeee; text-align: center;">파일</th>
@@ -71,6 +73,7 @@
              <tr>
              <td>${row.seq}</td>
              <td>${row.id}</td>
+             <td>${row.email}</td>
              <td>${row.content}</td>
              <td>${row.branchname}</td>
              <td>${row.fileupload}</td>

@@ -1,5 +1,8 @@
 package com.study.luna.admin.model.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AdminInquireBoardVO {
 
 	private Integer seq;
@@ -8,6 +11,7 @@ public class AdminInquireBoardVO {
 	private String content;
 	private String fileupload;
 	private String reply;
+	private String email;
 	public Integer getSeq() {
 		return seq;
 	}
@@ -44,10 +48,16 @@ public class AdminInquireBoardVO {
 	public void setReply(String reply) {
 		this.reply = reply;
 	}
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	@Override
 	public String toString() {
 		return "AdminInquireBoardVO [seq=" + seq + ", id=" + id + ", branchname=" + branchname + ", content=" + content
-				+ ", fileupload=" + fileupload + ", reply=" + reply + "]";
+				+ ", fileupload=" + fileupload + ", reply=" + reply + ", email=" + email + "]";
 	}
+	
 }

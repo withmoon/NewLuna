@@ -26,7 +26,7 @@ public class ApproveController {
 	@RequestMapping(value="/approvedelete.ado")
 	public String approvedelete(String id)throws Exception{
 		adminManagerApproveService.approvedelete(id);
-		return "redirect:/approveList.ado";
+		return "redirect:/infoList.ado";
 	}
 
 	
