@@ -61,7 +61,7 @@ public class LoginCheckController {
 					if(branchName==null) {
 						mav.setViewName("redirect:"+redirectUrl);
 						return mav;
-					}else if(branchName.equals("관리자")) {
+					}else if(branchName.equals("본점")) {
 						mav.setViewName("redirect:/administrator.ado");
 						return mav;
 					}else {
