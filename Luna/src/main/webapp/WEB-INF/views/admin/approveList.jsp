@@ -10,6 +10,7 @@
 	href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <title>승인페이지</title>
 
+
 </head>
 <body>
 	<nav class="navbar navbar-default">

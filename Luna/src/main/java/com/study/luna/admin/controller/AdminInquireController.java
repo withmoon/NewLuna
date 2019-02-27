@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.luna.admin.board.service.AdminInquireBoardService;
 import com.study.luna.admin.model.vo.AdminInquireBoardVO;
 
+
 @Controller
 public class AdminInquireController {
 

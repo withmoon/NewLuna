@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <title>게시판 목록</title>
 
+
 </head>
 <body>
    <nav class="navbar navbar-default">

@@ -16,6 +16,7 @@ import com.study.luna.admin.board.service.AdminManagerApproveService;
 import com.study.luna.admin.model.vo.AdminManagerApproveVO;
 
 
+
 @Controller
 public class ApproveController {
 	
