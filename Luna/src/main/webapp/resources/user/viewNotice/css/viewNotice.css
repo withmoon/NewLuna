@@ -83,11 +83,11 @@ nav{
    padding:1%;
 }
 .rbox span {
-	position:relative;
+	position:absolute;
 	left: 85%;
 }
 /*댓글 올리기*/
-.replytext {
+.replytextForm {
 	 border-top: 0.2vw solid #bbbb;
 	 padding:1%;
 }
@@ -98,7 +98,7 @@ textarea {
 	font-size: 2vw;
 }
 
-.replytext button {
+.replytextForm button {
 	width:15%;
 	font-size: 2vw;
 	padding:1%;

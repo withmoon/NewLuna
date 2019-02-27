@@ -13,16 +13,15 @@ public class EventReplyServiceImpl implements EventReplyService {
 	@Autowired
 	EventReplyDAOImpl eventReplyDAOImpl;
 	
+	//댓글 목록
+		@Override
+		public List<EventReplyVO> eReplyList(int seq) {
+			return eventReplyDAOImpl.eReplyList(seq);
+		}
+	
 	//댓글 입력
 	@Override
 	public void create(EventReplyVO eReplyVO) {
 		eventReplyDAOImpl.create(eReplyVO);
 	}
-
-	//댓글 목록
-	@Override
-	public List<EventReplyVO> eReplyList(int seq) {
-		return eventReplyDAOImpl.eReplyList(seq);
-	}
-
 }

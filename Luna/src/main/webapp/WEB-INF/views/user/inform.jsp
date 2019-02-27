@@ -96,40 +96,46 @@
 
 <!-- 고객의 소리 구간-->
 <section class="list_tab2">
-<table class="inform_user">
-<tr>
-<th>이름</th>
-<td><input type="text" size="20" name="name" placeholder="이름"></td>
-<th>이메일</th>
-<td><input type="email" size="20" name="email" placeholder="email@email.com"></td>
-</tr>
-<tr>
-<th>전화번호</th>
-<td><input type="text" size="20" name="number" placeholder="-포함 입력"></td>
-<th>문의지점</th>
-<td>
-<select>
-<option value="br0">전체
-<option value="br1">지점1
-<option value="br2">지점2
-<option value="br3">지점3
-<option value="br4">지점4
-<option value="br5">지점5
-</select>
-</td>
-</tr>
-<tr>
-<th>내용</th>
-<td colspan="3"><textarea cols="120" rows="10"></textarea></td>
-</tr>
-<tr>
-<th>파일업로드</th>
-<td colspan="3"><input type="file" name="uploadFile"/></td>
-</tr>
-<tr>
-<td colspan="4"><img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<a href="#">보내기</a></td>
-</tr>
-</table>
+<div class="inform_user">
+	<div><label>문의지점</label>
+		<select> <!-- 시/도 -->
+				<option value="br0">전체
+				<option value="br1">지점1
+				<option value="br2">지점2
+				<option value="br3">지점3
+				<option value="br4">지점4
+				<option value="br5">지점5
+		</select>&emsp;
+		<select> <!-- 구/군 -->
+				<option value="br0">전체
+				<option value="br1">지점1
+				<option value="br2">지점2
+				<option value="br3">지점3
+				<option value="br4">지점4
+				<option value="br5">지점5
+		</select>&emsp;
+		<select> <!-- 문의지점 -->
+				<option value="br0">전체
+				<option value="br1">지점1
+				<option value="br2">지점2
+				<option value="br3">지점3
+				<option value="br4">지점4
+				<option value="br5">지점5
+		</select>
+	</div>
+	<div><label>제목</label>
+		<input type="text" id="title" name="title" placeholder="제목을 입력해주세요"/>
+	</div>
+	<div><label>내용</label>
+		<textarea cols="120" rows="10" placeholder="내욜을 입력해주세요"></textarea>
+	</div>
+	<div><label>파일업로드</label>&emsp;&emsp;&emsp;&emsp;
+		<input type="file" name="uploadFile"/>
+	</div>
+	<div>
+		<img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<a href="#">보내기</a>
+	</div>
+</div>
 </section>
 
 <!-- footer -->

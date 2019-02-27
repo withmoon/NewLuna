@@ -16,6 +16,7 @@
         <typeAlias alias="roomPay" type="com.study.luna.user.dto.RoomPaymentDTO"/>
         <typeAlias alias="alam" type="com.study.luna.user.dto.AlamDTO"/>
         <typeAlias alias="eReply" type="com.study.luna.user.comment.vo.EventReplyVO"/>
+        <typeAlias alias="nReply" type="com.study.luna.user.comment.vo.NoticeReplyVO"/>
         
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
@@ -54,6 +55,8 @@
       <mapper resource="mapping/eventReply-mapper.xml" />
       <!-- 공지사항 -->
       <mapper resource="mapping/noticeBoard-mapper.xml" />
+      <!-- 공지사항 답변 -->
+       <mapper resource="mapping/noticeReply-mapper.xml" />
       <!-- 자주묻는질문 -->
       <mapper resource="mapping/qnaBoard-mapper.xml" />
       

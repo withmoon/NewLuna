@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/viewNotice/js/viewNotice.js"/>"></script>
+<script>
+	
+</script>
 </head>
 <body>
 <header>
@@ -29,7 +32,7 @@
 <div class="border">
 <!-- 제목/날짜 -->
 <div class="title">
-<p><b>${nbv.title }</b>
+<p><b>${nbv.title } </b>
 <span class="writer">${nbv.writer }</span>
 <span class="date">
 	<fmt:formatDate value="${nbv.regdate }" pattern="yy-MM-dd" />
@@ -41,44 +44,20 @@
 </div>
 <!-- 댓글 -->
 <div class="reply">
-	<b class="replyOnOff">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
+	<b onclick="replyOnOff(${nbv.num})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
 	<div class="reply2">
-	<div class="rbox">
-         작성자 : 선비냥이<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         흠.. 
-    <span><button>수정</button> <button>삭제</button></span><br/>
-	</div>
-
-	<div class="rbox">
-         작성자 : 냥냥펀치님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         아래 작성자 넌 뭐냥 왜 고냥이 말밖에 못하냥 어디서 순고양이가 인간세계에와서 어울리냥<br/>
-    </div>
-
-	<div class="rbox">
-         작성자 : 고냥이님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         냥냥냥 냥냥~~냥냥 0ㅁ0 냥냥냥~~~~~~<br/>
-	</div>
-
-	<div class="rbox">
-         작성자 : 프로리뷰어님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         공기정화기 덕분에 숨통도 잘 트이고 조명조절이 가능해서 오늘 프레젠테이션하는데 있어 너무나도 편리했습니다.<br/>
-	</div>
-
-	<div class="rbox">
-         작성자 : 난강사다<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
-	</div><br/>
+	<!-- 댓글 목록 -->
+	<div class="replyList"></div>
 	<div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
-	<div class="replytext">
-		<textarea rows="3" cols="65" placeholder="댓글을 작성해주세요"></textarea>
-    	<button>올리기</button>
+	<!-- 댓글 올리기 -->
+	<c:if test="${member.id != null }">
+	<div class="replytextForm">
+		<input type="hidden" id="num" value="${nbv.num }">
+		<textarea id="replytext" name="replytext" rows="3" cols="65" placeholder="댓글을 작성해주세요"></textarea>
+    	<button onclick='writeCommand(${nbv.num})'>올리기</button>
     </div>
-	</div>
+    </c:if>
+    </div>
 </div>
 <div class="button"><button onclick="window.open('inform.udo','_self');">목록</button></div>
 </div>
