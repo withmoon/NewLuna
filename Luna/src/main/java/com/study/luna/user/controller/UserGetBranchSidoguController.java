@@ -17,7 +17,7 @@ public class UserGetBranchSidoguController {
 	RoomServiceImpl roomser;
 
 	@RequestMapping(value="/getSidoGugun.udo")
-	public @ResponseBody List<String> getSidoGugung(@RequestParam("undefined")String sido){
+	public @ResponseBody List<String> getSidoGugung(@RequestParam(value="undefined",defaultValue="서울")String sido){
 		List<String> list=roomser.getGugun(sido);
 		return list;
 	}

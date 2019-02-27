@@ -26,7 +26,7 @@ public class UserLookOverRoomController {
 	RoomService roomser;
 	
 	@RequestMapping(value="/lookover.udo", method=RequestMethod.GET)
-	public ModelAndView lookOverView(@RequestParam(value="sido",required=false,defaultValue="")String sel_sido,
+	public ModelAndView lookOverView(@RequestParam(value="sido",required=false,defaultValue="서울")String sel_sido,
 										@RequestParam(value="gugun",required=false,defaultValue="")String sel_gugun,
 										@RequestParam(value="seldate",required=false,defaultValue="")String sel_date,
 										RoomInfoDTO romin,HttpSession session,MemberCommand memcom,HttpServletRequest request) {

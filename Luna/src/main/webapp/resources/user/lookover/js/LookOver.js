@@ -53,9 +53,7 @@ $('document').ready(function() {
 	$("select[name^=sido]").each(function() {
 		$selsido = $(this);
 		var sel_gugun=$("#sel_gugun").val();
-		if(sel_gugun==''){
-			$selsido.next().append("<option value='' selected='selected'>시/구/군 선택</option>");
-		}else{
+
 			$.ajax({      
 				 type:"GET",  
 				 url:"getSidoGugun.udo",    
@@ -71,14 +69,12 @@ $('document').ready(function() {
 			    	 }
 			     }
 			});   
-		}
+
 	});
 
 	// 시/도 선택시 구/군 설정
 	$("select[name^=sido]").change(function() {
-		var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의
-																					// 구군
-																					// Array
+		var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의// 구군// Array													
 		var $gugun = $(this).next(); // 선택영역 군구 객체
 		$("option",$gugun).remove(); // 구군 초기화
 		
@@ -95,7 +91,32 @@ $('document').ready(function() {
 		     }
 		});   
 	});
-
+	
+	$("select[name^=gugun]").change(function() {
+		var sido=$("#sido_select option:selected").val();
+		var gugun=$("#gugun_select option:selected").val();
+		
+		 $.ajax({      
+				type:"GET",  
+				url:"getCanReservRoom.udo",    
+				data:{sido:sido, gugun:gugun,seldate:''},     
+				success:function(data){  
+					$(".showView").remove();
+					var strDom='';
+					for(var i=0; i<data.length; i++){
+						strDom+='<div class="showView">';
+						strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'">';
+						strDom+='<img src="resources/rooms/'+data[i].fname+'"/></a><br/>';
+						strDom+='<a href="roomDetail.udo?roomnum='+data[i].roomNum+'" class="roomname'+data[i].roomNum+'">'+data[i].roomName+'</a><br/>';
+						strDom+='<label>('+data[i].branchName+')</label><br/>';
+						strDom+='<label>'+data[i].roomEx1+'</label><br/>';
+						strDom+='<label>'+data[i].roomEx2+'</label><br/>';
+						strDom+='<label>'+data[i].roomEx3+'</label></div>';
+					}
+					$('.showRoom').append(strDom);
+				}
+			});
+	});
 });
 
 //날짜 입력후 ajax로 데이터 처리
