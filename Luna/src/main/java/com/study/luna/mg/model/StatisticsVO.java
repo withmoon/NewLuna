@@ -8,12 +8,19 @@ public class StatisticsVO {
 	private Date date1;
 	private Date date2;
 	private Date reservdate;
+	private String adate;
 	private int gunsu;
 	private int total;
 	private int status;
 	private int status2;
 	
 	
+	public String getAdate() {
+		return adate;
+	}
+	public void setAdate(String adate) {
+		this.adate = adate;
+	}
 	public String getBranchname() {
 		return branchname;
 	}

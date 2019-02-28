@@ -51,9 +51,9 @@
 	<!-- 월별 -->
 	<select id="SalesReservemonth" resultType="Statistics">
 	<![CDATA[
-		SELECT SUBSTR(reservdate,1,5)as reservdate, count(*)as gunsu,sum(payamount)as total,
+		SELECT reservdate, count(*)as gunsu,sum(payamount)as total,
 		count(DECODE(status,'-2',1)) as status,count(DECODE(status,'-1',1)) as status2 
-		FROM roompayment GROUP BY SUBSTR(reservdate,1,5) order by reservdate desc
+		FROM roompayment GROUP BY reservdate order by reservdate desc
 	]]>
 	</select>
 	

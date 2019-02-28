@@ -119,7 +119,7 @@ table {
 						<tr>
 							<td>
 								<%-- <fmt:parseDate value='${list.reservdate}' var='reservdate_day' pattern='yyyymmdd'/> --%>
-								<fmt:formatDate value="${list.reservdate}" pattern="yyyy.MM.dd"/>
+								<fmt:formatDate value="${list.reservdate}" pattern="MM.dd"/>
 							</td>			
 							<td>${list.gunsu}</td>	
 							<td>${list.total }</td>

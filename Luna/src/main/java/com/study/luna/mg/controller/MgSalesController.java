@@ -23,7 +23,7 @@ import com.study.luna.mg.util.listExcelDownload;
 
 @Controller
 public class MgSalesController {
-	// 현황보기
+	//현황
 
 	@Autowired
 	private MgPCService MgPCService;

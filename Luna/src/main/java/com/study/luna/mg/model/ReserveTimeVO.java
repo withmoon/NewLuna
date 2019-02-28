@@ -1,49 +1,32 @@
 package com.study.luna.mg.model;
 
+import java.util.Date;
+
 public class ReserveTimeVO {
-	private String age;
-	private String time;
-	private String inonesu;
-	private String percent;
+	private String reservetime;
+	private Date reservdate;
+	private String branchname;
 	
-	private String gender;
-	private String month;
-	public String getAge() {
-		return age;
+	
+	public String getReservetime() {
+		return reservetime;
 	}
-	public void setAge(String age) {
-		this.age = age;
+	public void setReservetime(String reservetime) {
+		this.reservetime = reservetime;
 	}
-	public String getTime() {
-		return time;
+	public Date getReservdate() {
+		return reservdate;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setReservdate(Date reservdate) {
+		this.reservdate = reservdate;
 	}
-	public String getInonesu() {
-		return inonesu;
+	public String getBranchname() {
+		return branchname;
 	}
-	public void setInonesu(String inonesu) {
-		this.inonesu = inonesu;
+	public void setBranchname(String branchname) {
+		this.branchname = branchname;
 	}
-	public String getPercent() {
-		return percent;
-	}
-	public void setPercent(String percent) {
-		this.percent = percent;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getMonth() {
-		return month;
-	}
-	public void setMonth(String month) {
-		this.month = month;
-	}
+	
 	
 	
 }

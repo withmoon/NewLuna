@@ -25,6 +25,8 @@
 	  	<typeAlias alias="File" type="com.study.luna.mg.model.uploadfileVO"/>
 		<typeAlias alias="manager" type="com.study.luna.mg.model.managerVO"/>
 		<typeAlias alias="Statistics" type="com.study.luna.mg.model.StatisticsVO"/> 
+		<typeAlias alias="ReserveTime" type="com.study.luna.mg.model.ReserveTimeVO"/> 
+		
 		
 		<!-- Admin -->
      	<typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
@@ -43,7 +45,7 @@
       <mapper resource="mapping/payment-mapper.xml"/>
       <!-- 알림질문 -->
       <mapper resource="mapping/alam-mapper.xml" />
-        <!-- 찜관련 -->
+      <!-- 찜관련 -->
       <mapper resource="mapping/keeproom-mapper.xml" />
       <!-- 예약관련 -->
       <mapper resource="mapping/review-mapper.xml" />
@@ -67,6 +69,8 @@
 	  <mapper resource="mapping/mgRoom-mapper.xml"/>
 	  <mapper resource="mapping/mgSales-mapper.xml"/>
 	  <mapper resource="mapping/mgSalesReserve-mapper.xml"/>
+	  <mapper resource="mapping/mgReserveTime-mapper.xml"/>
+	  
 	  
    </mappers>
 

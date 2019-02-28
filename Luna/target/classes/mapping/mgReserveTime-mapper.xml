@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mgReserveTime">
+	<select id="mgAgeList" resultType="ReserveTime">
+		 <![CDATA[
+		select reservetime from roompayment where reservdate>='19/02/21' and reservdate<='19/02/22' 
+		]]>
+	</select>
+	
+</mapper> 
+

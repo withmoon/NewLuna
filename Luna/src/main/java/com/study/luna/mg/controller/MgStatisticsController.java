@@ -17,7 +17,7 @@ import com.study.luna.mg.service.MgStatisticsService;
 
 @Controller
 public class MgStatisticsController {
-	// 매출통계
+	// 매출
 
 		@Autowired
 		public MgStatisticsService MgStatisticsService;

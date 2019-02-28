@@ -22,7 +22,7 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 
 	@Override
 	public List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword) {
-		System.out.println("월매출 리스트 서비스");
+		System.out.println("일매출 리스트 서비스");
 		return DAO.SalesReserveList(start,end,searchOption,keyword);
 	}
 

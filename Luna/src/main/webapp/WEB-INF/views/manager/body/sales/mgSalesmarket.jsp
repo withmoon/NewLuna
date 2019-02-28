@@ -7,11 +7,20 @@
 <head>
 <script type="text/javascript"
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 
 <style type="text/css">
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
 #ex {
 	background-color: yellow;
 	height: 30px;
@@ -51,12 +60,50 @@
 	background-color: yellow;
 }
 
-/*
-table {
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}*/
 </style>
+
+<!-- Chart code -->
+<script>
+// Themes begin
+am4core.useTheme(am4themes_material);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+var data = [];
+var value = 50;
+for(let i = 0; i < 300; i++){
+  let date = new Date();
+  date.setHours(0,0,0,0);
+  date.setDate(i);
+  value -= Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
+  data.push({date:date, value: value});
+}
+
+chart.data = data;
+
+// Create axes
+var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+dateAxis.renderer.minGridDistance = 60;
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+// Create series
+var series = chart.series.push(new am4charts.LineSeries());
+series.dataFields.valueY = "value";
+series.dataFields.dateX = "date";
+series.tooltipText = "{value}"
+
+series.tooltip.pointerOrientation = "vertical";
+
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.snapToSeries = series;
+chart.cursor.xAxis = dateAxis;
+
+//chart.scrollbarY = new am4core.Scrollbar();
+chart.scrollbarX = new am4core.Scrollbar();
+</script>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -119,7 +166,7 @@ table {
 					<c:forEach var="list" items="${map.list }">
 						<tr>
 							<td>
-								<fmt:formatDate value="${list.reservdate}" pattern="yyyy.MM"/>
+								<fmt:formatDate value="${list.reservdate}" pattern="yy.MM"/>
 							</td>			
 							<td>${list.gunsu}</td>	
 							<td>${list.total }</td>
@@ -133,6 +180,7 @@ table {
 					</tr>
 				</table>
 			</div>
+				<div id="chartdiv"></div>
 
 		</section>
 	</div>
