@@ -1,14 +1,62 @@
-.topUl li{
+ul li{
 	margin:0px;
-	font-family: 휴먼아미체;
+	font-family: ont-family: 'Gamja Flower', cursive;
 	text-decoration:none;
 	display:table-cell;
-	font-size: 1.5vw;
+	font-size: 1.7vw;
+}
+ul li a{
+	text-decoration:none;
+}
+/* ë¡œê·¸ì¸ */
+nav{
+	position:relative;
+}
+.topUl{
+	position:relative;
+	left:-4%;
+	width:100%;
+}
+.topUl li{
+	text-align:center;
+	background-color:tan;
+	padding:1% 3% 1% 3%;
+	width:1%;
+}
+.topUl li:hover{
+	background-color:white;
+	cursor:pointer;
 }
 .topUl li a{
-	text-decoration:none;
-	color: black;
+	font-size: 1.7vw;
 }
-.topUl li a:hover{
-	color: orange;
+.memberUl{
+	position:absolute;
+	top:-98px;
+	right:-660px;
+}
+.memberUl img{
+	width:19%;
+}
+.lgoutli img{
+	width:82%;
+}
+
+/*ë¡œê³ ì²˜ë¦¬*/
+.logo{
+	position:relative;
+	width:9%;
+	top:1%;
+}
+
+/* íƒ€ì´í‹€ */
+.top{
+	position:absolute;
+	top:3%;
+	left:10%;
+	width:auto;
+	text-align:center;
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
 }

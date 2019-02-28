@@ -23,7 +23,7 @@
 <body style="overflow-x:hidden">
   
   
-  <form id="theForm" action="" method="POST">
+  <form hidden="true" id="theForm" action="" method="POST">
   		<input type="hidden" id="status" name="status" value="${roomPay.status}"/>
   		<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
   		<input type="hidden" id="roomNum" name="roomNum" value="${roomInfo.roomNum}"/>
@@ -47,6 +47,7 @@
 <!-- 상단로고 -->
 
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<div class="top">공간 상세보기</div>
 
 <div class="roomExp">
 <img id="roomExpImg" src="<c:url value="/resources/rooms/${roomImgList.get(0).getFname()}"/>">

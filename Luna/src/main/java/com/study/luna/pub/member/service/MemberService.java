@@ -24,7 +24,8 @@ public interface MemberService {
 	List<MemberCommand> memberList(MemberCommand mc);
 	//전체 지점수 가져오기
 	Integer allBranchCount();
-	
+	//전체 유저수
+		Integer allMemberCount();
 	 //회원탈퇴
 	   public void removedelete(String id)throws Exception;
 

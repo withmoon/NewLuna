@@ -4,29 +4,9 @@
 	margin: 0;
 	font-family: 'Gamja Flower', cursive;
 }
-
-nav {
-	float:right;
-}
-
-.topUl li a {
-	font-size: 1.3vw;
-}
-
-.logo {
-	position: absolute;
-	width: 5%;
-	left: 10%;
-}
-/* 타이틀 */
-.top {
-	position: absolute;
-	top: 3%;
-	left: 15%;
-	width: auto;
-	text-align: center;
-	font-size: 2vw;
-	color: #686868;
+section{
+	border:1px solid tan;
+	width:100%;
 }
 /* 텍스트, 찾기 버튼 section */
 .searchArea {

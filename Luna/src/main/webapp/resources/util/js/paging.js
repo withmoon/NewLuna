@@ -1,6 +1,5 @@
 		//번호넣을 ul아이디,현재페이지번호,블럭제한수,페이지블럭갯수,생성될li의 아이디(아무거나),click시 콜백메서드
 function blockPage(ulID,curpage,block_scale,totpage,liID,clickfuncname,param1){
-	console.log("나왔다"+param1);
 	$("#"+ulID).children().remove();
 	var dom='';
 	var startpage=((curpage%block_scale==0)? 

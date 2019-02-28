@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.payandreserv.service.PayAndReserveService;
 import com.study.luna.user.room.service.RoomService;
 import com.study.luna.util.SHA256;
 
@@ -29,6 +30,8 @@ public class UserHomeController {
 	MemberService memser;
 	@Autowired
 	RoomService roomser;
+	@Autowired
+	PayAndReserveService parser;
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
@@ -98,8 +101,7 @@ public class UserHomeController {
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		
-		//여서부터
+	
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
@@ -109,11 +111,22 @@ public class UserHomeController {
 		}
 			
 		session.setAttribute("member", memcom);
-		//여까지 고침
 		
 		List<String> sido=roomser.getSido();
+		Integer allBranchCount=memser.allBranchCount();
+		Integer allMemberCount=memser.allMemberCount();
+		Integer preYearReserveCount=parser.getPreYearReserveCount();
+		Integer thisYearReserveCount=parser.getThisYearReserveCount();
+		Integer preDayReserveCount=parser.getPreDayReserveCount();
+		Integer preMonthReserveCount=parser.getPreMonthReserveCount();
 		
 		mav.addObject("sido",sido);
+		mav.addObject("allMemberCount",allMemberCount);
+		mav.addObject("allBranchCount",allBranchCount);
+		mav.addObject("preYearReserveCount",preYearReserveCount);
+		mav.addObject("thisYearReserveCount",thisYearReserveCount);
+		mav.addObject("preDayReserveCount",preDayReserveCount);
+		mav.addObject("preMonthReserveCount",preMonthReserveCount);
 		mav.addObject("member",session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;

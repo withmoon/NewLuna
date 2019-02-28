@@ -69,4 +69,8 @@
    <select id="allBranchCount" resultType="Integer">
    		select count(*) from member where branchName!='본점' and branchName is not Null
    </select>
+   <!-- 전체 회원 가져오기 -->
+	<select resultType="Integer" id="allMemberCount">
+			select count(*) from member where branchName is Null 
+	</select>
 </mapper>

@@ -4,9 +4,9 @@
 <mapper namespace="alamDAO">
 	<!-- 알람 모두 가져옴--> 
 	<select id="getAlamlist" resultType="alam">
-		<include refid="mgQBoard.pagingHeader"></include>	
+		<include refid="payAndReservDAO.pagingHeader"/>
 		<![CDATA[select rownum as num,alam.* from alam where id=#{id} order by almdate desc]]>
-		<include refid="mgQBoard.pagingFooter"></include>
+		<include refid="payAndReservDAO.pagingFooter"/>
 	</select>
 	
 	<select id="getAlamCount" resultType="Integer">

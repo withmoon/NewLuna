@@ -10,6 +10,10 @@ import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
 import com.study.luna.user.payandreserv.dao.Impl.CancleReserveDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.CheckReservStartdateDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetPreDayReserveCountDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetPreMonthReserveCountDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetPreYearReserveCountDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetThisYearReserveCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayInfoDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.InReserveRoomDAOImpl;
@@ -32,6 +36,14 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	CancleReserveDAOImpl crDAOImpl;
 	@Autowired
 	GetUserPayCountDAOImpl gupcDAOImpl;
+	@Autowired
+	GetPreYearReserveCountDAOImpl gpyrcDAOImpl;
+	@Autowired
+	GetThisYearReserveCountDAOImpl gtyrcDAOImpl;
+	@Autowired
+	GetPreDayReserveCountDAOImpl gpdrcDAOImpl;
+	@Autowired
+	GetPreMonthReserveCountDAOImpl gpmrcDAOImpl;
 	
 	@Override
 	public Integer checkReservStartdate(RoomReserveDTO romre) {
@@ -60,5 +72,21 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Override
 	public Integer getUserPayCount(String status, String id,String startdate,String enddate) {
 		return gupcDAOImpl.getUserPayCount(status, id,startdate,enddate);
+	}
+	@Override
+	public Integer getPreYearReserveCount() {
+		return gpyrcDAOImpl.getPreYearReserveCount();
+	}
+	@Override
+	public Integer getThisYearReserveCount() {
+		return gtyrcDAOImpl.getThisYearReserveCount();
+	}
+	@Override
+	public Integer getPreDayReserveCount() {
+		return gpdrcDAOImpl.getPreDayReserveCount();
+	}
+	@Override
+	public Integer getPreMonthReserveCount() {
+		return gpmrcDAOImpl.getPreMonthReserveCount();
 	}
 }

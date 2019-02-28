@@ -135,8 +135,6 @@ function getUserReview(state){
 			for(var i=0; i<data.length; i++){
 				hasuserreview[i]=data[i];
 			}
-			console.log("리1"+hasuserreview[0]);
-			console.log("리2"+hasuserreview[1]);
 			if(state=='inreview'){
 				if(stdate!=''){
 					getReservList("search",1); //지금이라네
@@ -158,7 +156,6 @@ function getReservList(listType,lrcurpage){
 			if(listType=='pay'){ //최근내역
 				latelyList(lrcurpage,data);
 			}else{ //지난내역
-				console.log("리스트 타입"+listType);
 				lastList(lrcurpage,data);
 			}
 		}
@@ -174,8 +171,8 @@ function latelyList(lrcurpage,data){
 	}else{
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
-			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
+			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			ltDom+='<td>02.2222.2222</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
@@ -214,7 +211,8 @@ function lastList(lrcurpage,data){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
-			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			console.log(data.rvlist[i].roomNum);
 			if(data.rvlist[i].status==-2){
 				ltDom+='<td colspan="2"><label>환불진행중</label>';
 			}else if(data.rvlist[i].status==-1){
@@ -285,7 +283,7 @@ function lastSearch(){
 
 
 //별 갯수 환산
-	$("#star1").click(function(){
+function star1Click(){
 		var image=$("#star1").attr('src');
 		if(image.match("star.png")){
 			switch(stcount){
@@ -323,10 +321,9 @@ function lastSearch(){
 			stcount=1;
 		}
 		$("#starcount").text(stcount);
-	});
 
-
-	$("#star2").click(function(){
+}
+function star2Click(){
 		var image=$("#star2").attr('src');
 		if(image.match("star.png")){
 			switch(stcount){
@@ -358,10 +355,10 @@ function lastSearch(){
 			stcount=2;
 		}
 		$("#starcount").text(stcount);
-	});
+}
 
 
-	$("#star3").click(function(){
+function star3Click(){
 		var image=$("#star3").attr('src');
 		if(image.match("star.png")){
 			switch(stcount){
@@ -388,10 +385,10 @@ function lastSearch(){
 			stcount=3;
 		}
 		$("#starcount").text(stcount);
-	});
+}
 
 
-	$("#star4").click(function(){
+function star4Click(){
 		var image=$("#star4").attr('src');
 		if(stcount==4&&image.match("star.png")){
 			$("#star4").attr('src','resources/util/unstar.png');
@@ -409,8 +406,9 @@ function lastSearch(){
 			stcount=4;
 		}
 		$("#starcount").text(stcount);
-	});
-	$("#star5").click(function(){
+}
+function star5Click(){
+
 		var image=$("#star5").attr('src');
 		if(stcount==5&&image.match("star.png")){
 			$("#star5").attr('src','resources/util/unstar.png');
@@ -423,4 +421,4 @@ function lastSearch(){
 			stcount=5;
 		}
 		$("#starcount").text(stcount);
-	});
+}

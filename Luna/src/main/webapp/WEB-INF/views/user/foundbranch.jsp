@@ -9,8 +9,10 @@
 <link rel="stylesheet" href="<c:url value="/resources/public/css/topmenu.css"/>"/>
 <link rel="stylesheet" href="<c:url value="/resources/user/found/css/FoundBranch.css"/>"/>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
+
 </head>
 <body style="overflow-x:hidden;">
+<section>
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
@@ -21,20 +23,19 @@
 <div class="top">근처 지점 찾아보기</div>
 
 <!-- 검색어 입력 -->
-<section class="searchArea">
+<article class="searchArea">
 <form onsubmit="searchPlaces(); return false;">
 <input id="keyword" type="text" placeholder="서울" value="서울" size="30"/>
 <button type="submit">찾기</button>
 </form>
-</section>
+</article>
 
 <!-- 지도 및 검색결과 틀 -->
-<section id="mapSec">
+<article id="mapSec">
 <!-- 지도 div -->
 <div id="map" style="width:60%;height:100%;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
 <script type="text/javascript" src="<c:url value="/resources/user/found/js/founding.js"/>"></script>
-
 
 <!-- 결과값 전송받을 div -->
 <div id="mapResult" style="padding:5px;z-index:1;overflow-y:scroll;">
@@ -44,8 +45,8 @@
 <div id="pagination"></div>
 </div>
 </div>
+</article>
 </section>
-
 <!-- footer -->
 <footer>
 <%@ include file="../public/footer.jsp" %>

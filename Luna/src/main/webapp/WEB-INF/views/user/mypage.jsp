@@ -170,13 +170,13 @@
 		
 		<!-- 리뷰 받는 div -->
 		<div class="review">
-			<img id="star1" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
-			<img id="star2" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
-			<img id="star3" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
-			<img id="star4" class="star" src="<c:url value="/resources/util/unstar.png"/>"/>
-			<img id="star5" class="star" src="<c:url value="/resources/util/unstar.png"/>"/><label>별점 :<b id="starcount">0</b>점</label>
+			<img id="star1" class="star" onclick="star1Click()" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star2" class="star" onclick="star2Click()" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star3" class="star" onclick="star3Click()" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star4" class="star" onclick="star4Click()" src="<c:url value="/resources/util/unstar.png"/>"/>
+			<img id="star5" class="star" onclick="star5Click()" src="<c:url value="/resources/util/unstar.png"/>"/><label>별점 :<b id="starcount">0</b>점</label>
 			<img onclick="closeReview()" src="<c:url value="/resources/util/xicon.png"/>"/><br/><br/>
-			<input type="text" id="rvwText" size="100" placeholder="최대 100자">&nbsp;<button onclick="writeReview()">후기 올리기</button>
+			<input type="text" id="rvwText" size="90" placeholder="최대 90자">&nbsp;<button onclick="writeReview()">후기 올리기</button>
 		</div>
 		
 		<!-- 환불요청 div -->

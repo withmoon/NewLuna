@@ -4,10 +4,10 @@
 <mapper namespace="reviewDAO">
 	<!-- review 가져오기 -->
 	<select id="getRoomAllReview" resultType="roomReview">
-		<include refid="mgQBoard.pagingHeader"></include>	
+		<include refid="payAndReservDAO.pagingHeader"/>
 		<![CDATA[select rownum as num,name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
 				 join member mem on romr.id=mem.id where roomNum=#{roomNum} order by writedate desc]]>
-		<include refid="mgQBoard.pagingFooter"></include>
+		<include refid="payAndReservDAO.pagingFooter"/>
 	</select>
 	
 	<!-- 총 review갯수 가져옴 -->

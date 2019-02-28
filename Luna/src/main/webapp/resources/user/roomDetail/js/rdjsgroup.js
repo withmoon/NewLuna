@@ -22,7 +22,7 @@ function showSd(num){
 		data:{roomnum:num, seldate:seldate},     
 		success:function(data){
 			var sch=data.reservstate;
-			//console.log("sch="+sch);
+			console.log("sch="+sch);
 			if(sch==undefined){
 				$("#startdat").text("");
 				$("#startdat").text(seldate);

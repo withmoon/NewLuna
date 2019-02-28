@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.admin.model.dao.MemberDAOImpl;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
+import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.DnStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
@@ -45,6 +46,8 @@ public class MemberServiceImpl implements MemberService{
 	MemberDAOImpl memberDAOImpl;
 	@Autowired
 	AllBranchCountDAOImpl abcDAOImpl;
+	@Autowired
+	AllMemberCountDAOImpl amcDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -106,6 +109,10 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Integer allBranchCount() {
 		return abcDAOImpl.allBranchCount();
+	}
+	@Override
+	public Integer allMemberCount() {
+		return amcDAOImpl.allMemberCount();
 	}
 	
 	 @Override

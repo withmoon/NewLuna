@@ -12,17 +12,19 @@
 <script src="<c:url value="/resources/user/home/js/home.js"/>"></script>
 </head>
 <body>
-	<!-- 상단메뉴 -->
-	<header>
-		<%@ include file="../public/topmenu.jsp" %>
-	</header>
+	
 	
 	<!-- 상단로고 -->
 	<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">HOME</div>
-
 	
 	<section>
+	
+	<!-- 상단메뉴 -->
+	<nav>
+		<%@ include file="../public/topmenu.jsp" %>
+	</nav>
+	
 	<!-- 배너 -->
 	<div>
 		<div align="center"  class="banner">
@@ -35,7 +37,7 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/whole2.png"/>'">
 		</div>
 		<div id="whole2">
-    		<b>☆전국 380개☆</b><br> <!-- 지점명이 있고 상태가 0인 지점 갯수 넣어주기 -->
+    		<b>☆전국 ${allBranchCount}개의 스터디카페 달빛☆</b><br> <!-- 지점명이 있고 상태가 0인 지점 갯수 넣어주기 -->
         	
         </div>
         <div onmouseover="view2(true)" onmouseout="view2(false)">
@@ -44,8 +46,8 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/previous2.png"/>'">
 		</div>
 		<div id="previous2">
-    		<b>22,712명 고객님들 감사합니다~</b><br> <!-- 예약 테이블에서 작년 예약수 count(*)해서 넣기 -->
-        	작년 예약수 : 103,253명 올해 예약수 : 22,721명  
+    		<b>${allMemberCount}명 고객님들 감사합니다~</b><br> <!-- 예약 테이블에서 작년 예약수 count(*)해서 넣기 -->
+        	작년 예약수 : ${preYearReserveCount}명 올해 예약수 : ${thisYearReserveCount}명  
         </div>
         <div onmouseover="view3(true)" onmouseout="view3(false)">
     		<img class="accumulate" alt="고객님이용횟수" src="<c:url value="/resources/user/home/images/accumulate.png"/>"
@@ -53,14 +55,15 @@
 				onmouseover="this.src='<c:url value="/resources/user/home/images/accumulate2.png"/>'">
 		</div>
 		<div id="accumulate2">
-    		<b>22,712명 고객님들이 증명합니다</b><br> <!-- 전일 : 현재날짜에서 하루 빠진 날의 예약 수 count(*)  전월 : 현재날짜에서 한달빼고 나온 월의 예약수 count-->
-        	전일 예약수 : 1,934명  전월예약 수 : 20,098명
+    		<b>${allMemberCount}명 고객님들이 증명합니다</b><br> <!-- 전일 : 현재날짜에서 하루 빠진 날의 예약 수 count(*)  전월 : 현재날짜에서 한달빼고 나온 월의 예약수 count-->
+        	전일 예약수 : ${preDayReserveCount}명  전월예약 수 : ${preMonthReserveCount}명
         </div>
 	</div>
 	
 	<!-- 선택창 -->
 	<!-- 시/도 -->
-	<div align="center">
+	<div align="center" class="slctDiv">
+	<label>♡시/도와 시/구/군을 선택후 찾기를 눌러주세요♡</label><br/>
 	<select name="sido" id="sido_select">
 	<option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
 		<c:forEach  var="sidoList" items="${sido}">
@@ -69,75 +72,144 @@
 	</select>
 	<!-- 시/군/구 -->
 	<select name="gugun" id="gugun_select"></select>
-	<button class="btn_find" onclick="findRoom()">찾기</button><p>
+	<button class="btn_find" onclick="findRoom()">찾기</button>
 	</div>
 	<!-- 여기까지 선택창 -->
 	
 	<!-- 인기순/조회수/new -->
 	<div class="roomTable" align="center">
-		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	인기순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
-		<table border="0">
+		<p class="fmroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;♡달빛 인기 공간♡&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<table>
 			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage"" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+				<td>
+				<div class="slider">
+				<figure>
+					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
+				<td>
+				<div class="slider">
+				<figure>
+					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
+				<td>
+				<div class="slider">
+				<figure>
+					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
 			</tr>
+			<tr>
+			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
+			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
+			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
+			</tr>
+		</table>
+		<p class="lkroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;☆예약 많은 공간☆&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<table>
+			<tr>
+				<td>
+				<div class="slider">
+				<figure>
+					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
+				<td>
+				<div class="slider">
+				<figure>
+				
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+						<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
+				<td>
+				<div class="slider">
+				<figure>
+					
+					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
+					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+				</figure>
+				</div>
+				</td>
+			</tr>
+			<tr>
+			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
+			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
+			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
+			</tr>
+		</table>
+		<p class="fmroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;♡달빛 신규 공간♡&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+		<table>
 			<tr>
 				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
 				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
 				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
 			</tr>
-		</table>
-		<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">	조회순	<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
-		<table border="0">
 			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
+			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
+			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
 			</tr>
 		</table>
-	<p><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">   리뷰   <img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
-   </div>
-   </section>
-   
-   <!-- review --> <!-- 최신 리뷰 순으로 5개만 보여줌 페이지 블럭 없음 -->
-   <section class="review">
-      <img src="<c:url value="/resources/user/home/images/star.png"/>"><b>한줄후기</b><img src="<c:url value="/resources/user/home/images/star.png"/>">
-      <div class="rbox">
-         작성자 : 선비냥이<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         흠.. <br/>
-      </div>
+	<p><img class="rline" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;✌달빛 최근 리뷰✌&emsp;<img class="rline" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
+</div>
+	<div class="review">
+      <table>
+      	<tr>
+      	<td rowspan="5"><img class="rvroomImg" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
 
-      <div class="rbox">
-         작성자 : 냥냥펀치님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         아래 작성자 넌 뭐냥 왜 고냥이 말밖에 못하냥 어디서 순고양이가 인간세계에와서 어울리냥<br/>
-      </div>
+      	<td  class="starImg" > <img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"></td>
 
-      <div class="rbox">
-         작성자 : 고냥이님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         냥냥냥 냥냥~~냥냥 0ㅁ0 냥냥냥~~~~~~<br/>
-      </div>
+      	<td rowspan="6"><img class="rvroomImg" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
 
-      <div class="rbox">
-         작성자 : 프로리뷰어님<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         공기정화기 덕분에 숨통도 잘 트이고 조명조절이 가능해서 오늘 프레젠테이션하는데 있어 너무나도 편리했습니다.<br/>
-      </div>
-
-      <div class="rbox">
-         작성자 : 난강사다<br/>
-         작성날짜 : 2019-01-01<br/><br/>
-         강의하는데 있어 아주 편리했습니다. 가격도 무인시스템으로 예약받아서 그런지 일반 적인 곳에 비해 싸서 좋네요<br/>
-      </div><br/>
-      <div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
+      	<td  class="starImg" > <img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"></td>
       
+		</tr>
+		<tr>
+      	<td>지점명</td>
+      	<td>지점명</td>
+      	</tr>
+      	<tr>
+      	<td>룸이름</td>
+      	<td>룸이름</td>
+      	<tr>
+      	<td>사용자이름</td>
+      	<td>사용자이름</td>
+      	</tr>
+      	<tr>
+      	<td>사용자 후기</td>
+      	<td>사용자 후기</td>
+		</tr>	
+      </table>
+      </div>
    </section>
+
   	<!-- footer -->
 	<footer>
 		<%@ include file="../public/footer.jsp" %>
 	</footer>
+	
 </body>
 </html>
