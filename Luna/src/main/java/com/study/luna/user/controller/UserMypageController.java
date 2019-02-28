@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,7 +53,7 @@ public class UserMypageController {
 		mav.setViewName("mypage");
 		return mav;
 	}
-	
+	@Transactional
 	@RequestMapping(value="/mypage.udo", method=RequestMethod.POST)
 	public ModelAndView mainView(@RequestParam(value="stat", required=false,defaultValue="")String stat,RoomReserveDTO romre,HttpServletRequest req,RedirectAttributes rdab,HttpSession session,MemberCommand memcom,RoomInfoDTO romin, RoomPaymentDTO rompay) throws Exception{
 		ModelAndView mav=new ModelAndView();
@@ -85,6 +86,7 @@ public class UserMypageController {
 				parser.inReserveRoom(romre);
 			}else{//있으면 update
 				System.out.println("업뎃 할꺼당"+romre.getStartdate());
+				romre.setReservNumber(sdresult);
 				parser.upReserveRoom(romre);
 			}
 			rompay.setId(memcom.getId());

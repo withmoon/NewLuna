@@ -50,7 +50,6 @@ IMP.request_pay({
  	   	window.close();
  	   	
  	   $(opener.document).find("#theForm").attr("action","mypage.udo?").submit();
- 		
   	 	alert("결제가 성공적으로 이루어졌습니다", {
             icon: "success"
         });	

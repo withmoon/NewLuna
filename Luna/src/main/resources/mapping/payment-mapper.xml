@@ -5,7 +5,7 @@
 
 	<!-- 예약 테이블에 현재날짜을 가지고 있는 room이 있는지 -->
 	<select id="checkReservStartdate" resultType="Integer">
-		<![CDATA[select roomnum,reservNumber from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
+		<![CDATA[select reservNumber from roomreserv where roomnum=#{roomNum} and to_char(startdate,'yyyy-mm-dd') like #{startdate}]]>
 	</select>
 
 	<!-- 예약 집어넣기 -->
@@ -64,7 +64,7 @@
 	<select id="getUserPayCount" resultType="Integer">
 		<![CDATA[
 			select count(*) from roompayment 
-			where id=#{id}]]>
+			where id=#{id} ]]>
 		<!-- 최근 내역 -->
 		<if test="status=='pay'">
 		<![CDATA[

@@ -49,7 +49,6 @@ public class UserRoomDetailController {
 			
 		session.setAttribute("member", memcom);
 		//여까지 고침
-		
 		roomin.setRoomNum(roomnum);
 		roomin=romser.getDetailRoomInfo(roomin);
 		

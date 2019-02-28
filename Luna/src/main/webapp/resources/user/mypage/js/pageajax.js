@@ -172,7 +172,7 @@ function latelyList(lrcurpage,data){
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
-			ltDom+='<td><a href="javascript:window.location.href=roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
+			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			ltDom+='<td>02.2222.2222</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
@@ -212,11 +212,10 @@ function lastList(lrcurpage,data){
 			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
 			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
-			console.log(data.rvlist[i].roomNum);
 			if(data.rvlist[i].status==-2){
 				ltDom+='<td colspan="2"><label>환불진행중</label>';
 			}else if(data.rvlist[i].status==-1){
-				ltDom+='<td><label>환불완료/label>';
+				ltDom+='<td><label>환불완료</label>';
 				ltDom+='<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
 			}else{
 				for(var j=0; j<hasuserreview.length; j++){
