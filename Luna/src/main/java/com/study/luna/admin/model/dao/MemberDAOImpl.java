@@ -10,14 +10,22 @@ import com.study.luna.pub.command.MemberCommand;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
-	@Autowired
-	SqlSessionTemplate sqlSession;
-	
-	//회원목록
-	@Override
-	public List<MemberCommand> memberList(MemberCommand mc) {
-		System.out.println("===> 회원목록");
-		return sqlSession.selectList("memberDAO.memberList", mc);
-	}
+   @Autowired
+   SqlSessionTemplate sqlSession;
+   
+   //회원목록
+   @Override
+   public List<MemberCommand> memberList(MemberCommand mc) {
+      System.out.println("===> 회원목록");
+      return sqlSession.selectList("memberDAO.memberList", mc);
+   }
+
+   
+   //회원탈퇴
+   @Override
+   public void removedelete(String id) throws Exception {
+      sqlSession.delete("luna.admin.board.removedelete",id);
+      
+   }
 
 }

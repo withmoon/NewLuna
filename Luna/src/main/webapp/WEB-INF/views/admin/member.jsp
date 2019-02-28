@@ -75,42 +75,48 @@
    <h3>회원관리 게시판</h3>
    </center>
 <br></br>
-   <div class="container">
-      <div class="row">
-         <table class="table table-striped"
-            style="text-align: center; border: 1px solid #dddddd">
-            <thead>
+<div class="container">
+   <div class="row">
+   <form action="member.ado" method="get">
+      <table class="table table-striped"
+         style="text-align: center; border: 1px solid #dddddd">
+         <thead>
+         
             <tr>
-            <!-- <th style="background-color:#eeeeee; text-align:center;">번호</th> -->
-            <th style="background-color:#eeeeee; text-align:center;">이름</th>
-            <th style="background-color:#eeeeee; text-align:center;">아이디</th>
-             <th style="background-color:#eeeeee; text-align:center;">전화번호</th>
-              <th style="background-color:#eeeeee; text-align:center;">이메일</th>
-            <th style="background-color:#eeeeee; text-align:center;">관리</th>
+               <!-- <th style="background-color:#eeeeee; text-align:center;">번호</th> -->
+               <th style="background-color: #eeeeee; text-align: center;">이름</th>
+               <th style="background-color: #eeeeee; text-align: center;">아이디</th>
+               <th style="background-color: #eeeeee; text-align: center;">전화번호</th>
+               <th style="background-color: #eeeeee; text-align: center;">이메일</th>
+               <th style="background-color: #eeeeee; text-align: center;">회원상태</th>
+            
+            
             </tr>
-            
-            </thead>
-            <tbody>
-               <c:forEach var="member" items="${memberList }">
-                  <tr>
-                     <td>${member.name }</td>
-                     <td>${member.id }</td>
-                     <td>${member.phone }</td>
-                     <td>${member.email }</td>
-                     <td><input type="button" value="탈퇴" onclick="javascript:location.href='memberdelete.ado?id=${member.id}'"/>
-                  </tr>
-               </c:forEach>
-            
-            
-            </tr> 
-            </tbody>
-            </table>
-            </div>
-   
-   
-            <script
-               src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-           <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
-</body>
 
+         </thead>
+         <tbody>
+            <c:forEach var="member" items="${memberList }">
+               <tr>
+                  <td>${member.name }</td>
+                  <td>${member.id }</td>
+                  <td>${member.phone }</td>
+                  <td>${member.email }</td>
+                  
+                  <td><input type="button" value="제명"
+                     class="btn btn-primary pull-right"
+                     onclick="javascript:location.href='remove.ado?id=${member.id}'" />
+                  </td>
+
+               </tr>
+
+            </c:forEach>
+         </tbody>
+      </table>
+   </div>
+
+
+   <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+   </body>
 </html>

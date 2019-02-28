@@ -5,5 +5,7 @@ import java.util.List;
 import com.study.luna.pub.command.MemberCommand;
 
 public interface MemberDAO {
-	public List<MemberCommand> memberList(MemberCommand mc);
+   public List<MemberCommand> memberList(MemberCommand mc);
+
+   void removedelete(String id) throws Exception;
 }

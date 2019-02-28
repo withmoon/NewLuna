@@ -108,4 +108,10 @@ public class MemberServiceImpl implements MemberService{
 		return abcDAOImpl.allBranchCount();
 	}
 	
+	 @Override
+	   public void removedelete(String id) throws Exception {
+	      memberDAOImpl.removedelete(id);
+	      
+	   }
+
 }

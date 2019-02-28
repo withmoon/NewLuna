@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-          <li><a href="administrator.ado">홈</a></li>
+      
             <li><a href="sales.ado">판매현황</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
@@ -40,6 +40,7 @@
                aria-expanded="false">메뉴<span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li class="active"><a href="login.jsp">로그아웃</a></li>
+                   <li class="active"><a href="adminmail.ado">공지알림</a></li>
                </ul></li>
          </ul>
       </div>

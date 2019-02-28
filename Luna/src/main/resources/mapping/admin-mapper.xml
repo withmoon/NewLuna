@@ -4,177 +4,177 @@
 
 <mapper namespace="luna.admin.board">
 
-	<!-- QnABoard -->
-
-	
-	<delete id="inquiredelete">
-	delete from inquiryboard where seq=#{seq}
-	</delete>
-
-	<select id="inquireread" resultType="adminInquireBoardVO">
-
-		select * from inquiryboard
-		where seq=#{seq}
-
-	</select>
+   <!-- QnABoard -->
 
 
-	<update id="inquireinsert">
-		update inquiryboard set reply=#{reply} where seq=#{seq}
-	</update>
-
-	<select id="inquireList" resultType="adminInquireBoardVO">
-
-		select * from inquiryboard order by seq desc
-	</select>
 
 
-	<select id="infoList" resultType="adminManagerApproveVO">
+   <select id="inquireread" resultType="adminInquireBoardVO">
 
-		select
-		id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
-		from member
-		<if test="btStatus=0 and brStatus=1"></if>
-		where position='지점장'
+      select * from inquiryboard
+      where seq=#{seq}
 
-	</select>
-
-	<select id="approveList" resultType="adminManagerApproveVO">
-
-		select
-		id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
-		from member where brStatus = -1
-
-	</select>
-
-	<update id="approveupdate" parameterType="adminManagerApproveVO">
-
-		update member set brStatus=#{brStatus}+0 where id=#{id}
-
-	</update>
-
-	<delete id="approvedelete">
-
-		delete from member where id=#{id}
-	</delete>
-
-	<insert id="noticeinsert" parameterType="adminNoticeBoardVO">
-		insert into noticeboard
-		(num,writer, title, content, regdate)
-		values ( (select
-		nvl(max(num)+1,1) from noticeboard),#{writer},#{title},
-		#{content},
-		#{regdate})
-	</insert>
-
-	<select id="noticeList" resultType="adminNoticeBoardVO">
-
-		select
-		num,writer,title,content,regdate from noticeboard order by num desc
-
-	</select>
-
-	<select id="noticeread" resultType="adminNoticeBoardVO">
-
-		select * from noticeboard
-		where num=#{num}
-
-	</select>
-
-	<update id="noticeupdate" parameterType="adminNoticeBoardVO">
-
-		update noticeboard set
-		title= #{title}, content= #{content} where
-		num=#{num}
-
-	</update>
-
-	<delete id="noticedelete" parameterType="adminNoticeBoardVO">
-
-		delete from noticeboard
-		where num=#{num}
-	</delete>
+   </select>
 
 
-	<insert id="insertQnABoard" parameterType="adminQnABoardVO">
+   <update id="inquireinsert">
+      update inquiryboard set reply=#{reply} where seq=#{seq}
+   </update>
+
+   <select id="inquireList" resultType="adminInquireBoardVO">
+
+      select * from inquiryboard order by seq desc
+   </select>
+
+
+   <select id="infoList" resultType="adminManagerApproveVO">
+
+      select
+      id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
+      from member
+      <if test="btStatus=0 and brStatus=1"></if>
+      where position='지점장'
+
+   </select>
+
+   <select id="approveList" resultType="adminManagerApproveVO">
+
+      select
+      id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
+      from member where brStatus = -1
+
+   </select>
+
+   <update id="approveupdate" parameterType="adminManagerApproveVO">
+
+      update member set brStatus=#{brStatus}+0 where id=#{id}
+
+   </update>
+
+   <delete id="approvedelete">
+
+      delete from member where id=#{id}
+   </delete>
+
+   <insert id="noticeinsert" parameterType="adminNoticeBoardVO">
+      insert into noticeboard
+      (num,writer, title, content, regdate)
+      values ( (select
+      nvl(max(num)+1,1) from noticeboard),#{writer},#{title},
+      #{content},
+      #{regdate})
+   </insert>
+
+   <select id="noticeList" resultType="adminNoticeBoardVO">
+
+      select
+      num,writer,title,content,regdate from noticeboard order by num desc
+
+   </select>
+
+   <select id="noticeread" resultType="adminNoticeBoardVO">
+
+      select * from noticeboard
+      where num=#{num}
+
+   </select>
+
+   <update id="noticeupdate" parameterType="adminNoticeBoardVO">
+
+      update noticeboard set
+      title= #{title}, content= #{content} where
+      num=#{num}
+
+   </update>
+
+   <delete id="noticedelete" parameterType="adminNoticeBoardVO">
+
+      delete from noticeboard
+      where num=#{num}
+   </delete>
+
+
+   <insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
          values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, #{regdate})
          ]]>
-	</insert>
+   </insert>
 
-	<select id="listAll" resultType="adminQnABoardVO">
+   <select id="listAll" resultType="adminQnABoardVO">
 
-		select
-		num,subject,content,regdate from adminqnaboard order by num desc
+      select
+      num,subject,content,regdate from adminqnaboard order by num desc
 
-	</select>
-
-
-	<select id="read" resultType="adminQnABoardVO">
-
-		select * from adminqnaboard where
-		num=#{num}
-
-	</select>
+   </select>
 
 
-	<update id="update" parameterType="adminQnABoardVO">
+   <select id="read" resultType="adminQnABoardVO">
 
-		update adminqnaboard set
-		subject= #{subject}, content= #{content} where
-		num=#{num}
+      select * from adminqnaboard where
+      num=#{num}
 
-	</update>
-
-	<delete id="delete" parameterType="adminQnABoardVO">
-
-		delete from adminqnaboard
-		where num=#{num}
-	</delete>
+   </select>
 
 
+   <update id="update" parameterType="adminQnABoardVO">
+
+      update adminqnaboard set
+      subject= #{subject}, content= #{content} where
+      num=#{num}
+
+   </update>
+
+   <delete id="delete" parameterType="adminQnABoardVO">
+
+      delete from adminqnaboard
+      where num=#{num}
+   </delete>
 
 
-	<!-- eventBoard -->
 
-	<insert id="insertEventBoard" parameterType="adminEventBoardVO">
+
+   <!-- eventBoard -->
+
+   <insert id="insertEventBoard" parameterType="adminEventBoardVO">
    <![CDATA[
    insert into adminevent (seq, title, writer, content, startdate, enddate, image, files)
    values  ( (select nvl(max(seq)+1,1) from adminevent ), #{title}, #{writer}, #{content}, #{startdate}, #{enddate}, #{image}, #{files})
    ]]>
-	</insert>
+   </insert>
 
-	<select id="listAlls" resultType="adminEventBoardVO">
-		select * from adminevent order by seq desc
-	</select>
+   <select id="listAlls" resultType="adminEventBoardVO">
+      select * from adminevent order by seq desc
+   </select>
 
-	<select id="readevent" resultType="adminEventBoardVO">
+   <select id="readevent" resultType="adminEventBoardVO">
 
-		select * from adminevent where seq=#{seq}
+      select * from adminevent where seq=#{seq}
 
-	</select>
-
-
-
-	<update id="updateevent" parameterType="adminEventBoardVO">
-
-		update adminevent set title= #{title}, content= #{content},
-		startdate=#{startdate}, enddate=#{enddate}, image=#{image},
-		files=#{files} where
-		seq=#{seq}
-
-	</update>
-
-	<delete id="deleteevent" parameterType="adminEventBoardVO">
-
-		delete from adminevent where seq=#{seq}
-	</delete>
+   </select>
 
 
 
+   <update id="updateevent" parameterType="adminEventBoardVO">
+
+      update adminevent set title= #{title}, content= #{content},
+      startdate=#{startdate}, enddate=#{enddate}, image=#{image},
+      files=#{files} where
+      seq=#{seq}
+
+   </update>
+
+   <delete id="deleteevent" parameterType="adminEventBoardVO">
+
+      delete from adminevent where seq=#{seq}
+   </delete>
 
 
+
+
+    <delete id="removedelete" parameterType="member">
+      delete from member where id=#{id}
+   </delete>
 
 
 

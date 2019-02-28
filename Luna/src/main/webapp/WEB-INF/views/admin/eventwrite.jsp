@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-            <li><a href="administrator.ado">홈</a></li>
+            
             <li><a href="sales.ado">판매현황</a></li>
            <li><a href="info.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
