@@ -9,14 +9,12 @@ import com.study.luna.admin.model.dao.MemberDAOImpl;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
-import com.study.luna.pub.member.dao.Impl.DnStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
-import com.study.luna.pub.member.dao.Impl.UpStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.UpUserInfoDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.util.SHA256;
@@ -34,10 +32,6 @@ public class MemberServiceImpl implements MemberService{
 	GetBrNameDAOImpl getbrDAOImpl;
 	@Autowired
 	GetStatusDAOImpl getStDAOImpl;
-	@Autowired
-	UpStatusDAOImpl upStDAOImpl;
-	@Autowired
-	DnStatusDAOImpl dnStDAOImpl;
 	@Autowired
 	GetMyPageInfoDAOImpl getMyInfoDAOImpl;
 	@Autowired
@@ -80,17 +74,6 @@ public class MemberServiceImpl implements MemberService{
 	public int getStatus(MemberCommand memcom) {
 		return getStDAOImpl.getStatus(memcom);
 	}
-
-	@Override
-	public void upStatus(MemberCommand memcom) {
-		upStDAOImpl.upStatus(memcom);		
-	}
-
-	@Override
-	public void dnStatus(MemberCommand memcom) {
-		dnStDAOImpl.dnStatus(memcom);
-	}
-
 	@Override
 	public MemberCommand getMyPageInfo(MemberCommand memcom) {
 		return getMyInfoDAOImpl.getMyPageInfo(memcom);

@@ -20,15 +20,15 @@
 
 <!-- 상단 로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-<div class="top">근처 지점 찾아보기</div>
+<div class="top">근처 지점 찾기</div>
 
 <!-- 검색어 입력 -->
-<article class="searchArea">
+<div class="searchArea">
 <form onsubmit="searchPlaces(); return false;">
 <input id="keyword" type="text" placeholder="서울" value="서울" size="30"/>
 <button type="submit">찾기</button>
 </form>
-</article>
+</div>
 
 <!-- 지도 및 검색결과 틀 -->
 <article id="mapSec">

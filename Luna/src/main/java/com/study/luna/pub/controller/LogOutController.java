@@ -19,8 +19,6 @@ public class LogOutController {
 	@RequestMapping("/logout.do")
 	public ModelAndView logout(MemberCommand memcom,HttpSession session) {
 		ModelAndView mav=new ModelAndView();
-		memcom=(MemberCommand) session.getAttribute("member");
-		memser.dnStatus(memcom);
 		session.invalidate();
 		mav.setViewName("redirect:/main.do");
 		return mav;

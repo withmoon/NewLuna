@@ -14,14 +14,16 @@
 <script type="text/javascript" src="<c:url value="/resources/public/js/getSchedule.js"/>"></script>
 </head>
 <body style="overflow-x:hidden;">
-<!-- 상단 기본 바 -->
-<nav>
-<%@ include file="../public/topmenu.jsp" %>
-</nav>
+
 
 <!-- 상단로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">방 찾기</div>
+
+<!-- 상단 기본 바 -->
+<nav>
+<%@ include file="../public/topmenu.jsp" %>
+</nav>
 
 <!-- 지점 지정 -->
 <section class="searchArea">

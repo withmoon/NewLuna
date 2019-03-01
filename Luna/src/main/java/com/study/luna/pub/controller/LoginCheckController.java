@@ -44,18 +44,11 @@ public class LoginCheckController {
 				response.setCharacterEncoding("utf-8");
 				out.println("<script>alert('승인 되지 않은 아이디입니다.'); history.go(-1);</script>");
 				out.flush();
-			}else if(status==1){
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = response.getWriter();
-				response.setCharacterEncoding("utf-8");
-				out.println("<script>alert('이미 사용중인 아이디 입니다.'); history.go(-1);</script>");
-				out.flush();
 			}else {
 				boolean check=memser.passCheck(id, pass);
 				if(check) {
 					String branchName=memser.getBrName(id);
 					rdab.addFlashAttribute("id", memcom.getId());
-					memser.upStatus(memcom);
 					//사용자가 접속했던 곳으로 리턴해줌
 					String redirectUrl=(String)session.getAttribute("rdUrl");
 					if(branchName==null) {

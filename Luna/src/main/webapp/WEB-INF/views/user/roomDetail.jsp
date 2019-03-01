@@ -23,7 +23,7 @@
 <body style="overflow-x:hidden">
   
   
-  <form hidden="true" id="theForm" action="" method="POST">
+  <form hidden="hidden" id="theForm" action="" method="POST">
   		<input type="hidden" id="status" name="status" value="${roomPay.status}"/>
   		<input type="hidden" id="branchName" name="branchName" value="${roomInfo.branchName}"/>
   		<input type="hidden" id="roomNum" name="roomNum" value="${roomInfo.roomNum}"/>
@@ -38,16 +38,16 @@
         <input type="hidden" id="pg_tid" name="pg_tid" value="${roomPay.pg_tid}"/> 
         <input type="hidden" id="reservdate" name="reservdate" value="${roomPay.reservdate}"/> 
   </form>
-  
+<!-- 상단로고 -->
+<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<div class="top">공간 상세보기</div>
+
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
 </nav>
 
-<!-- 상단로고 -->
 
-<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
-<div class="top">공간 상세보기</div>
 
 <div class="roomExp">
 <img id="roomExpImg" src="<c:url value="/resources/rooms/${roomImgList.get(0).getFname()}"/>">
@@ -87,7 +87,7 @@
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p>선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.</p><br/>
+<p>선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="schClickReset()">선택초기화</button></p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>

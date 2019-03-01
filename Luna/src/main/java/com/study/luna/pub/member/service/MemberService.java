@@ -13,10 +13,6 @@ public interface MemberService {
 	boolean passCheck(String id,String pass) throws Exception;
 	String getBrName(String id);
 	int getStatus(MemberCommand memcom);
-	//로그인 상태로 변경
-	void upStatus(MemberCommand memcom);
-	//로그아웃 상태로 변경
-	void dnStatus(MemberCommand memcom);
 	//마이페이지에서 정보 가져옴
 	MemberCommand getMyPageInfo(MemberCommand memcom);
 	//마이페이지 정보 수정

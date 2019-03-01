@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header>
 		<ul class="memberUl">
 			<c:if test="${member.id eq null}">
 				<li><a href="<c:url value="/login.do"/>"><img src="<c:url value="/resources/public/images/login.gif"/>"/></a></li>
@@ -21,12 +20,11 @@
 			</c:if>
 		</ul>
 		<ul class="topUl">
-			<li onclick="location.href='<c:url value="/foundbranch.udo"/>'">근처 장소 찾기</li>
-			<li onclick="location.href='<c:url value="/lookover.udo"/>'">공간 둘러보기</li>
-			<li onclick="location.href='<c:url value="/event.udo"/>'">이벤트</li>
-			<li onclick="location.href='<c:url value="/inform.udo"/>'">고객 센터</li>
+			<li class="topfound" onclick="location.href='<c:url value="/foundbranch.udo"/>'">근처 장소 찾기</li>
+			<li class="toplookover" onclick="location.href='<c:url value="/lookover.udo"/>'">공간 둘러보기</li>
+			<li class="topevent" onclick="location.href='<c:url value="/event.udo"/>'">이벤트</li>
+			<li class="topfound" onclick="location.href='<c:url value="/inform.udo"/>'">고객 센터</li>
 
 		</ul>
-	</header>
 </body>
 </html>

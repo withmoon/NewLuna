@@ -58,7 +58,7 @@
 	<!--  for roomDetail  -->
 	<!-- 방상세 정보 가져오기-->
 	<select id="getDetailRoomInfo" resultType="roomInfo">
-		select mem.branchAddr1,rom.* from room rom join member mem on rom.branchName=mem.branchName where roomnum=#{roomNum}
+		select mem.branchAddr1,mem.branchtel,rom.* from room rom join member mem on rom.branchName=mem.branchName where roomnum=#{roomNum}
 	</select>
 	
 	<!-- 방 사진 가져오기  -->

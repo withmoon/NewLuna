@@ -1,9 +1,11 @@
 var rnum=getParameterByName('roomnum'); //방번호 가져오기
-
 var reservtime="";
 var count=0;
 var userid='';
+var seldate='';
+var incount=0;
 $('document').ready(function($) {
+	incount=1;
 	showSd(rnum);
 	showReview(1);
 	userid = '@Request.RequestContext.HttpContext.Session["member"]';
@@ -12,7 +14,7 @@ $('document').ready(function($) {
 function showSd(num){
 	$("#schdule tr td").css({"text-decoration":"","color":""});
 	
-	var seldate=$("#reservDate").val(); 
+	seldate=$("#reservDate").val(); 
 	
 	$("#reservdate").val(seldate); 
 	
@@ -22,8 +24,11 @@ function showSd(num){
 		data:{roomnum:num, seldate:seldate},     
 		success:function(data){
 			var sch=data.reservstate;
-			console.log("sch="+sch);
 			if(sch==undefined){
+				schClickReset();
+				if(incount>=2){
+					alert("적용되었습니다.");
+				}
 				$("#startdat").text("");
 				$("#startdat").text(seldate);
 				$("#scroomname").text("");
@@ -31,18 +36,22 @@ function showSd(num){
 				
 				$(".showSchedule").display="";
 				$(".showSchedule").show();
+				incount++;
 				return;
 			}else{
-				alert("적용되었습니다.");
+				schClickReset();
+				if(incount>=2){
+					alert("적용되었습니다.");
+				}
 				var splitsch=sch.split(",");
 				var spschresult="";
 			
 				var time="";
 				for ( var i in splitsch ) {
 					var time=getSelTime(getTimeTxt(splitsch[i]));
-					//var time=getSelTime(splitsch[i]);
 				$(time).css({"text-decoration":"line-through double","color":"gray"});
 				}
+				incount++;
 			}
 			$("#startdat").text("");
 			$("#startdat").text(seldate);
@@ -59,9 +68,6 @@ function changeChoiceImg(img){
 	var image=$("#keep").attr('src');
 	var ronum=$("#roomNum").val();
 
-	
-	//아이디는 세션에서
-	console.log(ronum);
 	if(image.match("notChoiceList.png")){
 		kst=1;
 		$("#keep").attr('src','resources/user/roomDetail/images/choice.png');
@@ -74,18 +80,19 @@ function changeChoiceImg(img){
 		url:"changekeeproom.udo",    
 		data:{roomnum:ronum,kst:kst},     
 		success:function(data){
-			console.log("성공");
+			
 		}
 	});
 }
-//스케줄 예약 예정
 
 //클릭이벤트 일어날때 선택폭 한정하기 클릭부터 클릭까지
 //셀데이터가 두개일시 다른 function 실행
+var sclickct=0;
 $(function(){
 $("#schdule tr td").click(function(){
+	sclickct++;
 	var txt = $(this).text();
-
+	
 	var sel_time=getSelTime(getTimeTxt(txt));
 	var backcolor = $(sel_time).css("background-color");
 	var color=$(sel_time).css("color");
@@ -101,11 +108,13 @@ $("#schdule tr td").click(function(){
 		reservtime=sptime[0]+sptime[1];
 		count--;
 	}else{
+	
 		$(sel_time).css("background-color","yellow");
 		if(reservtime==undefined||reservtime==''){ reservtime=getTimeTxt(txt)+",";} 
 		else{reservtime+=getTimeTxt(txt)+",";}
 		count++;
 	}
+	console.log(reservtime);
 	var roomprice=$("#payPrice").val();
 	var realprice=roomprice*count;
 	$(".payArea").text("☆가격☆ ￦"+realprice);
@@ -114,6 +123,15 @@ $("#schdule tr td").click(function(){
 	
 });
 });
+
+function schClickReset(){
+	reservtime="";
+	$("#schdule tr td").css("background-color","white");
+}
+/*
+ * 	var rvlast=reservtime.substr(reservtime.length-5,4);
+		console.log(rvlast);
+ */
 //리뷰가져오기
 function showReview(rvcurpage){
 	$.ajax({      
