@@ -12,6 +12,7 @@ $('document').ready(function($) {
 });
 //날짜에 따른 스케줄
 function showSd(num){
+	$("#daumschdule").hide();
 	$("#schdule tr td").css({"text-decoration":"","color":""});
 	
 	seldate=$("#reservDate").val(); 
@@ -86,14 +87,15 @@ function changeChoiceImg(img){
 }
 
 //클릭이벤트 일어날때 선택폭 한정하기 클릭부터 클릭까지
-//셀데이터가 두개일시 다른 function 실행
 var sclickct=0;
+var stid=0;
+var edid=0;
 $(function(){
 $("#schdule tr td").click(function(){
-	sclickct++;
 	var txt = $(this).text();
 	
 	var sel_time=getSelTime(getTimeTxt(txt));
+		
 	var backcolor = $(sel_time).css("background-color");
 	var color=$(sel_time).css("color");
 	
@@ -101,32 +103,126 @@ $("#schdule tr td").click(function(){
 		color='';
 		return;
 	}
-	
-	if(backcolor=='rgb(255, 255, 0)'){
-		$(sel_time).css("background-color","white");
-		var sptime=reservtime.split(getTimeTxt(txt)+",");
-		reservtime=sptime[0]+sptime[1];
-		count--;
-	}else{
-	
-		$(sel_time).css("background-color","yellow");
+	//시작시간 선택
+	var sttime='';
+	if(sclickct==0){
+		sclickct=1;
+		sttime=sel_time;
+		stid=getSelTime(getTimeTxt(txt));
+		stid=stid.replace(/[^0-9]/g,'');
+		console.log("시작아이디 숫자 "+stid);
+		$(sel_time).css("background-color","pink");
 		if(reservtime==undefined||reservtime==''){ reservtime=getTimeTxt(txt)+",";} 
 		else{reservtime+=getTimeTxt(txt)+",";}
-		count++;
+		count=1;
+		var roomprice=$("#payPrice").val();
+		var realprice=roomprice*count;
+		$(".payArea").text("☆가격☆ ￦"+realprice);
+		$("#payAmount").val(realprice);
+		$("#reserveTime").val(reservtime);
+		console.log(reservtime);
+		return;
 	}
-	console.log(reservtime);
-	var roomprice=$("#payPrice").val();
-	var realprice=roomprice*count;
-	$(".payArea").text("☆가격☆ ￦"+realprice);
-	$("#payAmount").val(realprice);
-	$("#reserveTime").val(reservtime);
-	
+	//끝나는 시간 선택
+	var endtime='';
+	if(sclickct==1){
+		sclickct=2;
+		end=sel_time;
+		edid=getSelTime(getTimeTxt(txt));
+		edid=edid.replace(/[^0-9]/g,'');
+		console.log("끝아이디 숫자 "+edid);
+		if(edid-stid<3){
+			alert("시작시간과 끝시간을 확인해주세요^^ 저희 달빛은 2시간 기본 예약입니다^^");
+			schClickReset();
+			return;
+		}else{
+			$(sel_time).css("background-color","skyblue");
+			
+			console.log(reservtime);
+			var roomprice=$("#payPrice").val();
+			var realprice=roomprice*count;
+			$(".payArea").text("☆가격☆ ￦"+realprice);
+			$("#payAmount").val(realprice);
+			$("#reserveTime").val(reservtime);
+		}
+	}
+});
+//다음스케줄
+$("#daumschdule tr td").click(function(){
+	if(sclickct==0){
+		console.log("안돼 이사람아");
+		return;
+	}
+	if(sclickct>=1){
+		console.log("ㅇㅋ 선택");
+		return;
+	}
 });
 });
+var daumCt=0;
+var daumReservtime='';
 
+//새벽손님 스케줄 가져오기
+function daumschclick(num){
+	daumCt=1;
+	$("#daumschdule tr td").css("background-color","white");
+	var daumdate=$("#reservDate").val();
+	var ddate=daumdate.split("-");
+	var nyan=ddate[0];
+	var war=ddate[1];
+	var il=ddate[2];
+	var ilplus=1;
+	il*=ilplus+1;
+	daumdate = new Date(nyan, war-1, il);
+	
+	var month = (daumdate.getMonth() + 101).toString().substring(1);
+	var day = (daumdate.getDate() + 100).toString().substring(1);
+	var year = daumdate.getFullYear();
+	
+	daumdate=year+"-" +month+"-"+day;
+	
+	console.log("다음데이트 "+daumdate);
+	$.ajax({      
+		type:"GET",  
+		url:"getSchedule.udo",    
+		data:{roomnum:num, seldate:daumdate},     
+		success:function(data){
+			var sch=data.reservstate;
+			if(sch==undefined){
+				$("#daumschdule").show();
+				return;
+			}else{
+				var splitsch=sch.split(",");
+				var spschresult="";
+			
+				var time="";
+				for ( var i in splitsch ) {
+					var time=getdaumSelTime(getTimeTxt(splitsch[i]));
+				$(time).css({"text-decoration":"line-through double","color":"gray"});
+				}
+				incount++;
+				$("#daumschdule").show();
+			}
+		}
+	});
+	
+}
+//선택초기화
 function schClickReset(){
+	sclickct=0;
 	reservtime="";
+	daumReservtime="";
 	$("#schdule tr td").css("background-color","white");
+	$("#daumschdule tr td").css("background-color","white");
+	$(".payArea").text("☆가격☆ ￦ 원");
+}
+function daumschReset(){
+	sclickct=1;
+	daumCt=0;
+	daumReservtime="";
+	$("#daumschdule tr td").css("background-color","white");
+	$(".payArea").text("☆가격☆ ￦ 원");
+	$("#daumschdule").hide();
 }
 /*
  * 	var rvlast=reservtime.substr(reservtime.length-5,4);

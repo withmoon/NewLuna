@@ -87,61 +87,119 @@
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p>선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="schClickReset()">선택초기화</button></p><br/>
+<p><button onclick="schClickReset()">선택초기화</button>&emsp;선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="daumschclick(${roomInfo.roomNum})">새벽예약</button></p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>
-<td id="am1">00:00</td>
-<td id="am2">00:30</td>
-<td id="am3">01:00</td>
-<td id="am4">01:30</td>
-<td id="am5">02:00</td>
-<td id="am6">02:30</td>
-<td id="am7">03:00</td>
-<td id="am8">03:30</td>
-<td id="am9">04:00</td>
-<td id="am10">04:30</td>
-<td id="am11">05:00</td>
-<td id="am12">05:30</td>
-<td id="am13">06:00</td>
-<td id="am14">06:30</td>
-<td id="am15">07:00</td>
-<td id="am16">07:30</td>
-<td id="am17">08:00</td>
-<td id="am18">08:30</td>
-<td id="am19">09:00</td>
-<td id="am20">09:30</td>
-<td id="am21">10:00</td>
-<td id="am22">10:30</td>
-<td id="am23">11:00</td>
-<td id="am24">11:30</td>
+<td id="b1">00:00</td>
+<td id="b2">00:30</td>
+<td id="b3">01:00</td>
+<td id="b4">01:30</td>
+<td id="b5">02:00</td>
+<td id="b6">02:30</td>
+<td id="b7">03:00</td>
+<td id="b8">03:30</td>
+<td id="b9">04:00</td>
+<td id="b10">04:30</td>
+<td id="b11">05:00</td>
+<td id="b12">05:30</td>
+<td id="b13">06:00</td>
+<td id="b14">06:30</td>
+<td id="b15">07:00</td>
+<td id="b16">07:30</td>
+<td id="b17">08:00</td>
+<td id="b18">08:30</td>
+<td id="b19">09:00</td>
+<td id="b20">09:30</td>
+<td id="b21">10:00</td>
+<td id="b22">10:30</td>
+<td id="b23">11:00</td>
+<td id="b24">11:30</td>
 </tr>
 <tr>
 <th>오후</th>
-<td id="pm1">12:00</td>
-<td id="pm2">12:30</td>
-<td id="pm3">13:00</td>
-<td id="pm4">13:30</td>
-<td id="pm5">14:00</td>
-<td id="pm6">14:30</td>
-<td id="pm7">15:00</td>
-<td id="pm8">15:30</td>
-<td id="pm9">16:00</td>
-<td id="pm10">16:30</td>
-<td id="pm11">17:00</td>
-<td id="pm12">17:30</td>
-<td id="pm13">18:00</td>
-<td id="pm14">18:30</td>
-<td id="pm15">19:00</td>
-<td id="pm16">19:30</td>
-<td id="pm17">20:00</td>
-<td id="pm18">20:30</td>
-<td id="pm19">21:00</td>
-<td id="pm20">21:30</td>
-<td id="pm21">22:00</td>
-<td id="pm22">22:30</td>
-<td id="pm23">23:00</td>
-<td id="pm24">23:30</td>
+<td id="b25">12:00</td>
+<td id="b26">12:30</td>
+<td id="b27">13:00</td>
+<td id="b28">13:30</td>
+<td id="b29">14:00</td>
+<td id="b30">14:30</td>
+<td id="b31">15:00</td>
+<td id="b32">15:30</td>
+<td id="b33">16:00</td>
+<td id="b34">16:30</td>
+<td id="b35">17:00</td>
+<td id="b36">17:30</td>
+<td id="b37">18:00</td>
+<td id="b38">18:30</td>
+<td id="b39">19:00</td>
+<td id="b40">19:30</td>
+<td id="b41">20:00</td>
+<td id="b42">20:30</td>
+<td id="b43">21:00</td>
+<td id="b44">21:30</td>
+<td id="b45">22:00</td>
+<td id="b46">22:30</td>
+<td id="b47">23:00</td>
+<td id="b48">23:30</td>
+</tr>
+</table>
+<br/>
+<table id="daumschdule" hidden="true">
+<tr><th colspan="25">다음날 스케줄 입니다.<button onclick="daumschReset()">안보기</button></th></tr>
+<tr>
+<th>오전</th>
+<td id="b49">00:00</td>
+<td id="b50">00:30</td>
+<td id="b51">01:00</td>
+<td id="b52">01:30</td>
+<td id="b53">02:00</td>
+<td id="b54">02:30</td>
+<td id="b55">03:00</td>
+<td id="b56">03:30</td>
+<td id="b57">04:00</td>
+<td id="b58">04:30</td>
+<td id="b59">05:00</td>
+<td id="b60">05:30</td>
+<td id="b61">06:00</td>
+<td id="b62">06:30</td>
+<td id="b63">07:00</td>
+<td id="b64">07:30</td>
+<td id="b65">08:00</td>
+<td id="b66">08:30</td>
+<td id="b67">09:00</td>
+<td id="b68">09:30</td>
+<td id="b69">10:00</td>
+<td id="b70">10:30</td>
+<td id="b71">11:00</td>
+<td id="b72">11:30</td>
+</tr>
+<tr>
+<th>오후</th>
+<td id="b73">12:00</td>
+<td id="b74">12:30</td>
+<td id="b75">13:00</td>
+<td id="b76">13:30</td>
+<td id="b77">14:00</td>
+<td id="b78">14:30</td>
+<td id="b79">15:00</td>
+<td id="b80">15:30</td>
+<td id="b81">16:00</td>
+<td id="b82">16:30</td>
+<td id="b83">17:00</td>
+<td id="b84">17:30</td>
+<td id="b85">18:00</td>
+<td id="b86">18:30</td>
+<td id="b87">19:00</td>
+<td id="b88">19:30</td>
+<td id="b89">20:00</td>
+<td id="b90">20:30</td>
+<td id="b91">21:00</td>
+<td id="b92">21:30</td>
+<td id="b93">22:00</td>
+<td id="b94">22:30</td>
+<td id="b95">23:00</td>
+<td id="b96">23:30</td>
 </tr>
 </table>
 </div>
