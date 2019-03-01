@@ -17,4 +17,7 @@ public class MyPageInfoDTO {
 	String imp_uid;
 	int status;
 	String id;
+	String reservenddate;
+	String reservenddatetime;
+	String branchtel;
 }

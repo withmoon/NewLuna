@@ -59,6 +59,14 @@ function inputCheck() {
 		return false;
 	}
 	
+	if(sub!=''){
+		 var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+	        if(!idReg.test(sub)) {
+	            alert("아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.");
+	            return false;
+	        }
+	}
+	
 	if ($("#pw").val() != $("#repw").val()) {
 		alert("비밀번호가 일치하지 않습니다.");
 		$("#repw").focus();
@@ -81,6 +89,10 @@ function inputCheck() {
 	if(!regExpbirth.test(birth)){
 		alert("생일에 숫자만 입력해주세요");
 		$("#birth").focus();
+		return false;
+	}
+	if(birth.length!=6){
+		alert("생일은 6자리 형식으로 입력해주세요 [ 입력예시 : 820127 ] ");
 		return false;
 	}
 	

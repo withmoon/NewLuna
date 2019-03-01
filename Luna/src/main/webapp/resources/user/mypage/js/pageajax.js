@@ -173,9 +173,15 @@ function latelyList(lrcurpage,data){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
 			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
-			ltDom+='<td>02.2222.2222</td>';
+			ltDom+='<td>'+data.rvlist[i].branchtel+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
-			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
+			ltDom+='<td>'+data.rvlist[i].starttime;
+			if(data.rvlist[i].reservenddate==undefined){
+				ltDom+='~'+data.rvlist[i].endtime+'</td>';
+			}
+			if(data.rvlist[i].reservenddate!=undefined){
+				ltDom+='~ 익일 '+data.rvlist[i].reservenddatetime+'</td>';
+			}
 			ltDom+='<td id="'+data.rvlist[i].imp_uid+'">';
 			//환불가능상태
 			if(data.rvlist[i].status==1){
@@ -209,7 +215,13 @@ function lastList(lrcurpage,data){
 	}else{
 		for(var i=0; i<data.rvlist.length; i++){
 			ltDom+='<tr><td>'+data.rvlist[i].reservdate+'</td>';
-			ltDom+='<td>'+data.rvlist[i].starttime+'~'+data.rvlist[i].endtime+'</td>';	
+			ltDom+='<td>'+data.rvlist[i].starttime;
+			if(data.rvlist[i].reservenddate==undefined){
+				ltDom+='~'+data.rvlist[i].endtime+'</td>';
+			}
+			if(data.rvlist[i].reservenddate!=undefined){
+				ltDom+='~ 익일 '+data.rvlist[i].reservenddatetime+'</td>';
+			}
 			ltDom+='<td>'+data.rvlist[i].branchName+'</td>';
 			ltDom+='<td><a href="roomDetail.udo?roomnum='+data.rvlist[i].roomNum+'">'+data.rvlist[i].roomName+'</a></td>';
 			if(data.rvlist[i].status==-2){

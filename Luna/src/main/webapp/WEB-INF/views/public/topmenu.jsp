@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 		<ul class="memberUl">
 			<c:if test="${member.id eq null}">
 				<li><a href="<c:url value="/login.do"/>"><img src="<c:url value="/resources/public/images/login.gif"/>"/></a></li>

@@ -44,22 +44,22 @@
 	<![CDATA[
 		select rownum as num,mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
 		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
-		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,receipt_url 
-		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName,
-    	to_char(romp.reservenddate,'yyyy-mm-dd') as reservenddate,SUBSTR( reservenddatetime,LENGTH( reservenddatetime)-4,2)||':'||SUBSTR(  romp.reservenddatetime,LENGTH( reservenddatetime)-2,2) as reservenddatetime 
+		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,receipt_url,
+    	to_char(romp.reservenddate,'yyyy-mm-dd') as reservenddate,SUBSTR( reservenddatetime,LENGTH( reservenddatetime)-4,2)||':'||SUBSTR(  romp.reservenddatetime,LENGTH( reservenddatetime)-2,2) as reservenddatetime,mem.branchtel  
+		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName
 		where romp.id=#{id} 
 	]]>
 		<!-- 최근 내역 -->
 		<if test="status=='pay'">
 		<![CDATA[
-		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
+		and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate asc
 		]]>
 		</if>
 		<!-- 지난 내역 -->
 		<if test="status=='reserved'">	
 		<![CDATA[
 			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
-			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate desc
 		]]>
 		</if>
 		<!-- 검색내역 -->
@@ -79,14 +79,14 @@
 		<!-- 최근 내역 -->
 		<if test="status=='pay'">
 		<![CDATA[
-			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate,'yyyymmddHHMi')  order by reservdate asc
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))>=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate asc
 		]]>
 		</if>
 		<!-- 지난 내역 -->
 		<if test="status=='reserved'">	
 		<![CDATA[
 			and to_char(sysdate-30*6,'yyyymmddHHMi')<to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4)) 
-			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate,'yyyymmddHHMi')  order by reservdate desc
+			and to_char(reservdate,'yyyymmdd')||(SUBSTR(reserveTime,0,4))<=to_char(sysdate+0.375,'yyyymmddHHMi')  order by reservdate desc
 		]]>
 		</if>
 		<!-- 검색내역 -->

@@ -22,14 +22,16 @@
 </head>
 <body style="overflow-x:hidden">
 
-	<!-- 로그인 -->
-	<header>
-		<%@ include file="../public/topmenu.jsp" %>
-	</header>
+	
 	
 	<!-- 상단로고 -->
 	<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">MyPage</div>
+	
+	<!-- 탑-->
+	<nav>
+		<%@ include file="../public/topmenu.jsp" %>
+	</nav>
 
 		<!-- 회원정보 -->
 		<div class="myinformation">
