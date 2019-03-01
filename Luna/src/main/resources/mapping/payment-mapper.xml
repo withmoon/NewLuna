@@ -22,9 +22,19 @@
 
 	<!-- 결제 집어넣기 -->
 	<insert id="inRoomPayment">
-		<![CDATA[insert into roompayment values
+		<![CDATA[insert into roompayment
+		]]>
+		<if test="reservenddate==null or reservenddate==''">
+		<![CDATA[(imp_uid,merchant_uid,branchname,roomnum,id,reservetime,payamount,status,paid_at,receipt_url,pg_provider,pg_tid,seq,reservdate)
+		 values
 		(#{imp_uid},#{merchant_uid},#{branchName},#{roomNum},#{id},#{reserveTime},#{payAmount},#{status},#{paid_at},#{receipt_url},#{pg_provider},#{pg_tid}
 		,(select nvl(max(seq)+1,1) from roompayment),#{reservdate})]]>
+		</if>
+		<if test="reservenddate!=''">
+		<![CDATA[
+		  values (#{imp_uid},#{merchant_uid},#{branchName},#{roomNum},#{id},#{reserveTime},#{payAmount},#{status},#{paid_at},#{receipt_url},#{pg_provider},#{pg_tid}
+		,(select nvl(max(seq)+1,1) from roompayment),#{reservdate},#{reservenddate},#{reserveEndTime})]]>
+		</if>
 	</insert>
 
 	<!-- for MyPage -->
@@ -35,7 +45,8 @@
 		select rownum as num,mem.branchAddr1,rom.roomName,rom.roomNum,romp.branchName,romp.status,romp.imp_uid,
 		to_char(reservdate,'yyyy-mm-dd') as reservdate,SUBSTR(reserveTime,0,2)||':'||SUBSTR(reserveTime,3,2) as starttime,
 		SUBSTR(reserveTime,LENGTH(reserveTime)-4,2)||':'||SUBSTR(reserveTime,LENGTH(reserveTime)-2,2) as endtime,receipt_url 
-		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName 
+		from roomPayment romp join room rom on rom.roomNum=romp.roomNum join member mem on romp.branchName=mem.branchName,
+    	to_char(romp.reservenddate,'yyyy-mm-dd') as reservenddate,SUBSTR( reservenddatetime,LENGTH( reservenddatetime)-4,2)||':'||SUBSTR(  romp.reservenddatetime,LENGTH( reservenddatetime)-2,2) as reservenddatetime 
 		where romp.id=#{id} 
 	]]>
 		<!-- 최근 내역 -->

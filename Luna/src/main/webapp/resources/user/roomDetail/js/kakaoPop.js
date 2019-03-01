@@ -1,6 +1,7 @@
 function kakapop(){
 	var spct=0;
-	var rtlist=reservtime.split(',');
+	reservlist=reservtime+reserveEndTime;
+	var rtlist=reservlist.split(',');
 	for ( var i in rtlist ) {
 		spct++;
 	}

@@ -37,6 +37,8 @@
         <input type="hidden" id="pg_provider" name="pg_provider" value="${roomPay.pg_provider}"/>
         <input type="hidden" id="pg_tid" name="pg_tid" value="${roomPay.pg_tid}"/> 
         <input type="hidden" id="reservdate" name="reservdate" value="${roomPay.reservdate}"/> 
+         <input type="hidden" id="reservenddate" name="reservenddate" value="${roomPay.reservenddate}"/> 
+         <input type="hidden" id="reserveEndTime" name="reserveEndTime" value="${roomPay.reserveEndTime}"/> 
   </form>
 <!-- 상단로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
@@ -87,7 +89,7 @@
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p><button onclick="schClickReset()">선택초기화</button>&emsp;선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="daumschclick(${roomInfo.roomNum})">새벽예약</button></p><br/>
+<p><button onclick="schClickReset()">선택초기화</button>&emsp;선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="daumschclick(${roomInfo.roomNum})">자정 전후 예약</button></p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>
@@ -146,7 +148,7 @@
 </table>
 <br/>
 <table id="daumschdule" hidden="true">
-<tr><th colspan="25">다음날 스케줄 입니다.<button onclick="daumschReset()">안보기</button></th></tr>
+<tr><th colspan="25">다음날 스케줄 입니다.<button onclick="daumschReset()">자정 예약 취소</button></th></tr>
 <tr>
 <th>오전</th>
 <td id="b49">00:00</td>

@@ -13,6 +13,7 @@ public class RoomPaymentDTO {
 	int roomNum; //룸번호
 	String id; //user id
 	String reserveTime; //예약한 시간
+	String reserveEndTime; //예약한 시간
 	int payAmount; //결제금액
 	int varAmount; //부가세
 	int status; //결제상태
@@ -22,4 +23,5 @@ public class RoomPaymentDTO {
 	String pg_provider; //결제승인된 pg사
 	String pg_tid; //pg사 거래고유번호
 	String reservdate; //예약 날짜
+	String reservenddate;
 }

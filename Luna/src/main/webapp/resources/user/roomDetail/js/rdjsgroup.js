@@ -12,7 +12,7 @@ $('document').ready(function($) {
 });
 //날짜에 따른 스케줄
 function showSd(num){
-	$("#daumschdule").hide();
+	daumschReset();
 	$("#schdule tr td").css({"text-decoration":"","color":""});
 	
 	seldate=$("#reservDate").val(); 
@@ -86,12 +86,20 @@ function changeChoiceImg(img){
 	});
 }
 
-//클릭이벤트 일어날때 선택폭 한정하기 클릭부터 클릭까지
 var sclickct=0;
+var daumclick=0;
 var stid=0;
 var edid=0;
+var dedid=0;
+var endid='';
+var startid='';
+var reserveEndTime='';
 $(function(){
 $("#schdule tr td").click(function(){
+	if(seldate==''){
+		alert("예약하실 날짜를 먼저 선택해주세요^^");
+		return;
+	}
 	var txt = $(this).text();
 	
 	var sel_time=getSelTime(getTimeTxt(txt));
@@ -101,16 +109,16 @@ $("#schdule tr td").click(function(){
 	
 	if(color=='rgb(128, 128, 128)'){
 		color='';
+		alert("예약된 시간입니다. 다른시간을 이용해주세요");
+		schClickReset();
 		return;
 	}
 	//시작시간 선택
 	var sttime='';
 	if(sclickct==0){
 		sclickct=1;
-		sttime=sel_time;
-		stid=getSelTime(getTimeTxt(txt));
-		stid=stid.replace(/[^0-9]/g,'');
-		console.log("시작아이디 숫자 "+stid);
+		startid=sel_time;
+		stid=startid.replace(/[^0-9]/g,'');
 		$(sel_time).css("background-color","pink");
 		if(reservtime==undefined||reservtime==''){ reservtime=getTimeTxt(txt)+",";} 
 		else{reservtime+=getTimeTxt(txt)+",";}
@@ -120,51 +128,114 @@ $("#schdule tr td").click(function(){
 		$(".payArea").text("☆가격☆ ￦"+realprice);
 		$("#payAmount").val(realprice);
 		$("#reserveTime").val(reservtime);
-		console.log(reservtime);
 		return;
 	}
 	//끝나는 시간 선택
-	var endtime='';
+	
 	if(sclickct==1){
 		sclickct=2;
-		end=sel_time;
-		edid=getSelTime(getTimeTxt(txt));
-		edid=edid.replace(/[^0-9]/g,'');
-		console.log("끝아이디 숫자 "+edid);
+		endid=sel_time;
+		edid=endid.replace(/[^0-9]/g,'');
 		if(edid-stid<3){
-			alert("시작시간과 끝시간을 확인해주세요^^ 저희 달빛은 2시간 기본 예약입니다^^");
+			alert("♡시작시간과 끝시간을 확인해주세요^^ 저희 달빛은 2시간 기본 예약입니다♡");
 			schClickReset();
 			return;
 		}else{
-			$(sel_time).css("background-color","skyblue");
+			for(var i=(stid*1+1); i<(edid*1+1); i++){
+				var color=$("#b"+i).css("color");
+				if(color=='rgb(128, 128, 128)'){
+					schClickReset();
+					alert("예약된 시간입니다. 다른시간을 이용해주세요");
+					return;
+				}
+				reservtime+=getTimeTxt($("#b"+i).text())+",";
+				$("#b"+i).css("background-color","skyblue");
+				count++;
+			}
 			
-			console.log(reservtime);
+			$(sel_time).css("background-color","skyblue");
+
 			var roomprice=$("#payPrice").val();
 			var realprice=roomprice*count;
 			$(".payArea").text("☆가격☆ ￦"+realprice);
 			$("#payAmount").val(realprice);
 			$("#reserveTime").val(reservtime);
 		}
+		return;
+	}
+	if(sclickct==2){
+		alert("선택초기화후 재 선택 해주세요♡");
 	}
 });
 //다음스케줄
 $("#daumschdule tr td").click(function(){
+	if(seldate==''){
+		alert("예약하실 날짜를 먼저 선택해주세요^^");
+		return;
+	}
+	daumclick=1;
+	var txt = $(this).text();
+	var sel_time=getdaumSelTime(getTimeTxt(txt));
+	var backcolor = $(sel_time).css("background-color");
+	var color=$(sel_time).css("color");
+	
+	if(color=='rgb(128, 128, 128)'){
+		color='';
+		alert("예약된 시간입니다. 다른시간을 이용해주세요");
+		schClickReset();
+		return;
+	}
 	if(sclickct==0){
-		console.log("안돼 이사람아");
+		alert("♡전날을 선택한 경우에만 사용가능합니다. 내일 예약은 날짜 재적용후 이용해주세요♡");
+	}
+	if(sclickct==1){
+		sclickct=2;
+		end=sel_time;
+		dedid=sel_time.replace(/[^0-9]/g,'');
+		if(dedid-stid<3){
+			alert("♡시작시간과 끝시간을 확인해주세요^^ 저희 달빛은 2시간 기본 예약입니다♡");
+			schClickReset();
+			return;
+		}else{
+			for(var i=(stid*1+1); i<(dedid*1+1); i++){
+				var color=$("#b"+i).css("color");
+				if(color=='rgb(128, 128, 128)'){
+					schClickReset();
+					alert("예약된 시간입니다. 다른시간을 이용해주세요");
+					return;
+				}
+				if(i<=48){
+					reservtime+=getTimeTxt($("#b"+i).text())+",";
+				}
+				if(i>48){
+					reserveEndTime+=getTimeTxt($("#b"+i).text())+",";
+				}
+				$("#b"+i).css("background-color","skyblue");
+				count++;
+			}
+			
+			$(sel_time).css("background-color","skyblue");
+
+			var roomprice=$("#payPrice").val();
+			var realprice=roomprice*count;
+			$(".payArea").text("☆가격☆ ￦"+realprice);
+			$("#payAmount").val(realprice);
+			$("#reservtime").val(reservtime);
+			$("#reserveEndTime").val(reserveEndTime);
+			console.log(reservtime);
+			console.log(reserveEndTime);
+		}
 		return;
 	}
-	if(sclickct>=1){
-		console.log("ㅇㅋ 선택");
-		return;
+	if(sclickct==2){
+		alert("선택초기화후 재 선택 해주세요♡");
 	}
 });
 });
-var daumCt=0;
-var daumReservtime='';
 
 //새벽손님 스케줄 가져오기
 function daumschclick(num){
-	daumCt=1;
+	daumschReset();
 	$("#daumschdule tr td").css("background-color","white");
 	var daumdate=$("#reservDate").val();
 	var ddate=daumdate.split("-");
@@ -172,16 +243,16 @@ function daumschclick(num){
 	var war=ddate[1];
 	var il=ddate[2];
 	var ilplus=1;
-	il*=ilplus+1;
+	il*=ilplus;
 	daumdate = new Date(nyan, war-1, il);
-	
+	console.log(daumdate);
 	var month = (daumdate.getMonth() + 101).toString().substring(1);
-	var day = (daumdate.getDate() + 100).toString().substring(1);
+	var day = (daumdate.getDate() + 101).toString().substring(1);
 	var year = daumdate.getFullYear();
 	
 	daumdate=year+"-" +month+"-"+day;
 	
-	console.log("다음데이트 "+daumdate);
+	$("#reservenddate").val(daumdate);
 	$.ajax({      
 		type:"GET",  
 		url:"getSchedule.udo",    
@@ -209,25 +280,23 @@ function daumschclick(num){
 }
 //선택초기화
 function schClickReset(){
+	$("#reserveTime").val("");
+	$("#reserveEndTime").val("");
 	sclickct=0;
 	reservtime="";
-	daumReservtime="";
 	$("#schdule tr td").css("background-color","white");
 	$("#daumschdule tr td").css("background-color","white");
 	$(".payArea").text("☆가격☆ ￦ 원");
 }
 function daumschReset(){
-	sclickct=1;
-	daumCt=0;
-	daumReservtime="";
+	schClickReset();
+	reserveEndTime='';
+	dedid=0;
 	$("#daumschdule tr td").css("background-color","white");
 	$(".payArea").text("☆가격☆ ￦ 원");
 	$("#daumschdule").hide();
 }
-/*
- * 	var rvlast=reservtime.substr(reservtime.length-5,4);
-		console.log(rvlast);
- */
+
 //리뷰가져오기
 function showReview(rvcurpage){
 	$.ajax({      
@@ -241,7 +310,7 @@ function showReview(rvcurpage){
 			
 			if(data.length==0){
 				strDom+='<div class="rbox">';
-				strDom+='여러분의 한줄후기를 들려주세요</div>';
+				strDom+='여러분의 한줄후기를 기다리고 있습니다</div>';
 			}else{
 				rvtDom+='<b style="font-size:2vw">      총점 '+data.rvscore+' 점</b>';
 				$("#rvtitle").append(rvtDom);

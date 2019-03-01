@@ -72,22 +72,45 @@ public class UserMypageController {
 			
 			//예약 테이블 확인
 			romre.setRoomNum(romin.getRoomNum());
-			romre.setStartdate(rompay.getReservdate());
-			Integer sdresult=parser.checkReservStartdate(romre);
 			
-			//예약 테이블에 집어넣기
-			romre.setReservstate(rompay.getReserveTime());
+			if(rompay.getReserveEndTime()==""||rompay.getReserveEndTime()==null) {
+				romre.setStartdate(rompay.getReservdate());
+				romre.setReservstate(rompay.getReserveTime());
+				Integer sdresult=parser.checkReservStartdate(romre);
 			
-			System.out.println("눌른 스케줄==>"+romre.getReservstate());
-			
-			//row가 없으면 insert
-			if(sdresult==null) {
-				System.out.println("인서트 할꺼당"+romre.getStartdate());
-				parser.inReserveRoom(romre);
-			}else{//있으면 update
-				System.out.println("업뎃 할꺼당"+romre.getStartdate());
-				romre.setReservNumber(sdresult);
-				parser.upReserveRoom(romre);
+				//row가 없으면 insert
+				if(sdresult==null) {
+					parser.inReserveRoom(romre);
+				}else{//있으면 update
+					romre.setReservNumber(sdresult);
+					parser.upReserveRoom(romre);
+				}
+				
+			}else{
+				System.out.println("여기는 안냥이랍니다.====================================================================================================================>"+rompay.getReserveEndTime()+" " +rompay.getReservenddate());
+				romre.setStartdate(rompay.getReservdate());
+				romre.setReservstate(rompay.getReserveTime());
+				Integer sdresult=parser.checkReservStartdate(romre);
+				
+				//row가 없으면 insert
+				if(sdresult==null) {
+					parser.inReserveRoom(romre);
+				}else{//있으면 update
+					romre.setReservNumber(sdresult);
+					parser.upReserveRoom(romre);
+				}
+				
+				romre.setStartdate(rompay.getReservenddate());
+				romre.setReservstate(rompay.getReserveEndTime());
+				Integer sdresult2=parser.checkReservStartdate(romre);
+				
+				//row가 없으면 insert
+				if(sdresult2==null) {
+					parser.inReserveRoom(romre);
+				}else{//있으면 update
+					romre.setReservNumber(sdresult2);
+					parser.upReserveRoom(romre);
+				}
 			}
 			rompay.setId(memcom.getId());
 			parser.inRoomPayment(rompay);
