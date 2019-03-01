@@ -16,7 +16,7 @@ public class GetRoomReviewRankDAOImpl implements GetRoomReviewRankDAO {
 
 	@Override
 	public List<RoomRankDTO> getRoomReviewRank() {
-		return sqlSession.selectList("rankDAO·getRoomReviewRank");
+		return sqlSession.selectList("rankDAO.getRoomReviewRank");
 	}
 
 }

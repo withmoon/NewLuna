@@ -69,3 +69,14 @@ $('document').ready(function() {
 		});   
 	});
 });
+
+//룸 링크 걸기
+function goToRoomDetail(roomnum){
+	window.location.href="roomDetail.udo?roomnum="+roomnum;
+}
+
+//최근 브랜치 링크
+function gotoLookOver(sido,gugun){
+	var url='lookover.udo?sido='+sido+'&gugun='+gugun;
+	window.location=url;
+}

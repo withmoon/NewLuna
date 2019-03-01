@@ -18,7 +18,7 @@ section{
 .whole {
 	clear:both; 
 	position:absolute; 
-	top:27.4%;
+	top:26.8%;
 	width:19.9%;
 	right:0.7%;
 
@@ -47,7 +47,7 @@ section{
 .previous {
 	clear:both; 
 	position:absolute; 
-	top:40.64%;
+	top:39.8%;
 	width: 19.9%;
 	right:0.7%;
 }
@@ -75,7 +75,7 @@ section{
 .accumulate {
 	clear:both; 
 	position:absolute; 
-	top:53.9%;
+	top:52.8%;
 	width: 19.9%;
 	right:0.7%;
 }
@@ -138,7 +138,7 @@ button:hover{
 /*인기순 / 조회순*/
 p{ font-size : 40px; color : #836e5b; }
 
-.line { position:relative; width: 32%; }
+.line { position:relative; width: 31%; }
 
 .roomImage { width: 323px;  height:220px;}
 
@@ -155,11 +155,15 @@ p{ font-size : 40px; color : #836e5b; }
 	width:98%;
    font-size:1.4vw;
 }
+.starImg{
+	border-top:1px solid tan;
+	border-bottom:1px solid tan;
+}
 .starImg img{
-	width:10%;
+	width:8%;
 }
 .rvroomImg{
-	width: 223px;  height:120px;
+	width: 240px;  height:170px;
 }
 .review table td{
 	width:25%;
@@ -170,8 +174,13 @@ footer{
 	clear:both;
 	position:relative;
 	top:2%;
-	top:270%;	margin:0 -5% 0 0;
+	top:300%;	margin:0 -5% 0 0;
 
+}
+
+table td:hover{
+	color:orange;
+	cursor:pointer;	
 }
 
 @keyframes slidy {
@@ -197,6 +206,21 @@ text-align: left;
 font-size: 0;
 }
 div.slider figure:hover{
+cursor:pointer;
 -webkit-animation: 8s slidy infinite;
 animation: 8s slidy infinite;
+}
+.exptr img{
+	width:5%;
+}
+.exptr a{
+	color:black;
+	font-size:1.6vw;
+	text-decoration:none;
+}
+.exptr a:hover{
+	color:orange;
+}
+.imghover img:hover{
+	cursor:pointer;
 }

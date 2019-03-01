@@ -11,7 +11,7 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/home/js/home.js"/>"></script>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 	
 	
 	<!-- 상단로고 -->
@@ -81,128 +81,167 @@
 		<p class="fmroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;♡달빛 인기 공간♡&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table>
 			<tr>
-				<td>
+			<c:forEach var="reviewRankList" items="${reviewRankList}">
+				<td onclick="goToRoomDetail(${reviewRankList.roomNum})">
 				<div class="slider">
 				<figure>
-					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reviewRankList.fname1}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reviewRankList.fname2}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reviewRankList.fname3}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reviewRankList.fname4}"/>" alt="">
 				</figure>
 				</div>
 				</td>
-				<td>
-				<div class="slider">
-				<figure>
-					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-				</figure>
-				</div>
-				</td>
-				<td>
-				<div class="slider">
-				<figure>
-					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-				</figure>
-				</div>
-				</td>
+			</c:forEach>
 			</tr>
-			<tr>
-			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
-			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
-			<td><a>평점<br/>브랜치 명<br/>룸이름</a></td>
+			<tr class="exptr">
+			<c:forEach var="reviewRankList" items="${reviewRankList}">
+				<td onclick="goToRoomDetail(${reviewRankList.roomNum})">
+				<img src="<c:url value="/resources/util/star.png"/>"> ${reviewRankList.starct} 점 <img src="<c:url value="/resources/util/star.png"/>"><br/>
+				${reviewRankList.roomlocate}<br/>${reviewRankList.roomname}</td>
+			</c:forEach>
 			</tr>
 		</table>
+		<!-- 예약 수 -->
 		<p class="lkroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;☆예약 많은 공간☆&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table>
 			<tr>
-				<td>
+			<c:forEach var="reserveRankList" items="${reserveRankList}">
+				<td onclick="goToRoomDetail(${reserveRankList.roomNum})">
 				<div class="slider">
 				<figure>
-					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reserveRankList.fname1}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reserveRankList.fname2}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reserveRankList.fname3}"/>" alt="">
+					<img src="<c:url value="/resources/rooms/${reserveRankList.fname4}"/>" alt="">
 				</figure>
 				</div>
 				</td>
-				<td>
-				<div class="slider">
-				<figure>
-				
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-						<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-				</figure>
-				</div>
-				</td>
-				<td>
-				<div class="slider">
-				<figure>
-					
-					<img src="<c:url value="/resources/user/home/images/room3.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room1.png"/>" alt="">
-					<img src="<c:url value="/resources/user/home/images/room2.png"/>" alt="">
-				</figure>
-				</div>
-				</td>
+			</c:forEach>
 			</tr>
-			<tr>
-			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
-			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
-			<td><a>조회수<br/>브랜치 명<br/>룸이름</a></td>
+			<tr class="exptr">
+			<c:forEach var="reserveRankList" items="${reserveRankList}">
+				<td onclick="goToRoomDetail(${reserveRankList.roomNum})">
+					<img src="<c:url value="/resources/util/clock.png"/>">총 ${reserveRankList.totaltime} 시간 <img src="<c:url value="/resources/util/clock.png"/>"><br/>
+						${reserveRankList.roomlocate}<br/>${reserveRankList.roomname}
+				</td>
+			</c:forEach>
 			</tr>
 		</table>
+		
+		<!-- 달빛 지점 신규 -->
 		<p class="fmroom"><img class="line" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;♡달빛 신규 공간♡&emsp;<img class="line" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 		<table>
-			<tr>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room2.png"/>"></td>
-				<td><img class="roomImage" src="<c:url value="/resources/user/home/images/room3.png"/>"></td>
+			<tr class="imghover">
+			<c:forEach var="newBranchList" items="${newBranchList}">
+				<td><img onclick="gotoLookOver('${newBranchList.sido}','${newBranchList.gugun}')" class="roomImage" src="<c:url value="/resources/branchImg/${ newBranchList.branchimg}"/>"></td>
+			</c:forEach>
 			</tr>
-			<tr>
-			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
-			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
-			<td><a>주소<br/>브랜치 명<br/>전화번호</a></td>
+			<tr class="exptr">
+			<c:forEach var="newBranchList" items="${newBranchList}">
+				<td  onclick="gotoLookOver('${newBranchList.sido}','${newBranchList.gugun}')">${newBranchList.branchAddr1}<br/>${newBranchList.branchName}<br/>${newBranchList.branchtel}</td>
+			</c:forEach>
 			</tr>
 		</table>
 	<p><img class="rline" src="<c:url value="/resources/user/home/images/line.png"/>">&emsp;✌달빛 최근 리뷰✌&emsp;<img class="rline" src="<c:url value="/resources/user/home/images/line.png"/>"></p>
 </div>
 	<div class="review">
       <table>
-      	<tr>
-      	<td rowspan="5"><img class="rvroomImg" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-
-      	<td  class="starImg" > <img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"></td>
-
-      	<td rowspan="6"><img class="rvroomImg" src="<c:url value="/resources/user/home/images/room1.png"/>"></td>
-
-      	<td  class="starImg" > <img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"><img src="<c:url value="/resources/user/home/images/star.png"/>"></td>
-      
-		</tr>
-		<tr>
-      	<td>지점명</td>
-      	<td>지점명</td>
-      	</tr>
-      	<tr>
-      	<td>룸이름</td>
-      	<td>룸이름</td>
-      	<tr>
-      	<td>사용자이름</td>
-      	<td>사용자이름</td>
-      	</tr>
-      	<tr>
-      	<td>사용자 후기</td>
-      	<td>사용자 후기</td>
-		</tr>	
-      </table>
+     	<tr>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(0).getFname1()}"/>"></td>
+     		<td  class="starImg"  onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})">
+     			<c:forEach begin="1" end="${newReviewList.get(0).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+     		</td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(1).getFname1()}"/>"></td>
+     		<td  class="starImg"  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})">
+				<c:forEach begin="1" end="${newReviewList.get(0).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+			</td>     		
+     	</tr>
+     	
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})" style="color:tan">${newReviewList.get(0).getRoomlocate()}</td>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})" style="color:tan">${newReviewList.get(1).getRoomlocate()}</td>
+     	</tr>
+     	<tr>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})" style="color:tan">${newReviewList.get(0).getRoomname()}</td>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})" style="color:tan">${newReviewList.get(1).getRoomname()}</td>
+     	</tr>
+     	<tr>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})">${newReviewList.get(0).getName()}님 ${newReviewList.get(0).getWritedate()}</td>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})">${newReviewList.get(1).getName()}님 ${newReviewList.get(0).getWritedate()}</td>
+     	</tr>
+     	<tr>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})">${newReviewList.get(0).getReviewcontent()}</td>
+     		<td  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})">${newReviewList.get(1).getReviewcontent()}</td>
+     	</tr>
+     	<tr>
+     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(2).getFname1()}"/>"></td>
+     		<td  class="starImg" >
+     			<c:forEach begin="1" end="${newReviewList.get(2).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+     		</td>
+     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(3).getFname1()}"/>"></td>
+     		<td  class="starImg" >
+				<c:forEach begin="1" end="${newReviewList.get(3).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+			</td>     		
+     	</tr>
+     	
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})" style="color:tan">${newReviewList.get(2).getRoomlocate()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})" style="color:tan">${newReviewList.get(3).getRoomlocate()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})" style="color:tan">${newReviewList.get(2).getRoomname()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})" style="color:tan">${newReviewList.get(3).getRoomname()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})">${newReviewList.get(2).getName()}님 ${newReviewList.get(2).getWritedate()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})">${newReviewList.get(3).getName()}님 ${newReviewList.get(3).getWritedate()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})">${newReviewList.get(2).getReviewcontent()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})">${newReviewList.get(3).getReviewcontent()}</td>
+     	</tr>
+     	<tr>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(4).getFname1()}"/>"></td>
+     		<td  class="starImg" onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})">
+     			<c:forEach begin="1" end="${newReviewList.get(4).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+     		</td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(5).getFname1()}"/>"></td>
+     		<td  class="starImg" onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})">
+				<c:forEach begin="1" end="${newReviewList.get(5).getStarct()}">
+     				<img src="<c:url value="/resources/util/star.png"/>">
+     			</c:forEach>
+			</td>     		
+     	</tr>
+     	
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})" style="color:tan">${newReviewList.get(4).getRoomlocate()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})" style="color:tan">${newReviewList.get(5).getRoomlocate()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})" style="color:tan">${newReviewList.get(4).getRoomname()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})" style="color:tan">${newReviewList.get(5).getRoomname()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})">${newReviewList.get(4).getName()}님 ${newReviewList.get(4).getWritedate()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})">${newReviewList.get(5).getName()}님 ${newReviewList.get(5).getWritedate()}</td>
+     	</tr>
+     	<tr>
+     		<td onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})">${newReviewList.get(4).getReviewcontent()}</td>
+     		<td onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})">${newReviewList.get(5).getReviewcontent()}</td>
+     	</tr>
+     	
+     </table>   	
       </div>
    </section>
 

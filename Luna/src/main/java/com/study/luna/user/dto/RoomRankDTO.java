@@ -13,4 +13,9 @@ public class RoomRankDTO {
 	String fname4;
 	String roomlocate;
 	String roomname;
+	Integer totaltime;
+	
+	String name;
+	String reviewcontent;
+	String writedate;
 }

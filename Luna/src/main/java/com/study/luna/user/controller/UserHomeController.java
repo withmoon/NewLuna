@@ -19,9 +19,10 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.dto.RoomRankDTO;
 import com.study.luna.user.payandreserv.service.PayAndReserveService;
-import com.study.luna.user.review.service.RoomReviewService;
 import com.study.luna.user.room.service.RoomService;
+import com.study.luna.user.roomrank.service.RoomRankServicie;
 import com.study.luna.util.SHA256;
 
 @Controller
@@ -34,7 +35,7 @@ public class UserHomeController {
 	@Autowired
 	PayAndReserveService parser;
 	@Autowired
-	RoomReviewService rrvser;
+	RoomRankServicie rrkser;
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
@@ -100,7 +101,7 @@ public class UserHomeController {
 		return null;
 	}
 	
-	//일반 로그인
+	//홈
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
@@ -123,15 +124,26 @@ public class UserHomeController {
 		Integer preDayReserveCount=parser.getPreDayReserveCount();
 		Integer preMonthReserveCount=parser.getPreMonthReserveCount();
 		
-		
+		List<RoomRankDTO> reviewranklist=rrkser.getRoomReviewRank();
+		List<RoomRankDTO> reserveranklist=rrkser.getRoomReserveRank();
+		List<MemberCommand> newBranchList=rrkser.getNewBranch();
+		List<RoomRankDTO> newReviewList=rrkser.getNewReview(); 
 		
 		mav.addObject("sido",sido);
+		
 		mav.addObject("allMemberCount",allMemberCount);
 		mav.addObject("allBranchCount",allBranchCount);
+		
 		mav.addObject("preYearReserveCount",preYearReserveCount);
 		mav.addObject("thisYearReserveCount",thisYearReserveCount);
 		mav.addObject("preDayReserveCount",preDayReserveCount);
 		mav.addObject("preMonthReserveCount",preMonthReserveCount);
+		
+		mav.addObject("reviewRankList",reviewranklist);
+		mav.addObject("reserveRankList",reserveranklist);
+		mav.addObject("newBranchList",newBranchList);
+		mav.addObject("newReviewList",newReviewList);
+		
 		mav.addObject("member",session.getAttribute("member"));
 		mav.setViewName("home");
 		return mav;

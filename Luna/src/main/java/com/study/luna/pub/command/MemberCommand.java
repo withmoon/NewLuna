@@ -20,4 +20,10 @@ public class MemberCommand {
 	String brStatus;
 	String position;
 	int count;
+	
+	String branchtel;
+	String branchimg;
+	
+	String sido;
+	String gugun;
 }
