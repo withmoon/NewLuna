@@ -30,4 +30,23 @@
 		<![CDATA[select roomnum from roomreview where id=#{id}]]>
 	</select>
 	
+	<!-- 리뷰 평점순으로 평점이 같으면 리뷰 순으로 해서 3등까지 가져오기 -->
+	<select id="getReviewRank" resultType="Integer">
+		<![CDATA[
+			select c.roomNum from(
+				select rownum rn, b.* from (
+					select a.*
+    				from (select roomnum
+               					, Avg(starCt) as starct
+               					, SUM(1) as reviewct
+               					, DENSE_RANK() OVER (ORDER BY Avg(starCt) DESC ) as ranking
+            					from (
+                					select * from roomreview
+                 					)
+         			group by roomnum ) a
+   					where a.ranking <=3 order by starct desc, reviewct asc
+   			) b)c where rn<=3
+		]]>
+	</select>
+	
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.user.dto.RoomReviewDTO;
 import com.study.luna.user.review.dao.Impl.GetReviewCountDAOImpl;
+import com.study.luna.user.review.dao.Impl.GetReviewRankDAOImpl;
 import com.study.luna.user.review.dao.Impl.GetReviewStarAvgDAOImpl;
 import com.study.luna.user.review.dao.Impl.GetRoomAllReviewDAOImpl;
 import com.study.luna.user.review.dao.Impl.GetUserReviewDAOImpl;
@@ -24,6 +25,8 @@ public class RoomReviewServiceImpl implements RoomReviewService{
 	InsertReviewDAOImpl irvDAOImpl;
 	@Autowired
 	GetUserReviewDAOImpl gurDAOImpl;
+	@Autowired
+	GetReviewRankDAOImpl grrDAOImpl;
 
 	@Override
 	public List<RoomReviewDTO> getRoomAllReview(int start,int end,int roomnum) {
@@ -48,5 +51,10 @@ public class RoomReviewServiceImpl implements RoomReviewService{
 	@Override
 	public List<String> getUserReview(String id) {
 		return gurDAOImpl.getUserReview(id);
+	}
+
+	@Override
+	public List<Integer> getReviewRank() {
+		return grrDAOImpl.getReviewRank();
 	}
 }

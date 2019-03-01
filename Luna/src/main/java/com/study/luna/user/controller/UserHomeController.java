@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.user.payandreserv.service.PayAndReserveService;
+import com.study.luna.user.review.service.RoomReviewService;
 import com.study.luna.user.room.service.RoomService;
 import com.study.luna.util.SHA256;
 
@@ -32,6 +33,8 @@ public class UserHomeController {
 	RoomService roomser;
 	@Autowired
 	PayAndReserveService parser;
+	@Autowired
+	RoomReviewService rrvser;
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
@@ -119,6 +122,8 @@ public class UserHomeController {
 		Integer thisYearReserveCount=parser.getThisYearReserveCount();
 		Integer preDayReserveCount=parser.getPreDayReserveCount();
 		Integer preMonthReserveCount=parser.getPreMonthReserveCount();
+		
+		
 		
 		mav.addObject("sido",sido);
 		mav.addObject("allMemberCount",allMemberCount);

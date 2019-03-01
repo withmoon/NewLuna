@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rankDAO">
+	<!-- 리뷰 3등까지 중   -->
+	<select id="getRoomReviewRank" resultType="roomRank">
+		<![CDATA[select c.roomnum,c.starct,
+				(select fname from roomfile where roomnum =c.roomnum and filenum=1) as fname1,(select fname from roomfile where roomnum =c.roomnum and filenum=2) as fname2,
+				(select fname from roomfile where roomnum =c.roomnum and filenum=3) as fname3,(select fname from roomfile where roomnum =c.roomnum and filenum=4) as fname4
+				,rm.roomlocate,roomname from(
+					select rownum rn, b.* from (
+					
+						select a.*
+    					from (select roomnum
+              			 , Avg(starCt) as starct
+              			 , SUM(1) as reviewct
+              			 , DENSE_RANK() OVER (ORDER BY Avg(starCt) DESC ) as ranking
+           				 from (
+               				 select * from roomreview
+                		 )
+        			 group by roomnum ) a
+  					 where a.ranking <=3 order by starct desc, reviewct asc
+  					 
+ 				  ) b)c join roomfile rf on c.roomnum=rf.roomnum join room rm on rf.roomnum=rm.roomnum where rn<=3 and rf.filenum=1 order by rn
+  		 ]]>
+	</select>
+</mapper>

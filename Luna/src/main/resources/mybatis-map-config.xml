@@ -5,15 +5,25 @@
 <configuration>
    <typeAliases>
    		<!-- User -->
+   		<!-- 마이페이지 전용 -->
    		<typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
+   		<!-- 룸 찜 꽌련 -->
    		<typeAlias alias="kroom" type="com.study.luna.user.dto.KeepRoomDTO"/>
    		<!-- User, Public -->
       	<typeAlias alias="member" type="com.study.luna.pub.command.MemberCommand" />
+      	<!-- 룸 정보관련 -->
       	<typeAlias alias="roomInfo" type="com.study.luna.user.dto.RoomInfoDTO"/>
+      	<!-- 룸 이미지 관련 -->
        	<typeAlias alias="roomFile" type="com.study.luna.user.dto.RoomFileDTO"/>
+       	<!-- 룸 예약관련 -->
         <typeAlias alias="roomReserve" type="com.study.luna.user.dto.RoomReserveDTO"/>
+        <!-- 룸 리뷰 관련 -->
         <typeAlias alias="roomReview" type="com.study.luna.user.dto.RoomReviewDTO"/>
+        <!-- 룸 결제 관련 -->
         <typeAlias alias="roomPay" type="com.study.luna.user.dto.RoomPaymentDTO"/>
+        <!-- 룸 랭크 관련  -->
+  		 <typeAlias alias="roomRank" type="com.study.luna.user.dto.RoomRankDTO"/>
+  		 <!-- 회원 알림 관련 -->
         <typeAlias alias="alam" type="com.study.luna.user.dto.AlamDTO"/>
         <typeAlias alias="eReply" type="com.study.luna.user.comment.vo.EventReplyVO"/>
         <typeAlias alias="nReply" type="com.study.luna.user.comment.vo.NoticeReplyVO"/>
@@ -49,6 +59,8 @@
       <mapper resource="mapping/keeproom-mapper.xml" />
       <!-- 예약관련 -->
       <mapper resource="mapping/review-mapper.xml" />
+       <!-- 랭크 관련 -->
+      <mapper resource="mapping/rank-mapper.xml" />
 
       <!-- 관리자 -->
       <mapper resource="mapping/admin-mapper.xml" />

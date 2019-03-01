@@ -15,4 +15,6 @@ public interface RoomReviewService {
 	void insertReview(RoomReviewDTO rrd);
 	//사용자의 리뷰를 가져옴
 	List<String> getUserReview(String id);
+	//평점순 평점이 같으면 리뷰 순으로 해서 3등까지 가져옴
+	List<Integer> getReviewRank();
 }
