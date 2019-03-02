@@ -4,13 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Resources -->
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/plugins/wordCloud.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script> 
 <script type="text/javascript" src="<c:url value="/resources/manager/js/mjs.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/manager/js/date.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/manager/js/manager.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/manager/js/manager2.js"/>"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <title>지점장 관리화면</title>
@@ -74,6 +77,9 @@
 				<div id="statistics">
 					<div id="chartdiv"></div>
 				</div>
+				
+				<!-- HTML -->
+				<div id="chartdiv2"></div>
 
 			</div>
 			<!-- <div id="chart_div"></div> -->

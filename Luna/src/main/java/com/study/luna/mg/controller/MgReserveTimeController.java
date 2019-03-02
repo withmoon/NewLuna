@@ -1,6 +1,7 @@
 package com.study.luna.mg.controller;
 
-import java.util.List;import org.apache.ibatis.annotations.One;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,15 +18,18 @@ public class MgReserveTimeController {
 	@Autowired
 	mgReserveTimeService mgReserveTimeService;
 	
-	@RequestMapping(value="/mgAge.mdo",method=RequestMethod.GET)
+	@RequestMapping(value="/mgTime.mdo",method=RequestMethod.GET)
 	public ModelAndView mgAgeView(ReserveTimeVO vo) {
 		
+		//리스트
 		List<ReserveTimeVO> list = mgReserveTimeService.mgAgeList();
 		
-		mgReserveTimeService.mgsu(list);
+		//통계계산
+		mgReserveTimeService.mgsu(list,vo);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("body/reserveTime/mgAge");
+		mv.addObject("vo",vo);
+		mv.setViewName("body/reserveTime/mgTime");
 
 		return mv;
 		

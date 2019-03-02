@@ -11,6 +11,7 @@ public interface mgReserveTimeService {
 	List<ReserveTimeVO> mgAgeList();
 
 	//시간 비교
-	List<ReserveTimeVO> mgsu(List<ReserveTimeVO> list);
+//	List<ReserveTimeVO> mgsu(List<ReserveTimeVO> list, ReserveTimeVO vo);
+	ReserveTimeVO mgsu(List<ReserveTimeVO> list, ReserveTimeVO vo);
 	
 }

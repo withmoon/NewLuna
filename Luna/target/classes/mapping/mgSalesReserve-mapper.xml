@@ -16,8 +16,8 @@
 	<select id="SalesReserveList" resultType="Statistics">
 	<![CDATA[
 		select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
-		count(DECODE(status,'-1',1)) as status2 from roompayment  where reservdate>='19/02/01' and 
-		reservdate<='19/02/28' group by reservdate order by reservdate asc
+		count(DECODE(status,'-1',1)) as status2 from roompayment  where reservdate>='19/01/01' and 
+		reservdate<='19/03/28' group by reservdate order by reservdate asc
 	]]>
 	</select>
 	<!-- <include refid="pagingHeader"></include>	

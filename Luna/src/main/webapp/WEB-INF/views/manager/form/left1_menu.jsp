@@ -33,7 +33,7 @@
 			</li>
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu01.png"/>" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
-					<li><a href="mgAge.mdo">시간별</a></li>
+					<li><a href="mgTime.mdo">시간별</a></li>
 					<li><a href="mgSeason.mdo">분기별</a></li>
 					<li>메뉴3</li>
 				</ul>
