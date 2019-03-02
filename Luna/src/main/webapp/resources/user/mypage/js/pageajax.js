@@ -25,6 +25,7 @@ $(function(){
 	//지난예약
 	getUserReview();
 	getReservList('reserved',1);
+	getqnalist(1);
 });
 //찜 리스트 가져옴
 function getKeepList(kcurpage){
@@ -111,6 +112,64 @@ function getalamList(acurpage){
 		}
 	});
 }
+
+
+
+//문의글 가져옴
+function getqnalist(qcurpage){
+	$.ajax({      
+		type:"GET",  
+		url:"qnalist.udo",    
+		data:{curpage:qcurpage},     
+		success:function(data){
+			var qstrDom='';
+			//방있을때
+			$("#notification4").children().remove();
+			for(var i=0; i<data.alist.length; i++){
+				//읽은거
+				if(data.alist[i].readst==0){
+					qstrDom+='<tr class="">';
+					qstrDom+='<td style="color:black">'+data.alist[i].sregdate+'</td>';
+					qstrDom+='<td style="color:black">'+data.alist[i].title+'</td>';
+					qstrDom+='<td style="color:black">'+data.alist[i].branchName+'</td>';
+					qstrDom+='<td><button onclick="showQnContent('+data.alist[i].seq+',&#039'+data.alist[i].reply+'&#039)">내용보기</button></td>'; //+','+data.alist[i].reply+'
+					qstrDom+='</tr><tr  hidden="true" id="qnc'+data.alist[i].seq+'" style="border:1px solid lightgray;"><td colspan="2" style="color:gray">'+data.alist[i].content+'</td>';
+						if(data.alist[i].reply!=''&&data.alist[i].reply!=undefined){
+							console.log("왜 안와");
+							qstrDom+='<td style="border-left:1px solid gray" colspan="2" style="color:black">[답변입니다.]<br/>'+data.alist[i].reply+'</td>';
+						}
+						if(data.alist[i].reply==''||data.alist[i].reply==undefined){
+							console.log("왜 안와");
+							qstrDom+='<td style="border-left:1px solid gray" colspan="2" style="color:black">아직 답변이 없습니다.</td>';
+						}
+					qstrDom+='</tr>';
+				}
+				if(data.alist[i].readst==1){
+					qstrDom+='<tr>';
+					qstrDom+='<td style="color:gray">'+data.alist[i].sregdate+'</td>';
+					qstrDom+='<td style="color:gray">'+data.alist[i].title+'</td>';
+					qstrDom+='<td style="color:gray">'+data.alist[i].branchName+'</td>';
+					qstrDom+='<td><button onclick="showQnContent('+data.alist[i].seq+')">내용보기</button></td>';
+					qstrDom+='</tr>';
+				}
+			}
+			//없으면
+			if(data.alist.length==0){
+				qstrDom+='<tr><td colspan="4">문의내역이 없습니다.</td></tr>';
+			}
+			$("#notification4").append(qstrDom);
+			
+			blockPage("ntpaging",qcurpage,data.apager.BLOCK_SCALE,data.apager.totPage,"ntli","getqnalist");
+		}
+	});
+}
+function showQnContent(seq,reply){
+	$("#qnc"+seq).show();
+	if(reply!=''&&reply!=undefined){
+		
+	}
+}
+
 //후기 올리기 //룸넘, 리뷰내용, 별 카운트 
 function writeReview(){
 	stcount=$("#starcount").text();
@@ -176,10 +235,10 @@ function latelyList(lrcurpage,data){
 			ltDom+='<td>'+data.rvlist[i].branchtel+'</td>';
 			ltDom+='<td>'+data.rvlist[i].branchAddr1+'</td>';
 			ltDom+='<td>'+data.rvlist[i].starttime;
-			if(data.rvlist[i].reservenddate==undefined){
+			if(data.rvlist[i].reservenddatetime==undefined||data.rvlist[i].reservenddatetime==':'){
 				ltDom+='~'+data.rvlist[i].endtime+'</td>';
 			}
-			if(data.rvlist[i].reservenddate!=undefined){
+			if(data.rvlist[i].reservenddatetime!=undefined||data.rvlist[i].reservenddatetime!=':'){
 				ltDom+='~ 익일 '+data.rvlist[i].reservenddatetime+'</td>';
 			}
 			ltDom+='<td id="'+data.rvlist[i].imp_uid+'">';

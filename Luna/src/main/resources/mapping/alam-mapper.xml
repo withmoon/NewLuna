@@ -5,7 +5,7 @@
 	<!-- 알람 모두 가져옴--> 
 	<select id="getAlamlist" resultType="alam">
 		<include refid="payAndReservDAO.pagingHeader"/>
-		<![CDATA[select rownum as num,alam.* from alam where id=#{id} order by almdate desc]]>
+		<![CDATA[select rownum num, b.* from( select alam.* from alam where id=#{id} order by almdate desc )b]]>
 		<include refid="payAndReservDAO.pagingFooter"/>
 	</select>
 	

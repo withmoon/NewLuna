@@ -64,8 +64,20 @@
 	<update id="mailstatus">
 		update QUESTIONBOARD set mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where num=#{num} and id=#{id}
 	</update>
-	
-
+	<!-- 사용자 문의 갯수 -->
+	<select id="getUserQnCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from inquiryboard where id=#{id} order by regdate desc
+		]]>
+	</select>
+	<!-- 사용자 문의 가져오기 -->
+	<select id="getUserQnAll"  resultType="QBoard">
+	<include refid="payAndReservDAO.pagingHeader"/>
+		<![CDATA[select rownum num,b.seq, b.branchname,b.content,b.title,b.fileupload,b.reply,to_char(b.regdate,'yy/mm/dd HH24:mi') as sregdate,readst from(
+			select * from inquiryboard where id=#{id} order by regdate desc
+		)b]]>
+	<include refid="payAndReservDAO.pagingFooter"/>
+	</select>
 
 
 </mapper> 

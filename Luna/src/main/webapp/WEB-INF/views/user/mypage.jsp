@@ -120,6 +120,14 @@
 		</table>
 		<ul id="alpaging" class="pagcls"></ul>
 		</div>
+		
+		<!-- 문의글 -->
+		<div class="ntlnon">
+		<p class="notification3">✉ 문의글 ✉</p> 
+		<table id="notification4" class="notification2">
+		</table>
+		<ul id="ntpaging" class="pagcls"></ul>
+		</div>
 	
 	<!-- 정보수정 div -->
 		<div id="upInfo" class="upInfo">

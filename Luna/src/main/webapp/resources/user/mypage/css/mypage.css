@@ -353,7 +353,7 @@ input[type=date]{
 }
 #latelyReservList table{
 	position:relative;
-	top:-30px;
+	top:-10px;
 }
 /*페이징 몰이*/
 
@@ -392,4 +392,43 @@ footer{
 }
 a{
 	margin:1%;
+}
+a:hover{
+	cursor:pointer;
+}
+.ntlnon{
+	position:relative;
+	top:150px;
+	font-size:2.6vw;
+	color:gray;
+}
+.ntlnon table{
+	text-align:center;
+	border-collapse:collapse;
+	border:2px solid gray;
+	position:relative;
+	left:6%;
+	font-size:1.7vw;
+	color:black;
+	width:87%;
+	
+}
+.ntlnon table td{
+	border-bottom:1px solid black;
+}
+.notification3 {
+	position:relative;
+	top: 139%;
+	left: 5%;
+}
+
+.notification4 {
+	position: relative;
+	width: 65%;
+	top: 150%;
+	left: 18%;
+}
+#ntpaging{
+	position:relative;
+	top:50px;
 }

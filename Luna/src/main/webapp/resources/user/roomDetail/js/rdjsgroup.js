@@ -290,6 +290,7 @@ function schClickReset(){
 }
 function daumschReset(){
 	schClickReset();
+	$("#reservenddate").val("");
 	reserveEndTime='';
 	dedid=0;
 	$("#daumschdule tr td").css("background-color","white");
