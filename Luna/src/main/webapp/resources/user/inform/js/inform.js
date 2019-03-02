@@ -154,7 +154,7 @@ $(function() {
 		$('.list_tab').hide();
 		$('.list_tab2').show();
 		
-	});
+});
 	
 var area0= $("#sido_select>option").map(function() { return $(this).val(); });
 	

@@ -108,8 +108,6 @@ public class UserInformController {
 		MemberCommand memcom= (MemberCommand) session.getAttribute("member");
 
 		qboardVO.setId(memcom.getId());
-		//qboardVO.setEmail(memcom.getEmail());
-		//qboardVO.setEmail(email);
 		qboardVO.setBranchName(branchName);
 		qboardVO.setTitle(title);
 		qboardVO.setContent(content);

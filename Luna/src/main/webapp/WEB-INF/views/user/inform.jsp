@@ -98,9 +98,7 @@
 <!-- 고객의 소리 구간-->
 <section class="list_tab2">
 <div class="inform_user">
-	<div><label>문의지점</label><b></b>
-		<%-- <input type="hidden" id="email" name="email" value="${emailList.email}"> --%>
-		<!-- <div id="email"></div> -->
+	<div><label>문의지점</label>
 		<!-- 시/도 -->
 		<select name="sido" id="sido_select">
 			<option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
@@ -119,13 +117,6 @@
 	<div><label>내용</label>
 		<textarea cols="120" id="content" rows="10" placeholder="내용을 입력해주세요"></textarea>
 	</div>
-	<!-- 첨부파일 등록영역 -->
-	<!-- <div class="fileDrop"></div> -->
-	<!-- 첨부팡리의 목록 출력영역 -->
-	<!-- <div id="uploadedList"></div>
-	<div><label>파일업로드</label>&emsp;&emsp;&emsp;&emsp;
-		<input type="file" name="uploadFile"/>
-	</div> -->
 	<div class="informbox2">
 		<img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<button onclick='userCommand()'>보내기</button>
 	</div>
