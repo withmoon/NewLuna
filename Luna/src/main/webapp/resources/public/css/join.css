@@ -238,9 +238,11 @@ input[type=button],[type=submit]{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.5vw;
+    font-size: 1.6vw;
     padding:4px 1%;
     cursor: pointer;
+    position:relative;
+    left:-60px;
 }
 button:hover{
     background-color: #bb9540;
@@ -248,7 +250,21 @@ button:hover{
 
 footer{
 	position:absolute;
-	bottom:-62%;
+	bottom:-120%;
 	margin:0 -5% 0 0;
 	font-size:1.2vw;
+}
+.filelabel{
+	color:gray;
+	font-size:1.8vw;
+}
+input[type=file]{
+	color:gray;
+}
+#imgSumnail{
+	position:relative;
+	left:300px;
+}
+#imgsum{
+	width:30%;
 }

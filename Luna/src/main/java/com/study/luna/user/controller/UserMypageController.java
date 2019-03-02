@@ -91,7 +91,6 @@ public class UserMypageController {
 				romre.setStartdate(rompay.getReservdate());
 				romre.setReservstate(rompay.getReserveTime());
 				Integer sdresult=parser.checkReservStartdate(romre);
-				
 				//row가 없으면 insert
 				if(sdresult==null) {
 					parser.inReserveRoom(romre);
@@ -99,7 +98,6 @@ public class UserMypageController {
 					romre.setReservNumber(sdresult);
 					parser.upReserveRoom(romre);
 				}
-				
 				romre.setStartdate(rompay.getReservenddate());
 				romre.setReservstate(rompay.getReserveEndTime());
 				Integer sdresult2=parser.checkReservStartdate(romre);

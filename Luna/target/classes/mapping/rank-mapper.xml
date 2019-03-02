@@ -46,7 +46,7 @@
 			select * from(
 				select branchAddr1,branchName,branchtel, branchimg,
 				SUBSTR(branchaddr1,0,2) as sido,SUBSTR(branchaddr1,INSTR(branchaddr1, ' ', 1,1)+1,INSTR(branchaddr1, ' ',1,1)+1) as gugun
-				from member where position='지점장' order by regdate desc
+				from member where position='지점장' and brstatus=0 order by regdate desc
 			) where rownum<=3
 		]]>
 	</select>

@@ -1,5 +1,6 @@
 package com.study.luna.user.controller;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -36,6 +39,7 @@ public class UserHomeController {
 	PayAndReserveService parser;
 	@Autowired
 	RoomRankServicie rrkser;
+	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\branchImg\\";
 
 	//카카오로그인
 	@RequestMapping(value="kakao/home.udo", method=RequestMethod.GET)
@@ -52,7 +56,7 @@ public class UserHomeController {
 	
 	//회원가입 로그인
 	@RequestMapping(value="/join/home.udo", method=RequestMethod.POST)
-	public ModelAndView homeloginView(HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
+	public ModelAndView homeloginView(MultipartHttpServletRequest mpreq,HttpServletResponse response,RedirectAttributes rdab,MemberCommand memcom,@RequestParam(value="kid",required=false,defaultValue="") String kid, @RequestParam(value="knic",required=false,defaultValue="") String knic) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		int result =0;
 		if(kid.equals("")) {
@@ -71,7 +75,19 @@ public class UserHomeController {
 			memcom.setKid(kid);
 			memcom.setPw(knic);
 		}
+		//지점장 설정
 		memcom.setBranchAddr2(memcom.getBranchAddr2()+"#"+memcom.getBranchAddr3());
+		if (!memcom.getBranchimgf().equals("")||!memcom.getBranchimgf().equals(null)) {
+			MultipartFile mf = mpreq.getFile("branchimgf");
+			System.out.println("파일 추출");
+			// 저장되는 파일 이름
+			String branchimg=mf.getOriginalFilename();
+			String savePath = filePath + branchimg; // 저장 될 파일 경로
+			memcom.setBranchoriginimg(savePath);
+			mf.transferTo(new File(savePath)); // 파일 저장
+			memcom.setBranchimg(branchimg);
+		}
+		
 		//비번 암호화
 		SHA256 sha=SHA256.getInsatnce();
 		String shaPass=sha.getSha256(memcom.getPw().getBytes());

@@ -89,7 +89,7 @@
 
 <!-- 스케줄 구간 -->
 <div id="showSchedule">
-<p><button onclick="schClickReset()">선택초기화</button>&emsp;선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="daumschclick(${roomInfo.roomNum})">자정 전후 예약</button></p><br/>
+<p><button onclick="daumschReset()">선택초기화</button>&emsp;선택하신 날짜 : <b><label id="startdat">${sel_date}</label></b>의 스케줄입니다.&emsp;<button onclick="daumschclick(${roomInfo.roomNum})">자정 전후 예약</button></p><br/>
 <table id="schdule">
 <tr>
 <th>오전</th>

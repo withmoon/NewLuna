@@ -28,7 +28,7 @@
 			(id,pw,name,phone,birth,email) values(#{kid},#{pw},#{name},#{phone},#{birth},#{email})
 		</if> 
 		<if test="branchName!=null">
-			values(#{id},#{pw},#{name},#{phone},#{birth},#{email},#{branchName},#{zipcode},#{branchAddr1},#{branchAddr2},'지점장',-1)
+			values(#{id},#{pw},#{name},#{phone},#{birth},#{email},#{branchName},#{zipcode},#{branchAddr1},#{branchAddr2},'지점장',-1,#{branchtel},#{branchimg},#{branchoriginimg},sysdate)
 		</if>
 	</insert>
 	

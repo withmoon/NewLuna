@@ -1,5 +1,7 @@
 package com.study.luna.pub.command;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 @Getter
@@ -22,7 +24,9 @@ public class MemberCommand {
 	int count;
 	
 	String branchtel;
+	MultipartFile branchimgf;
 	String branchimg;
+	String branchoriginimg;
 	
 	String sido;
 	String gugun;

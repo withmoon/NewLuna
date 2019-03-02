@@ -57,7 +57,7 @@
 		</c:if>
 		
 		<!-- 회원가입 폼 -->
-		<form class="join" name="join" action="join/home.udo" onsubmit="return inputCheck()" method="post">
+		<form class="join" name="join" action="join/home.udo" enctype="multipart/form-data" onsubmit="return inputCheck()" method="post">
 		
 			<img class="line" src="<c:url value="/resources/public/images/line.png"/>"/>
 			<input type="hidden" name="kid" value="${kid}"/>
@@ -119,11 +119,19 @@
 				<input type="text" name="branchAddr2" id="sample2_detailAddress" size="50" value="${member.branchAddr2}" required="required"> <input type="text" name="branchAddr3" id="sample2_extraAddress" placeholder="참고항목" value="${member.branchAddr3}">
 				<label>detail_Address2</label>
 				</td></tr>	
-				<!-- 여기서 끝 -->
 				<tr><td>
 					<input type="text" name="branchName" id="branch" size="50" value="${member.branchName}" required="required">
 					<label>BranchName</label>
 				</td></tr>
+				<tr><td>
+					<input type="text" name="branchtel" id="branchtel" size="50" value="${member.branchtel}" required="required"><!--브랜치핸드폰-->
+					<label>BranchTel</label>
+				</td></tr>
+				<tr><td>
+				<label class="filelabel">BranchSumnail[이미지명을 지점명으로 변경후 넣어주세요]</label><br/>
+					<input type="file" name="branchimgf" id="branchimgf" size="80" value="${member.branchimgf}" required="required"><!-- 파일명 넣기 -->
+				</td></tr>
+				
 			
 			<!-- 다음 우편번호 iframe 을 위한 div -->
 			<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -135,7 +143,7 @@
 			</c:if>
 			</table>
 			
-			
+			<div id="imgSumnail"><img id="imgsum"></div>
 			<div align="center"><input type="button" onclick="javascript:window.location.href='home.udo'" value="취소">&emsp;<input type="submit" value="회원가입"></div>
 			<img class="line" src="<c:url value="/resources/public/images/line.png"/>"/>
 		</form>

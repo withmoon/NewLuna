@@ -220,7 +220,7 @@ $("#daumschdule tr td").click(function(){
 			var realprice=roomprice*count;
 			$(".payArea").text("☆가격☆ ￦"+realprice);
 			$("#payAmount").val(realprice);
-			$("#reservtime").val(reservtime);
+			$("#reserveTime").val(reservtime);
 			$("#reserveEndTime").val(reserveEndTime);
 			console.log(reservtime);
 			console.log(reserveEndTime);
@@ -245,13 +245,13 @@ function daumschclick(num){
 	var ilplus=1;
 	il*=ilplus;
 	daumdate = new Date(nyan, war-1, il);
-	console.log(daumdate);
+	
 	var month = (daumdate.getMonth() + 101).toString().substring(1);
 	var day = (daumdate.getDate() + 101).toString().substring(1);
 	var year = daumdate.getFullYear();
 	
 	daumdate=year+"-" +month+"-"+day;
-	
+	console.log(daumdate);
 	$("#reservenddate").val(daumdate);
 	$.ajax({      
 		type:"GET",  
