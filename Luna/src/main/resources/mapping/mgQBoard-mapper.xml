@@ -79,6 +79,9 @@
 	<include refid="payAndReservDAO.pagingFooter"/>
 	</select>
 
-
+	<!-- user.고객의소리 insert -->
+	<insert id="informUser" parameterType="QBoard">
+		insert into INQUIRYBOARD (seq, id, email, branchname, title, content) values ((select nvl(max(seq)+1, 1)from QUESTIONBOARD), #{id}, (SELECT email FROM member where id=#{id}), #{branchname}, #{title}, #{content}) 
+	</insert>
 </mapper> 
 

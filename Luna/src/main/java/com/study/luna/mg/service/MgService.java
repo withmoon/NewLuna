@@ -27,4 +27,6 @@ public interface MgService {
 	
 	//사용자 문의 글 가져오기
 	List<QBoardVO> getUserQnAll(int start,int end,String id);
+	
+	public void create(QBoardVO vo); //user.고객의 소리 insert
 }

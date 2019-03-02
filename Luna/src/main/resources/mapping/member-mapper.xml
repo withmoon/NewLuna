@@ -63,4 +63,14 @@
 	<select resultType="Integer" id="allMemberCount">
 			select count(*) from member where branchName is Null 
 	</select>
+	
+	<!-- 고객의소리 지점선택 -->
+   <select id="branchList" resultType="String">
+   	select branchname from member where position='지점장' and branchaddr1 like '%' || #{gugun} || '%'
+   </select>
+   
+   <!-- 고객의소리 이메일 -->
+   <select id="emailList" resultType="String">
+   	select email from member where position is null and id=#{id};
+   	</select>
 </mapper>

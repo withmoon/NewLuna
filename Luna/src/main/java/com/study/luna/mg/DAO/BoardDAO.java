@@ -23,5 +23,7 @@ public interface BoardDAO {
 	
 	//메일체크
 	public int mailstatus(QBoardVO vo);
+	
+	public void create(QBoardVO vo); //user.고객의 소리 보내기
 	}
 

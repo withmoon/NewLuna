@@ -63,5 +63,9 @@ public class mgServiceImpl  implements MgService{
 	}
 
 
-
+	//고객의 소리 insert
+	@Override
+	public void create(QBoardVO vo) {
+		boardDAO.create(vo);
+	}
 }

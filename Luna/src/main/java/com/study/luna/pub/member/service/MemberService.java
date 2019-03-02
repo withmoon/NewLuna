@@ -24,5 +24,6 @@ public interface MemberService {
 		Integer allMemberCount();
 	 //회원탈퇴
 	   public void removedelete(String id)throws Exception;
-
+	 
+	 public List<String> branchList(String gugun); //고객의 소리 지점선택 
 }

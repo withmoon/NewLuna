@@ -9,7 +9,7 @@
 <link href="<c:url value="/resources/user/inform/css/inform.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/inform/js/inform.js"/>"></script>
 </head>
 <body>
@@ -97,45 +97,38 @@
 <!-- 고객의 소리 구간-->
 <section class="list_tab2">
 <div class="inform_user">
-	<div><label>문의지점</label>
-		<select> <!-- 시/도 -->
-				<option value="br0">전체
-				<option value="br1">지점1
-				<option value="br2">지점2
-				<option value="br3">지점3
-				<option value="br4">지점4
-				<option value="br5">지점5
+	<div><label>문의지점</label><b></b>
+		<%-- <input type="hidden" id="email" name="email" value="${emailList.email}"> --%>
+		<!-- <div id="email"></div> -->
+		<!-- 시/도 -->
+		<select name="sido" id="sido_select">
+			<option selected="selected" disabled="disabled" hidden="true">시/도 선택</option>
+		<c:forEach  var="sidoList" items="${sido}">
+			<option value="${sidoList}">${sidoList}</option>
+		</c:forEach>
 		</select>&emsp;
-		<select> <!-- 구/군 -->
-				<option value="br0">전체
-				<option value="br1">지점1
-				<option value="br2">지점2
-				<option value="br3">지점3
-				<option value="br4">지점4
-				<option value="br5">지점5
-		</select>&emsp;
-		<select> <!-- 문의지점 -->
-				<option value="br0">전체
-				<option value="br1">지점1
-				<option value="br2">지점2
-				<option value="br3">지점3
-				<option value="br4">지점4
-				<option value="br5">지점5
-		</select>
+		<!-- 시/군/구 -->
+		<select name="gugun"></select>&emsp;
+		<!-- 문의지점 -->
+		<select id="branch" name="branch"></select>
 	</div>
 	<div><label>제목</label>
 		<input type="text" id="title" name="title" placeholder="제목을 입력해주세요"/>
 	</div>
 	<div><label>내용</label>
-		<textarea cols="120" rows="10" placeholder="내욜을 입력해주세요"></textarea>
+		<textarea cols="120" id="content" rows="10" placeholder="내용을 입력해주세요"></textarea>
 	</div>
+	<!-- 첨부파일 등록영역 -->
+	<!-- <div class="fileDrop"></div> -->
+	<!-- 첨부팡리의 목록 출력영역 -->
+	<!-- <div id="uploadedList"></div>
 	<div><label>파일업로드</label>&emsp;&emsp;&emsp;&emsp;
 		<input type="file" name="uploadFile"/>
+	</div> -->
+	<div class="informbox2">
+		<img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<button onclick='userCommand()'>보내기</button>
 	</div>
-	<div>
-		<img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<a href="#">보내기</a>
-	</div>
-</div>
+</div> 
 </section>
 
 <!-- footer -->

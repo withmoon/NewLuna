@@ -10,6 +10,7 @@ import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
+import com.study.luna.pub.member.dao.Impl.GetBranchNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
@@ -42,6 +43,8 @@ public class MemberServiceImpl implements MemberService{
 	AllBranchCountDAOImpl abcDAOImpl;
 	@Autowired
 	AllMemberCountDAOImpl amcDAOImpl;
+	@Autowired
+	GetBranchNameDAOImpl branchnameDAOImpl; //고객의 소리 지점 선택
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -103,5 +106,11 @@ public class MemberServiceImpl implements MemberService{
 	      memberDAOImpl.removedelete(id);
 	      
 	   }
+	 
+	//고객의 소리 지점 선택
+	@Override
+	public List<String> branchList(String gugun) {
+		return branchnameDAOImpl.branchList(gugun);
+	}
 
 }

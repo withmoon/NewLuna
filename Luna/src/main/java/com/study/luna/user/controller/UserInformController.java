@@ -7,12 +7,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminNoticeBoardService;
@@ -20,6 +21,11 @@ import com.study.luna.admin.board.service.AdminQnABoardService;
 import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 import com.study.luna.admin.model.vo.AdminQnABoardVO;
 import com.study.luna.mg.model.BoardPager;
+import com.study.luna.mg.model.QBoardVO;
+import com.study.luna.mg.service.MgService;
+import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.Impl.MemberServiceImpl;
+import com.study.luna.user.room.service.RoomService;
 
 @Controller
 public class UserInformController {
@@ -27,6 +33,10 @@ public class UserInformController {
 	AdminNoticeBoardService noticeBoardService;
 	@Autowired
 	AdminQnABoardService qnaBoardService;
+	@Autowired
+	MgService qboardService;
+	@Autowired
+	RoomService roomser;
 	
 	//공지사항 목록
 	@RequestMapping(value="/inform.udo", method=RequestMethod.GET)
@@ -47,6 +57,9 @@ public class UserInformController {
 		//목록
 		List<AdminNoticeBoardVO> noticeList = noticeBoardService.noticeAll(start, end, session);
 		
+		List<String> sido=roomser.getSido();
+		
+		mav.addObject("sido",sido);
 		mav.addObject("noticeList", noticeList);
 		mav.addObject("boardPager", boardPager); //페이징
 		
@@ -84,5 +97,23 @@ public class UserInformController {
 			mav.addObject("boardPager", boardPager);
 			return noticeList;
 		}
+	}
+	
+	//고객의 소리 insert
+	@RequestMapping(value="/informUser.udo", method=RequestMethod.POST)
+	public @ResponseBody void informUser(@RequestParam(value="branchName") String branchName,
+										@RequestParam(value="title") String title, @RequestParam(value="content") String content,
+										QBoardVO qboardVO, HttpSession session) {
+		
+		MemberCommand memcom= (MemberCommand) session.getAttribute("member");
+
+		qboardVO.setId(memcom.getId());
+		//qboardVO.setEmail(memcom.getEmail());
+		//qboardVO.setEmail(email);
+		qboardVO.setBranchName(branchName);
+		qboardVO.setTitle(title);
+		qboardVO.setContent(content);
+		
+		qboardService.create(qboardVO);
 	}
 }
