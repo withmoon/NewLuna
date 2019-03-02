@@ -26,9 +26,9 @@ public class managerServiceImpl implements managerService {
 	}
 
 	@Override
-	public void branchname() {
+	public String branchname(String id) {
 		System.out.println("branchname 가져오기");
-		managerDAO.branchname();
+		return managerDAO.branchname(id);
 		
 	}
 

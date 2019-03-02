@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import com.study.luna.mg.model.BoardPager;
+import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.service.MgPCService;
 import com.study.luna.mg.util.listExcelDownload;
@@ -117,6 +118,15 @@ public class MgSalesController {
 		mv.setViewName("body/presentCondition/mgReserve");
 
 		return mv;
+	}
+	
+	//환불하기
+	@RequestMapping(value = "/Reserve.mdo")
+	public void Reserve(HttpServletRequest request,QBoardVO vo) {
+	vo.setSeq(Integer.parseInt(request.getParameter("seq")));
+	MgPCService.mgReserve(vo);
+
+
 	}
 
 	// 방문현황

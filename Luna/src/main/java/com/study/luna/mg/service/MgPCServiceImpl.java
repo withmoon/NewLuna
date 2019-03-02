@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.mg.DAO.SalesDAO;
 import com.study.luna.mg.DAO.SalesDAOImpl;
+import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
 
 @Service
@@ -55,5 +56,11 @@ public class MgPCServiceImpl implements MgPCService {
 		System.out.println("mgReserveList 서비스");
 		
 		return SalesDAO.mgReserveList(vo);
+	}
+	//환불하기
+	@Override
+	public void mgReserve(QBoardVO vo) {
+		System.out.println("mgReserve 서비스");
+		SalesDAO.mgReserve(vo);
 	}
 }

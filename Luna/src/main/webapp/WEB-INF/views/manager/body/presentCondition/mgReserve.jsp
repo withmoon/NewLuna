@@ -49,6 +49,21 @@
 	background-color: lightblue;
 }
 </style>
+<script type="text/javascript">
+	function reserve(seq) {
+		if (confirm("환불을 승인하겠습니까?") == true){ //확인
+		   /*  document.form.submit(); */
+		   location.href="Reserve.mdo?seq="+seq;
+		   window.setTimeout("cle()",3000);
+		   window.location.reload()
+		}else{   //취소
+		    return;
+		}
+	}
+	function cle() {
+		alert("환불 완료했습니다.");
+	}
+</script>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -111,7 +126,7 @@
 							<td>${list.roomnum }</td>
 							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
 							<c:if test="${list.status==-2}">
-								<td><a href="#">환불신청</a></td>
+								<td><a href="#" onclick="reserve('${list.seq}')" >환불신청</a></td>
 							</c:if>
 							<c:if test="${list.status==-1}">
 								<td>환불완료</td>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.StatisticsVO;
 import com.study.luna.mg.service.managerService;
 import com.study.luna.pub.command.MemberCommand;
@@ -28,7 +29,7 @@ public class ManagerMainController {
 	MemberService memser;
 
 	@RequestMapping(value = "/manager.mdo", method = RequestMethod.GET)
-	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,StatisticsVO vo)
+	public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,QBoardVO vo)
 			throws Exception {
 		System.out.println("로그인 아이디  받아오기");
 		System.out.println("test 세션 :"+session.getAttribute("id"));
@@ -37,13 +38,22 @@ public class ManagerMainController {
 			return logincheck();
 		}else if(!(session.getAttribute("id")==null)){
 			System.out.println("세션에서 매니저ID 확인");
+			
+			
+			String id=(String) session.getAttribute("id");
+			String bn = managerService.branchname(id); //지점 검색
+			System.out.println("branchName :" +bn.toString());
+			session.setAttribute("branchName",bn);
+			System.out.println("세션:" +session.getAttribute("branchName"));
 		}else {
 			flashMap = RequestContextUtils.getInputFlashMap(request);
 			System.out.println("카카오 로그인 ==>" + flashMap.get("id"));
 			session.setAttribute("id", flashMap.get("id"));
-			managerService.branchname();
-			System.out.println("branchname :" +vo.getBranchname());
-			session.setAttribute("branchname",vo.getBranchname());
+			String id=(String) session.getAttribute("id");
+			
+			String bn = managerService.branchname(id); //지점 검색
+			System.out.println("branchname :" +bn);
+			session.setAttribute("branchname",bn);
 			
 			
 			// 로그인수+1
@@ -62,7 +72,7 @@ public class ManagerMainController {
 
 		return mv;
 	}
-
+/*
 	@RequestMapping(value = "/manager.mdo", method = RequestMethod.POST)
 	public ModelAndView mainView() {
 
@@ -75,7 +85,7 @@ public class ManagerMainController {
 		mv.setViewName("manager");
 
 		return mv;
-	}
+	}*/
 
 	// 매니저 인증 실패시
 	@RequestMapping(value = "/loginX.mdo", method = RequestMethod.GET)
@@ -92,7 +102,6 @@ public class ManagerMainController {
 		ModelAndView mav = new ModelAndView();
 		memcom.setId((String) session.getAttribute("id"));
 		System.out.println(memcom);
-		memser.dnStatus(memcom);
 		session.invalidate();
 		mav.setViewName("redirect:/home.udo");
 		return mav;

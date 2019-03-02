@@ -35,7 +35,7 @@
 	 			where (dates like '%'||#{keyword}||'%')
 	 		</when>
 	 		<otherwise>
-	 			where dates like '%'||'#{keyword}'||'%'
+	 			where (dates like '%'||'#{keyword}'||'%')
 	 			<!-- where dates like '%'||TO_char(to_date(#{keyword},'YYYY/mm/DD'),'YY/mm/dd')||'%' -->
 	 			
 	 			<!-- where dates like '%'||TO_char(to_date('#{keyword}','YYYY/mm/DD'),'YY/mm/dd')||'%'; -->
@@ -56,6 +56,10 @@
 	 <select id="ReserveList" resultType="Sales" resultMap="sales">
 	 	SELECT SEQ,IMP_UID,BRANCHNAME,ROOMNUM,PAID_AT,STATUS FROM ROOMPAYMENT ORDER BY SEQ
 	 </select>
+	 
+	 <update id="Reserve">
+	 	update roompayment set status=-1  where seq=#{seq}
+	 </update>
 	 
 	
 </mapper> 

@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.study.luna.mg.model.QBoardVO;
+
 
 @Repository
 public class managerDAOImpl implements managerDAO{
@@ -25,9 +27,9 @@ public class managerDAOImpl implements managerDAO{
 	}
 
 	@Override
-	public void branchname() {
+	public String branchname(String id) {
 		System.out.println("branchname DAO");
-		SqlSession.update("managerDAO.branchname");
+		return SqlSession.selectOne("managerDAO.branchname",id);
 	}
 
 }

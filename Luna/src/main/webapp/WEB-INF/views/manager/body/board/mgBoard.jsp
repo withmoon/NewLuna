@@ -74,7 +74,7 @@
 								<div id="write">${map.count}개의 게시물이 있습니다.</div>
 								<select name="searchOption">
 									<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
-									<option value="WRITER"  <c:out value="${map.searchOption == 'writer'?'selected' : '' }"/> >작성자</option>
+									<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >작성자</option>
 							</select> 
 							<input name="keyword"  value="${map.keyword }"> 
 							<input	 type="submit" value="검색">
@@ -98,15 +98,15 @@
 					<!-- 예시로 데이터 작업 -->
 					<c:forEach var="list" items="${map.list }">
 						<tr>
-							<td>${list.num }</td>			
-							<td><a href="mgBoardview.mdo?num=${list.num}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
-							<td>${list.writer }</td>
+							<td>${list.rownum }</td>			
+							<td><a href="mgBoardview.mdo?num=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
+							<td>${list.id }</td>
 							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
 							<c:if test="${list.mail==0 }">
-								<td><button onclick="mail_0('${list.num}','${list.email}');">답장하기</button></td>
+								<td><button onclick="mail_0('${list.seq}','${list.email}');">답장하기</button></td>
 							</c:if>
 							<c:if test="${list.mail==1}">
-								<td><a href="#" onclick="mail_1('${list.num }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
+								<td><a href="#" onclick="mail_1('${list.seq }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
 							</c:if>
 							
 						</tr> 
@@ -126,10 +126,10 @@
 					<!-- 현재페이지이면 하이퍼링크 제거 -->
 					<c:choose>
 						<c:when test="${num == map.boardPager.curPage}">
-							<span style="color: red">${num}</span>&nbsp;
+							<span style="color: red">${seq}</span>&nbsp;
 						</c:when>
 						<c:otherwise>
-							<a href="javascript:list('${num}')">${num}</a>&nbsp;
+							<a href="javascript:list('${seq}')">${seq}</a>&nbsp;
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

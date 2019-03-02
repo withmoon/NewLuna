@@ -40,10 +40,10 @@ public class MgBoardController {
 			throws Exception {
 		
 		
-		String id = (String)session.getAttribute("id");
-		System.out.println(id + "지점 문의게시글");
+		String branchName = (String)session.getAttribute("branchName");
+		System.out.println(branchName + "지점 문의게시글");
 		// 레코드계산  
-		int count = MgService.countArticle(searchOption, keyword,id);
+		int count = MgService.countArticle(searchOption, keyword,branchName);
 		System.out.println(count+"개");
 
 		
@@ -57,7 +57,7 @@ public class MgBoardController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		List<QBoardVO> list = MgService.QboardList(start, end, searchOption, keyword,id);
+		List<QBoardVO> list = MgService.QboardList(start, end, searchOption, keyword,branchName);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
@@ -91,7 +91,7 @@ public class MgBoardController {
 
 //		조회수 대비 MgService.increaseViewcnt(bno, session);*/
 		vo.setId((String) session.getAttribute("id"));
-		vo.setNum(num);
+		vo.setSeq(num);
 		System.out.println("상세보기 id"+vo.getId());
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/board/mgBoardview");
@@ -159,7 +159,7 @@ public class MgBoardController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		vo.setNum(Integer.parseInt(request.getParameter("num")));  
+		vo.setSeq(Integer.parseInt(request.getParameter("num")));  
 		vo.setEmail(request.getParameter("email"));
 		vo.setEmailtitle(title);
 		vo.setEmailcontent(content);

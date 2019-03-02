@@ -3,7 +3,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="managerDAO">
-
 	<select id="login" resultType="int">
 		SELECT LOGIN FROM LOGINCOUNT
 	</select>
@@ -12,8 +11,8 @@
 		update logincount set login=login+1 where su=1
 	</update>
 	
-	<select id="branchname" resultType="Statistics">
-		SELECT branchname FROM MEMBER
+	<select id="branchname" resultType="String">
+		select branchname from member where id=#{id}
 	</select>	
 	
 

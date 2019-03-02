@@ -23,13 +23,13 @@ public class BoardDAOImpl  implements BoardDAO{
 	}
 	//문의게시판 전체목록
 	@Override
-	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword,String id) {
+	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword,String branchName) {
 		// TODO Auto-generated method stub
 		//검색옵션 , 키워드 맵에 저장
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		map.put("id", id);
+		map.put("id", branchName);
 		//#start #end 에 입력될 값
 		map.put("start",start);
 		map.put("end", end);
@@ -50,12 +50,12 @@ public class BoardDAOImpl  implements BoardDAO{
 		return SqlSession.selectOne("mgQBoard.QRead",vo); 
 	}
 	@Override
-	public int countArticle(String searchOption, String keyword,String id) throws Exception {
+	public int countArticle(String searchOption, String keyword,String branchName) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		map.put("id", id);
+		map.put("id", branchName);
 		return SqlSession.selectOne("mgQBoard.countArticle", map);
 	}
 	

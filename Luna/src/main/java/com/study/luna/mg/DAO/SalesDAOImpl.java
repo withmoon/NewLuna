@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
 
 @Repository
@@ -57,6 +58,11 @@ public class SalesDAOImpl implements SalesDAO {
 	public List<SalesVO> mgReserveList(SalesVO vo) {
 		System.out.println("mgReserveList DAO 수행");
 		return sqlSession.selectList("mgSalesDAO.ReserveList",vo);
+	}
+	@Override
+	public void mgReserve(QBoardVO vo) {
+		System.out.println("mgReserve DAO 수행");
+		sqlSession.update("mgSalesDAO.Reserve",vo);
 	}
 
 	

@@ -10,7 +10,7 @@ public interface MgService {
 	//mgQBoard
 	
 	// 문의글 목록보기
-	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String id)throws Exception;
+	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String branchName)throws Exception;
 //	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
 
 
@@ -18,7 +18,7 @@ public interface MgService {
 	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 
 	//레코드계산
-	public int countArticle(String searchOption, String keyword, String id)throws Exception;
+	public int countArticle(String searchOption, String keyword, String branchName)throws Exception;
 
 	//메일보내기 체크
 	public int mailstatus(QBoardVO vo);

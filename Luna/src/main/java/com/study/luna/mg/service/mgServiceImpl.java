@@ -22,10 +22,10 @@ public class mgServiceImpl  implements MgService{
 	
 	//게시글 페이징/검색
 	@Override 
-	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword,String id) throws Exception {
+	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword,String branchName) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QboardList 서비스");
-		return  boardDAO.listAll(start,end, searchOption,keyword,id);
+		return  boardDAO.listAll(start,end, searchOption,keyword,branchName);
 	}
 /*	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -42,10 +42,10 @@ public class mgServiceImpl  implements MgService{
 	}
 	//레코드계산
 	@Override
-	public int countArticle(String searchOption, String keyword,String id)throws Exception {
+	public int countArticle(String searchOption, String keyword,String branchName)throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("countArticle 레코드계산");
-		return boardDAO.countArticle(searchOption, keyword,id);
+		return boardDAO.countArticle(searchOption, keyword,branchName);
 	}
 	//메일보내기체크
 	@Override

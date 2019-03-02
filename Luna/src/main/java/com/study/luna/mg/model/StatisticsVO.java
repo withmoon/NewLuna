@@ -21,6 +21,8 @@ public class StatisticsVO {
 	public void setAdate(String adate) {
 		this.adate = adate;
 	}
+	
+	
 	public String getBranchname() {
 		return branchname;
 	}

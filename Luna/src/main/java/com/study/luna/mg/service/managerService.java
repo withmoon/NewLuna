@@ -9,7 +9,7 @@ public interface managerService {
 	int login();
 	
 	//branchname 구하기...
-	void branchname();
+	String branchname(String id);
 
 	
 }

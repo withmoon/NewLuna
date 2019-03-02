@@ -3,6 +3,7 @@ package com.study.luna.mg.service;
 import java.util.List;
 import java.util.Map;
 
+import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
 
 public interface MgPCService {
@@ -19,4 +20,6 @@ public interface MgPCService {
 
 	// 예약현황
 	public List<SalesVO> mgReserveList(SalesVO vo);
+	//환불하기
+	public void mgReserve(QBoardVO vo);
 }
