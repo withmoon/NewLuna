@@ -11,7 +11,7 @@
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 </head>
 
-<body style="background-image: url('<c:url value="/resources/public/images/galaxy.gif"/>');">
+<body ><!-- style="background-image: url('<c:url value="/resources/public/images/galaxy.gif"/>');" -->
 <nav>
 <ul class="topUl">
 <li><a href="main.do" >메인으로 돌아가기</a></li>
@@ -33,7 +33,7 @@
 	<input type="text" name="id" id="id" size="20" required="required">
 	<label class="plabel"><b>PW: &nbsp;&nbsp;</b></label> 
 	<input type="password" name="pw" id="pw" size="20" required="required"/><br/>
-	<button type="submit" class="loginBtn" style="background-image: url('<c:url value="/resources/public/images/litgal.PNG"/>');">접속</button>
+	<button type="submit" class="loginBtn">접속</button>
 	&emsp;
 	</form>
 	

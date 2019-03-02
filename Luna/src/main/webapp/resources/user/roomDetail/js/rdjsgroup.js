@@ -318,15 +318,38 @@ function showReview(rvcurpage){
 				
 				for(var i=0; i<data.rvlist.length; i++){
 					strDom+='<div class="rbox">';
-					strDom+='작성자 : '+data.rvlist[i].name+'<br/>';
-					strDom+='작성날짜 : '+data.rvlist[i].writedate+'<br/><br/>';
-					strDom+=data.rvlist[i].reviewContent+'<br/>';
+					for(j=0; j<data.rvlist[i].starCt; j++){
+						strDom+='<img src="resources/util/star.png"/>';
+					}
+					strDom+='<label style="color:gray;">작성날짜 : '+data.rvlist[i].writedate+'</label><br/>';
+					strDom+='작성자 : '+data.rvlist[i].name+'<br/><br/>';
+					console.log(data.rvlist[i].id+ "아이디 " +data.userid);
+					if(data.userid==data.rvlist[i].id){
+						strDom+=data.rvlist[i].reviewContent+'<button class="upbt" onclick="upreview(&#039'+data.userid+'&#039,'+data.rvlist[i].roomNum+')">수정</button> <button onclick="delreview(&#039'+data.userid+'&#039,'+data.rvlist[i].roomNum+')">삭제</button><br/>';
+					}else{
+						strDom+=data.rvlist[i].reviewContent+'<br/>';
+					}
+					
 					strDom+='</div>'
 				}
 			}
 			$('#rboxsec').append(strDom);
 		}
 	});
+}
+//리뷰 수정
+function upreview(id,roomnum){
+	
+}
+function delreview(id,roomnum){
+	var ans=confirm("정말로 삭제하시겠습니끼?");
+	if(ans){
+		console.log("삭제하께");
+		return;
+	}else{
+		console.log("안하게");
+		return;
+	}
 }
 
 //url가져온는 function

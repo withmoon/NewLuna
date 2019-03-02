@@ -5,7 +5,7 @@
 	<!-- review 가져오기 -->
 	<select id="getRoomAllReview" resultType="roomReview">
 		<include refid="payAndReservDAO.pagingHeader"/>
-		<![CDATA[select rownum num, b.* from(select name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate from roomReview romr 
+		<![CDATA[select rownum num, b.* from(select romr.id,SUBSTR(mem.name,0,1)||'**' as name, roomNum,reviewContent,to_char(writedate,'yyyy-mm-dd HH24:MI') as writedate,starCt from roomReview romr 
 				 join member mem on romr.id=mem.id where roomNum=#{roomNum} order by writedate desc)b]]>
 		<include refid="payAndReservDAO.pagingFooter"/>
 	</select>

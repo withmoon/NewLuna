@@ -29,4 +29,11 @@ public interface MgService {
 	List<QBoardVO> getUserQnAll(int start,int end,String id);
 	
 	public void create(QBoardVO vo); //user.고객의 소리 insert
+	
+	//seq에 해당하는 문의 글 삭제
+	void deleteUserQna(int seq);
+	//seq에 해당하는 content,update
+	void upUserQnaContent(int seq,String content);
+	//내용 읽음 처리
+	void upUserQnaReadst(int seq);
 }

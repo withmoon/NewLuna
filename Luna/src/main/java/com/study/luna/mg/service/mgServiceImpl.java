@@ -7,8 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.mg.DAO.BoardDAO;
 import com.study.luna.mg.model.QBoardVO;
+import com.study.luna.user.qna.dao.Impl.DeleteUserQnaDAOImpl;
 import com.study.luna.user.qna.dao.Impl.GetUserQnAllDAOImpl;
 import com.study.luna.user.qna.dao.Impl.GetUserQnCountDAOImpl;
+import com.study.luna.user.qna.dao.Impl.UpUserQnaContentDAOImpl;
+import com.study.luna.user.qna.dao.Impl.UpUserQnaReadstDAOImpl;
 
 @Service
 public class mgServiceImpl  implements MgService{
@@ -19,6 +22,12 @@ public class mgServiceImpl  implements MgService{
 	GetUserQnCountDAOImpl guqcDAOImpl;
 	@Autowired
 	GetUserQnAllDAOImpl guqaDAOImpl;
+	@Autowired
+	DeleteUserQnaDAOImpl duqDAOImpl;
+	@Autowired
+	UpUserQnaContentDAOImpl uuqDAOImpl;
+	@Autowired
+	UpUserQnaReadstDAOImpl uuqrDAOImpl;
 	
 	//게시글 페이징/검색
 	@Override 
@@ -67,5 +76,19 @@ public class mgServiceImpl  implements MgService{
 	@Override
 	public void create(QBoardVO vo) {
 		boardDAO.create(vo);
+	}
+	@Override
+	public void deleteUserQna(int seq) {
+		duqDAOImpl.deleteUserQna(seq);
+		
+	}
+	@Override
+	public void upUserQnaContent(int seq, String content) {
+		uuqDAOImpl.upUserQnaContent(seq, content);
+		
+	}
+	@Override
+	public void upUserQnaReadst(int seq) {
+		uuqrDAOImpl.upUserQnaReadst(seq);
 	}
 }

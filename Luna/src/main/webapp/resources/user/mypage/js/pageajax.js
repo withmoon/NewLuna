@@ -125,33 +125,37 @@ function getqnalist(qcurpage){
 			var qstrDom='';
 			//방있을때
 			$("#notification4").children().remove();
-			for(var i=0; i<data.alist.length; i++){
-				//읽은거
-				if(data.alist[i].readst==0){
-					qstrDom+='<tr class="">';
-					qstrDom+='<td style="color:black">'+data.alist[i].sregdate+'</td>';
-					qstrDom+='<td style="color:black">'+data.alist[i].title+'</td>';
-					qstrDom+='<td style="color:black">'+data.alist[i].branchName+'</td>';
-					qstrDom+='<td><button onclick="showQnContent('+data.alist[i].seq+',&#039'+data.alist[i].reply+'&#039)">내용보기</button></td>'; //+','+data.alist[i].reply+'
-					qstrDom+='</tr><tr  hidden="true" id="qnc'+data.alist[i].seq+'" style="border:1px solid lightgray;"><td colspan="2" style="color:gray">'+data.alist[i].content+'</td>';
-						if(data.alist[i].reply!=''&&data.alist[i].reply!=undefined){
-							console.log("왜 안와");
-							qstrDom+='<td style="border-left:1px solid gray" colspan="2" style="color:black">[답변입니다.]<br/>'+data.alist[i].reply+'</td>';
-						}
-						if(data.alist[i].reply==''||data.alist[i].reply==undefined){
-							console.log("왜 안와");
-							qstrDom+='<td style="border-left:1px solid gray" colspan="2" style="color:black">아직 답변이 없습니다.</td>';
-						}
-					qstrDom+='</tr>';
-				}
-				if(data.alist[i].readst==1){
+			for(var i=0; i<data.alist.length; i++){	
+				if(data.alist[i].reply!=''&&data.alist[i].reply!=undefined){
 					qstrDom+='<tr>';
-					qstrDom+='<td style="color:gray">'+data.alist[i].sregdate+'</td>';
-					qstrDom+='<td style="color:gray">'+data.alist[i].title+'</td>';
-					qstrDom+='<td style="color:gray">'+data.alist[i].branchName+'</td>';
-					qstrDom+='<td><button onclick="showQnContent('+data.alist[i].seq+')">내용보기</button></td>';
-					qstrDom+='</tr>';
+					if(data.alist[i].readst==0){
+						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].sregdate+'<b></td>';
+						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].title+'<b></td>';
+						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].branchName+'<b></td>';
+					}
+					if(data.alist[i].readst==1){
+						qstrDom+='<td><b style="color:gray">'+data.alist[i].sregdate+'<b></td>';
+						qstrDom+='<td><b style="color:gray">'+data.alist[i].title+'<b></td>';
+						qstrDom+='<td><b style="color:gray">'+data.alist[i].branchName+'<b></td>';
+					}
+					
+					qstrDom+='<td><button class="qnc'+data.alist[i].seq+'" onclick="showQnContent('+data.alist[i].seq+',&#039'+data.alist[i].reply+'&#039,'+data.alist[i].readst+')">내용보기</button> <button class="qcbtn'+data.alist[i].seq+'" hidden="true"  onclick="deleteQnContent('+data.alist[i].seq+')"> 삭제하기 </button> </td>'; 
+					qstrDom+='</tr><tr  hidden="true" id="qnc'+data.alist[i].seq+'" style="border:1px solid lightgray;"><td colspan="2" style="background-color:Wheat; color:gray">'+data.alist[i].content+'</td>';
+					qstrDom+='<td colspan="2" style="border-left:1px solid darkgray;background-color:beige; color:gray">[답변]<br/>'+data.alist[i].reply+'</td>';
 				}
+				if(data.alist[i].reply==''||data.alist[i].reply==undefined){  //답변이 없는 경우
+					qstrDom+='<tr>';
+					qstrDom+='<td><b>'+data.alist[i].sregdate+'<b></td>';
+					qstrDom+='<td><b>'+data.alist[i].title+'<b></td>';
+					qstrDom+='<td><b>'+data.alist[i].branchName+'<b></td>';
+					qstrDom+='<td><button class="qnc'+data.alist[i].seq+'" onclick="showQnContent('+data.alist[i].seq+')">내용보기</button></td>';
+					qstrDom+='</tr><tr  hidden="true" id="qnc'+data.alist[i].seq+'" style="border:1px solid lightgray;">';
+					qstrDom+='<td colspan="2" style="background-color:darkgray; color:gray;">';
+					qstrDom+='<textarea id="qtx'+data.alist[i].seq+'" style="resize:none; font-size:1.7vw" rows="4" cols="30" disabled="disabled">'+data.alist[i].content+'</textarea><br/>';
+					qstrDom+='<button  class="qubt'+data.alist[i].seq+'" onclick="resetQnContent('+data.alist[i].seq+')"> 수정 하기 </button> <button class="qcbtn'+data.alist[i].seq+'" hidden="true"  onclick="cacleResetQnContent('+data.alist[i].seq+',&#039'+data.alist[i].content+'&#039)"> 수정 취소 </button> <button  onclick="deleteQnContent('+data.alist[i].seq+')"> 삭제 </button></td>';
+					qstrDom+='<td style="border-left:1px solid darkgray" colspan="2" style="color:black">아직 답변이 없습니다.</td>'; 
+				}
+				qstrDom+='</tr>';
 			}
 			//없으면
 			if(data.alist.length==0){
@@ -163,10 +167,84 @@ function getqnalist(qcurpage){
 		}
 	});
 }
-function showQnContent(seq,reply){
-	$("#qnc"+seq).show();
-	if(reply!=''&&reply!=undefined){
+//내용보기
+function showQnContent(seq,reply,readst){ 
+		$(".rerp"+seq).css("color","gray");
+		$("#qnc"+seq).show();
+		$(".qnc"+seq).html("닫기");
+		$(".qnc"+seq).removeAttr("onclick");
+		$(".qnc"+seq).attr("onclick","closeQnContent("+seq+",'"+reply+"')");
+		$(".qcbtn"+seq).show();
 		
+		if(readst==0&&reply!=undefined||readst==0&&reply!=''){ //읽음 표시 ajax
+			$.ajax({      
+				type:"GET",  
+				url:"upUserQnaReadst.udo",    
+				data:{seq:seq},     
+				success:function(){
+					
+				}
+			});
+		}
+}
+//닫기
+function closeQnContent(seq){
+	$("#qnc"+seq).hide();
+	$(".qnc"+seq).html("내용보기");
+	$(".qnc"+seq).removeAttr("onclick");
+	$(".qnc"+seq).attr("onclick","showQnContent("+seq+")");
+}
+//수정하려고함
+function resetQnContent(seq){
+	$(".qubt"+seq).html("수정완료");
+	$(".qubt"+seq).removeAttr("onclick");
+	$(".qubt"+seq).attr("onclick","updateQnContent("+seq+")");
+	$(".qcbtn"+seq).show();
+	$("#qtx"+seq).attr('disabled', false);
+}
+//
+/**/
+//수정취소
+function cacleResetQnContent(seq,content){
+	$(".qubt"+seq).html("수정하기");
+	$(".qubt"+seq).removeAttr("onclick");
+	$(".qubt"+seq).attr("onclick","resetQnContent("+seq+")");
+	$(".qcbtn"+seq).hide();
+	$("#qtx"+seq).val(content);
+	$("#qtx"+seq).attr('disabled', true);
+}
+//수정완료
+function updateQnContent(seq){
+	var content=$("#qtx"+seq).val();
+	$.ajax({      
+		type:"GET",  
+		url:"upUserQnaContent.udo",    
+		data:{seq:seq,content:content},     
+		success:function(){
+			alert("문의가 성공적으로 수정되었습니다.");
+			cacleResetQnContent(seq,content);
+		}
+	});
+}
+
+//삭제
+function deleteQnContent(seq){
+	var ans=confirm("정말로 삭제하시겠습니끼?");
+	if(ans){
+		console.log("삭제하께");
+		$.ajax({      
+			type:"GET",  
+			url:"deleteUserQna.udo",    
+			data:{seq:seq},     
+			success:function(){
+				alert("문의가 성공적으로 삭제되었습니다.");
+				getqnalist(1);
+			}
+		});
+		return;
+	}else{
+		alert("취소되었습니다.");
+		return;
 	}
 }
 

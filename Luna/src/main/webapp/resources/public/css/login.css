@@ -2,6 +2,11 @@
 * {
 	font-family: 'Gamja Flower', cursive; 
 }
+body{
+	background-image: url("../../../resources/public/images/back.png");
+	background-size: 1024px 670px;
+	background-repeat: no-repeat;
+}
 nav {
 	position: absolute;
 	top: 1%;
@@ -16,7 +21,7 @@ nav {
 }
 .topUl li a{
 	text-decoration:none;
-	color: #e8e8e8;
+	color: black;
 	font-size: 1.2vw;
 }
 .topUl li a:hover{
@@ -32,7 +37,7 @@ nav {
 	position: absolute;
 	top:10%;
 	left:53.2%;
-	color:#e8e8e8;
+	color:black;
 	font-size:1.5vw;
 }
 .logo {
@@ -50,12 +55,12 @@ nav {
 	width: auto;
 	text-align: center;
 	font-size: 2.3vw;
-	color: #e8e8e8;
+	color:black;
 }
 
 /* 아이디, 비번 라벨 */
 label{
-	color:#e8e8e8;
+	color:black;
 	position:absolute;
 	left:39%;
 	font-size:1.7vw; 
@@ -87,8 +92,8 @@ input[type=password]{
 	left:58%;
 	padding:2%;
 	font-size:1.7vw;
-	border-color:#e8e8e8;
-	color:#e8e8e8;
+	background-color:tan;
+	color:black;
 }
 #kakao-login-btn{
 	position:absolute;

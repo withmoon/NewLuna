@@ -78,6 +78,21 @@
 		)b]]>
 	<include refid="payAndReservDAO.pagingFooter"/>
 	</select>
+	
+	<!-- 사용자 답변 수정 처리 -->
+	<update id="upUserQnaContent">
+		<![CDATA[update inquiryboard set content=#{content},regdate=sysdate where seq=#{seq}]]>
+	</update>
+	
+	<!-- 사용자 삭제하는 경우 -->
+	<delete id="deleteUserQna">
+		<![CDATA[delete inquiryboard where seq=#{seq}]]>
+	</delete>
+	
+	<!-- 사용자 답변 읽음 처리 -->
+	<update id="upUserQnaReadst">
+		<![CDATA[update inquiryboard set readst=1 where seq=#{seq}]]>
+	</update>
 
 	<!-- user.고객의소리 insert -->
 	<insert id="informUser" parameterType="QBoard">

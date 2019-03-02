@@ -413,8 +413,18 @@ a:hover{
 	width:87%;
 	
 }
+.ntlnon table{
+	collapse:collapse;
+}
 .ntlnon table td{
+	padding:0px;
 	border-bottom:1px solid black;
+	width:190px;
+}
+.ntlnon table td textarea{
+	height:150px;
+	width:500px;
+	margin:0px;
 }
 .notification3 {
 	position:relative;
