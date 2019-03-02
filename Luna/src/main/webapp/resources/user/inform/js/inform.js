@@ -213,99 +213,24 @@ var area0= $("#sido_select>option").map(function() { return $(this).val(); });
 		     }
 		});
 	});
-	
-	
-	//파일 업로드 영역에서 기본효과를 제한
-	/*$(".fileDrop").on("dragenter dragover", function(e) {
-		e.preventDefault(); //기본효과 제한
-	});*/
-	
-	//드래그해서 드롭한 파일들 ajax 업로드 요청
-	/*$(".fileDrop").on("drop", function(e) {
-		e.preventDefault(); //기본효과 제판
-		var files = e.originalEvent.dataTransfer.files; //드래그한 파일들
-		var file = files[0]; //첫번째 첨부파일
-		var formData = new FormData(); //폼 데이터 객체
-		formData.append("file",file);
-		
-		$.ajax({
-			type:"post",
-			url:informUser.udo,
-			data:formData,
-			dataType:"text",
-			processData:false, //processType: false - header가 아닌 body로 전달
-			contentType:false,
-			//ajax 업로드 요청이 성공적으로 처리되면
-			suncces: function(data) {
-				console.log(data);
-				//첨부 파일의 정보
-				var fileInfo = getFileInfo(data);
-				//하이퍼링크
-				var html = "<a href='"+fileInfo.getLink+"'>"+fileInfo.fileName+"</a><br>";
-				//hidden 태그 추가
-				html += "<intput type='hidden' class='file' value='"+fileInfo.fullName+"'>";
-			}
-		});
-	});*/
 });
 
 //고객의 소리 보내기
 function userCommand(){
-	var branchname=$("#branch").val();
+	var branchName=$("#branch").val();
 	var title=$("#title").val();
 	var content=$("#content").val();
 
 	$.ajax({
 		type:"POST",
 		url:"informUser.udo",
-		data:{branchname:branchname,title:title,content:content},
+		data:{branchName:branchName,title:title,content:content},
 		success:function(data) {
 			$('#branch').val("");
 			$('#title').val("");
 			$('#content').val("");
 			
-			alert("등록");
+			alert("소중한 의견 너무나 감사합니다~");
 		}
 	});
 }
-
-//이미지 파일 여부 판단
-/*function checkImageType(funllName) {
-	var pattern = /jpg|gif|png|jpeg/i;
-	return fileName.match(pattern);
-}*/
-
-//업로드 파일 정보
-/*function getFileInfo(fileupload) {
-	var fileName, imasrc, getLink, fileLink;
-	//이미지 파일일경우
-	if(checckImageType(fileupload)) {
-		//이미지 파일 경로(썸네일)
-		imgsrc = "/resources/imformImg?fileName="+fileupload;
-		console.log(fileLink);
-		
-		//날짜별 디렉토리 추출
-		var front = fileupload.substr(0, 12);
-		console.log(front);
-		
-		//s_를 제거한 업로드 이미지 파일명
-		var end = fileupload.substr(14);
-		console.log(getLink);
-		
-		//이미지 파일이 아닐 경우
-	} else {
-		// UUID를 제외한 원본파일명
-		fileLink = fileupload.substr(12);
-		
-		//일반파일 디렉토리
-		getLink = "/resources/imformImg?fileName="+fileupload;
-		console.log(getLink);
-	}*/
-	
-	//목록에 출력할 원본 파일명
-	/*fileName = fileLink.substr(fileLink.indexOf("_")+1);
-	console.log(fileName);*/
-	
-	//{변수 :값} json 객체 처리
-	/*return {fileName:fileName, imgsrc:imgsrc, getLink:getLink, fileupload:fileupload};
-}*/
