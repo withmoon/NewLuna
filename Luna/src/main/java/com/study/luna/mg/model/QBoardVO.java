@@ -4,15 +4,20 @@ import java.util.Date;
 
 public class QBoardVO {
 	private int num;
+	private int seq;
 	private String title;
 	private String emailtitle;
 	private String writer;
 	private Date regdate;
+	private String sregdate;
 	private String content;
 	private String email;
 	private String emailcontent;
 	private int mail;
 	private String id;
+	private int readst;
+	private String reply;
+	private String branchName;
 	
 	
 	public String getEmailtitle() {
@@ -75,10 +80,35 @@ public class QBoardVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
+	public String getSregdate() {
+		return sregdate;
+	}
+	public void setSregdate(String sregdate) {
+		this.sregdate = sregdate;
+	}
+	public int getReadst() {
+		return readst;
+	}
+	public void setReadst(int readst) {
+		this.readst = readst;
+	}
+	public String getBranchName() {
+		return branchName;
+	}
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
 	
 }
