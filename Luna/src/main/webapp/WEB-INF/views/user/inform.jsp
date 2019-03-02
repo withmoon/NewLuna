@@ -12,7 +12,8 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/inform/js/inform.js"/>"></script>
 </head>
-<body>
+<body style="overflow-x:hidden; overflow-y:auto;">
+
 
 <!-- 상단 메뉴 -->
 <nav>

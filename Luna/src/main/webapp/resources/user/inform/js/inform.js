@@ -231,6 +231,9 @@ function userCommand(){
 			$('#content').val("");
 			
 			alert("소중한 의견 너무나 감사합니다~");
+			
+			var url='mypage.udo';
+			window.location=url;
 		}
 	});
 }
