@@ -71,19 +71,20 @@
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->
 								<!-- 레코드의 갯수를 출력 -->
-								<div id="write">${map.count}개의 게시물이 있습니다.</div>
+								<div id="write"></div>
 								<select name="searchOption">
-									<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
-									<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >작성자</option>
+									<option value="TITLE" id="searchOption">제목</option>
+									<option value="id" id="keyword" >내용</option>
 							</select> 
-							<input name="keyword"  value="${map.keyword }"> 
-							<input	 type="submit" value="검색">
+							<input name="text" id="keyword"/> 
+							<input type="button" value="검색" onclick="searchReport()">
 							</td>
 						</tr>
 					</table>
 				</form>
-	
+				<button style="margin:1%; padding:3px" onclick="writeReport()">보고 올리기</button>
 				<br/>
+				
 				
 				<table id="boardtable">
 					<tr id="th1">
@@ -91,63 +92,72 @@
 						<th class="th">제목</th>
 						<th class="th">작성자</th>
 						<th class="th">작성일</th>
-						<th class="th">답장여부</th>
-						
+						<th class="th">답장여부</th>						
 					</tr>
-					<!-- db에서 읽어들어와야하는 부분 -->
-					<!-- 예시로 데이터 작업 -->
-					<c:forEach var="list" items="${map.list }">
-						<tr>
-							<td>${list.rownum }</td>			
-							<td><a href="mgBoardview.mdo?num=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
-							<td>${list.id }</td>
-							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
-							<c:if test="${list.mail==0 }">
-								<td><button onclick="mail_0('${list.seq}','${list.email}');">답장하기</button></td>
-							</c:if>
-							<c:if test="${list.mail==1}">
-								<td><a href="#" onclick="mail_1('${list.seq }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
-							</c:if>
-							
-						</tr> 
-					</c:forEach>
-					<tr>
-						<td colspan="5">
-							<c:if test="${map.boardPager.curBlock>1}"> <!-- 처음페이지로 이동 : 현재페이직 1보다크면 -->
-								<a href="javascript:list('1')">[처음]</a>
-							</c:if>
-						<!-- 이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
-							<c:if test="${map.boardPager.curBlock > 1}">
-								<a href="javascript:list('${map.boardPager.prevPage}')">[이전]</a>
-							</c:if>
-							
-						<!-- **하나의 블럭 시작페이지부터 끝페이지까지 반복문 실행 -->
-				<c:forEach var="num" begin="${map.boardPager.blockBegin}" end="${map.boardPager.blockEnd}">
-					<!-- 현재페이지이면 하이퍼링크 제거 -->
-					<c:choose>
-						<c:when test="${num == map.boardPager.curPage}">
-							<span style="color: red">${seq}</span>&nbsp;
-						</c:when>
-						<c:otherwise>
-							<a href="javascript:list('${seq}')">${seq}</a>&nbsp;
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-							
-							<!-- 다음페이지 블록으로 이동 -->
-							<c:if test="${map.boardPager.curBlock <= map.boardPager.totBlock}">
-								<a href="javascript:list('${map.boardPager.nextPage}')">[다음]</a>
-							</c:if>
-							<!-- 끝페이지로 이동 -->
-							<c:if test="${map.boardPager.curBlock <= map.boardPager.totPage}">
-								<a href="javascript:list(' ${map.boardPager.totPage}')">[끝]</a>
-							</c:if>
-						</td>
-					</tr>
+					<tbody>
+					</tbody>
 				</table>
-			</div>
+				</div>
+			<!-- 보고쓰기 -->
+			<div class="board" hidden="true">
+			<form id="ajaxform" action="insertReport.do" onsubmit="changeContent()" method="post" enctype="multipart/form-data">
+				<input type="hidden" value="1" id="seq" name="seq"/>
+				<table style="background-color:lightgray; border-collapse:collapse">
+				<tr>
+				<td  colspan="2"  id="reportTt">제목</td>
+				<td><input id="title" name="title" type="text" size="88"/></td>
+				</tr>
+				<tr>
+				<td  colspan="2" id="ftd">첨부파일</td><!-- <a href="path_to_file" download="proposed_file_name">Download</a>  파일 첨부--> 
+				<td><input type="file"  name="ffname"  id="ffname"/></td>
+				</tr>
+				<tr>
+				<td align="center" colspan="3">내용</td>
+				</tr>
+				<tr>
+				<td  colspan="3"><textarea cols="97" id="ctt" rows="20"></textarea><input type="hidden" id="content" name="content" value=""/></td>
+				</tr>
+				<tr>
+				<td  colspan="3" align="center" class="sendReportBtn"><input style="margin:1%; padding:3px" type="submit" value="올리기"/><input type="button" style="margin:1%; padding:3px" onclick="nosend()" value="취소"></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<!-- 댓글 -->
+		<div class="reply" hidden="true">
+			<table style="background-color:beige; border-collapse:collapse">
+				<tr><th>달린 댓글</th></tr>
+				<tbody>
+					<tr>
+						<td style="width:710px; height:auto; align:top; border-bottom:1px solid gray;">
+							<b>[관리자]</b> 쓴날짜<br/>
+							&emsp;>알겠다<br/>
+							</td>
+					</tr>
+					<tr>
+						<td style="width:710px; height:auto; align:top; border-bottom:1px solid gray;">
+							<b>[관리자]</b> 쓴날짜<br/>
+							&emsp;>알겠다<br/>
+							&emsp;>알겠다
+							</td>
+					</tr>
+					<tr>
+						<td style="width:710px; height:auto; align:top; border-bottom:1px solid gray;">
+							[나] 쓴날짜<br/>
+							&emsp;몰겠다<br/>
+							&emsp;몰겠다
+							</td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="background-color:beige; border-collapse:collapse">
+				<tr><th colspan="2">댓글 올리기</th></tr>
+				<tr><td><textarea cols="90" rows="5" ></textarea></td><td><button style="height:80px">올리기</button></td></tr>
+			</table>
+		</div>
 		</section>
-	</div>
+		</div>
+
 	<footer>
 		<jsp:include page="../../form/footer.jsp"></jsp:include>
 	</footer>

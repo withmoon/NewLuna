@@ -22,8 +22,6 @@
 		<property name="prefix" value="/WEB-INF/views/public/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	<context:component-scan
-		base-package="com.study.luna.payandreserv.controller"></context:component-scan>
-	<context:component-scan base-package="com.study.luna.pub"></context:component-scan>
+	<context:component-scan base-package="com.study.luna.pub.*"></context:component-scan>
 
 </beans>

@@ -27,4 +27,6 @@ public class RoomPaymentDTO {
 	
 	String paid_at_start; //시작 날짜 --검색용
 	String paid_at_end; //끝날짜 --검색용
+	
+	String baseline;
 }

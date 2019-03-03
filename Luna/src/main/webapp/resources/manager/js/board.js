@@ -40,7 +40,48 @@
 		}
 	});
 }*/ 
-
+$(function(){
+	getReportlist(1);
+});
+function writeReport(){
+	$("#board").hide();
+	$(".board").show();
+}
+//리포트 보내기
+function changeContent(){
+	$("#content").val($("#ctt").val());
+}
+//리포트 삭제
+function deleteReport(){
+	
+}
+//리포트 수정
+function updateReport(){
+	
+}
+//보내기 취소
+function nosend(){
+	$(".board").hide();
+	$("#board").show();
+}
+//리포트 검색
+function searchReport(){
+	
+}
+//리포트 가져오기
+function getReportlist(curPage){
+	var searchOption='';
+	var keyword='';
+	$.ajax({
+		type : 'POST',
+		url : 'getReportlist.do',
+		data : {curPage:curPage,searchOption:searchOption,keyword:keyword },
+		success : function(data) {
+			$("#write").append(data.count+"개의 개시물이 있습니다.");
+			
+		}
+	});
+}
 function insertboard() {
 
 	$("#board").load("boardinsert.mdo");

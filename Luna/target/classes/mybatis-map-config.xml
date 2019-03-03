@@ -37,6 +37,8 @@
 		<typeAlias alias="Statistics" type="com.study.luna.mg.model.StatisticsVO"/> 
 		<typeAlias alias="ReserveTime" type="com.study.luna.mg.model.ReserveTimeVO"/> 
 		
+		<!-- Manager,Admin -->
+		<typeAlias alias="report" type="com.study.luna.pub.command.ReportDTO"/> 
 		
 		<!-- Admin -->
      	<typeAlias alias="adminQnABoardVO" type="com.study.luna.admin.model.vo.AdminQnABoardVO"/>
@@ -74,7 +76,8 @@
        <mapper resource="mapping/noticeReply-mapper.xml" />
       <!-- 자주묻는질문 -->
       <mapper resource="mapping/qnaBoard-mapper.xml" />
-      
+       <!-- 랭크 관련 --><!-- 지점장, 관리자 -->
+      <mapper resource="mapping/report-mapper.xml" />
        <!-- 지점장 -->
       <mapper resource="mapping/manager-mapper.xml" />
 	  <mapper resource="mapping/mgQBoard-mapper.xml"/>

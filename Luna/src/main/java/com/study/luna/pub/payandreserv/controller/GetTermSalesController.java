@@ -1,4 +1,4 @@
-package com.study.luna.payandreserv.controller;
+package com.study.luna.pub.payandreserv.controller;
 
 import java.util.List;
 
