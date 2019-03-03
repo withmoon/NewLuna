@@ -46,16 +46,20 @@ window.close(); */
 			<div align="center">
 				<!-- 제목 -->
 				<input type="text" name="title" size="120" style="width: 100%"
-					placeholder="제목을 입력해주세요" class="form-control">
+					value="[답변]달빛스터디까페-문의하신 글로부터 답변이 달렸습니다. " class="form-control">
 			</div>
 			<p>
 			<div align="center">
 				<!-- 내용 -->
 				<textarea name="content" cols="120" rows="12"
 					style="width: 100%; resize: none" placeholder="내용#"
-					class="form-control"></textarea>
+					class="form-control">문의하신 내용 : ${param.content}
+					
+					
+[답변]
+</textarea>
 			</div>
-			<input type="hidden" value="${param.num }" name=num>
+			<input type="hidden" value="${param.seq }" name=num>
 			<input type="hidden" value="${param.email }" name=email>
 			<p>
 			<div align="center">

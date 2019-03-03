@@ -7,19 +7,14 @@
 	<!-- 질문게시판 카운트 -->
 	<select id="countArticle" resultType="int">
 		<![CDATA[
-			select count(num) from inquiryboard  where branchName=#{branchName} and num>0
+			select count(seq) from inquiryboard  where branchName=#{branchName} and seq>0
 		]]>
 	</select>
-
-	<!-- 질문게시판 테이블매칭 -->
-	<resultMap id="read"   type="QBoard" >
-		<result property="content" column="contents" />
-	</resultMap>
 	
 	<!-- 질문게시판 전체목록 조회 및 검색조회 -->
-	<select id="listAll" resultType="QBoard" resultMap="read">
+	<select id="listAll" resultType="QBoard" >
 		<include refid="pagingHeader"></include>	
-			select rownum,id,regdate,mail,title from inquiryboard
+			select rownum,id,regdate,mail,title,seq,content,email,emailtitle,emailcontent from inquiryboard
 		<include refid="search"></include>	 
 		order by rownum DESC
 		<include refid="pagingFooter"></include>
@@ -45,24 +40,14 @@
 	 	)where rn  between #{start} and #{end}
 	 </sql>
 	
-	<!-- 질문게시판 -->
-<!-- 	<select id="QList" resultType="QBoard" resultMap="read">
-		SELECT * FROM QUESTIONBOARD
-	</select> -->
-	
 	<!-- 질문게시판 상세보기 -->
-	<select id="QRead" resultType="QBoard" resultMap="read">
-		SELECT * FROM inquiryboard WHERE seq=#{seq} and id=#{id}
+	<select id="QRead" resultType="QBoard" >
+		SELECT * FROM inquiryboard WHERE seq=#{seq} and branchName=#{branchName}
 	</select>
-	
-	<!-- 질문게시판 검색 -->
-<!-- 	<select id="QSerach" resultType="QBoard">
-		select * from  QUESTIONBOARD where title = #{title}
-	</select> -->
 
 	<!-- 메일체크 -->
 	<update id="mailstatus">
-		update inquiryboard set mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where seq=#{seq} and id=#{id}
+		update inquiryboard set mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where seq=#{seq} and branchName=#{branchName}
 	</update>
 	<!-- 사용자 문의 갯수 -->
 	<select id="getUserQnCount" resultType="Integer">

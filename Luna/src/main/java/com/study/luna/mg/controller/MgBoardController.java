@@ -90,26 +90,15 @@ public class MgBoardController {
 			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
 
 //		조회수 대비 MgService.increaseViewcnt(bno, session);*/
-		vo.setId((String) session.getAttribute("id"));
+		vo.setBranchName((String) session.getAttribute("branchName"));
 		vo.setSeq(num);
-		System.out.println("상세보기 id"+vo.getId());
+		System.out.println("상세보기 id"+vo.getBranchName());
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/board/mgBoardview");
 		mv.addObject("view", MgService.QbaordRead(vo));
 		return mv;
 	}
 
-	/*
-	 * 상세보기 화면처리
-	 * 
-	 * @RequestMapping(value = "/mgBoardview.mdo") public ModelAndView
-	 * mgboardinsertView(@RequestParam String title, HttpSession session) throws
-	 * Exception {
-	 * 
-	 * ModelAndView mv = new ModelAndView();
-	 * mv.setViewName("body/board/mgBoardview"); mv.addObject("view",
-	 * MgService.QbaordRead(title)); return mv; }
-	 */
 	/* 수정하기 */// 수정할 필요없어 주석처리
 	/*
 	 * @RequestMapping(value = "/boardupdate.mdo", method = RequestMethod.GET)
@@ -128,7 +117,7 @@ public class MgBoardController {
 
 	// mailForm
 	@RequestMapping(value = "/mailForm.mdo")
-	public String mailForm() {
+	public String mailForm(QBoardVO vo) throws Exception {
 		return "/body/mailForm";
 	}
 	@RequestMapping(value = "/mailView.mdo")
@@ -159,15 +148,16 @@ public class MgBoardController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		vo.setSeq(Integer.parseInt(request.getParameter("num")));  
+		vo.setSeq(Integer.parseInt(request.getParameter("seq")));  
 		vo.setEmail(request.getParameter("email"));
 		vo.setEmailtitle(title);
 		vo.setEmailcontent(content);
-		vo.setId((String)session.getAttribute("id"));
+		vo.setBranchName((String)session.getAttribute("branchName"));
 		
 		MgService.mailstatus(vo);
 		 
 		//리턴시 스크립트 화면이동이 막혀  모든 기능을 수행후  슬립
+		//리턴 널을 하면 에러 발생 /임시조치로 기능정지 - 기능정지동안 스크립트에서 화면전환 수행으로 컨트롤러 종료
 		Thread.sleep(20000);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/body/mailForm");

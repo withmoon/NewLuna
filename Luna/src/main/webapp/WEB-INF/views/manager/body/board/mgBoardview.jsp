@@ -56,13 +56,13 @@ table, th, td {
 
 	function mail_0(num,email) {
 	   	alert("클릭");
-	   	var url = "mailForm.mdo?num="+num+"&email="+email;
+	   	var url = "mailForm.mdo?seq="+num+"&email="+email;
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
 	function mail_1(num,emailtitle,emailcontent,email) {
 	   	alert("클릭");
-	   	var url = "mailView.mdo?num="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+	   	var url = "mailView.mdo?seq="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 </script>
@@ -112,7 +112,7 @@ table, th, td {
 						<tr>
 							<!-- 값얻어와서 로그인한 아이디로 작성 변경불가능하게 -->
 							<td>작성자</td>
-							<td><input id="writer" type="text" value="${view.writer}" />
+							<td><input id="writer" type="text" value="${view.id}" />
 								<!-- 등록일date얻어와서 작성 --> <%-- 등록일<input type="text"   value="${view.regdate}"/> --%>
 								등록일<input type="text"
 								value="<fmt:formatDate value='${view.regdate}' pattern='yyyy.MM.dd'/>" /></td>
@@ -130,10 +130,10 @@ table, th, td {
 			</c:if> --%>
 					<button type="button" id="btnList">목록</button>
 					<c:if test="${view.mail==0 }">
-						<td><button onclick="mail_0('${view.num}','${view.email}');">답장하기</button></td>
+						<td><button onclick="mail_0('${view.seq}','${view.email}');">답장하기</button></td>
 					</c:if>
 					<c:if test="${view.mail==1}">
-						<td><a href="#" onclick="mail_1('${view.num }','${view.emailtitle }','${view.emailcontent }','${view.email }')">답장확인</a></td>
+						<td><a href="#" onclick="mail_1('${view.seq }','${view.emailtitle }','${view.emailcontent }','${view.email }')">답장확인</a></td>
 					</c:if>
 				</form>
 			</div>
