@@ -19,6 +19,7 @@
 <!-- roomDetail 고유 js -->
 <script type="text/javascript" src="<c:url value="/resources/user/roomDetail/js/rdjsgroup.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/public/js/getSchedule.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
 <body style="overflow-x:hidden">
   
@@ -62,11 +63,11 @@
 </div>
 <div class="rsec"></div>
 <div id="branchExplain">
-<b>지점소개</b><br/><br/>
+<b>지점정보</b><br/><br/>
 <label id="bex1">${roomInfo.branchName}</label><br/><br/>
 <label id="bex2">${roomInfo.branchAddr1}</label><br/><br/>
-<label id="bex3">010-1121-1131</label><br/><br/>
-<label id="bex4">카페 겸비, 조용한 시설</label>
+<label id="bex3">${roomInfo.branchtel}</label><br/><br/>
+<a href="inform.udo">문의하기</a>
 </div>
 </div>
 <input type="hidden" id="rname" value="${roomInfo.roomName}"/>
@@ -276,11 +277,11 @@ ${roomInfo.comeRoute}
 
 <!-- 리뷰 시작 -->
 <section class="review">
-<b id="rvtitle">한줄후기<img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"></b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
+<img src="<c:url value="/resources/user/roomDetail/images/star.png"/>"><b id="rvtitle"></b><img src="<c:url value="/resources/user/roomDetail/images/star.png"/>">
 <section id="rboxsec">
 </section>
 <br/>
-<ul class="pnum"></ul>
+<ul id="pnum"></ul>
 <br/>
 </section>
 

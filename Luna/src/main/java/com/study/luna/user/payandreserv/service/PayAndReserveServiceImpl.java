@@ -13,6 +13,7 @@ import com.study.luna.user.payandreserv.dao.Impl.CheckReservStartdateDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetPreDayReserveCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetPreMonthReserveCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetPreYearReserveCountDAOImpl;
+import com.study.luna.user.payandreserv.dao.Impl.GetTermSalesDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetThisYearReserveCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayCountDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetUserPayInfoDAOImpl;
@@ -44,6 +45,8 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	GetPreDayReserveCountDAOImpl gpdrcDAOImpl;
 	@Autowired
 	GetPreMonthReserveCountDAOImpl gpmrcDAOImpl;
+	@Autowired
+	GetTermSalesDAOImpl gtsDAOImpl;
 	
 	@Override
 	public Integer checkReservStartdate(RoomReserveDTO romre) {
@@ -88,5 +91,9 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Override
 	public Integer getPreMonthReserveCount() {
 		return gpmrcDAOImpl.getPreMonthReserveCount();
+	}
+	@Override
+	public List<RoomPaymentDTO> getTermSales(String paid_at_start, String paid_at_end) {
+		return gtsDAOImpl.getTermSales(paid_at_start, paid_at_end);
 	}
 }

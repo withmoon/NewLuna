@@ -32,6 +32,7 @@ public class RoomInfoDTO {
     String notinRoomNum;
     //지점 주소만 도로명으로
     String branchAddr1;
+    String branchtel;
     
     int roomprice;
 }

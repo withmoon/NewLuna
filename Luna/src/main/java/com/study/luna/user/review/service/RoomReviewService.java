@@ -17,4 +17,9 @@ public interface RoomReviewService {
 	List<String> getUserReview(String id);
 	//평점순 평점이 같으면 리뷰 순으로 해서 3등까지 가져옴
 	List<Integer> getReviewRank();
+	//사용자 리뷰 업데이트
+	void upReviewContent(RoomReviewDTO rrd);
+	//리뷰 삭제
+	void delReviewContent(RoomReviewDTO rrd);
+	
 }

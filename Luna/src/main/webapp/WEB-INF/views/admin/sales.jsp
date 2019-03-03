@@ -5,21 +5,7 @@
 <html>
 <head>
 
-<style>
-
-#chartdiv {
-  width: 1200px;
-  height: 600px;
-  font-size: 20px;
-}
-
-.amcharts-export-menu-top-right {
-  top: 10px;
-  right: 0;
-}
-
-</style>
-
+<!-- Resources -->
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
@@ -29,11 +15,13 @@
 <meta name="viewport" content="width=device-width" ,initial-scale="1">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/admin/sales.css"/>" />
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
+ <script src="<c:url value="/resources/admin/js/sales.js"/>"></script>
 
 
 <title>승인 페이지</title>
 </head>
-<body>
+<body style="overflow-y:hidden;overflow-x:hidden;">
    <nav class="navbar navbar-default">
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed"
@@ -75,12 +63,13 @@
    <tr>
    <td>
    
-   
+    <!--  
    <aside id="left">
    <h4><strong>카테고리</strong></h4>
    <form action="search" method="post">
    <table>
   <tr>
+ 
   <td><input type="text" id="search" placeholder="검색어 입력"></td>
   <td><button id="img-button" type="submit" onclick="#"></button></td></tr>
     </table>
@@ -96,115 +85,12 @@
    </ul>
    </aside>
    </td>
-   
-   <td id="chart">
-   <div align="center">
-      <h3>매출현황</h3>
-   </div>
-
-
-<div id="chartdiv"></div>
-   
-
-   <table align="center">
-      <td>왕십리점 총매출</td>
-   </table>
-
+   -->
 </td>
 </tr>
 </table>
-
-<script>
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-
-
-// Create chart instance
-var chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.scrollbarX = new am4core.Scrollbar();
-
-// Add data
-chart.data = [{
-  "country": "1",
-  "visits": 1000
-}, {
-  "country": "2",
-  "visits": 800
-}, {
-  "country": "3",
-  "visits": 1200
-}, {
-  "country": "4",
-  "visits": 1250
-}, {
-  "country": "5",
-  "visits": 1400
-}, {
-  "country": "6",
-  "visits": 1500
-}, {
-  "country": "7",
-  "visits": 1440
-}, {
-  "country": "8",
-  "visits": 1600
-}, {
-  "country": "9",
-  "visits": 1500
-}, {
-  "country": "10",
-  "visits": 1800
-}, {
-  "country": "11",
-  "visits": 2000
-}, {
-  "country": "12",
-  "visits": 2500
-}];
-
-// Create axes
-var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "country";
-categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.minGridDistance = 30;
-categoryAxis.renderer.labels.template.horizontalCenter = "right";
-categoryAxis.renderer.labels.template.verticalCenter = "middle";
-categoryAxis.renderer.labels.template.rotation = 270;
-categoryAxis.tooltip.disabled = true;
-categoryAxis.renderer.minHeight = 110;
-
-var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.renderer.minWidth = 50;
-
-// Create series
-var series = chart.series.push(new am4charts.ColumnSeries());
-series.sequencedInterpolation = true;
-series.dataFields.valueY = "visits";
-series.dataFields.categoryX = "country";
-series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-series.columns.template.strokeWidth = 0;
-
-series.tooltip.pointerOrientation = "vertical";
-
-series.columns.template.column.cornerRadiusTopLeft = 10;
-series.columns.template.column.cornerRadiusTopRight = 10;
-series.columns.template.column.fillOpacity = 0.8;
-
-// on hover, make corner radiuses bigger
-let hoverState = series.columns.template.column.states.create("hover");
-hoverState.properties.cornerRadiusTopLeft = 0;
-hoverState.properties.cornerRadiusTopRight = 0;
-hoverState.properties.fillOpacity = 1;
-
-series.columns.template.adapter.add("fill", (fill, target)=>{
-  return chart.colors.getIndex(target.dataItem.index);
-})
-
-// Cursor
-chart.cursor = new am4charts.XYCursor();
-</script>
+ <h3>달빛 총 매출현황</h3> <div class="searchArea"><input id="paid_at_start" type="date"/>&emsp;-&emsp;<input id="paid_at_end" type="date"/>&emsp; <button onclick="getTermSales()">검색</button></div>
+<div id="chartdiv"> </div>
 
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -24,4 +24,7 @@ public class RoomPaymentDTO {
 	String pg_tid; //pg사 거래고유번호
 	String reservdate; //예약 날짜
 	String reservenddate;
+	
+	String paid_at_start; //시작 날짜 --검색용
+	String paid_at_end; //끝날짜 --검색용
 }

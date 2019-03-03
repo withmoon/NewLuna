@@ -314,6 +314,7 @@ function showReview(rvcurpage){
 				strDom+='여러분의 한줄후기를 기다리고 있습니다</div>';
 			}else{
 				rvtDom+='<b style="font-size:2vw">      총점 '+data.rvscore+' 점</b>';
+				$("#rvtitle").text("");
 				$("#rvtitle").append(rvtDom);
 				
 				for(var i=0; i<data.rvlist.length; i++){
@@ -323,9 +324,8 @@ function showReview(rvcurpage){
 					}
 					strDom+='<label style="color:gray;">작성날짜 : '+data.rvlist[i].writedate+'</label><br/>';
 					strDom+='작성자 : '+data.rvlist[i].name+'<br/><br/>';
-					console.log(data.rvlist[i].id+ "아이디 " +data.userid);
 					if(data.userid==data.rvlist[i].id){
-						strDom+=data.rvlist[i].reviewContent+'<button class="upbt" onclick="upreview(&#039'+data.userid+'&#039,'+data.rvlist[i].roomNum+')">수정</button> <button onclick="delreview(&#039'+data.userid+'&#039,'+data.rvlist[i].roomNum+')">삭제</button><br/>';
+						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> &emsp;<button class="upbt" onclick="upreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정하기</button> <button hidden="true" class="cupbt" onclick="cancleUpReview(&#039'+data.rvlist[i].reviewContent+'&#039)">수정 취소</button> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
 					}else{
 						strDom+=data.rvlist[i].reviewContent+'<br/>';
 					}
@@ -334,17 +334,52 @@ function showReview(rvcurpage){
 				}
 			}
 			$('#rboxsec').append(strDom);
+			blockPage("pnum",rvcurpage,data.rvpager.BLOCK_SCALE,data.rvpager.totPage,"pli","showReview");
 		}
 	});
 }
 //리뷰 수정
-function upreview(id,roomnum){
-	
+function upreview(roomnum,content){
+	$(".cupbt").show();
+	$("#revct").text("");
+	$("#revct").append("<input id='rvcontent' type='text' size='80' value='"+content+"'/>");
+	$(".upbt").html("수정 완료");
+	$(".upbt").removeAttr("onclick");
+	$(".upbt").attr("onclick","upReviewContent("+roomnum+",'"+content+"')");
 }
-function delreview(id,roomnum){
+function upReviewContent(roomnum,content){
+	$("#revct").text($("#rvcontent").val());
+	rcon=$("#revct").text();
+	$("#revct").children().remove();
+	$(".cupbt").hide();
+	$.ajax({      
+		type:"GET",  
+		url:"upReviewContent.udo",    
+		data:{roomnum:roomnum,reviewContent:rcon},     
+		success:function(){
+			
+			alert("수정이 완료되었습니다.");
+		}
+	});
+
+}
+function cancleUpReview(content){
+	$("#revct").text(content);
+	$(".cupbt").hide();
+}
+function delreview(roomnum){
 	var ans=confirm("정말로 삭제하시겠습니끼?");
 	if(ans){
 		console.log("삭제하께");
+		$.ajax({      
+			type:"GET",  
+			url:"delReviewContent.udo",    
+			data:{roomnum:roomnum},     
+			success:function(){
+				showReview(1);
+				alert("삭제가 완료되었습니다.");
+			}
+		});
 		return;
 	}else{
 		console.log("안하게");

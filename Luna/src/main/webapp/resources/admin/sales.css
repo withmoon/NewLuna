@@ -277,3 +277,22 @@ article table#board th{
    height: 30px;
    border: 1px solid purple;
 }
+h3{
+    position:relative;
+    left:430px;
+    top:-20px;
+}
+.searchArea{
+    position:relative;
+    top:-30px;
+    left:34%;
+    padding:1%;
+}
+#chartdiv{
+    top:-20px;
+    background-color:seashell;
+     width:1010px;
+    height:480px;
+    left:10px;
+    border:1px solid gray;
+}

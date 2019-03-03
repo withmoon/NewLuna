@@ -136,6 +136,22 @@
 		select count(*) from roompayment where to_char(reservdate,'yyyy-mm') like to_char(TRUNC(ADD_MONTHS(sysdate,-1)+1),'yyyy-mm')
 		]]>
 	</select>
+	
+	<!-- 매출 현황 끌고 오기 -->
+	<select resultType="roomPay" id="getTermSales">
+		<![CDATA[select to_char(paid_at,'yyyy-mm-dd HH24:')||'00' as paid_at, SUM(payamount) payamount from roompayment where status=1 ]]>
+		<if test="paid_at_start=='' and paid_at_end==''">
+		<![CDATA[
+		and to_date(to_char(TRUNC(sysdate+1),'yyyy')||'-01-01')<=paid_at
+		and paid_at<to_date(to_char(TRUNC(ADD_MONTHS(sysdate,+12)+1),'yyyy')||'-01-01') 
+		]]>
+		</if>
+		<if test="paid_at_start!='' and paid_at_end!=''">
+		<![CDATA[and to_date(#{paid_at_start}) <= to_date(to_char(paid_at,'yyyy-mm-dd')) 
+		and to_date(to_char(paid_at,'yyyy-mm-dd')) <= to_date(#{paid_at_end})]]>
+		</if>
+		<![CDATA[ group by to_char(paid_at,'yyyy-mm-dd HH24:')||'00' order by paid_at]]>
+	</select>
 
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">

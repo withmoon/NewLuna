@@ -236,3 +236,11 @@ footer{
    left:0%;
    width:78%;
 }
+#pnum{
+	position:relative;
+	left:42%;
+	margin:1%;
+}
+#pnum li:hover{
+	cursor:pointer;
+}

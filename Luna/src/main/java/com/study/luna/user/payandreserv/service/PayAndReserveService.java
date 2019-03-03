@@ -30,4 +30,5 @@ public interface PayAndReserveService {
 	Integer getPreDayReserveCount();
 	//전월 예약수
 	Integer getPreMonthReserveCount(); 
+	List<RoomPaymentDTO> getTermSales(String paid_at_start, String paid_at_end);
 }

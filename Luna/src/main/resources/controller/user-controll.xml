@@ -21,6 +21,7 @@
 
 	<context:component-scan
 		base-package="com.study.luna.user.controller"></context:component-scan>
+	
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 </beans>
