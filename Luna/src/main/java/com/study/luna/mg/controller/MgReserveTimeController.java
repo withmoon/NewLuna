@@ -32,15 +32,16 @@ public class MgReserveTimeController {
 		mv.setViewName("body/reserveTime/mgTime");
 
 		return mv;
-		
-		
-		
-		
 	}
 	
 	@RequestMapping(value="/mgSeason.mdo",method=RequestMethod.GET)
 	public String mgSeasonView() {
 		return "body/reserveTime/mgSeason";
+	}
+	
+	@RequestMapping(value="/mgreport.mdo",method=RequestMethod.GET)
+	public String mgReportView() {
+		return "body/reserveTime/report";
 	}
 	
 	
