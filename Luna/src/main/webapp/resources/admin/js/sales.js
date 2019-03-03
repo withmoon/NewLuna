@@ -45,7 +45,7 @@ $(function(){
 	//chart.scrollbarY = new am4core.Scrollbar();
 	chart.scrollbarX = new am4core.Scrollbar();
 	*/
-	getTermSales();
+	getTermSales(); //나중에 마지노선 변경 만들예정
 });
 function getTermSales(){
 	paid_at_start=$("#paid_at_start").val();
@@ -89,6 +89,12 @@ function getTermSales(){
 			series.tooltipText = "{value}"
 
 			series.tooltip.pointerOrientation = "vertical";
+			
+			var range = valueAxis.createSeriesRange(series);
+			range.value = 0;
+			range.endValue = res[0].baseline;
+			range.contents.stroke = am4core.color("#FF0000");
+			range.contents.fill = range.contents.stroke;
 
 			chart.cursor = new am4charts.XYCursor();
 			chart.cursor.snapToSeries = series;

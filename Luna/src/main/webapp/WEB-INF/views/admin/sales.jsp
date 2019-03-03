@@ -88,8 +88,8 @@
    -->
 </td>
 </tr>
-</table>
- <h3>달빛 총 매출현황</h3> <div class="searchArea"><input id="paid_at_start" type="date"/>&emsp;-&emsp;<input id="paid_at_end" type="date"/>&emsp; <button onclick="getTermSales()">검색</button></div>
+</table>																																																			<!-- 이거 나중에 admin zicode업데이트 하고 다시 js처리하면됨 -->
+ <h3>달빛 총 매출현황</h3> <div class="searchArea"><input id="paid_at_start" type="date"/>&emsp;-&emsp;<input id="paid_at_end" type="date"/>&emsp; <button onclick="getTermSales()">검색</button>&emsp;&emsp;&emsp;&emsp;기준선 :<input type="text" size="10"/> <button>적용</button></div>
 <div id="chartdiv"> </div>
 
    <script

@@ -139,7 +139,7 @@
 	
 	<!-- 매출 현황 끌고 오기 -->
 	<select resultType="roomPay" id="getTermSales">
-		<![CDATA[select to_char(paid_at,'yyyy-mm-dd HH24:')||'00' as paid_at, SUM(payamount) payamount from roompayment where status=1 ]]>
+		<![CDATA[select (select zipcode from member where branchname='본점')as baseline,to_char(paid_at,'yyyy-mm-dd HH24:')||'00' as paid_at, SUM(payamount) payamount from roompayment where status=1 ]]>
 		<if test="paid_at_start=='' and paid_at_end==''">
 		<![CDATA[
 		and to_date(to_char(TRUNC(sysdate+1),'yyyy')||'-01-01')<=paid_at
