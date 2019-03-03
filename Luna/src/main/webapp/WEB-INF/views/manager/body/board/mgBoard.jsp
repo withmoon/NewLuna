@@ -99,7 +99,7 @@
 					<c:forEach var="list" items="${map.list }">
 						<tr>
 							<td>${list.rownum }</td>			
-							<td><a href="mgBoardview.mdo?num=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
+							<td><a href="mgBoardview.mdo?seq=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
 							<td>${list.id }</td>
 							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
 							<c:if test="${list.mail==0 }">

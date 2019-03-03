@@ -54,15 +54,15 @@ table, th, td {
 		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
-	function mail_0(num,email) {
+	function mail_0(seq,email) {
 	   	alert("클릭");
-	   	var url = "mailForm.mdo?seq="+num+"&email="+email;
+	   	var url = "mailForm.mdo?seq="+seq+"&email="+email;
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
-	function mail_1(num,emailtitle,emailcontent,email) {
+	function mail_1(seq,emailtitle,emailcontent,email) {
 	   	alert("클릭");
-	   	var url = "mailView.mdo?seq="+num+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+	   	var url = "mailView.mdo?seq="+seq+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 </script>
@@ -122,7 +122,7 @@ table, th, td {
 							<td><textarea id="areacss" rows="15" cols="60">${view.content}</textarea></td>
 						</tr>
 					</table>
-					<input type="hidden" name="num" value="${view.num }">
+					<input type="hidden" name="seq" value="${view.seq }">
 					<%-- 본인이 쓴거에 한정시키는 조건문 
 				<c:if test=" ${sessionScope.userId==dto.writer}">
 				<button type="button" id="btnUpdate">수정</button>
