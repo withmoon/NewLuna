@@ -50,16 +50,16 @@ a .logo{
 /*공지사항_자주묻는질문*/
 table{
 	text-align: center;
-	border-top:2px solid #686868; 
-	border-bottom:2px solid #686868; 
+	/*border-top:2px solid #686868;*/ 
+	border-bottom:2px solid tan; 
 	border-collapse: collapse;
 	position:relative;
 	left:-43px;
 	top:130px;
 }
 table th{
-	border-top:2px solid #686868; 
-	border-bottom:2px solid #686868; 
+	border-top:2px solid tan; 
+	border-bottom:2px solid tan; 
 	width:230px;
 	font-size: 2vw;
 	background:tan;
@@ -69,25 +69,21 @@ table td{
 	padding:1%;
 }
 
-a{
-	text-decoration: none;
-	color:black;
+a {
+	color: gray;
 }
 
-
-a:hover{
-	
-	color:#bb9540;
+a:hover {
+	color: tan;
 }
 
 /*페이지*/
-#tbl {
-	border-right:none;
-	border-left:none;
-	border-top:none;
-	border-bottom:none;
+#informPaging {
 	width: 100%;
 	font-size: 2vw;
+	position:relative;
+	left:25%;
+	top:150px;
 }
 
 /* 고객의 소리 */
@@ -130,7 +126,7 @@ input:focus, textarea:focus{
 
 .informbox2 {
 	position:relative;
-	left: 45%;
+	left: 42%;
 	padding:2% 0 2% 0;
 }
 
@@ -141,9 +137,48 @@ input {
 	left: 10%;
 }
 
+/*button*/
+button{
+    background-color: tan;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.7vw;
+    cursor: pointer;
+    position:relative;
+    
+}
+
+button:hover{
+    background-color: #bb9540;
+}
+
+/*로그인이 필요할 때*/
+b {
+	color:tan;
+	font-size:5vw;
+}
+
+p{
+	position:relative;
+	top: 95px;
+	left: 10%;
+	font-size:2vw;
+	color:#1e215c;
+}
+
+.login img {
+	position:relative;
+	left: 75%;
+	top: -75px;
+	width: 20%;
+}
+
 /*footer*/
 footer{
 	padding: 15% 0 0 0;
 	position:relative;
-	bottom: -100px;
+	bottom: -200px;
 }

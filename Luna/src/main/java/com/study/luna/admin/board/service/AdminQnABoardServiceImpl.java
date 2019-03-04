@@ -59,8 +59,8 @@ public class AdminQnABoardServiceImpl implements AdminQnABoardService {
 
    //질문갯수
    @Override
-   public int countQnA(ModelAndView mav) {
-	   return qnaBoardDAOImpl.countQnA(mav);
+   public int countQnA(String subject) {
+	   return qnaBoardDAOImpl.countQnA(subject);
    }
 
    //질문상세보기

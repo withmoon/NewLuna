@@ -1,20 +1,20 @@
 package com.study.luna.user.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.admin.board.service.AdminNoticeBoardService;
 import com.study.luna.admin.board.service.AdminQnABoardService;
@@ -24,7 +24,6 @@ import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.service.MgService;
 import com.study.luna.pub.command.MemberCommand;
-import com.study.luna.pub.member.service.Impl.MemberServiceImpl;
 import com.study.luna.user.room.service.RoomService;
 
 @Controller
@@ -40,14 +39,31 @@ public class UserInformController {
 	
 	//공지사항 목록
 	@RequestMapping(value="/inform.udo", method=RequestMethod.GET)
-	public ModelAndView informView(@RequestParam(defaultValue="1") int curPage,
-									ModelAndView mav, HttpSession session) {
+	public ModelAndView viewinform(ModelAndView mav, MemberCommand memcom, HttpSession session, HttpServletRequest request) {
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		if(flashMap!=null) {
+			memcom.setId(flashMap.get("id").toString());
+			session.setAttribute("member", memcom);
+		}else {
+			memcom=(MemberCommand)session.getAttribute("member");
+		}
+		
+		List<String> sido=roomser.getSido();
+		mav.addObject("sido",sido);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/informlist.udo", method=RequestMethod.GET)
+	public @ResponseBody JSONObject informView(@RequestParam(defaultValue="1") int curPage, AdminNoticeBoardVO noticeboardVO,
+									HttpSession session) {
 		//페이징 처리
-		int count = noticeBoardService.countNotice(mav);
+		int count = noticeBoardService.countNotice(noticeboardVO.getTitle());
+		//int count = noticeBoardService.countNotice(mav);
 		
 
-		int page_scale = 3;
-		int block_sclae = 3;
+		int page_scale = 10; // 페이지당 게시물 수
+		int block_sclae = 5; // 화면당 페이지 수
 		// 페이지 나누기처리 
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 
@@ -57,25 +73,23 @@ public class UserInformController {
 		//목록
 		List<AdminNoticeBoardVO> noticeList = noticeBoardService.noticeAll(start, end, session);
 		
-		List<String> sido=roomser.getSido();
-		
-		mav.addObject("sido",sido);
-		mav.addObject("noticeList", noticeList);
-		mav.addObject("boardPager", boardPager); //페이징
-		
-		return mav;
+		JSONObject obj = new JSONObject();
+
+		obj.put("noticeList", noticeList);
+		obj.put("noticePage", boardPager);
+		return obj;
 	}
 	
 	//자주묻는 질문 목록
 	@RequestMapping(value="/informChange.udo", method=RequestMethod.GET)
-	public @ResponseBody List<?> informQnNAView(@RequestParam(value="informQ", required=false,defaultValue="")String informQ,
-												@RequestParam(value="qnaPage", required=false,defaultValue="")String qnaPage,
-												@RequestParam(defaultValue="1") int curPage, ModelAndView mav, HttpSession session) {
+	public @ResponseBody JSONObject informQnNAView(@RequestParam(defaultValue="1") int curPage,
+													AdminQnABoardVO qnaBoardVO, HttpSession session) {
 		//페이징 처리
-		int count = qnaBoardService.countQnA(mav);
+		int count = qnaBoardService.countQnA(qnaBoardVO.getSubject());
+		//int count = qnaBoardService.countQnA(mav);
 		
-		int page_scale = 3;
-		int block_sclae = 3;
+		int page_scale = 10;
+		int block_sclae = 5;
 		// 페이지 나누기처리 
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 
@@ -83,20 +97,13 @@ public class UserInformController {
 		int end = boardPager.getPageEnd();
 		
 		//목록
-		List<AdminQnABoardVO> qnaList = new ArrayList<AdminQnABoardVO>();
-		List<AdminNoticeBoardVO> noticeList = new ArrayList<AdminNoticeBoardVO>();
-		if(informQ.equals("informQnA")) {
-			qnaList = qnaBoardService.qnaAll(start, end, session);
-			informQ.equals("");
-			mav.addObject("qnaList", qnaList);
-			mav.addObject("boardPager", boardPager);
-			return qnaList;
-		} else {
-			noticeList = noticeBoardService.noticeAll(start, end, session);
-			mav.addObject("noticeList", noticeList);
-			mav.addObject("boardPager", boardPager);
-			return noticeList;
-		}
+		List<AdminQnABoardVO> qnaList = qnaBoardService.qnaAll(start, end, session);
+		
+		JSONObject obj = new JSONObject();
+
+		obj.put("qnaList", qnaList);
+		obj.put("qnaPage", boardPager);
+		return obj;
 	}
 	
 	//고객의 소리 insert

@@ -16,7 +16,7 @@
 	
 	<!-- 페이징 sql -->
 	  <sql id="pagingHeader">
-	 	select * from ( select num as rn,A.* from(
+	 	select * from ( select rownum as rn, A.* from(
 	 </sql>
 	 <sql id="pagingFooter">
 	 		)A

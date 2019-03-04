@@ -30,6 +30,7 @@ public interface AdminEventBoardDAO {
    /*user/event.jsp*/
    public List<AdminEventBoardVO> eventAll(int start, int end); //진행 이벤트 목록
    public List<AdminEventBoardVO> eventEndAll(int start, int end); //마감이벤트 목록
-   public int count(ModelAndView mav);
+   public int countEvent(String title);
+   public int countEventEnd(String title);
    public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
 }

@@ -20,6 +20,6 @@ public interface AdminQnABoardDAO {
 
    /*user_inform*/
    public List<AdminQnABoardVO> qnaAll(int start, int end); //질문목록
-   public int countQnA(ModelAndView mav); //질문갯수
+   public int countQnA(String subject); //질문갯수
    public AdminQnABoardVO qnaRead(int num) throws Exception; //질문 상세보기
 }

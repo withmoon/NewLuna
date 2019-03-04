@@ -27,6 +27,7 @@ public interface AdminEventBoardService {
    /*user/event.jsp*/
    public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session); //진행 이벤트 목록
    public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session); //마감이벤트 목록
-   public int count(ModelAndView mav); //이벤트글 갯수
+   public int countEvent(String title); //이벤트글 갯수
+   public int countEventEnd(String title); //이벤트글 갯수
    public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
 }

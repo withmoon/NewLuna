@@ -5,25 +5,29 @@
 	<!-- 진행이벤트 목록 -->
 	<select id="eventAll" resultType="adminEventBoardVO">
 		<include refid="pagingHeader"></include>
-		select * from adminevent where enddate > sysdate
+		select * from adminevent where enddate > sysdate order by seq desc
 		<include refid="pagingFooter"></include>
 	</select>
 	
 	<!-- 종료인벤트목록 -->
 	<select id="eventEndAll" resultType="adminEventBoardVO">
 		<include refid="pagingHeader"></include>
-		select * from adminevent where sysdate > enddate
+		select * from adminevent where sysdate > enddate order by seq desc
 		<include refid="pagingFooter"></include>
 	</select>
 	
 	<!-- 게시글갯수 -->
-	<select id="count" resultType="int">
-		select count(*) from adminevent
+	<select id="countEvent" resultType="int">
+		select count(*) from adminevent where enddate > sysdate
+	</select>
+	
+	<select id="countEventEnd" resultType="int">
+		select count(*) from adminevent where sysdate > enddate
 	</select>
 	
 	<!-- 페이징 sql -->
 	  <sql id="pagingHeader">
-	 	select * from ( select seq as rn,A.* from(
+	 	select * from ( select rownum as rn, A.* from(
 	 </sql>
 	 <sql id="pagingFooter">
 	 		)A

@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/inform/js/inform.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
 <body style="overflow-x:hidden; overflow-y:auto;">
 
@@ -46,58 +47,23 @@
 		<th>날짜</th>
 	</tr>
 </thead>
-<tbody id="inform_table">
-<c:forEach items="${noticeList }" var="notice">
-	<tr>
-		<td>${notice.num }</td>
-		<td><a onclick="window.open('viewNotice.udo?num=${notice.num}','_self');">
-			${notice.title }</a></td>
-		<td><fmt:formatDate value="${notice.regdate }" pattern="yy-MM-dd"/></td>
-	</tr>
-</c:forEach>
-</tbody>
+<tbody id="inform_table"></tbody>
 </table>
-<!-- 페이지 처리 -->
-<table class="tbl paginated" id="tbl">
-<tbody id="inform_page">
-	<tr>
-		<td>
-			 <!-- 처음페이지로 이동 : 현재페이지 블럭이 1보다크면 -->
-			<c:if test="${boardPager.curBlock > 1}">
-				<a href="javascript:noticeList('1')">[처음]</a>
-			</c:if>
-			<!-- 이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
-			<c:if test="${boardPager.curBlock > 1}">
-				<a href="javascript:noticeList('${boardPager.prevPage}')">[이전]</a>
-			</c:if>
-			<!-- 페이지 블럭 처음부터 마지막 블럭까지 1씩 증가하는 페이지 출력 -->
-			<c:forEach var="num" begin="${boardPager.blockBegin}" end="${boardPager.blockEnd}">
-				<!-- 현재페이지이면 하이퍼링크 제거 -->
-				<c:choose>
-					<c:when test="${num == boardPager.curPage}">${num}&nbsp;</c:when>
-					<c:otherwise>
-						<a href="javascript:noticeList('${num}')">${num}</a>&nbsp;
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<!-- 다음페이지 블록으로 이동 -->
-			<c:if test="${boardPager.curBlock <= boardPager.totBlock}">
-				<a href="javascript:noticeList('${boardPager.nextPage}')">[다음]</a>
-			</c:if>
-			<!-- 끝페이지로 이동 -->
-			<c:if test="${boardPager.curBlock <= boardPager.totPage}">
-				<a href="javascript:noticeList(' ${boardPager.totPage}')">[끝]</a>
-			</c:if>
-		</td>
-	</tr>
-</tbody>
-</table>
+<ul id="informPaging"></ul>
 </section>
 
 
 <!-- 고객의 소리 구간-->
 <section class="list_tab2">
 <div class="inform_user">
+<c:if test="${member.id == null }">
+	<p>"<b>로그인</b>후 이용가능합니다"<br>
+	해당내용은 로그인 하신 후에 확인가능합니다.<br>
+	더 많은 내용을 보시려면 로그인 해주세요<br><br>
+	<a href="<c:url value="/login.do"/>">로그인 하러가기</a></p>
+	<div class="login"><img src="<c:url value="/resources/user/inform/images/login.png"/>"></div>
+</c:if>
+<c:if test="${member.id != null }">
 	<div><label>문의지점</label>
 		<!-- 시/도 -->
 		<select name="sido" id="sido_select">
@@ -120,6 +86,7 @@
 	<div class="informbox2">
 		<img src="<c:url value="/resources/user/inform/images/send.png"/>">&nbsp;<button onclick='userCommand()'>보내기</button>
 	</div>
+</c:if>
 </div> 
 </section>
 
