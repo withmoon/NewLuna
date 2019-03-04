@@ -28,6 +28,10 @@
         <typeAlias alias="eReply" type="com.study.luna.user.comment.vo.EventReplyVO"/>
         <typeAlias alias="nReply" type="com.study.luna.user.comment.vo.NoticeReplyVO"/>
         
+        <!-- Manager,Admin -->
+		<typeAlias alias="report" type="com.study.luna.pub.command.ReportDTO"/> 
+		<typeAlias alias="reportReply" type="com.study.luna.pub.command.ReportReplyDTO"/> 
+        
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
       	<typeAlias alias="Room" type="com.study.luna.mg.model.RoomVO"/>

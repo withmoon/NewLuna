@@ -18,13 +18,12 @@ public class GetReportlistDAOImpl implements GetReportlistDAO {
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<ReportDTO> getReportlist(int start, int end, String id, String searchOption, String keyword) {
+	public List<ReportDTO> getReportlist(int start, int end, String id,ReportDTO rpd) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("id", id);
 		map.put("start",start);
 		map.put("end", end);
-		map.put("searchOption",searchOption);
-		map.put("keyword", keyword);
+		map.put("rpd",rpd);
 		return sqlSession.selectList("reportDAO.getReportlist",map);
 	}
 
