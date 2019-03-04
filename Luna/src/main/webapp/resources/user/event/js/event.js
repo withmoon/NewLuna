@@ -17,7 +17,7 @@ $(function() {
 function eventList(enpage) {
 	$.ajax({      
 		 type:"GET",  
-		 url:"eventNow.udo",    
+		 url:"eventOK.udo",    
 	     data:{curPage:enpage},      
 	     success:function(data){
 	    	 var my_tbody = document.getElementById('my-tbody');
