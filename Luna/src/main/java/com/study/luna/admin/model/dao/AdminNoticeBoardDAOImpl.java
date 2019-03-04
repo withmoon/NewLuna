@@ -66,8 +66,8 @@ public class AdminNoticeBoardDAOImpl implements AdminNoticeBoardDAO {
 	}
 
 	//글 갯수
-	public int countNotice(ModelAndView mav) {
-		return SqlSession.selectOne("noticeBoardDAO.countNotice", mav);
+	public int countNotice(String title) {
+		return SqlSession.selectOne("noticeBoardDAO.countNotice", title);
 	}
 
 	//공지사항 상세보기

@@ -66,8 +66,8 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
    }
 
    //질문갯수
-   public int countQnA(ModelAndView mav) {
-	   return SqlSession.selectOne("qnaBoardDAO.countQnA", mav);
+   public int countQnA(String subject) {
+	   return SqlSession.selectOne("qnaBoardDAO.countQnA", subject);
    }
 
    //질문 상세보기

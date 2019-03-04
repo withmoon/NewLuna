@@ -63,8 +63,8 @@ public class AdminNoticeBoardServiceImpl implements AdminNoticeBoardService {
 
 	//글 갯수
 	@Override
-	public int countNotice(ModelAndView mav) {
-		return noticeBoardDAOImpl.countNotice(mav);
+	public int countNotice(String title) {
+		return noticeBoardDAOImpl.countNotice(title);
 	}
 
 	//공지사항 상세보기
