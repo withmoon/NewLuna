@@ -17,8 +17,6 @@ public interface AdminNoticeBoardDAO {
 	
 	public AdminNoticeBoardVO noticeread(int num) throws Exception;
 	
-	public List<AdminNoticeBoardVO> noticeList() throws Exception;
-
 	/*user_inform*/
 	public List<AdminNoticeBoardVO> noticeAll(int start, int end); //공지사항목록
 	public int countNotice(String title); //글 갯수

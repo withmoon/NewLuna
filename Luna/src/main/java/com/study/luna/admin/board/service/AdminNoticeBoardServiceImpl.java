@@ -28,13 +28,6 @@ public class AdminNoticeBoardServiceImpl implements AdminNoticeBoardService {
 
 
 	@Override
-	public List<AdminNoticeBoardVO> noticeList() throws Exception {
-		// TODO Auto-generated method stub
-		return adminNoticeBoardDAO.noticeList();
-	}
-
-
-	@Override
 	public void noticeupdate(AdminNoticeBoardVO vo) throws Exception {
 		adminNoticeBoardDAO.noticeupdate(vo);
 		

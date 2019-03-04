@@ -1,17 +1,21 @@
 $(function() {
 	eventList(1);
 	eventEndList(1);
-	
-	/*//진행중인 인벤트
-	$('.eventNow').click(function() {
-		eventList(1);
-	});
-	
-	//종료중인 이벤트
-	$('.eventFinsh').click(function() {
-		eventEndList(1);
-	});*/
 });
+
+//스크롤
+function noticeNow(){
+	scrollDown("#eNow");
+}
+
+function noticeFinsh(){
+	scrollDown("#eFinsh");
+}
+
+function scrollDown(str){
+	var offset = $(str).offset();
+    $('html, body').animate({scrollTop : offset.top-50}, 400);
+}
 
 //진행중인 이벤트
 function eventList(enpage) {

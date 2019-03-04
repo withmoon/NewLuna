@@ -15,8 +15,6 @@ public interface AdminNoticeBoardService {
 	
 	public void noticedelete(int num)throws Exception;
 	
-	public List<AdminNoticeBoardVO> noticeList()throws Exception;
-	
 	public void noticeupdate(AdminNoticeBoardVO vo)throws Exception;
 	
 	public AdminNoticeBoardVO noticeread(int num)throws Exception;

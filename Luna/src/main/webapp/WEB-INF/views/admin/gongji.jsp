@@ -5,11 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<title>승인 페이지</title>
+<link href="<c:url value="/resources/admin/notice/css/notice.css"/>" type="text/css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<c:url value="/resources/admin/notice/js/notice.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
+<title>게시판 목록</title>
 </head>
-<body>
+<body style="overflow-x:hidden; overflow-y:auto;">
    <nav class="navbar navbar-default">
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed"
@@ -25,15 +29,14 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-          administrator.ado">홈</a></li>
+         
             <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="approve.ado">지점장승인</a></li>
+            <li><a href="info.ado">지점장정보/승인</a></li>
+            <li><a href="inquireList.ado">문의게시판</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
              <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
-            <li><a href="info.ado">지점장 정보</a></li>
-            
          </ul>
 
          <ul class="nav navbar-nav navbar-right">
@@ -47,32 +50,28 @@
          </ul>
       </div>
    </nav>
-   <center>
-      <h3>공지사항</h3>
-   </center>
+   <div align="center">
+      <h3>공지게시판</h3>
+   </div>
    <br></br>
    <div class="container">
       <div class="row">
+      <!-- <form action="boardList.ado" method="post"> -->
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
-            <tr>
-            <th style="background-color:#eeeeee; text-align:center;">번호</th>
-            <th style="background-color:#eeeeee; text-align:center;">이름</th>
-            <th style="background-color:#eeeeee; text-align:center;">아이디</th>
-            <th style="background-color:#eeeeee; text-align:center;">날짜</th>
-            </tr>
+               <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성일</th>
+               </tr>
             </thead>
-            <tbody>
-            <tr>
-            <td>1</td>
-            <td>박은별</td>
-            <td>은별스타</td>
-            <td><input type=date></td>
-            </tr>
-            </tbody>
-            </table>
-      
+            <tbody id="notice_table"></tbody>
+		</table>
+		<ul id="noticePaging"></ul>
+         <a href="gongjiwrite.ado" class="btn btn-primary pull-right">글쓰기</a>
+         <!-- </form> -->
+      </div>
    </div>
 
 
@@ -81,6 +80,7 @@
 
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+   <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+   
 </body>
 </html>

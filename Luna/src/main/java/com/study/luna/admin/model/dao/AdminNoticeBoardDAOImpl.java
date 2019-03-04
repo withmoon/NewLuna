@@ -28,12 +28,6 @@ public class AdminNoticeBoardDAOImpl implements AdminNoticeBoardDAO {
 	}
 
 	@Override
-	public List<AdminNoticeBoardVO> noticeList() throws Exception {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList("luna.admin.board.noticeList");
-	}
-
-	@Override
 	public void noticeupdate(AdminNoticeBoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		sqlsession.update("luna.admin.board.noticeupdate",vo);

@@ -65,12 +65,12 @@
       #{regdate})
    </insert>
 
-   <select id="noticeList" resultType="adminNoticeBoardVO">
+   <!-- <select id="noticeList" resultType="adminNoticeBoardVO">
 
       select
       num,writer,title,content,regdate from noticeboard order by num desc
 
-   </select>
+   </select> -->
 
    <select id="noticeread" resultType="adminNoticeBoardVO">
 

@@ -59,14 +59,14 @@
 <section>
 <div class="event-container">
 	<ul class="eventTap">
-		<li class="eventNow">진행중인이벤트</li>
-		<li class="eventFinsh">종료된이벤트</li>
+		<li onclick="noticeNow()">진행중인이벤트</li>
+		<li onclick="noticeFinsh()">종료된이벤트</li>
 	</ul>
 </div>
 </section>
   
 <div class="event-container">
-<span class="title">진행중인 이벤트</span>
+<span id="eNow" class="title">진행중인 이벤트</span>
 <a href="eventwrite.ado" id="btn" class="btn btn-primary pull-right">글쓰기</a>
 <br>
 <div class="row">
@@ -85,7 +85,7 @@
 <ul id="pageT"></ul>
 </div>
 
-<span class="title">종료된 이벤트</span><br>
+<span id="eFinsh" class="title">종료된 이벤트</span><br>
 <div class="row">
 <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 <thead>
