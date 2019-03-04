@@ -12,8 +12,6 @@ function memberList(mpage) {
 	    	 $("#member_table").children().remove();
 	    	 var mem = '';
 	    	 
-	    	 alert(data.memberList.length);
-	    	 
 	    	 for(var i=0; i<data.memberList.length; i++){
 	    		 mem += '<tr>';
 	    		 mem += '<td>'+data.memberList[i].name+'</td>';

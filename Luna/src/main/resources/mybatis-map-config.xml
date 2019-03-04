@@ -45,7 +45,6 @@
         <typeAlias alias="adminEventBoardVO" type="com.study.luna.admin.model.vo.AdminEventBoardVO"/>
         <typeAlias alias="adminManagerApproveVO" type="com.study.luna.admin.model.vo.AdminManagerApproveVO"/>
       	<typeAlias alias="adminNoticeBoardVO" type="com.study.luna.admin.model.vo.AdminNoticeBoardVO"/>
-      	<typeAlias alias="adminInquireBoardVO" type="com.study.luna.admin.model.vo.AdminInquireBoardVO"/>
    </typeAliases>
  
    <mappers>

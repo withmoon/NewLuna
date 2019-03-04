@@ -83,5 +83,17 @@
 	<insert id="informUser" parameterType="QBoard">
 		insert into INQUIRYBOARD (seq, id, email, branchName, title, content) values ((select nvl(max(seq)+1, 1)from INQUIRYBOARD), #{id}, (SELECT email FROM member where id=#{id}), #{branchName}, #{title}, #{content}) 
 	</insert>
+	
+	<!-- admin 문의 목록 -->
+	<select id="inquireList" resultType="QBoard">
+		<include refid="pagingHeader"></include>
+     	 select * from inquiryboard order by seq desc
+		<include refid="pagingFooter"></include>
+   </select>
+   
+   <!-- 게시글갯수 -->
+	<select id="countInqure" resultType="int">
+		select count(*) from inquiryboard
+	</select>
 </mapper> 
 

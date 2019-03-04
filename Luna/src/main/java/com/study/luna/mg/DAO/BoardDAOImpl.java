@@ -71,6 +71,36 @@ public class BoardDAOImpl  implements BoardDAO{
 	public void create(QBoardVO vo) {
 		SqlSession.insert("mgQBoard.informUser", vo);
 	}
+	
+	//admin 문의 목록
+	@Override
+	public List<QBoardVO> inquireList(int start, int end) {
+		Map<String, Object> map = new HashMap<String, Object>();
+     	map.put("start", start);
+     	map.put("end", end);
+    
+		return SqlSession.selectList("mgQBoard.inquireList", map);
+	}
+	
+	//admin 문의 갯수
+	@Override
+	public int countInqure(String title) {
+		return SqlSession.selectOne("mgQBoard.countInqure", title);
+	}
+	
+	//admin
+	@Override
+	public void inquireinsert(QBoardVO vo) throws Exception {
+		SqlSession.update("mgQBoard.inquireinsert",vo);
+	}
+	@Override
+	public QBoardVO inquireread(Integer seq) throws Exception {
+		return SqlSession.selectOne("mgQBoard.inquireread",seq);
+	}
+	@Override
+	public void inquiredelete(Integer seq) throws Exception {
+		SqlSession.delete("mgQBoard.inquiredelete",seq);
+	}
 
 
 }

@@ -2,6 +2,8 @@ package com.study.luna.mg.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,4 +93,32 @@ public class mgServiceImpl  implements MgService{
 	public void upUserQnaReadst(int seq) {
 		uuqrDAOImpl.upUserQnaReadst(seq);
 	}
+	
+	//admin 문의목록
+	@Override
+	public List<QBoardVO> inquireList(int start, int end, HttpSession session) {
+		return boardDAO.inquireList(start, end);
+	}
+	
+	//admin 문의갯수
+	@Override
+	public int countInqure(String title) {
+		return boardDAO.countInqure(title);
+	}
+	
+	//admin
+	@Override
+	public void inquireinsert(QBoardVO vo) throws Exception {
+		boardDAO.inquireinsert(vo);
+		
+	}
+	@Override
+	public QBoardVO inquireread(Integer seq) throws Exception {
+		return boardDAO.inquireread(seq);
+	}
+	@Override
+	public void inquiredelete(Integer seq) throws Exception {
+		boardDAO.inquiredelete(seq);
+	}
+	
 }

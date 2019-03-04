@@ -9,7 +9,7 @@
 
 
 
-   <select id="inquireread" resultType="adminInquireBoardVO">
+   <select id="inquireread" resultType="QBoard">
 
       select * from inquiryboard
       where seq=#{seq}
@@ -21,10 +21,10 @@
       update inquiryboard set reply=#{reply} where seq=#{seq}
    </update>
 
-   <select id="inquireList" resultType="adminInquireBoardVO">
+   <!-- <select id="inquireList" resultType="adminInquireBoardVO">
 
       select * from inquiryboard order by seq desc
-   </select>
+   </select> -->
 
 
    <select id="infoList" resultType="adminManagerApproveVO">

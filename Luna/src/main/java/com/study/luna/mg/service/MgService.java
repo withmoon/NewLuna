@@ -2,16 +2,18 @@ package com.study.luna.mg.service;
 
 import java.util.List;
 
-import com.study.luna.mg.DAO.BoardDAO;
+import javax.servlet.http.HttpSession;
+
 import com.study.luna.mg.model.QBoardVO;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public interface MgService {
 	//mgQBoard
 	
 	// 문의글 목록보기
 	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String branchName)throws Exception;
-//	public List<QBoardVO> QboardList(QBoardVO vo) throws Exception;
+
+	public List<QBoardVO> inquireList(int start, int end, HttpSession session); //admin 문의목록
+	public int countInqure(String title); //문의 갯수
 
 
 	// 게시글 상세보기
@@ -36,4 +38,9 @@ public interface MgService {
 	void upUserQnaContent(int seq,String content);
 	//내용 읽음 처리
 	void upUserQnaReadst(int seq);
+	
+	//admin
+	public void inquireinsert(QBoardVO vo)throws Exception;
+	public QBoardVO inquireread(Integer seq)throws Exception;
+	public void inquiredelete(Integer seq)throws Exception;
 }

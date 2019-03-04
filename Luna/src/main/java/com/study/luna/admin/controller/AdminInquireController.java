@@ -1,13 +1,12 @@
 package com.study.luna.admin.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -16,37 +15,69 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.study.luna.admin.board.service.AdminInquireBoardService;
-import com.study.luna.admin.model.vo.AdminInquireBoardVO;
+import com.study.luna.mg.model.BoardPager;
+import com.study.luna.mg.model.QBoardVO;
+import com.study.luna.mg.service.MgService;
 
 
 @Controller
 public class AdminInquireController {
 
-	@Inject
-	AdminInquireBoardService service;
+	@Autowired
+	MgService service;
 
 	@Autowired
 	private JavaMailSender mailSender;
+	  
+	@RequestMapping(value = "/inquire.ado")
+	public String view() {
+		return "inquire";
+	}
+	
+	//ë¬¸ì˜ê³„ì‹œíŒ
+	@RequestMapping(value = "/inquireList.ado", method=RequestMethod.GET)
+	public @ResponseBody JSONObject  inquireList(@RequestParam(defaultValue="1") int curPage,
+									QBoardVO qboardVO, HttpSession session) {
+		//í˜ì´ì§• ì²˜ë¦¬
+    	int count = service.countInqure(qboardVO.getTitle());
+    			
+    	int page_scale = 10; // í˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ ìˆ˜
+    	int block_sclae = 5; // í™”ë©´ë‹¹ í˜ì´ì§€ ìˆ˜
+    	// í˜ì´ì§€ ë‚˜ëˆ„ê¸°ì²˜ë¦¬ 
+    	BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
+
+    	int start = boardPager.getPageBegin();
+    	int end = boardPager.getPageEnd();
+    	
+    	
+		List<QBoardVO> inquireList = service.inquireList(start, end, session);
+		
+		JSONObject obj = new JSONObject();
+
+    	obj.put("inquireList", inquireList);
+    	obj.put("inquirePage", boardPager);
+    	return obj;
+	}
 
 	@RequestMapping(value = "/inquireinsert.ado", method = RequestMethod.POST)
-	public String insert(HttpServletRequest request, @ModelAttribute AdminInquireBoardVO vo) throws Exception {
-		service.inquireinsert(vo);
+	public String insert(HttpServletRequest request, @ModelAttribute QBoardVO qboardVO) throws Exception {
+		service.inquireinsert(qboardVO);
 		String setfrom = "moon@gmail.com";
-		String tomail = request.getParameter("tomail"); // ¹Ş´Â»ç¶÷ ÀÌ¸ŞÀÏ
-		String reply = request.getParameter("reply"); // ´äÀå
-		String title = request.getParameter("title"); // Á¦¸ñ
+		String tomail = request.getParameter("tomail"); // ï¿½Ş´Â»ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½
+		String reply = request.getParameter("reply"); // ï¿½ï¿½ï¿½ï¿½
+		String title = request.getParameter("title"); // ï¿½ï¿½ï¿½ï¿½
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
-			messageHelper.setFrom(setfrom); // º¸³»´Â»ç¶÷ »ı·«ÇÏ°Å³ª ÇÏ¸é Á¤»óÀÛµ¿À» ¾ÈÇÔ
-			messageHelper.setTo(tomail); // ¹Ş´Â»ç¶÷ ÀÌ¸ŞÀÏ
-			messageHelper.setSubject(title); // Á¦¸ñ
-			messageHelper.setText(reply); // ¸ŞÀÏ ³»¿ë
+			messageHelper.setFrom(setfrom); // ï¿½ï¿½ï¿½ï¿½ï¿½Â»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			messageHelper.setTo(tomail); // ï¿½Ş´Â»ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½
+			messageHelper.setSubject(title); // ï¿½ï¿½ï¿½ï¿½
+			messageHelper.setText(reply); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			mailSender.send(message);
 		} catch (Exception e) {
@@ -56,27 +87,13 @@ public class AdminInquireController {
 		return "redirect:/inquireList.ado";
 	}
 
-	@RequestMapping(value = "/inquire.ado")
-	public String view() {
-		return "redirect:/inquireList.ado";
-	}
+	
 
 	@RequestMapping(value = "/inquirewrite.ado")
 	public ModelAndView views(@RequestParam Integer seq) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("inquirewrite");
 		mav.addObject("seq", service.inquireread(seq));
-		return mav;
-	}
-
-	@RequestMapping(value = "/inquireList.ado")
-	public ModelAndView list() throws Exception {
-		List<AdminInquireBoardVO> list = service.inquireList();
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("inquireList");
-		Map<String, Object> map = new HashMap<>();
-		map.put("list", list);
-		mav.addObject("map", map);
 		return mav;
 	}
 	

@@ -27,14 +27,14 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-          /li>
-            <li><a href="sales.ado">판매현황</a></li>
-            <li><a href="info.ado">지점장승인</a></li>
+          <li><a href="sales.ado">판매현황</a></li>
+            <li><a href="approve.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
             <li><a href="gongji.ado">공지사항</a></li>
-            <li><a href="admininquiry.ado">문의게시판</a></li>
+            <li><a href="inquire.ado">문의게시판</a></li>
             <li><a href="event.ado">이벤트</a></li>
             <li><a href="member.ado">회원관리</a></li>
+            <li><a href="info.ado">지점장 정보</a></li>
             
 
 
