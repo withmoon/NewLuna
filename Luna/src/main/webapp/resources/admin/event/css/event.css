@@ -1,17 +1,13 @@
 @charset "EUC-KR";
 
+/*진행(종료) 이벤트 버튼*/
 .event-container {
    position: relative;
    width: 1072px;
    min-width: 1072px;
    margin: 0px auto;
 }
-
-
-
-
-
-.event-container .top-navigate {
+/*.event-container .top-navigate {
    list-style-type: square;
    display: flex;
    width: 100%;
@@ -36,42 +32,42 @@
    font-size: 13px;
    line-height: 13px;
    color: #333;
-   text-align: right;
-}
+}*/
 
-.event-container .eventTap {
+.eventTap {
    display: flex;
-   width: 100%;
+   width: 80%;
    height: 45px;
-  
    box-sizing: border-box;
-   border-top: 1px solid #e9e9eb;
-   border-left: 1px solid #e9e9eb;
    list-style: none;
+   position: relative;
+   left:6%;
 }
 
-.event-container .eventTap li {
+.eventTap li {
    display: flex-block;
    width: 100%;
-   border-right: 1px solid #e9e9eb;
-   border-bottom: 1px solid #e9e9eb;
+   border: 1px solid #e9e9eb;
    box-sizing: border-box;
    text-align: center;
+   padding:1.5%;
 }
 
-.event-container .eventTap li {
+.eventTap li {
    background-color: #fff;
 }
 
-.event-container .eventTap li:hover, .event-container .eventTap li.active
+.eventTap li:hover, .eventTap li.active
    {
    background-color: #c0c0c0;
 }
 
-.event-container .eventTap li:hover a, .event-container .eventTap li.active a
+.eventTap li:hover a, .eventTap li.active a
    {
    color: #fff;
 }
+
+/*진행(종료) 이벤트 버튼 여기까지*/
 
 .event-container .eventTap a {
    font-size: 13px;
@@ -80,12 +76,56 @@
    text-decoration: none;
 }
 
+/*이벤트 게시판*/
+table th {
+    background-color: #eeeeee;
+    text-align: center;
+}
 
+.row {
+    width:80%;
+    position: relative;
+    left: 10%;
+}
+
+.btn-primary {
+    position: relative;
+    left:-12%;
+    top:35px;
+}
+
+/*페이지*/
+/*진행이벤트 페이지*/
+#pageT {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:45%;
+}
+
+#pageT2 li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
+/*종료이벤트 페이지*/
+#pageT2 {
+    list-style: none;
+	width: 100%;
+	font-size: 1.5vw;
+	position:relative;
+	left:45%;
+}
+
+#pageT2 li {float:left; 
+    list-style:none; 
+    margin:1px;
+}
 
 .title {
    list-style: none; display : inline-block;
-   width: 100%;
-   font-size: 15px;
+   width: 80%;
+   font-size: 2vw;
    font-weight: 500;
    line-height: 45px;
    line-width : 50px;
@@ -93,6 +133,8 @@
    color: #333;
    border-bottom: 1px solid #333;
    display: inline-block;
+   position: relative;
+   left: 8.5%;
 }
 
 .emptyEvent {

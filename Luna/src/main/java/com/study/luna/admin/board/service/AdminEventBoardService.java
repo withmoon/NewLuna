@@ -10,10 +10,15 @@ import com.study.luna.admin.model.vo.AdminEventBoardVO;
 import com.study.luna.user.comment.vo.EventReplyVO;
 
 public interface AdminEventBoardService {
-   public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//�ֱ�
+	public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session); //진행 이벤트 목록
+	public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session); //마감이벤트 목록
+	public int countEvent(String title); //진행이벤트글 갯수
+	public int countEventEnd(String title); //마감이벤트글 갯수
+	
+  public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//�ֱ�
     
     
-   public List<AdminEventBoardVO> listAlls() throws Exception;//����Ʈ�ҷ�����
+   
    
    public AdminEventBoardVO read1(int seq) throws Exception;//상세
 
@@ -21,13 +26,7 @@ public interface AdminEventBoardService {
 
    public void delete(int seq) throws Exception;//삭제
 
-   
-   
-   
    /*user/event.jsp*/
-   public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session); //진행 이벤트 목록
-   public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session); //마감이벤트 목록
-   public int countEvent(String title); //이벤트글 갯수
-   public int countEventEnd(String title); //이벤트글 갯수
+   
    public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
 }

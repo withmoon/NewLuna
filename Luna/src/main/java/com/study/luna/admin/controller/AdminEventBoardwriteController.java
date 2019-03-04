@@ -1,9 +1,5 @@
 package com.study.luna.admin.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -40,16 +36,16 @@ public class AdminEventBoardwriteController {
      
 
          
-         @RequestMapping(value = "/eventlist.ado")
+         /*@RequestMapping(value = "/eventlist.ado")
          public ModelAndView listAll()throws Exception{ 
-         List<AdminEventBoardVO> list = adminEventBoardService.listAlls(); 
+         List<AdminEventBoardVO> list = adminEventBoardService.eventNowList(); 
          ModelAndView mav= new ModelAndView();
          mav.setViewName("eventlist");
          Map<String,Object> map = new HashMap<>();
          map.put("list",list);
          mav.addObject("map",map);
          return mav;
-   }
+   }*/
          
          @RequestMapping(value = "/updateevent.ado" ,method=RequestMethod.POST)
          public String View(@ModelAttribute AdminEventBoardVO adminEventBoardVO)throws Exception{

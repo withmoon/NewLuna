@@ -143,9 +143,9 @@
    ]]>
    </insert>
 
-   <select id="listAlls" resultType="adminEventBoardVO">
+   <!-- <select id="listAlls" resultType="adminEventBoardVO">
       select * from adminevent order by seq desc
-   </select>
+   </select> -->
 
    <select id="readevent" resultType="adminEventBoardVO">
 

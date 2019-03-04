@@ -21,16 +21,34 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
    @Autowired
    AdminEventBoardDAOImpl eventBoardImpl;
    
+   //진행이벤트목록
+   @Override
+   public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session) {
+	   return eventBoardImpl.eventAll(start, end);
+   }
+
+   //종료이벤트목록
+   @Override
+   public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session) {
+	   return eventBoardImpl.eventEndAll(start, end);
+   }
+
+ 	//진행이벤트글 갯수
+ 	@Override
+ 	public int countEvent(String title) {
+ 		return eventBoardImpl.countEvent(title);
+ 	}
+ 	
+ 	//종료이벤트글 갯수
+ 	@Override
+ 	public int countEventEnd(String title) {
+ 		return eventBoardImpl.countEventEnd(title);
+ 	}
+   
    @Override
    public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception{
       adminEventBoardDAO.insert(adminEventBoardVO);
    }
-
-   
-    @Override
-    public List<AdminEventBoardVO> listAlls() throws Exception{
-       return adminEventBoardDAO.listAlls();
-    }
     
     @Override
     public AdminEventBoardVO read1(int seq) throws Exception {
@@ -49,39 +67,8 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
         adminEventBoardDAO.delete(seq);
     }
 
-    
-    
-    
-    
-    
-    
-
-
     /*user/event.jsp*/
-    //진행이벤트목록
-	@Override
-   	public List<AdminEventBoardVO> eventAll(int start, int end, HttpSession session) {
-       	return eventBoardImpl.eventAll(start, end);
-   	}
-
-   	//종료이벤트목록
-   	@Override
-   	public List<AdminEventBoardVO> eventEndAll(int start, int end, HttpSession session) {
-   		return eventBoardImpl.eventEndAll(start, end);
-   	}
-
-	//이벤트글 갯수
-	@Override
-	public int countEvent(String title) {
-		return eventBoardImpl.countEvent(title);
-	}
-	
-	@Override
-	public int countEventEnd(String title) {
-		return eventBoardImpl.countEventEnd(title);
-	}
-
-	//이벤트 상세보기
+    //이벤트 상세보기
 	@Override
 	public AdminEventBoardVO read(int seq) throws Exception {
 		return eventBoardImpl.read(seq);

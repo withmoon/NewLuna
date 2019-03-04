@@ -24,22 +24,29 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
    @Autowired
 	SqlSessionTemplate SqlSession;
    
+   /*user/event.jsp*/
+   //진행이벤트 목록
+   /*@Override
+   public List<AdminEventBoardVO> eventNowList(int start, int end) {
+ 	 Map<String, Object> map = new HashMap<String, Object>();
+ 	 map.put("start", start);
+ 	 map.put("end", end);
+ 	 return SqlSession.selectList("eventBoardDAO.eventNowList", map);
+   }
+   
+   //이벤트글 갯수
+ 	@Override
+ 	public int cEvent(String title) {
+ 		return SqlSession.selectOne("eventBoardDAO.cEvent", title);
+ 	}*/
+   
     @Override
       public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception {
          // TODO Auto-generated method stub
          sqlsession.insert("luna.admin.board.insertEventBoard", adminEventBoardVO);
 
       }
-    
-
-
-     @Override
-      public List<AdminEventBoardVO> listAlls() throws Exception {
-         // TODO Auto-generated method stub
-         return sqlsession.selectList("luna.admin.board.listAlls");
-      }
-
-     @Override
+    @Override
      public AdminEventBoardVO read1(int seq) throws Exception {
         return  sqlsession.selectOne("luna.admin.board.readevent",seq);
 

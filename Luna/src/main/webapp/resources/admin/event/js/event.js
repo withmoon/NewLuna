@@ -1,8 +1,8 @@
-/*진행 이벤트*/
 $(function() {
 	eventList(1);
+	eventEndList(1);
 	
-	//진행중인 인벤트
+	/*//진행중인 인벤트
 	$('.eventNow').click(function() {
 		eventList(1);
 	});
@@ -10,19 +10,19 @@ $(function() {
 	//종료중인 이벤트
 	$('.eventFinsh').click(function() {
 		eventEndList(1);
-	});
+	});*/
 });
 
 //진행중인 이벤트
 function eventList(enpage) {
-	$.ajax({      
+	$.ajax({     
 		 type:"GET",  
-		 url:"eventNow.udo",    
+		 url:"eventNow.ado",    
 	     data:{curPage:enpage},      
 	     success:function(data){
-	    	 var my_tbody = document.getElementById('my-tbody');
+	    	 var my_tbody = document.getElementById('eNow-tbody');
 	    	 var new_tbody=document.createElement('tbody');
-	    	 new_tbody.id='my-tbody';
+	    	 new_tbody.id='eNow-tbody';
 	    	 for(var i=0; i<data.eventList.length; i++){
 	    	
 	    		 var newRow = new_tbody.insertRow(new_tbody.rows.length);
@@ -39,7 +39,7 @@ function eventList(enpage) {
 	    	 	newTitle.appendChild(a);
 	    	 	(function(seq) {
 	    	 		a.addEventListener('click',function() {
-	    	 			window.open('viewEvent.udo?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+	    	 			window.open('eventview.ado?seq='+seq,'_self');
 	    	 		}, false);
 	    	 	})(seq);
 	    	 	
@@ -67,12 +67,12 @@ function eventList(enpage) {
 function eventEndList(eqpage) {
 	$.ajax({      
 		 type:"GET",  
-		 url:"eventChange.udo",    
+		 url:"eventEnd.ado",    
 	     data:{curPage:eqpage},      
 	     success:function(data){   
-	    	 var my_tbody = document.getElementById('my-tbody');
+	    	 var my_tbody = document.getElementById('eEnd-tbody');
 	    	 var new_tbody=document.createElement('tbody');
-	    	 new_tbody.id='my-tbody';
+	    	 new_tbody.id='eEnd-tbody';
 	    	 for(var i=0; i<data.eventEndList.length; i++){
 	    	
 	    		 var newRow = new_tbody.insertRow(new_tbody.rows.length);
@@ -89,7 +89,7 @@ function eventEndList(eqpage) {
 	    	 	newTitle.appendChild(a);
 	    	 	(function(seq) {
 	    	 		a.addEventListener('click',function() {
-	    	 			window.open('viewEvent.udo?seq='+seq,'_blank','width=700,height=720,location=no,status=no,scrollbars=yes');
+	    	 			window.open('eventview.ado?seq='+seq,'_self');
 	    	 		}, false);
 	    	 	})(seq);
 	    	 	
@@ -108,7 +108,7 @@ function eventEndList(eqpage) {
 	    	 }
 	    	 my_tbody.parentNode.replaceChild(new_tbody,my_tbody);
 	    	 
-	    	 blockPage("pageT",eqpage,data.eFinshPage.BLOCK_SCALE,data.eFinshPage.totPage,"pageT2","eventEndList");
+	    	 blockPage("pageT2",eqpage,data.eFinshPage.BLOCK_SCALE,data.eFinshPage.totPage,"pageT2","eventEndList");
 	     }
 	}); 
 }

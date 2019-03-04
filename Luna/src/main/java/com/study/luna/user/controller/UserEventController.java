@@ -25,8 +25,6 @@ public class UserEventController {
 	@Autowired
 	AdminEventBoardService evntBoardService;
 	
-	//이벤트 목록
-	//진행중인이벤트
 	@RequestMapping(value="/event.udo", method=RequestMethod.GET)
 	public String eventView(MemberCommand memcom, HttpSession session, HttpServletRequest request) {
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
