@@ -45,7 +45,7 @@
 			</li>
 				<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="현황보기" />현황보기</a>
 				<ul class="hide">
-					<li><a href="mgSales.mdo">매출현황</a></li>
+					<li><a href="mgSales.mdo">회원관리</a></li>
 					<li><a href="mgReserve.mdo">예약현황</a></li>
 					<li><a href="mgVisit.mdo">방문현황</a></li>
 					<li><a href="mgRefund.mdo">환불현황</a></li>

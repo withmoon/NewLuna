@@ -47,13 +47,10 @@ public class MgBoardController {
 		System.out.println(count+"개");
 
 		
-		int page_scale = 7;
-		int block_sclae = 3;
+		int page_scale = 10;
+		int block_sclae = 5;
 		// 페이지 나누기처리 
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
-//		boardPager.setPAGE_SCALE(5);
-		System.out.println("게시글수 : "+boardPager.getPAGE_SCALE());
-//		boardPager.setPAGE_SCALE(page);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
@@ -70,8 +67,6 @@ public class MgBoardController {
 		mv.addObject("map", map);
 		mv.setViewName("body/board/mgBoard");
 
-		System.out.println("list" + list.toString());
-		System.out.println("mv" + mv.toString());
 		return mv;
 	}
 

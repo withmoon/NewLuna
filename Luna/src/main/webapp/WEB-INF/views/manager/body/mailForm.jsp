@@ -59,7 +59,7 @@ window.close(); */
 [답변]
 </textarea>
 			</div>
-			<input type="hidden" value="${param.seq }" name=num>
+			<input type="hidden" value="${param.seq }" name=seq>
 			<input type="hidden" value="${param.email }" name=email>
 			<p>
 			<div align="center">

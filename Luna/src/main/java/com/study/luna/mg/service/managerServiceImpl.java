@@ -1,5 +1,7 @@
 package com.study.luna.mg.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,25 @@ public class managerServiceImpl implements managerService {
 		System.out.println("branchname 가져오기");
 		return managerDAO.branchname(id);
 		
+	}
+
+	@Override
+	public int roomcount(HttpSession session, String days) {
+		System.out.println("roomcount 가져오기");
+		return managerDAO.roomcount(session,days);
+		
+	}
+
+	@Override
+	public int join() {
+		System.out.println("join 가져오기");
+		return managerDAO.join();
+	}
+
+	@Override
+	public int member() {
+		System.out.println("member 가져오기");
+		return managerDAO.member();
 	}
 
 }

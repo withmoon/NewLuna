@@ -17,6 +17,8 @@ public class JoinController {
 	@Autowired
 	MemberService memser;
 	
+	
+	
 	@RequestMapping(value="/join.do", method=RequestMethod.GET)
 	public ModelAndView mainView(@RequestParam("br") String br){
 		ModelAndView mav=new ModelAndView();
@@ -35,8 +37,8 @@ public class JoinController {
 		if(result==1) {
 			rdab.addFlashAttribute("id", memcom.getId());
 			mav.setViewName("redirect:kakao/home.udo");
+			memser.joincount();
 			return mav;
-
 		}else{
 			mav.addObject("kid", "k#"+kid);
 			mav.addObject("knic",knic);

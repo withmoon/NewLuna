@@ -15,7 +15,37 @@
 		select branchname from member where id=#{id}
 	</select>	
 	
+	<select id="join" resultType="int"> 
+		select join from logincount where su=1
+	</select>
+	
+	<select id="member" resultType="int">
+		select count(*) from member where position is null
+	</select>
+	
+	<select id="reroom" resultType="int">
+		select count(*) from roompayment where status = -2
+	</select>
+	 
+	<select id="roomcount" resultType="int">
+	<![CDATA[
+		select count(*) from roompayment where reservdate >= '19/03/01' and reservdate <= sysdate and branchName =#{branchName}
+	]]>
+	</select>
+	<!-- #{days}/01 --> 
 
+	<select id="board" resultType="QBoard">
+	<![CDATA[
+		select * from inquiryboard where  rownum<=5 order by seq desc
+	]]>
+	</select>
+	
+	<select id="chart" resultType="Statistics">
+	<![CDATA[
+		 select reservdate ,count(*)as gunsu from roompayment  where reservdate>='19/01/01' and 
+		reservdate<='19/03/28' group by reservdate order by reservdate asc
+	]]>	
+	</select>
 
 </mapper> 
 

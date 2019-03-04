@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,10 +30,12 @@ public class MgSalesController {
 	@Autowired
 	private MgPCService MgPCService;
 
-	// 매출현황
+	//회원관리
 	@RequestMapping(value = "/mgSales.mdo")
-	public ModelAndView mgSalesView(SalesVO vo, @RequestParam(defaultValue = "") String keyword,
-			@RequestParam(defaultValue = "1") int curPage) throws Exception {
+	public ModelAndView mgSalesView(@RequestParam(defaultValue = "name") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
+			HttpSession session)
+			throws Exception {
 
 		// 레코드계산
 		int count = MgPCService.countArticle(keyword);
@@ -47,7 +50,7 @@ public class MgSalesController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		List<SalesVO> list = MgPCService.SalesList(start, end, keyword);
+		List<SalesVO> list = MgPCService.SalesList(start, end, keyword,searchOption);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
@@ -62,70 +65,85 @@ public class MgSalesController {
 		System.out.println("mgsales 화면");
 		return mv;
 	}
-
-	// 매출현황 excel 다운로드
-/*	@RequestMapping(value = "/excelDownload.mdo")
-	public View excelTransform(Map<String, Object> modelmap, Model model, SalesVO vo, HttpServletResponse response)
-			throws Exception {
-		
-		 * response.setCharacterEncoding("UTF-8");
-		 * response.setContentType("application/vnd.ms-excel");
-		 * response.setHeader("Pragma","public"); response.setHeader("Expires","0");
-		 * response.setHeader("Content-Disposition","attachment; filename = test.xls");
-		 
-
-		// List<Object> excelList = MgPCService.excelList(vo);
-		// List<SalesVO> list = MgPCService.SalesList(vo);
-		// ���Ϻ�ȯ Ÿ�� ������
-//	 		String type = model.get("Mgsales").toString();
-		// model.addAttribute("list", list);
-		return new excelView();
-
-		
-		 * model.put("excelList",excelList); model.put("excelType",type);
-		 
-//	         return  new ModelAndView("excelView",model);    //"excelView";
-
-		
-		 * //Ÿ���� �ȱ����� ��ũ�� �������ִ°Ͱ����� String target = paramMap.get("target").toString();
-		 * response.setHeader("content-disposition", "attachment; filename=������Ȳ.xmlx");
-		 * List<Object> excelList = MgPCService.getExcelObject(paramMap);
-		 * ModelMap.put("excelList", excelList); ModelMap.put("target", target);
-		 * 
-		 * System.out.println("�����ٿũ"); return "excelView";
-		 
-	}*/
-
+    //엑셀다운로드
 	@RequestMapping(value = "/excelDownload.mdo")
 	public View excelDownload(HttpServletRequest request, HttpServletResponse response, Model model, SalesVO vo)
 			throws Exception {
 
-		List<SalesVO> list = MgPCService.mgReserveList(vo);
+		//List<SalesVO> list = MgPCService.mgReserveList(vo);
 
-		model.addAttribute("list", list);
+		//model.addAttribute("list", list);
 
 		return new listExcelDownload();
 	}
 
 	// 예약현황
 	@RequestMapping(value = "/mgReserve.mdo")
-	public ModelAndView mgReserveView(SalesVO vo) {
+	public ModelAndView mgReserveView(@RequestParam(defaultValue = "roomnum") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
+			HttpSession session)
+			throws Exception {
+		
+		String branchName = (String)session.getAttribute("branchName");
+		int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
+		
 
-		List<SalesVO> list = MgPCService.mgReserveList(vo);
+		int page_scale = 10;
+		int block_sclae = 5;
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
 
+		
+		List<SalesVO> list = MgPCService.mgReserveList(start, end, searchOption, keyword,branchName);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("boardPager", boardPager);
+		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("list", list);
+		mv.addObject("map", map);
 		mv.setViewName("body/presentCondition/mgReserve");
 
 		return mv;
 	}
 	
 	//환불하기
-	@RequestMapping(value = "/Reserve.mdo")
-	public void Reserve(HttpServletRequest request,QBoardVO vo) {
-	vo.setSeq(Integer.parseInt(request.getParameter("seq")));
-	MgPCService.mgReserve(vo);
+	@RequestMapping(value = "/mgRefund.mdo")
+	public ModelAndView Reserve(@RequestParam(defaultValue = "roomnum") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
+			HttpSession session)
+			throws Exception {
+	String branchName = (String)session.getAttribute("branchName");
+	int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
+	
+	int page_scale = 20;
+	int block_sclae = 2;
+	// 페이지 나누기처리  
+	BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+	int start = boardPager.getPageBegin();
+	int end = boardPager.getPageEnd();
+	
+	
+	List<SalesVO> list = MgPCService.mgReserveList(start, end, searchOption, keyword,branchName);
 
+	Map<String, Object> map = new HashMap<String, Object>();
+	map.put("list", list);
+	map.put("count", count);
+	map.put("searchOption", searchOption);
+	map.put("keyword", keyword);
+	map.put("boardPager", boardPager);
+	
+	ModelAndView mv = new ModelAndView();
+	mv.addObject("map", map);
+	//MgPCService.mgReserve(vo);
+	mv.setViewName("body/presentCondition/mgRefund");
+
+	return mv;
 
 	}
 
@@ -135,16 +153,5 @@ public class MgSalesController {
 		return "body/presentCondition/mgVisit";
 	}
 
-	//
-	@RequestMapping(value = "/mgRefund.mdo", method = RequestMethod.GET)
-	public ModelAndView mgRefundView(SalesVO vo) {
-		
-		List<SalesVO> list = MgPCService.mgReserveList(vo);
- 
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("list", list);
-		mv.setViewName("body/presentCondition/mgRefund");
-
-		return mv;
-	}
+	
 }

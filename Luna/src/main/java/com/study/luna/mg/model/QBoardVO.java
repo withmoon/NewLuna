@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QBoardVO {
 	private int num;
+	private int rownum;
 	private int seq;
 	private String title;
 	private String emailtitle;
@@ -20,6 +21,13 @@ public class QBoardVO {
 	private String branchName;
 	
 	
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public String getEmailtitle() {
 		return emailtitle;
 	}

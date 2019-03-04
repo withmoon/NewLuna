@@ -19,9 +19,9 @@ public class MgPCServiceImpl implements MgPCService {
 	
 	/*매출현황 리스트 DB*/  
 	@Override
-	public List<SalesVO> SalesList(int start, int end, String keyword) throws Exception {
+	public List<SalesVO> SalesList(int start, int end, String keyword,String searchOption) throws Exception {
 		System.out.println("SalesList 서비스");
-		return SalesDAO.SalesList(start,end,keyword); 
+		return SalesDAO.SalesList(start,end,keyword,searchOption); 
 	}
 	@Override
 	public int countArticle(String keyword) {
@@ -51,11 +51,19 @@ public class MgPCServiceImpl implements MgPCService {
 		System.out.println("SalesExcel 서비스");
 		return SalesDAO.getSales(vo); 
 	}
+	
+	
+	//예약현황 리스트
 	@Override
-	public List<SalesVO> mgReserveList(SalesVO vo) {
+	public List<SalesVO> mgReserveList(int start, int end, String searchOption, String keyword,String branchName) {
 		System.out.println("mgReserveList 서비스");
-		
-		return SalesDAO.mgReserveList(vo);
+		return SalesDAO.mgReserveList(start,end, searchOption,keyword,branchName);
+	}
+	//예약현황 카운트
+	@Override
+	public int ReserveCount(String searchOption, String keyword, String branchName) {
+		System.out.println("ReserveCount 서비스");
+		return SalesDAO.ReserveCount(searchOption,keyword,branchName);
 	}
 	//환불하기
 	@Override
@@ -63,4 +71,5 @@ public class MgPCServiceImpl implements MgPCService {
 		System.out.println("mgReserve 서비스");
 		SalesDAO.mgReserve(vo);
 	}
+	
 }
