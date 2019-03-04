@@ -77,8 +77,8 @@ public class UserHomeController {
 		}
 		//지점장 설정
 		memcom.setBranchAddr2(memcom.getBranchAddr2()+"#"+memcom.getBranchAddr3());
-		if (!memcom.getBranchimgf().equals("")||!memcom.getBranchimgf().equals(null)) {
-			MultipartFile mf = mpreq.getFile("branchimgf");
+		MultipartFile mf = mpreq.getFile("branchimgf");
+		if (mf!=null) {
 			System.out.println("파일 추출");
 			// 저장되는 파일 이름
 			String branchimg=mf.getOriginalFilename();
