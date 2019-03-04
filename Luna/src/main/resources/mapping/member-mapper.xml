@@ -50,11 +50,7 @@
 			</if>
 			where id=#{id}
 	</update>
-
-	<!-- 회원목록 -->
-   <select id="memberList" resultType="member">
-	select * from member where position is null
-   </select>
+	
    <!-- 전체 지점수 가져오기 -->
    <select id="allBranchCount" resultType="Integer">
    		select count(*) from member where branchName!='본점' and branchName is not Null
@@ -73,4 +69,25 @@
    <select id="emailList" resultType="String">
    	select email from member where position is null and id=#{id};
    	</select>
+   	
+   	<!-- 회원목록 -->
+   <select id="memberList" resultType="member">
+		<include refid="pagingHeader"></include>
+		select * from member where position is null
+		<include refid="pagingFooter"></include>
+   </select>
+   
+   <!-- 게시글갯수 -->
+	<select id="countMember" resultType="int">
+		select count(*) from member where position is null
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select rownum as rn, A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
 </mapper>

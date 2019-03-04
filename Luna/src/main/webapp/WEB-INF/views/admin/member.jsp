@@ -7,30 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-
-<style>
-   .type1 {
-      padding :0px;
-      padding-top: 250px;
-      padding-left: 620px;
-      }
-   /*
-   .vv{
-   position: fixed;
-   top:180px;
-   left:0px;
-   width: 940px;
-   height: 200px;
-   }
-   */
-   .vv2{
-   position: fixed;
-   top:180px;
-   right:0px;
-   width: 980px;
-   height: 200px;
-   }
-</style>
+<link href="<c:url value="/resources/admin/member/css/member.css"/>" type="text/css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<c:url value="/resources/admin/member/js/member.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
 
 
@@ -71,49 +51,27 @@
          </ul>
       </div>
    </nav>
-   <center>
-   <h3>회원관리 게시판</h3>
-   </center>
-<br></br>
-<div class="container">
-   <div class="row">
-   <form action="member.ado" method="get">
-      <table class="table table-striped"
-         style="text-align: center; border: 1px solid #dddddd">
-         <thead>
-         
-            <tr>
-               <!-- <th style="background-color:#eeeeee; text-align:center;">번호</th> -->
-               <th style="background-color: #eeeeee; text-align: center;">이름</th>
-               <th style="background-color: #eeeeee; text-align: center;">아이디</th>
-               <th style="background-color: #eeeeee; text-align: center;">전화번호</th>
-               <th style="background-color: #eeeeee; text-align: center;">이메일</th>
-               <th style="background-color: #eeeeee; text-align: center;">회원상태</th>
-            
-            
-            </tr>
-
-         </thead>
-         <tbody>
-            <c:forEach var="member" items="${memberList }">
-               <tr>
-                  <td>${member.name }</td>
-                  <td>${member.id }</td>
-                  <td>${member.phone }</td>
-                  <td>${member.email }</td>
-                  
-                  <td><input type="button" value="제명"
-                     class="btn btn-primary pull-right"
-                     onclick="javascript:location.href='remove.ado?id=${member.id}'" />
-                  </td>
-
-               </tr>
-
-            </c:forEach>
-         </tbody>
-      </table>
+   <div align="center">
+      <h3>회원관리게시판</h3>
    </div>
-
+   <br></br>
+<div class="container">
+<div class="row">
+<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+<thead>
+	<tr>
+		<th>이름</th>
+		<th>아이디</th>
+		<th>전화번호</th>
+		<th>이메일</th>
+		<th>회원상태</th>
+	</tr>
+</thead>
+<tbody id="member_table"></tbody>
+</table>
+<ul id="memberPaging"></ul>
+</div>
+</div>
 
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

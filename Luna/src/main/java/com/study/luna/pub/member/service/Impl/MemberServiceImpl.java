@@ -2,10 +2,11 @@ package com.study.luna.pub.member.service.Impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.study.luna.admin.model.dao.MemberDAOImpl;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
@@ -15,6 +16,7 @@ import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
+import com.study.luna.pub.member.dao.Impl.MemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.UpUserInfoDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
@@ -87,10 +89,10 @@ public class MemberServiceImpl implements MemberService{
 		upUsInfDAOImpl.upUserInfo(memcom);
 	}
 
-	@Override
+	/*@Override
 	public List<MemberCommand> memberList(MemberCommand mc) {
 		return memberDAOImpl.memberList(mc);
-	}
+	}*/
 
 	@Override
 	public Integer allBranchCount() {
@@ -111,6 +113,18 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public List<String> branchList(String gugun) {
 		return branchnameDAOImpl.branchList(gugun);
+	}
+
+	//회원정보
+	@Override
+	public List<MemberCommand> memberList(int start, int end, HttpSession session) {
+		return memberDAOImpl.memberList(start, end);
+	}
+
+	//회원정보 갯수
+	@Override
+	public int countMember(String id) {
+		return memberDAOImpl.countMember(id);
 	}
 
 }
