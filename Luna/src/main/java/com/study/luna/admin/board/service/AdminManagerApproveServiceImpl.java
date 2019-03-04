@@ -3,11 +3,13 @@ package com.study.luna.admin.board.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
 import com.study.luna.admin.model.dao.AdminManagerApproveDAO;
 import com.study.luna.admin.model.vo.AdminManagerApproveVO;
+import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 
 @Service
 public class AdminManagerApproveServiceImpl implements AdminManagerApproveService {
@@ -15,6 +17,7 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 	@Inject
 	AdminManagerApproveDAO approveDAO;
 
+	//지점장 목록
 	@Override
 	public List<AdminManagerApproveVO> approveList() throws Exception {
 		// TODO Auto-generated method stub
@@ -32,10 +35,5 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 		approveDAO.approvedelete(id);
 		
 	}
-	@Override
-	public List<AdminManagerApproveVO> infoList() throws Exception {
-		// TODO Auto-generated method stub
-		return approveDAO.infoList();
-	} 
 
 }

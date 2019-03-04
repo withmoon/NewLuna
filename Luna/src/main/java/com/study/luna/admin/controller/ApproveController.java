@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminManagerApproveService;
 import com.study.luna.admin.model.vo.AdminManagerApproveVO;
+import com.study.luna.pub.command.MemberCommand;
 
 
 
@@ -54,7 +55,7 @@ public class ApproveController {
 	  return mav;
 	 }
 	 
-	 @RequestMapping(value = "/infoList.ado")
+	 /*@RequestMapping(value = "/infoList.ado")
 	  public ModelAndView lists()throws Exception{ 
 	  List<AdminManagerApproveVO> list = adminManagerApproveService.infoList(); 
 	  ModelAndView mav= new ModelAndView();
@@ -63,6 +64,6 @@ public class ApproveController {
 	  map.put("list",list);
 	  mav.addObject("map",map);
 	  return mav;
-	 }
+	 }*/
 	 
 }

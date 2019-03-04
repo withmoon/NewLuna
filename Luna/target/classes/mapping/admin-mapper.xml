@@ -37,13 +37,13 @@
 
    </select>
 
-   <select id="approveList" resultType="adminManagerApproveVO">
+   <!-- <select id="approveList" resultType="adminManagerApproveVO">
 
       select
       id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
       from member where brStatus = -1
 
-   </select>
+   </select> -->
 
    <update id="approveupdate" parameterType="adminManagerApproveVO">
 

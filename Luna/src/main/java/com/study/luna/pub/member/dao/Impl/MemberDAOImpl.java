@@ -38,4 +38,20 @@ public class MemberDAOImpl implements MemberDAO {
       sqlSession.delete("luna.admin.board.removedelete",id);
       
    }
+
+   //지점장 목록
+   @Override
+   public List<MemberCommand> infoList(int start, int end) {
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("start", start);
+	   map.put("end", end);
+   
+	   return sqlSession.selectList("memberDAO.infoList", map);
+   }
+
+   //지점장 갯수
+   @Override
+	public int countinfo(String id) {
+		return sqlSession.selectOne("memberDAO.countinfo", id);
+	}
 }

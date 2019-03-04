@@ -82,6 +82,18 @@
 		select count(*) from member where position is null
 	</select>
 	
+	<!-- 지점장 목록 -->
+	<select id="infoList" resultType="member">
+		<include refid="pagingHeader"></include>
+		select * from member where position is not null and branchname != '본점'
+		<include refid="pagingFooter"></include>
+   </select>
+   
+   <!-- 게시글갯수 -->
+	<select id="countinfo" resultType="int">
+		select count(*) from member where position is not null and branchname != '본점'
+	</select>
+	
 	<!-- 페이징 sql -->
 	  <sql id="pagingHeader">
 	 	select * from ( select rownum as rn, A.* from(

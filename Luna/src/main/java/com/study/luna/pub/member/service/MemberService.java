@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 import com.study.luna.pub.command.MemberCommand;
 
 public interface MemberService {
@@ -30,4 +31,7 @@ public interface MemberService {
 	 public List<String> branchList(String gugun); //고객의 소리 지점선택
 	 public List<MemberCommand> memberList(int start, int end, HttpSession session); //회원정보
 	 public int countMember(String id); //회원정보 갯수
+	 
+	 public List<MemberCommand> infoList(int start, int end, HttpSession session); //지점장목록
+	 public int countinfo(String id); //지점장 갯수
 }

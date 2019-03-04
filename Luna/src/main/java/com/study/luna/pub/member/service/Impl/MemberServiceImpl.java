@@ -24,7 +24,6 @@ import com.study.luna.util.SHA256;
 
 @Service
 public class MemberServiceImpl implements MemberService{
-	
 	@Autowired
 	IdCheckDAOImpl idchkDAOImpl;
 	@Autowired
@@ -125,6 +124,18 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int countMember(String id) {
 		return memberDAOImpl.countMember(id);
+	}
+
+	//지점장 목록
+	@Override
+	public List<MemberCommand> infoList(int start, int end, HttpSession session) {
+		return memberDAOImpl.infoList(start, end);
+	}
+
+	//지점장 갯수
+	@Override
+	public int countinfo(String id) {
+		return memberDAOImpl.countinfo(id);
 	}
 
 }
