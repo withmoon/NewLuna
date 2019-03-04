@@ -8,11 +8,13 @@
 <title>스터디카페 달빛</title>
 <link href="<c:url value="/resources/user/event/css/event.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="<c:url value="/resources/user/event/js/event.js"/>"></script>
-<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
+
 </head>
-<body>
+<body style="overflow-x:hidden; overflow-y:auto;">
 <!-- 상단 메뉴 -->
 <nav>
 <%@ include file="../public/topmenu.jsp" %>
@@ -33,7 +35,7 @@
 </section>
 
 <section class="list_tab">
-<!-- 진행 이벤트 목록 -->
+<!-- 이벤트 목록 -->
 <table class="eventNow2">
 <thead>
 	<tr>
@@ -43,51 +45,10 @@
 		<th>날짜</th>
 	</tr>
 </thead>
-	<tbody id="my-tbody">
-	<c:forEach items="${eventList }" var="event">
-		<tr>
-		<td>${event.seq }</td>
-		<td><a onclick="window.open('viewEvent.udo?seq=${event.seq}','_blank','width=700,height=720,location=no,status=no,scrollbars=yes');">
-			${event.title }</a></td>
-		<td>${event.writer }</td>
-		<td><fmt:formatDate value="${event.startdate }" pattern="yy-MM-dd" /> ~ <fmt:formatDate value="${event.enddate }" pattern="yy-MM-dd" /></td>
-		</tr>
-	</c:forEach>
-	</tbody>
+	<tbody id="my-tbody"></tbody>
 </table>
-<!-- 페이지 처리 -->
-<table class="pageT">
-	<tr>
-		<td>
-			 <!-- 처음페이지로 이동 : 현재페이지 블럭이 1보다크면 -->
-			<c:if test="${boardPager.curBlock > 1}">
-				<a href="javascript:eventList('1')">[처음]</a>
-			</c:if>
-			<!-- 이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
-			<c:if test="${boardPager.curBlock > 1}">
-				<a href="javascript:eventList('${boardPager.prevPage}')">[이전]</a>
-			</c:if>
-			<!-- 페이지 블럭 처음부터 마지막 블럭까지 1씩 증가하는 페이지 출력 -->
-			<c:forEach var="seq" begin="${boardPager.blockBegin}" end="${boardPager.blockEnd}">
-				<!-- 현재페이지이면 하이퍼링크 제거 -->
-				<c:choose>
-					<c:when test="${seq == boardPager.curPage}">${seq}&nbsp;</c:when>
-					<c:otherwise>
-						<a href="javascript:eventList('${seq}')">${seq}</a>&nbsp;
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<!-- 다음페이지 블록으로 이동 -->
-			<c:if test="${boardPager.curBlock <= boardPager.totBlock}">
-				<a href="javascript:eventList('${boardPager.nextPage}')">[다음]</a>
-			</c:if>
-			<!-- 끝페이지로 이동 -->
-			<c:if test="${boardPager.curBlock <= map.boardPager.totPage}">
-				<a href="javascript:eventList(' ${boardPager.totPage}')">[끝]</a>
-			</c:if>
-		</td>
-	</tr>
-</table>
+<!-- 페이지목록 -->
+<ul id="pageT"></ul>
 </section>
 
 <!-- footer -->

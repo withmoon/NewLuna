@@ -3,7 +3,6 @@ $(function() {
 	$('.list_tab2').hide();
 
 	 noticeList(1);
-	 qnaList(1);
 	
 	 //공지사항
 	 $('.informNotice').click(function() {

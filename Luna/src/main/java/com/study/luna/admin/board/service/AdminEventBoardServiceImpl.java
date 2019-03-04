@@ -72,8 +72,13 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
 
 	//이벤트글 갯수
 	@Override
-	public int count(ModelAndView mav) {
-		return eventBoardImpl.count(mav);
+	public int countEvent(String title) {
+		return eventBoardImpl.countEvent(title);
+	}
+	
+	@Override
+	public int countEventEnd(String title) {
+		return eventBoardImpl.countEventEnd(title);
 	}
 
 	//이벤트 상세보기

@@ -57,14 +57,8 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
         
      }
 
-     
-     
-     
-     
-     
-
-     /*user/event.jsp*/
-     //진행이벤트 목록
+	/*user/event.jsp*/
+    //진행이벤트 목록
 	@Override
   	public List<AdminEventBoardVO> eventAll(int start, int end) {
      	 System.out.println("===> 진행이벤트 목록");
@@ -89,8 +83,13 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 
 	//이벤트글 갯수
 	@Override
-	public int count(ModelAndView mav) {
-		return SqlSession.selectOne("eventBoardDAO.count", mav);
+	public int countEvent(String title) {
+		return SqlSession.selectOne("eventBoardDAO.countEvent", title);
+	}
+	
+	@Override
+	public int countEventEnd(String title) {
+		return SqlSession.selectOne("eventBoardDAO.countEventEnd", title);
 	}
 
     //상세보기
