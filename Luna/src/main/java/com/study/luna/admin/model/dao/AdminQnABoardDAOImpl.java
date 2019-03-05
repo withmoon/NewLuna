@@ -22,17 +22,27 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
    @Autowired
    SqlSessionTemplate SqlSession;
 
+   //질문목록
+   public List<AdminQnABoardVO> qnaAll(int start, int end) {
+	   System.out.println("===> 질문 목록");
+  	 
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("start", start);
+	   map.put("end", end);
+  	 
+	   return SqlSession.selectList("qnaBoardDAO.qnaAll", map);
+   }
+
+   //질문갯수
+   public int countQnA(String subject) {
+	   return SqlSession.selectOne("qnaBoardDAO.countQnA", subject);
+   }
+   
    @Override
    public void insert(AdminQnABoardVO adminQnABoardVO) throws Exception {
       // TODO Auto-generated method stub
       sqlsession.insert("luna.admin.board.insertQnABoard", adminQnABoardVO);
 
-   }
-
-   @Override
-   public List<AdminQnABoardVO> listAll() throws Exception {
-      // TODO Auto-generated method stub
-      return sqlsession.selectList("luna.admin.board.listAll");
    }
 
    @Override
@@ -54,22 +64,6 @@ public class AdminQnABoardDAOImpl implements AdminQnABoardDAO {
    }
 
    /*user_inform*/
-   //질문목록
-   public List<AdminQnABoardVO> qnaAll(int start, int end) {
-	   System.out.println("===> 질문 목록");
-  	 
-	   Map<String, Object> map = new HashMap<String, Object>();
-	   map.put("start", start);
-	   map.put("end", end);
-  	 
-	   return SqlSession.selectList("qnaBoardDAO.qnaAll", map);
-   }
-
-   //질문갯수
-   public int countQnA(String subject) {
-	   return SqlSession.selectOne("qnaBoardDAO.countQnA", subject);
-   }
-
    //질문 상세보기
    @Override
    public AdminQnABoardVO qnaRead(int num) throws Exception {

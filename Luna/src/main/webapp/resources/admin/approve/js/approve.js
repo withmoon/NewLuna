@@ -18,7 +18,7 @@ function approveList(apage) {
 	    		 app += '<td>'+data.approveList[i].name+'</td>';
 	    		 app += '<td>'+data.approveList[i].phone+'</td>';
 	    		 app += '<td>'+data.approveList[i].email+'</td>';
-	    		 app += '<td>'+data.approveList[i].branchname+'</td>';
+	    		 app += '<td>'+data.approveList[i].branchName+'</td>';
 	    		 app += '<td>'+data.approveList[i].branchAddr1+'</td>';
 	    		 app += '<td><a href="approval.ado?id='+data.approveList[i].id+'">승인</a>&emsp;<a href="approvedelete.ado?id='+data.approveList[i].id+'">거절</a></td>';
 	    		 app += '</tr>';

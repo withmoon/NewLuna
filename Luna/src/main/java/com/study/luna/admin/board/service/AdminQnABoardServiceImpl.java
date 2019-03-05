@@ -21,15 +21,21 @@ public class AdminQnABoardServiceImpl implements AdminQnABoardService {
    @Autowired
    AdminQnABoardDAOImpl	qnaBoardDAOImpl;
 
+   //질문 목록
+   @Override
+   public List<AdminQnABoardVO> qnaAll(int start, int end, HttpSession session) {
+	   return qnaBoardDAOImpl.qnaAll(start, end);
+   }
+
+   //질문갯수
+   @Override
+   public int countQnA(String subject) {
+	   return qnaBoardDAOImpl.countQnA(subject);
+   }
+   
    @Override
    public void insert(AdminQnABoardVO adminQnABoardVO) throws Exception {
       adminQnABoardDAO.insert(adminQnABoardVO);
-   }
-
-   @Override
-   public List<AdminQnABoardVO> listAll() throws Exception {
-      // TODO Auto-generated method stub
-      return adminQnABoardDAO.listAll();
    }
 
    @Override
@@ -51,18 +57,6 @@ public class AdminQnABoardServiceImpl implements AdminQnABoardService {
    }
 
    /*user_inform*/
-   //질문 목록
-   @Override
-   public List<AdminQnABoardVO> qnaAll(int start, int end, HttpSession session) {
-	   return qnaBoardDAOImpl.qnaAll(start, end);
-   }
-
-   //질문갯수
-   @Override
-   public int countQnA(String subject) {
-	   return qnaBoardDAOImpl.countQnA(subject);
-   }
-
    //질문상세보기
    @Override
    public AdminQnABoardVO qnaRead(int num) throws Exception {

@@ -5,9 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<link href="<c:url value="/resources/admin/board/css/board.css"/>" type="text/css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="<c:url value="/resources/admin/board/js/board.js"/>"></script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <title>게시판 목록</title>
+
 
 </head>
 <body>
@@ -26,7 +31,7 @@
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-      
+         
             <li><a href="sales.ado">판매현황</a></li>
             <li><a href="approve.ado">지점장승인</a></li>
             <li><a href="board.ado">자주묻는질문</a></li>
@@ -48,34 +53,24 @@
          </ul>
       </div>
    </nav>
-   <center>
+   <div align="center">
       <h3>Q N A</h3>
-   </center>
+   </div>
    <br></br>
    <div class="container">
       <div class="row">
       <form action="board.ado" method="post">
-         <table class="table table-striped"
-            style="text-align: center; border: 1px solid #dddddd">
+         <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
             <thead>
                <tr>
-                  <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                  <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                  <th style="background-color: #eeeeee; text-align: center;">내용</th>
-                  <th style="background-color: #eeeeee; text-align: center;">작성일</th>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성일</th>
                </tr>
             </thead>
-            <tbody>
-             <c:forEach var="row" items="${map.list}">
-             <tr>
-             <td>${row.num}</td>
-             <td><a href="qnaview.ado?num=${row.num}">${row.subject}</a></td>
-             <td>${row.content}</td>
-             <td>${row.regdate}</td>
-             </tr>
-             </c:forEach>
-            </tbody>
+            <tbody  id="inform_table"></tbody>
          </table>
+         <ul id="informPaging"></ul>
          <a href="write.ado" class="btn btn-primary pull-right">글쓰기</a>
          </form>
       </div>

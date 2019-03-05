@@ -51,7 +51,7 @@ public class AdminQnABoardWriteController {
    }
    
    
-   @RequestMapping(value = "/boardList.ado")
+   /*@RequestMapping(value = "/boardList.ado")
    public ModelAndView list()throws Exception{ 
    List<AdminQnABoardVO> list = adminQnABoardService.listAll(); 
    ModelAndView mav= new ModelAndView();
@@ -60,7 +60,7 @@ public class AdminQnABoardWriteController {
    map.put("list",list);
    mav.addObject("map",map);
    return mav;
-   }
+   }*/
    
    @RequestMapping(value = "/insert.ado")
    public String insert(@ModelAttribute AdminQnABoardVO adminQnABoardVO) throws Exception {

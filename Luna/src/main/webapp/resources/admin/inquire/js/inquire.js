@@ -22,7 +22,7 @@ function inquireList(inpage) {
 	    		 inqui += '<td>'+data.inquireList[i].seq+'</td>';
 	    		 inqui += '<td>'+data.inquireList[i].id+'</td>';
 	    		 inqui += '<td>'+data.inquireList[i].title+'</td>';
-	    		 inqui += '<td>'+data.inquireList[i].branchname+'</td>';
+	    		 inqui += '<td>'+data.inquireList[i].branchName+'</td>';
 	    		 inqui += '<td>'+regdateFormat+'</td>';
 	    		 inqui += '<td><a href="inquirewrite.ado?seq='+data.inquireList[i].seq+'">답변</a>&emsp;<a href="inquiredelete.ado?seq='+data.inquireList[i].seq+'">삭제</a></td>';
 	    		 inqui += '</tr>';
