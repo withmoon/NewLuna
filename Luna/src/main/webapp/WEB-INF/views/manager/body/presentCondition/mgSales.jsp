@@ -7,7 +7,7 @@
 <head>
 <script type="text/javascript"
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
-<script type="text/javascript">
+<script type="text/javascript"> 
 function list(page) {
 	location.href = "mgSales.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }

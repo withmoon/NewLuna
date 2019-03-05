@@ -8,7 +8,7 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet"
+<link type="text/css" rel="stylesheet" 
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <style type="text/css">
 #ex {

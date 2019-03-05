@@ -12,7 +12,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
 <script type="text/javascript">
-	function list(page) {
+	function list(page) { 
 		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
 
