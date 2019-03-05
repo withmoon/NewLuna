@@ -6,7 +6,7 @@
 	<select id="mgAgeList" resultType="ReserveTime">
 		 <![CDATA[
 		select reservetime from roompayment where reservdate>='19/02/21' and reservdate<='19/02/22' 
-		]]>
+		]]> 
 	</select>
 	
 </mapper> 

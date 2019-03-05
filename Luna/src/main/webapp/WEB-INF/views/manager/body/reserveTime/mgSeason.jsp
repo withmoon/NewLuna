@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 
-<style type="text/css">
+<style type="text/css"> 
 header {
 	border-bottom: 1px solid blue;
 	width: auto;

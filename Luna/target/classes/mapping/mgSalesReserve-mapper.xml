@@ -8,7 +8,7 @@
 	<select id="countArticle" resultType="int">
 		<!-- <![CDATA[
 			select count(num) from ??? where num>0
-		]]> -->
+		]]> --> 
 	</select>
 	
 	

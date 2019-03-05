@@ -26,7 +26,7 @@ public class MgReserveTimeController {
 	mgReserveTimeService mgReserveTimeService;
 	@Autowired
 	ReportService rpser;
-	
+	 
 	@RequestMapping(value="/mgTime.mdo",method=RequestMethod.GET)
 	public ModelAndView mgAgeView(ReserveTimeVO vo) {
 		

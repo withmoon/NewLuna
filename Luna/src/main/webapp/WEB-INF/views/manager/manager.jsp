@@ -10,7 +10,7 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <!-- Resources -->
 <script src="https://www.amcharts.com/lib/4/plugins/wordCloud.js"></script>
-<script type="text/javascript"
+<script type="text/javascript" 
 	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/manager/js/mjs.js"/>"></script>

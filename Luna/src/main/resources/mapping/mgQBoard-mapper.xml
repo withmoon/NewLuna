@@ -9,7 +9,7 @@
 		<![CDATA[
 			select count(seq) from inquiryboard  where branchName=#{branchName} and seq>0
 		]]>
-	</select>
+	</select> 
 	
 	<!-- 질문게시판 전체목록 조회 및 검색조회 -->
 	<select id="listAll" resultType="QBoard" >

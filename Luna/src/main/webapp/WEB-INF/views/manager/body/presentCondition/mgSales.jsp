@@ -13,7 +13,7 @@ function list(page) {
 }
 </script>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet"
+<link type="text/css" rel="stylesheet" 
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 	
 	<style type="text/css">

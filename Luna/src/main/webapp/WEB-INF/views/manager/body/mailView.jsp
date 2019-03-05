@@ -16,7 +16,7 @@ function mail() {
 	var form = document.getElementById('form1');
 	form.submit();
 	window.setTimeout("cle()",5000);
-	
+	 
 }
 function cle() {
 	alert("전송완료했습니다.");

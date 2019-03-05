@@ -12,7 +12,7 @@
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <style type="text/css">
 #ex {
-	background-color: lightblue;
+	background-color: lightblue; 
 	height: 30px;
 }
 

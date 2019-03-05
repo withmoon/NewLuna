@@ -37,7 +37,7 @@ public class MgRoomController {
 	//저장할 파일폴더
 	String filePath = "C:\\Users\\JudeKim\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
 
-	//방관리화면
+	//방관리화면 
 		@RequestMapping(value = "/mgRoom.mdo")
 		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="all")String searchOption,
 				@RequestParam(defaultValue="")String keyword) throws Exception {

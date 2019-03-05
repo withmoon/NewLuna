@@ -26,7 +26,7 @@
 	<select id="RoomList" resultType="Room">
 		SELECT * FROM ROOM
 		<include refid="search"></include>
-		ORDER BY ROOMNUM
+		ORDER BY ROOMNUM 
 	</select>
 	<!-- 검색조건 sql -->
 	  <sql id="search">

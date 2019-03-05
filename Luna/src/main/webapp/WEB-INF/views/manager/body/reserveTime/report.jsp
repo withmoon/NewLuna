@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	function list(page) {
 		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}

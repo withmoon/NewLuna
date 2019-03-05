@@ -37,7 +37,7 @@ public class MgSalesController {
 			HttpSession session)
 			throws Exception {
 
-		// 레코드계산
+		// 레코드계산      
 		int count = MgPCService.countArticle(keyword);
 
 		System.out.println("키워드 :" + keyword.toString());
