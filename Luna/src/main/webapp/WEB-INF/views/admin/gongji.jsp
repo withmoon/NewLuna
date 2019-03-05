@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -57,7 +58,6 @@
    <br></br>
    <div class="container">
       <div class="row">
-      <!-- <form action="boardList.ado" method="post"> -->
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
@@ -71,7 +71,6 @@
 		</table>
 		<ul id="noticePaging"></ul>
          <a href="gongjiwrite.ado" class="btn btn-primary pull-right">글쓰기</a>
-         <!-- </form> -->
       </div>
    </div>
 

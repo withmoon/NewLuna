@@ -1,20 +1,23 @@
 package com.study.luna.admin.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.luna.admin.board.service.AdminManagerApproveService;
 import com.study.luna.admin.model.vo.AdminManagerApproveVO;
+import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.MemberService;
 
 
 
@@ -23,6 +26,37 @@ public class ApproveController {
 	
 	@Inject
 	AdminManagerApproveService adminManagerApproveService;
+	@Autowired
+	MemberService memberService;
+	
+	@RequestMapping(value="/approve.ado", method=RequestMethod.GET)
+	   public String mainView() {
+	      return  "approve";
+	}
+	
+	//지점장 승인 목록
+	@RequestMapping(value = "/approveList.ado", method=RequestMethod.GET)
+	public @ResponseBody JSONObject approveListView(@RequestParam(defaultValue="1") int curPage,
+							MemberCommand memberCommand, HttpSession session){
+		//페이징 처리
+		int count = memberService.countApprove(memberCommand.getId());
+		   			
+		int page_scale = 10; // 페이지당 게시물 수
+		int block_sclae = 5; // 화면당 페이지 수
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		   	
+		List<MemberCommand> approveList = memberService.approveList(start, end, session);
+		
+		JSONObject obj = new JSONObject();
+
+	   	obj.put("approveList", approveList);
+	   	obj.put("approvePage", boardPager);
+	   	return obj;
+	 }
 	
 	
 	@RequestMapping(value="/approvedelete.ado")
@@ -33,37 +67,11 @@ public class ApproveController {
 
 	
 	@RequestMapping(value = "/approval.ado" ,method=RequestMethod.GET)
-	   public String View(@ModelAttribute AdminManagerApproveVO vo)throws Exception{
+	public String View(@ModelAttribute AdminManagerApproveVO vo)throws Exception{
 		adminManagerApproveService.approveupdate(vo);  
-	   return "redirect:/approveList.ado";
-	   }
-	
-	
-	 @RequestMapping(value="/approve.ado", method=RequestMethod.GET)
-	   public String mainView() {
-	      return  "redirect:/approveList.ado";
+	return "redirect:/approveList.ado";
 	}
-	 
-	 @RequestMapping(value = "/approveList.ado")
-	  public ModelAndView list()throws Exception{ 
-	  List<AdminManagerApproveVO> list = adminManagerApproveService.approveList(); 
-	  ModelAndView mav= new ModelAndView();
-	  mav.setViewName("approveList");
-	  Map<String,Object> map = new HashMap<>();
-	  map.put("list",list);
-	  mav.addObject("map",map);
-	  return mav;
-	 }
-	 
-	 /*@RequestMapping(value = "/infoList.ado")
-	  public ModelAndView lists()throws Exception{ 
-	  List<AdminManagerApproveVO> list = adminManagerApproveService.infoList(); 
-	  ModelAndView mav= new ModelAndView();
-	  mav.setViewName("infoList");
-	  Map<String,Object> map = new HashMap<>();
-	  map.put("list",list);
-	  mav.addObject("map",map);
-	  return mav;
-	 }*/
+	
+	
 	 
 }

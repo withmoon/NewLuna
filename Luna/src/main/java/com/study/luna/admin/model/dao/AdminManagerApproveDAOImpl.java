@@ -1,28 +1,17 @@
 package com.study.luna.admin.model.dao;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.study.luna.admin.model.vo.AdminManagerApproveVO;
-import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 
 @Repository
 public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 
 	@Inject
 	SqlSession sqlsession;
-
-	@Override
-	public List<AdminManagerApproveVO> approveList() throws Exception {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList("luna.admin.board.approveList");
-	}
 
 	@Override
 	public void approveupdate(AdminManagerApproveVO vo) throws Exception {

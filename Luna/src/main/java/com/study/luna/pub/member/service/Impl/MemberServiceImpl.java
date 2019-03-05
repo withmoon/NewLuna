@@ -138,4 +138,16 @@ public class MemberServiceImpl implements MemberService{
 		return memberDAOImpl.countinfo(id);
 	}
 
+	//지점장 승인
+	@Override
+	public List<MemberCommand> approveList(int start, int end, HttpSession session) {
+		return memberDAOImpl.approveList(start, end);
+	}
+
+	//지점장 승인 갯수
+	@Override
+	public int countApprove(String id) {
+		return memberDAOImpl.countApprove(id);
+	}
+
 }

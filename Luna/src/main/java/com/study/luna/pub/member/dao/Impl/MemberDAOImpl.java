@@ -54,4 +54,20 @@ public class MemberDAOImpl implements MemberDAO {
 	public int countinfo(String id) {
 		return sqlSession.selectOne("memberDAO.countinfo", id);
 	}
+
+   //지점장승인
+   @Override
+   public List<MemberCommand> approveList(int start, int end) {
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("start", start);
+	   map.put("end", end);
+   
+	   return sqlSession.selectList("memberDAO.approveList", map);
+   }
+
+   //지점장승인 갯수
+   @Override
+   public int countApprove(String id) {
+		return sqlSession.selectOne("memberDAO.countApprove", id);
+   }
 }

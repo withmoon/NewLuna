@@ -17,13 +17,6 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 	@Inject
 	AdminManagerApproveDAO approveDAO;
 
-	//지점장 목록
-	@Override
-	public List<AdminManagerApproveVO> approveList() throws Exception {
-		// TODO Auto-generated method stub
-		return approveDAO.approveList();
-	}
-
 	@Override
 	public void approveupdate(AdminManagerApproveVO vo) throws Exception {
 		approveDAO.approveupdate(vo);
