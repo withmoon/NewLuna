@@ -172,9 +172,7 @@
 
 
 
-    <delete id="removedelete" parameterType="member">
-      delete from member where id=#{id}
-   </delete>
+
 
 
 

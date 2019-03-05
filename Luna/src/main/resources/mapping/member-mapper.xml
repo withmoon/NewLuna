@@ -103,6 +103,16 @@
 		<include refid="pagingFooter"></include>
    </select>
    
+   	<!-- 회원 제명 처리 -->
+	<update id="expulmember">
+		update member set brstatus=-2 where id=#{id}
+	</update>
+	
+	<!-- 회원 제명 취소-->
+	<update id="cancleExpulmember">
+		update member set brstatus=0 where id=#{id}
+	</update>
+   
    <!-- 게시글갯수 -->
 	<select id="countApprove" resultType="int">
 		select count(*) from member where brStatus = -1

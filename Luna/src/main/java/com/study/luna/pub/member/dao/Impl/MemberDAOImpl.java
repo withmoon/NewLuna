@@ -31,13 +31,6 @@ public class MemberDAOImpl implements MemberDAO {
    public int countMember(String id) {
 	   return sqlSession.selectOne("memberDAO.countMember", id);
    }
-   
-   //회원탈퇴
-   @Override
-   public void removedelete(String id) throws Exception {
-      sqlSession.delete("luna.admin.board.removedelete",id);
-      
-   }
 
    //지점장 목록
    @Override

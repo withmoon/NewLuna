@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
+import com.study.luna.pub.member.dao.Impl.CancleExpulmemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBranchNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
@@ -17,6 +18,7 @@ import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.MemberDAOImpl;
+import com.study.luna.pub.member.dao.Impl.MemberExpluDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.UpUserInfoDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
@@ -46,6 +48,10 @@ public class MemberServiceImpl implements MemberService{
 	AllMemberCountDAOImpl amcDAOImpl;
 	@Autowired
 	GetBranchNameDAOImpl branchnameDAOImpl; //고객의 소리 지점 선택
+	@Autowired
+	MemberExpluDAOImpl mepDAOImpl;
+	@Autowired
+	CancleExpulmemberDAOImpl cepmDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -101,12 +107,6 @@ public class MemberServiceImpl implements MemberService{
 	public Integer allMemberCount() {
 		return amcDAOImpl.allMemberCount();
 	}
-	
-	 @Override
-	   public void removedelete(String id) throws Exception {
-	      memberDAOImpl.removedelete(id);
-	      
-	   }
 	 
 	//고객의 소리 지점 선택
 	@Override
@@ -148,6 +148,14 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int countApprove(String id) {
 		return memberDAOImpl.countApprove(id);
+	}
+	@Override
+	public void expulmember(String id) {
+		mepDAOImpl.expulmember(id);
+	}
+	@Override
+	public void cancleExpulmember(String id) {
+		cepmDAOImpl.cancleExpulmember(id);
 	}
 
 }

@@ -53,3 +53,23 @@ table th {
     list-style:none; 
     margin:1px;
 }
+.explur{
+	position:absolute;
+	border:1px solid black;
+	border-radius:10px;
+	top:200px;
+	left:230px;
+}
+.sendmBtn{
+	position:relative;
+	top:-30px;
+	right:-82%;
+}
+.cendmBtn{
+	border-bottom:2px solid gray;
+	width:70%;
+	position:relative;
+	top:6px;
+	left:11.3%;
+	height:auto;
+}

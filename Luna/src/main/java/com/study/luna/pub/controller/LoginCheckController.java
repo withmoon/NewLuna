@@ -44,6 +44,12 @@ public class LoginCheckController {
 				response.setCharacterEncoding("utf-8");
 				out.println("<script>alert('승인 되지 않은 아이디입니다.'); history.go(-1);</script>");
 				out.flush();
+			}else if(status==-2){
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				response.setCharacterEncoding("utf-8");
+				out.println("<script>alert('제명된 회원입니다. 문의사항은 이메일로 보내주세기 바랍니다.'); history.go(-1);</script>");
+				out.flush();
 			}else {
 				boolean check=memser.passCheck(id, pass);
 				if(check) {

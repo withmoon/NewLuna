@@ -55,7 +55,8 @@ public class AdminMemberController {
    //회원 제명
    @RequestMapping(value="/remove.ado")
    public String removedelete(String id)throws Exception{
-      memberService.removedelete(id);
+      //memberService.removedelete(id);
+	   
       return "redirect:/member.ado";
    }
    

@@ -28,24 +28,6 @@ public class UserGetCanReservRoomController {
 		romin.setSidogugun(sel_sido+" "+sel_gugun);
 		romin.setStartdate(sel_date);
 		
-		//제외할 방 설정
-		roomAllList=roomser.getExcRoomNum(romin);
-		
-		StringBuilder sb=new StringBuilder();
-		
-		if(roomAllList.size()!=0) {
-			if(roomAllList.get(0).getRoomNum()!=0) {
-			//csv 형식으로 전환
-			for(int i=0; i<roomAllList.size(); i++) {
-				sb.append(roomAllList.get(i).getRoomNum());
-				if(roomAllList.size()==i+2) {
-					sb.append(",");
-				}
-			}
-			romin.setNotinRoomNum(sb.toString());
-			}
-		}
-		
 		roomAllList=roomser.getAllRoomInfo(romin);
 
 		return roomAllList; 

@@ -13,6 +13,4 @@ public interface MemberDAO {
 	
 	public List<MemberCommand> approveList(int start, int end); //지점장 승인 목록
 	public int countApprove(String id); //지점장승인갯수
-
-   void removedelete(String id) throws Exception;
 }
