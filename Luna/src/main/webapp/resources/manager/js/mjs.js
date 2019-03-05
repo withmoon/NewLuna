@@ -9,19 +9,15 @@ $(document)
 						$("#msec").load("testform.jsp")
 					});
 
-					/*
-					 * $.ajax({
-					 * 
-					 * type : "POST", url: "/admin/chartOutput", success:
-					 * function(data) {
-					 *  } });
-					 */
-/*
-					var test1 = document.getElementsByName("test1");
-					for (var i = 0; i < test1.length; i++) {
-						alert(test1[i].innerHTML);
-					}
-*/
+					
+					$.ajax({
+						  
+						 type : "POST",         
+						 url: "mgchart.mdo", 
+						 data:{},     
+						success:function(A){
+							
+							
 					/* am차트 */
 					// Themes begin
 					am4core.useTheme(am4themes_animated);
@@ -36,24 +32,12 @@ $(document)
 					var now = new Date();
 					var lastDate;
 					lastDate = new Date(now.getYear(), now.getMonth() + 1, 0);
-
-					for (var i = 1; i <= test.length; i++) {
-						var date = new Date();
-
-						date.setHours(0, 0, 0, 0); 
-						// 일수
-						date.setDate(i);
-						value = 5
-
-						/*
-						 * Math.round((Math.random() < 0.5 ? 1 : -1)
-						 * Math.random() * 10);
-						 */
-						data.push({
-							date : date,
-							value : value
-						});
-					}
+					
+					for(var i = 0; i <A.length; i++){
+						  var date = new Date(A[i].reservdate);
+						  value=A[i].su;
+						  data.push({date:date, value: value});
+						}   
 
 					chart.data = data;
 
@@ -77,7 +61,8 @@ $(document)
 
 					// chart.scrollbarY = new am4core.Scrollbar();
 					chart.scrollbarX = new am4core.Scrollbar();
-
+					
+					
 					// ================================
 
 					// Themes begin
@@ -162,5 +147,8 @@ $(document)
 										* (series.dataItems.length - 1)))
 								.setValue("value",
 										Math.round(Math.random() * 10));
-					}, 10000)
+					}, 10000);
+						}
+					});
 				});
+					

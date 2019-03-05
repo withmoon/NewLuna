@@ -37,6 +37,13 @@ public class MgSalesController {
 			HttpSession session)
 			throws Exception {
 
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("branchName")==null){
+			 System.out.println("카카오 로그인 실패");
+			 mv.setViewName("loginX.mdo");
+	         return mv;
+		}
+		
 		// 레코드계산      
 		int count = MgPCService.countArticle(keyword);
 
@@ -58,7 +65,6 @@ public class MgSalesController {
 		map.put("keyword", keyword);
 		map.put("boardPager", boardPager);
 
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/presentCondition/mgSales");
 		mv.addObject("map", map);
 
@@ -84,6 +90,13 @@ public class MgSalesController {
 			HttpSession session)
 			throws Exception {
 		
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("branchName")==null){
+			 System.out.println("카카오 로그인 실패");
+			 mv.setViewName("loginX.mdo");
+	         return mv;
+		}
+		
 		String branchName = (String)session.getAttribute("branchName");
 		int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
 		
@@ -105,7 +118,6 @@ public class MgSalesController {
 		map.put("keyword", keyword);
 		map.put("boardPager", boardPager);
 		
-		ModelAndView mv = new ModelAndView();
 		mv.addObject("map", map);
 		mv.setViewName("body/presentCondition/mgReserve");
 
@@ -118,6 +130,12 @@ public class MgSalesController {
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
 			HttpSession session)
 			throws Exception {
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("branchName")==null){
+			 System.out.println("카카오 로그인 실패");
+			 mv.setViewName("loginX.mdo");
+	         return mv;
+		}
 	String branchName = (String)session.getAttribute("branchName");
 	int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
 	
@@ -138,7 +156,6 @@ public class MgSalesController {
 	map.put("keyword", keyword);
 	map.put("boardPager", boardPager);
 	
-	ModelAndView mv = new ModelAndView();
 	mv.addObject("map", map);
 	//MgPCService.mgReserve(vo);
 	mv.setViewName("body/presentCondition/mgRefund");
@@ -147,11 +164,11 @@ public class MgSalesController {
 
 	}
 
-	// 방문현황
+/*	// 방문현황
 	@RequestMapping(value = "/mgVisit.mdo", method = RequestMethod.GET)
 	public String mgVisitView() {
 		return "body/presentCondition/mgVisit";
 	}
-
+*/
 	
 }

@@ -9,5 +9,10 @@
 		]]> 
 	</select>
 	
+	<select id="getreservcount" resultType="ReserveTime">
+	   select startdate as reservdate,count(*)as su from roomreserv where startdate BETWEEN '19/03/01' and '19/03/30'
+	   group by startdate order by startdate asc 
+	</select>
+	
 </mapper> 
  

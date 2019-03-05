@@ -15,6 +15,11 @@ public class mgReserveTimeServiceImpl implements mgReserveTimeService{
 	ReserveTimeDAO ReserveTimeDAO;
 	
 	
+	@Override
+	public List<ReserveTimeVO> getreservcount() {
+		// TODO Auto-generated method stub
+		return ReserveTimeDAO.getreservcount();
+	}
 	//시간대별통계 
 	@Override
 	public List<ReserveTimeVO> mgAgeList() {

@@ -32,59 +32,74 @@ header {
 
 <!-- Chart code -->
 <script>
+var paid_at_start="";
+var paid_at_end="";
+
+
 $(document).ready(
-		function() {
-// Themes begin
-am4core.useTheme(am4themes_material);
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-//데이터 배열
-var data = [];
-//데이터값?
-var value = 50;
-
-for(let i = 0; i < 300; i++){
-  let date = new Date();
-  date.setHours(0,0,0,0);
-  //데이터 몇번째 생성
-  date.setDate(i);
-  //배열값 랜덤생성
-  value -= Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-  //데이터 집어넣기
-  data.push({date:date, value: value});
-}
-
-//차트에 데이터
-chart.data = data;
-
-//축 생성
-// Create axes
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.renderer.minGridDistance = 60;
-
-var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-
-// 시리즈 만들기??
-// Create series
-var series = chart.series.push(new am4charts.LineSeries());
-series.dataFields.valueY = "value";
-series.dataFields.dateX = "date";
-series.tooltipText = "{value}"
-
-series.tooltip.pointerOrientation = "vertical";
-
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.snapToSeries = series;
-chart.cursor.xAxis = dateAxis;
-
-//chart.scrollbarY = new am4core.Scrollbar();
-chart.scrollbarX = new am4core.Scrollbar();
-});
-</script>
+		
+		function getTermSales(){
+		
+		paid_at_start=$("#paid_at_start").val();
+		paid_at_end=$("#paid_at_end").val();
+		
+			
+			$.ajax({
+				  
+				 type : "POST", 
+				 url: "mgchart.mdo", 
+				 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
+				success:function(A){
+			
+					// Themes begin
+					am4core.useTheme(am4themes_material);
+					am4core.useTheme(am4themes_animated);
+					// Themes end
+					var chart = am4core.create("chartdiv", am4charts.XYChart);
+					
+					//데이터 배열
+					//데이터값?
+					//데이터 삽입 시작
+					var data = [];
+					var value = 0;
+				
+					for(var i = 0; i <A.length; i++){
+					  var date = new Date(A[i].reservdate);
+					  value=A[i].su;
+					  data.push({date:date, value: value});
+					}
+					alert("포문이 돌았나?");
+					
+					//차트에 데이터
+					chart.data = data;
+					
+					//축 생성
+					// Create axes
+					var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+					dateAxis.renderer.minGridDistance = 60;
+					
+					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+					
+					
+					// 시리즈 만들기??
+					// Create series
+					var series = chart.series.push(new am4charts.LineSeries());
+					series.dataFields.valueY = "value";
+					series.dataFields.dateX = "date";
+					series.tooltipText = "{value}"
+					
+					series.tooltip.pointerOrientation = "vertical";
+					
+					chart.cursor = new am4charts.XYCursor();
+					chart.cursor.snapToSeries = series;
+					chart.cursor.xAxis = dateAxis;
+					
+					//chart.scrollbarY = new am4core.Scrollbar();
+					chart.scrollbarX = new am4core.Scrollbar();
+									}
+								});
+							});
+					</script>
 
 
 <title>지점장 관리화면</title>
@@ -122,6 +137,12 @@ chart.scrollbarX = new am4core.Scrollbar();
 			<div id=header>
 				<header>기간 통계</header>
 			</div>
+			
+			 <div class="searchArea">
+			 <input id="paid_at_start" type="date"/><br/>
+			 <input id="paid_at_end" type="date"/>&emsp; 
+			 <button onclick="getTermSales()">검색</button>
+			 </div>
 			<table width="100%" border="1">
 				<tr>
 					<td>기간</td>
@@ -194,7 +215,7 @@ chart.scrollbarX = new am4core.Scrollbar();
 			</table>
 
 			<div id=header>
-				<header>연령별 예약 시간 통계</header>
+				<header>시간별 예약 통계</header>
 			</div>
 			
 			<!-- HTML -->

@@ -40,7 +40,15 @@ public class MgRoomController {
 	//방관리화면 
 		@RequestMapping(value = "/mgRoom.mdo")
 		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="all")String searchOption,
-				@RequestParam(defaultValue="")String keyword) throws Exception {
+				@RequestParam(defaultValue="")String keyword,HttpSession session) throws Exception {
+			ModelAndView mv = new ModelAndView();
+			if(session.getAttribute("branchName")==null){
+				 System.out.println("카카오 로그인 실패");
+				 mv.setViewName("loginX.mdo");
+		         return mv;
+			}
+			
+			
 			//디렉토리 없으면 생성
 			File dir = new File(filePath); 
 			if (!dir.isDirectory()) {
@@ -55,7 +63,6 @@ public class MgRoomController {
 			map.put("searchOption", searchOption);
 			map.put("keyword", keyword);
 			
-			ModelAndView mv = new ModelAndView();
 			mv.setViewName("body/room/mgRoom");
 			mv.addObject("map", map);
 
