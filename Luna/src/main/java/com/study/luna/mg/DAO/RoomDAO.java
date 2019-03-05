@@ -15,7 +15,7 @@ public interface RoomDAO {
 	//insert
 	public int uploadFile(HashMap<String, Object> hm)throws Exception;
 	public int roomupload(RoomVO vo)throws Exception;
-
+ 
 	//상세보기
 	public RoomVO mgRoomRead(int roomnum)throws Exception;
 	public List<uploadfileVO> mgRoomFile(int roomnum);

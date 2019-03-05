@@ -12,7 +12,7 @@ import com.study.luna.mg.model.uploadfileVO;
 
 @Service
 public class MgRoomServiceImpl implements MgRoomService {
-
+ 
 	@Autowired
 	public RoomDAO RoomDAO;
 

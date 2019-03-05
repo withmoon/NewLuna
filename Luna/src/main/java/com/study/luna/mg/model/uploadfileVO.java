@@ -1,5 +1,5 @@
 package com.study.luna.mg.model;
-
+ 
 public class uploadfileVO {
 	private int roomnum;
 	private int filenum;

@@ -6,7 +6,7 @@ import com.study.luna.mg.model.ReserveTimeVO;
 import com.study.luna.mg.model.SalesVO;
 
 public interface mgReserveTimeService {
-	
+	 
 	//나이? 시간대별통계
 	List<ReserveTimeVO> mgAgeList();
 

@@ -1,7 +1,7 @@
 package com.study.luna.mg.model;
 
 import java.util.Date;
-
+ 
 public class ReserveTimeVO {
 	private String reservetime;
 	private Date reservdate;

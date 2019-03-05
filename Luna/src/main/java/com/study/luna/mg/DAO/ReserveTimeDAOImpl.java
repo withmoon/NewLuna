@@ -15,7 +15,7 @@ public class ReserveTimeDAOImpl implements ReserveTimeDAO {
 	private SqlSession SqlSession;
 	
 	
-	
+	 
 	@Override
 	public List<ReserveTimeVO> mgAgeList() {
 		// TODO Auto-generated method stub

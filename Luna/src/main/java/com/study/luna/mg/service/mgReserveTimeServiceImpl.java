@@ -10,7 +10,7 @@ import com.study.luna.mg.model.ReserveTimeVO;
 
 @Service
 public class mgReserveTimeServiceImpl implements mgReserveTimeService{
-
+ 
 	@Autowired
 	ReserveTimeDAO ReserveTimeDAO;
 	

@@ -10,7 +10,7 @@ import com.study.luna.mg.DAO.managerDAO;
 @Service
 public class managerServiceImpl implements managerService {
 
-	@Autowired
+	@Autowired 
 	private managerDAO managerDAO;
 
 	// 로그인수 +1

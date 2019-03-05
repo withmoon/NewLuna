@@ -12,7 +12,7 @@ import com.study.luna.mg.model.QBoardVO;
 
 @Repository
 public class BoardDAOImpl  implements BoardDAO{
-
+ 
 	@Autowired
 	private SqlSessionTemplate SqlSession;
 

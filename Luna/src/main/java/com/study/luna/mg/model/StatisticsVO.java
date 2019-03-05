@@ -1,7 +1,7 @@
 package com.study.luna.mg.model;
 
 import java.util.Date;
-
+ 
 public class StatisticsVO {
 	//일별매출
 	private String branchname;

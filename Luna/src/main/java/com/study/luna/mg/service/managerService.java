@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 public interface managerService {
 
-	//로그인수 +1
+	//로그인수 +1 
 	public void logincount();
 	//branchname 구하기...
 	String branchname(String id);

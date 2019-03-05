@@ -18,7 +18,7 @@ import com.study.luna.mg.model.StatisticsVO;
 public class managerDAOImpl implements managerDAO{
 
 	@Autowired 
-	private SqlSession SqlSession;
+	private SqlSession SqlSession; 
 	//로그인 리스트
 	@Override
 	public int login() {

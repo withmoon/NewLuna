@@ -3,7 +3,7 @@ package com.study.luna.mg.service;
 import java.util.List;
 
 import com.study.luna.mg.model.StatisticsVO;
-
+ 
 public interface MgStatisticsService {
 
 	//게시글 카운트

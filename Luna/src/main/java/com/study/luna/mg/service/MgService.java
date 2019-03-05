@@ -8,7 +8,7 @@ import com.study.luna.mg.model.QBoardVO;
 
 public interface MgService {
 	//mgQBoard
-	
+	 
 	// 문의글 목록보기
 	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String branchName)throws Exception;
 

@@ -13,7 +13,7 @@ import com.study.luna.mg.model.SalesVO;
 
 @Service
 public class MgPCServiceImpl implements MgPCService {
-
+ 
 	@Autowired
 	private SalesDAO SalesDAO;
 	

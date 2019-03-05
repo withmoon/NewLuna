@@ -1,5 +1,5 @@
 package com.study.luna.mg.model;
-
+ 
 import java.util.Date;
 
 public class QBoardVO {

@@ -14,7 +14,7 @@ import com.study.luna.mg.model.SalesVO;
 @Repository
 public class SalesDAOImpl implements SalesDAO {
 
-
+ 
 	@Autowired
 	private SqlSession sqlSession;
 

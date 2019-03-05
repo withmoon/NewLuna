@@ -15,7 +15,7 @@ public interface BoardDAO {
 
 	//게시글 목록
 	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword, String branchName);
-	
+	 
 	public List<QBoardVO> inquireList(int start, int end); //admin 문의목록
 	public int countInqure(String title); //문의 갯수
 	

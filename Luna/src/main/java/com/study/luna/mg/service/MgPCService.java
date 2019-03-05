@@ -9,7 +9,7 @@ import com.study.luna.mg.model.SalesVO;
 public interface MgPCService {
 	// 회원리스트 검색 페이징
 	public List<SalesVO> SalesList(int start, int end, String keyword, String searchOption) throws Exception;
-
+ 
 	// 게시글 카운트
 	public int countArticle(String keyword);
 
