@@ -69,7 +69,16 @@
 		<th>삭제</th>
 	</tr>
 </thead>
-<tbody id=""></tbody>
+<tbody id="">
+<td><input type="checkbox" name="check"/></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><input type="button" value="삭제"></td>
+
+</tbody>
 </table>
 <ul id="memberPaging"></ul>
 </div>
