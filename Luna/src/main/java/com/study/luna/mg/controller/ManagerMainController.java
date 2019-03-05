@@ -24,7 +24,7 @@ import com.study.luna.pub.member.service.MemberService;
 
 @Controller
 public class ManagerMainController {
-   // ����ȭ��   
+   // 
    
    @Autowired
    private managerService managerService;
