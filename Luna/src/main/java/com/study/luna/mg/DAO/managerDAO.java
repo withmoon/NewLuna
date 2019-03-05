@@ -9,7 +9,7 @@ import com.study.luna.mg.model.StatisticsVO;
 
 public interface managerDAO {
 	//로그인 수 가져오기
-	int login();
+	int login(); 
 	//로그인수+1;
 	void logincount(); 
 	//branchname 가져오기..

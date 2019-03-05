@@ -17,7 +17,7 @@ public class SalesDAOImpl implements SalesDAO {
  
 	@Autowired
 	private SqlSession sqlSession;
-
+ 
 	/*회원현황 DB데이터 가져오기*/
 	@Override
 	public List<SalesVO> SalesList(int start, int end,String keyword,String searchOption) throws Exception {

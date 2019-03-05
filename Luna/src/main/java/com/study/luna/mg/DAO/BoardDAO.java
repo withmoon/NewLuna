@@ -12,7 +12,7 @@ import com.study.luna.mg.model.QBoardVO;
 public interface BoardDAO {
 	
 	public void insertBoard(QBoardVO vo);
-
+ 
 	//게시글 목록
 	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword, String branchName);
 	 

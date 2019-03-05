@@ -11,7 +11,7 @@ public class SalesVO {
 	private String market;
 	private Integer sales2;
 	private Integer total;
-	
+	 
 	//회원관리
 	private String id; 
 	private String name;

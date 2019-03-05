@@ -24,7 +24,7 @@ public class MgPCServiceImpl implements MgPCService {
 		return SalesDAO.SalesList(start,end,keyword,searchOption); 
 	}
 	@Override
-	public int countArticle(String keyword) {
+	public int countArticle(String keyword ) {
 		System.out.println("countArticle 서비스");
 		return SalesDAO.countArticle(keyword);
 	}

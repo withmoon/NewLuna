@@ -12,7 +12,7 @@
  			<result property="roomEx2" column="roomEx2" />
  			<result property="roomEx3" column="roomEx3" />
  			<result property="roomEx4" column="roomEx4" />
- 			<result property="inown" column="inown" />
+ 			<result property="inown" column="inown" /> 
  			<result property="joosu" column="joosu" />
  			<result property="day1" column="day1" />
  			<result property="roomExplain" column="roomExplain" />

@@ -5,7 +5,7 @@ public class BoardPager {
 		public int PAGE_SCALE = 10;
 		// 화면당 페이지 수
 		public int BLOCK_SCALE = 5;
-		private int curPage; // 현재 페이지수
+		private int curPage; // 현재 페이지수 
 		private int prevPage; // 이전 페이지
 		private int nextPage; // 파음 페이지
 		private int totPage; // 전체 페이지 갯수

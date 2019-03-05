@@ -30,7 +30,7 @@ public class mgServiceImpl  implements MgService{
 	UpUserQnaContentDAOImpl uuqDAOImpl;
 	@Autowired
 	UpUserQnaReadstDAOImpl uuqrDAOImpl;
-	
+	  
 	//게시글 페이징/검색
 	@Override 
 	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword,String branchName) throws Exception {

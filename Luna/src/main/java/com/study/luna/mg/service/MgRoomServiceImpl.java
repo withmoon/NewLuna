@@ -15,7 +15,7 @@ public class MgRoomServiceImpl implements MgRoomService {
  
 	@Autowired
 	public RoomDAO RoomDAO;
-
+ 
 	// 글 insert / 파일 insert
 	@Override
 	public void mgRoomUpload(RoomVO vo) throws Exception {

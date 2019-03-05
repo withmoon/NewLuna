@@ -14,7 +14,7 @@ public interface MgService {
 
 	public List<QBoardVO> inquireList(int start, int end, HttpSession session); //admin 문의목록
 	public int countInqure(String title); //문의 갯수
-
+ 
 
 	// 게시글 상세보기
 	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;

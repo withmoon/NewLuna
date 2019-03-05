@@ -10,7 +10,7 @@ public interface MgRoomService {
 	//방탭
 		public List<RoomVO> RoomList(RoomVO vo, String searchOption, String keyword) throws Exception;
 	
-	//방업로드
+	//방업로드 
 	public void mgRoomUpload(RoomVO vo) throws Exception;
 	public void fileUpload(String originalfileName, String saveFileName,RoomVO vo,String savePath ) throws Exception,IllegalStateException;
 

@@ -21,7 +21,7 @@ public class MgStatisticsController {
 
 		@Autowired
 		public MgStatisticsService MgStatisticsService;
-
+ 
 		// 월매출 
 		@RequestMapping(value = "/mgSalesreserve.mdo")
 		public ModelAndView mgSalesReserveView(/*@RequestParam(defaultValue = "date1") String searchOption,

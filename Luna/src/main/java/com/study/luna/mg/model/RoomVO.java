@@ -13,7 +13,7 @@ public class RoomVO {
 	private String roomEx3;
 	private String roomEx4;
 	private String inown;
-	private String joosu;
+	private String joosu; 
 	private Date day1;
 	
 	private String roomExplain;

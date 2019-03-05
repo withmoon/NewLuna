@@ -13,7 +13,7 @@
 	
 	
 	<!-- 하루별 전체목록 조회 및 검색조회 --> 
-	<select id="SalesReserveList" resultType="Statistics">
+	<select id="SalesReserveList" resultType="Statistics"> 
 	<![CDATA[
 		select reservdate ,count(*)as gunsu,sum(payamount)as total,count(DECODE(status,'-2',1)) as status,
 		count(DECODE(status,'-1',1)) as status2 from roompayment  where reservdate>='19/01/01' and 

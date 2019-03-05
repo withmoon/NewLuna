@@ -11,7 +11,7 @@
 	</select> 
 
 
-	<!-- 매출현황 테이블컬럼 -->
+	<!-- 매출현황 테이블컬럼 --> 
 	<resultMap id="sales" type="Sales">
 		<result property="date" column="dates" />
 		<result property="inone" column="Roominone" />

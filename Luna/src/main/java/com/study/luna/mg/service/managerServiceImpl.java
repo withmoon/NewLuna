@@ -16,7 +16,7 @@ public class managerServiceImpl implements managerService {
 	// 로그인수 +1
 	@Override
 	public void logincount() {
-		System.out.println("logincount+1 더하기");
+		System.out.println("logincount+1 더하기"); 
 		managerDAO.logincount();
 	}
 

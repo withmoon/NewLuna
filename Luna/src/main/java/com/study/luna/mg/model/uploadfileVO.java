@@ -13,7 +13,7 @@ public class uploadfileVO {
 	}
 	public void setRoomnum(int roomnum) {
 		this.roomnum = roomnum;
-	}
+	} 
 	public int getFilenum() {
 		return filenum;
 	}

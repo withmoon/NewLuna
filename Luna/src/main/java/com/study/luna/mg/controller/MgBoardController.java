@@ -29,7 +29,7 @@ public class MgBoardController {
 	@Autowired
 	private MgService MgService;
  
-	@Autowired
+	@Autowired 
 	private JavaMailSender mailSender;
 
 	/* 문의게시판 */

@@ -19,7 +19,7 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 		System.out.println("월매출 카운트 서비스");
 		return DAO.countArticle(searchOption,keyword);
 	}
-
+ 
 	@Override
 	public List<StatisticsVO> SalesReserveList(int start, int end, String searchOption, String keyword) {
 		System.out.println("일매출 리스트 서비스");

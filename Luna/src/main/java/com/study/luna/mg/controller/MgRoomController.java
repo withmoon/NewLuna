@@ -33,7 +33,7 @@ public class MgRoomController {
 	//방생성화면
 	
 	@Autowired
-	public MgRoomService mgRoomService;
+	public MgRoomService mgRoomService; 
 	//저장할 파일폴더
 	String filePath = "C:\\Users\\JudeKim\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
 

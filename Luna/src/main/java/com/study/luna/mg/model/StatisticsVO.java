@@ -12,7 +12,7 @@ public class StatisticsVO {
 	private int gunsu;
 	private int total;
 	private int status;
-	private int status2;
+	private int status2; 
 	
 	
 	public String getAdate() {

@@ -23,7 +23,7 @@ public class StatisticsDAOImpl implements StatisticsDAO{
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		return sqlSession.selectList("mgSalesReserveDAO.SalesReserveList");
-	}
+	} 
 
 	@Override 
 	public int countArticle(String searchOption, String keyword) {

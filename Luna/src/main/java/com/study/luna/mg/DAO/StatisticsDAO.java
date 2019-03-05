@@ -14,4 +14,4 @@ public interface StatisticsDAO {
 	// 월매출 글 카운트
 	int countArticle(String searchOption, String keyword);
 
-}
+} 

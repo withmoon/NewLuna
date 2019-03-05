@@ -18,7 +18,7 @@ public interface MgPCService {
 
 	public List<Object> excelList(SalesVO vo);
 
-	// 예약현황
+	// 예약현황 
 	public List<SalesVO> mgReserveList(int start, int end, String searchOption, String keyword, String branchName);
 	//예약현황 카운트
 	public int ReserveCount(String searchOption, String keyword, String branchName);

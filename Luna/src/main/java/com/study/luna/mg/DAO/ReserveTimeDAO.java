@@ -8,5 +8,5 @@ public interface ReserveTimeDAO {
 	//시간대 통계
 	List<ReserveTimeVO> mgAgeList();
 
-}
+} 
  

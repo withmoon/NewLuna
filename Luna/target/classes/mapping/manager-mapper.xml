@@ -7,7 +7,7 @@
 		SELECT LOGIN FROM LOGINCOUNT
 	</select>
 
-	<update id="logincount">
+	<update id="logincount"> 
 		update logincount set login=login+1 where su=1
 	</update>
 	

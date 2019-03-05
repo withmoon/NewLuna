@@ -16,7 +16,7 @@ public class RoomDAOImpl implements RoomDAO {
 
 	@Autowired
 	private SqlSession SqlSession;
- 
+  
 	@Override //방 생성 테이블 읽어오기
 	public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword) {
 		System.out.println("roomList select");

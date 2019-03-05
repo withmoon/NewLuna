@@ -76,7 +76,7 @@ public class ManagerMainController {
         String days = year+"/"+month;
         System.out.println(days);
       
-        //회원수 가져오기
+        //회원수 가져오기 
         int member = managerService.member();
       //환불수 가져오기
         int reroom = managerDAO.reroom();

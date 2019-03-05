@@ -16,12 +16,12 @@ $(document)
 					 * function(data) {
 					 *  } });
 					 */
-
+/*
 					var test1 = document.getElementsByName("test1");
 					for (var i = 0; i < test1.length; i++) {
 						alert(test1[i].innerHTML);
 					}
-
+*/
 					/* am차트 */
 					// Themes begin
 					am4core.useTheme(am4themes_animated);
@@ -40,10 +40,10 @@ $(document)
 					for (var i = 1; i <= test.length; i++) {
 						var date = new Date();
 
-						date.setHours(0, 0, 0, 0);
+						date.setHours(0, 0, 0, 0); 
 						// 일수
-						date.setDate(test[i].reservdate);
-						value = test[i].gunsu;
+						date.setDate(i);
+						value = 5
 
 						/*
 						 * Math.round((Math.random() < 0.5 ? 1 : -1)

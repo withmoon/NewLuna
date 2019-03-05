@@ -13,7 +13,7 @@ public interface SalesDAO {
 	 
 	// 테이블 카운트
 	public int countArticle(String keyword);
-
+ 
 	// 엑셀파일
 	public List<Object> getSales(SalesVO vo);
 

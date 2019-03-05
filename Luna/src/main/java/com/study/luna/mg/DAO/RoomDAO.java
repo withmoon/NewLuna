@@ -11,7 +11,7 @@ public interface RoomDAO {
 
 	//리스트 테이블가져오기
 		public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword);
-	
+	 
 	//insert
 	public int uploadFile(HashMap<String, Object> hm)throws Exception;
 	public int roomupload(RoomVO vo)throws Exception;

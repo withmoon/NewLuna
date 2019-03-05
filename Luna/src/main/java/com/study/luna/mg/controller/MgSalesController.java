@@ -28,7 +28,7 @@ public class MgSalesController {
 	//현황
 
 	@Autowired
-	private MgPCService MgPCService;
+	private MgPCService MgPCService; 
 
 	//회원관리
 	@RequestMapping(value = "/mgSales.mdo")

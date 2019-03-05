@@ -23,7 +23,7 @@ public class MgReserveTimeController {
 	//통계
 	
 	@Autowired
-	mgReserveTimeService mgReserveTimeService;
+	mgReserveTimeService mgReserveTimeService; 
 	@Autowired
 	ReportService rpser;
 	 

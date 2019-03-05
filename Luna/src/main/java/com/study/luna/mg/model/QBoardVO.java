@@ -12,9 +12,9 @@ public class QBoardVO {
 	private Date regdate;
 	private String sregdate;
 	private String content;
-	private String email;
+	private String email; 
 	private String emailcontent;
-	private int mail;
+	private int mail; 
 	private String id;
 	private int readst;
 	private String reply;

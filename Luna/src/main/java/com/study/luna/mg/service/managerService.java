@@ -10,7 +10,7 @@ public interface managerService {
 	String branchname(String id);
 	//로그인 수 가져오기
 	int login();
-	//예약수 가져오기
+	//예약수 가져오기 
 	int roomcount(HttpSession session,String days);
 	//회원가입 수 
 	public int join();
