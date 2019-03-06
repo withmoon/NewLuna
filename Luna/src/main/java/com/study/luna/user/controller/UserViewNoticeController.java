@@ -1,12 +1,12 @@
 package com.study.luna.user.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.admin.board.service.AdminNoticeBoardService;
+import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.user.comment.service.NoticeReplyService;
 import com.study.luna.user.comment.vo.NoticeReplyVO;
@@ -51,16 +52,30 @@ public class UserViewNoticeController {
 	
 	//댓글 목록
 	@RequestMapping(value="/nReplyList.udo", method=RequestMethod.GET)
-	public @ResponseBody List<NoticeReplyVO> nReplyListView(@RequestParam(value="nreList") String nreList, @RequestParam(value="num") int num,
-															ModelAndView mav, NoticeReplyVO nReplyVO,  HttpSession session) {
-		nReplyVO.setNum(num);
+	public @ResponseBody JSONObject nReplyListView(@RequestParam(value="num") int num, @RequestParam(defaultValue="1") int curPage,
+													MemberCommand memcom, NoticeReplyVO nReplyVO,  HttpSession session) {
 		
-		List<NoticeReplyVO> nReplyList = new ArrayList<NoticeReplyVO>();
-		if(nreList.equals("nreL")) {
-			nReplyList = noticeReplyService.nReplyList(num, session);
+		nReplyVO.setNum(num);
+		memcom=(MemberCommand)session.getAttribute("member");
+		//페이징 처리
+		int count = noticeReplyService.countnReply(num);
+		int page_scale = 5; // 페이지당 게시물 수
+		int block_sclae = 10; // 화면당 페이지 수
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
+		List<NoticeReplyVO> nReplyList = noticeReplyService.nReplyList(num, start, end, session);
+		
+		JSONObject obj = new JSONObject();
+		if(memcom!=null) {
+			obj.put("userid", memcom.getId());
 		}
-		mav.addObject("nReplyList", nReplyList);
-		return nReplyList;
+		obj.put("nReplyList", nReplyList);
+		obj.put("nReplyPage", boardPager);
+		return obj;
 	}
 	
 	//댓글 입력

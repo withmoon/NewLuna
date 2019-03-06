@@ -5,6 +5,7 @@ import java.util.List;
 import com.study.luna.user.comment.vo.NoticeReplyVO;
 
 public interface NoticeReplyDAO {
-	public List<NoticeReplyVO> nReplyList(int num); //댓글 목록
+	public List<NoticeReplyVO> nReplyList(int num, int start, int end); //댓글 목록
+	public int countnReply(int rno); //글 갯수
 	public void create(NoticeReplyVO nReplyVO); //댓글 입력
 }

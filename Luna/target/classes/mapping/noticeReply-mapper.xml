@@ -4,7 +4,9 @@
 <mapper namespace="noticeReplyDAO">
 	<!-- 댓글 목록 -->
 	<select id="nReplyList" resultType="nReply">
-		select rno,num, replyer, replytext, regdate, (select count(*) from noticeBoard n where n.num=num) from NoticeReply r, member m where r.replyer = m.id and num=#{num} order by rno desc
+		<include refid="pagingHeader"></include>
+		select r.rno, num, r.replyer, r.replytext, r.regdate from NoticeReply r, member m where r.replyer = m.id and num=#{num} order by rno desc
+		<include refid="pagingFooter"></include>
 	</select>
 
 	<!-- 댓글 입력 -->
@@ -12,4 +14,18 @@
 		<![CDATA[insert into NoticeReply (rno, num, replyer, replytext, regdate) values (NoticeReply_seq.NEXTVAL, #{num}, #{replyer}, #{replytext}, sysdate)
 		]]>
 	</insert>
+	
+	<!-- 게시글갯수 -->
+	<select id="countnReply" resultType="int">
+		select count(*) from NoticeReply where num=#{num}
+	</select>
+	
+	<!-- 페이징 sql -->
+	  <sql id="pagingHeader">
+	 	select * from ( select rownum as rn, A.* from(
+	 </sql>
+	 <sql id="pagingFooter">
+	 		)A
+	 	)where rn  between #{start} and #{end}
+	 </sql>
 </mapper>

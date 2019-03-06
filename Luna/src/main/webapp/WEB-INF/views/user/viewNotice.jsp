@@ -12,11 +12,9 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/user/viewNotice/js/viewNotice.js"/>"></script>
-<script>
-	
-</script>
+<script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
-<body>
+<body style="overflow-x:hidden; overflow-y:auto;">
 <header>
 <!-- 상단 메뉴 -->
 <nav>
@@ -44,17 +42,22 @@
 </div>
 <!-- 댓글 -->
 <div class="reply">
-	<b onclick="replyOnOff(${nbv.num})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
+	<b class="replyOnOff">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
 	<div class="reply2">
 	<!-- 댓글 목록 -->
 	<div class="replyList"></div>
-	<div class="pnum">[이전] <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> [다음]</div><br/>
+	<ul id="replyPaging"></ul>
 	<!-- 댓글 올리기 -->
 	<c:if test="${member.id != null }">
 	<div class="replytextForm">
 		<input type="hidden" id="num" value="${nbv.num }">
 		<textarea id="replytext" name="replytext" rows="3" cols="65" placeholder="댓글을 작성해주세요"></textarea>
     	<button onclick='writeCommand(${nbv.num})'>올리기</button>
+    </div>
+    </c:if>
+    <c:if test="${member.id == null }">
+    <div class="replytextForm">
+    	<b>로그인후 입력이 가능합니다.</b>
     </div>
     </c:if>
     </div>

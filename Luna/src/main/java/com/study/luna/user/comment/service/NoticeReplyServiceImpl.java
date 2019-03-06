@@ -17,15 +17,20 @@ public class NoticeReplyServiceImpl implements NoticeReplyService {
 	
 	//댓글 목록
 	@Override
-	public List<NoticeReplyVO> nReplyList(int num, HttpSession session) {
-		return noticeReplyDAOImpl.nReplyList(num);
+	public List<NoticeReplyVO> nReplyList(int num, int start, int end, HttpSession session) {
+		return noticeReplyDAOImpl.nReplyList(num, start, end);
 	}
+
+	//댓글 갯수
+	@Override
+	public int countnReply(int rno) {
+		return noticeReplyDAOImpl.countnReply(rno);
+	}
+
 	
 	//댓글 작성
 	@Override
 	public void create(NoticeReplyVO nReplyVO) {
 		noticeReplyDAOImpl.create(nReplyVO);
 	}
-
-	
 }
