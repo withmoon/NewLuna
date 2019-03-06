@@ -5,5 +5,5 @@ import java.util.List;
 import com.study.luna.pub.command.ReportDTO;
 
 public interface GetReportlistDAO {
-	List<ReportDTO> getReportlist(int start,int end,String id,ReportDTO rpd);
+	List<ReportDTO> getReportlist(int start,int end,ReportDTO rpd);
 }

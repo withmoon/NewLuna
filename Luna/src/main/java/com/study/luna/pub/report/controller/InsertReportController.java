@@ -32,6 +32,8 @@ public class InsertReportController {
 			HttpSession session) throws IllegalStateException, IOException {
 		// MemberCommand memcom=(MemberCommand) session.getAttribute("id");
 		// session.setAttribute("id", memcom.getId());
+		Integer seq=rpser.getReportMaxSeq();
+		filePath+=seq+"\\";
 		File dir = new File(filePath);
 		if (!dir.isDirectory()) {
 			System.out.println("디렉토리생성");
@@ -46,7 +48,7 @@ public class InsertReportController {
 		mf.transferTo(new File(savePath)); // 파일 저장
 		rpd.setFname(reportxsls);
 		rpd.setFpath(filePath);
-		rpd.setId("brman2");
+		rpd.setId("brman3");
 		rpd.setTitle((String) req.getParameter("title"));
 		String content = (String) req.getParameter("content").replace("\r\n", "<br>");
 		rpd.setContent(content);

@@ -51,7 +51,7 @@
 
 .cendmBtn{
 	border-bottom:2px solid gray;
-	width:90%;
+	width:79%;
 	position:relative;
 	top:35px;
 	left:5%;
@@ -62,6 +62,7 @@
 	position:relative;
 	top:8px;
 	right:-85%;
+	padding:4px;
 }
 
 button{

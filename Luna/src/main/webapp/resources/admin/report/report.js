@@ -1,46 +1,3 @@
-/*$(document).ready(function() {
-	$("#write").click(function() {
-		$ajax({
-			url : "boardinsert.mdo",
-			dataType : "html",
-			type : "get",
-			success : function(result) {
-				$("#board").html(result);
-				alert("성공");
-			},
-			error: function() {
-				alert("실패");
-			}			
-		});
-	});
-
-	// $("#div 아이디").load("로딩할 페이지 URL", {넘길 파라메터});
-
-});
- */
-
-/*function boardview() {
-	var	title = $("#title");
-	$.ajax({
-		type : 'get',
-		url : 'boardview.mdo',
-		data : title,
-		dataType: 'Json',
-		success : function(data) {
-			$("#board").load("boardview.mdo",data);
-			$("#board").html(data);
-			alert("성공"+$("#title"));
-		},
-		complete : function(data) {
-		
-			alert( "실패"+console.log(data));
-		},
-		error: function(data) {
-			alert("에러"+console.log(data));
-		}
-	});
-}*/ 
-
 var checked='';
 var fileUpdateSt=0;
 var searchOption='';
@@ -51,7 +8,6 @@ $(function(){
 });
 //리포트 보내기
 function changeContent(){
-	
 	$("#content").val($("#ctt").val());
 }
 //글상세보기
@@ -68,7 +24,7 @@ function writeReport(seq,title,fname,content){
 	$("#ctt").val("");
 	$("#cancleReportBtn").show();
 	$("#cancleReportBtn").attr("onclick","noinsert()");
-	$("#seqs").val(seq);
+	
 	
 	//보고 게시글 상세보기
 	if(title!=undefined&&fname!=undefined&&content!=undefined&&title!=''&&fname!=''&&content!=''){
@@ -86,7 +42,7 @@ function writeReport(seq,title,fname,content){
 		//내용 스필릿
 		var ctt=content.substring(3);
 		var ctts=ctt.replace(/<br\s*[\/]?>/gi, "\n");
-		
+		 getReportReply(seq);
 		document.getElementById("ctt").value = ctts;
 		$("#ctt").attr("disabled","disabled");
 		//버튼 변경
@@ -96,8 +52,7 @@ function writeReport(seq,title,fname,content){
 		$("#delReportBtn").show();
 		$("#delReportBtn").attr("onclick","deleteReport("+seq+")");
 		$("#cancleReportBtn").hide();
-		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>");
-		 getReportReply(seq);
+		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>")
 	}
 }
 function noinsert(){
@@ -186,9 +141,9 @@ function nosend(){
 	$("#ctt").attr("disabled","true");
 	$("#subtn").val("수정완료");
 	$("#ajaxform").attr("action","insertReport.do");
-	// $("#subtn").attr("onclick","formSubmit()");
-	 //var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
-	 //$("#ftd").append(fdom);
+	//$("#subtn").attr("onclick","formSubmit()");
+	//var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
+	//$("#ftd").append(fdom);
 	$("#cancleReportBtn").hide();
 	$("#delReportBtn").show();
 }
@@ -199,7 +154,6 @@ function getReportlist(curPage,searchOption,keyword){
 	$(".board").hide();
 	$("#board").show();
 	$("#showlistBtn").hide();
-	$("#delReportBtn").show();
 	var ktest =$.trim(keyword).substr(0,3);
 	if(ktest=='sj:'){
 		keyword=keyword.substring(3);	
@@ -208,7 +162,7 @@ function getReportlist(curPage,searchOption,keyword){
 	$.ajax({
 		type : 'POST',
 		url : 'getReportlist.do',
-		data : {curPage:curPage,searchOption:searchOption,keyword:keyword },
+		data : {curPage:curPage,searchOption:searchOption,keyword:keyword,type:'admin'},
 		success : function(data) {
 			$("#write").text("");
 			$("#write").append(data.count+"개의 개시물이 있습니다.");
@@ -217,15 +171,10 @@ function getReportlist(curPage,searchOption,keyword){
 			for(var i=0; i<data.list.length; i++){
 				dom+='<tr>';
 				dom+='<td>'+data.list[i].num+'</td>';   //들어가면 title이 잇으면 경로를 따로 줌  //보고 올리기 버튼을 수정하기로 수정 //나중에 css에서 커서 처리
-			
+				dom+='<td>'+data.list[i].branchName+'</td>';
+				dom+='<td>'+data.list[i].name+'</td>';
 				dom+='<td onclick="writeReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
 				dom+='<td>'+data.list[i].regdate+'</td>';
-				if(data.list[i].isreply==0){
-					dom+='<td>댓글이 없습니다.</td>';
-				}
-				if(data.list[i].isreply==1){
-					dom+='<td>댓글이 달렸습니다.</td>';
-				}
 				dom+='<td><input id="chk'+data.list[i].seq+'" type="checkbox" onclick="checkSeq('+data.list[i].seq+')"/></td>'; //삭제 누르면 한방에 삭제 
 				dom+='</tr>';
 			}

@@ -60,8 +60,8 @@ public class ApproveController {
 	
 	
 	@RequestMapping(value="/approvedelete.ado")
-	public String approvedelete(String id)throws Exception{
+	public String approvedelete(@RequestParam("id")String id , @RequestParam("type")String type)throws Exception{
 		adminManagerApproveService.approvedelete(id);
-		return "redirect:/infoList.ado";
+		return "redirect:/"+type+".ado";
 	}
 }

@@ -20,4 +20,7 @@ public class ReportDTO {
 	String fpath;
 	String searchOption;
 	String keyword;
+	
+	String branchName;
+	String name;
 }

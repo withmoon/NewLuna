@@ -84,7 +84,7 @@
 						</tr>
 					</table>
 				</form>
-				<button style="margin:1%; padding:3px" onclick="writeReport()">보고 올리기</button> <button hidden="true" style="margin:1%; padding:3px" onclick="deleteReport()"> 삭제 </button>
+				<button style="margin:1%; padding:3px" onclick="writeReport()">보고 올리기</button> <button style="margin:1%; padding:3px" id="delReportBtn" onclick="deleteReport()"> 삭제 </button>
 				<br/>
 				
 				
@@ -113,7 +113,7 @@
 				<table style="background-color:lightgray; border-collapse:collapse">
 				<tr>
 				<td  colspan="2"  id="reportTt">제목</td>
-				<td><input id="title" name="title" type="text" size="88"/></td>
+				<td><input id="title" name="title" type="text" size="88"/></td><td><input type="hidden" id="seqs" name="seqs"/></td>
 				</tr>
 				<tr>
 				<td  colspan="2">첨부파일</td><!-- <a href="path_to_file" download="proposed_file_name">Download</a>  파일 첨부--> 

@@ -23,7 +23,7 @@ function approveList(apage) {
 	    		 app += '<td  onclick="sendEmailToMembers(&#039'+data.approveList[i].email+'&#039)">'+data.approveList[i].email+'</td>';
 	    		 app += '<td>'+data.approveList[i].branchName+'</td>';
 	    		 app += '<td>'+data.approveList[i].branchAddr1+'</td>';
-	    		 app += '<td><a href="javascript:sendpproveEmail(&#039'+data.approveList[i].id+'&#039,&#039'+data.approveList[i].email+'&#039)">승인</a>&emsp;<a href="approvedelete.ado?id='+data.approveList[i].id+'">거절</a></td>';
+	    		 app += '<td><a href="javascript:sendpproveEmail(&#039'+data.approveList[i].id+'&#039,&#039'+data.approveList[i].email+'&#039)">승인</a>&emsp;<a href="approvedelete.ado?id='+data.approveList[i].id+'&type=approve">거절</a></td>';
 	    		 app += '</tr>';
 	    		 console.log(data.approveList[i].id);
 	    	 }

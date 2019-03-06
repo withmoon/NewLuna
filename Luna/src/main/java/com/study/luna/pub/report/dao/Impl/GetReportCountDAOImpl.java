@@ -14,8 +14,11 @@ public class GetReportCountDAOImpl implements GetReportCountDAO {
 
 	@Override
 	public Integer getReportCount(ReportDTO rpd) {
-		
-		return sqlSession.selectOne("reportDAO.getReportCount",rpd);
+		if(rpd.getId().equals("")) {
+			return sqlSession.selectOne("reportDAO.getReportCount",rpd);
+		}else {
+			return sqlSession.selectOne("reportDAO.getBranchReportCount",rpd);
+		}
 	}
 
 }

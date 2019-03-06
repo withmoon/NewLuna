@@ -32,7 +32,7 @@ public class AdminMailController {
 	@Autowired
 	AdminManagerApproveService adminManagerApproveService;
 	
-	String filePath="C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\mailImg\\";
+	String filePath="C:\\ProgramData\\DalBitmailImg\\";
 
 	@RequestMapping(value = "/adminmail.ado")
 	public String mainView() {
@@ -143,7 +143,7 @@ public class AdminMailController {
 		if(!jspname.equals("")) {
 			return "redirect:/"+jspname+".ado";
 		}
-		return "member";
+		return "redirect:/member.ado";
 	}
 	
 	
