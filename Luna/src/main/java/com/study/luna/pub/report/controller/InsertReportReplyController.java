@@ -16,9 +16,14 @@ public class InsertReportReplyController {
 	ReportService rpser;
 	
 	@RequestMapping(value="/insertReportReply.do", method=RequestMethod.POST)
-	public @ResponseBody void insertReportReply(ReportReplyDTO rrd,@RequestParam("seq") int reportseq,@RequestParam("reply") String reply) {
+	public @ResponseBody void insertReportReply(ReportReplyDTO rrd,@RequestParam("seq") int reportseq,@RequestParam("reply") String reply,@RequestParam(value="type",required=false,defaultValue="") String type) {
 		//session의 브랜치 네임 가져오기
-		rrd.setBranchname("토즈 강남점");
+		if(type.equals("admin")) {
+			rrd.setBranchname("본점");
+		}else {
+			rrd.setBranchname("토즈 강남점");
+		}
+		
 		rrd.setReply(reply);
 		rrd.setReportseq(reportseq);
 		rpser.insertReportReply(rrd);

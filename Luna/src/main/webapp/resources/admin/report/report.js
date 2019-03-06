@@ -8,6 +8,7 @@ $(function(){
 });
 //리포트 보내기
 function changeContent(){
+	
 	$("#content").val($("#ctt").val());
 }
 //글상세보기
@@ -55,7 +56,6 @@ function updatesReport(seq,title,fname,content){
 		
 		$("#ftd").children().remove(); //파일
 		var fdom='<a href="resources/report/'+seq+'/'+fname+'" download="'+fname+'">'+fname+'</a>';
-		console.log("resources/report/"+seq+"/"+fname);
 		$("#ftd").append(fdom);
 		//내용 스필릿
 		var ctt=content.substring(3);
@@ -71,6 +71,8 @@ function updatesReport(seq,title,fname,content){
 		$("#delReportBtn").attr("onclick","deleteReport("+seq+")");
 		$("#cancleReportBtn").hide();
 		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>");
+		console.log(seq+"여니거 없어");
+		$("#inRpBtn").attr("onclick","insertReportReply("+seq+")")
 		getReportReply(seq);
 }
 function noinsert(){
@@ -80,7 +82,6 @@ function noinsert(){
 }
 //리포트 수정
 function updatingReport(seq,fname){
-	console.log("없뎃하는중");
 	var fname=fname.substring(3);
 	$("#ctt").removeAttr("disabled");
 	$("#subtn").val("수정완료");
@@ -89,12 +90,11 @@ function updatingReport(seq,fname){
 	var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
 	$("#ftd").append(fdom);
 	$("#cancleReportBtn").show();
+	$("#cancleReportBtn").attr("onclick","nosend()");
 	$("#delReportBtn").hide();
 } //파일 수정
 function updatingFile(seq,fname){
 	var fname=fname.substring(3);
-	
-	console.log(fname);
 	$("#ftd").children().remove(); //파일
 	var fdom='<input type="file"  name="ffname"  id="ffname"/> <input type="button" onclick="cancleFileUpdate('+seq+',&#039sj:'+fname+'&#039)" value="취소">';
 	$("#ftd").append(fdom);
@@ -103,14 +103,12 @@ function updatingFile(seq,fname){
 function cancleFileUpdate(seq,fname){
 	var fname=fname.substring(3);
 	$("#ftd").children().remove(); //파일
-	console.log(seq+" "+fname);
 	var fdom='<a href="resources/report/'+seq+'/'+fname+'" download="'+fname+'">'+fname+'</a>&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
 	$("#ftd").append(fdom);
 	fileUpdateSt=0;
 }
 //폼 업데이트 시기기
 function formSubmit(){
-	console.log("업뎃하께");
 	$("#subtn").attr("type","submit");
 }
 
@@ -126,7 +124,6 @@ function deleteReport(seq){
 	if(confirm("정말로 삭제하시겠습니까?")){
 		if(seq==undefined||seq==''){
 			checked=checked.substr(0,checked.length-1);
-			console.log(checked);
 			$.ajax({
 				type : 'POST',
 				url : 'deleteReport.do',
@@ -170,7 +167,6 @@ function nosend(){
 	$("#showlistBtn").hide();
 	$("#delReportBtn").show();
 }
-
 //리포트 가져오기
 function getReportlist(curPage,searchOption,keyword){
 	$(".reply").hide();
@@ -181,7 +177,6 @@ function getReportlist(curPage,searchOption,keyword){
 	if(ktest=='sj:'){
 		keyword=keyword.substring(3);	
 	}
-	console.log(keyword);
 	$.ajax({
 		type : 'POST',
 		url : 'getReportlist.do',
@@ -196,7 +191,7 @@ function getReportlist(curPage,searchOption,keyword){
 				dom+='<td>'+data.list[i].num+'</td>';   //들어가면 title이 잇으면 경로를 따로 줌  //보고 올리기 버튼을 수정하기로 수정 //나중에 css에서 커서 처리
 				dom+='<td>'+data.list[i].branchName+'</td>';
 				dom+='<td>'+data.list[i].name+'</td>';
-				dom+='<td onclick="writeReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
+				dom+='<td onclick="updatesReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
 				dom+='<td>'+data.list[i].regdate+'</td>';
 				dom+='<td><input id="chk'+data.list[i].seq+'" type="checkbox" onclick="checkSeq('+data.list[i].seq+')"/></td>'; //삭제 누르면 한방에 삭제 
 				dom+='</tr>';

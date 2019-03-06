@@ -12,7 +12,7 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
 <script src="<c:url value="/resources/admin/report/report.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/manager/js/reportreply.js"/>"></script>
+<script src="<c:url value="/resources/admin/report/reportreply.js"/>"></script>
 <style>
 #pnum  li{
 	text-decoration:none;
@@ -47,6 +47,7 @@
              <li><a href="reportboard.ado">보고게시판</a></li>
               <li><a href="howtouseboard.ado">이용가이드</a></li>
             <li><a href="member.ado">회원관리</a></li>
+            <li><a href="admininfo.ado">관리자정보</a></li>
            
          </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -87,7 +88,7 @@
 						</tr>
 					</table>
 				</form>
-				<button style="margin:1%; padding:3px" onclick="writeReport()">보고 올리기</button> <button hidden="true" style="margin:1%; padding:3px" onclick="deleteReport()"> 삭제 </button>
+			<button style="margin:1%; padding:3px" onclick="deleteReport()"> 삭제 </button>
 				<br/>
 				
 				
@@ -129,9 +130,6 @@
 				<tr>
 				<td  colspan="3" id="ctts"><textarea cols="97" id="ctt" rows="20"></textarea><input type="hidden" id="content" name="content" value=""/></td>
 				</tr>
-				<tr>
-				<td  colspan="3" align="center" class="sendReportBtn"><input id="subtn" style="margin:1%; padding:3px" type="submit" value="올리기"/> <input type="button" id="delReportBtn" hidden="true" style="margin:1%; padding:3px" value="삭제"> <input id="cancleReportBtn" hidden="true" type="button" style="margin:1%; padding:3px" onclick="nosend()" value="취소"></td>
-				</tr>
 			</table>
 			</form>
 		</div>
@@ -140,7 +138,7 @@
 		<div class="reply" hidden="true">
 			<table style="background-color:beige; border-collapse:collapse">
 				<tr><th colspan="2">댓글 올리기</th></tr>
-				<tr><td><textarea id="replytx" cols="92" rows="5" ></textarea></td><td><button style="height:80px" onclick="insertReportReply()">올리기</button></td></tr>
+				<tr><td><textarea id="replytx" cols="92" rows="5" ></textarea></td><td><button id="inRpBtn" style="height:80px" onclick="insertReportReply()">올리기</button></td></tr>
 			</table>
 			<table style="background-color:beige; border-collapse:collapse" id="replylist">
 				<thead><tr><th>댓글</th></tr></thead>

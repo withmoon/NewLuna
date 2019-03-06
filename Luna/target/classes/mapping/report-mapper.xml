@@ -15,10 +15,10 @@
 	<select id="getReportCount" resultType="Integer">
 		select count(*) from report 
 		<if test="searchOption=='title' and keyword!=''">
-			<![CDATA[ and title like '%'||#{keyword}||'%']]>
+			<![CDATA[ where title like '%'||#{keyword}||'%']]>
 		</if>
 		<if test="searchOption=='content' and keyword!=''">
-			<![CDATA[ and content like '%'||#{keyword}||'%']]>
+			<![CDATA[ where content like '%'||#{keyword}||'%']]>
 		</if>
 	</select>
 	
@@ -38,10 +38,10 @@
 	  <include refid="payAndReservDAO.pagingHeader"/>
 		<![CDATA[select rownum as num,rp.*,(select branchname from member where id=rp.id) as branchName,(select name from member where id=rp.id) as name,(select DISTINCT reportseq from reportreply where branchname='본점' and reportseq=rp.seq) as isreply from report rp ]]>
 		<if test="rpd.searchOption=='title' and rpd.keyword!=''">
-			<![CDATA[ and title like '%'||#{rpd.keyword}||'%']]>
+			<![CDATA[ where title like '%'||#{rpd.keyword}||'%']]>
 		</if>
 		<if test="rpd.searchOption=='content' and rpd.keyword!=''">
-			<![CDATA[ and content like '%'||#{rpd.keyword}||'%']]>
+			<![CDATA[ where content like '%'||#{rpd.keyword}||'%']]>
 		</if>
 		order by seq desc
 		<include refid="payAndReservDAO.pagingFooter"/>
