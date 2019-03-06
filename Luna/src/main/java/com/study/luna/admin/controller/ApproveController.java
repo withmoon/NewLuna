@@ -64,14 +64,4 @@ public class ApproveController {
 		adminManagerApproveService.approvedelete(id);
 		return "redirect:/infoList.ado";
 	}
-
-	
-	@RequestMapping(value = "/approval.ado" ,method=RequestMethod.GET)
-	public String View(@ModelAttribute AdminManagerApproveVO vo)throws Exception{
-		adminManagerApproveService.approveupdate(vo);  
-	return "redirect:/approveList.ado";
-	}
-	
-	
-	 
 }

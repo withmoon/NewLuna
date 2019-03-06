@@ -82,7 +82,41 @@
 
 
 
+<div hidden="true" class="explur">
+<form id="appform" name="appform" action="sendemail.ado" method="POST" enctype="multipart/form-data">
+<table>
+	<thead>
+		<tr>
+			<th>메일 보내기</th>
+		</tr>
+	</thead>
+	
+	<tr class="emailcontents" hidden="true">
+	<td>
+		<input id="extitle" name="title" type="text" size="80" placeholder="제목을 입력해주세요"/>
+		<input hidden="true" name="jspname" id="jspname" value=""/><input hidden="true" id="ems" name="email" value=""/>
+		<input hidden="true" id="type" name="type" value=""/><input hidden="true" id="id" name="id" value=""/>
+	</td>
+	</tr>
+	<tr class="emailcontents" hidden="true">
+	<td>
+		<input id="filename" name="filename" type="file"/>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<textarea id="excontent" name="content" cols="80" rows="5" placeholder="사유를 입력해주세요."></textarea>
+	</td>
+	</tr>
+	<tr align="center" style="background-color:#eeeeee;">
+	<td>
+		<input type="submit" id="sendToUser" value="보내기"/>&emsp;<input type="button" onclick="cancleExplur()" value="취소">
+	</td>
+	</tr>
+</table>
+</form>
 
+</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>

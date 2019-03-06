@@ -5,8 +5,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.study.luna.admin.model.vo.AdminManagerApproveVO;
-
 @Repository
 public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 
@@ -14,13 +12,12 @@ public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 	SqlSession sqlsession;
 
 	@Override
-	public void approveupdate(AdminManagerApproveVO vo) throws Exception {
-	
-			sqlsession.update("luna.admin.board.approveupdate", vo);
+	public void approveupdate(String id){
+			sqlsession.update("luna.admin.board.approveupdate", id);
 	}
 
 	@Override
-	public void approvedelete(String id) throws Exception {
+	public void approvedelete(String id){
 		sqlsession.delete("luna.admin.board.approvedelete",id);
 		
 	}

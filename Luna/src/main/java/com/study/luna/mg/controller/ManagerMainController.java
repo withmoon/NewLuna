@@ -44,9 +44,8 @@ public class ManagerMainController {
       if ((flashMap.get("id") == null || flashMap.get("id").equals("")) && session.getAttribute("id") == null) {
          System.out.println("카카오 로그인 실패");
          return logincheck();
-      }else if(!(session.getAttribute("id")==null)){
+      }else if(!session.getAttribute("id").equals(null)){
          System.out.println("세션에서 매니저ID 확인");
-         
          
          String id=(String) session.getAttribute("id");
          String bn = managerService.branchname(id); //지점 검색

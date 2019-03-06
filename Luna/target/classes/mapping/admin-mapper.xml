@@ -45,10 +45,8 @@
 
    </select> -->
 
-   <update id="approveupdate" parameterType="adminManagerApproveVO">
-
-      update member set brStatus=#{brStatus}+0 where id=#{id}
-
+   <update id="approveupdate">
+      <![CDATA[update member set brstatus=0 where id=#{id}]]>
    </update>
 
    <delete id="approvedelete">
