@@ -2,13 +2,15 @@ package com.study.luna.mg.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.study.luna.mg.model.RoomVO;
 import com.study.luna.mg.model.uploadfileVO;
 
 public interface MgRoomService {
 	 
 	//방탭
-		public List<RoomVO> RoomList(RoomVO vo, String searchOption, String keyword) throws Exception;
+	public List<RoomVO> RoomList(HttpSession session,int start, int end, RoomVO vo, String searchOption, String keyword) throws Exception;
 	
 	//방업로드 
 	public void mgRoomUpload(RoomVO vo) throws Exception;

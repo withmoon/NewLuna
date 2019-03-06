@@ -67,9 +67,15 @@ public class MgPCServiceImpl implements MgPCService {
 	}
 	//환불하기
 	@Override
-	public void mgReserve(QBoardVO vo) {
-		System.out.println("mgReserve 서비스");
-		SalesDAO.mgReserve(vo);
+	public List<SalesVO> mgRefund(int start, int end, String searchOption, String keyword, String branchName) {
+		System.out.println("mgRefund 서비스");
+		return SalesDAO.mgRefund(start,end, searchOption,keyword,branchName);
 	}
+	@Override //환불하기 리스트 카운트
+	public int RefundCount(String searchOption, String keyword, String branchName) {
+		System.out.println("RefundCount 서비스");
+		return SalesDAO.RefundCount(searchOption,keyword,branchName);
+	}
+	
 	
 }

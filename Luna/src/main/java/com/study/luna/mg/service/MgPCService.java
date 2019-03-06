@@ -24,7 +24,12 @@ public interface MgPCService {
 	public int ReserveCount(String searchOption, String keyword, String branchName);
 	
 	//환불하기
-	public void mgReserve(QBoardVO vo);
+	public List<SalesVO> mgRefund(int start, int end, String searchOption, String keyword, String branchName);
+	//환불하기 리스트 카운트
+	public int RefundCount(String searchOption, String keyword, String branchName);
+
+	
+	
 
 	
 	
