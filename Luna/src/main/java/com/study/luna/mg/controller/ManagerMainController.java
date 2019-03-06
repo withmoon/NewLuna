@@ -17,14 +17,12 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.mg.DAO.managerDAO;
 import com.study.luna.mg.model.QBoardVO;
-import com.study.luna.mg.model.StatisticsVO;
 import com.study.luna.mg.service.managerService;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
 
 @Controller
 public class ManagerMainController {
-   // 
    
    @Autowired
    private managerService managerService;

@@ -24,6 +24,12 @@
 	<select id="countArticle" resultType="int"> 
 		select count(*) from room where branchName = #{branchName}
 	</select>
+	<select id="roomcount" resultType="int">
+		SELECT min(roomnum+1) FROM room WHERE roomnum+1 NOT IN (SELECT roomnum FROM room)
+	</select>
+	<select id="roomLocate" resultType="String">
+		select branchaddr1 as roomLocate from member where branchName = #{branchName}
+	</select> 
 
 
 	<!-- 룸 테이블 -->
@@ -62,9 +68,9 @@
   		 ]]>
 	</insert>
 	<insert id="RoomFile" parameterType="hashmap">
-		 <![CDATA[
+		 <![CDATA[ 
 		  INSERT INTO ROOMFILE (ROOMNUM,FILENUM,ONAME,FNAME) 
-		  							VALUES ( #{roomnum},#{filenum}, #{originalfileName})
+		  							VALUES ( #{roomnum},#{filenum}, #{originalfileName},#{saveFileName})
   		 ]]>
 	</insert>
 

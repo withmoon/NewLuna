@@ -8,6 +8,75 @@ $(document).ready(function() {
 	$("#input_img5").on("change",Img5FileSelect);
 });
 
+function check(){
+	theForm = document.form;
+	
+	if(theForm.roomnum.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomnum.focus();
+		}
+	if(theForm.branchName.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.branchName.focus();
+		}
+	if(theForm.roomName.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");  
+		return theForm.roomName.focus();
+		}
+	if(theForm.Price.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.Price.focus();
+	}
+	if(theForm.roomLocate.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomLocate.focus();
+	}
+	if(theForm.roomEx1.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomEx1.focus();
+	}
+	if(theForm.roomEx2.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomEx2.focus();
+	}
+	if(theForm.roomEx3.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomEx3.focus();
+	}
+	if(theForm.roomEx4.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomEx4.focus();
+	}
+	if(theForm.roomExplain.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomExplain.focus();
+	}
+	if(theForm.roomWarn.value==""){
+		alert("해당 필드값이 입력되지 않았습니다.");
+		return theForm.roomWarn.focus();
+	}
+	if(theForm.img.value==""){
+		alert("이미지 전부 업로드 하지 않으셨습니다.");
+		return 
+	}
+	if(theForm.input_img1.value==""){
+		alert("이미지1 전부 업로드 하지 않으셨습니다.");
+		return 
+	}
+	if(theForm.input_img2.value==""){
+		alert("이미지2 전부 업로드 하지 않으셨습니다.");
+		return 
+	}
+	if(theForm.input_img3.value==""){
+		alert("이미지3 전부 업로드 하지 않으셨습니다.");
+		return 
+	}
+	if(theForm.input_img4.value==""){
+		alert("이미지4 전부 업로드 하지 않으셨습니다.");
+		return
+	}
+	theForm.submit();
+}
 
 
  /*메인이미지 썸네일*/

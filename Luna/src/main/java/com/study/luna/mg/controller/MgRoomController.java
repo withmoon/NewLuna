@@ -36,7 +36,7 @@ public class MgRoomController {
 	@Autowired
 	public RoomDAO RoomDAO;
 	//저장할 파일폴더
-	String filePath = "C:\\Users\\JudeKim\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
+	String filePath = "C:\\Users\\진혁\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
 
 	//방관리화면 
 		@RequestMapping(value = "/mgRoom.mdo")
@@ -48,7 +48,7 @@ public class MgRoomController {
 			if(session.getAttribute("branchName")==null){
 				 System.out.println("카카오 로그인 실패");
 				 mv.setViewName("loginX.mdo");
-		         return mv;
+		         return mv; 
 			}
 			
 			//디렉토리 없으면 생성
@@ -57,8 +57,9 @@ public class MgRoomController {
 				System.out.println("디렉토리생성");
 				dir.mkdirs();
 			}
-			// 레코드계산
+			// 리스트 갯수 계산 
 			int count = RoomDAO.countArticle(searchOption, keyword, session);
+			
 			System.out.println(count + "개");
 
 			int page_scale = 15;
@@ -78,8 +79,10 @@ public class MgRoomController {
 			map.put("keyword", keyword);
 			map.put("boardPager", boardPager);
 			
-			mv.setViewName("body/room/mgRoom");
+			
 			mv.addObject("map", map);
+			mv.setViewName("body/room/mgRoom");
+			
 
 			return mv;
 		}
@@ -88,11 +91,15 @@ public class MgRoomController {
 	@RequestMapping(value = "/RoomUpload.mdo", method = RequestMethod.GET)
 	public ModelAndView mgRoomUpload(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		//,방번호 , 주소
+		int roomcount = RoomDAO.roomcount();
+		String roomLocate = RoomDAO.roomLocate(session);
 		
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("branchName",session.getAttribute("branchName"));
 		map.put("session",session);
-		
+		map.put("roomcount",roomcount);
+		map.put("roomLocate",roomLocate); 
 		mv.setViewName("body/room/roomupload");
 		mv.addObject("map", map);
 		
@@ -105,7 +112,10 @@ public class MgRoomController {
 			@ModelAttribute("room") RoomVO vo) throws Exception, IllegalStateException {
 		System.out.println("룸 업로드 컨트롤러 시작");
 		System.out.println("파일업로드 테스트");
-
+		vo.setRoomnum(Integer.parseInt(req.getParameter("roomnum")));
+		vo.setBranchName(req.getParameter("branchName"));
+		vo.setRoomLocate(req.getParameter("roomLocate"));
+		
 		// textarea 줄내림 db 인식 처리
 		if (vo.getRoomExplain() == null) {
 			System.out.println("상세내용 없음");

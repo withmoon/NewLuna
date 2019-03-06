@@ -41,6 +41,18 @@ public class RoomDAOImpl implements RoomDAO {
 		map.put("branchName",session.getAttribute("branchName"));
 		return SqlSession.selectOne("mgRoomDAO.countArticle",map);
 	}
+	@Override //방 최소번호 카운트
+	public int roomcount() {  
+		System.out.println("roomList roomcount");		
+		return SqlSession.selectOne("mgRoomDAO.roomcount");
+	}
+	@Override //방 주소 가져오기
+	public String roomLocate(HttpSession session) {
+		System.out.println("roomList roomLocate");	
+		String branchName=(String) session.getAttribute("branchName");
+		return SqlSession.selectOne("mgRoomDAO.roomLocate",branchName);
+	}
+	
 	@Override //룸 text db
 	public int roomupload(RoomVO vo) {
 		System.out.println("roomtext DB 수행");
@@ -89,6 +101,9 @@ public class RoomDAOImpl implements RoomDAO {
 		System.out.println("roomfile delete DAO");
 		SqlSession.delete("mgRoomDAO.RoomFileDelete",roomnum);
 	}
+
+	
+
 	
 
 

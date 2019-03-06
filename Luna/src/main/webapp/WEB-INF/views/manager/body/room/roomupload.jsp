@@ -60,12 +60,12 @@
 						</div>
 					</div>
 					<div id="room1">
-						룸번호 : <input type="text" name="roomnum"><br/>
+						룸번호 : <input type="text" name="roomnum" value="${map.roomcount }" readonly><br/>
 						지점명 : <input type="text" name="branchName" value="${branchName}" readonly><br/>
 						방이름 : <input type="text" name="roomName"><br/>
-						<!-- 등록일 : <input type="text" name="day1"><br/> -->
+						<!-- 등록일 : <input type="text" name="day1"><br/> --> 
 						 가 &nbsp;&nbsp;격 : <input type="text" name="Price"><br/>
-				      	 주 &nbsp;&nbsp;소 : <input type="text" name="roomLocate">
+				      	 주 &nbsp;&nbsp;소 : <input type="text" name="roomLocate" value="${map.roomLocate} ${branchName}" readonly>
 					</div>
 
 
@@ -82,16 +82,16 @@
 					<div id="file">
 						<ul id="fileul">
 							<li>방 이미지1 : <input type="file" name="input_img" id="input_img2"><br/>
-								<div><img id="img2"></div>
+								<div><img id="img2" name="input_img1"></div>
 							</li>
 							<li>방 이미지2 : <input type="file" name="input_img" id="input_img3"><br/>
-								<div><img id="img3"></div>
+								<div><img id="img3" name="input_img2"></div>
 							</li>
 							<li>방 이미지3 : <input type="file" name="input_img" id="input_img4"><br/>
-								<div><img id="img4"></div>
+								<div><img id="img4" name="input_img3"></div>
 							</li>
 							<li>방 이미지4 : <input type="file" name="input_img" id="input_img5"><br/>
-								<div><img id="img5"></div>
+								<div><img id="img5" name="input_img4"></div>
 							</li>
 						</ul>
 					</div>
@@ -110,7 +110,7 @@
 				<div id="buttons">
 					<input type="button" value="취소" class="button">
 					<input type="reset"	value="초기화" class="button"> 
-					<input type="submit" value="등록" class="button">
+					<input type="button" value="등록" class="button" onclick="check()">
 				</div>
 			</form>
 
