@@ -22,7 +22,7 @@
 	<insert id="insertMember">
 		insert into member
 		<if test="kid==''and branchName==null">
-			(id,pw,name,phone,birth,email,brStatus) values(#{id},#{pw},#{name},#{phone},#{birth},#{email},1)
+			(id,pw,name,phone,birth,email,brStatus) values(#{id},#{pw},#{name},#{phone},#{birth},#{email},0)
 		</if>
 		<if test="kid!=''and branchName==null">
 			(id,pw,name,phone,birth,email) values(#{kid},#{pw},#{name},#{phone},#{birth},#{email})
