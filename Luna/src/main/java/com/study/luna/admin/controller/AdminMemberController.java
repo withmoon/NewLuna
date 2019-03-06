@@ -31,7 +31,7 @@ public class AdminMemberController {
    @RequestMapping(value="/aMemberList.ado", method=RequestMethod.GET)
     public @ResponseBody JSONObject aMemberList(@RequestParam(defaultValue="1") int curPage,
     											MemberCommand mc, HttpSession session) {
-	//페이징 처리
+	//페이징 처리 
    	int count = memberService.countMember(mc.getId());
    			
    	int page_scale = 10; // 페이지당 게시물 수

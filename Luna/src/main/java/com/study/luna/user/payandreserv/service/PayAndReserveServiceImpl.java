@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.user.dto.MyPageInfoDTO;
 import com.study.luna.user.dto.RoomPaymentDTO;
 import com.study.luna.user.dto.RoomReserveDTO;
+import com.study.luna.user.payandreserv.dao.SetBaseLineDAO;
 import com.study.luna.user.payandreserv.dao.Impl.CancleReserveDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.CheckReservStartdateDAOImpl;
 import com.study.luna.user.payandreserv.dao.Impl.GetPreDayReserveCountDAOImpl;
@@ -47,7 +48,8 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	GetPreMonthReserveCountDAOImpl gpmrcDAOImpl;
 	@Autowired
 	GetTermSalesDAOImpl gtsDAOImpl;
-	
+	@Autowired
+	SetBaseLineDAO setBaseLineDAO;
 	@Override
 	public Integer checkReservStartdate(RoomReserveDTO romre) {
 		return crsdDAOImpl.checkReservStartdate(romre);
@@ -95,5 +97,9 @@ public class PayAndReserveServiceImpl implements PayAndReserveService{
 	@Override
 	public List<RoomPaymentDTO> getTermSales(String paid_at_start, String paid_at_end) {
 		return gtsDAOImpl.getTermSales(paid_at_start, paid_at_end);
+	}
+	@Override
+	public void setBaseLine(RoomPaymentDTO dto) {
+		setBaseLineDAO.setBaseLine(dto);
 	}
 }
