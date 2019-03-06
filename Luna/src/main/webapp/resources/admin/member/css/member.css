@@ -13,31 +13,87 @@
  height: 200px;
 }
 
-@charset "EUC-KR";
-
-.type1 {
- padding :0px;
- padding-top: 250px;
- padding-left: 620px;
-}
-.vv2{
- position: fixed;
- top:180px;
- right:0px;
- width: 980px;
- height: 200px;
+/*회원정보 버튼*/
+.info-container {
+   margin: 0px auto;
 }
 
-/*공지사항 게시판*/
+.infoTap {
+   display: flex;
+   width: 80%;
+   box-sizing: border-box;
+   list-style: none;
+   position: relative;
+   left:9%;
+}
+
+.infoTap li {
+   display: flex-block;
+   width: 100%;
+   border: 1px solid #e9e9eb;
+   box-sizing: border-box;
+   text-align: center;
+   padding:1.5%;
+}
+
+.infoTap li {
+   background-color: #fff;
+}
+
+.infoTap li:hover, .infoTap li.active
+   {
+   background-color: #c0c0c0;
+}
+
+.infoTap li:hover a, .infoTap li.active a
+   {
+   color: #fff;
+}
+
+/*선택된아이디*/
+.container b{
+	position:relative;
+	left:5%;
+	top: 30px;
+}
+
+.cendmBtn{
+	border-bottom:2px solid gray;
+	width:90%;
+	position:relative;
+	top:35px;
+	left:5%;
+	height:auto;
+}
+
+.sendmBtn{
+	position:relative;
+	top:8px;
+	right:-85%;
+}
+
+button{
+    background-color: #337ab7;
+    border: none;
+    color: white;;
+    
+}
+
+button:hover{
+    background-color: #286090;
+}
+
+/*유저 게시판*/
 table th {
     background-color: #eeeeee;
     text-align: center;
 }
 
 .row {
-    width:80%;
+    width:95%;
     position: relative;
-    left: 13%;
+    left: 5%;
+    top: 15px;
 }
 
 /*페이지*/
@@ -46,10 +102,11 @@ table th {
 	width: 100%;
 	font-size: 1.5vw;
 	position:relative;
-	left:40%;
+	left:-4%;
 }
 
-#memberPaging li {float:left; 
+#memberPaging li {
+	float:left; 
     list-style:none; 
     margin:1px;
 }
@@ -60,16 +117,4 @@ table th {
 	top:200px;
 	left:230px;
 }
-.sendmBtn{
-	position:relative;
-	top:-30px;
-	right:-82%;
-}
-.cendmBtn{
-	border-bottom:2px solid gray;
-	width:70%;
-	position:relative;
-	top:6px;
-	left:11.3%;
-	height:auto;
-}
+

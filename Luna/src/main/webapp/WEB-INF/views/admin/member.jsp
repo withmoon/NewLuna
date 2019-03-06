@@ -56,13 +56,24 @@
       <h3>회원관리게시판</h3>
    </div>
    <br></br>
+   
+<!-- 진행(종료) 이벤트버튼 -->
+<section>
+<div class="info-container">
+	<ul class="infoTap">
+		<li class="userinfo">일반회원정보</li>
+		<li class="branchinfo">지점장정보</li>
+	</ul>
+</div>
+</section>   
+
 <div class="container">
-<b style="position:relative; left:103px;">[선택된 아이디]</b>
+<b>[선택된 아이디]</b>
 <div class="cendmBtn"></div><button class="sendmBtn" onclick="sendEmailToMembers()"> 메일 보내기 </button>
 <div class="row">
 
 <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-<thead>
+<!-- <thead>
 	<tr>
 		<th><input type="checkbox" id="allSeq" onclick="checkAll()"/></th>
 		<th>이름</th>
@@ -72,7 +83,7 @@
 		<th>회원상태</th>
 	</tr>
 </thead>
-<tbody id="member_table"></tbody>
+<tbody id="member_table"></tbody> -->
 </table>
 
 <ul id="memberPaging"></ul>

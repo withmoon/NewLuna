@@ -4,6 +4,16 @@ var emails='';
 var ids='';
 $(function() {
 	memberList(1);
+	
+	//회원
+	$('.userinfo').click(function() {
+		memberList(1);
+	});
+	
+	//지점장
+	$('.branchinfo').click(function() {
+		infoList(1);
+	});
 });
 
 //회원정보
@@ -13,9 +23,14 @@ function memberList(mpage) {
 		 url:"aMemberList.ado",    
 	     data:{curPage:mpage},      
 	     success:function(data){
-	    	 $("#member_table").children().remove();
+	    	 $(".table-striped").children().remove();
 	    	 var mem = '';
 	    	 
+	    	 mem += '<tr>';
+	    	 mem += '<th><intput type="checkbox" id="allSeq" onclick="checkAll()"></th>';
+	    	 mem += '<th>이름</th><th>아이디</th><th>전화번호</th><th>이메일</th><th>제명</th>';
+    		 mem += '</tr>';
+    		 
 	    	 for(var i=0; i<data.memberList.length; i++){
 	    		 mem += '<tr>';
 	    		 mem += '<td><input type="checkbox" name="checkRow" class="chkbox" id="chkseq'+i+'" value="'+data.memberList[i].id+';'+data.memberList[i].email+'" onclick="attachUserInfo(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039,'+i+')"/></td>';
@@ -24,20 +39,57 @@ function memberList(mpage) {
 	    		 mem += '<td>'+data.memberList[i].phone+'</td>';
 	    		 mem += '<td>'+data.memberList[i].email+'</td>';
 	    		 if(data.memberList[i].brStatus==0){
-	    			 mem += '<td><input type="button" onclick="editContentExpulmember(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)" value="제명"></td>';
+	    			 mem += '<td><a href="#" onclick="editContentExpulmember(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)">제명</a></td>';
 	    		 }
 	    		 if(data.memberList[i].brStatus==-2){
-	    			 mem+='<td><input type="button" onclick="cancleExplurUser(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)" value="제명취소" /></td>';
+	    			 mem+='<td><a href="#" onclick="cancleExplurUser(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)">제명취소</a></td>';
 	    		 }
 	    		 mem += '</tr>';
 	    	 }
 	    	 
-	    	 $("#member_table").append(mem)
+	    	 $(".table-striped").append(mem)
 	    	 
 	    	 blockPage("memberPaging",mpage,data.memberPage.BLOCK_SCALE,data.memberPage.totPage,"memberP","memberList");
 	     }
 	});
 }
+
+//지점장정보
+function infoList(ipage) {
+	$.ajax({     
+		 type:"GET",  
+		 url:"infoList.ado",    
+	     data:{curPage:ipage},      
+	     success:function(data){
+	    	 $(".table-striped").children().remove();
+	    	 var inf = '';
+
+	    	 inf += '<tr>';
+	    	 inf += '<th><intput type="checkbox" id="allSeq" onclick="checkAll()"></th>';
+	    	 inf += '<th>이름</th><th>아이디</th><th>전화번호</th><th>이메일</th><th>지점명</th>';
+	    	 inf += '<th>주소</th><th>삭제</th>';
+	    	 inf += '</tr>';
+    		 
+	    	 for(var i=0; i<data.infoList.length; i++){
+	    		 inf += '<tr>';
+	    		 inf += '<td><input type="checkbox" name="checkRow" class="chkbox" id="chkseq'+i+'" value="'+data.infoList[i].id+';'+data.infoList[i].email+'" onclick="attachUserInfo(&#039'+data.infoList[i].id+'&#039,&#039'+data.infoList[i].email+'&#039,'+i+')"/></td>';
+	    		 inf += '<td>'+data.infoList[i].name+'</td>';
+	    		 inf += '<td>'+data.infoList[i].id+'</td>';
+	    		 inf += '<td>'+data.infoList[i].phone+'</td>';
+	    		 inf += '<td>'+data.infoList[i].email+'</td>';
+	    		 inf += '<td>'+data.infoList[i].branchName+'</td>';
+	    		 inf += '<td>'+data.infoList[i].branchAddr1+'</td>';
+	    		 inf += '<td><a href="approvedelete.ado?id='+data.infoList[i].id+'">삭제</a></td>';
+	    		 inf += '</tr>';
+	    	 }
+	    	 
+	    	 $(".table-striped").append(inf)
+	    	 
+	    	 blockPage("memberPaging",ipage,data.infoPage.BLOCK_SCALE,data.infoPage.totPage,"memberP","infoList");
+	     }
+	});
+}
+
 //제명 하겠다 내용을 띄워달라
 function editContentExpulmember(id,email){
 	$(".explur").show();

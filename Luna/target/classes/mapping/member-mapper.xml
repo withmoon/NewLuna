@@ -85,16 +85,16 @@
 	<!-- 지점장 목록 -->
 	<select id="infoList" resultType="member">
 		<include refid="pagingHeader"></include>
-		select * from member where position is not null and branchname != '본점'
+		select * from member where position is not null and branchname != '본점' and brStatus != -1
 		<include refid="pagingFooter"></include>
    </select>
    
    <!-- 게시글갯수 -->
 	<select id="countinfo" resultType="int">
-		select count(*) from member where position is not null and branchname != '본점'
+		select count(*) from member where position is not null and branchname != '본점' and brStatus != -1
 	</select>
 	
-	<!-- 지점장 목록 -->
+	<!-- 지점장승인 목록 -->
 	<select id="approveList" resultType="member">
 		<include refid="pagingHeader"></include>
      	 select
