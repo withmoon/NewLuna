@@ -55,7 +55,8 @@ function changeContent(){
 	$("#content").val($("#ctt").val());
 }
 //글상세보기
-function writeReport(seq,title,fname,content){
+function writeReport(){
+	
 	$("#delReportBtn").hide();
 	$("#board").hide();
 	$("#showlistBtn").show();
@@ -68,10 +69,27 @@ function writeReport(seq,title,fname,content){
 	$("#ctt").val("");
 	$("#cancleReportBtn").show();
 	$("#cancleReportBtn").attr("onclick","noinsert()");
-	$("#seqs").val(seq);
+	$(".reply").hide();
+	$("#ctt").removeAttr("disabled");
 	
-	//보고 게시글 상세보기
-	if(title!=undefined&&fname!=undefined&&content!=undefined&&title!=''&&fname!=''&&content!=''){
+	$("#subtn").attr("type","submit");
+	$("#subtn").removeAttr("onclick");
+	$("#subtn").val("올리기");
+}
+function updatesReport(seq,title,fname,content){
+	$("#repleBtn").attr("onclick","insertReportReply("+seq+")");
+	$("#delReportBtn").hide();
+	$("#board").hide();
+	$("#showlistBtn").show();
+	//보고 올리기
+	$(".board").show();
+	$("#title").val("");
+	$("#ftd").children().remove(); //파일
+	var fdom='<input type="file"  name="ffname"  id="ffname"/>';
+	$("#ftd").append(fdom);
+	$("#ctt").val("");
+	$("#cancleReportBtn").show();
+	$("#cancleReportBtn").attr("onclick","noinsert()");
 		$(".reply").show();
 		//제목
 		var title=title.substring(3);
@@ -98,7 +116,7 @@ function writeReport(seq,title,fname,content){
 		$("#cancleReportBtn").hide();
 		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>");
 		 getReportReply(seq);
-	}
+
 }
 function noinsert(){
 	$(".board").hide();
@@ -116,6 +134,7 @@ function updatingReport(seq,fname){
 	var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
 	$("#ftd").append(fdom);
 	$("#cancleReportBtn").show();
+	$("#cancleReportBtn").attr("onclick","nosend()");
 	$("#delReportBtn").hide();
 } //파일 수정
 function updatingFile(seq,fname){
@@ -191,6 +210,11 @@ function nosend(){
 	 //$("#ftd").append(fdom);
 	$("#cancleReportBtn").hide();
 	$("#delReportBtn").show();
+	$(".reply").hide();
+	$(".board").hide();
+	$("#board").show();
+	$("#showlistBtn").hide();
+	$("#delReportBtn").show();
 }
 
 //리포트 가져오기
@@ -218,7 +242,7 @@ function getReportlist(curPage,searchOption,keyword){
 				dom+='<tr>';
 				dom+='<td>'+data.list[i].num+'</td>';   //들어가면 title이 잇으면 경로를 따로 줌  //보고 올리기 버튼을 수정하기로 수정 //나중에 css에서 커서 처리
 			
-				dom+='<td onclick="writeReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
+				dom+='<td onclick="updatesReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
 				dom+='<td>'+data.list[i].regdate+'</td>';
 				if(data.list[i].isreply==0){
 					dom+='<td>댓글이 없습니다.</td>';

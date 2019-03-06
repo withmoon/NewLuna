@@ -136,7 +136,7 @@
 		<div class="reply" hidden="true">
 			<table style="background-color:beige; border-collapse:collapse">
 				<tr><th colspan="2">댓글 올리기</th></tr>
-				<tr><td><textarea id="replytx" cols="92" rows="5" ></textarea></td><td><button style="height:80px" onclick="insertReportReply()">올리기</button></td></tr>
+				<tr><td><textarea id="replytx" cols="92" rows="5" ></textarea></td><td><button id="repleBtn" style="height:80px" onclick="insertReportReply()">올리기</button></td></tr>
 			</table>
 			<table style="background-color:beige; border-collapse:collapse" id="replylist">
 				<thead><tr><th>댓글</th></tr></thead>
