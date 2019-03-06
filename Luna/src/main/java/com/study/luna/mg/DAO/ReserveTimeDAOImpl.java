@@ -22,4 +22,12 @@ public class ReserveTimeDAOImpl implements ReserveTimeDAO {
 		return SqlSession.selectList("mgReserveTime.mgAgeList");
 	}
 
+
+
+	@Override
+	public List<ReserveTimeVO> getreservcount() {
+		// TODO Auto-generated method stub
+		return SqlSession.selectList("mgReserveTime.getreservcount");
+	}
+
 }

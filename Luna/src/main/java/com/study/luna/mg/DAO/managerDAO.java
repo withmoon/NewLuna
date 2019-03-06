@@ -22,7 +22,7 @@ public interface managerDAO {
 	int member();
 	//환불수 가져오기 
 	int reroom(); 
-	
+	 
 	//고객의소리 미리보기 가져오기
 	List<QBoardVO> board();
 	//차트

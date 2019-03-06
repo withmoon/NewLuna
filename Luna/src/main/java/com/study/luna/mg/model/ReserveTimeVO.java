@@ -6,7 +6,15 @@ public class ReserveTimeVO {
 	private String reservetime;
 	private Date reservdate;
 	private String branchname;
+	private int su;
 	
+	
+	public int getSu() {
+		return su;
+	}
+	public void setSu(int su) {
+		this.su = su;
+	}
 	public String getReservetime() {
 		return reservetime;
 	}

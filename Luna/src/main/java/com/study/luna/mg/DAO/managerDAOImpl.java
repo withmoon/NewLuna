@@ -57,7 +57,7 @@ public class managerDAOImpl implements managerDAO{
 	//회원수 가져오기
 	@Override
 	public int member() {
-		System.out.println("join DAO");
+		System.out.println("member DAO");
 		return SqlSession.selectOne("managerDAO.member");
 	}
 
