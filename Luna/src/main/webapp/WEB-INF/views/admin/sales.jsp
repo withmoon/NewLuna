@@ -59,38 +59,7 @@
                </ul></li>
          </ul>
       </div>
-   </nav>
-   
-<table>
-   <tr>
-   <td>
-   
-    <!--  
-   <aside id="left">
-   <h4><strong>카테고리</strong></h4>
-   <form action="search" method="post">
-   <table>
-  <tr>
- 
-  <td><input type="text" id="search" placeholder="검색어 입력"></td>
-  <td><button id="img-button" type="submit" onclick="#"></button></td></tr>
-    </table>
-   </form>
-   <ul id="u_left">
-   <li><a target="page1" href="administrator.ado">홈으로 가기</a></li>
-   <li><a target="page1" href="sales.ado">매출현황</a></li>
-   <li><a target="page1" href="administrator.ado">지점장승인</a></li>
-   <li><a target="page1" href="board.ado">자주묻는질문</a></li>
-   <li><a target="page1" href="gongji.ado">공지사항</a></li>
-   <li><a target="page1" href="event.ado">이벤트</a></li>
-   <li><a target="page1" href="member.ado">회원관리</a></li>
-   </ul>
-   </aside>
-   </td>
-   -->
-</td>
-</tr>
-</table>																																																			<!-- 이거 나중에 admin zicode업데이트 하고 다시 js처리하면됨 -->
+   </nav>																																																		<!-- 이거 나중에 admin zicode업데이트 하고 다시 js처리하면됨 -->
  <h3>달빛 총 매출현황</h3> <div class="searchArea"><input id="paid_at_start" type="date"/>&emsp;-&emsp;<input id="paid_at_end" type="date"/>&emsp; <button onclick="getTermSales()">검색</button>&emsp;&emsp;&emsp;&emsp;기준선 :<input type="text" size="10"/> <button>적용</button></div>
 <div id="chartdiv"> </div>
 

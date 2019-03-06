@@ -18,27 +18,6 @@
    pddding-top: 30px;
    color: #888888;
 }
-
-nav {
-   list-style: none;
-   text-align: center;
-   padding: 10px 0;
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-}
-
-nav ul li {
-   display: inline;
-   text-transform: uppercase;
-   padding: 0 10px;
-   letter-spacing: 3px;
-}
-
-nav ul li a {
-   text-decoration: none;
-   color: black;
-}
-
 nav ul li a:hover {
    text-decoration: none;
 }
@@ -271,7 +250,6 @@ article table#board th{
    cursor: pointer;
    border: none;
 }
-
 #search {
    width: 140px;
    height: 30px;
@@ -279,17 +257,15 @@ article table#board th{
 }
 h3{
     position:relative;
-    left:430px;
-    top:-20px;
+    left:45%;
 }
 .searchArea{
     position:relative;
-    top:-30px;
     left:34%;
     padding:1%;
 }
 #chartdiv{
-    top:-20px;
+    top:10px;
     background-color:seashell;
      width:1010px;
     height:480px;
