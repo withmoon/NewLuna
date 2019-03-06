@@ -15,6 +15,16 @@
 		]]>
 	</insert>
 	
+	<!-- 댓글 수정 -->
+	<update id="nReplyUpdate">
+		update NoticeReply set replytext = #{replytext} where rno = #{rno}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="nReplyDelete">
+		delete NoticeReply where rno = #{rno}
+	</delete>
+	
 	<!-- 게시글갯수 -->
 	<select id="countnReply" resultType="int">
 		select count(*) from NoticeReply where num=#{num}

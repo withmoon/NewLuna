@@ -10,6 +10,7 @@ import com.study.luna.pub.command.ReportReplyDTO;
 import com.study.luna.pub.report.dao.Impl.DeleteReportDAOImpl;
 import com.study.luna.pub.report.dao.Impl.DeleteReportReplyDAOImpl;
 import com.study.luna.pub.report.dao.Impl.GetReportCountDAOImpl;
+import com.study.luna.pub.report.dao.Impl.GetReportMaxSeqDAOImpl;
 import com.study.luna.pub.report.dao.Impl.GetReportReplyDAOImpl;
 import com.study.luna.pub.report.dao.Impl.GetReportlistDAOImpl;
 import com.study.luna.pub.report.dao.Impl.InsertReportDAOImpl;
@@ -37,6 +38,8 @@ public class ReportServiceImpl implements ReportService {
 	UpdateReportReplyDAOImpl urrDAOImpl;
 	@Autowired
 	DeleteReportReplyDAOImpl drrDAOImpl;
+	@Autowired
+	GetReportMaxSeqDAOImpl grmsDAOImpl;
 	
 	@Override
 	public void insertReport(ReportDTO rpd) {
@@ -44,8 +47,8 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public List<ReportDTO> getReportlist(int start, int end, String id,ReportDTO rpd) {
-		return grlDAOImpl.getReportlist(start, end, id,rpd);
+	public List<ReportDTO> getReportlist(int start, int end,ReportDTO rpd) {
+		return grlDAOImpl.getReportlist(start, end, rpd);
 	}
 
 	@Override
@@ -81,6 +84,11 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public void deleteReportReply(Integer seq) {
 		drrDAOImpl.deleteReportReply(seq);
+	}
+
+	@Override
+	public Integer getReportMaxSeq() {
+		return grmsDAOImpl.getReportMaxSeq();
 	}
 
 }

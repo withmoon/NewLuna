@@ -32,21 +32,33 @@ public class InsertReportController {
 			HttpSession session) throws IllegalStateException, IOException {
 		// MemberCommand memcom=(MemberCommand) session.getAttribute("id");
 		// session.setAttribute("id", memcom.getId());
-		File dir = new File(filePath);
-		if (!dir.isDirectory()) {
-			System.out.println("디렉토리생성");
-			dir.mkdirs();
+		Integer seq = rpser.getReportMaxSeq();
+		String realPath = filePath + seq + "\\";
+		File dir = new File(realPath);
+		if (dir.exists()) { // 파일존재여부확인
+			if (dir.isDirectory()) { // 파일이 디렉토리인지 확인
+				File[] files = dir.listFiles();
+				for (int i = 0; i < files.length; i++) {
+					files[i].delete();
+				}
+			}
+		} else {
+			if (!dir.isDirectory()) {
+				System.out.println("디렉토리생성");
+				dir.mkdirs();
+			}
 		}
+
 		MultipartFile mf = mpreq.getFile("ffname");
 		System.out.println("파일 추출 " + mf.getOriginalFilename());
 		// 저장되는 파일 이름
 		String reportxsls = mf.getOriginalFilename();
 
-		String savePath = filePath + reportxsls; // 저장 될 파일 경로
+		String savePath = realPath + reportxsls; // 저장 될 파일 경로
 		mf.transferTo(new File(savePath)); // 파일 저장
 		rpd.setFname(reportxsls);
-		rpd.setFpath(filePath);
-		rpd.setId("brman2");
+		rpd.setFpath(realPath);
+		rpd.setId("brman3");
 		rpd.setTitle((String) req.getParameter("title"));
 		String content = (String) req.getParameter("content").replace("\r\n", "<br>");
 		rpd.setContent(content);

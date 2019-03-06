@@ -89,8 +89,9 @@ a .logo{
 }
 .rbox span {
 	position:absolute;
-	left: 85%;
+	left: 80%;
 }
+
 /*댓글 올리기*/
 .replytextForm {
 	 border-top: 0.2vw solid #777;
@@ -116,6 +117,26 @@ textarea {
 	position:relative;
 	left: 35%; 
 }
+
+/*댓글수정*/
+#upre {
+	font-size: 1.5vw;
+}
+/* .upRe{
+	position:absolute;
+	width:80%;
+  	height:20%;
+	top:30%;
+	left:10%;
+  	background:tan;
+}
+
+.upRe2 {
+position:fixed;
+top:150px; left:30px;
+box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px, rgba(0,0,0,0.5) 2px 2px 3px 3px;
+z-index : 100;
+} */
 
 /*페이지*/
 #replyPaging {
@@ -147,9 +168,6 @@ button{
     color: gray;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    position:relative;
     outline:none;
 }
 

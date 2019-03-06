@@ -24,7 +24,8 @@ public class GetReportlistController {
 	@RequestMapping(value="/getReportlist.do", method=RequestMethod.POST)
 	public @ResponseBody JSONObject getReportlist(ReportDTO rpd,HttpSession session,@RequestParam("curPage") int curPage,
 			@RequestParam(value="searchOption",required=false,defaultValue="title") String searchOption,
-			@RequestParam(value="keyword",required=false,defaultValue="") String keyword){
+			@RequestParam(value="keyword",required=false,defaultValue="") String keyword,
+			@RequestParam(value="type",required=false,defaultValue="") String type){
 		//MemberCommand memcom=(MemberCommand)session.getAttribute("member");
 		//session.setAttribute("member", memcom);
 		
@@ -32,7 +33,13 @@ public class GetReportlistController {
 		rpd.setKeyword(keyword);
 		
 		System.out.println("내가 받아ㅗ아따 " +searchOption+" " +keyword);
-		rpd.setId("brman2");
+	
+		
+		if(type.equals("admin")) {
+			rpd.setId("");
+		}else {
+			rpd.setId("brman3");
+		}
 		Integer count = rpser.getReportCount(rpd);
 		
 		int page_scale = 3;
@@ -43,7 +50,7 @@ public class GetReportlistController {
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 
-		List<ReportDTO> reportlist=rpser.getReportlist(start, end, "brman2",rpd);
+		List<ReportDTO> reportlist=rpser.getReportlist(start, end,rpd);
 
 		JSONObject obj = new JSONObject();
 		obj.put("count", count);

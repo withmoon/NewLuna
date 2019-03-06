@@ -18,6 +18,7 @@ $(function() {
 
 //회원정보
 function memberList(mpage) {
+	
 	$.ajax({     
 		 type:"GET",  
 		 url:"aMemberList.ado",    
@@ -39,16 +40,18 @@ function memberList(mpage) {
 	    		 mem += '<td>'+data.memberList[i].phone+'</td>';
 	    		 mem += '<td>'+data.memberList[i].email+'</td>';
 	    		 if(data.memberList[i].brStatus==0){
-	    			 mem += '<td><a href="#" onclick="editContentExpulmember(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)">제명</a></td>';
+	    			 mem += '<td><input type="button" onclick="editContentExpulmember(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)" value="제명"></a></td>';
 	    		 }
 	    		 if(data.memberList[i].brStatus==-2){
-	    			 mem+='<td><a href="#" onclick="cancleExplurUser(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)">제명취소</a></td>';
+	    			 mem+='<td><input type="button" onclick="cancleExplurUser(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039)" value="제명 취소"></a></td>';
 	    		 }
 	    		 mem += '</tr>';
 	    	 }
 	    	 
 	    	 $(".table-striped").append(mem)
-	    	 
+	    	  ids='';
+	    	 emails='';
+	    	 $(".cendmBtn").children().remove();
 	    	 blockPage("memberPaging",mpage,data.memberPage.BLOCK_SCALE,data.memberPage.totPage,"memberP","memberList");
 	     }
 	});
@@ -56,6 +59,7 @@ function memberList(mpage) {
 
 //지점장정보
 function infoList(ipage) {
+	 
 	$.ajax({     
 		 type:"GET",  
 		 url:"infoList.ado",    
@@ -79,12 +83,14 @@ function infoList(ipage) {
 	    		 inf += '<td>'+data.infoList[i].email+'</td>';
 	    		 inf += '<td>'+data.infoList[i].branchName+'</td>';
 	    		 inf += '<td>'+data.infoList[i].branchAddr1+'</td>';
-	    		 inf += '<td><a href="approvedelete.ado?id='+data.infoList[i].id+'">삭제</a></td>';
+	    		 inf += '<td><a href="approvedelete.ado?id='+data.infoList[i].id+'&type=member">삭제</a></td>';
 	    		 inf += '</tr>';
 	    	 }
 	    	 
-	    	 $(".table-striped").append(inf)
-	    	 
+	    	 $(".table-striped").append(inf);
+	    	 ids='';
+	    	 emails='';
+	    	 $(".cendmBtn").children().remove();
 	    	 blockPage("memberPaging",ipage,data.infoPage.BLOCK_SCALE,data.infoPage.totPage,"memberP","infoList");
 	     }
 	});
@@ -92,12 +98,14 @@ function infoList(ipage) {
 
 //제명 하겠다 내용을 띄워달라
 function editContentExpulmember(id,email){
+	
 	$(".explur").show();
 	$(".emailcontents").hide();
 	$(".emailcontents").hide();
 	if(confirm(id+"님의 계저을 제명 처리하시겠습니까?")){
 	$('body > *:not(.explur) ').css('filter',filterVal10);
 	$(".explur").show();
+	$("#sendToUser").attr("type","button");
 	$("#sendToUser").attr("onclick","expulmember('"+id+"','"+email+"')");
 	}
 }
@@ -175,9 +183,12 @@ function checkAll(){
 }
 //메일보내기 클릭
 function sendEmailToMembers(){
+	$("#sendToUser").removeAttr("onclick");
+	$("#sendToUser").attr("type","submit");
 	$('body > *:not(.explur) ').css('filter',filterVal10);
 	$(".explur").show();
 	$(".emailcontents").show();
+	
 }
 //내용작성 후 메일 보내기
 function sendEmail(){

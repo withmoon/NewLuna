@@ -7,12 +7,14 @@ import com.study.luna.pub.command.ReportReplyDTO;
 
 
 public interface ReportService {
+	//리포트 최대 번호 가져오기
+		Integer getReportMaxSeq();
 	//리포터 올리기
 	void insertReport(ReportDTO rpd);
 	//리포트 갯수
 	Integer getReportCount(ReportDTO rpd);
 	//리포트 가져오기
-	List<ReportDTO> getReportlist(int start,int end,String id,ReportDTO rpd);
+	List<ReportDTO> getReportlist(int start,int end,ReportDTO rpd);
 	//리포터 수정
 	void updateReport(ReportDTO rpd);
 	//리포트 삭제
@@ -24,5 +26,5 @@ public interface ReportService {
 	//리뷰 수정
 	void updateReportReply(ReportReplyDTO rry);
 	//리뷰 삭제
-	void deleteReportReply(Integer seq);
+	void deleteReportReply(Integer seq);	
 }

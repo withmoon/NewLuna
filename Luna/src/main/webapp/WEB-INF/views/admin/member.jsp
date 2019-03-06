@@ -80,7 +80,7 @@
 </div>
 </div>
 <div hidden="true" class="explur">
-<form name="memform" action="sendemail.ado" method="POST" onsubmit="sendEmail()" enctype="multipart/form-data">
+<form name="memform" id="memform"  action="sendemail.ado" method="POST" onsubmit="sendEmail()" enctype="multipart/form-data">
 <table>
 	<thead>
 		<tr>

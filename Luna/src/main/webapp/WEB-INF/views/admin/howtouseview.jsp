@@ -76,5 +76,6 @@
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
+   <jsp:include page="../admin/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -32,4 +32,6 @@ public interface PayAndReserveService {
 	Integer getPreMonthReserveCount(); 
 	//기간 매출
 	List<RoomPaymentDTO> getTermSales(String paid_at_start, String paid_at_end);
+	//baseLine 설정
+	 void setBaseLine(RoomPaymentDTO dto);
 }

@@ -18,13 +18,16 @@ public class GetReportlistDAOImpl implements GetReportlistDAO {
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<ReportDTO> getReportlist(int start, int end, String id,ReportDTO rpd) {
+	public List<ReportDTO> getReportlist(int start, int end,ReportDTO rpd) {
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("id", id);
 		map.put("start",start);
 		map.put("end", end);
 		map.put("rpd",rpd);
-		return sqlSession.selectList("reportDAO.getReportlist",map);
+		if(rpd.getId().equals("")) {
+			return sqlSession.selectList("reportDAO.getReportlist",map);
+		}else {
+			return sqlSession.selectList("reportDAO.getBranchReportlist",map);
+		}
 	}
 
 }

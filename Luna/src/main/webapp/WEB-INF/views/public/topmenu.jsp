@@ -15,12 +15,21 @@
 				<li><a href="<c:url value="/login.do"/>"><img src="<c:url value="/resources/public/images/login.gif"/>"/></a></li>
 			</c:if>
 
+		
 			<c:if test="${member.id ne null}">
 				<li><a class="lgoutli" href="<c:url value='/logout.do'/>"><img src="<c:url value="/resources/public/images/LogOut.gif"/>"/></a></li>
 				<li><a href="<c:url value="/mypage.udo"/>"><img src="<c:url value="/resources/public/images/mypage.gif"/>"/></a></li>
 			</c:if>
 		</ul>
+		
+		<div class="button">
+			<form action="moveAdminMode.ado" method="post">
+				<input type="submit" value="관리자모드로 이동">
+			</form>
+		</div>
+		
 		<ul class="topUl">
+			<li class="topfound" onclick="location.href='<c:url value="/useGuide.udo"/>'">이용가이드</li>
 			<li class="topfound" onclick="location.href='<c:url value="/foundbranch.udo"/>'">근처 장소 찾기</li>
 			<li class="toplookover" onclick="location.href='<c:url value="/lookover.udo"/>'">공간 둘러보기</li>
 			<li class="topevent" onclick="location.href='<c:url value="/event.udo"/>'">이벤트</li>

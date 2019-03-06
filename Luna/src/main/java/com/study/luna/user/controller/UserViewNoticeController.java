@@ -21,6 +21,7 @@ import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.user.comment.service.NoticeReplyService;
 import com.study.luna.user.comment.vo.NoticeReplyVO;
+import com.study.luna.user.dto.RoomReviewDTO;
 
 @Controller
 public class UserViewNoticeController {
@@ -87,5 +88,21 @@ public class UserViewNoticeController {
 		nReplyVO.setReplytext(content);
 		nReplyVO.setNum(num);
 		noticeReplyService.create(nReplyVO);
+	}
+	
+	//댓글 수정
+	@RequestMapping(value="/nReplyUpdate.udo", method=RequestMethod.POST)
+	public @ResponseBody void nReplyUpdate(NoticeReplyVO nReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno,
+											@RequestParam(value="content") String content) {
+		nReplyVO.setReplytext(content);
+		nReplyVO.setRno(rno);
+		noticeReplyService.nReplyUp(nReplyVO);
+	}
+	 
+	//댓글 삭제
+	@RequestMapping(value="/nReplyDelete.udo", method=RequestMethod.POST)
+	public @ResponseBody void nReplyDelete(NoticeReplyVO nReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno) {
+		nReplyVO.setRno(rno);
+		noticeReplyService.nReplyDe(nReplyVO);
 	}
 }

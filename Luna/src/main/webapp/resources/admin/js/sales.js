@@ -63,3 +63,16 @@ function getTermSales(){
 		}
 	});
 }
+
+function setBaseLine(){
+	var baseline=$("#baseline").val();
+	$.ajax({      
+		type:"POST",  
+		url:"setBaseLine.do",    
+		data:{baseline:baseline},     
+		success:function(res){
+			$("#chartdiv").children().remove();
+			 getTermSales();
+		}
+	});
+}
