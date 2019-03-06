@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.study.luna.pub.command.MemberCommand;
 
-public interface MemberDAO {
+public interface MemberDAO { 
 	public List<MemberCommand> memberList(int start, int end); //회원정보
 	public int countMember(String id); //회원정보 갯수
 	

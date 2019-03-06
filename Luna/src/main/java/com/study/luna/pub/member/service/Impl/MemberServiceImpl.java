@@ -156,6 +156,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void cancleExpulmember(String id) {
 		cepmDAOImpl.cancleExpulmember(id);
-	}
+	} 
+
 
 }

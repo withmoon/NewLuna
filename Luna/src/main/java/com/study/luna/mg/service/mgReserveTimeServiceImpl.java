@@ -20,7 +20,7 @@ public class mgReserveTimeServiceImpl implements mgReserveTimeService{
 		// TODO Auto-generated method stub
 		return ReserveTimeDAO.getreservcount();
 	}
-	//시간대별통계 
+	//시간대별통계  
 	@Override
 	public List<ReserveTimeVO> mgAgeList() {
 		System.out.println("mgAgeList 서비스");

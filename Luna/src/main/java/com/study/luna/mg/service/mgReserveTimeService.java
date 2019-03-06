@@ -16,4 +16,4 @@ public interface mgReserveTimeService {
 
 	List<ReserveTimeVO> getreservcount();
 	 
-}
+} 

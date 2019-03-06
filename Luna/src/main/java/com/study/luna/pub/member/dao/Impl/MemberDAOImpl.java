@@ -63,4 +63,5 @@ public class MemberDAOImpl implements MemberDAO {
    public int countApprove(String id) {
 		return sqlSession.selectOne("memberDAO.countApprove", id);
    }
+
 }

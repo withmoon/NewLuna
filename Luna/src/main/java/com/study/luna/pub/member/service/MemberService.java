@@ -53,4 +53,5 @@ public interface MemberService {
 	public List<MemberCommand> approveList(int start, int end, HttpSession session); // 지점장 승인 목록
 
 	public int countApprove(String id); // 지점장승인갯수
+  
 }
