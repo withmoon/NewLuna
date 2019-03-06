@@ -27,7 +27,7 @@ function memberList(mpage) {
 	    	 var mem = '';
 	    	 
 	    	 mem += '<tr>';
-	    	 mem += '<th><intput type="checkbox" id="allSeq" onclick="checkAll()"></th>';
+	    	 mem += '<th><input type="checkbox" id="allSeq" onclick="checkAll()"></th>';
 	    	 mem += '<th>이름</th><th>아이디</th><th>전화번호</th><th>이메일</th><th>제명</th>';
     		 mem += '</tr>';
     		 
@@ -65,7 +65,7 @@ function infoList(ipage) {
 	    	 var inf = '';
 
 	    	 inf += '<tr>';
-	    	 inf += '<th><intput type="checkbox" id="allSeq" onclick="checkAll()"></th>';
+	    	 inf += '<th><input type="checkbox" id="allSeq" onclick="checkAll()"></th>';
 	    	 inf += '<th>이름</th><th>아이디</th><th>전화번호</th><th>이메일</th><th>지점명</th>';
 	    	 inf += '<th>주소</th><th>삭제</th>';
 	    	 inf += '</tr>';
