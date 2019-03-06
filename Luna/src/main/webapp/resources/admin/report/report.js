@@ -11,7 +11,8 @@ function changeContent(){
 	$("#content").val($("#ctt").val());
 }
 //글상세보기
-function writeReport(seq,title,fname,content){
+function writeReport(){
+	
 	$("#delReportBtn").hide();
 	$("#board").hide();
 	$("#showlistBtn").show();
@@ -24,10 +25,27 @@ function writeReport(seq,title,fname,content){
 	$("#ctt").val("");
 	$("#cancleReportBtn").show();
 	$("#cancleReportBtn").attr("onclick","noinsert()");
+	$(".reply").hide();
+	$("#ctt").removeAttr("disabled");
 	
-	
-	//보고 게시글 상세보기
-	if(title!=undefined&&fname!=undefined&&content!=undefined&&title!=''&&fname!=''&&content!=''){
+	$("#subtn").attr("type","submit");
+	$("#subtn").removeAttr("onclick");
+	$("#subtn").val("올리기");
+}
+function updatesReport(seq,title,fname,content){
+	$("#repleBtn").attr("onclick","insertReportReply("+seq+")");
+	$("#delReportBtn").hide();
+	$("#board").hide();
+	$("#showlistBtn").show();
+	//보고 올리기
+	$(".board").show();
+	$("#title").val("");
+	$("#ftd").children().remove(); //파일
+	var fdom='<input type="file"  name="ffname"  id="ffname"/>';
+	$("#ftd").append(fdom);
+	$("#ctt").val("");
+	$("#cancleReportBtn").show();
+	$("#cancleReportBtn").attr("onclick","noinsert()");
 		$(".reply").show();
 		//제목
 		var title=title.substring(3);
@@ -42,7 +60,7 @@ function writeReport(seq,title,fname,content){
 		//내용 스필릿
 		var ctt=content.substring(3);
 		var ctts=ctt.replace(/<br\s*[\/]?>/gi, "\n");
-		 getReportReply(seq);
+		
 		document.getElementById("ctt").value = ctts;
 		$("#ctt").attr("disabled","disabled");
 		//버튼 변경
@@ -52,8 +70,8 @@ function writeReport(seq,title,fname,content){
 		$("#delReportBtn").show();
 		$("#delReportBtn").attr("onclick","deleteReport("+seq+")");
 		$("#cancleReportBtn").hide();
-		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>")
-	}
+		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>");
+		getReportReply(seq);
 }
 function noinsert(){
 	$(".board").hide();
@@ -141,10 +159,15 @@ function nosend(){
 	$("#ctt").attr("disabled","true");
 	$("#subtn").val("수정완료");
 	$("#ajaxform").attr("action","insertReport.do");
-	//$("#subtn").attr("onclick","formSubmit()");
-	//var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
-	//$("#ftd").append(fdom);
+	// $("#subtn").attr("onclick","formSubmit()");
+	 //var fdom='&emsp;<input type="button" onclick="updatingFile('+seq+',&#039sj:'+fname+'&#039)" value="변경">';
+	 //$("#ftd").append(fdom);
 	$("#cancleReportBtn").hide();
+	$("#delReportBtn").show();
+	$(".reply").hide();
+	$(".board").hide();
+	$("#board").show();
+	$("#showlistBtn").hide();
 	$("#delReportBtn").show();
 }
 

@@ -115,8 +115,7 @@ function updatesReport(seq,title,fname,content){
 		$("#delReportBtn").attr("onclick","deleteReport("+seq+")");
 		$("#cancleReportBtn").hide();
 		$(".board #ajaxform").append(" <input type='hidden' name='seq' value='"+String(seq)+"'/>");
-		 getReportReply(seq);
-
+		getReportReply(seq);
 }
 function noinsert(){
 	$(".board").hide();
@@ -266,6 +265,7 @@ function replaceAll(str, searchStr, replaceStr) {
 }
 function checkSeq(seq){
 	checked+=seq+",";
+	console.log(checked);
 	$("#chk"+seq).attr("onclick","uncheck("+seq+")");
 }
 function uncheck(seq){
