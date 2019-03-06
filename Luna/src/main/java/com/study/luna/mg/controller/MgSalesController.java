@@ -1,5 +1,6 @@
 package com.study.luna.mg.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class MgSalesController {
 		System.out.println("키워드 :" + keyword.toString());
 		System.out.println("카운트 :" + count);
 		
-		int page_scale = 7;
+		int page_scale = 20;
 		int block_sclae = 3;
 		// 페이지 나누기처리
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
@@ -136,18 +137,20 @@ public class MgSalesController {
 			 mv.setViewName("loginX.mdo");
 	         return mv;
 		}
+		
 	String branchName = (String)session.getAttribute("branchName");
-	int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
+	int count = MgPCService.RefundCount(searchOption, keyword,branchName);
 	
 	int page_scale = 20;
-	int block_sclae = 2;
+	int block_sclae = 4;
 	// 페이지 나누기처리  
 	BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 	int start = boardPager.getPageBegin();
 	int end = boardPager.getPageEnd();
+	Date nowdate = new Date();
+	System.out.println(nowdate);
 	
-	
-	List<SalesVO> list = MgPCService.mgReserveList(start, end, searchOption, keyword,branchName);
+	List<SalesVO> list = MgPCService.mgRefund(start, end, searchOption, keyword,branchName);
 
 	Map<String, Object> map = new HashMap<String, Object>();
 	map.put("list", list);
@@ -155,14 +158,21 @@ public class MgSalesController {
 	map.put("searchOption", searchOption);
 	map.put("keyword", keyword);
 	map.put("boardPager", boardPager);
-	
+	map.put("nowdate",nowdate);
+	 
 	mv.addObject("map", map);
 	//MgPCService.mgReserve(vo);
 	mv.setViewName("body/presentCondition/mgRefund");
 
 	return mv;
-
 	}
+	
+	@RequestMapping(value="Refund.mdo",method=RequestMethod.POST)
+	public void Refund() {
+		System.out.println("환불조치");
+		//MgPCService.Refund();
+	}
+	
 
 /*	// 방문현황
 	@RequestMapping(value = "/mgVisit.mdo", method = RequestMethod.GET)

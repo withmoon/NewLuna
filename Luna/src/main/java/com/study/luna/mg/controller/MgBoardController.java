@@ -55,6 +55,7 @@ public class MgBoardController {
 
 		String branchName = (String) session.getAttribute("branchName");
 		System.out.println(branchName + "지점 문의게시글");
+		
 		// 레코드계산
 		int count = MgService.countArticle(searchOption, keyword, branchName);
 		System.out.println(count + "개");

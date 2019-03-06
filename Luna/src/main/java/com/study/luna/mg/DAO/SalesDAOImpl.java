@@ -38,19 +38,6 @@ public class SalesDAOImpl implements SalesDAO {
 		return sqlSession.selectOne("mgSalesDAO.countArticle",keyword);
 	}
 	
-	/*매출현황 엑셀파일 DB 전체데이터 가져오기*/
-/*	@Override
-	public List<Object> getSales(Map<String, Object> searchMap) {
-		System.out.println("SalesExcelBooks DAO ����");
-		return sqlSession.selectList("mgSalesDAO.SRead",searchMap);
-	}
-	매출현황 엑셀파일 조건문 리스트 가져오기
-	@Override
-	public List<Object> getSalesDetail(Map<String, Object> searchMap) {
-		System.out.println("SalesExcelDetail DAO ����");
-		return SqlSession.selectList("managerDAO.selectBooks",searchMap);
-		return null;
-	}*/
 	//엑셀판매현황
 	@Override
 	public List<Object> getSales(SalesVO vo) {
@@ -73,11 +60,20 @@ public class SalesDAOImpl implements SalesDAO {
 		
 		return sqlSession.selectList("mgSalesDAO.ReserveList",map);
 	}
-	//예약 상태
+	//환불 현황
 	@Override
-	public void mgReserve(QBoardVO vo) {
-		System.out.println("mgReserve DAO 수행");
-		sqlSession.update("mgSalesDAO.Reserve",vo);
+	public List<SalesVO> mgRefund(int start, int end, String searchOption, String keyword, String branchName) {
+		System.out.println("mgRefund DAO 수행");
+		//검색옵션 , 키워드 맵에 저장
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("branchName", branchName);
+		//#start #end 에 입력될 값
+		map.put("start",start);
+		map.put("end", end);
+		
+		return sqlSession.selectList("mgSalesDAO.mgRefund",map);
 	}
 	//예약현황 카운트
 	@Override
@@ -89,6 +85,17 @@ public class SalesDAOImpl implements SalesDAO {
 		map.put("branchName", branchName);
 		return sqlSession.selectOne("mgSalesDAO.ReserveCount", map);
 	}
+	//환불현황 카운트
+	@Override
+	public int RefundCount(String searchOption, String keyword, String branchName) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("branchName", branchName);
+		return sqlSession.selectOne("mgSalesDAO.RefundCount", map);
+	}
+
+	
 	
 
 	

@@ -11,7 +11,7 @@ public interface SalesDAO {
 	//회원현황
 	public List<SalesVO> SalesList(int start, int end, String keyword, String searchOption) throws Exception;
 	 
-	// 테이블 카운트
+	//테이블 카운트
 	public int countArticle(String keyword);
  
 	// 엑셀파일
@@ -23,7 +23,11 @@ public interface SalesDAO {
 	public int ReserveCount(String searchOption, String keyword, String branchName);
 		
 	//환불하기
-	public void mgReserve(QBoardVO vo);
+	public List<SalesVO> mgRefund(int start, int end, String searchOption, String keyword, String branchName);
+	//환불현황 카운트
+	public int RefundCount(String searchOption, String keyword, String branchName);
+
+	
 
 	
 	

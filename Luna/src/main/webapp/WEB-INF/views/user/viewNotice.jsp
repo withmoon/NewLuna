@@ -42,7 +42,7 @@
 </div>
 <!-- 댓글 -->
 <div class="reply">
-	<b class="replyOnOff">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
+	<b class="replyOnOff" onclick="replyOnOff(${nbv.num})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
 	<div class="reply2">
 	<!-- 댓글 목록 -->
 	<div class="replyList"></div>

@@ -61,21 +61,16 @@ function list(page) {
 
  
   function cancelPay() {
-    jQuery.ajax({
-      "url": "http://www.myservice.com/payments/cancel",
-      "type": "POST",
-      "contentType": "application/json",
-      "data": JSON.stringify({
-        "merchant_uid": "mid_" + new Date().getTime(), // 주문번호
-        "cancel_request_amount": 2000, // 환불금액
-        "reason": "테스트 결제 환불", // 환불사유
-        "refund_holder": "홍길동", // [가상계좌 환불시 필수입력] 환불 가상계좌 예금주
-        "refund_bank": "88", // [가상계좌 환불시 필수입력] 환불 가상계좌 은행코드(ex. KG이니시스의 경우 신한은행은 88번)
-        "refund_account": "56211105948400" // [가상계좌 환불시 필수입력] 환불 가상계좌 번호
-      }),
-      "dataType": "json"
+	$.ajax({
+		 type : "POST",         
+		 url: "Refund.mdo", 
+		success:function(){
+			alert("환불성공"); 
+		},
+		error:function(){
+			alert("환불실패")
+		}
     });
-    alert("환불성공");
   }
 </script>
 <title>지점장 관리화면</title>
@@ -124,7 +119,7 @@ function list(page) {
 										<option value="roomnum"  <c:out  value="${map.searchOption == 'roomnum' ? 'selected' : '' }" />>번호</option>
 										<option value="IMP_UID"  <c:out value="${map.searchOption == 'IMP_UID'?'selected' : '' }"/> >아이디</option>
 								</select> 
-								<input name="keyword"  value="${map.keyword }"> 
+								<input name="keyword"   value="${map.keyword }"> 
 								<input	 type="submit" value="검색">
 								</td>
 							</tr>
@@ -148,8 +143,11 @@ function list(page) {
 							<td>${list.rownum }</td>			
 							<td>${list.imp_uid}</td>	
 							<td>${list.branchname }</td>
-							<td>${list.roomnum }</td>
-							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
+							<td>${list.roomnum}</td><!--  reservdate--> 
+						
+							<td>
+								<fmt:formatDate value="${list.reservdate }" pattern="yyyy.MM.dd"/>
+							</td>
 							<c:if test="${list.status==-2}">
 								<td><button onclick="cancelPay()">환불하기</button></td>
 							</c:if>

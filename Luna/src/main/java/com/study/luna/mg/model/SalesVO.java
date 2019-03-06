@@ -25,13 +25,27 @@ public class SalesVO {
 	private String merchant_uid;
 	private String branchname;
 	private String roomnum; 
+	private Date reservdate;
 	private Date paid_at;
 	private int status; //����
-	private String stats; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+	private int brstatus; //�����ѱ�  뭐에 쓸려고 만든지 아시는분 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+	private Date nowdate;
 	
 	
 	
 	
+	public Date getNowdate() {
+		return nowdate;
+	}
+	public void setNowdate(Date nowdate) {
+		this.nowdate = nowdate;
+	}
+	public Date getReservdate() {
+		return reservdate;
+	}
+	public void setReservdate(Date reservdate) {
+		this.reservdate = reservdate;
+	}
 	public int getRownum() {
 		return rownum;
 	}
@@ -62,11 +76,11 @@ public class SalesVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getStats() {
-		return stats;
+	public int getBrstatus() {
+		return brstatus;
 	}
-	public void setStats(String stats) {
-		this.stats = stats;
+	public void setBrstatus(int brstatus) {
+		this.brstatus = brstatus;
 	}
 	public Date getDate() {
 		return date;

@@ -121,14 +121,24 @@ function list(page) {
 				<th>이름</th>
 				<th>폰번호</th>
 				<th>Email</th>
+				<th>상태</th>
 			</tr>
 			<c:forEach var="sales" items="${map.list}">
 				<tr>
 					<%-- <th><fmt:formatDate value="${sales.date}" pattern="yyyy-MM-dd"/> </th> --%>
-					<th>${sales.id}</th>
-					<th>${sales.name}</th>
-					<th>${sales.phone}</th>
-					<th>${sales.email}</th>
+					<td>${sales.id}</td>
+					<td>${sales.name}</td>
+					<td>${sales.phone}</td>
+					<td>${sales.email}</td>
+					<td>
+					<c:if test="${sales.brstatus==-2}">
+						제명상태 <br/>
+						<button onclick="cancelPay()">환불</button>
+					</c:if>
+					<c:if test="${sales.brstatus==0}">
+						회원
+					</c:if>
+					</td>
 				</tr>
 			</c:forEach>
 			<tr>

@@ -2,8 +2,6 @@ package com.study.luna.mg.controller;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,10 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.study.luna.mg.DAO.RoomDAO;
+import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.RoomVO;
 import com.study.luna.mg.model.uploadfileVO;
 import com.study.luna.mg.service.MgRoomService;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
 @Controller
 public class MgRoomController {
@@ -34,13 +33,17 @@ public class MgRoomController {
 	
 	@Autowired
 	public MgRoomService mgRoomService; 
+	@Autowired
+	public RoomDAO RoomDAO;
 	//저장할 파일폴더
 	String filePath = "C:\\Users\\JudeKim\\git\\NewLuna\\Luna\\src\\main\\webapp\\resources\\rooms\\";
 
 	//방관리화면 
 		@RequestMapping(value = "/mgRoom.mdo")
 		public ModelAndView mgRoomList(RoomVO vo,@RequestParam(defaultValue="all")String searchOption,
-				@RequestParam(defaultValue="")String keyword,HttpSession session) throws Exception {
+				@RequestParam(defaultValue="")String keyword,HttpSession session,
+				 @RequestParam(defaultValue = "1") int curPage
+				 ) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			if(session.getAttribute("branchName")==null){
 				 System.out.println("카카오 로그인 실패");
@@ -48,33 +51,52 @@ public class MgRoomController {
 		         return mv;
 			}
 			
-			
 			//디렉토리 없으면 생성
 			File dir = new File(filePath); 
 			if (!dir.isDirectory()) {
 				System.out.println("디렉토리생성");
 				dir.mkdirs();
 			}
+			// 레코드계산
+			int count = RoomDAO.countArticle(searchOption, keyword, session);
+			System.out.println(count + "개");
 
-			List<RoomVO> list = mgRoomService.RoomList(vo,searchOption,keyword);
+			int page_scale = 15;
+			int block_sclae = 5;
+			// 페이지 나누기처리
+			BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
+			int start = boardPager.getPageBegin();
+			int end = boardPager.getPageEnd();
+			
+
+			List<RoomVO> list = mgRoomService.RoomList(session,start,end,vo,searchOption,keyword);
 			
 			Map<String, Object> map = new HashMap<String,Object>();
 			map.put("list", list); 
+			map.put("count", count);
 			map.put("searchOption", searchOption);
 			map.put("keyword", keyword);
+			map.put("boardPager", boardPager);
 			
 			mv.setViewName("body/room/mgRoom");
 			mv.addObject("map", map);
 
-			System.out.println("list" + map.toString());
-			System.out.println("mv" + mv.toString());
 			return mv;
 		}
 
 	//방생성 화면
 	@RequestMapping(value = "/RoomUpload.mdo", method = RequestMethod.GET)
-	public String mgRoomUpload() {
-		return "body/room/roomupload";
+	public ModelAndView mgRoomUpload(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("branchName",session.getAttribute("branchName"));
+		map.put("session",session);
+		
+		mv.setViewName("body/room/roomupload");
+		mv.addObject("map", map);
+		
+		return mv;
 	}
 
 	//방생성 insert

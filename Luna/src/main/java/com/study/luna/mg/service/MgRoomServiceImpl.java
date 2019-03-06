@@ -3,6 +3,8 @@ package com.study.luna.mg.service;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,9 +39,9 @@ public class MgRoomServiceImpl implements MgRoomService {
 
 	// 화면 게시판 읽어오기
 	@Override
-	public List<RoomVO> RoomList(RoomVO vo, String searchOption, String keyword) throws Exception {
+	public List<RoomVO> RoomList( HttpSession session,int start, int end,RoomVO vo, String searchOption, String keyword) throws Exception {
 		System.out.println("roomlist 서비스");
-		return RoomDAO.mgRoomList(vo, searchOption, keyword);
+		return RoomDAO.mgRoomList(session,start,end,vo, searchOption, keyword);
 	}
 
 	// 상세보기 글/file 읽어오기

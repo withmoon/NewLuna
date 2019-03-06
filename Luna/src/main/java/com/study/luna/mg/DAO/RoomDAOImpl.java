@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,13 +20,26 @@ public class RoomDAOImpl implements RoomDAO {
 	private SqlSession SqlSession;
   
 	@Override //방 생성 테이블 읽어오기
-	public List<RoomVO> mgRoomList(RoomVO vo,String searchOption, String keyword) {
+	public List<RoomVO> mgRoomList(HttpSession session,int start,int end,RoomVO vo,String searchOption, String keyword) {
 		System.out.println("roomList select");
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		//map.put("vo",vo);
+		map.put("branchName", session.getAttribute("branchName"));
+		//#start #end 에 입력될 값
+		map.put("start",start);
+		map.put("end", end);
 		return SqlSession.selectList("mgRoomDAO.RoomList",map);
+	}
+	
+	@Override //방 리스트갯수 
+	public int countArticle(String searchOption, String keyword, HttpSession session) {
+		System.out.println("roomList select");
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("branchName",session.getAttribute("branchName"));
+		return SqlSession.selectOne("mgRoomDAO.countArticle",map);
 	}
 	@Override //룸 text db
 	public int roomupload(RoomVO vo) {
@@ -74,6 +89,7 @@ public class RoomDAOImpl implements RoomDAO {
 		System.out.println("roomfile delete DAO");
 		SqlSession.delete("mgRoomDAO.RoomFileDelete",roomnum);
 	}
+	
 
 
  
