@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class SalesController {
-    @RequestMapping(value="/sales.ado", method=RequestMethod.GET)
+    @RequestMapping(value="/admin.ado", method=RequestMethod.GET)
      public String mainView() {
-        return "sales";
+        return "admin";
 }
     
 }
