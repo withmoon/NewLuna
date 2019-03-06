@@ -36,4 +36,15 @@ public class NoticeReplyDAOImpl implements NoticeReplyDAO {
 	public void create(NoticeReplyVO nReplyVO) {
 		SqlSession.insert("noticeReplyDAO.nReplyInsert", nReplyVO);
 	}
+
+	//댓글 수정
+	@Override
+	public void nReplyUp(NoticeReplyVO nReplyVO) {
+		SqlSession.update("noticeReplyDAO.nReplyUpdate", nReplyVO);
+	}
+
+	@Override
+	public void nReplyDe(NoticeReplyVO nReplyVO) {
+		SqlSession.delete("noticeReplyDAO.nReplyDelete", nReplyVO);
+	}
 }

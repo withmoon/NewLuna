@@ -33,4 +33,15 @@ public class NoticeReplyServiceImpl implements NoticeReplyService {
 	public void create(NoticeReplyVO nReplyVO) {
 		noticeReplyDAOImpl.create(nReplyVO);
 	}
+
+	//댓글 수정
+	@Override
+	public void nReplyUp(NoticeReplyVO nReplyVO) {
+		noticeReplyDAOImpl.nReplyUp(nReplyVO);
+	}
+
+	@Override
+	public void nReplyDe(NoticeReplyVO nReplyVO) {
+		noticeReplyDAOImpl.nReplyDe(nReplyVO);
+	}
 }

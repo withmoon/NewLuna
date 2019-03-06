@@ -52,7 +52,7 @@ function updatReportReplying(seq,dseq){
 	$("#rp"+dseq).append("<textarea id='rptx' cols='92' rows='5'>"+reple+"</textarea>");
 	//rpbtn
 	$("#rpbtn"+dseq).val("수정 완료");
-	$("#rpbtn"+dseq).attr("onclick","updateReportReply("+seq+","+dseq+")");;
+	$("#rpbtn"+dseq).attr("onclick","updateReportReply("+seq+","+dseq+")");
 	$("#crubtn").attr("onclick","cancleReplyUpdate("+dseq+",'sj:"+reple+"')");
 }
 function cancleReplyUpdate(dseq,reple){

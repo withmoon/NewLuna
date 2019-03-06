@@ -42,7 +42,7 @@
 </div>
 <!-- 댓글 -->
 <div class="reply">
-	<b class="replyOnOff">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
+	<b class="replyOnOff" onclick="replyOnOff(${nbv.num})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
 	<div class="reply2">
 	<!-- 댓글 목록 -->
 	<div class="replyList"></div>
@@ -62,6 +62,13 @@
     </c:if>
     </div>
 </div>
+<!-- <div class="upRe">
+
+   		 안녕하세요 늑대털쓴양입니다.<br>
+
+		<a href=""><b>팝업강좌 바로가기</b></a>
+
+</div> -->
 <div class="button"><button onclick="window.open('inform.udo','_self');">목록</button></div>
 </div>
 </section>
