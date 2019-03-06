@@ -24,6 +24,7 @@
          <div class="navbar-brand">
          <img src="<c:url value="/resources/admin/달빛.png"/>" width="100" height="100">
          </div>
+         
       </div>
       <div class="collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">

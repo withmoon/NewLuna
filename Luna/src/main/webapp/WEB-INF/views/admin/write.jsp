@@ -12,6 +12,7 @@
 <link rel="stylesheet"
    href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 </head>
+
 <body>
    <nav class="navbar navbar-default">
       <div class="navbar-header">
