@@ -20,8 +20,8 @@ public interface managerDAO {
 	int join();
 	//회원수 가져오기
 	int member();
-	//환불수 가져오기
-	int reroom();
+	//환불수 가져오기 
+	int reroom(); 
 	
 	//고객의소리 미리보기 가져오기
 	List<QBoardVO> board();

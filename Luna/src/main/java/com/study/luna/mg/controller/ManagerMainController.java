@@ -89,7 +89,6 @@ public class ManagerMainController {
       
 //      List<RoomPaymentDTO> test = PayAndReserveService.getTermSales();
       
-      List<StatisticsVO> test=  managerDAO.chart();
       
       Map<String, Object> map = new HashMap<>();
       map.put("login", login);
@@ -98,8 +97,6 @@ public class ManagerMainController {
       map.put("member", member);
       map.put("reroom", reroom);
       map.put("list", list);
-      map.put("test",test);
-
       ModelAndView mv = new ModelAndView();
       mv.addObject("map", map);
       mv.setViewName("manager");

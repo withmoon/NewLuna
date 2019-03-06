@@ -44,7 +44,7 @@
 	<![CDATA[
 		 select reservdate ,count(*)as gunsu from roompayment  where reservdate>='19/01/01' and 
 		reservdate<='19/03/28' group by reservdate order by reservdate asc
-	]]>	
+	]]>	 
 	</select>
 
 </mapper> 

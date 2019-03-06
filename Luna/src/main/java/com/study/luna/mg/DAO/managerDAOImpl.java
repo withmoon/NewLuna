@@ -19,7 +19,7 @@ public class managerDAOImpl implements managerDAO{
  
 	@Autowired 
 	private SqlSession SqlSession; 
-	//로그인 리스트
+	//로그인 리스트 
 	@Override
 	public int login() {
 		System.out.println("logincount DAO");

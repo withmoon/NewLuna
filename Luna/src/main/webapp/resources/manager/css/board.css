@@ -7,7 +7,6 @@ header {
 	padding-top: 30px;
 	font-size: 20pt;
 }
-
 #searchtable {
 	width: 100%;
 	min-width: 450px;
@@ -47,4 +46,6 @@ header {
 #boardtable tr th {
 	padding: 10px 5px;
 	text-align: center;
+	background-color: #EBEBEB;
+	color: black;
 }

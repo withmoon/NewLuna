@@ -16,7 +16,7 @@ $(document)
 						 url: "mgchart.mdo", 
 						 data:{},     
 						success:function(A){
-							
+							 
 							
 					/* am차트 */
 					// Themes begin

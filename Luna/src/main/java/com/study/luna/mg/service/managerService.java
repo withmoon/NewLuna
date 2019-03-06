@@ -13,7 +13,7 @@ public interface managerService {
 	//예약수 가져오기 
 	int roomcount(HttpSession session,String days);
 	//회원가입 수 
-	public int join();
+	public int join(); 
 	//회원수 
 	public int member();
 
