@@ -43,9 +43,13 @@ public class ManagerMainController {
       System.out.println("test 세션 :"+session.getAttribute("id"));
       if ((flashMap.get("id") == null || flashMap.get("id").equals("")) && session.getAttribute("id") == null) {
          System.out.println("카카오 로그인 실패");
-         return logincheck();
-      }else if(!session.getAttribute("id").equals(null)){
+         return logincheck(session);
+      }else if(session.getAttribute("id") != null && session.getAttribute("branchName")==null) {
+         System.out.println("회원확인");
+         return logincheck(session);
+      }else if(session.getAttribute("branchName") != null){    
          System.out.println("세션에서 매니저ID 확인");
+         
          
          String id=(String) session.getAttribute("id");
          String bn = managerService.branchname(id); //지점 검색
@@ -61,7 +65,7 @@ public class ManagerMainController {
          String bn = managerService.branchname(id); //지점 검색
          System.out.println("branchName :" +bn);
          session.setAttribute("branchName",bn);
-      
+       
       }
         
       //게시글 모든 정보 가져오기
@@ -120,9 +124,10 @@ public class ManagerMainController {
 
    // 매니저 인증 실패시
    @RequestMapping(value = "/loginX.mdo", method = RequestMethod.GET)
-   public ModelAndView logincheck() {
+   public ModelAndView logincheck(HttpSession session) {
       System.out.println("매니저 인증 실패 로그인화면으로 이동");
       ModelAndView mv = new ModelAndView();
+      mv.addObject("session",session.getAttribute("id"));
       mv.setViewName("body/loginX");
  
       return mv;
