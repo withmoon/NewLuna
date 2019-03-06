@@ -62,13 +62,6 @@
     </c:if>
     </div>
 </div>
-<!-- <div class="upRe">
-
-   		 안녕하세요 늑대털쓴양입니다.<br>
-
-		<a href=""><b>팝업강좌 바로가기</b></a>
-
-</div> -->
 <div class="button"><button onclick="window.open('inform.udo','_self');">목록</button></div>
 </div>
 </section>

@@ -60,8 +60,14 @@ function writeCommand(num){
 		data: {bnum:num,content:content},
 		success : function(data) {
 			replyOnOff(num);
+			$("#replytext").val("");
+			nReplyList(1);
+			 $(".reply2").show();
 		}
 	});
+	
+	
+	
 }
 
 //댓글 수정클릭
@@ -90,11 +96,11 @@ function upRe(num,rno) {
 }
 
 //댓글 수정 취소
-function caRE(num,rno) {
-	var replytext=replytext.substring(3);
+function caRE(rno,content) {
+	var replyt=replytext.substring(3);
 	$("#caRE"+rno).hide();
 	$("#upRe"+rno).children().remove();
-	$("#upRe"+rno).text(replytext);
+	$("#upRe"+rno).text(replyt);
 	$("#upbt").html("수정");
 }
 
