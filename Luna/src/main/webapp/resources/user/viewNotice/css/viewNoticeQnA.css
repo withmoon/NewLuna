@@ -1,43 +1,43 @@
 @charset "UTF-8";
 
 *{
-	margin:0;
-	font-family: 'Gamja Flower', cursive;
+   margin:0;
+   font-family: 'Gamja Flower', cursive;
 }
 nav{
-	position:relative;
-	top:150px;
+   position:relative;
+   top:150px;
 }
 
 .memberUl{
-	postion:absolute;
-	top:20px;	
+   postion:absolute;
+   top:20px;   
 }
 .topUl{
-	top:-40px;
+   top:-40px;
 }
 a .logo{
-	position:absolute;
+   position:absolute;
 }
 
 /* 타이틀 */
 .top{
-	position:absolute;
-	top:2%;
-	left:15%;
-	width:auto;
-	text-align:center;
-	font-size: 2vw;
-	color: #686868; 
+   position:absolute;
+   top:2%;
+   left:15%;
+   width:auto;
+   text-align:center;
+   font-size: 2vw;
+   color: #686868; 
 }
 /*본문*/
 .border {
-	border-radius: 2em;
-	border-top-left-radius: 2em;
-	border-top-right-radius: 2em;
-	border-bottom-left-radius: 2em;
-	border-bottom-right-radius: 2em;
-	border: 2px solid tan;
+   border-radius: 2em;
+   border-top-left-radius: 2em;
+   border-top-right-radius: 2em;
+   border-bottom-left-radius: 2em;
+   border-bottom-right-radius: 2em;
+   border: 2px solid tan;
     padding:1%;
     position:relative;
     top : 150px;
@@ -47,7 +47,7 @@ a .logo{
 }
 /*제목*/
 .title {
-	padding: 5px 0px 5px 5px;
+   padding: 5px 0px 5px 5px;
     margin-bottom: 5px;
     border-bottom: 0.2vw solid tan;
 }
@@ -68,7 +68,7 @@ a .logo{
 }
 /*내용*/
 .content {
-	padding: 5%;
+   padding: 5%;
 }
 /*댓글보기/닫기*/
 .reply{
@@ -81,54 +81,54 @@ a .logo{
  font-size : 2vw; color : #777;
 }
 .reply img {
-	width:3%;
+   width:3%;
 }
 .rbox{
    border-bottom: 0.1vw solid #bbbb;
    padding:1%;
 }
 .rbox span {
-	position:absolute;
-	left: 80%;
+   position:absolute;
+   left: 80%;
 }
 
 /*댓글 올리기*/
 .replytextForm {
-	 border-top: 0.2vw solid #777;
-	 padding:1%;
+    border-top: 0.2vw solid #777;
+    padding:1%;
 }
 textarea {
-	border:0;
-	outline:none;
-	resize:none;
-	font-size: 2vw;
+   border:0;
+   outline:none;
+   resize:none;
+   font-size: 2vw;
 }
 
 .replytextForm button {
-	width:15%;
-	font-size: 2vw;
-	padding:1%;
-	position:relative;
-	left: 2%; 
-	bottom: 23px;
+   width:15%;
+   font-size: 2vw;
+   padding:1%;
+   position:relative;
+   left: 2%; 
+   bottom: 23px;
 }
 
 .replytextForm b {
-	position:relative;
-	left: 35%; 
+   position:relative;
+   left: 35%; 
 }
 
 /*댓글수정*/
 #upre {
-	font-size: 1.5vw;
+   font-size: 1.5vw;
 }
 /* .upRe{
-	position:absolute;
-	width:80%;
-  	height:20%;
-	top:30%;
-	left:10%;
-  	background:tan;
+   position:absolute;
+   width:80%;
+     height:20%;
+   top:30%;
+   left:10%;
+     background:tan;
 }
 
 .upRe2 {
@@ -140,26 +140,26 @@ z-index : 100;
 
 /*페이지*/
 #replyPaging {
-	width: 100%;
-	position:relative;
-	left:-2%;
+   width: 100%;
+   position:relative;
+   left:45%;
 }
 
 #replyPaging li {
-	font-size: 2vw;
+   font-size: 2vw;
 }
 
 
 /*button*/
 .button {
-	padding: 3%;
-	position:relative;
-	left: 38%; 
+   padding: 3%;
+   position:relative;
+   left: 38%; 
 }
 .button button {
-	width:20%;
-	font-size: 2vw;
-	padding:1%;
+   width:20%;
+   font-size: 2vw;
+   padding:1%;
 }
 
 button{
@@ -177,7 +177,7 @@ button:hover{
 }
 /*footer*/
 footer{
-	padding: 3% 0%;
-	position:relative;
-	bottom:-200px;
+   padding: 3% 0%;
+   position:relative;
+   bottom:-200px;
 }
