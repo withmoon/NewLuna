@@ -10,7 +10,7 @@
 <link href="<c:url value="/resources/admin/member/css/member.css"/>" type="text/css" rel="stylesheet" />
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
-<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
+<link rel="stylesheet" href="<c:url value="/resources/admin/report/css/report.css"/>"/>
 <script src="<c:url value="/resources/admin/report/report.js"/>"></script>
 <script src="<c:url value="/resources/admin/report/reportreply.js"/>"></script>
 <style>
@@ -133,7 +133,7 @@
 			</table>
 			</form>
 		</div>
-		<button hidden="true" id="showlistBtn" style="margin:1%; padding:3px; float:right" onclick="getReportlist(1)">목록 보기</button><br/><br/>
+		<button hidden="true" id="showlistBtn" onclick="getReportlist(1)">목록 보기</button><br/><br/>
 		<!-- 댓글 -->
 		<div class="reply" hidden="true">
 			<table style="background-color:beige; border-collapse:collapse">
