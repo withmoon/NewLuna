@@ -63,9 +63,9 @@
    
    	<!-- 중앙세션 -->
 			<section id="msec">
-			<div id=header>
-				<header>보고 게시판</header>
-			</div>
+			<center>
+				<h4>보고게시판</h4>
+			</center>
 
 
 			<div id="board">
