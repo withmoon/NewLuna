@@ -11,6 +11,25 @@
 function list(page) {
 	location.href = "mgSales.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }
+function cancelPay(id) {
+	location.href = "mgRefund.mdo?id="+id;
+	alert("회원 환불 검색");
+} 
+/* function cancelPay(id){
+$.ajax({
+	   type : "POST",
+	   url : "Refund.mdo?",
+	   data : {id:id},
+	   success: function(data){    
+	    alert("저장되었습니다.");
+	    },
+	   error : function (data) {
+	    alert('죄송합니다. 잠시 후 다시 시도해주세요.');
+	    return false;
+	   }  
+	  }); 
+} */
+	
 </script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" 
@@ -131,9 +150,15 @@ function list(page) {
 					<td>${sales.phone}</td>
 					<td>${sales.email}</td>
 					<td>
-					<c:if test="${sales.brstatus==-2}">
-						제명상태 <br/>
-						<button onclick="cancelPay()">환불</button>
+					<c:if test="${sales.brstatus==-2}"><%-- ${sales.id} --%>
+						<button onclick="cancelPay('${sales.id}')" name="id">제명상태</button> <br/> 
+					<%-- 	<c:if test="${list.id==1 or list.id==-2}" >
+							<button onclick="">결제확인/환불승인</button>
+						</c:if>
+						<c:if test="${list.id!=1 or list.id!=-2}" >
+							<button onclick="">미결제</button>
+						</c:if> --%>
+						
 					</c:if>
 					<c:if test="${sales.brstatus==0}">
 						회원

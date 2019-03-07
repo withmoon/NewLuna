@@ -56,22 +56,23 @@
 <!-- jQuery CDN --->
 <script>
 function list(page) {
-	location.href = "mgRefund.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
+	location.href = "Refund.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }
 
- 
-  function cancelPay() {
-	$.ajax({
-		 type : "POST",         
-		 url: "Refund.mdo", 
-		success:function(){
-			alert("환불성공"); 
-		},
-		error:function(){
-			alert("환불실패")
-		}
-    });
-  }
+function cancelPay(roomnum,seq,reservdate) {
+	if (confirm("환불을 승인하겠습니까?") == true){ //확인
+	   /*  document.form.submit(); */
+	   location.href="Refund.mdo?seq="+seq+"&roomnum="+roomnum+"&reservdate="+reservdate;
+	   window.setTimeout(cle(),3000);
+	   window.location.reload()
+	}else{   //취소
+		alert("취소");
+	    return;
+	}
+}
+function cle() {
+	alert("환불 완료했습니다.");
+}
 </script>
 <title>지점장 관리화면</title>
 </head>
@@ -117,7 +118,7 @@ function list(page) {
 									<!-- 레코드의 갯수를 출력 -->
 									<select name="searchOption">
 										<option value="roomnum"  <c:out  value="${map.searchOption == 'roomnum' ? 'selected' : '' }" />>번호</option>
-										<option value="IMP_UID"  <c:out value="${map.searchOption == 'IMP_UID'?'selected' : '' }"/> >아이디</option>
+										<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >아이디</option>
 								</select> 
 								<input name="keyword"   value="${map.keyword }"> 
 								<input	 type="submit" value="검색">
@@ -141,7 +142,7 @@ function list(page) {
 						<tr>
 							<c:if test="${list.status eq -2 || list.status eq -1}">
 							<td>${list.rownum }</td>			
-							<td>${list.imp_uid}</td>	
+							<td>${list.id}</td>	
 							<td>${list.branchname }</td>
 							<td>${list.roomnum}</td><!--  reservdate--> 
 						
@@ -149,7 +150,7 @@ function list(page) {
 								<fmt:formatDate value="${list.reservdate }" pattern="yyyy.MM.dd"/>
 							</td>
 							<c:if test="${list.status==-2}">
-								<td><button onclick="cancelPay()">환불하기</button></td>
+								<td><button onclick="cancelPay('${list.roomnum}','${list.seq }','${list.reservdate }')">환불하기</button></td>
 							</c:if>
 							<c:if test="${list.status==-1}">
 								<td>환불완료</td>

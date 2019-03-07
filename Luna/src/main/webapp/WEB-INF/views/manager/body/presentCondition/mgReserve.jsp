@@ -135,7 +135,7 @@
 				<c:forEach var="list" items="${map.list }">
 						<tr>
 							<td>${list.rownum }</td>			
-							<td>${list.imp_uid}</td>	
+							<td>${list.id}</td>	
 							<td>${list.branchname }</td>
 							<td>${list.roomnum }</td>
 							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
