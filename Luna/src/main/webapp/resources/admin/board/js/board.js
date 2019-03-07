@@ -27,7 +27,7 @@ function qnaList(qpage) {
 				newSubject.appendChild(a);
 				(function(num) {
 					a.addEventListener('click', function() {
-						window.open('viewQnA.udo?num='+num,'_self');
+						window.open('write.ado?num='+data.qnaList[i].num+'&subject='+data.qnaList[i].subject+'&contnet='+data.qnaList[i].content); //이걸로 해서 라이트 폼에 데이터 입력시키고 업로드
 					}, false);
 				})(num);
 				

@@ -96,14 +96,14 @@ public class mgServiceImpl  implements MgService{
 	
 	//admin 문의목록
 	@Override
-	public List<QBoardVO> inquireList(int start, int end, HttpSession session) {
-		return boardDAO.inquireList(start, end);
+	public List<QBoardVO> inquireList(int start, int end, String searchOption, String keyword,HttpSession session) {
+		return boardDAO.inquireList(start, end,searchOption,keyword);
 	}
 	
 	//admin 문의갯수
 	@Override
-	public int countInqure(String title) {
-		return boardDAO.countInqure(title);
+	public int countInqure(String searchOption, String keyword) {
+		return boardDAO.countInqure(searchOption,keyword);
 	}
 	
 	//admin

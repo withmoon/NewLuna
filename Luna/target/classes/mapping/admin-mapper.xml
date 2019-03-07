@@ -95,7 +95,7 @@
    <insert id="insertQnABoard" parameterType="adminQnABoardVO">
          <![CDATA[
          insert into adminqnaboard (num, subject, content, regdate)
-         values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, #{regdate})
+         values ( (select nvl(max(num)+1,1) from adminqnaboard), #{subject}, #{content}, sysdate)
          ]]>
    </insert>
 

@@ -26,20 +26,15 @@
                <tr>
                   <th>제목:</th>
                   <td><input type="text" placeholder="subject" id="subject" name="subject"
-                     class="form-control" /></td>
+                     class="form-control"  value="${qncontent.title}"/></td>
                </tr>
 
                <tr>
                   <th>내용:</th>
                   <td><textarea cols="10" placeholder="content " id="content" name="content"
-                        class="form-control"></textarea></td>
+                        class="form-control">${qncontent.content}</textarea></td>
                </tr>
-               <tr>
-               
-                  <th>작성일:</th>
-                  <td><input type="date" placeholder="date" id="regdate" name="regdate"
-                     class="form-control" /></td>
-               </tr>
+
                <tr>
                   <td colspan="2"><input type="submit" id="btnSave" value="등록" class="pull-right" /> 
                   <input type="button" value="글 목록"

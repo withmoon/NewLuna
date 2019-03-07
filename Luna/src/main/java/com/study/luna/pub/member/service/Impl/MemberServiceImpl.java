@@ -11,16 +11,20 @@ import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.dao.Impl.AllBranchCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.AllMemberCountDAOImpl;
 import com.study.luna.pub.member.dao.Impl.CancleExpulmemberDAOImpl;
+import com.study.luna.pub.member.dao.Impl.DeleteAdminDAOImpl;
+import com.study.luna.pub.member.dao.Impl.GetAdminListDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBrNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetBranchNameDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetMyPageInfoDAOImpl;
 import com.study.luna.pub.member.dao.Impl.GetStatusDAOImpl;
 import com.study.luna.pub.member.dao.Impl.IdCheckDAOImpl;
+import com.study.luna.pub.member.dao.Impl.InsertAdminDAOImpl;
 import com.study.luna.pub.member.dao.Impl.InsertMemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.MemberDAOImpl;
 import com.study.luna.pub.member.dao.Impl.MemberExpluDAOImpl;
 import com.study.luna.pub.member.dao.Impl.PassCheckDAOImpl;
 import com.study.luna.pub.member.dao.Impl.UpUserInfoDAOImpl;
+import com.study.luna.pub.member.dao.Impl.UpdateAdminDAOImpl;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.util.SHA256;
 
@@ -52,6 +56,14 @@ public class MemberServiceImpl implements MemberService{
 	MemberExpluDAOImpl mepDAOImpl;
 	@Autowired
 	CancleExpulmemberDAOImpl cepmDAOImpl;
+	@Autowired
+	GetAdminListDAOImpl galDAOImpl;
+	@Autowired
+	InsertAdminDAOImpl iaDAOImpl;
+	@Autowired
+	UpdateAdminDAOImpl uaDAOImpl;
+	@Autowired
+	DeleteAdminDAOImpl daDAOImpl;
 	
 	@Override
 	public Integer idCheck(MemberCommand memcom) {		
@@ -156,6 +168,26 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void cancleExpulmember(String id) {
 		cepmDAOImpl.cancleExpulmember(id);
+	}
+
+	@Override
+	public List<MemberCommand> getAdminList() {
+		return galDAOImpl.getAdminList();
+	}
+
+	@Override
+	public void insertAdmin(MemberCommand memcom) {
+		iaDAOImpl.insertAdmin(memcom);
+	}
+
+	@Override
+	public void updateAdmin(MemberCommand memcom) {
+		uaDAOImpl.updateAdmin(memcom);
+	}
+
+	@Override
+	public void deleteAdmin(String id) {
+		daDAOImpl.deleteAdmin(id);
 	} 
 
 

@@ -25,3 +25,14 @@ table th {
     list-style:none; 
     margin:1px;
 }
+.writeDiv{
+	position:fixed;
+	top:30%;
+	left:19%;
+	width:100%;
+
+}
+.writeDiv table td{
+	background-color:azure;
+	border:1px solid gray;
+}

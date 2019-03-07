@@ -16,14 +16,14 @@ public interface BoardDAO {
 	//게시글 목록
 	public List<QBoardVO> listAll(int start, int end, String searchOption, String keyword, String branchName);
 	 
-	public List<QBoardVO> inquireList(int start, int end); //admin 문의목록
-	public int countInqure(String title); //문의 갯수
+	public List<QBoardVO> inquireList(int start, int end,String searchOption, String keyword); //admin 문의목록
+	public int countInqure(String searchOption, String keyword); //문의 갯수
 	
 	//게시글 상세보기
 	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 
 	//레코드 계싼
-	public int countArticle(String searchOption, String keyword, String branchName) throws Exception;
+	public int countArticle(String searchOption, String keyword,String branchName) throws Exception;
 	
 	//메일체크
 	public int mailstatus(QBoardVO vo);

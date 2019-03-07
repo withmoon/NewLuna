@@ -47,8 +47,9 @@
 
 	<!-- 메일체크 -->
 	<update id="mailstatus">
-		update inquiryboard set mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where seq=#{seq} and branchName=#{branchName}
+		update inquiryboard set reply=#{reply}, mail=1 ,EMAILTITLE=#{emailtitle}, EMAILCONTENT=#{emailcontent} where seq=#{seq}
 	</update>
+	
 	<!-- 사용자 문의 갯수 -->
 	<select id="getUserQnCount" resultType="Integer">
 		<![CDATA[
@@ -87,13 +88,32 @@
 	<!-- admin 문의 목록 -->
 	<select id="inquireList" resultType="QBoard">
 		<include refid="pagingHeader"></include>
-     	 select * from inquiryboard order by seq desc
+     	 select * from inquiryboard 
+     	<if test="searchOption=='title' and keyword!=''">
+			<![CDATA[ where title like '%'||#{keyword}||'%']]>
+		</if>
+		<if test="searchOption=='id' and keyword!=''">
+			<![CDATA[ where id like '%'||#{keyword}||'%']]>
+		</if>
+		order by seq desc
 		<include refid="pagingFooter"></include>
    </select>
    
    <!-- 게시글갯수 -->
 	<select id="countInqure" resultType="int">
 		select count(*) from inquiryboard
+		<if test="searchOption=='title' and keyword!=''">
+			<![CDATA[ where title like '%'||#{keyword}||'%']]>
+		</if>
+		<if test="searchOption=='id' and keyword!=''">
+			<![CDATA[ where id like '%'||#{keyword}||'%']]>
+		</if>
+		order by seq desc
 	</select>
+	
+		<!-- admin 문의 삭제 -->
+	<select id="inquiredelete">
+     	 delete inquiryboard where seq=#{seq}
+   </select>
 </mapper> 
 

@@ -50,12 +50,12 @@ public class BoardDAOImpl  implements BoardDAO{
 		return SqlSession.selectOne("mgQBoard.QRead",vo); 
 	}
 	@Override
-	public int countArticle(String searchOption, String keyword,String branchName) throws Exception {
+	public int countArticle(String searchOption,String keyword,String branchName) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("branchName", branchName);
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		map.put("branchName", branchName);
 		return SqlSession.selectOne("mgQBoard.countArticle", map);
 	}
 	
@@ -74,9 +74,11 @@ public class BoardDAOImpl  implements BoardDAO{
 	
 	//admin 문의 목록
 	@Override
-	public List<QBoardVO> inquireList(int start, int end) {
+	public List<QBoardVO> inquireList(int start, int end,String searchOption, String keyword) {
 		Map<String, Object> map = new HashMap<String, Object>();
      	map.put("start", start);
+     	map.put("searchOption", searchOption);
+     	map.put("keyword", keyword);
      	map.put("end", end);
     
 		return SqlSession.selectList("mgQBoard.inquireList", map);
@@ -84,8 +86,11 @@ public class BoardDAOImpl  implements BoardDAO{
 	
 	//admin 문의 갯수
 	@Override
-	public int countInqure(String title) {
-		return SqlSession.selectOne("mgQBoard.countInqure", title);
+	public int countInqure(String searchOption, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+     	map.put("keyword", keyword);
+		return SqlSession.selectOne("mgQBoard.countInqure", map);
 	}
 	
 	//admin

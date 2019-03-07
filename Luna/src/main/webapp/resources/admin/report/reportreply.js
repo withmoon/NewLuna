@@ -33,7 +33,7 @@ function getReportReply(seq){
 				dom+='<tr><td style="width:710px; height:auto; align:top; border-bottom:1px solid gray;">';
 				if(data[i].branchname=='본점'){
 					dom+='<b>[관리자]</b> '+data[i].regdate+'<br/>';
-					dom+=data[i].reply+'<br/>';
+					dom+='<p id="rp'+data[i].seq+'">'+data[i].reply+'</p><br/> <input id="rpbtn'+data[i].seq+'" type="button" onclick="updatReportReplying('+seq+','+data[i].seq+')" value="수정"/> <input hidden="true" id="crubtn" type="button" onclick="cancleReplyUpdate()" value="수정취소"/> <input type="button" onclick="deleteReportReply('+seq+','+data[i].seq+')" value="삭제"/>';
 				}
 				if(data[i].branchname!='본점'){
 					dom+='&emsp;> <b>'+data[i].branchname+'</b> '+data[i].regdate+'<br/>';

@@ -81,7 +81,7 @@ public class MgBoardController {
 
 		return mv;
 	}
-
+	
 	/*
 	 * 문의 게시판 //일반처리 /* @RequestMapping(value = "/mgBoard.mdo", method =
 	 * RequestMethod.GET) public ModelAndView mgBoardView(QBoardVO vo) throws
@@ -95,8 +95,7 @@ public class MgBoardController {
 	@RequestMapping(value = "/mgBoardview.mdo")
 	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage, QBoardVO vo,
 			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
-
-//		조회수 대비 MgService.increaseViewcnt(bno, session);*/
+		//	조회수 대비 MgService.increaseViewcnt(bno, session);*/
 		vo.setBranchName((String) session.getAttribute("branchName"));
 		vo.setSeq(num);
 		System.out.println("상세보기 id" + vo.getBranchName());
@@ -140,8 +139,8 @@ public class MgBoardController {
 //		String setfrom = "gur792816@gmail.com"; //보내는이?
 		String setfrom = "manager@gmail.com";
 		String tomail = request.getParameter("tomail"); // 받는 사람 이메일
-		String title = request.getParameter("title"); // 제목
-		String content = request.getParameter("content"); // 내용
+		String title = "["+(String) session.getAttribute("branchName")+"]"+" 문의하실 글에 답변이 달렸습니다" ;// 제목
+		String content = request.getParameter("content1")+"\r\n\r\n"+request.getParameter("content2"); // 내용
 		MimeMessage message = mailSender.createMimeMessage();
 		try {
 
@@ -160,6 +159,7 @@ public class MgBoardController {
 		vo.setEmail(request.getParameter("email"));
 		vo.setEmailtitle(title);
 		vo.setEmailcontent(content);
+		vo.setReply(request.getParameter("content2"));
 		vo.setBranchName((String) session.getAttribute("branchName"));
 
 		MgService.mailstatus(vo);

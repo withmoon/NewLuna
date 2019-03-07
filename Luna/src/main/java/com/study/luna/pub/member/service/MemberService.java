@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import com.study.luna.admin.model.vo.AdminManagerApproveVO;
-import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 import com.study.luna.pub.command.MemberCommand;
 
 public interface MemberService {
@@ -53,5 +51,13 @@ public interface MemberService {
 	public List<MemberCommand> approveList(int start, int end, HttpSession session); // 지점장 승인 목록
 
 	public int countApprove(String id); // 지점장승인갯수
+	
+	List<MemberCommand> getAdminList();//어드민 리스트
+	
+	void insertAdmin(MemberCommand memcom); //어드민 추가
+	
+	void updateAdmin(MemberCommand memcom);//어드민 수정
+	
+	void deleteAdmin(String id);//어드민 삭제
   
 }

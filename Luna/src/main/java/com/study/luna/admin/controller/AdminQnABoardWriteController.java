@@ -27,19 +27,22 @@ public class AdminQnABoardWriteController {
    @RequestMapping(value = "/qnaupdate.ado" ,method=RequestMethod.POST)
    public String View(@ModelAttribute AdminQnABoardVO vo)throws Exception{
       adminQnABoardService.update(vo);  
-   return "redirect:/boardList.ado";
+   return "redirect:/board.ado";
    }
    
    @RequestMapping(value = "/qnadelete.ado")
    public String deleteView(@RequestParam int num)throws Exception{
       adminQnABoardService.delete(num);  
-   return "redirect:/boardList.ado";
+   return "redirect:/board.ado";
    }
    
    
    @RequestMapping(value = "/write.ado", method = RequestMethod.GET)
-   public String mainView() {
-      return "write";
+   public ModelAndView mainView(AdminQnABoardVO aqb) {
+	  ModelAndView mav=new ModelAndView();
+	  mav.addObject("qncontent",aqb);
+	  mav.setViewName("write");
+      return mav;
    }
    
    @RequestMapping(value = "/qnaview.ado", method = RequestMethod.GET)
@@ -65,7 +68,7 @@ public class AdminQnABoardWriteController {
    @RequestMapping(value = "/insert.ado")
    public String insert(@ModelAttribute AdminQnABoardVO adminQnABoardVO) throws Exception {
       adminQnABoardService.insert(adminQnABoardVO);
-      return "redirect:/boardList.ado";
+      return "redirect:/board.ado";
    }
    
 }

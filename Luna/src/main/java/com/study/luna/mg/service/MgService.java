@@ -11,11 +11,10 @@ public interface MgService {
 	 
 	// 문의글 목록보기
 	public List<QBoardVO> QboardList(int start, int end, String searchOption, String keyword, String branchName)throws Exception;
-
-	public List<QBoardVO> inquireList(int start, int end, HttpSession session); //admin 문의목록
-	public int countInqure(String title); //문의 갯수
- 
-
+	//admin 문의목록
+	public List<QBoardVO> inquireList(int start, int end,String searchOption, String keyword, HttpSession session); 
+	//문의 갯수
+	public int countInqure(String searchOption, String keyword); 
 	// 게시글 상세보기
 	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 

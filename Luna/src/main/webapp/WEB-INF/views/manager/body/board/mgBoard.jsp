@@ -97,12 +97,12 @@
 					<!-- 예시로 데이터 작업 -->
 					<c:forEach var="list" items="${map.list }">
 						<tr>
-							<td>${list.rownum }</td>			
-							<td><a href="mgBoardview.mdo?seq=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" >${list.title}</a></td>	
+							<td>${list.rownum }</td>
+							<td>${list.title}</td>
 							<td>${list.id }</td>
 							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
 							<c:if test="${list.mail==0 }">
-								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}');">답장하기</button></td>
+								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}');">열람 하기</button></td>
 							</c:if>
 							<c:if test="${list.mail==1}">
 								<td><a href="#" onclick="mail_1('${list.seq }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter 
 public class MemberCommand {
+	//memberDAO
 	String kid;
 	String id;
 	String pw;
@@ -21,6 +22,7 @@ public class MemberCommand {
 	String branchAddr3;	
 	String brStatus;
 	String position;
+	String regdate;
 	int count; 
 	
 	String branchtel;

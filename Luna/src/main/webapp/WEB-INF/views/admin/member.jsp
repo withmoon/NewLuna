@@ -15,8 +15,7 @@
 
 
 <%@include file="../admin/footer.jsp" %>
-   
-<div align="center"><h3>회원관리게시판</h3></div>
+ <div align="center"><h3>회원관리게시판</h3></div>
 <div class="mail"><b>메일보내기</b>&emsp;<a href="#">단체메일</a>&emsp;<a href="#">회원전체</a>&emsp;<a href="#">지점장전체</a></div><br>
    
 <!-- 진행(종료) 이벤트버튼 -->
@@ -31,7 +30,6 @@
 
 <div class="container">
 <b>[선택된 아이디]</b>
-
 <div class="cendmBtn"></div><button class="sendmBtn" onclick="sendEmailToMembers()"> 메일 보내기 </button>
 <div class="row">
 
@@ -46,7 +44,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>제명 사유</th>
+			<th id="sangdan">제명 사유</th>
 		</tr>
 	</thead>
 	

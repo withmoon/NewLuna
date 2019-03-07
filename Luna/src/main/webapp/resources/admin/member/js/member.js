@@ -98,7 +98,7 @@ function infoList(ipage) {
 
 //제명 하겠다 내용을 띄워달라
 function editContentExpulmember(id,email){
-	
+	$("#sangdan").text("제명 사유");
 	$(".explur").show();
 	$(".emailcontents").hide();
 	$(".emailcontents").hide();
@@ -183,6 +183,7 @@ function checkAll(){
 }
 //메일보내기 클릭
 function sendEmailToMembers(){
+	$("#sangdan").text("메일 보내기");
 	$("#sendToUser").removeAttr("onclick");
 	$("#sendToUser").attr("type","submit");
 	$('body > *:not(.explur) ').css('filter',filterVal10);

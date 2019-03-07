@@ -20,6 +20,19 @@
    </div>
    <br></br>
    <div class="container">
+   <table id="searchtable">
+						<tr>
+							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->
+								<!-- 레코드의 갯수를 출력 -->
+								<select name="searchOption" id="searchSel">
+									<option value="title">제목</option>
+									<option value="id">작성자</option>
+							</select> 
+							<input type="text" name="keyword"  id="keyword" value=""/> 
+							<input type="button" onclick="inquireList(1)" value="검색">
+							</td>
+						</tr>
+					</table><br/>
       <div class="row">
          <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
             <thead>
@@ -36,10 +49,44 @@
             <tbody id="inquire_table"></tbody>
          </table>
          <ul id="inquirePaging"></ul>
-         <a href="gongjiwrite.ado" class="btn btn-primary pull-right">글쓰기</a>
+        <!--  <a href="gongjiwrite.ado" class="btn btn-primary pull-right">글쓰기</a>--> 
       </div>
    </div>
 
+	<div hidden="true" class="writeDiv">
+	<table style="width:60%; border: 1px solid gray">
+		<tr class="tit">
+		<th>제목</th>
+		</tr>
+		<tr  class="tit">
+		<td id="title">블라블라</td>
+		</tr>
+		<tr>
+		<th>
+		내용
+		</th>
+		</tr>
+		<tr>
+		<td  id="content">
+		블라블라
+		블라블라
+		</td>
+		</tr>
+		<tr>
+		<th >
+		지점장 답변
+		</th>
+		</tr>
+		<tr>
+			<td id="reple"></td>
+		</tr>
+		<tr align="center">
+		<td>
+		<button hidden="true" onclick="showWriteDiv()">답변하기</button><button onclick="hideWriteDiv()">닫기</button>
+		</td>
+		</tr>
+	</table>
+	</div>
 
 
 

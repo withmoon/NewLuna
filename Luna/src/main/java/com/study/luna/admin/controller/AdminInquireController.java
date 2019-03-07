@@ -40,9 +40,11 @@ public class AdminInquireController {
 	//문의계시판
 	@RequestMapping(value = "/inquireList.ado", method=RequestMethod.GET)
 	public @ResponseBody JSONObject  inquireList(@RequestParam(defaultValue="1") int curPage,
-									QBoardVO qboardVO, HttpSession session) {
+									QBoardVO qboardVO, HttpSession session,
+									@RequestParam(value="searchOption",defaultValue = "title") String searchOption,
+									@RequestParam(value="keyword",defaultValue = "") String keyword) {
 		//페이징 처리
-    	int count = service.countInqure(qboardVO.getTitle());
+    	int count = service.countInqure(searchOption, keyword);
     			
     	int page_scale = 10; // 페이지당 게시물 수
     	int block_sclae = 5; // 화면당 페이지 수
@@ -53,7 +55,7 @@ public class AdminInquireController {
     	int end = boardPager.getPageEnd();
     	
     	
-		List<QBoardVO> inquireList = service.inquireList(start, end, session);
+		List<QBoardVO> inquireList = service.inquireList(start, end, searchOption, keyword, session);
 		
 		JSONObject obj = new JSONObject();
 
@@ -98,8 +100,7 @@ public class AdminInquireController {
 	}
 	
 	@RequestMapping(value = "/inquiredelete.ado" ,method=RequestMethod.GET)
-    public String delete(@RequestParam int seq) throws Exception {
+    public @ResponseBody void delete(@RequestParam("seq") int seq) throws Exception {
     	service.inquiredelete(seq);
-       return "redirect:/inquireList.ado";
     }   
 }
