@@ -38,16 +38,20 @@
 	<!-- 댓글 목록 -->
 	<div class="replyList"></div>
 	<ul id="replyPaging"></ul>
+	<!-- 현재날짜 -->
+	<jsp:useBean id="now" class="java.util.Date" />
+	<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />  
+	<fmt:formatDate value="${ebv.enddate}" pattern="yyyy-MM-dd" var="write_dt"/>
 	<!-- 댓글 올리기 -->
 	<c:if test="${member.id != null }">
-	<%-- <c:if test="${${ebv.enddate < nbv.regdate } " > --%>
+	<c:if test="${ write_dt > today }">
 	<div class="replytextForm">
 		<input type="hidden" id="seq" value="${ebv.seq }">
 		<textarea id="replytext" name="replytext" rows="3" cols="65" placeholder="댓글을 작성해주세요"></textarea>
     	<button onclick='writeCommand(${ebv.seq})'>올리기</button>
     </div>
-    </c:if> 
-    <%-- </c:if> --%>
+	</c:if>
+  	</c:if> 
     <c:if test="${member.id == null }">
     <div class="replytextForm">
     	<b>로그인후 입력이 가능합니다.</b>
