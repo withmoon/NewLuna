@@ -32,6 +32,7 @@
                   <th>비교</th>
                </tr>
             </thead>
+            
             <tbody id="inquire_table"></tbody>
          </table>
          <ul id="inquirePaging"></ul>

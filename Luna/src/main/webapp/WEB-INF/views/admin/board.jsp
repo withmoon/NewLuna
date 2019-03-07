@@ -17,6 +17,7 @@
 </head>
 
 
+
   <%@include file="../admin/footer.jsp" %>
    <div align="center">
       <h3>Q N A</h3>

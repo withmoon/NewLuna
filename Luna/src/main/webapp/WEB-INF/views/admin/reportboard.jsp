@@ -29,6 +29,7 @@
 
 
 			<div id="board">
+			
 				<form name="form1" method="post" action="mgBoard.mdo?">
 					<table id="searchtable">
 						<tr>

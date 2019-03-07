@@ -19,6 +19,7 @@
       <h3>회원관리게시판</h3>
    </div>
    <br></br>
+   
 <div class="container">
 <div class="row">
 <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">

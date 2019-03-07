@@ -28,6 +28,7 @@
 							name="writer" class="form-control" /></td>
 					</tr>
 					<tr>
+					
 						<th>제목:</th>
 						<td><input type="text" name="title" placeholder="title"
 							id="title" value="${num.title}" class="form-control" /> <input

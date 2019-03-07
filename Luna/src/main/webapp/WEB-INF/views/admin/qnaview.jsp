@@ -30,6 +30,7 @@
                </tr>
 
                <tr>
+               
                   <th>내용:</th>
                   <td><textarea cols="5" placeholder="content " id="content"
                         name="content" class="form-control" rows="20">${num.content}</textarea></td>

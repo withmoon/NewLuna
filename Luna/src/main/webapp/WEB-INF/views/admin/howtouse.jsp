@@ -30,6 +30,7 @@
               	<tr><td>
                <td colspan="2"><input type="submit" id="update" value="수정" class="btn btn-primary pull-right" /> </td>
                </tr>
+               
             </tbody>
          </table>
       </form>

@@ -30,6 +30,7 @@
 				 <td><input type="text" name="title" size="120" style="width:100%" placeholder="제목" class="form-control"/></td>
 				</tr>
 					<tr>
+					
 						<th>답변:</th>
 						<td><textarea cols="10" rows="4" placeholder="reply" id="reply"
 								name="reply" class="form-control">${seq.reply}</textarea>

@@ -24,6 +24,7 @@
 
 <title>승인 페이지</title>
 </head>
+
 <%@include file="../admin/footer.jsp" %>
 	<!-- 이거 나중에 admin zicode업데이트 하고 다시 js처리하면됨 -->
 	<h3>달빛 총 매출현황</h3>

@@ -31,6 +31,7 @@
 
 <div class="container">
 <b>[선택된 아이디]</b>
+
 <div class="cendmBtn"></div><button class="sendmBtn" onclick="sendEmailToMembers()"> 메일 보내기 </button>
 <div class="row">
 

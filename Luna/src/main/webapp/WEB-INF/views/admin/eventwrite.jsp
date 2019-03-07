@@ -18,6 +18,7 @@
    <form id="form1" name="form1" action="insert1.ado" method="post" >
       <table class="table table-bordered">
          <thead>
+         
          <caption>글쓰기</caption>
          </thead>
          <tbody>

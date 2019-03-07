@@ -29,6 +29,7 @@
 							name="writer" class="form-control" /></td>
 					</tr>
 
+
 					<tr>
 						<th>제목:</th>
 						<td><input type="text" placeholder="subject" id="title"

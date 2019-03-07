@@ -15,6 +15,7 @@
 </head>
 
 
+
 	<%@include file="../admin/footer.jsp" %>
 	<div align="center">
       <h3>지점장 승인</h3>

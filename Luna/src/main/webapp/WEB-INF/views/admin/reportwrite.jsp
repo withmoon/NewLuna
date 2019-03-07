@@ -33,6 +33,7 @@
 						<td><textarea cols="10" placeholder="content " id="content"
 								name="content" class="form-control"></textarea></td>
 					</tr>
+					
 					<tr>
 						<th>파일:</th>
 						<td><input type="file" placeholder="file" id="file"

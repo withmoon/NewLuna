@@ -35,6 +35,7 @@
                         class="form-control"></textarea></td>
                </tr>
                <tr>
+               
                   <th>작성일:</th>
                   <td><input type="date" placeholder="date" id="regdate" name="regdate"
                      class="form-control" /></td>

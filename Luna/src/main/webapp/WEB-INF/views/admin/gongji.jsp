@@ -25,6 +25,7 @@
             style="text-align: center; border: 1px solid #dddddd">
             <thead>
                <tr>
+               
                   <th>번호</th>
                   <th>제목</th>
                   <th>작성일</th>
