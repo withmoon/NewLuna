@@ -1,5 +1,6 @@
 package com.study.luna.mg.DAO;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
+import com.sun.mail.iap.Literal;
 
 @Repository
 public class SalesDAOImpl implements SalesDAO {
@@ -93,6 +95,14 @@ public class SalesDAOImpl implements SalesDAO {
 		map.put("keyword", keyword);
 		map.put("branchName", branchName);
 		return sqlSession.selectOne("mgSalesDAO.RefundCount", map);
+	}
+
+	@Override
+	public void Refund(Map<String, Object> map) {
+		//????
+		//List<SalesVO> list= sqlSession.selectList("mgSalesDAO.Refund",id);
+		//List<SalesVO> list2 =sqlSession.selectOne("mgSalesDAO.Refund2",map);
+		//System.out.println(list2);
 	}
 
 	

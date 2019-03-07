@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,8 +59,9 @@ public class MgSalesController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
+		//회원 검색
 		List<SalesVO> list = MgPCService.SalesList(start, end, keyword,searchOption);
-
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", count);
@@ -98,11 +100,12 @@ public class MgSalesController {
 	         return mv;
 		}
 		
+		
 		String branchName = (String)session.getAttribute("branchName");
 		int count = MgPCService.ReserveCount(searchOption, keyword,branchName);
 		
 
-		int page_scale = 10;
+		int page_scale = 20;
 		int block_sclae = 5;
 		// 페이지 나누기처리 
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
@@ -127,7 +130,7 @@ public class MgSalesController {
 	
 	//환불하기
 	@RequestMapping(value = "/mgRefund.mdo")
-	public ModelAndView Reserve(@RequestParam(defaultValue = "roomnum") String searchOption,
+	public ModelAndView Reserve(@RequestParam(defaultValue = "id") String searchOption,HttpServletRequest request,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
 			HttpSession session)
 			throws Exception {
@@ -136,6 +139,10 @@ public class MgSalesController {
 			 System.out.println("카카오 로그인 실패");
 			 mv.setViewName("loginX.mdo");
 	         return mv;
+		}
+		
+		if(request.getParameter("id")!=null) {
+			keyword = request.getParameter("id");
 		}
 		
 	String branchName = (String)session.getAttribute("branchName");
@@ -167,10 +174,19 @@ public class MgSalesController {
 	return mv;
 	}
 	
-	@RequestMapping(value="Refund.mdo",method=RequestMethod.POST)
-	public void Refund() {
+	@RequestMapping(value="Refund.mdo")   
+	public void Refund(@RequestParam String id,HttpServletRequest request) throws InterruptedException {
 		System.out.println("환불조치");
-		//MgPCService.Refund();
+		
+		//System.out.println(list.toString());
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("req", request.getParameter("req"));
+		map.put("roomnum", request.getParameter("roomnum"));
+		map.put("reservdate", request.getParameter("reservdate"));
+		//환불조치
+		MgPCService.Refund(map);
+		Thread.sleep(20000);
+		
 	}
 	
 

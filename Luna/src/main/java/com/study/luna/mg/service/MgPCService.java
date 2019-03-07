@@ -23,10 +23,12 @@ public interface MgPCService {
 	//예약현황 카운트
 	public int ReserveCount(String searchOption, String keyword, String branchName);
 	
-	//환불하기
+	//환불리스트
 	public List<SalesVO> mgRefund(int start, int end, String searchOption, String keyword, String branchName);
 	//환불하기 리스트 카운트
 	public int RefundCount(String searchOption, String keyword, String branchName);
+	//환불 처리
+	public void Refund(Map<String, Object> map);
 
 	
 	
