@@ -82,7 +82,7 @@
 	<!-- 회원목록 -->
 	<select id="memberList" resultType="member">
 		<include refid="pagingHeader"></include>
-		select * from member where position is null
+		select * from member where position is null order by id
 		<include refid="pagingFooter"></include>
 	</select>
 
@@ -150,10 +150,49 @@
 		delete member where id=#{id}
 	</delete>
 	
+	<!-- 전체회원 검색용 -->
+	<select id="getAllMember" resultType="member">
+	<include refid="pagingHeader"></include>
+		<![CDATA[select rownum num, member.* from member]]>
+		<if test="searchOption!=''">
+		 	<include refid="search"></include>
+		 </if>
+		 	<include refid="pagingFooter"></include>
+	</select>
+		
+	<!-- 전체회원 검색카운트 -->
+	<select id="getAllMemberCount" resultType="Integer">
+		<![CDATA[select count(*) from member]]>
+		 <include refid="search"></include>
+	</select>
+	
 	<!-- 어드민 목록 -->
 	<select id="getAdminList" resultType="member">
-		<![CDATA[select * from member where position='관리자' or position='총관리자' order by id]]>
+		<![CDATA[select * from member where position='관리자' or position='총관리자' order by id]]>   
 	</select>
+	
+	<sql id="search">
+      <choose>
+         <!-- 검색옵션이 전체검색 일경우 -->
+         <when test="searchOption=='all'">
+         <![CDATA[
+         where NAME LIKE '%'||#{keyword}||'%' 
+         OR ID LIKE '%'||#{keyword}||'%'
+         OR PHONE LIKE '%'||#{keyword}||'%'
+            OR EMAIL LIKE '%'||#{keyword}||'%'
+         ]]>
+         </when>
+
+         <!-- 검색옵션이 전체가 아닐경우 -->
+         <otherwise>
+         <![CDATA[
+         where ${searchOption} LIKE '%'||#{keyword}||'%' 
+         ]]>
+         </otherwise>
+      </choose>
+   </sql>
+
+	
 
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">

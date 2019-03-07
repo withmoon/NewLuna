@@ -35,8 +35,8 @@ function memberList(mpage) {
 	    	 for(var i=0; i<data.memberList.length; i++){
 	    		 mem += '<tr>';
 	    		 mem += '<td><input type="checkbox" name="checkRow" class="chkbox" id="chkseq'+i+'" value="'+data.memberList[i].id+';'+data.memberList[i].email+'" onclick="attachUserInfo(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039,'+i+')"/></td>';
-	    		 mem += '<td>'+data.memberList[i].name+'</td>';
 	    		 mem += '<td>'+data.memberList[i].id+'</td>';
+	    		 mem += '<td>'+data.memberList[i].name+'</td>';
 	    		 mem += '<td>'+data.memberList[i].phone+'</td>';
 	    		 mem += '<td>'+data.memberList[i].email+'</td>';
 	    		 if(data.memberList[i].brStatus==0){
@@ -53,6 +53,45 @@ function memberList(mpage) {
 	    	 emails='';
 	    	 $(".cendmBtn").children().remove();
 	    	 blockPage("memberPaging",mpage,data.memberPage.BLOCK_SCALE,data.memberPage.totPage,"memberP","memberList");
+	     }
+	});
+}
+var keyword='';
+var searchOption='';
+//회원 검색
+function AllmemberList(mpage) {
+	
+	keyword=$("#keyword").val();
+	searchOption=$("#searchOption option:selected").val();
+	$.ajax({     
+		 type:"POST",  
+		 url:"getAllMember.do",    
+	     data:{curPage:mpage,keyword:keyword,searchOption:searchOption},      
+	     success:function(data){
+	    	 $(".table-striped").children().remove();
+	    	 var mem = '';
+	    	 
+	    	 mem += '<tr>';
+	    	 mem += '<th><input type="checkbox" id="allSeq" onclick="checkAll()"></th>';
+	    	 mem += '<th>이름</th><th>아이디</th><th>전화번호</th><th>이메일</th><th>생일</th>';
+  		 mem += '</tr>';
+  		 
+	    	 for(var i=0; i<data.memberList.length; i++){
+	    		 mem += '<tr>';
+	    		 mem += '<td><input type="checkbox" name="checkRow" class="chkbox" id="chkseq'+i+'" value="'+data.memberList[i].id+';'+data.memberList[i].email+';" onclick="attachUserInfo(&#039'+data.memberList[i].id+'&#039,&#039'+data.memberList[i].email+'&#039,'+i+')"/></td>';
+	    		 mem += '<td>'+data.memberList[i].id+'</td>';
+	    		 mem += '<td>'+data.memberList[i].name+'</td>';
+	    		 mem += '<td>'+data.memberList[i].phone+'</td>';
+	    		 mem += '<td>'+data.memberList[i].email+'</td>';
+	    		 mem += '<td>'+data.memberList[i].birth+'</td>';
+	    		 mem += '</tr>';
+	    	 }
+	    	 
+	    	 $(".table-striped").append(mem)
+	    	  ids='';
+	    	 emails='';
+	    	 $(".cendmBtn").children().remove();
+	    	 blockPage("memberPaging",mpage,data.memberPage.BLOCK_SCALE,data.memberPage.totPage,"memberP","AllmemberList");
 	     }
 	});
 }
@@ -77,8 +116,8 @@ function infoList(ipage) {
 	    	 for(var i=0; i<data.infoList.length; i++){
 	    		 inf += '<tr>';
 	    		 inf += '<td><input type="checkbox" name="checkRow" class="chkbox" id="chkseq'+i+'" value="'+data.infoList[i].id+';'+data.infoList[i].email+'" onclick="attachUserInfo(&#039'+data.infoList[i].id+'&#039,&#039'+data.infoList[i].email+'&#039,'+i+')"/></td>';
-	    		 inf += '<td>'+data.infoList[i].name+'</td>';
 	    		 inf += '<td>'+data.infoList[i].id+'</td>';
+	    		 inf += '<td>'+data.infoList[i].name+'</td>';
 	    		 inf += '<td>'+data.infoList[i].phone+'</td>';
 	    		 inf += '<td>'+data.infoList[i].email+'</td>';
 	    		 inf += '<td>'+data.infoList[i].branchName+'</td>';
@@ -150,6 +189,7 @@ function attachUserInfo(id,email,i){
 		 emails+=email+";";
 		 ids+=id+";";
 		 $(".cendmBtn").append("<p>"+ids+"</p>");
+		 console.log(ids+ "  rosdpr "+emails);
 		 return;
 	 }else{
 		 var emsp=emails.split(email+";");
@@ -169,10 +209,11 @@ function checkAll(){
 	     for(i=0; i <$("input[name=checkRow]").prop("checked", true).length; i++) {
 	    	 var idsplit=$("#chkseq"+i).val().split(";");
 	    	 ids+=idsplit[0]+";";
-	    	 emails=idsplit[1]+";";
+	    	 emails+=idsplit[1]+";";
 	  	 }
 	     $(".cendmBtn").children().remove();
 	     $(".cendmBtn").append("<p>"+ids+"</p>");
+	     console.log(ids+" " +emails);
 	     return;
 	 }else{
 		  $(".cendmBtn").children().remove();

@@ -16,6 +16,22 @@
 
 <%@include file="../admin/footer.jsp" %>
  <div align="center"><h3>회원관리게시판</h3></div>
+    <table>
+      <tr>
+         <td><select id="searchOption" name="searchOption">
+               <option value="all">전체</option>
+               <option value="id">ID</option>
+               <option value="name">이름</option>
+               <option value="phone">전화번호</option>
+               <option value="email">이메일</option>
+         </select></td>
+
+         <td><input name="keyword" id="keyword" value=""
+            autocomplete="off"> <input type="button" id="searchButton"
+            name="searchButton" class="btn btn-default" onclick="AllmemberList(1)" value="검색" /></td>
+         <td width="70"></td>
+      </tr>
+   </table>
 <div class="mail"><b>메일보내기</b>&emsp;<a href="#">단체메일</a>&emsp;<a href="#">회원전체</a>&emsp;<a href="#">지점장전체</a></div><br>
    
 <!-- 진행(종료) 이벤트버튼 -->

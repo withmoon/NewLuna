@@ -166,7 +166,7 @@ function checkAll(){
 	     for(i=startdex; i <$("input[name=checkRow]").prop("checked", true).length+1; i++) {
 	    	 var idsplit=$("#chkseq"+i).val().split(";");
 	    	 ids+=idsplit[0]+";";
-	    	 emails=idsplit[1]+";";
+	    	 emails+=idsplit[1]+";";
 	  	 }
 	     $(".cendmBtn").children().remove();
 	     $(".cendmBtn").append("<p>"+ids+"</p>");
