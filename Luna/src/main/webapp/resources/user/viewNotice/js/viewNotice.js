@@ -62,12 +62,10 @@ function writeCommand(num){
 			replyOnOff(num);
 			$("#replytext").val("");
 			nReplyList(1);
+			alert("댓글이 등록되었습니다");
 			 $(".reply2").show();
 		}
 	});
-	
-	
-	
 }
 
 //댓글 수정클릭
@@ -78,7 +76,7 @@ function upReply(num,rno) {
 	$("#upRe"+rno).text("");
 	$("#upRe"+rno).append("<input id='upre' type='text' size='90' value='"+replytext+"'/>");
 	$("#upbt"+rno).attr("onclick","upRe("+num+","+rno+")");
-	$("#caRE").attr("onclick","caRE("+rno+",'sj:"+replytext+"')");
+	$("#caRE"+rno).attr("onclick","caRE("+rno+",'sj:"+replytext+"')");
 }
 
 //댓글 수정
@@ -97,11 +95,11 @@ function upRe(num,rno) {
 
 //댓글 수정 취소
 function caRE(rno,content) {
-	var replyt=replytext.substring(3);
+	var replyt=content.substring(3);
 	$("#caRE"+rno).hide();
 	$("#upRe"+rno).children().remove();
 	$("#upRe"+rno).text(replyt);
-	$("#upbt").html("수정");
+	$("#upbt"+rno).html("수정");
 }
 
 //댓글 삭제

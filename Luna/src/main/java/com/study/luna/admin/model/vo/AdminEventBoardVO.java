@@ -14,6 +14,13 @@ public class AdminEventBoardVO{
 	private Date enddate;
 	private String image;
 	private String files;
+	private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public int getSeq() {
 		return seq;
 	}

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link href="<c:url value="/resources/user/viewNotice/css/viewNotice.css"/>" type="text/css" rel="stylesheet" />
+<link href="<c:url value="/resources/user/viewNotice/css/viewNoticeQnA.css"/>" type="text/css" rel="stylesheet" />
 <link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>

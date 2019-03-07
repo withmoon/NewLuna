@@ -6,27 +6,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자주묻는질문</title>
-<link href="<c:url value="/resources/user/viewEvent/css/viewEvent.css"/>" type="text/css" rel="stylesheet" />
+<title>공지사항</title>
+<link href="<c:url value="/resources/user/viewNotice/css/viewNoticeQnA.css"/>" type="text/css" rel="stylesheet" />
+<link href="<c:url value="/resources/public/css/topmenu.css"/>" type="text/css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="<c:url value="/resources/user/viewEvent/js/viewEvent.js"/>"></script>
 </head>
-<body>
+<body style="overflow-x:hidden; overflow-y:auto;">
 <header>
-<img class="line1" src="<c:url value="/resources/user/viewEvent/images/line1.png"/>">
-<p><b>${qbv.subject }</b>
+<!-- 상단 메뉴 -->
+<nav>
+<%@ include file="../public/topmenu.jsp" %>
+</nav>
+</header>
+
+<!-- 상단로고 -->
+<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
+<div class="top">자주묻는질문</div>
+
+<section>
+<div class="border">
+<!-- 제목/날짜 -->
+<div class="title">
+<p><b>${qbv.subject } </b>
+<span class="writer">관리자</span>
 <span class="date">
 	<fmt:formatDate value="${qbv.regdate }" pattern="yy-MM-dd" />
 </span></p>
-<img class="line2" src="<c:url value="/resources/user/viewEvent/images/line2.png"/>">
-</header>
-<section>
-<div>
+</div>
+<!-- 내용 -->
+<div class="content">
 	${qbv.content }
 </div>
-<img class="line1" src="<c:url value="/resources/user/viewEvent/images/line1.png"/>"><p>
-<button type="button" onclick="windowClose()">닫기</button>
+</div>
 </section>
+<!-- footer -->
+<footer>
+<%@ include file="../public/footer.jsp" %>
+</footer>
 </body>
 </html>

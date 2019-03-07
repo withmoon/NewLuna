@@ -108,7 +108,7 @@ a:hover {
 
 /*footer*/
 footer{
-	position:absolute;
-	bottom:-50%;
-	margin:0 -5% 0 0;
+   padding: 3% 0 0 0;
+   position:relative;
+   bottom:-610px;
 }
