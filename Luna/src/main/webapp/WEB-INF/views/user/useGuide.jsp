@@ -19,23 +19,23 @@
 		<table>
 			<tr><td><br/><br/></td></tr>
 			<tr>
-				<td><img src="../resources/images/main_estimate.png"
-					style="width: 100px; height: 100px;"></td>
+				<td><img src="../../user/useGuide/images/dulurbogi.png"
+					style="width: 200px; height: 200px;"></td>
 				<td><img src="../resources/images/main_price.png"
-					style="width: 100px; height: 100px;"></td>
+					style="width: 200px; height: 200px;"></td>
 				<td><img src="../resources/images/main_photo.png"
-					style="width: 100px; height: 100px;"></td>
+					style="width: 200px; height: 200px;"></td>
 			</tr>
 			<tr>
-				<td><h3><strong>공간 둘러보기</strong></h3>
+				<td><h3><strong>1.공간 둘러보기</strong></h3>
 				예약하고자 하는 <br/>지점을 선택합니다.</td>
 				
-				<td><h3><strong>스케줄 보기</strong></h3>
+				<td><h3><strong>2.스케줄 보기</strong></h3>
 				예약할 날짜를<br/>지정한 후
 				스케줄<br/>보기를선택합니다.
 				</td>
 				<td>
-				<h3><strong>시간 선택</strong></h3>
+				<h3><strong>3.시간 선택</strong></h3>
 					해당 날짜가 적용되면<br/>
 					시간을 선택할 수 있는<br/>
 					시간표가 나옵니다.
@@ -43,27 +43,27 @@
 			<tr><td><br/></td></tr>
 			<tr>
 				<td><img src="../resources/images/main_driver.png"
-					style="width: 100px; height: 100px;"></td>
+					style="width: 200px; height: 200px;"></td>
 				<td><img src="../resources/images/main_certification.png"
-					style="width: 100px; height: 100px;"></td>
+					style="width: 200px; height: 200px;"></td>
 				<td><img src="../resources/images/main_certification.png"
-					style="width: 100px; height: 100px;"></td>	
+					style="width: 200px; height: 200px;"></td>	
 			</tr>
 
 			<tr>
+				<td><h3><strong>4.결제</strong></h3>
+					시간 선택 후에<br/>스케줄 보기 밑의<br/>
+					Pay 를 클릭하면  
+				</td>
 				<td><h3>
-						<strong>본인 확인</strong>
+						<strong>5.본인 확인</strong>
 					</h3>본인 확인 결제 창이<br/>나오면 
 					연락처와<br/>생년월일을 입력합니다.
 				</td>
 				<td><h3>
-						<strong>결제 확인</strong>
+						<strong>6.결제 확인</strong>
 					</h3><br/>입력한 번호로<br/>확인 메세지가<br/>
 					표시되고 
-				</td>
-				<td><h3><strong>결제</strong></h3>
-					시간 선택 후에<br/>스케줄 보기 밑의<br/>
-					Pay 를 클릭하면  
 				</td>
 			</tr>
 		</table><br/><br/>
