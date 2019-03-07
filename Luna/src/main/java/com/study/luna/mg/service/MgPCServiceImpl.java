@@ -74,13 +74,12 @@ public class MgPCServiceImpl implements MgPCService {
 	@Override //환불하기 리스트 카운트
 	public int RefundCount(String searchOption, String keyword, String branchName) {
 		System.out.println("RefundCount 서비스");
-		return SalesDAO.RefundCount(searchOption,keyword,branchName);
+		return SalesDAO.RefundCount(searchOption,keyword,branchName); 
 	}
-	@Override //환불하기
-	public void Refund(Map<String, Object> map) {
+	@Override //환불하기 
+	public void Refund(int seq, int roomnum, String reservdate) {
 		System.out.println("Refund 서비스");
-		SalesDAO.Refund(map);
+		SalesDAO.Refund(seq,roomnum,reservdate);
 	}
-	
 	
 }

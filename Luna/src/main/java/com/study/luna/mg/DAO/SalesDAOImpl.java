@@ -96,13 +96,19 @@ public class SalesDAOImpl implements SalesDAO {
 		map.put("branchName", branchName);
 		return sqlSession.selectOne("mgSalesDAO.RefundCount", map);
 	}
-
 	@Override
-	public void Refund(Map<String, Object> map) {
-		//????
-		//List<SalesVO> list= sqlSession.selectList("mgSalesDAO.Refund",id);
-		//List<SalesVO> list2 =sqlSession.selectOne("mgSalesDAO.Refund2",map);
-		//System.out.println(list2);
+	public void Refund(int seq, int roomnum, String reservdate) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("seq",seq); 
+		map.put("roomnum",roomnum);
+		map.put("reservdate",reservdate);
+		System.out.println(seq);
+		System.out.println(roomnum);
+		System.out.println(reservdate);
+		
+		String reservtime= sqlSession.selectOne("mgSalesDAO.Refund",map);
+		System.out.println(reservtime);
+		
 	}
 
 	

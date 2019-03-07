@@ -24,7 +24,8 @@ public class SalesVO {
 	private String imp_uid; //id
 	private String merchant_uid;
 	private String branchname;
-	private String roomnum; 
+	private int roomnum;
+	private String reservetime;
 	private Date reservdate;
 	private Date paid_at;
 	private int status; //����
@@ -34,6 +35,12 @@ public class SalesVO {
 	
 	
 	
+	public String getReservetime() {
+		return reservetime;
+	}
+	public void setReservetime(String reservetime) {
+		this.reservetime = reservetime;
+	}
 	public Date getNowdate() {
 		return nowdate;
 	}
@@ -148,10 +155,10 @@ public class SalesVO {
 	public void setBranchname(String branchname) {
 		this.branchname = branchname;
 	}
-	public String getRoomnum() {
+	public int getRoomnum() {
 		return roomnum;
 	}
-	public void setRoomnum(String roomnum) {
+	public void setRoomnum(int roomnum) {
 		this.roomnum = roomnum;
 	}
 	public Date getPaid_at() {

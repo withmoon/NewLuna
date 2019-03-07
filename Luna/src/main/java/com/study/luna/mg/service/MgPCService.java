@@ -28,7 +28,9 @@ public interface MgPCService {
 	//환불하기 리스트 카운트
 	public int RefundCount(String searchOption, String keyword, String branchName);
 	//환불 처리
-	public void Refund(Map<String, Object> map);
+	public void Refund(int seq, int roomnum, String reservdate);
+
+	
 
 	
 	

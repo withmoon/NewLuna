@@ -121,18 +121,14 @@
 	 
 	 <select id="Refund" resultType="Sales">
 	 <![CDATA[
-	 	select seq,reservdate,roomnum,status id from roompayment where id =#{id} and reservdate>sysdate
+	 	select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=#{seq}))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=#{seq}))+5,LENGTH(reservstate)) from roomreserv where  startdate like '%'||To_char(#{reservdate},'yy/MM/dd')||'%','yy/MM/dd) and roomnum=#{roomnum}
 	 	]]>
 	 </select>
-	 <select id="Refund2" resultType="String">
-	 <foreach collection="sUser_type" item="list" open="(" close=")" separator="or">
-            user_type = #{type.value}
-      </foreach>
-	 
+	 <!-- <select id="Refund2" resultType="String">
 	 <![CDATA[ 
-	 select SUBSTR(reservstate,0,INSTR(reservstate,(select SUBSTR(reservetime,0,5) from roompayment where seq=7))-1)||SUBSTR(reservstate,INSTR(reservstate,(select SUBSTR(reservetime,LENGTH(reservetime)-4,LENGTH(reservetime)) from roompayment where seq=7))+5,LENGTH(reservstate)) from roomreserv where  startdate='19/04/24' and roomnum=3
+	 select seq,reservdate,roomnum,status id from roompayment where id =#{id} and reservdate>sysdate
 	 ]]>
-	 </select>
+	 </select> -->
 	
 </mapper> 
 

@@ -10,17 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import com.study.luna.mg.model.BoardPager;
-import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.service.MgPCService;
 import com.study.luna.mg.util.listExcelDownload;
@@ -74,17 +72,7 @@ public class MgSalesController {
 		System.out.println("mgsales 화면");
 		return mv;
 	}
-    //엑셀다운로드
-	@RequestMapping(value = "/excelDownload.mdo")
-	public View excelDownload(HttpServletRequest request, HttpServletResponse response, Model model, SalesVO vo)
-			throws Exception {
-
-		//List<SalesVO> list = MgPCService.mgReserveList(vo);
-
-		//model.addAttribute("list", list);
-
-		return new listExcelDownload();
-	}
+  
 
 	// 예약현황
 	@RequestMapping(value = "/mgReserve.mdo")
@@ -175,18 +163,15 @@ public class MgSalesController {
 	}
 	
 	@RequestMapping(value="Refund.mdo")   
-	public void Refund(@RequestParam String id,HttpServletRequest request) throws InterruptedException {
+	@ResponseBody
+	public String Refund(int seq,int roomnum,String reservdate) throws InterruptedException {
 		System.out.println("환불조치");
 		
 		//System.out.println(list.toString());
-		Map<String, Object> map = new HashMap<String,Object>();
-		map.put("req", request.getParameter("req"));
-		map.put("roomnum", request.getParameter("roomnum"));
-		map.put("reservdate", request.getParameter("reservdate"));
 		//환불조치
-		MgPCService.Refund(map);
-		Thread.sleep(20000);
-		
+		MgPCService.Refund(seq,roomnum,reservdate);
+	
+		return "success";
 	}
 	
 
