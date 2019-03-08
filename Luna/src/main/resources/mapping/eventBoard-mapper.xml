@@ -38,4 +38,16 @@
 	<select id="viewEvent" resultType="adminEventBoardVO">
 		select * from adminevent where seq=#{seq}
 	</select>
+	
+	<!-- 넣을 seq 가져오기 -->
+	<select id="eventSeq" resultType="Integer">
+		<![CDATA[select nvl(max(seq)+1,1) from adminevent]]>
+	</select>
+	
+	<!-- 이벤트 글 등록 -->
+	<insert id="eventwrite" parameterType="adminEventBoardVO">
+   <![CDATA[
+   insert into adminevent values ((select nvl(max(seq)+1,1) from adminevent), #{title}, '관리자', #{content}, #{startdate}, #{enddate}, #{image}, #{files})
+   ]]>
+   </insert>
 </mapper>

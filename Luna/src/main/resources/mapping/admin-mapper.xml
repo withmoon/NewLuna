@@ -134,12 +134,12 @@
 
    <!-- eventBoard -->
 
-   <insert id="insertEventBoard" parameterType="adminEventBoardVO">
+   <!-- <insert id="insertEventBoard" parameterType="adminEventBoardVO">
    <![CDATA[
    insert into adminevent (seq, title, writer, content, startdate, enddate, image, files)
    values  ( (select nvl(max(seq)+1,1) from adminevent ), #{title}, #{writer}, #{content}, #{startdate}, #{enddate}, #{image}, #{files})
    ]]>
-   </insert>
+   </insert> -->
 
    <!-- <select id="listAlls" resultType="adminEventBoardVO">
       select * from adminevent order by seq desc

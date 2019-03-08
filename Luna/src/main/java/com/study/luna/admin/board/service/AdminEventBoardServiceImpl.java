@@ -45,10 +45,17 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
  		return eventBoardImpl.countEventEnd(title);
  	}
    
-   @Override
-   public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception{
-      adminEventBoardDAO.insert(adminEventBoardVO);
-   }
+ 	//이밴트 글쓰기
+ 	/*최대 번호 가져오기*/
+ 	@Override
+	public Integer eventSeq() {
+		return eventBoardImpl.eventSeq();
+	}
+ 	/*이벤트 글 등록*/
+ 	@Override
+	public void eventwrite(AdminEventBoardVO eboardVO) {
+ 		eventBoardImpl.eventwrite(eboardVO);
+	}
     
     @Override
     public AdminEventBoardVO read1(int seq) throws Exception {
@@ -73,4 +80,8 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
 	public AdminEventBoardVO read(int seq) throws Exception {
 		return eventBoardImpl.read(seq);
 	}
+
+	
+
+	
 }

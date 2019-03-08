@@ -11,7 +11,11 @@ public interface AdminEventBoardDAO {
 	public int countEvent(String title); //진행count
 	public int countEventEnd(String title); //마감count
 	
-    public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//�ֱ�
+	//이벤트 글쓰기
+	public Integer eventSeq(); //최대 번호 가져오기
+	public void eventwrite(AdminEventBoardVO eboardVO); //이벤트 글 등록
+	
+    
     
    public AdminEventBoardVO read1(int seq) throws Exception;
    //상세보기

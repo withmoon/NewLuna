@@ -12,8 +12,8 @@ public class AdminEventBoardVO{
 	private String content;
 	private Date startdate;
 	private Date enddate;
-	private String image;
-	private String files;
+	private String image; //이미지
+	private String files; //파일명
 	private String type;
 	public String getType() {
 		return type;

@@ -15,7 +15,10 @@ public interface AdminEventBoardService {
 	public int countEvent(String title); //진행이벤트글 갯수
 	public int countEventEnd(String title); //마감이벤트글 갯수
 	
-  public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception;//�ֱ�
+	//이벤트 글쓰기
+	public Integer eventSeq(); //최대 번호 가져오기
+	public void eventwrite(AdminEventBoardVO eboardVO); //이벤트 글 등록
+
     
     
    
@@ -29,4 +32,5 @@ public interface AdminEventBoardService {
    /*user/event.jsp*/
    
    public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
+
 }

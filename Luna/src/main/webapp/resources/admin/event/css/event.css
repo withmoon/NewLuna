@@ -1,38 +1,12 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
-/*ÁøÇà(Á¾·á) ÀÌº¥Æ® ¹öÆ°*/
+/*ì§„í–‰(ì¢…ë£Œ) ì´ë²¤íŠ¸ ë²„íŠ¼*/
 .event-container {
    position: relative;
    width: 1072px;
    min-width: 1072px;
    margin: 0px auto;
 }
-/*.event-container .top-navigate {
-   list-style-type: square;
-   display: flex;
-   width: 100%;
-   box-sizing: border-box;
-   margin: 48px 0px 40px 0px;
-}
-
-.event-container .top-navigate li {
-   display: flex-block;
-   width: 50%;
-   box-sizing: border-box;
-}
-
-.event-container .top-navigate li:nth-child(1) {
-   padding: 0px;
-   font-size: 19px;
-   line-height: 19px;
-}
-
-.event-container .top-navigate li:nth-child(2) {
-   padding: 0px;
-   font-size: 13px;
-   line-height: 13px;
-   color: #333;
-}*/
 
 .eventTap {
    display: flex;
@@ -67,7 +41,7 @@
    color: #fff;
 }
 
-/*ÁøÇà(Á¾·á) ÀÌº¥Æ® ¹öÆ° ¿©±â±îÁö*/
+/*ì§„í–‰(ì¢…ë£Œ) ì´ë²¤íŠ¸ ë²„íŠ¼ ì—¬ê¸°ê¹Œì§€*/
 
 .event-container .eventTap a {
    font-size: 13px;
@@ -76,7 +50,7 @@
    text-decoration: none;
 }
 
-/*ÀÌº¥Æ® °Ô½ÃÆÇ*/
+/*ì´ë²¤íŠ¸ ê²Œì‹œíŒ*/
 table th {
     background-color: #eeeeee;
     text-align: center;
@@ -94,8 +68,8 @@ table th {
     top:35px;
 }
 
-/*ÆäÀÌÁö*/
-/*ÁøÇàÀÌº¥Æ® ÆäÀÌÁö*/
+/*í˜ì´ì§€*/
+/*ì§„í–‰ì´ë²¤íŠ¸ í˜ì´ì§€*/
 #pageT {
     list-style: none;
 	width: 100%;
@@ -108,7 +82,7 @@ table th {
     list-style:none; 
     margin:1px;
 }
-/*Á¾·áÀÌº¥Æ® ÆäÀÌÁö*/
+/*ì¢…ë£Œì´ë²¤íŠ¸ í˜ì´ì§€*/
 #pageT2 {
     list-style: none;
 	width: 100%;

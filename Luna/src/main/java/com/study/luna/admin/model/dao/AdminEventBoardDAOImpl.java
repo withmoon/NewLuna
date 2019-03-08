@@ -24,28 +24,40 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
    @Autowired
 	SqlSessionTemplate SqlSession;
    
-   /*user/event.jsp*/
    //진행이벤트 목록
-   /*@Override
-   public List<AdminEventBoardVO> eventNowList(int start, int end) {
- 	 Map<String, Object> map = new HashMap<String, Object>();
- 	 map.put("start", start);
- 	 map.put("end", end);
- 	 return SqlSession.selectList("eventBoardDAO.eventNowList", map);
+   @Override
+   public List<AdminEventBoardVO> eventAll(int start, int end) {
+      	System.out.println("===> 진행이벤트 목록");
+      	 
+      	//BETWEEN #{start}, #{end}에 입력될 값을 맵에
+      	Map<String, Object> map = new HashMap<String, Object>();
+      	map.put("start", start);
+      	map.put("end", end);
+   		return SqlSession.selectList("eventBoardDAO.eventAll", map);
+   }
+
+   //종료이벤트목록
+   @Override
+   public List<AdminEventBoardVO> eventEndAll(int start, int end) {
+	   System.out.println("===> 마감이벤트 목록");
+     	 
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("start", start);
+	   map.put("end", end);
+	   return SqlSession.selectList("eventBoardDAO.eventEndAll", map);
+  }
+   
+   //이벤트 글쓰기
+   /*최대번호구하기*/
+   public Integer eventSeq() {
+		return SqlSession.selectOne("eventBoardDAO.eventSeq");
+   }
+   /*이벤트 글 등록*/
+   public void eventwrite(AdminEventBoardVO eboardVO) {
+	   SqlSession.insert("eventBoardDAO.eventwrite", eboardVO);
    }
    
-   //이벤트글 갯수
- 	@Override
- 	public int cEvent(String title) {
- 		return SqlSession.selectOne("eventBoardDAO.cEvent", title);
- 	}*/
-   
-    @Override
-      public void insert(AdminEventBoardVO adminEventBoardVO) throws Exception {
-         // TODO Auto-generated method stub
-         sqlsession.insert("luna.admin.board.insertEventBoard", adminEventBoardVO);
-
-      }
+    
     @Override
      public AdminEventBoardVO read1(int seq) throws Exception {
         return  sqlsession.selectOne("luna.admin.board.readevent",seq);
@@ -65,28 +77,7 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
      }
 
 	/*user/event.jsp*/
-    //진행이벤트 목록
-	@Override
-  	public List<AdminEventBoardVO> eventAll(int start, int end) {
-     	 System.out.println("===> 진행이벤트 목록");
-     	 
-     	 //BETWEEN #{start}, #{end}에 입력될 값을 맵에
-     	 Map<String, Object> map = new HashMap<String, Object>();
-     	 map.put("start", start);
-     	 map.put("end", end);
-  		 return SqlSession.selectList("eventBoardDAO.eventAll", map);
-     }
-
-    //종료이벤트목록
-	@Override
- 	public List<AdminEventBoardVO> eventEndAll(int start, int end) {
-    	 System.out.println("===> 마감이벤트 목록");
-    	 
-    	 Map<String, Object> map = new HashMap<String, Object>();
-    	 map.put("start", start);
-    	 map.put("end", end);
-    	 return SqlSession.selectList("eventBoardDAO.eventEndAll", map);
- 	}
+    
 
 	//이벤트글 갯수
 	@Override
@@ -105,4 +96,5 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 		System.out.println("===> 이벤트 상세보기");
 		return SqlSession.selectOne("eventBoardDAO.viewEvent", seq);
 	}
+	
    }
