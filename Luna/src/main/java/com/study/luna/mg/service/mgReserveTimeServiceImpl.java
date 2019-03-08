@@ -16,15 +16,14 @@ public class mgReserveTimeServiceImpl implements mgReserveTimeService{
 	
 	
 	@Override
-	public List<ReserveTimeVO> getreservcount() {
-		// TODO Auto-generated method stub
-		return ReserveTimeDAO.getreservcount();
+	public List<ReserveTimeVO> getreservcount(String paid_at_start, String paid_at_end, String branchName) {
+		return ReserveTimeDAO.getreservcount(paid_at_start,paid_at_end,branchName);
 	}
 	//시간대별통계  
 	@Override
-	public List<ReserveTimeVO> mgAgeList() {
+	public List<ReserveTimeVO> mgAgeList(String paid_at_start, String paid_at_end) {
 		System.out.println("mgAgeList 서비스");
-		return ReserveTimeDAO.mgAgeList();
+		return ReserveTimeDAO.mgAgeList(paid_at_start,paid_at_end);
 	}
 	//통계
 	@Override
@@ -91,5 +90,6 @@ public class mgReserveTimeServiceImpl implements mgReserveTimeService{
 		return vo;
 		
 	}
+	
 	
 }

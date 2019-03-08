@@ -76,15 +76,15 @@ function cancelPay(roomnum,seq,reservdate) {
        type : "POST",
        url : "Refund.mdo",
        data : {
-    	   seq : seq,
-    	   roomnum : roomnum,
-    	   reservdate : reservdate,
+    	   "seq" : seq,
+    	   "roomnum" : roomnum,
+    	   "reservdate" : reservdate,
        },
        success : function(data) {
           if (data == "success") {
         	  alert("환불 완료했습니다.");
-        	  $("#result").load("sendMailForm.do?id=" + id);
-        	  window.location.reload();
+        	  /* $("#result").load("sendMailForm.do?id=" + id);
+        	  window.location.reload(); */
              return;
           }
        },
@@ -169,7 +169,7 @@ function cle() {
 							<c:if test="${list.status eq -2 || list.status eq -1}">
 							<td>${list.rownum }</td>			
 							<td>${list.id}</td>	
-							<td>${list.branchname }</td>
+							<td>${list.branchName }</td>
 							<td>${list.roomnum}</td><!--  reservdate--> 
 						
 							<td>

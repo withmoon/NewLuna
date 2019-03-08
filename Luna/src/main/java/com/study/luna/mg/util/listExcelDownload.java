@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +18,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
+import com.study.luna.mg.DAO.BoardDAO;
 import com.study.luna.mg.model.SalesVO;
 
 public class listExcelDownload extends AbstractXlsxView {
@@ -28,14 +30,14 @@ public class listExcelDownload extends AbstractXlsxView {
 		String sCurTime = null;
 		sCurTime = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(new Date());
 
-		String excelName = sCurTime + "_샘플엑셀다운로드.xlsx";
+		String excelName = sCurTime + "_달빛엑셀다운로드.xlsx";
 		Sheet worksheet = null;
 		Row row = null;
 		CellStyle style = workbook.createCellStyle(); /// 셀 스타일을 위한 변수
 		// style.setAlignment(CellStyle.ALIGN_CENTER); // 글 위치를 중앙으로 설정
 
 		List<SalesVO> listExcel = (List<SalesVO>) modelMap.get("list");
-
+		String name = (String) modelMap.get("branchName");
 		// 새로운 sheet를 생성한다.
 		worksheet = workbook.createSheet("엑셀 목록");
 
@@ -66,27 +68,21 @@ public class listExcelDownload extends AbstractXlsxView {
 
 		// 헤더 설정
 		row = worksheet.createRow(0);
-		row.createCell(0).setCellValue("ID");
-		row.createCell(1).setCellValue("제목");
-		row.createCell(2).setCellValue("내용");
-		row.createCell(3).setCellValue("작성자");
-//	        row.createCell(4).setCellValue("등록일시");
-		row.createCell(5).setCellValue("조회 수");
-		row.createCell(6).setCellValue("댓글 수");
-
+		row.createCell(0).setCellValue("날짜");
+		row.createCell(1).setCellValue("예약수");
+		row.createCell(2).setCellValue("금액");
+		row.createCell(3).setCellValue("환불횟수");
 		int rowIndex = 1;
-
+		int total = 0;
 		// 각 해당하는 셀에 값과 스타일을 넣음
 		for (SalesVO board : listExcel) {
 			row = worksheet.createRow(rowIndex);
-			row.createCell(0).setCellValue(board.getImp_uid());
-			row.createCell(1).setCellValue(board.getBranchname());
-			row.createCell(2).setCellValue(board.getRoomnum());
-			row.createCell(3).setCellValue(board.getMarket());
-//	            row.createCell(4).setCellValue(board.getDate().toLocaleString());
-			row.createCell(5).setCellValue(board.getSeq());
-			row.createCell(6).setCellValue(board.getRoomnum());
-
+			row.createCell(0).setCellValue(board.getReservdate());
+			row.createCell(1).setCellValue(board.getGunsu());
+			row.createCell(2).setCellValue(board.getTotal());
+			row.createCell(3).setCellValue(board.getStatus());
+			total+=board.getTotal();
+			name= board.getBranchName();
 			rowIndex++;
 		}
 
@@ -95,7 +91,7 @@ public class listExcelDownload extends AbstractXlsxView {
 
 		// 병합 테스트를 위한 설정
 		row = worksheet.createRow(listExcel.size() + 1);
-		row.createCell(0).setCellValue("셀 병합 테스트");
+		row.createCell(0).setCellValue("지점명 : "+ name  +"총합 :                           " + total);
 		row.getCell(0).setCellStyle(style); // 지정한 스타일을 입혀준다.
 
 		try {

@@ -23,7 +23,9 @@ public class SalesVO {
 	private int seq; //��ȣ
 	private String imp_uid; //id
 	private String merchant_uid;
+	private String branchName;
 	private String branchname;
+	private String gunsu;
 	private int roomnum;
 	private String reservetime;
 	private Date reservdate;
@@ -35,6 +37,18 @@ public class SalesVO {
 	
 	
 	
+	public String getBranchname() {
+		return branchname;
+	}
+	public void setBranchname(String branchname) {
+		this.branchname = branchname;
+	}
+	public String getGunsu() {
+		return gunsu;
+	}
+	public void setGunsu(String gunsu) {
+		this.gunsu = gunsu;
+	}
 	public String getReservetime() {
 		return reservetime;
 	}
@@ -149,11 +163,11 @@ public class SalesVO {
 	public void setMerchant_uid(String merchant_uid) {
 		this.merchant_uid = merchant_uid;
 	}
-	public String getBranchname() {
-		return branchname;
+	public String getBranchName() {
+		return branchName;
 	}
-	public void setBranchname(String branchname) {
-		this.branchname = branchname;
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 	public int getRoomnum() {
 		return roomnum;

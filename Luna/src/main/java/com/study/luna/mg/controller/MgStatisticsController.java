@@ -6,12 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +19,6 @@ import org.springframework.web.servlet.View;
 import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.model.StatisticsVO;
-import com.study.luna.mg.service.MgService;
 import com.study.luna.mg.service.MgStatisticsService;
 import com.study.luna.mg.util.listExcelDownload;
 
@@ -81,7 +77,7 @@ public class MgStatisticsController {
 		
 		  //엑셀다운로드
 		@RequestMapping(value = "/excelDownload.mdo")
-		public View excelDownload(@RequestParam(defaultValue = "1") int curPage,HttpSession session)
+		public View excelDownload(@RequestParam(defaultValue = "1") int curPage,HttpSession session,Model model)
 				throws Exception {
 			String date1 = (String) session.getAttribute("date1");
 			String date2 = (String) session.getAttribute("date2");
@@ -92,10 +88,9 @@ public class MgStatisticsController {
 			int count = MgStatisticsService.count(date1, date2, branchName);
 			System.out.println(count + "개");
 			
-			//List<SalesVO> list = MgPCService.mgReserveList(vo);
-			List<StatisticsVO> list = MgStatisticsService.excelList(count, date1, date2,branchName);
-			//model.addAttribute("list", list);
-
+			List<SalesVO> list = MgStatisticsService.excelList(count, date1, date2,branchName);
+			model.addAttribute("list", list);
+			model.addAttribute("branchName",branchName);
 			return new listExcelDownload();
 		}
 

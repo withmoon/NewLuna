@@ -163,7 +163,7 @@
 						<tr>
 							<td>${list.rownum }</td>			
 							<td>${list.id}</td>	
-							<td>${list.branchname }</td>
+							<td>${list.branchName }</td>
 							<td>${list.roomnum }</td>
 							<td><fmt:formatDate value="${list.paid_at }" pattern="yyyy.MM.dd"/></td>
 							<c:if test="${list.status==-2}">

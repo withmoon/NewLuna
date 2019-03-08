@@ -24,15 +24,15 @@
 
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu02.png"/>" alt="매출통계" >매출통계</a>
 				<ul class="hide">
-					<li><a href="mgSalesreserve.mdo">하루 매출</a></li>
-					<li><a href="mgSalesmonth.mdo">월 매출</a></li>
+					<li><a href="mgSalesreserve.mdo">기간 매출</a></li>
+					<!-- <li><a href="mgSalesmonth.mdo">월 매출</a></li> -->
 					<li><a href="mgreport.mdo">리포트올리기</a></li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu01.png"/>" alt="예약시간대통계" />예약시간대통계</a>
 				<ul class="hide">
 					<li><a href="mgTime.mdo">시간별</a></li>
-					<li><a href="mgSeason.mdo">분기별</a></li>
+					<!-- <li><a href="mgSeason.mdo">분기별</a></li> -->
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu03.png"/>" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>

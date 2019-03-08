@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.luna.mg.DAO.StatisticsDAO;
+import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.model.StatisticsVO;
  
 @Service
@@ -40,7 +41,7 @@ public class MgStatisticsServiceImpl implements MgStatisticsService{
 	}
 
 	@Override
-	public List<StatisticsVO> excelList(int count, String date1, String date2,String branchName) {
+	public List<SalesVO> excelList(int count, String date1, String date2,String branchName) {
 		System.out.println("count 서비스");
 		return DAO.excelList(date1,date2,branchName,count);
 	}

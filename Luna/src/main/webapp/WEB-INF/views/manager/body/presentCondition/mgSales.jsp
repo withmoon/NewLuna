@@ -127,10 +127,6 @@ $.ajax({
 						</tr>
 					</table>
 				</form>
-		<!-- 
-				<li>
-					<a href="excelDownload.mdo">엑셀 내려받기</a>
-				</li> -->
 		</div>
 
 		<!-- db데이터 -->

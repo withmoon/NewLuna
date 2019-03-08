@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReserveTimeVO {
 	private String reservetime;
 	private Date reservdate;
-	private String branchname;
+	private String branchName;
 	private int su;
 	
 	
@@ -27,13 +27,14 @@ public class ReserveTimeVO {
 	public void setReservdate(Date reservdate) {
 		this.reservdate = reservdate;
 	}
-	public String getBranchname() {
-		return branchname;
-	}
-	public void setBranchname(String branchname) {
-		this.branchname = branchname;
-	}
 	
+	public String getBranchName() {
+		return branchName;
+	}
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
 	//시간없으니 노가다로 빨리
 	private int a00,a01,a02,a03,a04,a05;
 	private int a06,a07,a08,a09,a10,a11;

@@ -35,70 +35,82 @@ header {
 var paid_at_start="";
 var paid_at_end="";
 
+$(function(){
+	getTermSales();
+});
+	
 
-$(document).ready(
-		
-		function getTermSales(){
-		
-		paid_at_start=$("#paid_at_start").val();
-		paid_at_end=$("#paid_at_end").val();
-		
+	
+function getTermSales(){
+	
+	paid_at_start=$("#paid_at_start").val();
+	paid_at_end=$("#paid_at_end").val();
+		$.ajax({
+			type : "POST",
+			url : "mgTime2.mdo",
+			data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end},
+			success : function(vo) {
+				alert(vo);
+			}
 			
-			$.ajax({
-				  
-				 type : "POST", 
-				 url: "mgchart.mdo", 
-				 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
-				success:function(A){
 			
-					// Themes begin
-					am4core.useTheme(am4themes_material);
-					am4core.useTheme(am4themes_animated);
-					// Themes end
-					var chart = am4core.create("chartdiv", am4charts.XYChart);
-					
-					//데이터 배열
-					//데이터값?
-					//데이터 삽입 시작
-					var data = [];
-					var value = 0;
+		});
+		
+		$.ajax({
+			  
+			 type : "POST", 
+			 url: "mgchart.mdo", 
+			 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
+			success:function(A){
+		        
+				// Themes begin
+				am4core.useTheme(am4themes_material);
+				am4core.useTheme(am4themes_animated);
+				// Themes end
+				var chart = am4core.create("chartdiv", am4charts.XYChart);
 				
-					for(var i = 0; i <A.length; i++){
-					  var date = new Date(A[i].reservdate);
-					  value=A[i].su;
-					  data.push({date:date, value: value});
-					}
-					alert("포문이 돌았나?");
-					
-					//차트에 데이터
-					chart.data = data;
-					
-					//축 생성
-					// Create axes
-					var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-					dateAxis.renderer.minGridDistance = 60;
-					
-					var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-					
-					
-					// 시리즈 만들기??
-					// Create series
-					var series = chart.series.push(new am4charts.LineSeries());
-					series.dataFields.valueY = "value";
-					series.dataFields.dateX = "date";
-					series.tooltipText = "{value}"
-					
-					series.tooltip.pointerOrientation = "vertical";
-					
-					chart.cursor = new am4charts.XYCursor();
-					chart.cursor.snapToSeries = series;
-					chart.cursor.xAxis = dateAxis;
-					
-					//chart.scrollbarY = new am4core.Scrollbar();
-					chart.scrollbarX = new am4core.Scrollbar();
-									}
-								});
-							});
+				//데이터 배열
+				//데이터값?
+				//데이터 삽입 시작
+				var data = [];
+				var value = 0;
+			
+				for(var i = 0; i <A.length; i++){
+				  var date = new Date(A[i].reservdate);
+				  value=A[i].su;
+				  data.push({date:date, value: value});
+				}
+				
+				//차트에 데이터
+				chart.data = data;
+				
+				//축 생성
+				// Create axes
+				var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+				dateAxis.renderer.minGridDistance = 60;
+				
+				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+				
+				
+				// 시리즈 만들기??
+				// Create series
+				var series = chart.series.push(new am4charts.LineSeries());
+				series.dataFields.valueY = "value";
+				series.dataFields.dateX = "date";
+				series.tooltipText = "{value}"
+				
+				series.tooltip.pointerOrientation = "vertical";
+				
+				chart.cursor = new am4charts.XYCursor();
+				chart.cursor.snapToSeries = series;
+				chart.cursor.xAxis = dateAxis;
+				
+				//chart.scrollbarY = new am4core.Scrollbar();
+				chart.scrollbarX = new am4core.Scrollbar();
+								}
+					});
+		
+}
 					</script>
 
 
@@ -139,7 +151,7 @@ $(document).ready(
 			</div>
 			
 			 <div class="searchArea">
-			 <input id="paid_at_start" type="date"/><br/>
+			 <input id="paid_at_start"  type="date"/><br/>
 			 <input id="paid_at_end" type="date"/>&emsp; 
 			 <button onclick="getTermSales()">검색</button>
 			 </div>

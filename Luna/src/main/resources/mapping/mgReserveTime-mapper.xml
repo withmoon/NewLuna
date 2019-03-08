@@ -5,12 +5,12 @@
 <mapper namespace="mgReserveTime">
 	<select id="mgAgeList" resultType="ReserveTime">
 		 <![CDATA[
-		select reservetime from roompayment where reservdate>='19/02/21' and reservdate<='19/02/22' 
+		select reservetime from roompayment where reservdate>=#{date1} and reservdate<=#{date2}
 		]]> 
 	</select>
 	
 	<select id="getreservcount" resultType="ReserveTime">
-	   select startdate as reservdate,count(*)as su from roomreserv where startdate BETWEEN '19/03/01' and '19/03/30'
+	   select startdate as reservdate,count(*)as su from roomreserv where startdate BETWEEN #{date1} and #{date2}
 	   group by startdate order by startdate asc 
 	</select>
 	 

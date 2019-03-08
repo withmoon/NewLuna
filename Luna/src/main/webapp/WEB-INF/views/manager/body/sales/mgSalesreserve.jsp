@@ -103,6 +103,9 @@ table {
 						<li>
 							날짜 : <input type="date" name="date1"> ~ <input type="date" name="date2">
 						</li>
+						<li>
+							<a href="excelDownload.mdo">엑셀 내려받기</a>
+						</li>
 						<li id="exb">
 							<input type="submit" value="검색">
 						</li>

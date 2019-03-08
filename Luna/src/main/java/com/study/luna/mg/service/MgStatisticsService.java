@@ -3,6 +3,7 @@ package com.study.luna.mg.service;
 import java.util.Date;
 import java.util.List;
 
+import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.model.StatisticsVO;
  
 public interface MgStatisticsService {
@@ -16,7 +17,7 @@ public interface MgStatisticsService {
 	//월별 리스트
 	List<StatisticsVO> SalesReservemonth(int start, int end, String searchOption, String keyword);
 	//엑셀 리스트
-	List<StatisticsVO> excelList(int count, String date1, String date2,String branchName);
+	List<SalesVO> excelList(int count, String date1, String date2,String branchName);
 	
 
 } 
