@@ -40,7 +40,7 @@ public class MgBoardController {
 	
 	@Autowired
 	AdminNoticeBoardService noticeBoardService;
-
+   
 	/* 문의게시판 */
 	@RequestMapping(value = "/mgBoard.mdo")
 	public ModelAndView mgBoardView(@RequestParam(defaultValue = "title") String searchOption,

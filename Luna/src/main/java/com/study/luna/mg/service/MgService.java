@@ -1,5 +1,6 @@
 package com.study.luna.mg.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,7 +20,7 @@ public interface MgService {
 	public QBoardVO QbaordRead(QBoardVO vo) throws Exception;
 
 	//레코드계산
-	public int countArticle(String searchOption, String keyword, String branchName)throws Exception;
+	public int countArticle(String searchOption,String keyword,String branchName)throws Exception;
 
 	//메일보내기 체크
 	public int mailstatus(QBoardVO vo);

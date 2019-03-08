@@ -26,7 +26,7 @@ public interface SalesDAO {
 	//환불현황 카운트
 	public int RefundCount(String searchOption, String keyword, String branchName);
 	//환불처리
-	public void Refund(Map<String, Object> map);
+	public void Refund(int seq, int roomnum, String reservdate);
 
 	
 

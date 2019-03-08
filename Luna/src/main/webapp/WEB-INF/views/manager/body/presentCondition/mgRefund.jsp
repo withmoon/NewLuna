@@ -59,9 +59,9 @@ function list(page) {
 	location.href = "Refund.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 }
 
-function cancelPay(roomnum,seq,reservdate) {
+/* function cancelPay(roomnum,seq,reservdate) {
 	if (confirm("환불을 승인하겠습니까?") == true){ //확인
-	   /*  document.form.submit(); */
+	  document.form.submit();
 	   location.href="Refund.mdo?seq="+seq+"&roomnum="+roomnum+"&reservdate="+reservdate;
 	   window.setTimeout(cle(),3000);
 	   window.location.reload()
@@ -69,7 +69,33 @@ function cancelPay(roomnum,seq,reservdate) {
 		alert("취소");
 	    return;
 	}
+} */
+
+function cancelPay(roomnum,seq,reservdate) {
+    $.ajax({
+       type : "POST",
+       url : "Refund.mdo",
+       data : {
+    	   seq : seq,
+    	   roomnum : roomnum,
+    	   reservdate : reservdate,
+       },
+       success : function(data) {
+          if (data == "success") {
+        	  alert("환불 완료했습니다.");
+        	  $("#result").load("sendMailForm.do?id=" + id);
+        	  window.location.reload();
+             return;
+          }
+       },
+       error : function(request, status, error) {
+          alert("잘못된 접근입니다.");
+       }
+    });
 }
+
+
+
 function cle() {
 	alert("환불 완료했습니다.");
 }

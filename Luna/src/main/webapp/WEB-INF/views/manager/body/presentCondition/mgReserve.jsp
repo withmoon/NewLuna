@@ -53,10 +53,10 @@
 	function list(page) {
 		location.href = "mgReserve.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
-
+/*
 	function reserve(seq) {
 		if (confirm("환불을 승인하겠습니까?") == true){ //확인
-		   /*  document.form.submit(); */
+		     document.form.submit(); 
 		   location.href="Reserve.mdo?seq="+seq;
 		   window.setTimeout("cle()",3000);
 		   window.location.reload()
@@ -67,6 +67,33 @@
 	function cle() {
 		alert("환불 완료했습니다.");
 	}
+	*/
+	
+	
+	function reserve(seq) {
+        $.ajax({
+           type : "POST",
+           url : "Refund.mdo",
+           data : {
+        	   "seq" : seq
+           },
+           success : function(data) {
+              if (data == "success") {
+            	  alert("환불 완료했습니다.");
+            	  
+            	 // window.location.reload();
+                 return;
+              }
+           },
+           error : function(request, status, error) {
+              alert("잘못된 접근입니다.");
+           }
+        });
+	}
+	
+	
+	
+	
 </script>
 <title>지점장 관리화면</title>
 </head>

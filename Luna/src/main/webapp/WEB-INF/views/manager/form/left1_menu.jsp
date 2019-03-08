@@ -19,8 +19,6 @@
 					<li><a href="mgBoard.mdo">문의 게시판<br/>(고객의 소리, 자주묻는질문)</a></li>
 					<li><a href="mgEvenet.mdo">이벤트 게시판</a></li>
 					<li><a href="mgGong.mdo">공지사항</a></li>
-					<li>자유게시판</li>
-					<li>메뉴3</li>
 				</ul>
 			</li>
 
@@ -35,7 +33,6 @@
 				<ul class="hide">
 					<li><a href="mgTime.mdo">시간별</a></li>
 					<li><a href="mgSeason.mdo">분기별</a></li>
-					<li>메뉴3</li>
 				</ul>
 			</li>
 			<li class="menu"><a href="#"><img src="<c:url value="/resources/manager/images/menu03.png"/>" alt="방 생성/수정/삭제" />방 생성/수정/삭제</a>
