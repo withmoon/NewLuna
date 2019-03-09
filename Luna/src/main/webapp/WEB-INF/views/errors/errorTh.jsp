@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-페이지 오류입니다.
+
+<img src="<c:url value="/resources/admin/css/에러사진.PNG"/>">
+
 </body>
 </html>
