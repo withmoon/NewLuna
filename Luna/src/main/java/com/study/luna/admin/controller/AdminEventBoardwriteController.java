@@ -75,7 +75,7 @@ public class AdminEventBoardwriteController {
       eboardVO.setContent(content);
       eboardService.eventwrite(eboardVO);
       
-	   return "redirect:/eventwrite.ado";
+	   return "redirect:/event.ado";
   }
    
    /*@RequestMapping(value = "/insert1.ado", method = RequestMethod.POST)
