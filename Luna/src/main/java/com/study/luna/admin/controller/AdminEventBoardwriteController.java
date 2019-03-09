@@ -78,29 +78,7 @@ public class AdminEventBoardwriteController {
 	   return "redirect:/event.ado";
   }
    
-   /*@RequestMapping(value = "/insert1.ado", method = RequestMethod.POST)
-      public String insert(@ModelAttribute AdminEventBoardVO adminEventBoardVO) throws Exception {
-
-      adminEventBoardService.insert(adminEventBoardVO);
-         return "redirect:/eventlist.ado";
-      }*/
-   
-   
-     
-     
-
-         
-         /*@RequestMapping(value = "/eventlist.ado")
-         public ModelAndView listAll()throws Exception{ 
-         List<AdminEventBoardVO> list = adminEventBoardService.eventNowList(); 
-         ModelAndView mav= new ModelAndView();
-         mav.setViewName("eventlist");
-         Map<String,Object> map = new HashMap<>();
-         map.put("list",list);
-         mav.addObject("map",map);
-         return mav;
-   }*/
-         
+  
          @RequestMapping(value = "/updateevent.ado" ,method=RequestMethod.POST)
          public String View(@ModelAttribute AdminEventBoardVO adminEventBoardVO)throws Exception{
         	 eboardService.update(adminEventBoardVO);
