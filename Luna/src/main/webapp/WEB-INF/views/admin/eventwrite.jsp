@@ -16,7 +16,7 @@
 <body style="overflow-x:hidden; overflow-y:auto;">
 <%@include file="../admin/footer.jsp" %><br><br><br>
 
-<!-- <form id="ajaxform" action="event.ado" onsubmit="changeContent()" method="get" enctype="multipart/form-data"> -->
+
 <form id="ajaxform" action="eventinsert.ado" onsubmit="changeContent()" method="post" enctype="multipart/form-data">
 <div class="container">
 <table class="table table-bordered">

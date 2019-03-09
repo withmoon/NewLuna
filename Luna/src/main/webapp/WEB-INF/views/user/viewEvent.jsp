@@ -28,10 +28,9 @@
 <!-- 내용 -->
 <div class="content">
 	${ebv.content } <p>
-	${ebv.image }
+	<img src="<c:url value="/resources/eventimg/${ebv.seq }/${ebv.files}"/>">
 </div>
 <!-- 댓글 -->
-<button hidden="true" >취소2</button>
 <div class="reply">
 	<b class="replyOnOff" onclick="replyOnOff(${ebv.seq})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
 	<div class="reply2">

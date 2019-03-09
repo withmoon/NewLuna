@@ -22,7 +22,7 @@ import com.study.luna.pub.command.MemberCommand;
 
 @Controller
 public class AdminEventBoardwriteController {
-	private String efilePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
+	private String efilePath = "D:\\myProject\\myMain\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
    
    @Inject 
     AdminEventBoardService eboardService;
