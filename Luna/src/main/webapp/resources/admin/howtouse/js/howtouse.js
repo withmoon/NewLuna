@@ -6,7 +6,7 @@ function showWriteForm(){
 }
 //글쓰기 취소
 function cancleWrite(){
-	$(".form0tx").val("");
+	$(".formtx").val("");
 	$("#listForm").show();
 	for(var i=1; i<formnum+1; i++){
 		$(".form"+i).remove();
@@ -32,4 +32,25 @@ function delWriteForm(formnum){
 //값 세팅
 function setVal(){
 	$("#maxCnum").val(formnum);
+}
+/*메인이미지 썸네일*/
+function ImgFileSelect(i) {
+	var files = i.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+	
+	filesArr.forEach(function(f) {
+		if(!f.type.match("image.*")){
+			alert("확장자는 이미지만 가능합니다."); 
+			return;
+		}
+		
+		sel_file = f;
+		
+		var reader = new FileReader();
+		reader.onload = function(i) {
+			$("#imgsum").attr("src",i.target.result);
+		}
+		reader.readAsDataURL(f);
+	});
+	
 }

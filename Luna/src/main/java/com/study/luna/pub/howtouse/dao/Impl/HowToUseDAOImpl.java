@@ -35,8 +35,23 @@ public class HowToUseDAOImpl implements HowToUseDAO {
 	}
 
 	@Override
-	public HowToUseDTO getHowToUseContent(int num) {
-		return sqlSession.selectOne("htuDAO.getHowToUseContent");
+	public List<HowToUseDTO> getHowToUseContent(int num) {
+		return sqlSession.selectList("htuDAO.getHowToUseContent",num);
+	}
+
+	@Override
+	public void deleteHowToUseContent(HowToUseDTO htu) {
+		sqlSession.delete("htuDAO.deleteHowToUseContent",htu);
+	}
+
+	@Override
+	public void deleteHowToUse(int num) {
+		sqlSession.delete("htuDAO.deleteHowToUse",num);
+	}
+
+	@Override
+	public void updateHowToUseContent(HowToUseDTO htu) {
+		sqlSession.update("htuDAO.updateHowToUseContent",htu);
 	}
 
 }

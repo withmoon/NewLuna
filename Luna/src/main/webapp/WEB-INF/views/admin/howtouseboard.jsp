@@ -28,7 +28,8 @@
              <c:if test="${fn:length(htulist) ne 0}">
             <c:forEach var="htulist" items="${htulist}">
             	 <tr>
-              		<td><a href="showHowToUse.ado?num=${htulist.num}">${htulist.title}</a></td>
+              		<td><a href="showHowToUse.do?num=${htulist.num}">${htulist.title}</a></td>
+              		<td><a href="deleteHowToUse.do?num=${htulist.num}" >삭제</a></td>
              	</tr>
    			</c:forEach>
    			</c:if>
@@ -48,20 +49,20 @@
          <thead>
          	 <tr>
                <th>제목:</th>
-        		<td colspan="2"><input class="form0tx" size="120" type="text" name="title" placeholder="제목"/></td>
+        		<td colspan="2"><input class="formtx" size="120" type="text" name="title" placeholder="제목"/></td>
         	</tr>
          </thead>
             <tbody>
                <tr class="form0">
                <th>내용:</th>
                <td>
-               <textarea id="content0" name="content0" class="form0tx" cols="110" rows="5"></textarea>
+               <textarea id="content0" name="content0" class="formtx" cols="110" rows="5"></textarea>
              	</td>
              	<td align="center" rowspan="2"><input type="button"  onclick="addWriteForm()" value="추가"/></td>
                </tr>
                <tr class="form0">
                   <th>파일:</th>
-                  <td><input class="form0tx" type="file" name="file" placeholder="file" id="file" class="form-control" ></td>
+                  <td><input class="formtx" type="file" name="file" placeholder="file" id="file" class="form-control" ></td>
                </tr>
             </tbody>
             <tfoot>

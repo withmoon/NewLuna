@@ -1,7 +1,10 @@
 package com.study.luna.admin.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.study.luna.admin.board.service.AdminEventBoardService;
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
 import com.study.luna.mg.model.BoardPager;
+import com.study.luna.pub.command.MemberCommand;
 
 
 @Controller
@@ -22,9 +26,15 @@ public class AdminEventController {
 	@Autowired
 	AdminEventBoardService evntBoardService;
     
-    @RequestMapping(value="/event.ado", method=RequestMethod.GET)
-    public String mainView() {
-    	return "event";
+	@RequestMapping(value="/event.ado", method=RequestMethod.GET)
+    public String mainView(MemberCommand memcom,HttpServletRequest request,HttpSession session,HttpServletResponse response) throws IOException {
+    	 memcom = (MemberCommand) session.getAttribute("member");
+   		if(memcom.getPosition().equals("총관리자")|memcom.getPosition().equals("관리자")){
+   			memcom = (MemberCommand) session.getAttribute("member");
+   			session.setAttribute("member", memcom);
+	        return "event";
+   		}
+   			return "cannotAccess";
     }
     
     //이벤트목록

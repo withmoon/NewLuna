@@ -16,7 +16,7 @@
 	
 	<!-- 전체리스트 받아오기 -->
 	<select id="getHowToUseList" resultType="htuse">
-		select num,title from howtouse where cnum=1
+		select DISTINCT num,title from howtouse
 	</select>
 	
 	<!-- 해당 넘에대한 글 받아오기 -->
@@ -29,13 +29,18 @@
 		delete howtouse where num=#{num}
 	</delete>
 	
+	<!-- 중간 글 삭제 -->
+	<delete id="deleteHowToUseContent">
+		delete howtouse where num=#{num} and cnum=#{cnum}
+	</delete>
+	<!-- 부가넘버 -->
 	<select id="getHowToUseMaxCnum" resultType="Integer">
 		select nvl(max(cnum)+1,1) from howtouse where num=#{num}
 	</select>
 	
-	<!-- <update id="">
-		update howtouse 
-	</update> -->
-	
+	<!-- 업뎃 -->
+	<update id="updateHowToUseContent">
+		update howtouse title=#{title},content=#{content},fname=#{fname} where cnum=#{cnum} and num=#{num}
+	</update>
 
 </mapper>

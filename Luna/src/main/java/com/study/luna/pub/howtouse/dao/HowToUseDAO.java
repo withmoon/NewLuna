@@ -14,5 +14,11 @@ public interface HowToUseDAO {
 	//cnum 최대 번호
 	Integer getHowToUseMaxCnum();
 	//글 받아오기
-	HowToUseDTO getHowToUseContent(int num);
+	List<HowToUseDTO> getHowToUseContent(int num);
+	//중간 글 삭제
+	void deleteHowToUseContent(HowToUseDTO htu);
+	//제목으로 삭제
+	void deleteHowToUse(int num);
+	//업뎃
+	void updateHowToUseContent(HowToUseDTO htu);
 }

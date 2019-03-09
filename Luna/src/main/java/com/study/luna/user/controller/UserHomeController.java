@@ -129,11 +129,19 @@ public class UserHomeController {
 		if(flashMap!=null) {
 			String id=flashMap.get("id").toString();
 			//memcom.setId(id);
-			session.setAttribute("member", memcom);
+			memcom.setId(id);
+			try {
 			position=getMemberPositionService.getMemberPosition(memcom.getId());
+			}catch(NullPointerException e){
+				position="";
+			}
 		}
 		if(memcom!=null){
-			position=getMemberPositionService.getMemberPosition(memcom.getId());
+			try {
+				position=getMemberPositionService.getMemberPosition(memcom.getId());
+				}catch(NullPointerException e){
+					position="";
+				}
 		}
 			
 		session.setAttribute("member", memcom);
