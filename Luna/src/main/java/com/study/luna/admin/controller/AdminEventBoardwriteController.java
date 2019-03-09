@@ -2,11 +2,14 @@ package com.study.luna.admin.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +22,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.study.luna.admin.board.service.AdminEventBoardService;
 import com.study.luna.admin.model.vo.AdminEventBoardVO;
+import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.user.comment.service.EventReplyService;
+import com.study.luna.user.comment.vo.EventReplyVO;
 
 @Controller
 public class AdminEventBoardwriteController {
@@ -27,6 +33,8 @@ public class AdminEventBoardwriteController {
    
    @Inject 
     AdminEventBoardService eboardService;
+   @Autowired
+	EventReplyService eventReplyService;
    
    @RequestMapping(value="/eventwrite.ado", method=RequestMethod.GET)
    public ModelAndView eventwrite() {
@@ -126,15 +134,45 @@ public class AdminEventBoardwriteController {
 	   
 	return "redirect:/event.ado";
    }
+   
+   
+   //댓글목록
+   @RequestMapping(value="/aEReplyList.ado", method=RequestMethod.GET)
+	public @ResponseBody JSONObject aEReplyView(@RequestParam(value="seq") int seq, @RequestParam(defaultValue="1") int curPage,
+											MemberCommand memcom, EventReplyVO eReplyVO,  HttpSession session) {
+		eReplyVO.setSeq(seq);
+		
+		//페이징 처리
+		int count = eventReplyService.counteReply(seq);
+		int page_scale = 5; // 페이지당 게시물 수
+		int block_sclae = 10; // 화면당 페이지 수
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
+		List<EventReplyVO> eReplyList = eventReplyService.eReplyList(seq, start, end, session);
+			
+		JSONObject obj = new JSONObject();
+		obj.put("eReplyList", eReplyList);
+		obj.put("eReplyPage", boardPager);
+		return obj;
+	}
+ 	
+ 	//댓글 삭제
+ 	@RequestMapping(value="/aEReplyDelete.ado", method=RequestMethod.POST)
+ 	public @ResponseBody void aEReplyDelete(EventReplyVO eReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno) {
+ 		eReplyVO.setRno(rno);
+ 		eventReplyService.eReplyDe(eReplyVO);
+ 	} 
          
          
          @RequestMapping(value = "/deleteevent.ado")
          public String deleteView(@RequestParam int seq)throws Exception{
         	 eboardService.delete(seq);  
          return "redirect:/eventlist.ado";
-         }
-         
-         
+         } 
          
          
 }
