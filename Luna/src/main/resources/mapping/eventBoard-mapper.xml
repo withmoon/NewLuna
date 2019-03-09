@@ -50,4 +50,13 @@
    insert into adminevent values ((select nvl(max(seq)+1,1) from adminevent), #{title}, '관리자', #{content}, #{startdate}, #{enddate}, #{image}, #{files})
    ]]>
    </insert>
+   
+   <!-- 이벤트 수정 -->
+   <update id="updateevent">
+     <![CDATA[update adminevent set content=#{content},title=#{title}]]>
+		<if test="files!=null and files!=''">
+			<![CDATA[,files=#{files} ]]>
+		</if>
+		where seq=#{seq}
+   </update>
 </mapper>

@@ -33,11 +33,13 @@ public class EventReplyServiceImpl implements EventReplyService {
 		eventReplyDAOImpl.create(eReplyVO);
 	}
 
+	//댓글수정
 	@Override
 	public void eReplyUp(EventReplyVO eReplyVO) {
 		eventReplyDAOImpl.eReplyUp(eReplyVO);
 	}
 
+	//댓글삭제
 	@Override
 	public void eReplyDe(EventReplyVO eReplyVO) {
 		eventReplyDAOImpl.eReplyDe(eReplyVO);

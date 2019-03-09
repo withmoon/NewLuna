@@ -33,53 +33,47 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
 	   return eventBoardImpl.eventEndAll(start, end);
    }
 
- 	//진행이벤트글 갯수
- 	@Override
- 	public int countEvent(String title) {
- 		return eventBoardImpl.countEvent(title);
- 	}
+   //진행이벤트글 갯수
+   @Override
+   public int countEvent(String title) {
+	   return eventBoardImpl.countEvent(title);
+   }
  	
- 	//종료이벤트글 갯수
- 	@Override
- 	public int countEventEnd(String title) {
- 		return eventBoardImpl.countEventEnd(title);
- 	}
+   //종료이벤트글 갯수
+   @Override
+   public int countEventEnd(String title) {
+	   return eventBoardImpl.countEventEnd(title);
+   }
    
- 	//이밴트 글쓰기
- 	/*최대 번호 가져오기*/
- 	@Override
-	public Integer eventSeq() {
-		return eventBoardImpl.eventSeq();
-	}
- 	/*이벤트 글 등록*/
- 	@Override
-	public void eventwrite(AdminEventBoardVO eboardVO) {
- 		eventBoardImpl.eventwrite(eboardVO);
-	}
-    
-    @Override
-    public AdminEventBoardVO read1(int seq) throws Exception {
-       return adminEventBoardDAO.read(seq);
-    }
+   //이밴트 글쓰기
+   /*최대 번호 가져오기*/
+   @Override
+   public Integer eventSeq() {
+	   return eventBoardImpl.eventSeq();
+   }
+   /*이벤트 글 등록*/
+   @Override
+   public void eventwrite(AdminEventBoardVO eboardVO) {
+	   eventBoardImpl.eventwrite(eboardVO);
+   }
+ 	
+   //이벤트 상세보기
+   @Override
+   public AdminEventBoardVO read(int seq) throws Exception {
+	   return eventBoardImpl.read(seq);
+   }
 
-    @Override
-    public void update(AdminEventBoardVO adminEventBoardVO) throws Exception {
-       // TODO Auto-generated method stub
-        adminEventBoardDAO.update(adminEventBoardVO);
-    }
+   //이벤트 수정
+   @Override
+   public void update(AdminEventBoardVO eboardVO) {
+	   eventBoardImpl.update(eboardVO);
+   }
 
     @Override
     public void delete(int seq) throws Exception {
        // TODO Auto-generated method stub
         adminEventBoardDAO.delete(seq);
     }
-
-    /*user/event.jsp*/
-    //이벤트 상세보기
-	@Override
-	public AdminEventBoardVO read(int seq) throws Exception {
-		return eventBoardImpl.read(seq);
-	}
 
 	
 

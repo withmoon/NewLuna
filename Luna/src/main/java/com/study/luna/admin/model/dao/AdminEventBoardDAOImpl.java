@@ -45,7 +45,17 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 	   map.put("start", start);
 	   map.put("end", end);
 	   return SqlSession.selectList("eventBoardDAO.eventEndAll", map);
-  }
+   }
+   
+   //이벤트글 갯수
+   @Override
+   public int countEvent(String title) {
+	   return SqlSession.selectOne("eventBoardDAO.countEvent", title);
+   }
+   @Override
+   public int countEventEnd(String title) {
+	   return SqlSession.selectOne("eventBoardDAO.countEventEnd", title);
+   }
    
    //이벤트 글쓰기
    /*최대번호구하기*/
@@ -57,18 +67,18 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 	   SqlSession.insert("eventBoardDAO.eventwrite", eboardVO);
    }
    
+   //상세보기
+   @Override
+   public AdminEventBoardVO read(int seq) throws Exception {
+	   System.out.println("===> 이벤트 상세보기");
+	   return SqlSession.selectOne("eventBoardDAO.viewEvent", seq);
+   }
     
-    @Override
-     public AdminEventBoardVO read1(int seq) throws Exception {
-        return  sqlsession.selectOne("luna.admin.board.readevent",seq);
-
-     }
-
-     @Override
-     public void update(AdminEventBoardVO adminEventBoardVO) throws Exception {
-        sqlsession.update("luna.admin.board.updateevent",adminEventBoardVO);
-        
-     }
+   //수정하기
+   @Override
+   public void update(AdminEventBoardVO eboardVO) {
+	   SqlSession.update("eventBoardDAO.updateevent",eboardVO);     
+   }
 
      @Override
      public void delete(int seq) throws Exception {
@@ -79,22 +89,10 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 	/*user/event.jsp*/
     
 
-	//이벤트글 갯수
-	@Override
-	public int countEvent(String title) {
-		return SqlSession.selectOne("eventBoardDAO.countEvent", title);
-	}
 	
-	@Override
-	public int countEventEnd(String title) {
-		return SqlSession.selectOne("eventBoardDAO.countEventEnd", title);
-	}
+	
+	
 
-    //상세보기
-	@Override
-	public AdminEventBoardVO read(int seq) throws Exception {
-		System.out.println("===> 이벤트 상세보기");
-		return SqlSession.selectOne("eventBoardDAO.viewEvent", seq);
-	}
+    
 	
    }

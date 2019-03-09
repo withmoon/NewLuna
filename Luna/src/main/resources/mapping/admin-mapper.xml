@@ -107,21 +107,21 @@
    </select>
 
 
-   <select id="read" resultType="adminQnABoardVO">
+   <!-- <select id="read" resultType="adminQnABoardVO">
 
       select * from adminqnaboard where
       num=#{num}
 
-   </select>
+   </select> -->
 
 
-   <update id="update" parameterType="adminQnABoardVO">
+  <!--  <update id="update" parameterType="adminQnABoardVO">
 
       update adminqnaboard set
       subject= #{subject}, content= #{content} where
       num=#{num}
 
-   </update>
+   </update> -->
 
    <delete id="delete" parameterType="adminQnABoardVO">
 
@@ -166,21 +166,4 @@
 
       delete from adminevent where seq=#{seq}
    </delete>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </mapper>
