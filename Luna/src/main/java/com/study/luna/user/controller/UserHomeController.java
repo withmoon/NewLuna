@@ -107,7 +107,6 @@ public class UserHomeController {
 		}
 		//회원은 회원으로 
 		if(branchName==null) {
-			System.out.println("홈에서 아이디==>"+memcom.getId());
 			mav.setViewName("redirect:/home.udo");
 			return mav;
 		}else{ //지점장 회원가입시 alert띄우고 메인으로 돌아옴
@@ -128,7 +127,8 @@ public class UserHomeController {
 		memcom=(MemberCommand)session.getAttribute("member");
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
-			memcom.setId(flashMap.get("id").toString());
+			String id=flashMap.get("id").toString();
+			//memcom.setId(id);
 			session.setAttribute("member", memcom);
 			position=getMemberPositionService.getMemberPosition(memcom.getId());
 		}

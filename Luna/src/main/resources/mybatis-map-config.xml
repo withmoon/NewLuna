@@ -4,6 +4,8 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
    <typeAliases>
+		<!-- User,Admin -->
+		<typeAlias alias="htuse" type="com.study.luna.pub.command.HowToUseDTO"/>
    		<!-- User -->
    		<!-- 마이페이지 전용 -->
    		<typeAlias alias="myPageInfo" type="com.study.luna.user.dto.MyPageInfoDTO"/>
@@ -30,7 +32,7 @@
         
         <!-- Manager,Admin -->
 		<typeAlias alias="report" type="com.study.luna.pub.command.ReportDTO"/> 
-		<typeAlias alias="reportReply" type="com.study.luna.pub.command.ReportReplyDTO"/> 
+		<typeAlias alias="reportReply" type="com.study.luna.pub.command.ReportReplyDTO"/>
         
         <!-- Manager -->
       	<typeAlias alias="QBoard" type="com.study.luna.mg.model.QBoardVO"/>
@@ -50,6 +52,8 @@
    </typeAliases>
  
    <mappers>
+    	<!-- 이용가이드 관련 -->
+      <mapper resource="mapping/howtouse-mapper.xml" />
    	  <!-- 회원 관련  -->
       <mapper resource="mapping/member-mapper.xml" />
       <!-- 룸 관련 -->

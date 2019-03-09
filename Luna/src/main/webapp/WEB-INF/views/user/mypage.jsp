@@ -32,9 +32,10 @@
 	<nav>
 		<%@ include file="../public/topmenu.jsp" %>
 	</nav>
-
+	
 		<!-- 회원정보 -->
 		<div class="myinformation">
+			<button onclick="">회원 탈퇴</button><br/>
 			<img class="infoline1" src="<c:url value="/resources/user/mypage/images/line.png"/>">
 			<img class="deer" onclick="goToNotice()" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
 			<img class="deer2" onclick="goToQandA()" src="<c:url value="/resources/user/mypage/images/que.png"/>" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/queg.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/que.png"/>'">

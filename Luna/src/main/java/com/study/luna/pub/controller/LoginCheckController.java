@@ -57,6 +57,7 @@ public class LoginCheckController {
 				boolean check=memser.passCheck(id, pass);
 				if(check) {
 					String position=getMemberPositionService.getMemberPosition(id);
+					//System.out.println("여기서 포지션 실행됨<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"+position);
 					rdab.addFlashAttribute("id", memcom.getId());
 					//사용자가 접속했던 곳으로 리턴해줌
 					String redirectUrl=(String)session.getAttribute("rdUrl");

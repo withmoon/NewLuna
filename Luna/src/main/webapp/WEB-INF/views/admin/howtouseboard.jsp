@@ -1,50 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<script src="<c:url value="/resources/admin/howtouse/js/howtouse.js"/>"></script>
 <title>게시판 목록</title>
 
 </head>
 <%@include file="../admin/footer.jsp" %>
-   <center>
+   <div align="center">
       <h3>이용가이드</h3>
-   </center>
+   </div>
    <br></br>
-   <div class="container">
+   <div  id="listForm" class="container">
       <div class="row">
-      <form action=".ado" method="post">
          <table class="table table-striped"
             style="text-align: center; border: 1px solid #dddddd">
             <tbody>
-            
-             <tr>
-              <td><a href="howtouseview.ado">회원가입방법</a></td>
-             </tr>
-
-			  <tr>
-              <td><a href="howtouseview.ado">예약방법</a></td>
-             </tr>
-             
-              <tr>
-              <td><a href="howtouseview.ado">방법</a></td>
-             </tr>
-             
-             
-              <tr>
-              <td><a href="howtouseview.ado">방법론</a></td>
-             </tr>             
+            <c:if test="${fn:length(htulist) eq 0}">
+           	 	<tr><td>아직 올린글이 없습니다.</td></tr>
+            </c:if>
+             <c:if test="${fn:length(htulist) ne 0}">
+            <c:forEach var="htulist" items="${htulist}">
+            	 <tr>
+              		<td><a href="showHowToUse.ado?num=${htulist.num}">${htulist.title}</a></td>
+             	</tr>
+   			</c:forEach>
+   			</c:if>
             </tbody>
+            <tfoot>
+           	<tr><td align="right"><button onclick="showWriteForm()">글쓰기</button></td></tr>
+            </tfoot>
          </table>
-         </form>
       </div>
    </div>
 
 
+   <div hidden="true" id="writeForm" class="container">
+    <form name="form" action="insertHowToUse.do" onsubmit="setVal()" method="POST" enctype="multipart/form-data">
+    <input type="hidden" id="maxCnum" name="maxCnum" value=""/>
+         <table class="table table-bordered">
+         <thead>
+         	 <tr>
+               <th>제목:</th>
+        		<td colspan="2"><input class="form0tx" size="120" type="text" name="title" placeholder="제목"/></td>
+        	</tr>
+         </thead>
+            <tbody>
+               <tr class="form0">
+               <th>내용:</th>
+               <td>
+               <textarea id="content0" name="content0" class="form0tx" cols="110" rows="5"></textarea>
+             	</td>
+             	<td align="center" rowspan="2"><input type="button"  onclick="addWriteForm()" value="추가"/></td>
+               </tr>
+               <tr class="form0">
+                  <th>파일:</th>
+                  <td><input class="form0tx" type="file" name="file" placeholder="file" id="file" class="form-control" ></td>
+               </tr>
+            </tbody>
+            <tfoot>
+            	<tr><td>
+               <td colspan="3"><a href="javascript:cancleWrite()"  class="btn btn-primary pull-right">취소</a>&emsp;<input type="submit" id="update" value="글올리기" class="btn btn-primary pull-right" /> </td>
+               </tr>
+            </tfoot>
+         </table>
+      </form>
+   </div>
 
 
 

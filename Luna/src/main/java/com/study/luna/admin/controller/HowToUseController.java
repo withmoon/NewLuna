@@ -1,52 +1,39 @@
 package com.study.luna.admin.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.study.luna.pub.command.HowToUseDTO;
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.howtouse.serivce.GetHowToUseListService;
 
 @Controller
 public class HowToUseController {
-
-	@RequestMapping(value="/howtouse.ado")
-	public String main(HttpSession session, MemberCommand memcom) {
-		memcom = (MemberCommand) session.getAttribute("member");
-		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
-			memcom = (MemberCommand) session.getAttribute("member");
-			session.setAttribute("member", memcom);
-			
-			return "howtouse";
-		}
-		return "cannotAccess";
-
-	}
-	
+	@Autowired
+	GetHowToUseListService getHowToUseListService;
 	
 	@RequestMapping(value="/howtouseboard.ado")
-	public String mains(HttpSession session, MemberCommand memcom) {
+	public ModelAndView mains(HttpSession session, MemberCommand memcom) {
+		ModelAndView mav=new ModelAndView();
 		memcom = (MemberCommand) session.getAttribute("member");
 		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 			memcom = (MemberCommand) session.getAttribute("member");
 			session.setAttribute("member", memcom);
 			
-			return "howtouseboard";
+			List<HowToUseDTO> htulist=getHowToUseListService.getHowToUseList();
+			mav.addObject("htulist",htulist);
+			mav.setViewName("howtouseboard");
+			return mav;
 		}
-		return "cannotAccess";
-
-		
+		mav.setViewName("cannotAccess");
+		return mav;
 	}
 	
-	@RequestMapping(value="/howtouseview.ado")
-	public String mainss(HttpSession session, MemberCommand memcom) {
-		memcom = (MemberCommand) session.getAttribute("member");
-		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
-			memcom = (MemberCommand) session.getAttribute("member");
-			session.setAttribute("member", memcom);
-			
-			return "howtouseview";
-		}
-		return "cannotAccess";
-	}
+	
 }
