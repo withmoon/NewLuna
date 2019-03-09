@@ -22,8 +22,8 @@
 	</select>
 	
 	<!-- 포지션 찾기 -->
-	<select id="getMemberPosition" resultType="String">
-		select position from member
+	<select id="getMemberPosition" resultType="member">
+		select id,position from member
 		where id=#{id}
 	</select>
 

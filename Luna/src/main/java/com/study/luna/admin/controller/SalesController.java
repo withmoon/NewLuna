@@ -31,8 +31,7 @@ public class SalesController {
 		if (flashMap != null) {
 			String id=flashMap.get("id").toString();
 			memcom.setId(id);
-			String pos=getMemberPositionService.getMemberPosition(memcom.getId());
-			memcom.setPosition(pos);
+			memcom=getMemberPositionService.getMemberPosition(memcom.getId());
 			if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
 				session.setAttribute("member", memcom);
 				return "admin";

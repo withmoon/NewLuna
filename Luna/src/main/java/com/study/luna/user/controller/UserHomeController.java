@@ -123,25 +123,15 @@ public class UserHomeController {
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
-		String position="";
 		memcom=(MemberCommand)session.getAttribute("member");
-		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
+		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);	
+		
 		if(flashMap!=null) {
 			String id=flashMap.get("id").toString();
-			//memcom.setId(id);
-			memcom.setId(id);
-			try {
-			position=getMemberPositionService.getMemberPosition(memcom.getId());
-			}catch(NullPointerException e){
-				position="";
-			}
+			memcom=getMemberPositionService.getMemberPosition(id);
 		}
 		if(memcom!=null){
-			try {
-				position=getMemberPositionService.getMemberPosition(memcom.getId());
-				}catch(NullPointerException e){
-					position="";
-				}
+			memcom=getMemberPositionService.getMemberPosition(memcom.getId());
 		}
 			
 		session.setAttribute("member", memcom);
@@ -174,10 +164,8 @@ public class UserHomeController {
 		mav.addObject("newBranchList",newBranchList);
 		mav.addObject("newReviewList",newReviewList);
 		
-		mav.addObject("member",session.getAttribute("member"));
-	
-		mav.addObject("position",position);
-		System.out.println("ㅋㅋㅋㅋㅋㅋ 내가 바로 포지션이다 뾰로로옹 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>"+position);
+		mav.addObject("member",memcom);
+
 		mav.setViewName("home");
 		return mav;
 	}

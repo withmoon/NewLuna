@@ -83,7 +83,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	//아이디에대한 포지션 가져오기
 	@Override
-	public String getMemberPosition(String id) {
+	public MemberCommand getMemberPosition(String id) {
 		return sqlSession.selectOne("memberDAO.getMemberPosition",id);
 	}
 

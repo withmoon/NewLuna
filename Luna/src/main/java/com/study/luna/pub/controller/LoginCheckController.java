@@ -56,15 +56,14 @@ public class LoginCheckController {
 			}else {
 				boolean check=memser.passCheck(id, pass);
 				if(check) {
-					String position=getMemberPositionService.getMemberPosition(id);
-					//System.out.println("여기서 포지션 실행됨<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"+position);
+					MemberCommand members=getMemberPositionService.getMemberPosition(id);
 					rdab.addFlashAttribute("id", memcom.getId());
 					//사용자가 접속했던 곳으로 리턴해줌
 					String redirectUrl=(String)session.getAttribute("rdUrl");
-					if(position==null) {
+					if(members.getPosition()==null) {
 						mav.setViewName("redirect:"+redirectUrl);
 						return mav;
-					}else if(position.equals("지점장")) {
+					}else if(members.getPosition().equals("지점장")) {
 						mav.setViewName("redirect:/manager.mdo");
 						return mav;
 					}else {

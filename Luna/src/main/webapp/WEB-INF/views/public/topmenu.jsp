@@ -20,10 +20,12 @@
 			</c:if>
 
 		
-			<c:if test="${member.id ne null}">	
-				<c:if test="${position eq '총관리자' || position eq '관리자' }">
+			<c:if test="${member.id ne null}">
+			<c:if test="${member.position ne null}"	>
+				<c:if test="${member.position eq '총관리자' || member.position eq '관리자' }">
 					<li><button onclick="javascript:window.location.href='admin.ado'">관리자 모드</button> </li>
-				</c:if>
+					</c:if>
+			</c:if>
 				<li><a class="lgoutli" href="<c:url value='/logout.do'/>"><img src="<c:url value="/resources/public/images/LogOut.gif"/>"/></a></li>
 				<li><a href="<c:url value="/mypage.udo"/>"><img src="<c:url value="/resources/public/images/mypage.gif"/>"/></a></li>
 			</c:if>

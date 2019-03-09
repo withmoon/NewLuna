@@ -1,5 +1,7 @@
 package com.study.luna.pub.member.service;
 
+import com.study.luna.pub.command.MemberCommand;
+
 public interface GetMemberPositionService {
-	String getMemberPosition(String id);
+	MemberCommand getMemberPosition(String id);
 }
