@@ -23,8 +23,8 @@ public class UpdateHowToUseContentController {
 
 	private String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\howtouseImg\\";
 
-	@RequestMapping(value = "/insertHowToUse.do", method = RequestMethod.POST)
-	public String mainss(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)
+	@RequestMapping(value = "/updateHowToUse.do", method = RequestMethod.POST)
+	public String updateHowToUse(HowToUseDTO htu, MultipartHttpServletRequest mpreq, HttpServletRequest req)
 			throws IllegalStateException, IOException {
 		Integer formSize = Integer.parseInt(req.getParameter("maxCnum"));
 		List<MultipartFile> mf = mpreq.getFiles("file");
