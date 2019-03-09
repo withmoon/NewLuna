@@ -15,14 +15,13 @@ public interface AdminEventBoardDAO {
 	public Integer eventSeq(); //최대 번호 가져오기
 	public void eventwrite(AdminEventBoardVO eboardVO); //이벤트 글 등록
 	
+	public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
+	public void update(AdminEventBoardVO eboardVO); //수정
     
     
-   public AdminEventBoardVO read1(int seq) throws Exception;
-   //상세보기
       
       
-      public void update(AdminEventBoardVO adminEventBoardVO) throws Exception;
-   //수정
+      
       
       
       
@@ -31,5 +30,5 @@ public interface AdminEventBoardDAO {
 
    
    /*user/event.jsp*/
-   public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
+   
 }

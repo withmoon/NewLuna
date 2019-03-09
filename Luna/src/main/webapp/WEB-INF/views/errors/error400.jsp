@@ -8,7 +8,7 @@
 </head>
 <body>
 
-페이지에 오류가 있어 서버 접속이 실패됐습니다.
+<img src="<c:url value="/resources/admin/css/에러사진.PNG"/>">
 
 </body>
 </html>
