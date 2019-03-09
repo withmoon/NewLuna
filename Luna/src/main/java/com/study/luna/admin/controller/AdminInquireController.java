@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.luna.mg.model.BoardPager;
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.service.MgService;
+import com.study.luna.pub.command.MemberCommand;
 
 
 @Controller
@@ -92,10 +93,18 @@ public class AdminInquireController {
 	
 
 	@RequestMapping(value = "/inquirewrite.ado")
-	public ModelAndView views(@RequestParam Integer seq) throws Exception {
+	public ModelAndView views(@RequestParam Integer seq,HttpSession session, MemberCommand memcom) throws Exception {
+		memcom = (MemberCommand) session.getAttribute("member");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("inquirewrite");
-		mav.addObject("seq", service.inquireread(seq));
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			
+			mav.setViewName("inquirewrite");
+			mav.addObject("seq", service.inquireread(seq));
+			return mav;
+		}
+		mav.setViewName("cannotAccess");
 		return mav;
 	}
 	

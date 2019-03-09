@@ -25,11 +25,16 @@ function qnaList(qpage) {
 				var newText1 = document.createTextNode(data.qnaList[i].subject);
 				a.appendChild(newText1);
 				newSubject.appendChild(a);
-				(function(num) {
+				var sb=data.qnaList[i].subject;
+				var ct=data.qnaList[i].content;
+				
+				(function(num,sb,ct) {
 					a.addEventListener('click', function() {
-						window.open('write.ado?num='+data.qnaList[i].num+'&subject='+data.qnaList[i].subject+'&contnet='+data.qnaList[i].content); //이걸로 해서 라이트 폼에 데이터 입력시키고 업로드
+						console.log(num+" " +sb+" " +ct);
+						var url='write.ado?num='+num+'&subject='+sb+'&content='+ct; 
+						window.location.href=url;//이걸로 해서 라이트 폼에 데이터 입력시키고 업로드
 					}, false);
-				})(num);
+				})(num,sb,ct);
 				
 				var newDate = newRow.insertCell(2);
 				var regdate = new Date(data.qnaList[i].regdate);

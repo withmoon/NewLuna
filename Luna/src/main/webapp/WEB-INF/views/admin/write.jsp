@@ -26,7 +26,7 @@
                <tr>
                   <th>제목:</th>
                   <td><input type="text" placeholder="subject" id="subject" name="subject"
-                     class="form-control"  value="${qncontent.title}"/></td>
+                     class="form-control"  value="${qncontent.subject}"/></td>
                </tr>
 
                <tr>

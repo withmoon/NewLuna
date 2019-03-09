@@ -152,10 +152,11 @@
 		</if>
 		<![CDATA[ group by to_char(paid_at,'yyyy-mm-dd HH24:')||'00' order by paid_at]]>
 	</select>
+	
 	<!-- 종학쓰 베이스라인 설정 -->
 	<update id="setBaseLine">
 	<![CDATA[
-	UPDATE MEMBER SET ZIPCODE = #{baseline} WHERE POSITION ='관리자'
+		UPDATE MEMBER SET ZIPCODE = #{baseline} WHERE POSITION ='총관리자'
 	]]>
 	</update>
 

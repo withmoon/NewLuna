@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.GetMemberPositionService;
 import com.study.luna.pub.member.service.MemberService;
 
 @Controller
@@ -21,6 +22,8 @@ public class LoginCheckController {
 	
 	@Autowired
 	MemberService memser;
+	@Autowired
+	GetMemberPositionService getMemberPositionService;
 	
 	@RequestMapping(value = "login/loginCheck.do", method = RequestMethod.POST)
 	public ModelAndView idCehcklogin(HttpSession session,RedirectAttributes rdab,MemberCommand memcom, @RequestParam("id") String id,@RequestParam("pw") String pass, HttpServletResponse response)throws Exception {
@@ -48,23 +51,23 @@ public class LoginCheckController {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				response.setCharacterEncoding("utf-8");
-				out.println("<script>alert('제명된 회원입니다. 문의사항은 이메일로 보내주세기 바랍니다.'); history.go(-1);</script>");
+				out.println("<script>alert('탈퇴된 회원입니다. 문의사항은 이메일로 보내주세기 바랍니다.'); history.go(-1);</script>");
 				out.flush();
 			}else {
 				boolean check=memser.passCheck(id, pass);
 				if(check) {
-					String branchName=memser.getBrName(id);
+					String position=getMemberPositionService.getMemberPosition(id);
 					rdab.addFlashAttribute("id", memcom.getId());
 					//사용자가 접속했던 곳으로 리턴해줌
 					String redirectUrl=(String)session.getAttribute("rdUrl");
-					if(branchName==null) {
+					if(position==null) {
 						mav.setViewName("redirect:"+redirectUrl);
 						return mav;
-					}else if(branchName.equals("본점")) {
-						mav.setViewName("redirect:/administrator.ado");
+					}else if(position.equals("지점장")) {
+						mav.setViewName("redirect:/manager.mdo");
 						return mav;
 					}else {
-						mav.setViewName("redirect:/manager.mdo");
+						mav.setViewName("redirect:/admin.ado");
 						return mav;
 					}
 				}else { //비번 안맞으면 돌려보냄

@@ -23,8 +23,15 @@ public class AdminMemberController {
    MemberService memberService;
    
    @RequestMapping(value="/member.ado", method=RequestMethod.GET)
-    public String mainView() {
-	   return "member";
+    public String mainView(HttpSession session, MemberCommand memcom) {
+	   memcom = (MemberCommand) session.getAttribute("member");
+
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			 return "member";
+		}
+		return "cannotAccess";
    }
    
    //1. 회원 목록
@@ -50,14 +57,4 @@ public class AdminMemberController {
   	obj.put("memberPage", boardPager);
   	return obj;
    }
-   
-   
-   //회원 제명
-   @RequestMapping(value="/remove.ado")
-   public String removedelete(String id)throws Exception{
-      //memberService.removedelete(id);
-	   
-      return "redirect:/member.ado";
-   }
-   
 }

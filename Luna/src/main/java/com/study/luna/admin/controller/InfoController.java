@@ -22,8 +22,16 @@ public class InfoController {
 	MemberService memberService;
 	
    @RequestMapping(value="/info.ado", method=RequestMethod.GET)
-    public String mainView() {
-	   return  "info";
+    public String mainView(MemberCommand memcom, HttpSession session) {
+	   memcom = (MemberCommand) session.getAttribute("member");
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			
+			   return  "info";
+		}
+		return "cannotAccess";
+
    }
    
    //공지사항 목록

@@ -44,7 +44,7 @@
                data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false">메뉴<span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li class="active"><a href="login.jsp">로그아웃</a></li>
+                 <li class="active"><a href="logout.do">로그아웃</a></li>
                 <li class="active"><a href="moveUserMode.ado">사용자모드</a></li>
        
                </ul></li>

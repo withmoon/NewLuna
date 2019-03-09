@@ -20,5 +20,7 @@ public interface MemberDAO {
 	 //전체 회원 검색용
 	List<MemberCommand> getAllMember(int start,int end,String searchOption,String keyword);
 	//전체 회원 검색용 카운트
-	Integer getAllMemberCount(String searchOption,String keyword); 
+	Integer getAllMemberCount(String searchOption,String keyword);
+	//아이디의 포지션 가져오기
+	String getMemberPosition(String id);
 }

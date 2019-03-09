@@ -10,23 +10,30 @@
 </head>
 <body>
 
+		
+		
+				
+			
 		<ul class="memberUl">
 			<c:if test="${member.id eq null}">
 				<li><a href="<c:url value="/login.do"/>"><img src="<c:url value="/resources/public/images/login.gif"/>"/></a></li>
 			</c:if>
 
 		
-			<c:if test="${member.id ne null}">
+			<c:if test="${member.id ne null}">	
+				<c:if test="${position eq '총관리자' || position eq '관리자' }">
+					<li><button onclick="javascript:window.location.href='admin.ado'">관리자 모드</button> </li>
+				</c:if>
 				<li><a class="lgoutli" href="<c:url value='/logout.do'/>"><img src="<c:url value="/resources/public/images/LogOut.gif"/>"/></a></li>
 				<li><a href="<c:url value="/mypage.udo"/>"><img src="<c:url value="/resources/public/images/mypage.gif"/>"/></a></li>
 			</c:if>
 		</ul>
 		
-		<div class="button">
+		<!-- <div class="button">
 			<form action="moveAdminMode.ado" method="post">
-				<input type="submit" value="관리자모드로 이동">
-			</form>
-		</div>
+				
+			</form> 
+		</div>-->
 		
 		<ul class="topUl">
 			<li class="topfound" onclick="location.href='<c:url value="/useGuide.udo"/>'">이용가이드</li>

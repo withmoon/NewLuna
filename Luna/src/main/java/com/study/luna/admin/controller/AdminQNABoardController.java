@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.study.luna.admin.board.service.AdminQnABoardService;
 import com.study.luna.admin.model.vo.AdminQnABoardVO;
 import com.study.luna.mg.model.BoardPager;
+import com.study.luna.pub.command.MemberCommand;
 
 @Controller
 public class AdminQNABoardController {    
@@ -22,8 +23,16 @@ public class AdminQNABoardController {
     AdminQnABoardService qnaBoardService;
     
     @RequestMapping(value = "/board.ado")
-    public String list(){ 
-    	return "board";
+    public String list(HttpSession session, MemberCommand memcom){ 
+    	memcom = (MemberCommand) session.getAttribute("member");
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			
+	    	return "board";
+		}
+		return "cannotAccess";
+
      }
     
     @RequestMapping(value = "/boardList.ado", method=RequestMethod.GET)

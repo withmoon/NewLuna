@@ -81,5 +81,10 @@ public class MemberDAOImpl implements MemberDAO {
 		map.put("keyword", keyword);
 		return  sqlSession.selectOne("memberDAO.getAllMemberCount",map);
 	}
+	//아이디에대한 포지션 가져오기
+	@Override
+	public String getMemberPosition(String id) {
+		return sqlSession.selectOne("memberDAO.getMemberPosition",id);
+	}
 
 }

@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.GetMemberPositionService;
 import com.study.luna.pub.member.service.MemberService;
 import com.study.luna.user.dto.RoomRankDTO;
 import com.study.luna.user.payandreserv.service.PayAndReserveService;
@@ -39,6 +40,8 @@ public class UserHomeController {
 	PayAndReserveService parser;
 	@Autowired
 	RoomRankServicie rrkser;
+	@Autowired
+	GetMemberPositionService getMemberPositionService;
 	String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\branchImg\\";
 
 	//카카오로그인
@@ -121,13 +124,16 @@ public class UserHomeController {
 	@RequestMapping(value="/home.udo", method=RequestMethod.GET)
 	public ModelAndView homeView(MemberCommand memcom,HttpServletRequest request,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView();
-	
+		String position="";
+		memcom=(MemberCommand)session.getAttribute("member");
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
 			session.setAttribute("member", memcom);
-		}else {
-			memcom=(MemberCommand)session.getAttribute("member");
+			position=getMemberPositionService.getMemberPosition(memcom.getId());
+		}
+		if(memcom!=null){
+			position=getMemberPositionService.getMemberPosition(memcom.getId());
 		}
 			
 		session.setAttribute("member", memcom);
@@ -161,6 +167,9 @@ public class UserHomeController {
 		mav.addObject("newReviewList",newReviewList);
 		
 		mav.addObject("member",session.getAttribute("member"));
+	
+		mav.addObject("position",position);
+		System.out.println("ㅋㅋㅋㅋㅋㅋ 내가 바로 포지션이다 뾰로로옹 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>"+position);
 		mav.setViewName("home");
 		return mav;
 	}

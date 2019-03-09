@@ -30,8 +30,15 @@ public class ApproveController {
 	MemberService memberService;
 	
 	@RequestMapping(value="/approve.ado", method=RequestMethod.GET)
-	   public String mainView() {
-	      return  "approve";
+	   public String mainView(HttpSession session,MemberCommand memcom) {
+		 memcom = (MemberCommand) session.getAttribute("member");
+	    	
+	   		if(memcom.getPosition().equals("총관리자")|memcom.getPosition().equals("관리자")){
+	   			memcom = (MemberCommand) session.getAttribute("member");
+	   			session.setAttribute("member", memcom);
+		        return "approve";
+	   		}
+	   		return "cannotAccess";
 	}
 	
 	//지점장 승인 목록
@@ -60,8 +67,15 @@ public class ApproveController {
 	
 	
 	@RequestMapping(value="/approvedelete.ado")
-	public String approvedelete(@RequestParam("id")String id , @RequestParam("type")String type)throws Exception{
-		adminManagerApproveService.approvedelete(id);
-		return "redirect:/"+type+".ado";
+	public String approvedelete(@RequestParam("id")String id , @RequestParam("type")String type,HttpSession session,MemberCommand memcom)throws Exception{
+		 memcom = (MemberCommand) session.getAttribute("member");
+	    	
+	   		if(memcom.getPosition().equals("총관리자")|memcom.getPosition().equals("관리자")){
+	   			memcom = (MemberCommand) session.getAttribute("member");
+	   			session.setAttribute("member", memcom);
+	   			adminManagerApproveService.approvedelete(id);
+	   			return "redirect:/"+type+".ado";
+	   		}
+	   			return "cannotAccess";
 	}
 }

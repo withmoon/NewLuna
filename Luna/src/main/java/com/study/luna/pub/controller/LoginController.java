@@ -22,10 +22,16 @@ public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String mainView(HttpSession session,HttpServletRequest req) throws URISyntaxException{
 		String param=req.getHeader("REFERER");
-		String url=new URI(req.getHeader("referer")).getPath().substring(5);
-		int paramStr=param.lastIndexOf("?")+1;
-		String redirectUrl=paramStr==0?url:url+param.substring(param.lastIndexOf("?"));
+		String redirectUrl="";
+		if(param==null) {
+			redirectUrl="/home.udo";
+		}else {
+			String url=new URI(req.getHeader("referer")).getPath().substring(5);
+			int paramStr=param.lastIndexOf("?")+1;
+			redirectUrl=paramStr==0?url:url+param.substring(param.lastIndexOf("?"));
+		}
 		System.out.println("안냥 유알엘"+redirectUrl);
+		
 		session.setAttribute("rdUrl", redirectUrl);
 		managerService.logincount();
 		return "login";
@@ -34,10 +40,16 @@ public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public String mainViews(HttpSession session,HttpServletRequest req) throws URISyntaxException{
 		String param=req.getHeader("REFERER");
-		String url=new URI(req.getHeader("referer")).getPath().substring(5);
-		int paramStr=param.lastIndexOf("?")+1;
-		String redirectUrl=paramStr==0?url:url+param.substring(param.lastIndexOf("?"));
+		String redirectUrl="";
+		if(param==null) {
+			redirectUrl="/home.udo";
+		}else {
+			String url=new URI(req.getHeader("referer")).getPath().substring(5);
+			int paramStr=param.lastIndexOf("?")+1;
+			redirectUrl=paramStr==0?url:url+param.substring(param.lastIndexOf("?"));
+		}
 		System.out.println("안냥 유알엘"+redirectUrl);
+		
 		session.setAttribute("rdUrl", redirectUrl);
 		managerService.logincount();
 		return "login";
