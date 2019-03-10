@@ -309,9 +309,12 @@ function showReview(rvcurpage){
 			var rvtDom='';
 			var strDom="";
 			
-			if(data.length==0){
+			if(data.rvlist.length==0){
 				strDom+='<div class="rbox">';
 				strDom+='여러분의 한줄후기를 기다리고 있습니다</div>';
+				rvtDom+='<b style="font-size:2vw">      총점 0점</b>';
+				$("#rvtitle").text("");
+				$("#rvtitle").append(rvtDom);
 			}else{
 				rvtDom+='<b style="font-size:2vw">      총점 '+data.rvscore+' 점</b>';
 				$("#rvtitle").text("");
@@ -325,12 +328,12 @@ function showReview(rvcurpage){
 					strDom+='<label style="color:gray;">작성날짜 : '+data.rvlist[i].writedate+'</label><br/>';
 					strDom+='작성자 : '+data.rvlist[i].name+'<br/><br/>';
 					if(data.member.position=='총관리자'||data.member.position=='관리자'){
-						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
+						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> <button onclick="delreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].id+'&#039)">삭제</button><br/>';
 					}
 					if(data.member.id==data.rvlist[i].id){
 						strDom+='<label id="revct">'+data.rvlist[i].reviewContent+'</label> &emsp;<button class="upbt" onclick="upreview('+data.rvlist[i].roomNum+',&#039'+data.rvlist[i].reviewContent+'&#039)">수정하기</button> <button hidden="true" class="cupbt" onclick="cancleUpReview(&#039'+data.rvlist[i].reviewContent+'&#039)">수정 취소</button> <button onclick="delreview('+data.rvlist[i].roomNum+')">삭제</button><br/>';
 					}
-					if(data.member.position!='총관리자'||data.member.position!='관리자'){
+					if(data.member.position!='총관리자'&&data.member.position!='관리자'){
 						strDom+=data.rvlist[i].reviewContent+'<br/>';
 					}
 					
@@ -371,14 +374,14 @@ function cancleUpReview(content){
 	$("#revct").text(content);
 	$(".cupbt").hide();
 }
-function delreview(roomnum){
+function delreview(roomnum,id){
 	var ans=confirm("정말로 삭제하시겠습니끼?");
 	if(ans){
 		console.log("삭제하께");
 		$.ajax({      
 			type:"GET",  
 			url:"delReviewContent.udo",    
-			data:{roomnum:roomnum},     
+			data:{roomnum:roomnum,id:id},     
 			success:function(){
 				showReview(1);
 				alert("삭제가 완료되었습니다.");

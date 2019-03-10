@@ -19,9 +19,14 @@ public class UserDelReviewContentController {
 	RoomReviewService rrser;
 	
 	@RequestMapping(value="/delReviewContent.udo",method = RequestMethod.GET)
-	public @ResponseBody void delReviewContent(RoomReviewDTO rrd,HttpSession session,@RequestParam("roomnum")int roomnum){
-		MemberCommand memcom=(MemberCommand)session.getAttribute("member");
-		rrd.setId(memcom.getId());
+	public @ResponseBody void delReviewContent(RoomReviewDTO rrd,HttpSession session,@RequestParam("roomnum")int roomnum,
+			@RequestParam(value="id",required=false,defaultValue="")String id
+			){
+		rrd.setId(id);
+		if(id.equals("")) {
+			MemberCommand memcom=(MemberCommand)session.getAttribute("member");
+			rrd.setId(memcom.getId());
+		}
 		rrd.setRoomNum(roomnum);
 		rrser.delReviewContent(rrd);
 	}
