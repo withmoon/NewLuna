@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/admin/eventview/css/eventview.css"/>"></link>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/admin/eventview/js/eventview.js"/>"></script>
 <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>

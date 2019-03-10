@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/admin/event/css/event.css"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="<c:url value="/resources/admin/event/js/event.js"/>"></script>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>

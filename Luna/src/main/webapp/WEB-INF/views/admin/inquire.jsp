@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link href="<c:url value="/resources/admin/inquire/css/inquire.css"/>" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="<c:url value="/resources/admin/inquire/js/inquire.js"/>"></script>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>

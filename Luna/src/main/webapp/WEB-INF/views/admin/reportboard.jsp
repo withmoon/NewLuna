@@ -12,6 +12,7 @@
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <link rel="stylesheet" href="<c:url value="/resources/admin/report/css/report.css"/>"/>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/admin/report/css/board.css"/>"></link>
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 <script src="<c:url value="/resources/admin/report/report.js"/>"></script>
 <script src="<c:url value="/resources/admin/report/reportreply.js"/>"></script>
 

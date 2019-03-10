@@ -12,13 +12,11 @@
 
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
-<link rel="stylesheet"
-	href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/resources/admin/sales.css"/>" />
-<script type="text/javascript"
-	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/admin/sales.css"/>" />
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 <script src="<c:url value="/resources/admin/js/sales.js"/>"></script>
 
 

@@ -8,9 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
-<meta name="viewport" content="width=device-width" ,initial-scale="1">
-<link rel="stylesheet"
-   href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
+<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 </head>
 
 <%@include file="../admin/footer.jsp" %>
