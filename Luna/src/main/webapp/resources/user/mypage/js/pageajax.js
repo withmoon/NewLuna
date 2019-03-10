@@ -84,6 +84,7 @@ function getalamList(acurpage){
 				}
 				//안읽은거
 				if(data.alist[i].readst==0){
+					$("#alamimg").attr("src","resources/user/mypage/images/bboo.gif");
 					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].fromwho+'</td>';
 					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].content+'</td>';
 					astrDom+='<td class="conf'+data.alist[i].seq+'">'+data.alist[i].almdate+'</td>';
@@ -129,6 +130,7 @@ function getqnalist(qcurpage){
 				if(data.alist[i].reply!=''&&data.alist[i].reply!=undefined){
 					qstrDom+='<tr>';
 					if(data.alist[i].readst==0){
+						$("#queAlimg").attr("src","resources/user/mypage/images/queg.gif");
 						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].sregdate+'<b></td>';
 						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].title+'<b></td>';
 						qstrDom+='<td><b class="rerp'+data.alist[i].seq+'">'+data.alist[i].branchName+'<b></td>';
@@ -138,10 +140,9 @@ function getqnalist(qcurpage){
 						qstrDom+='<td><b style="color:gray">'+data.alist[i].title+'<b></td>';
 						qstrDom+='<td><b style="color:gray">'+data.alist[i].branchName+'<b></td>';
 					}
-					
-					qstrDom+='<td><button class="qnc'+data.alist[i].seq+'" onclick="showQnContent('+data.alist[i].seq+',&#039'+data.alist[i].reply+'&#039,'+data.alist[i].readst+')">내용보기</button> <button class="qcbtn'+data.alist[i].seq+'" hidden="true"  onclick="deleteQnContent('+data.alist[i].seq+')"> 삭제하기 </button> </td>'; 
+					qstrDom+='<td><button class="qnc'+data.alist[i].seq+'" onclick="showQnContent('+data.alist[i].seq+',&#039'+encodeURI(data.alist[i].reply)+'&#039,'+data.alist[i].readst+')">내용보기</button> <button class="qcbtn'+data.alist[i].seq+'" hidden="true"  onclick="deleteQnContent('+data.alist[i].seq+')"> 삭제하기 </button> </td>'; 
 					qstrDom+='</tr><tr  hidden="true" id="qnc'+data.alist[i].seq+'" style="border:1px solid lightgray;"><td colspan="2" style="background-color:Wheat; color:gray">'+data.alist[i].content+'</td>';
-					qstrDom+='<td colspan="2" style="border-left:1px solid darkgray;background-color:beige; color:gray">[답변]<br/>'+data.alist[i].reply+'</td>';
+					qstrDom+='<td colspan="2" style="border-left:1px solid darkgray;background-color:beige; color:gray">'+data.alist[i].reply+'</td>';
 				}
 				if(data.alist[i].reply==''||data.alist[i].reply==undefined){  //답변이 없는 경우
 					qstrDom+='<tr>';
@@ -173,7 +174,9 @@ function showQnContent(seq,reply,readst){
 		$("#qnc"+seq).show();
 		$(".qnc"+seq).html("닫기");
 		$(".qnc"+seq).removeAttr("onclick");
-		$(".qnc"+seq).attr("onclick","closeQnContent("+seq+",'"+reply+"')");
+
+			$(".qnc"+seq).attr("onclick","closeQnContent("+seq+",'"+reply+"')");
+
 		$(".qcbtn"+seq).show();
 		
 		if(readst==0&&reply!=undefined||readst==0&&reply!=''){ //읽음 표시 ajax
@@ -367,11 +370,11 @@ function lastList(lrcurpage,data){
 				ltDom+='<td><label>환불완료</label>';
 				ltDom+='<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
 			}else{
-				for(var j=0; j<hasuserreview.length; j++){
+				for(var j=0; j<hasuserreview.length+1; j++){
 					if(data.rvlist[i].roomNum==hasuserreview[j]){
 						ltmDom='<td><button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
 						break;
-					}else{//(hasuserreview[j]!=data.rvlist[i].roomNum)
+					}else{
 						ltmDom='<td><button class="reviewBtn'+data.rvlist[i].imp_uid+'" onclick="openReview('+data.rvlist[i].roomNum+')">리뷰쓰기</button>'+
 						'<button class="showRecipe" onclick="window.open(&#039'+data.rvlist[i].receipt_url+'&#039,&#039window_name&#039,&#039width=500,height=750,location=no,status=n&#039)">영수증</button></td>';
 					}

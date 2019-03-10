@@ -23,4 +23,6 @@ public interface MemberDAO {
 	Integer getAllMemberCount(String searchOption,String keyword);
 	//아이디의 포지션 가져오기
 	MemberCommand getMemberPosition(String id);
+	//제명처리로 인한 환불
+	void refundofexpul(String id);
 }

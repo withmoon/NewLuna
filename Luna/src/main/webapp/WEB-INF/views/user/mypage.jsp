@@ -35,10 +35,10 @@
 	
 		<!-- 회원정보 -->
 		<div class="myinformation">
-			<button onclick="">회원 탈퇴</button><br/>
+			<button onclick="userOut()">회원 탈퇴</button><br/>
 			<img class="infoline1" src="<c:url value="/resources/user/mypage/images/line.png"/>">
-			<img class="deer" onclick="goToNotice()" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
-			<img class="deer2" onclick="goToQandA()" src="<c:url value="/resources/user/mypage/images/que.png"/>" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/queg.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/que.png"/>'">
+			<img class="deer" onclick="goToNotice()" id="alamimg" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/bboo.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/not.png"/>'"  src="<c:url value="/resources/user/mypage/images/not.png"/>">
+			<img class="deer2" onclick="goToQandA()" id="queAlimg" src="<c:url value="/resources/user/mypage/images/que.png"/>" onmouseenter="this.src='<c:url value="/resources/user/mypage/images/queg.gif"/>'" onmouseleave="this.src='<c:url value="/resources/user/mypage/images/que.png"/>'">
 			<br/><b>${member.name}님 환영합니다.</b><br/>
 			&emsp;전화번호&ensp;${member.phone} <br>
 			&emsp;이메일 &ensp;${member.email}

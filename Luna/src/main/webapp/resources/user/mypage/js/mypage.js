@@ -44,3 +44,18 @@ function scrollDown(str){
 	var offset = $(str).offset();
     $('html, body').animate({scrollTop : offset.top-50}, 400);
 }
+//회원 탈퇴
+function userOut(){
+	if(confirm("정말로 탈퇴 하시겠습니까?")){
+	$.ajax({      
+		type:"POST",  
+		url:"deactivatemember.do",      
+		success:function(){
+			alert("성공적으로 탈퇴 되었습니다.");
+			window.location.href="logout.do";
+		}
+	});
+	}else{
+		alert("취소되었습니다");
+	}
+}

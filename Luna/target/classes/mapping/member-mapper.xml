@@ -123,7 +123,12 @@
 
 	<!-- 회원 제명 처리 -->
 	<update id="expulmember">
-		update member set brstatus=-2 where id=#{id}
+		<![CDATA[update member set brstatus=-2 where id=#{id}]]>
+	</update>
+	
+	<!-- 제명 위스 환불 -->
+	<update id="refundofexpul">
+		<![CDATA[update roompayment set status=-2 where id=#{id} and reservdate>=sysdate]]>	
 	</update>
 
 	<!-- 회원 제명 취소 -->
