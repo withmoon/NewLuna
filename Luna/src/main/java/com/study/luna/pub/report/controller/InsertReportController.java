@@ -44,7 +44,6 @@ public class InsertReportController {
 			}
 		} else {
 			if (!dir.isDirectory()) {
-				System.out.println("디렉토리생성");
 				dir.mkdirs();
 			}
 		}

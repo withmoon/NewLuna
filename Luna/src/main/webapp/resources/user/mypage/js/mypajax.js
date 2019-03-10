@@ -34,7 +34,7 @@ function gogoCC(imp_uid){
 			var stdom="<label>환불요청중</label>";
 			$("#"+imp_uid).append(stdom);
 			noCancle();
-			alert("환불이 완료되었습니다");
+			alert("환불 요청이 완료되었습니다");
 		}
 	});
 }

@@ -120,8 +120,18 @@ public class AdminMailController {
 		MultipartFile mf = mpreq.getFile("filename");
 		if (!mf.getOriginalFilename().equals("")) {
 			File dir = new File(filePath);
-			if (!dir.exists()) {
-				dir.mkdirs();
+			if (dir.exists()) { // 파일존재여부확인
+				if (dir.isDirectory()) { // 파일이 디렉토리인지 확인
+					File[] files = dir.listFiles();
+					for (int i = 0; i < files.length; i++) {
+						files[i].delete();
+					}
+				}
+			} else {
+				if (!dir.isDirectory()) {
+					System.out.println("디렉토리생성");
+					dir.mkdirs();
+				}
 			}
 		
 		// 저장되는 파일 이름

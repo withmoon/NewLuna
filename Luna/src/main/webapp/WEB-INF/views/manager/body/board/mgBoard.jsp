@@ -16,14 +16,12 @@
 	}
 
 	function mail_0(seq,email,content) {
-	   	alert("클릭");
 	   	var url = "mailForm.mdo?seq="+seq+"&email="+email+"&content="+content;
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	} 
 	
 	function mail_1(seq,emailtitle,emailcontent,email) {
-	   	alert("클릭");
-	   	var url = "mailView.mdo?seq="+seq+"&emailtitle="+emailtitle+"&emailcontent="+emailcontent+"&email="+email;
+	   	var url = "mailView.mdo?seq="+seq+"&emailtitle="+encodeURI(emailtitle)+"&emailcontent="+encodeURI(emailcontent)+"&email="+encodeURI(email);
 		window.open(url,"mailForm.mdo","width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 	
@@ -102,10 +100,10 @@
 							<td>${list.id }</td>
 							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
 							<c:if test="${list.mail==0 }">
-								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}');">열람 하기</button></td>
+								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}')">열람 하기</button></td>
 							</c:if>
 							<c:if test="${list.mail==1}">
-								<td><a href="#" onclick="mail_1('${list.seq }','${list.emailtitle }','${list.emailcontent }','${list.email }')">답장확인</a></td>
+								<td><a href="javascript:mail_1(${list.seq },'${list.emailtitle}','${list.emailcontent}','${list.email}')">답장확인</a></td>
 							</c:if>
 							
 						</tr> 

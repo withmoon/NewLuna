@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.pub.member.service.GetMemberPositionService;
 import com.study.luna.user.dto.RoomReviewDTO;
 import com.study.luna.user.review.service.RoomReviewService;
 
@@ -21,7 +22,9 @@ import com.study.luna.user.review.service.RoomReviewService;
 public class UserGetRoomAllReviewController {
 	@Autowired
 	RoomReviewService rrser;
-
+	@Autowired
+	GetMemberPositionService getMemberPositionService;
+	
 	@RequestMapping(value="/getRoomAllReview.udo",method = RequestMethod.GET)
 	public @ResponseBody JSONObject getSidoGugung(HttpSession session,@RequestParam("curpage")int curPage,@RequestParam("roomnum")int roomnum){
 		
@@ -42,11 +45,13 @@ public class UserGetRoomAllReviewController {
 		
 		List<RoomReviewDTO> allreviewlist=rrser.getRoomAllReview(start,end,roomnum);
 		String reviewscore=rrser.getReviewStarAvg(roomnum);
-		
+		if(session!=null&memcom!=null) {
+			memcom=getMemberPositionService.getMemberPosition(memcom.getId());
+		}
 		JSONObject obj = new JSONObject();
 		obj.put("rvlist", allreviewlist);
 		if(memcom!=null) {
-			obj.put("userid", memcom.getId());
+			obj.put("member", memcom);
 		}
 		obj.put("rvpager", reviewPager);
 		obj.put("rvscore", reviewscore);
