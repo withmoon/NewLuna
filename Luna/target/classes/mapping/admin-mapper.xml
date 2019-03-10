@@ -58,7 +58,7 @@
       insert into noticeboard
       (num,writer, title, content, regdate)
       values ( (select
-      nvl(max(num)+1,1) from noticeboard),#{writer},#{title},
+      nvl(max(num)+1,1) from noticeboard),'관리자',#{title},
       #{content},
       #{regdate})
    </insert>

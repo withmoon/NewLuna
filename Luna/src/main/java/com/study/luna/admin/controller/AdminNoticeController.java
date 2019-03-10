@@ -62,13 +62,21 @@ public class AdminNoticeController {
 		obj.put("noticePage", boardPager);
 		return obj;
 	}
+	
+	//공지사항 입력
+	@RequestMapping(value = "/gongjiwrite.ado", method = RequestMethod.GET)
+	public String View(HttpSession session, MemberCommand memcom) {
+		memcom = (MemberCommand) session.getAttribute("member");
 
-	@RequestMapping(value = "/gongjiupdate.ado", method = RequestMethod.POST)
-	public String View(@ModelAttribute AdminNoticeBoardVO vo) throws Exception {
-		adminNoticeBoardService.noticeupdate(vo);
-		return "redirect:/gongjiboardList.ado";
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			return "gongjiwrite";
+		}
+		return "cannotAccess";	
 	}
-
+	
+	//공지사항 상세보기
 	@RequestMapping(value = "/gongjiview.ado", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int num, HttpSession session, MemberCommand memcom) throws Exception {
 
@@ -86,17 +94,14 @@ public class AdminNoticeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/gongjiwrite.ado", method = RequestMethod.GET)
-	public String View(HttpSession session, MemberCommand memcom) {
-		memcom = (MemberCommand) session.getAttribute("member");
-
-		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
-			memcom = (MemberCommand) session.getAttribute("member");
-			session.setAttribute("member", memcom);
-			return "gongjiwrite";
-		}
-		return "cannotAccess";	
+	//공지사항 수정
+	@RequestMapping(value = "/gongjiupdate.ado", method = RequestMethod.POST)
+	public String View(@ModelAttribute AdminNoticeBoardVO vo) throws Exception {
+		adminNoticeBoardService.noticeupdate(vo);
+		return "redirect:/gongji.ado";
 	}
+
+	
 
 	@RequestMapping(value = "/noticeinsert.ado", method = RequestMethod.GET)
 	public String insert(@ModelAttribute AdminNoticeBoardVO vo, HttpSession session, MemberCommand memcom) throws Exception {
@@ -110,7 +115,8 @@ public class AdminNoticeController {
 		}
 		return "cannotAccess";	
 	}
-
+	
+	//공지사항 삭제
 	@RequestMapping(value = "/gongjidelete.ado", method = RequestMethod.GET)
 	public String delete(@RequestParam int num, HttpSession session, MemberCommand memcom) throws Exception {
 		memcom = (MemberCommand) session.getAttribute("member");
@@ -121,8 +127,6 @@ public class AdminNoticeController {
 			adminNoticeBoardService.noticedelete(num);
 			return "redirect:/gongji.ado";
 		}
-		return "cannotAccess";	
-		
-	
+		return "cannotAccess";
 	}
 }

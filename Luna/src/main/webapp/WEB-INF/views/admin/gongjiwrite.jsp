@@ -22,12 +22,12 @@
 			<table class="table table-bordered">
 				<h4>글쓰기</h4>
 				<tbody>
-
+<!-- 
 					<tr>
 						<th>작성자:</th>
 						<td><input type="text" placeholder="subject" id="writer"
 							name="writer" class="form-control" /></td>
-					</tr>
+					</tr> -->
 
 
 					<tr>
