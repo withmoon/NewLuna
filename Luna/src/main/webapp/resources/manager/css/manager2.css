@@ -23,6 +23,8 @@
 	min-height: 845px;
 	border: 1px solid black; 
 	border-bottom: none;
+	position:relative;
+	top: 40px;
 }
 
 
@@ -36,6 +38,11 @@
 #letflogo { 
 	float: left;
 }
+.logo {
+	position:absolute;
+	width: 10%;
+	hight: 10%;
+}
 /* 상단 메뉴 */
 #TopMenu1 { /* 로그인 내정보 메인홈페이지  TopMenu1.jsp*/
 	width: 100%;
@@ -44,7 +51,7 @@
 	position: absolute;
 	right: 0%;
 	top: 1px;
-	background-color: navy;
+	background-color: #7777;
 }
 ul.top { /* TopMenu1.jsp 에 적용될 ul */
 	float: right;
@@ -139,7 +146,7 @@ ul.top li a:hover {
 
 /* 중앙 바디 주요화면이 들어올 영역 */
 header{
-	border-bottom: 1px solid blue;
+	border-bottom: 1px solid darkgray;
 	width: auto;
 	text-align: left;
 	padding-left: 10px;
@@ -153,7 +160,7 @@ header{
 	opacity: 0.6;
 	float: left;
 	border-right: 1px solid black;
-	border-left: 1px solid black;
+	border-left: 1px solid black
 }
 #today {
 	margin-left:4%;
