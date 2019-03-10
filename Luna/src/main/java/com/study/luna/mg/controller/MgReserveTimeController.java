@@ -26,7 +26,7 @@ import com.study.luna.user.payandreserv.service.PayAndReserveService;
 
 @Controller
 public class MgReserveTimeController {
-	//통계
+	//�넻怨�
 	
 	@Autowired
 	mgReserveTimeService mgReserveTimeService; 
@@ -41,7 +41,7 @@ public class MgReserveTimeController {
 	
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 System.out.println("카카오 로그인 실패");
+			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			 mv.setViewName("/body/loginX");
 	         return mv;
 		}
@@ -52,10 +52,10 @@ public class MgReserveTimeController {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
 		}
 		
-		//리스트
+		//由ъ뒪�듃
 		List<ReserveTimeVO> list = mgReserveTimeService.mgAgeList(paid_at_start,paid_at_end);
 		
-		//통계계산
+		//�넻怨꾧퀎�궛
 		mgReserveTimeService.mgsu(list,vo);
 		
 	
@@ -77,7 +77,7 @@ public class MgReserveTimeController {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
 		}
 		
-		//차트 데이터
+		//李⑦듃 �뜲�씠�꽣
 		String branchName = (String) session.getAttribute("branchName");
 		/*List<RoomPaymentDTO> termSaleslist=prser.getTermSales(paid_at_start,paid_at_end);*/
 		List<ReserveTimeVO> list = mgReserveTimeService.getreservcount(paid_at_start,paid_at_end,branchName);
@@ -94,10 +94,10 @@ public class MgReserveTimeController {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
 		}
 
-		//리스트
+		//由ъ뒪�듃
 		List<ReserveTimeVO> list = mgReserveTimeService.mgAgeList(paid_at_start,paid_at_end);
 		
-		//통계계산
+		//�넻怨꾧퀎�궛
 		mgReserveTimeService.mgsu(list,vo);
 		
 		return vo;
