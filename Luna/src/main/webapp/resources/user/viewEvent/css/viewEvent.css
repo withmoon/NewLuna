@@ -28,23 +28,27 @@
     border-bottom: 0.2vw solid tan;
 }
 .title b { 
-    font-size : 3.5vw; color : #003366;
+    font-size : 2.5vw; color : #003366;
     position:relative;
     left: 5%;
 }
 
 .writer {
     position:relative;
-    left: 40%;
+    left: 10%;
 }
 
 .date {
     position:relative;
-    left: 45%;
+    left: 12%;
 }
 /*내용*/
 .content {
    padding: 5%;
+}
+
+img {
+    width: 80%;
 }
 /*댓글보기/닫기*/
 .reply{

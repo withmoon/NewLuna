@@ -10,6 +10,8 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="<c:url value="/resources/admin/event/js/event.js"/>"></script>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
 <title>이벤트 페이지</title>
 </head>
 <%@include file="../admin/footer.jsp" %>
@@ -68,23 +70,5 @@
 <ul id="pageT2"></ul>
 </div>
 </div>
-
-
-
-        
-        
-        
-        <span class="title">2월 27일 이벤트 당첨자 발표</span>
-        
-        
-         <ul class="event-ul">
-            <div class='emptyEvent'>위 게시판을 통해 확인하세요.</div>
-              </ul>
-           
-
-   <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <script src="<c:url value="/resources/admin/js/bootstrap.min.js"/>"></script>
-
 </body>
 </html>
