@@ -237,3 +237,22 @@ function sendEmail(){
 	$("#ids").val(ids);
 	$("#ems").val(emails);
 }
+
+//========================================
+	function AllMail(type) {
+
+	$("#sangdan").text("메일 보내기");
+	$("#type").val(type);
+	
+	console.log(type);
+	
+	$("#memform").removeAttr("action");//지워구 해도 되는건가요?
+	$("#memform").attr("action","AllMail.ado");//바뀌나..
+	$("#sendToUser").removeAttr("onclick");
+	$("#sendToUser").attr("type","submit");
+	$('body > *:not(.explur) ').css('filter',filterVal10);
+	$(".explur").show();
+	$(".emailcontents").show();
+	
+}
+

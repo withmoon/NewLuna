@@ -1,6 +1,7 @@
 package com.study.luna.mg.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -83,7 +84,33 @@ public class MgReserveTimeController {
 		List<ReserveTimeVO> list = mgReserveTimeService.getreservcount(paid_at_start,paid_at_end,branchName);
 		return list;
 		
-	}@RequestMapping(value="/mgTime2.mdo",method=RequestMethod.POST)
+	}
+	@RequestMapping(value="/mgchart2.mdo",method=RequestMethod.POST)
+	public  @ResponseBody List<ReserveTimeVO> getTermSales2(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
+			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,ReserveTimeVO vo,HttpSession session){
+		Calendar mon = Calendar.getInstance();
+		mon.add(Calendar.MONTH , -1);
+		String beforeMonth = new java.text.SimpleDateFormat("yyyy/MM/dd").format(mon.getTime());
+		
+		
+		if(paid_at_start==null || paid_at_start.equals("") ) {
+			paid_at_start = new SimpleDateFormat("yy/MM/dd").format(beforeMonth);
+		}
+		if(paid_at_end==null || paid_at_end.equals("") ) {
+			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
+		}
+		
+		//李⑦듃 �뜲�씠�꽣
+		String branchName = (String) session.getAttribute("branchName");
+		/*List<RoomPaymentDTO> termSaleslist=prser.getTermSales(paid_at_start,paid_at_end);*/
+		List<ReserveTimeVO> list2 = mgReserveTimeService.getreservcount(paid_at_start,paid_at_end,branchName);
+		return list2;
+		
+	}
+	
+	
+	
+	@RequestMapping(value="/mgTime2.mdo",method=RequestMethod.POST)
 	public  @ResponseBody ReserveTimeVO gettime(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
 			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,ReserveTimeVO vo,HttpSession session){
 		
