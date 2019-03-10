@@ -6,6 +6,7 @@ $(function(){
 	$("#image").hide();
 	$("#imgDel").hide();
 	
+	//이미지 수정버튼 클릭시
 	$("#imgSave").click(function() {
 		$("#img").hide();
 		$("#imgSave").hide();
@@ -13,6 +14,7 @@ $(function(){
 		$("#imgDel").show();
 	});
 	
+	//이미지 수정취소버튼 클릭시
 	$("#imgDel").click(function() {
 		$("#image").hide();
 		$("#imgDel").hide();
@@ -38,6 +40,20 @@ function replyOnOff(seq) {
 	 } else{
 		 $(".reply2").hide();
 	 }
+}
+
+//삭제버튼
+function btdel(seq) {
+	$.ajax({
+		type:'POST',
+		url:'deleteevent.ado',
+		data:{seq:seq},
+		success : function(data) {
+			alert("삭제되었습니다.");
+			var url='event.ado';
+			window.location=url;
+		}
+	});
 }
 
 //댓글 목록

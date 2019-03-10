@@ -63,4 +63,9 @@
    <select id="event_Seq" resultType="Integer">
 		<![CDATA[select nvl(max(seq),1) from adminevent]]>
 	</select>
+	
+	<!-- 이벤트삭제 -->
+	<delete id="deleteevent" parameterType="adminEventBoardVO">
+		delete from adminevent where seq=#{seq}
+	</delete>
 </mapper>

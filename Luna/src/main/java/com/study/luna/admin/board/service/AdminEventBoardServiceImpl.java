@@ -16,8 +16,6 @@ import com.study.luna.admin.model.vo.AdminEventBoardVO;
 @Service
 public class AdminEventBoardServiceImpl implements AdminEventBoardService{
    
-   @Inject
-   AdminEventBoardDAO adminEventBoardDAO;
    @Autowired
    AdminEventBoardDAOImpl eventBoardImpl;
    
@@ -62,26 +60,20 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
    public AdminEventBoardVO read(int seq) throws Exception {
 	   return eventBoardImpl.read(seq);
    }
-   @Override
-	public Integer event_Seq() {
-	   return eventBoardImpl.event_Seq();
-	}
 
    //이벤트 수정
    @Override
    public void update(AdminEventBoardVO eboardVO) {
 	   eventBoardImpl.update(eboardVO);
    }
+   @Override
+	public Integer event_Seq() {
+	   return eventBoardImpl.event_Seq();
+	}
 
-    @Override
-    public void delete(int seq) throws Exception {
-       // TODO Auto-generated method stub
-        adminEventBoardDAO.delete(seq);
-    }
-
-	
-
-	
-
-	
+   //이벤트 삭제
+   @Override
+   public void delete(AdminEventBoardVO eboardVO) {
+	   eventBoardImpl.delete(eboardVO);
+   }
 }

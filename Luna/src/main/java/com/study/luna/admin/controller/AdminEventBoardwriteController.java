@@ -31,7 +31,7 @@ import com.study.luna.user.comment.vo.EventReplyVO;
 public class AdminEventBoardwriteController {
 	private String efilePath = "D:\\myProject\\myMain\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
    
-   @Inject 
+   @Autowired
     AdminEventBoardService eboardService;
    @Autowired
 	EventReplyService eventReplyService;
@@ -137,6 +137,13 @@ public class AdminEventBoardwriteController {
 	return "redirect:/event.ado";
    }
    
+   //삭제
+   @RequestMapping(value="/deleteevent.ado", method=RequestMethod.POST)
+   public @ResponseBody void deleteevent(AdminEventBoardVO eboardVO,HttpSession session, @RequestParam(value="seq") int seq) {
+	   eboardVO.setSeq(seq);
+	   eboardService.delete(eboardVO);
+ 	}
+   
    
    //댓글목록
    @RequestMapping(value="/aEReplyList.ado", method=RequestMethod.GET)
@@ -167,14 +174,5 @@ public class AdminEventBoardwriteController {
  	public @ResponseBody void aEReplyDelete(EventReplyVO eReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno) {
  		eReplyVO.setRno(rno);
  		eventReplyService.eReplyDe(eReplyVO);
- 	} 
-         
-         
-         @RequestMapping(value = "/deleteevent.ado")
-         public String deleteView(@RequestParam int seq)throws Exception{
-        	 eboardService.delete(seq);  
-         return "redirect:/eventlist.ado";
-         } 
-         
-         
+ 	}  
 }

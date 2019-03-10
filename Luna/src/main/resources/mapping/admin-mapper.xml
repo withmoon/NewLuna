@@ -5,11 +5,7 @@
 <mapper namespace="luna.admin.board">
 
    <!-- QnABoard -->
-
-
-
-
-   <select id="inquireread" resultType="QBoard">
+ <select id="inquireread" resultType="QBoard">
 
       select * from inquiryboard
       where seq=#{seq}
@@ -21,12 +17,6 @@
       update inquiryboard set reply=#{reply} where seq=#{seq}
    </update>
 
-   <!-- <select id="inquireList" resultType="adminInquireBoardVO">
-
-      select * from inquiryboard order by seq desc
-   </select> -->
-
-
    <select id="infoList" resultType="adminManagerApproveVO">
 
       select
@@ -36,14 +26,6 @@
       where position='지점장'
 
    </select>
-
-   <!-- <select id="approveList" resultType="adminManagerApproveVO">
-
-      select
-      id,pw,name,phone,birth,email,branchName,zipcode,branchaddr1,branchaddr2,brStatus,position
-      from member where brStatus = -1
-
-   </select> -->
 
    <update id="approveupdate">
       <![CDATA[update member set brstatus=0 where id=#{id}]]>
@@ -60,13 +42,6 @@
       values ( (select
       nvl(max(num)+1,1) from noticeboard),'관리자',#{title},  #{content}, sysdate*0.375)
    </insert>
-
-   <!-- <select id="noticeList" resultType="adminNoticeBoardVO">
-
-      select
-      num,writer,title,content,regdate from noticeboard order by num desc
-
-   </select> -->
 
    <select id="noticeread" resultType="adminNoticeBoardVO">
 
@@ -104,44 +79,11 @@
 
    </select>
 
-
-   <!-- <select id="read" resultType="adminQnABoardVO">
-
-      select * from adminqnaboard where
-      num=#{num}
-
-   </select> -->
-
-
-  <!--  <update id="update" parameterType="adminQnABoardVO">
-
-      update adminqnaboard set
-      subject= #{subject}, content= #{content} where
-      num=#{num}
-
-   </update> -->
-
    <delete id="delete" parameterType="adminQnABoardVO">
 
       delete from adminqnaboard
       where num=#{num}
    </delete>
-
-
-
-
-   <!-- eventBoard -->
-
-   <!-- <insert id="insertEventBoard" parameterType="adminEventBoardVO">
-   <![CDATA[
-   insert into adminevent (seq, title, writer, content, startdate, enddate, image, files)
-   values  ( (select nvl(max(seq)+1,1) from adminevent ), #{title}, #{writer}, #{content}, #{startdate}, #{enddate}, #{image}, #{files})
-   ]]>
-   </insert> -->
-
-   <!-- <select id="listAlls" resultType="adminEventBoardVO">
-      select * from adminevent order by seq desc
-   </select> -->
 
    <select id="readevent" resultType="adminEventBoardVO">
 
@@ -149,25 +91,7 @@
 
    </select>
 
-
-
-   <update id="updateevent" parameterType="adminEventBoardVO">
-
-      update adminevent set title= #{title}, content= #{content},
-      startdate=#{startdate}, enddate=#{enddate}, image=#{image},
-      files=#{files} where
-      seq=#{seq}
-
-   </update>
-
-   <delete id="deleteevent" parameterType="adminEventBoardVO">
-
-      delete from adminevent where seq=#{seq}
-   </delete>
-   
-   
-   
-   	<!-- 전체/회원/지점장 메일 보내기 -->
+	<!-- 전체/회원/지점장 메일 보내기 -->
 	<select id="AllMail" resultType="String">
 			select email from member	
 		<if test="type=='alluser'">
@@ -176,9 +100,5 @@
 		<if test="type=='allBranch'">
 			where position ='지점장'
 		</if>
-	</select>
-	
-   
-   
-   
+	</select>   
 </mapper>

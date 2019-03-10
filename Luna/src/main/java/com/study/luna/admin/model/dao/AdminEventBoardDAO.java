@@ -19,17 +19,5 @@ public interface AdminEventBoardDAO {
 	public void update(AdminEventBoardVO eboardVO); //수정
 	public Integer event_Seq(); //최대 번호 가져오기
     
-    
-      
-      
-      
-      
-      
-      
-      public void delete(int seq) throws Exception;//삭제
-
-
-   
-   /*user/event.jsp*/
-   
+	public void delete(AdminEventBoardVO eboardVO);//삭제
 }

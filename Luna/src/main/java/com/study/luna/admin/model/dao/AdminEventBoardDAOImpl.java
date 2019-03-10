@@ -19,8 +19,6 @@ import com.study.luna.admin.model.vo.AdminEventBoardVO;
 @Repository
 public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
    
-   @Inject
-      SqlSession sqlsession;
    @Autowired
 	SqlSessionTemplate SqlSession;
    
@@ -83,21 +81,8 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
 	   return SqlSession.selectOne("eventBoardDAO.event_Seq");
 	}
 
-     @Override
-     public void delete(int seq) throws Exception {
-        sqlsession.delete("luna.admin.board.deleteevent",seq);
-        
-     }
-
-	
-
-	/*user/event.jsp*/
-    
-
-	
-	
-	
-
-    
-	
-   }
+   @Override
+   public void delete(AdminEventBoardVO eboardVO) {
+	   SqlSession.delete("eventBoardDAO.deleteevent",eboardVO);
+  }
+}

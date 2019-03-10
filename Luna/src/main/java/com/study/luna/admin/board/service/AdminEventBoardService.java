@@ -25,10 +25,5 @@ public interface AdminEventBoardService {
 	public void update(AdminEventBoardVO eboardVO);//이벤트수정
 	public Integer event_Seq();
 
-   public void delete(int seq) throws Exception;//삭제
-
-   /*user/event.jsp*/
-   
-   
-
+    public void delete(AdminEventBoardVO eboardVO);//삭제
 }

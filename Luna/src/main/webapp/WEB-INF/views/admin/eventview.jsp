@@ -41,7 +41,8 @@
 	<tr class="button"><td colspan="2">
 		<input type="button" onclick="window.open('event.ado','_self');" value="글 목록"/>
 		<input type="button" onclick="upbt()" value="수정"/> 
-		<input type="button" value="삭제" onclick="javascript:location.href='deleteevent.ado?seq=${seq.seq}'" />
+		<%-- <input type="button" value="삭제" onclick="javascript:location.href='deleteevent.ado?seq=${ebv.seq}'" /> --%>
+		<input type="button" onclick="btdel(${ebv.seq})" value="삭제"/>
 	</td></tr>
 </tbody>
 </table>
@@ -95,7 +96,7 @@
 	</tr>
 	<tr class="button"><td colspan="2">
 		<input type="submit" id="btnSave" value="수정"/>&emsp;
-		<input type="submit" id="btnSave" value="삭제"/>&emsp;
+		<input type="button" onclick="deRE(${ebv.seq })" value="삭제"/>&emsp;
 		<input type="button" onclick="window.open('event.ado','_self');" value="취소"/>
 	</td></tr>
 </tbody>
