@@ -151,14 +151,14 @@
 
 
 
-   <!-- <update id="updateevent" parameterType="adminEventBoardVO">
+   <update id="updateevent" parameterType="adminEventBoardVO">
 
       update adminevent set title= #{title}, content= #{content},
       startdate=#{startdate}, enddate=#{enddate}, image=#{image},
       files=#{files} where
       seq=#{seq}
 
-   </update> -->
+   </update>
 
    <delete id="deleteevent" parameterType="adminEventBoardVO">
 
