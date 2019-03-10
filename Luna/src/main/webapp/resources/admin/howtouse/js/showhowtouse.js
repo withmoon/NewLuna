@@ -27,6 +27,7 @@ function addWriteForm(){
 //write중 삭제 클릭시
 function delWriteForm(cnum,num){
 	if(num==undefined){
+		formnum--;
 		$(".form"+cnum).remove();
 	}
 	if(num!=undefined){
@@ -68,7 +69,10 @@ function cancleUp(){
 }
 //실제 없데이트 처리
 function updateContent(){
-	
+	$("#maxCnum").val(formnum);
+	$("#form").removeAttr("action");
+	$("#form").attr("action","updateHowToUse.do");
+	$("#form").submit();
 }
 //이미지 수정
 function updateImg(cnum,num){

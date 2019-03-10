@@ -30,8 +30,8 @@ public class HowToUseDAOImpl implements HowToUseDAO {
 	}
 
 	@Override
-	public Integer getHowToUseMaxCnum() {
-		return sqlSession.selectOne("htuDAO·getHowToUseMaxCnum");
+	public Integer getHowToUseMaxCnum(int num) {
+		return sqlSession.selectOne("htuDAO.getHowToUseMaxCnum",num);
 	}
 
 	@Override
@@ -52,6 +52,11 @@ public class HowToUseDAOImpl implements HowToUseDAO {
 	@Override
 	public void updateHowToUseContent(HowToUseDTO htu) {
 		sqlSession.update("htuDAO.updateHowToUseContent",htu);
+	}
+
+	@Override
+	public String getDefaultImg(HowToUseDTO htu) {
+		return sqlSession.selectOne("htuDAO.getDefaultImg",htu);
 	}
 
 }

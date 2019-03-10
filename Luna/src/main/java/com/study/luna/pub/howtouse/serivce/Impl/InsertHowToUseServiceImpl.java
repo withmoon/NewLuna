@@ -16,5 +16,4 @@ public class InsertHowToUseServiceImpl implements InsertHowToUseService {
 	public void insertHowToUse(HowToUseDTO htu) {
 		htuDAO.insertHowToUse(htu);
 	}
-
 }

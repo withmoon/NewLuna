@@ -14,13 +14,19 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.study.luna.pub.command.HowToUseDTO;
+import com.study.luna.pub.howtouse.dao.HowToUseDAO;
+import com.study.luna.pub.howtouse.serivce.InsertHowToUseService;
 import com.study.luna.pub.howtouse.serivce.UpdateHowToUseContentService;
 
 @Controller
 public class UpdateHowToUseContentController {
 	@Autowired
 	UpdateHowToUseContentService updateHowToUseContentService;
-
+	@Autowired
+	HowToUseDAO howToUseDAO;
+	@Autowired
+	InsertHowToUseService insertHowToUseService;
+	
 	private String filePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\howtouseImg\\";
 
 	@RequestMapping(value = "/updateHowToUse.do", method = RequestMethod.POST)
@@ -28,34 +34,46 @@ public class UpdateHowToUseContentController {
 			throws IllegalStateException, IOException {
 		Integer formSize = Integer.parseInt(req.getParameter("maxCnum"));
 		List<MultipartFile> mf = mpreq.getFiles("file");
-		// 저장되는 파일 이름
-		for (int i = 0; i < formSize + 1; i++) {
-			String realPath = filePath + htu.getNum() + "\\" + htu.getCnum() + "\\";
+		int num = htu.getNum();
+		int maxCnum=howToUseDAO.getHowToUseMaxCnum(num)-1;
+		htu.setTitle((String) req.getParameter("title"));
+		for (int i = 0; i < formSize; i++) {
+			String realPath = filePath + htu.getNum() + "\\" + i + "\\";
 			File dir = new File(realPath);
-			if (dir.exists()) { // 파일존재여부확인
-				if (dir.isDirectory()) { // 파일이 디렉토리인지 확인
-					File[] files = dir.listFiles();
-					for (int j = 0; j < files.length; j++) {
-						files[i].delete();
+
+			String filename = mf.get(i).getOriginalFilename();
+			//System.out.println(filename+"<여깁니다==================================================================================================================");
+			if(!filename.equals("")&&!filename.equals(null)) {
+				if (dir.exists()) { // 파일존재여부확인
+					File[] folder_list = dir.listFiles(); //파일리스트 얻어오기
+					for(int j = 0 ; j < folder_list.length ; j++){
+						File file = folder_list[j]; 
+						if(file.isFile()){
+							file.delete();
+						}
 					}
-				}
-			} else {
-				if (!dir.isDirectory()) {
+					dir.mkdirs();
+				}else {
 					System.out.println("디렉토리생성");
 					dir.mkdirs();
 				}
+				
+				String savePath = realPath + filename; // 저장 될 파일 경로
+				mf.get(i).transferTo(new File(savePath)); // 파일 저장;
+				htu.setFname(filename);
 			}
-
-			String filename = mf.get(i).getOriginalFilename();
-			String savePath = realPath + filename; // 저장 될 파일 경로
-			mf.get(i).transferTo(new File(savePath)); // 파일 저장
-			//htu.setNum(seq);
-			htu.setFname(filename);
-			htu.setFpath(realPath);
-			htu.setTitle((String) req.getParameter("title"));
-			String content = (String) req.getParameter("content" + i).replace("\r\n", "<br>");
-			htu.setContent(content);
 			
+			htu.setNum(num);
+			htu.setCnum((i+1));
+		
+			htu.setFpath(realPath);
+			htu.setContent(req.getParameter("content" + (i+1)).replace("\r\n", "<br>"));
+			if(i<maxCnum) {
+				updateHowToUseContentService.updateHowToUseContent(htu);
+			}else {
+				insertHowToUseService.insertHowToUse(htu);
+			}
+			htu.setFname("");
 		}
 
 		return "redirect:/howtouseboard.ado";
