@@ -41,11 +41,11 @@
 						<td><textarea cols="10" placeholder="content " id="content"
 								name="content" class="form-control"></textarea></td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<th>작성일:</th>
 						<td><input type="date" placeholder="date" id="regdate"
 							name="regdate" class="form-control" /></td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td colspan="2"><input type="submit" id="btnSave" value="등록"
 							class="pull-right" /> <input type="button" value="글 목록"

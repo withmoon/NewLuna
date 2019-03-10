@@ -41,6 +41,14 @@
 	</td></tr>
 </tbody>
 </table>
+<!-- 댓글 -->
+<div class="reply">
+	<b class="replyOnOff" onclick="replyOnOff(${num.num})">댓글 보기/닫기</b><img src="<c:url value="/resources/user/viewNotice/images/reply.png"/>">
+	<div class="reply2">
+	<!-- 댓글 목록 -->
+	<div class="replyList"></div>
+	<ul id="replyPaging"></ul>
+</div>
 </div>
 <form name="form2" action="gongjiupdate.ado" method="POST">
 <div class="nupdate">
@@ -68,7 +76,7 @@
 </div>
 </form>
 </div>
-
+</div>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

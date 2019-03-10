@@ -18,12 +18,16 @@ import com.study.luna.admin.board.service.AdminNoticeBoardService;
 import com.study.luna.admin.model.vo.AdminNoticeBoardVO;
 import com.study.luna.mg.model.BoardPager;
 import com.study.luna.pub.command.MemberCommand;
+import com.study.luna.user.comment.service.NoticeReplyService;
+import com.study.luna.user.comment.vo.NoticeReplyVO;
 
 @Controller
 public class AdminNoticeController {
 
 	@Autowired
 	AdminNoticeBoardService adminNoticeBoardService;
+	@Autowired
+	NoticeReplyService nReplyService;
 
 	@RequestMapping(value = "/gongji.ado", method = RequestMethod.GET)
 	public String mainView(HttpSession session, MemberCommand memcom) {
@@ -76,6 +80,19 @@ public class AdminNoticeController {
 		return "cannotAccess";	
 	}
 	
+	@RequestMapping(value = "/noticeinsert.ado", method = RequestMethod.GET)
+	public String insert(@ModelAttribute AdminNoticeBoardVO vo, HttpSession session, MemberCommand memcom) throws Exception {
+		memcom = (MemberCommand) session.getAttribute("member");
+
+		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
+			memcom = (MemberCommand) session.getAttribute("member");
+			session.setAttribute("member", memcom);
+			adminNoticeBoardService.noticeinsert(vo);
+			return "redirect:/gongji.ado";
+		}
+		return "cannotAccess";	
+	}
+	
 	//공지사항 상세보기
 	@RequestMapping(value = "/gongjiview.ado", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int num, HttpSession session, MemberCommand memcom) throws Exception {
@@ -101,21 +118,6 @@ public class AdminNoticeController {
 		return "redirect:/gongji.ado";
 	}
 
-	
-
-	@RequestMapping(value = "/noticeinsert.ado", method = RequestMethod.GET)
-	public String insert(@ModelAttribute AdminNoticeBoardVO vo, HttpSession session, MemberCommand memcom) throws Exception {
-		memcom = (MemberCommand) session.getAttribute("member");
-
-		if (memcom.getPosition().equals("총관리자") | memcom.getPosition().equals("관리자")) {
-			memcom = (MemberCommand) session.getAttribute("member");
-			session.setAttribute("member", memcom);
-			adminNoticeBoardService.noticeinsert(vo);
-			return "redirect:/gongji.ado";
-		}
-		return "cannotAccess";	
-	}
-	
 	//공지사항 삭제
 	@RequestMapping(value = "/gongjidelete.ado", method = RequestMethod.GET)
 	public String delete(@RequestParam int num, HttpSession session, MemberCommand memcom) throws Exception {
@@ -129,4 +131,35 @@ public class AdminNoticeController {
 		}
 		return "cannotAccess";
 	}
+	
+	//댓글목록
+	@RequestMapping(value="/aGReplyList.ado", method=RequestMethod.GET)
+	public @ResponseBody JSONObject aGReplyView(@RequestParam(value="num") int num, @RequestParam(defaultValue="1") int curPage,
+												MemberCommand memcom, NoticeReplyVO gReplyVO,  HttpSession session) {
+		gReplyVO.setNum(num);
+			
+		//페이징 처리
+		int count = nReplyService.countnReply(num);
+		int page_scale = 5; // 페이지당 게시물 수
+		int block_sclae = 10; // 화면당 페이지 수
+		// 페이지 나누기처리 
+		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
+
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+			
+		List<NoticeReplyVO> nReplyList = nReplyService.nReplyList(num, start, end, session);
+				
+		JSONObject obj = new JSONObject();
+		obj.put("nReplyList", nReplyList);
+		obj.put("nReplyPage", boardPager);
+		return obj;
+		}
+	 	
+	 	//댓글 삭제
+		@RequestMapping(value="/aGReplyDelete.ado", method=RequestMethod.POST)
+		public @ResponseBody void aGnReplyDelete(NoticeReplyVO nReplyVO,HttpSession session, @RequestParam(value="rno", defaultValue="1") int rno) {
+			nReplyVO.setRno(rno);
+			nReplyService.nReplyDe(nReplyVO);
+		}
 }

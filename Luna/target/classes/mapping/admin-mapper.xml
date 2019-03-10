@@ -58,9 +58,7 @@
       insert into noticeboard
       (num,writer, title, content, regdate)
       values ( (select
-      nvl(max(num)+1,1) from noticeboard),'관리자',#{title},
-      #{content},
-      #{regdate})
+      nvl(max(num)+1,1) from noticeboard),'관리자',#{title},  #{content}, sysdate*0.375)
    </insert>
 
    <!-- <select id="noticeList" resultType="adminNoticeBoardVO">
