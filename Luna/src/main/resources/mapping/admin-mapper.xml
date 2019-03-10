@@ -164,4 +164,21 @@
 
       delete from adminevent where seq=#{seq}
    </delete>
+   
+   
+   
+   	<!-- 전체/회원/지점장 메일 보내기 -->
+	<select id="AllMail" resultType="adminEventBoardVO">
+			select email from member
+		<if test="type=='alluser'">
+			where position is null
+		</if>
+		<if test="type=='allBranch'">
+			where position ='지점장'
+		</if>
+	</select>
+	
+   
+   
+   
 </mapper>

@@ -1,10 +1,13 @@
 package com.study.luna.admin.board.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import com.study.luna.admin.model.dao.AdminManagerApproveDAO;
+import com.study.luna.admin.model.vo.AdminManagerApproveVO;
 
 @Service
 public class AdminManagerApproveServiceImpl implements AdminManagerApproveService {
@@ -22,6 +25,11 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 	public void approvedelete(String id){
 		approveDAO.approvedelete(id);
 		
+	}
+
+	@Override
+	public List<AdminManagerApproveVO> AllMail(String type) {
+		return approveDAO.AllMail(type);
 	}
 
 }

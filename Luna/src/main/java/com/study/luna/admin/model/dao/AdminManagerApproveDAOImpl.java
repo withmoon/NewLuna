@@ -1,9 +1,13 @@
 package com.study.luna.admin.model.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
+import com.study.luna.admin.model.vo.AdminManagerApproveVO;
 
 @Repository
 public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
@@ -20,6 +24,11 @@ public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 	public void approvedelete(String id){
 		sqlsession.delete("luna.admin.board.approvedelete",id);
 		
+	}
+
+	@Override
+	public List<AdminManagerApproveVO> AllMail(String type) {
+		return sqlsession.selectList("luna.admin.board.AllMail",type);
 	}
 	
 

@@ -154,7 +154,8 @@
 			<td><input type="email" id="ademail" name="email" /><br/><br/></td><!-- regdate -->
 		</tr>
 		<tr align="center">
-			<td colspan="2"><br/><button id="adsujung" onclick="updateAdmin()">수정 완료</button><button onclick="noUpdateAdmin()">취소</button></td>
+			<td colspan="2"><br/><button id="adsujung" onclick="updateAdmin()">수정 완료</button>
+			<!-- <button onclick="noUpdateAdmin()">취소</button> --></td>
 		</tr>
 	</table>
 </div>
