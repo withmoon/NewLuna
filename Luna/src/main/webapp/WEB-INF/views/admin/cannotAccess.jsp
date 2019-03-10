@@ -6,10 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/admin/cannotAccess/css/cannotAccess.css"/>">
-<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 </head>
 <body style="background-color:white;">
-<%@include file="../admin/footer.jsp" %><br><br><br>
 
 <div class="login_div">
 <p>"<b>로그인</b>후 이용가능합니다"<br>
