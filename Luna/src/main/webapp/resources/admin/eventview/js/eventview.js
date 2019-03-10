@@ -2,6 +2,23 @@ var seq = getParameterByName("seq");
 
 $(function(){
 	eReplyList(1);
+	$(".eupdate").hide();
+	$("#image").hide();
+	$("#imgDel").hide();
+	
+	$("#imgSave").click(function() {
+		$("#img").hide();
+		$("#imgSave").hide();
+		$("#image").show();
+		$("#imgDel").show();
+	});
+	
+	$("#imgDel").click(function() {
+		$("#image").hide();
+		$("#imgDel").hide();
+		$("#img").show();
+		$("#imgSave").show();
+	});
 });
 
 function upbt() {
@@ -10,11 +27,7 @@ function upbt() {
 }
 
 function changeContent(){
-	var seq = $("#es").val();
-	var title = $("#tup").val();
-	var content = $("#cup").val();
-	
-	alert(seq + " " + title + "등록되었습니다." + content);
+	$("#content").val($("#ctt").val());
 }
 
 function replyOnOff(seq) {

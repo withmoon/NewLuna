@@ -79,12 +79,17 @@ public class AdminEventBoardDAOImpl implements AdminEventBoardDAO{
    public void update(AdminEventBoardVO eboardVO) {
 	   SqlSession.update("eventBoardDAO.updateevent",eboardVO);     
    }
+   public Integer event_Seq() {
+	   return SqlSession.selectOne("eventBoardDAO.event_Seq");
+	}
 
      @Override
      public void delete(int seq) throws Exception {
         sqlsession.delete("luna.admin.board.deleteevent",seq);
         
      }
+
+	
 
 	/*user/event.jsp*/
     

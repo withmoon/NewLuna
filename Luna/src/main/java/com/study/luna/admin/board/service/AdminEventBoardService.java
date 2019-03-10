@@ -20,7 +20,10 @@ public interface AdminEventBoardService {
 	public void eventwrite(AdminEventBoardVO eboardVO); //이벤트 글 등록
 	
 	public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
+	
+	//이벤트 수정
 	public void update(AdminEventBoardVO eboardVO);//이벤트수정
+	public Integer event_Seq();
 
    public void delete(int seq) throws Exception;//삭제
 

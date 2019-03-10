@@ -17,6 +17,7 @@ public interface AdminEventBoardDAO {
 	
 	public AdminEventBoardVO read(int seq) throws Exception; //이벤트 상세보기
 	public void update(AdminEventBoardVO eboardVO); //수정
+	public Integer event_Seq(); //최대 번호 가져오기
     
     
       

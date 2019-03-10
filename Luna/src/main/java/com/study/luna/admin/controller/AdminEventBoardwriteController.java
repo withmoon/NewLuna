@@ -99,10 +99,12 @@ public class AdminEventBoardwriteController {
    
    //이벤트 수정
    @RequestMapping(value = "/updateevent.ado" ,method=RequestMethod.POST)
-   public String updateevent(AdminEventBoardVO eboardVO, MultipartHttpServletRequest mpreq,HttpSession session, @RequestParam(value="bseq", defaultValue="1") int bseq,
+   public String updateevent(AdminEventBoardVO eboardVO, MultipartHttpServletRequest mpreq,HttpSession session, @RequestParam(value="seq", defaultValue="1") int seq,
 		   @RequestParam(value="title") String title, @RequestParam(value="content") String content) throws IllegalStateException, IOException {
-	   Integer seq = eboardService.eventSeq(); //최대 번호 가져오기
-	   String filePath = efilePath + seq + "\\";
+	   Integer bseq = eboardService.event_Seq(); //최대 번호 가져오기
+	   
+	   
+	   String filePath = efilePath + bseq + "\\";
 	   File file = new File(filePath);
 	   if(file.exists()) {
 		   if(file.isDirectory()) { //파일이 디렉토리인지 확인
@@ -129,7 +131,7 @@ public class AdminEventBoardwriteController {
 	   eboardVO.setFiles(eventName);
 	   eboardVO.setTitle(title);
 	   eboardVO.setContent(content);
-	   eboardVO.setSeq(bseq);
+	   eboardVO.setSeq(seq);
 	   eboardService.update(eboardVO);
 	   
 	return "redirect:/event.ado";

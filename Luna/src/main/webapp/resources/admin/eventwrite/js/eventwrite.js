@@ -3,7 +3,4 @@ function changeContent(){
 	$("#content").val($("#ctt").val());
 	
 	alert("등록되었습니다.");
-	
-	/*var url='/event.ado';
-	window.location=url;*/
 }

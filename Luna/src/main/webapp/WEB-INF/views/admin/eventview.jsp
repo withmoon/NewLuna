@@ -59,28 +59,39 @@
     </div>
 </div>
 </div>
-<form id="ajaxform" action="updateevent.ado" onsubmit="changeContent()" method="post" enctype="multipart/form-data">
+<form id="ajaxform" action="updateevent.ado" onsubmit="changeContent()" method="POST" enctype="multipart/form-data">
 <div class="eupdate">
 <table class="table table-bordered">
-<tbody hidden="true">
+<tbody>
 	<tr>
 	<th>제목:</th>
 		<td><input type="text" id="tup"  placeholder="title" name="title" value="${ebv.title }" /><input type="hidden" name="seq" value="${ebv.seq}" /></td>
 	</tr>
-	<tr>
+	<%-- <tr>
 		<th>날짜</th>
 		<td><fmt:formatDate value="${ebv.startdate }" pattern="yy-MM-dd" /> ~ <fmt:formatDate value="${ebv.enddate }" pattern="yy-MM-dd" /></td>
-	</tr>
+	</tr> --%>
 	<tr>
 		<th>내용:</th>
-		<td><textarea cols="10" rows="16" id="cup" placeholder="content " name="content">${ebv.content}</textarea>
+		<td><textarea cols="10" rows="16" id="ctt" placeholder="content " name="content">${ebv.content}</textarea>
 			<input type="hidden" id="content" name="content" value=""/></td>
+	</tr>
+	<tr>
+	<th>이벤트시작일:</th>
+	<td><input type="date"  placeholder="startdate" name="startdate" value="${ebv.startdate }"/></td>
+	</tr>
+	<tr>
+	<th>이벤트종료일:</th>
+	<td><input type="date"  placeholder="enddate" name="enddate" value="${ebv.enddate }"/></td>
 	</tr>
 	<tr>
 		<th>이미지업로드:</th>
     	<td id="ftd">
-    		<a href="resources/eventimg/${ebv.seq }/${ebv.files}">${ebv.files}</a>
-    		<input type="file" name="mfname" id="image"/></td>
+    		<img id="img" src="<c:url value="/resources/eventimg/${ebv.seq }/${ebv.files}"/>">
+    		<input type="button" id="imgSave" value="수정"/>
+    		<input type="file" name="mfname" id="image"/><br>
+    		<input type="button" id="imgDel" value="수정취소"/>
+    	</td>
 	</tr>
 	<tr class="button"><td colspan="2">
 		<input type="submit" id="btnSave" value="수정"/>&emsp;
@@ -93,28 +104,4 @@
 </form>
 </div>
 </body>
-</html>               
-                <%-- <tr>
-                  <th>이벤트시작일:</th>
-                  <td><input type="date"  placeholder="startdate" name="startdate"
-                     value="${seq.startdate}" class="form-control" /></td>
-               </tr>
-                <tr>
-                  <th>이벤트종료일:</th>
-                  <td><input type="date"  placeholder="enddate" name="enddate"
-                  value="${seq.enddate}"
-                     class="form-control" /></td>
-               </tr> --%>
-               
-                <%-- <tr>
-                  <th>이미지업로드:</th>
-                  <td><input type="text"  placeholder="image" name="image"
-                  value="${seq.image}"
-                     class="form-control" /></td>
-               </tr>
-                <tr>
-                  <th>파일업로드:</th>
-                  <td><input type="text"  placeholder="files" name="files"
-                  value="${seq.files}"
-                     class="form-control" /></td>
-               </tr> --%>
+</html> 

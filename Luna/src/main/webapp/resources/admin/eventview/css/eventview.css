@@ -102,3 +102,25 @@ button:hover{
     background-color: #bbbb;
     color: white
 }
+
+#imgSave{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    width: 10%;
+}
+
+#imgSave:hover{
+    background-color: #286090;
+}
+
+#imgDel{
+    background-color: #337ab7;
+    border: none;
+    color: white;
+    width: 10%;
+}
+
+#imgDel:hover{
+    background-color: #286090;
+}

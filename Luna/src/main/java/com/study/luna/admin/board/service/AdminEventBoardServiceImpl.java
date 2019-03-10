@@ -62,6 +62,10 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
    public AdminEventBoardVO read(int seq) throws Exception {
 	   return eventBoardImpl.read(seq);
    }
+   @Override
+	public Integer event_Seq() {
+	   return eventBoardImpl.event_Seq();
+	}
 
    //이벤트 수정
    @Override
@@ -74,6 +78,8 @@ public class AdminEventBoardServiceImpl implements AdminEventBoardService{
        // TODO Auto-generated method stub
         adminEventBoardDAO.delete(seq);
     }
+
+	
 
 	
 

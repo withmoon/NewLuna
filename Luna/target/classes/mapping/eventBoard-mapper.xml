@@ -59,4 +59,8 @@
 		</if>
 		where seq=#{seq}
    </update>
+   <!-- 넣을 seq 가져오기 -->
+   <select id="event_Seq" resultType="Integer">
+		<![CDATA[select nvl(max(seq),1) from adminevent]]>
+	</select>
 </mapper>
