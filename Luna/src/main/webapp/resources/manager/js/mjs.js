@@ -1,6 +1,6 @@
-$(document)
-		.ready(
+$(document).ready(
 				function() {
+					
 					$("#hanbool").click(function() {
 						$("#msec").load("refund.jsp")
 					});
@@ -10,10 +10,23 @@ $(document)
 					});
 
 					
+					
+					paid_at_start=$("#paid_at_start").val();
+					paid_at_end=$("#paid_at_end").val();
+						$.ajax({
+							type : "POST",
+							url : "mgTime2.mdo",
+							data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end},
+							success : function(vo) {
+							}
+							
+							
+						});
+						
 					$.ajax({
 						  
 						 type : "POST",         
-						 url: "mgchart.mdo", 
+						 url: "mgchart2.mdo", 
 						 data:{},     
 						success:function(A){
 							 

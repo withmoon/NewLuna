@@ -25,12 +25,12 @@ import com.study.luna.mg.util.listExcelDownload;
 
 @Controller
 public class MgSalesController {
-	//현황
+	//�쁽�솴
 
 	@Autowired
 	private MgPCService MgPCService; 
 
-	//회원관리
+	//�쉶�썝愿�由�
 	@RequestMapping(value = "/mgSales.mdo")
 	public ModelAndView mgSalesView(@RequestParam(defaultValue = "name") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
@@ -39,25 +39,25 @@ public class MgSalesController {
 
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 System.out.println("카카오 로그인 실패");
+			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			 mv.setViewName("loginX.mdo");
 	         return mv;
 		}
 		
-		// 레코드계산      
+		// �젅肄붾뱶怨꾩궛      
 		int count = MgPCService.countArticle(keyword);
 
-		System.out.println("키워드 :" + keyword.toString());
-		System.out.println("카운트 :" + count);
+		System.out.println("�궎�썙�뱶 :" + keyword.toString());
+		System.out.println("移댁슫�듃 :" + count);
 		
 		int page_scale = 20;
 		int block_sclae = 3;
-		// 페이지 나누기처리
+		// �럹�씠吏� �굹�늻湲곗쿂由�
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		//회원 검색
+		//�쉶�썝 寃��깋
 		List<SalesVO> list = MgPCService.SalesList(start, end, keyword,searchOption);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -69,12 +69,12 @@ public class MgSalesController {
 		mv.setViewName("body/presentCondition/mgSales");
 		mv.addObject("map", map);
 
-		System.out.println("mgsales 화면");
+		System.out.println("mgsales �솕硫�");
 		return mv;
 	}
   
 
-	// 예약현황
+	// �삁�빟�쁽�솴
 	@RequestMapping(value = "/mgReserve.mdo")
 	public ModelAndView mgReserveView(@RequestParam(defaultValue = "roomnum") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
@@ -83,7 +83,7 @@ public class MgSalesController {
 		
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 System.out.println("카카오 로그인 실패");
+			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			 mv.setViewName("loginX.mdo");
 	         return mv;
 		}
@@ -95,7 +95,7 @@ public class MgSalesController {
 
 		int page_scale = 20;
 		int block_sclae = 5;
-		// 페이지 나누기처리 
+		// �럹�씠吏� �굹�늻湲곗쿂由� 
 		BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
@@ -116,7 +116,7 @@ public class MgSalesController {
 		return mv;
 	}
 	
-	//환불하기
+	//�솚遺덊븯湲�
 	@RequestMapping(value = "/mgRefund.mdo")
 	public ModelAndView Reserve(@RequestParam(defaultValue = "id") String searchOption,HttpServletRequest request,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
@@ -124,7 +124,7 @@ public class MgSalesController {
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("branchName")==null){
-			 System.out.println("카카오 로그인 실패");
+			 System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			 mv.setViewName("loginX.mdo");
 	         return mv;
 		}
@@ -138,7 +138,7 @@ public class MgSalesController {
 	
 	int page_scale = 20;
 	int block_sclae = 4;
-	// 페이지 나누기처리  
+	// �럹�씠吏� �굹�늻湲곗쿂由�  
 	BoardPager boardPager = new BoardPager(count, curPage,page_scale,block_sclae);
 	int start = boardPager.getPageBegin();
 	int end = boardPager.getPageEnd();
@@ -165,17 +165,17 @@ public class MgSalesController {
 	@RequestMapping(value="Refund.mdo")   
 	@ResponseBody
 	public String Refund(int seq,int roomnum,String reservdate) throws InterruptedException {
-		System.out.println("환불조치");
+		System.out.println("�솚遺덉“移�");
 		
 		//System.out.println(list.toString());
-		//환불조치
+		//�솚遺덉“移�
 		MgPCService.Refund(seq,roomnum,reservdate);
 	
 		return "success";
 	}
 	
 
-/*	// 방문현황
+/*	// 諛⑸Ц�쁽�솴
 	@RequestMapping(value = "/mgVisit.mdo", method = RequestMethod.GET)
 	public String mgVisitView() {
 		return "body/presentCondition/mgVisit";

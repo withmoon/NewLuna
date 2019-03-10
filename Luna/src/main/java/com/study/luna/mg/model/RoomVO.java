@@ -1,7 +1,7 @@
 package com.study.luna.mg.model;
 
 import java.util.Date;
- 
+  
 public class RoomVO {
 	private int roomnum;
 	private int filenum;

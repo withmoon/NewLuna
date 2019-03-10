@@ -154,7 +154,7 @@ header{
 	font-size: 20pt;
 }
 #msec {
-	width: 70%;
+	width: 60%;
 	height: auto;
 	min-height: 800px;
 	opacity: 0.6;
@@ -317,4 +317,25 @@ footer {
 	padding-top: 30px;	
 	background-color: #836e5b;
 	font-size: 14pt;
+}
+.upInfo{
+	display:none;
+	position:fixed;
+	top:10%;
+	left:55%;
+	font-size:1.8vw;
+	width:270px;
+	height:460px;
+	background-color: lightgray;
+	padding:2%;
+	z-index: 100
+}
+.upInfo td{
+	border:0;
+}
+.upInfo input{
+	font-size:1.8vw;
+}
+.upInfo button{
+	font-size:1.8vw;
 }

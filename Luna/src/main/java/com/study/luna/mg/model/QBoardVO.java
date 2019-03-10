@@ -2,7 +2,7 @@ package com.study.luna.mg.model;
  
 import java.util.Date;
 
-public class QBoardVO {
+public class QBoardVO { 
 	private int num;
 	private int rownum;
 	private int seq;

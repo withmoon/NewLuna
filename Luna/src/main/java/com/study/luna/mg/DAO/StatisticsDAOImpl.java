@@ -14,7 +14,7 @@ import com.study.luna.mg.model.StatisticsVO;
 
 @Repository
 public class StatisticsDAOImpl implements StatisticsDAO{
- 
+  
 	@Autowired
 	private SqlSession sqlSession;
 

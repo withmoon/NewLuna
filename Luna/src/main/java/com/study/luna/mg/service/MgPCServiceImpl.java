@@ -11,7 +11,7 @@ import com.study.luna.mg.DAO.SalesDAO;
 import com.study.luna.mg.DAO.SalesDAOImpl;
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
-
+ 
 @Service
 public class MgPCServiceImpl implements MgPCService {
  

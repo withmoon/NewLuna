@@ -15,7 +15,7 @@ import com.study.luna.mg.model.uploadfileVO;
 
 @Repository
 public class RoomDAOImpl implements RoomDAO {
-
+ 
 	@Autowired
 	private SqlSession SqlSession;
   

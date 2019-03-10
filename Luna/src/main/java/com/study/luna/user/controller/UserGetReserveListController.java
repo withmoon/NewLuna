@@ -31,7 +31,6 @@ public class UserGetReserveListController {
 		session.setAttribute("member", memcom);
 
 		Integer count=parser.getUserPayCount(listType, memcom.getId(),startdate,enddate);
-		System.out.println("칸트"+count);
 		int page_scale=0;
 		int block_sclae=0;
 		if(listType.equals("pay")) {
@@ -48,7 +47,6 @@ public class UserGetReserveListController {
 		int end = rvPager.getPageEnd();
 
 		List<MyPageInfoDTO> mypReservInfo=parser.getUserPayInfo(start, end, listType, memcom.getId(),startdate,enddate);
-		System.out.println("마이리스트사이즈"+mypReservInfo.size());
 		JSONObject obj = new JSONObject();
 		obj.put("rvlist", mypReservInfo);
 		obj.put("rvpager", rvPager);

@@ -1,7 +1,7 @@
 package com.study.luna.mg.service;
 
 import javax.servlet.http.HttpSession;
-
+ 
 public interface managerService {
 
 	//로그인수 +1 

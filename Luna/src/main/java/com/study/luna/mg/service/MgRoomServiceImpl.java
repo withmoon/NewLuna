@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.mg.DAO.RoomDAO;
 import com.study.luna.mg.model.RoomVO;
 import com.study.luna.mg.model.uploadfileVO;
-
+ 
 @Service
 public class MgRoomServiceImpl implements MgRoomService {
  

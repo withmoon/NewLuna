@@ -14,7 +14,7 @@ import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.StatisticsVO;
 
 
-@Repository
+@Repository 
 public class managerDAOImpl implements managerDAO{
  
 	@Autowired 

@@ -24,12 +24,12 @@ import com.study.luna.mg.util.listExcelDownload;
 
 @Controller
 public class MgStatisticsController {
-	// 매출
+	// 留ㅼ텧
 
 		@Autowired
 		public MgStatisticsService MgStatisticsService;
  
-		// 일매출 
+		// �씪留ㅼ텧 
 		@RequestMapping(value = "/mgSalesreserve.mdo")
 		public ModelAndView mgSalesReserveView(@RequestParam(defaultValue ="") String date1,@RequestParam(defaultValue ="") String date2,
 				@RequestParam(defaultValue = "1") int curPage,HttpSession session)
@@ -45,15 +45,15 @@ public class MgStatisticsController {
 			
 
 			String branchName = (String) session.getAttribute("branchName");
-			System.out.println(branchName + "리스트");
-			// 레코드계산
+			System.out.println(branchName + "由ъ뒪�듃");
+			// �젅肄붾뱶怨꾩궛
 			int count = MgStatisticsService.count(date1, date2, branchName);
-			System.out.println(count + "개");
+			System.out.println(count + "媛�");
 			
 
 			int page_scale = 10;
 			int block_sclae = 5;
-			// 페이지 나누기처리
+			// �럹�씠吏� �굹�늻湲곗쿂由�
 			BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
 			int start = boardPager.getPageBegin();
 			int end = boardPager.getPageEnd();
@@ -75,7 +75,7 @@ public class MgStatisticsController {
 			return mv;
 		}
 		
-		  //엑셀다운로드
+		  //�뿊���떎�슫濡쒕뱶
 		@RequestMapping(value = "/excelDownload.mdo")
 		public View excelDownload(@RequestParam(defaultValue = "1") int curPage,HttpSession session,Model model)
 				throws Exception {
@@ -84,9 +84,9 @@ public class MgStatisticsController {
 			String branchName = (String) session.getAttribute("branchName");
 			
 			
-			// 레코드계산
+			// �젅肄붾뱶怨꾩궛
 			int count = MgStatisticsService.count(date1, date2, branchName);
-			System.out.println(count + "개");
+			System.out.println(count + "媛�");
 			
 			List<SalesVO> list = MgStatisticsService.excelList(count, date1, date2,branchName);
 			model.addAttribute("list", list);
@@ -98,9 +98,9 @@ public class MgStatisticsController {
 		public ModelAndView mgSalesMarketView(/*@RequestParam(defaultValue = "title") String searchOption,
 				@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage*/)
 				throws Exception {
-			// 레코드계산
+			// �젅肄붾뱶怨꾩궛
 			//int count = MgService.countArticle(searchOption, keyword);
-			// 페이지 나누기처리
+			// �럹�씠吏� �굹�늻湲곗쿂由�
 			/*BoardPager boardPager = new BoardPager(count, curPage);
 			int start = boardPager.getPageBegin();
 			int end = boardPager.getPageEnd();*/

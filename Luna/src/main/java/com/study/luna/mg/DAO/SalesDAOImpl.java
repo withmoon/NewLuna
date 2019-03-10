@@ -15,7 +15,7 @@ import com.sun.mail.iap.Literal;
 
 @Repository
 public class SalesDAOImpl implements SalesDAO {
-
+ 
  
 	@Autowired
 	private SqlSession sqlSession;

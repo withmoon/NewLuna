@@ -87,4 +87,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne("memberDAO.getMemberPosition",id);
 	}
 
+	@Override
+	public void refundofexpul(String id) {
+		sqlSession.update("memberDAO.refundofexpul",id);
+	}
+
 }

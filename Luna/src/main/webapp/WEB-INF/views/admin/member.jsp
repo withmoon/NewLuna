@@ -12,7 +12,11 @@
 <script src="<c:url value="/resources/admin/member/js/member.js"/>"></script>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 </head>
-
+<c:if test="${success eq 'success' }">
+<script>
+	alert("메일이 성공적으로 발송되었습니다.");
+</script>
+</c:if>
 
 <%@include file="../admin/footer.jsp" %>
  <div align="center"><h3>회원관리게시판</h3></div>
@@ -32,7 +36,7 @@
          <td width="70"></td>
       </tr>
    </table>
-<div class="mail"><b>메일보내기</b>&emsp;<a href="#">단체메일</a>&emsp;<a href="#">회원전체</a>&emsp;<a href="#">지점장전체</a></div><br>
+<div class="mail"><b>메일보내기</b>&emsp;<a href="#" onclick="AllMail()">단체메일</a>&emsp;<a href="#" onclick="AllMail('allUser')">회원전체</a>&emsp;<a href="#" onclick="AllMail('allBranch')">지점장전체</a></div><br>
    
 <!-- 진행(종료) 이벤트버튼 -->
 <section>
@@ -81,10 +85,10 @@
 	</td>
 	</tr>
 	<tr align="center" style="background-color:#eeeeee;">
-	<td>
+	<td><input type="hidden" name="type" id="type" value="">
 		<input type="submit" id="sendToUser" value="보내기"/>&emsp;<input type="button" onclick="cancleExplur()" value="취소">
 	</td>
-	</tr>
+	</tr>  
 </table>
 </form>
 

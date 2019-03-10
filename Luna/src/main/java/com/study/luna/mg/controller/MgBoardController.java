@@ -8,8 +8,6 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-import org.omg.CORBA.BAD_INV_ORDER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
@@ -30,7 +27,7 @@ import com.study.luna.pub.command.MemberCommand;
 
 @Controller
 public class MgBoardController {
-	// 게시판관리
+	// 寃뚯떆�뙋愿�由�
 
 	@Autowired
 	private MgService MgService;
@@ -41,28 +38,28 @@ public class MgBoardController {
 	@Autowired
 	AdminNoticeBoardService noticeBoardService;
    
-	/* 문의게시판 */
+	/* 臾몄쓽寃뚯떆�뙋 */
 	@RequestMapping(value = "/mgBoard.mdo")
 	public ModelAndView mgBoardView(@RequestParam(defaultValue = "title") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
 			HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if (session.getAttribute("branchName") == null) {
-			System.out.println("카카오 로그인 실패");
+			System.out.println("移댁뭅�삤 濡쒓렇�씤 �떎�뙣");
 			mv.setViewName("/body/loginX");
 			return mv;
 		}
 
 		String branchName = (String) session.getAttribute("branchName");
-		System.out.println(branchName + "지점 문의게시글");
+		System.out.println(branchName + "吏��젏 臾몄쓽寃뚯떆湲�");
 		
-		// 레코드계산
+		// �젅肄붾뱶怨꾩궛
 		int count = MgService.countArticle(searchOption, keyword, branchName);
-		System.out.println(count + "개");
+		System.out.println(count + "媛�");
 
 		int page_scale = 10;
 		int block_sclae = 5;
-		// 페이지 나누기처리
+		// �럹�씠吏� �굹�늻湲곗쿂由�
 		BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
@@ -83,7 +80,7 @@ public class MgBoardController {
 	}
 	
 	/*
-	 * 문의 게시판 //일반처리 /* @RequestMapping(value = "/mgBoard.mdo", method =
+	 * 臾몄쓽 寃뚯떆�뙋 //�씪諛섏쿂由� /* @RequestMapping(value = "/mgBoard.mdo", method =
 	 * RequestMethod.GET) public ModelAndView mgBoardView(QBoardVO vo) throws
 	 * Exception { List<QBoardVO> list = MgService.QboardList(vo); ModelAndView mv =
 	 * new ModelAndView(); mv.setViewName("mgBoard"); mv.addObject("list", list);
@@ -91,21 +88,21 @@ public class MgBoardController {
 	 * System.out.println("list" + list.toString()); System.out.println("mv" +
 	 * mv.toString()); return mv; }
 	 */
-	/* 게시글 상세보기 */
+	/* 寃뚯떆湲� �긽�꽭蹂닿린 */
 	@RequestMapping(value = "/mgBoardview.mdo")
 	public ModelAndView mgboardinsertView(@RequestParam int num, @RequestParam int curPage, QBoardVO vo,
 			@RequestParam String searchOption, @RequestParam String keyword, HttpSession session) throws Exception {
-		//	조회수 대비 MgService.increaseViewcnt(bno, session);*/
+		//	議고쉶�닔 ��鍮� MgService.increaseViewcnt(bno, session);*/
 		vo.setBranchName((String) session.getAttribute("branchName"));
 		vo.setSeq(num);
-		System.out.println("상세보기 id" + vo.getBranchName());
+		System.out.println("�긽�꽭蹂닿린 id" + vo.getBranchName());
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("body/board/mgBoardview");
 		mv.addObject("view", MgService.QbaordRead(vo));
 		return mv;
 	}
 
-	/* 수정하기 */// 수정할 필요없어 주석처리
+	/* �닔�젙�븯湲� */// �닔�젙�븷 �븘�슂�뾾�뼱 二쇱꽍泥섎━
 	/*
 	 * @RequestMapping(value = "/boardupdate.mdo", method = RequestMethod.GET)
 	 * public ModelAndView mgboardinsertView(@RequestParam String title, HttpSession
@@ -115,7 +112,7 @@ public class MgBoardController {
 	 * mv.addObject("view",MgService.QbaordRead(title)); return mv; }
 	 */
 
-	// 화면만 연결해둠 답글로 화면수정해야함
+	// �솕硫대쭔 �뿰寃고빐�몺 �떟湲�濡� �솕硫댁닔�젙�빐�빞�븿
 	@RequestMapping(value = "/mgBoardinsert.mdo", method = RequestMethod.GET)
 	public String mgboardinsertView() {
 		return "/body/mgBoardinsert";
@@ -132,24 +129,24 @@ public class MgBoardController {
 		return "/body/mailView";
 	}
 
-	// mailSending 코드
+	// mailSending 肄붾뱶
 	@RequestMapping(value = "/mailSending.mdo", method = RequestMethod.POST)
 	public ModelAndView mailSending(HttpServletRequest request, QBoardVO vo, HttpSession session) throws Exception {
 
-//		String setfrom = "gur792816@gmail.com"; //보내는이?
+//		String setfrom = "gur792816@gmail.com"; //蹂대궡�뒗�씠?
 		String setfrom = "manager@gmail.com";
-		String tomail = request.getParameter("tomail"); // 받는 사람 이메일
-		String title = "["+(String) session.getAttribute("branchName")+"]"+" 문의하실 글에 답변이 달렸습니다" ;// 제목
-		String content = request.getParameter("content1")+"\r\n\r\n"+request.getParameter("content2"); // 내용
+		String tomail = request.getParameter("tomail"); // 諛쏅뒗 �궗�엺 �씠硫붿씪
+		String title = "["+(String) session.getAttribute("branchName")+"]"+" 臾몄쓽�븯�떎 湲��뿉 �떟蹂��씠 �떖�졇�뒿�땲�떎" ;// �젣紐�
+		String content = request.getParameter("content1")+"\r\n\r\n"+request.getParameter("content2"); // �궡�슜
 		MimeMessage message = mailSender.createMimeMessage();
 		try {
 
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
-			messageHelper.setFrom(setfrom); // 보내는사람 생략하거나 하면 정상작동을 안함
-			messageHelper.setTo(tomail); // 받는사람 이메일
-			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
-			messageHelper.setText(content); // 메일 내용
+			messageHelper.setFrom(setfrom); // 蹂대궡�뒗�궗�엺 �깮�왂�븯嫄곕굹 �븯硫� �젙�긽�옉�룞�쓣 �븞�븿
+			messageHelper.setTo(tomail); // 諛쏅뒗�궗�엺 �씠硫붿씪
+			messageHelper.setSubject(title); // 硫붿씪�젣紐⑹� �깮�왂�씠 媛��뒫�븯�떎
+			messageHelper.setText(content); // 硫붿씪 �궡�슜
 
 			mailSender.send(message);
 		} catch (Exception e) {
@@ -158,14 +155,14 @@ public class MgBoardController {
 		vo.setSeq(Integer.parseInt(request.getParameter("seq")));
 		vo.setEmail(request.getParameter("email"));
 		vo.setEmailtitle(title);
-		vo.setEmailcontent(content);
+		vo.setEmailcontent(request.getParameter("content1"));
 		vo.setReply(request.getParameter("content2"));
 		vo.setBranchName((String) session.getAttribute("branchName"));
 
 		MgService.mailstatus(vo);
 
-		// 리턴시 스크립트 화면이동이 막혀 모든 기능을 수행후 슬립
-		// 리턴 널을 하면 에러 발생 /임시조치로 기능정지 - 기능정지동안 스크립트에서 화면전환 수행으로 컨트롤러 종료
+		// 由ы꽩�떆 �뒪�겕由쏀듃 �솕硫댁씠�룞�씠 留됲� 紐⑤뱺 湲곕뒫�쓣 �닔�뻾�썑 �뒳由�
+		// 由ы꽩 �꼸�쓣 �븯硫� �뿉�윭 諛쒖깮 /�엫�떆議곗튂濡� 湲곕뒫�젙吏� - 湲곕뒫�젙吏��룞�븞 �뒪�겕由쏀듃�뿉�꽌 �솕硫댁쟾�솚 �닔�뻾�쑝濡� 而⑦듃濡ㅻ윭 醫낅즺
 		Thread.sleep(20000);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/body/mailForm");
@@ -176,19 +173,19 @@ public class MgBoardController {
 	@RequestMapping(value = "/mgGong.mdo")
 	public ModelAndView informView(/*@RequestParam(defaultValue = "title") String searchOption,@RequestParam(defaultValue = "") String keyword,*/
 			@RequestParam(defaultValue = "1") int curPage,AdminNoticeBoardVO noticeboardVO, HttpSession session) {
-		//페이징 처리
+		//�럹�씠吏� 泥섎━
 		int count = noticeBoardService.countNotice(noticeboardVO.getTitle());
 		//int count = noticeBoardService.countNotice(mav);
 
-		int page_scale = 10; // 페이지당 게시물 수
-		int block_sclae = 5; // 화면당 페이지 수
-		// 페이지 나누기처리 
+		int page_scale = 10; // �럹�씠吏��떦 寃뚯떆臾� �닔
+		int block_sclae = 5; // �솕硫대떦 �럹�씠吏� �닔
+		// �럹�씠吏� �굹�늻湲곗쿂由� 
 		BoardPager boardPager = new BoardPager(count, curPage, page_scale, block_sclae);
 
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		//목록
+		//紐⑸줉
 		List<AdminNoticeBoardVO> noticeList = noticeBoardService.noticeAll(start, end, session);
 		
 		Map<String, Object> map = new HashMap<String, Object>();

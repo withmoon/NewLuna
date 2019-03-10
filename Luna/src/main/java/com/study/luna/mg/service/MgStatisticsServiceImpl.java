@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.study.luna.mg.DAO.StatisticsDAO;
 import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.model.StatisticsVO;
- 
+   
 @Service
 public class MgStatisticsServiceImpl implements MgStatisticsService{
 	

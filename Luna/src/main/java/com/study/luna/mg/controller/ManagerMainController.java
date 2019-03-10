@@ -63,9 +63,10 @@ public class ManagerMainController {
          String bn = managerService.branchname(id); //지점 검색
          System.out.println("branchName :" +bn);
          session.setAttribute("branchName",bn);
-       
       }
-        
+      //MemberCommand.setId((String) session.getAttribute("id"));
+      //MemberCommand mlist2 = MemberService.getMyPageInfo(MemberCommand);
+      
       //게시글 모든 정보 가져오기
       List<QBoardVO> list = managerDAO.board();
 
@@ -100,25 +101,12 @@ public class ManagerMainController {
       map.put("list", list);
       ModelAndView mv = new ModelAndView();
       mv.addObject("map", map);
+   // mv.addObject("mlist",memcom);
       mv.setViewName("manager");
 
 
       return mv;
    }
-/*
-   @RequestMapping(value = "/manager.mdo", method = RequestMethod.POST)
-   public ModelAndView mainView() {
-
-      // 로그인 수 가져오기 (로그인만 - 로그인컨트롤러에서 처리할것들)
-      int count = managerService.login();
-      System.out.println("login :" + count);
-
-      ModelAndView mv = new ModelAndView();
-      mv.addObject("count", count);
-      mv.setViewName("manager");
-
-      return mv;
-   }*/
 
    // 매니저 인증 실패시
    @RequestMapping(value = "/loginX.mdo", method = RequestMethod.GET)

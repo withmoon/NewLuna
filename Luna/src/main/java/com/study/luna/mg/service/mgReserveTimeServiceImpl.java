@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.mg.DAO.ReserveTimeDAO;
 import com.study.luna.mg.model.ReserveTimeVO;
-
+ 
 @Service
 public class mgReserveTimeServiceImpl implements mgReserveTimeService{
  

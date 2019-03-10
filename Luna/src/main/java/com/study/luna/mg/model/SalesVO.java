@@ -2,7 +2,7 @@ package com.study.luna.mg.model;
 
 import java.util.Date;
  
-public class SalesVO {
+public class SalesVO { 
 	//매출현황
 	private Date date;
 	private Integer inone;
