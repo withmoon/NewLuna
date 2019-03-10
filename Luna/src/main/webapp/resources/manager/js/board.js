@@ -241,7 +241,7 @@ function getReportlist(curPage,searchOption,keyword){
 				dom+='<tr>';
 				dom+='<td>'+data.list[i].num+'</td>';   //들어가면 title이 잇으면 경로를 따로 줌  //보고 올리기 버튼을 수정하기로 수정 //나중에 css에서 커서 처리
 			
-				dom+='<td onclick="updatesReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)">'+data.list[i].title+'</td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
+				dom+='<td onclick="updatesReport('+data.list[i].seq+',&#039sj:'+data.list[i].title+'&#039,&#039sj:'+data.list[i].fname+'&#039,&#039sj:'+data.list[i].content+'&#039)"><a href="#">'+data.list[i].title+'</a></td>'; //클릭시 write에다가 title, content, 첨부파일 이름 넣어주기
 				dom+='<td>'+data.list[i].regdate+'</td>';
 				if(data.list[i].isreply==0){
 					dom+='<td>댓글이 없습니다.</td>';

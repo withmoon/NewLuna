@@ -53,14 +53,15 @@ function updatReportReplying(seq,dseq){
 	//rpbtn
 	$("#rpbtn"+dseq).val("수정 완료");
 	$("#rpbtn"+dseq).attr("onclick","updateReportReply("+seq+","+dseq+")");
-	$("#crubtn").attr("onclick","cancleReplyUpdate("+dseq+",'sj:"+reple+"')");
+	$("#crubtn").attr("onclick","cancleReplyUpdate("+dseq+",'sj:"+reple+"',"+seq+")");
 }
-function cancleReplyUpdate(dseq,reple){
+function cancleReplyUpdate(dseq,reple,seq){
 	var reple=reple.substring(3);
 	$("#crubtn").hide();
 	$("#rp"+dseq).children().remove();
 	$("#rp"+dseq).text(reple);
 	$("#rpbtn"+dseq).val("수정");
+	$("#rpbtn"+dseq).attr("onclick","updatReportReplying("+seq+","+dseq+")");
 }
 
 //댓글 수정
@@ -71,6 +72,9 @@ function updateReportReply(seq,dseq){
 		url : 'updateReportReply.do',
 		data : {seq:dseq,reply:reply},
 		success : function(){
+			$("#rpbtn"+dseq).val("수정");
+			$("#rpbtn"+dseq).attr("onclick","updatReportReplying("+seq+","+dseq+")");
+			$("#crubtn").hide();
 			getReportReply(seq);
 		}
 	});
