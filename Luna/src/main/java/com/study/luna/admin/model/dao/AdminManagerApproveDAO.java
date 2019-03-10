@@ -9,5 +9,5 @@ public interface AdminManagerApproveDAO {
 	
 	public void approvedelete(String id);
 
-	public List<AdminManagerApproveVO> AllMail(String type);
+	public List<String> AllMail(AdminManagerApproveVO vo);
 }

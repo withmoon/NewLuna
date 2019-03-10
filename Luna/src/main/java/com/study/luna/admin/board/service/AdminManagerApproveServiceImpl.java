@@ -26,10 +26,9 @@ public class AdminManagerApproveServiceImpl implements AdminManagerApproveServic
 		approveDAO.approvedelete(id);
 		
 	}
-
 	@Override
-	public List<AdminManagerApproveVO> AllMail(String type) {
-		return approveDAO.AllMail(type);
+	public List<String> AllMail(AdminManagerApproveVO vo) {
+		return approveDAO.AllMail(vo);
 	}
 
 }

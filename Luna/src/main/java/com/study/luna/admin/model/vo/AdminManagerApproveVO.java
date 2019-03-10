@@ -19,9 +19,22 @@ public class AdminManagerApproveVO {
 	String branchAddr1;
 	String branchAddr2;
 	String position;
+	String type;
 	int brStatus;
 	
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getId() {
 		return id;
 	}

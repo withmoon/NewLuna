@@ -27,8 +27,8 @@ public class AdminManagerApproveDAOImpl implements AdminManagerApproveDAO {
 	}
 
 	@Override
-	public List<AdminManagerApproveVO> AllMail(String type) {
-		return sqlsession.selectList("luna.admin.board.AllMail",type);
+	public List<String> AllMail(AdminManagerApproveVO vo) {
+		return sqlsession.selectList("luna.admin.board.AllMail",vo);
 	}
 	
 
