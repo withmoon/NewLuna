@@ -7,3 +7,4 @@ public class CommonUtils {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 }
+ 

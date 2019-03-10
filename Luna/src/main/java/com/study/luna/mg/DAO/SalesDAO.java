@@ -7,7 +7,7 @@ import com.study.luna.mg.model.SalesVO;
 
 public interface SalesDAO {
 
-	//회원현황
+	//회원현황 
 	public List<SalesVO> SalesList(int start, int end, String keyword, String searchOption) throws Exception;
 	//테이블 카운트
 	public int countArticle(String keyword);

@@ -8,7 +8,7 @@ import com.study.luna.mg.model.RoomVO;
 import com.study.luna.mg.model.uploadfileVO;
 
 public interface MgRoomService {
-	 
+	  
 	//방탭
 	public List<RoomVO> RoomList(HttpSession session,int start, int end, RoomVO vo, String searchOption, String keyword) throws Exception;
 	

@@ -14,7 +14,7 @@ import com.study.luna.user.qna.dao.Impl.GetUserQnAllDAOImpl;
 import com.study.luna.user.qna.dao.Impl.GetUserQnCountDAOImpl;
 import com.study.luna.user.qna.dao.Impl.UpUserQnaContentDAOImpl;
 import com.study.luna.user.qna.dao.Impl.UpUserQnaReadstDAOImpl;
- 
+  
 @Service
 public class mgServiceImpl  implements MgService{
 	

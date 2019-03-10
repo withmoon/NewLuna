@@ -1,7 +1,7 @@
 package com.study.luna.mg.model;
 
 public class managerVO {
-	private int login;
+	private int login; 
 	 
 	public int getLogin() {
 		return login;

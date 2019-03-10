@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.study.luna.mg.model.QBoardVO;
-
+ 
 public interface MgService {
 	//mgQBoard
 	 

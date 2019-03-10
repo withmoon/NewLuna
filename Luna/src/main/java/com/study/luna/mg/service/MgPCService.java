@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.SalesVO;
-
+ 
 public interface MgPCService {
 	// 회원리스트 검색 페이징
 	public List<SalesVO> SalesList(int start, int end, String keyword, String searchOption) throws Exception;

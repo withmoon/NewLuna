@@ -11,7 +11,7 @@ import com.study.luna.mg.model.uploadfileVO;
 
 public interface RoomDAO {
 
-	//리스트 테이블가져오기
+	//리스트 테이블가져오기 
 	public List<RoomVO> mgRoomList(HttpSession session,int start, int end, RoomVO vo,String searchOption, String keyword);
 	//리스트 카운트
 	public int countArticle(String searchOption, String keyword, HttpSession session);

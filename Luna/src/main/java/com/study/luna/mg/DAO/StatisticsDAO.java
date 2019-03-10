@@ -7,7 +7,7 @@ import com.study.luna.mg.model.SalesVO;
 import com.study.luna.mg.model.StatisticsVO;
 
 public interface StatisticsDAO {
- 
+  
 	// 월매출 일별 리스트
 	List<StatisticsVO> SalesReserveList(int start, int end, String date1, String date2);
 	// 월매출 월별 리스트

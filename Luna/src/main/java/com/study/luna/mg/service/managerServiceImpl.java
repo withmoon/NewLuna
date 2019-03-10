@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.luna.mg.DAO.managerDAO;
 
-@Service
+@Service 
 public class managerServiceImpl implements managerService {
 
 	@Autowired 

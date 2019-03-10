@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.study.luna.mg.model.QBoardVO;
 
-@Repository
+@Repository 
 public class BoardDAOImpl  implements BoardDAO{
   
 	@Autowired

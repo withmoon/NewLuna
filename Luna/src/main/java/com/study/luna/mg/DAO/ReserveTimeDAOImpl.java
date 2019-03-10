@@ -12,7 +12,7 @@ import com.study.luna.mg.model.ReserveTimeVO;
 
 @Repository
 public class ReserveTimeDAOImpl implements ReserveTimeDAO {
-
+ 
 	@Autowired
 	private SqlSession SqlSession;
 	  

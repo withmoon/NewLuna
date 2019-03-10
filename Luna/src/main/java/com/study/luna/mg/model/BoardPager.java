@@ -1,7 +1,7 @@
 package com.study.luna.mg.model;
 
 public class BoardPager {
-		// 페이지당 게시물 수
+		// 페이지당 게시물 수 
 		public int PAGE_SCALE = 10;
 		// 화면당 페이지 수
 		public int BLOCK_SCALE = 5;

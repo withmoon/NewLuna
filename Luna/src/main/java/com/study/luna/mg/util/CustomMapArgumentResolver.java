@@ -18,7 +18,7 @@ public class CustomMapArgumentResolver implements HandlerMethodArgumentResolver{
  
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        CommandMap commandMap = new CommandMap();
+        CommandMap commandMap = new CommandMap ();
          
         HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();
         Enumeration<?> enumeration = request.getParameterNames();

@@ -27,7 +27,7 @@ public class listExcelDownload extends AbstractXlsxView {
 	protected void buildExcelDocument(Map<String, Object> modelMap, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		String sCurTime = null;
+		String sCurTime = null; 
 		sCurTime = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(new Date());
 
 		String excelName = sCurTime + "_달빛엑셀다운로드.xlsx";
