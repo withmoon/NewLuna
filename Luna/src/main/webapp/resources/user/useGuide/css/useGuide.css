@@ -1,0 +1,63 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	font-family: 'Gamja Flower', cursive;
+}
+nav{
+	position:relative;
+	top:150px;
+}
+
+.memberUl{
+	postion:absolute;
+	top:20px;	
+}
+.topUl{
+	top:-40px;
+}
+a .logo{
+	position:absolute;
+}
+
+/* 타이틀 */
+.top{
+	position:absolute;
+	top:2%;
+	left:15%;
+	width:auto;
+	text-align:center;
+	font-size: 2vw;
+	color: #686868; 
+}
+
+table{
+	text-align: center;
+	border-top:2px solid tan;
+	border-bottom:2px solid tan; 
+	border-collapse: collapse;
+	position:relative;
+	top: 180px;
+	width: 90%;
+	left:5%;
+}
+
+table td{
+	font-size: 2vw;
+	padding:1%;
+}
+
+a {
+	color: gray;
+}
+
+a:hover {
+	color: tan;
+}
+
+/*footer*/
+footer{
+   width: 105%;
+   padding:0;
+   position:relative;
+   bottom:-600px;
+}

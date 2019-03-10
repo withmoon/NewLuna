@@ -9,21 +9,21 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.study.luna.pub.command.HowToUseDTO;
 import com.study.luna.pub.command.MemberCommand;
-import com.study.luna.pub.howtouse.serivce.GetHowToUseListService;
+import com.study.luna.pub.howtouse.serivce.GetHowToUseContentService;
 
 @Controller
-public class UserUseGuideController {
+public class UserViewUseGuideController {
 	@Autowired
-	GetHowToUseListService getHowToUseListService;
+	GetHowToUseContentService getHowToUseContentService;
 	
-	@RequestMapping(value="/useGuide.udo",method=RequestMethod.GET)
-	public ModelAndView useGuide(MemberCommand memcom, HttpSession session, HttpServletRequest request) {
+	@RequestMapping("viewUseGuide.udo")
+	public ModelAndView viewUserGuide(@RequestParam("num") int num, MemberCommand memcom, HttpSession session, HttpServletRequest request) {
 		Map<String, ?> flashMap=RequestContextUtils.getInputFlashMap(request);
 		if(flashMap!=null) {
 			memcom.setId(flashMap.get("id").toString());
@@ -36,9 +36,17 @@ public class UserUseGuideController {
 		
 		ModelAndView mav=new ModelAndView();
 		
-		List<HowToUseDTO> htulist=getHowToUseListService.getHowToUseList();
-		mav.setViewName("useGuide");
-		mav.addObject("htulist",htulist);
+		List<HowToUseDTO> htuctlist=getHowToUseContentService.getHowToUseContent(num);
+		
+		int size = htuctlist.size();
+		
+		for(HowToUseDTO htulists:htuctlist) {
+			htulists.setContent(htulists.getContent().replace("<br>","\r\n"));
+		}
+		
+		mav.setViewName("viewUseGuide");
+		mav.addObject("htuctlist",htuctlist);
+		mav.addObject("size",size);
 		return mav;
 	}
 }

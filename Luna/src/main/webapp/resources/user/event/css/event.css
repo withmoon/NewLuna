@@ -1,40 +1,40 @@
 @charset "UTF-8";
 *{
-	margin:0;
-	font-family: 'Gamja Flower', cursive;
+   margin:0;
+   font-family: 'Gamja Flower', cursive;
 }
 nav{
-	position:relative;
-	top:150px;
+   position:relative;
+   top:150px;
 }
 
 .memberUl{
-	postion:absolute;
-	top:20px;	
+   postion:absolute;
+   top:20px;   
 }
 .topUl{
-	top:-40px;
+   top:-40px;
 }
 a .logo{
-	position:absolute;
+   position:absolute;
 }
 
 /* 타이틀 */
 .top{
-	position:absolute;
-	top:2%;
-	left:15%;
-	width:auto;
-	text-align:center;
-	font-size: 2vw;
-	color: #686868; 
+   position:absolute;
+   top:2%;
+   left:15%;
+   width:auto;
+   text-align:center;
+   font-size: 2vw;
+   color: #686868; 
 }
 
 /*이벤트 단추*/
 .event-container {
-	position:absolute;
-	width: 90%;
-	top:32%;
+   position:absolute;
+   width: 90%;
+   top:32%;
     left: 4%;
 }
 
@@ -68,42 +68,42 @@ a .logo{
 
 /* 목록 */
 .list_tab{
-	position:absolute;
-	top:45%;
-	left:5%;
+   position:absolute;
+   top:45%;
+   left:5%;
 }
 table{
-	text-align: center;
-	border-bottom:2px solid tan; 
-	border-collapse: collapse;
-	position:relative;
+   text-align: center;
+   border-bottom:2px solid tan; 
+   border-collapse: collapse;
+   position:relative;
 }
 table th{
-	border-top:2px solid tan; 
-	border-bottom:2px solid tan; 
-	width:230px;
-	font-size: 2vw;
-	background:tan;
+   border-top:2px solid tan; 
+   border-bottom:2px solid tan; 
+   width:230px;
+   font-size: 2vw;
+   background:tan;
 }
 table td{
-	font-size: 2vw;
-	padding:1%;
+   font-size: 2vw;
+   padding:1%;
 }
 
 a {
-	color: gray;
+   color: gray;
 }
 
 a:hover {
-	color: tan;
+   color: tan;
 }
 
 /*페이지*/
 #pageT {
-	width: 100%;
-	font-size: 2vw;
-	position:relative;
-	left:45%;
+   width: 100%;
+   font-size: 2vw;
+   position:relative;
+   left:45%;
 }
 
 /*footer*/
