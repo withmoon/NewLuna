@@ -86,7 +86,7 @@ function getTermSales(){
 		$.ajax({
 			  
 			 type : "POST", 
-			 url: "mgchart.mdo", 
+			 url: "mgchart2.mdo", 
 			 data:{paid_at_start:paid_at_start, paid_at_end:paid_at_end},     
 			success:function(A){
 		        

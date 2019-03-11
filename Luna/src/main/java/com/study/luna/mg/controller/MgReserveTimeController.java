@@ -88,7 +88,7 @@ public class MgReserveTimeController {
 		//�넻怨꾧퀎�궛
 		mgReserveTimeService.mgsu(list,vo);
 		return vo;
-
+ 
 	}
 	
 	
@@ -111,11 +111,11 @@ public class MgReserveTimeController {
 		
 	}
 	@RequestMapping(value="/mgchart2.mdo",method=RequestMethod.POST)
-	public  @ResponseBody List<ReserveTimeVO> getTermSales2(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
-			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,ReserveTimeVO vo,HttpSession session){
+	public  @ResponseBody List<ReserveTimeVO> getTermSales2(@RequestParam(value="paid_at_start",defaultValue = "19/02/15") String paid_at_start
+			,@RequestParam(value="paid_at_end",defaultValue = "19/03/11") String paid_at_end,ReserveTimeVO vo,HttpSession session){
 		Calendar mon = Calendar.getInstance();
 		mon.add(Calendar.MONTH , -1);
-		String beforeMonth = new java.text.SimpleDateFormat("yyyy/MM/dd").format(mon.getTime());
+	/*	String beforeMonth = new java.text.SimpleDateFormat("yyyy/MM/dd").format(mon.getTime());
 		
 		
 		if(paid_at_start==null || paid_at_start.equals("") ) {
@@ -123,7 +123,7 @@ public class MgReserveTimeController {
 		}
 		if(paid_at_end==null || paid_at_end.equals("") ) {
 			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
-		}
+		}*/
 		
 		//李⑦듃 �뜲�씠�꽣
 		String branchName = (String) session.getAttribute("branchName");
