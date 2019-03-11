@@ -26,3 +26,61 @@
       }
     });
 // ]]>
+    
+function findId(){
+	$(".findDiv").show();
+	$("#sendMail").attr("onclick","sendId()");	
+}
+
+function findPW(){
+	$(".findDiv").show();
+	$("#idtd").show();
+	$("#sendMail").attr("onclick","sendpw()");	
+}
+//아이디 발송
+function sendId(){
+	var name=$("#nmt").val();
+	var email=$("#emt").val(); 
+	$.ajax({      
+		type:"POST",  
+		url:"sendFindthing.do",    
+		data:{name:name,email:email},     
+		success:function(res){
+			if(res.fail=='true'){
+				alert("조회하신 정보에 대한 결과가 없습니다.");
+				cancleFind();
+				return;
+			}
+			alert("아이디가 메일로 발송 되었습니다^^");
+			cancleFind();
+		}
+	});	
+}
+//비번 발송
+function sendpw(){
+	var name=$("#nmt").val();
+	var email=$("#emt").val(); 
+	var id=$("#idt").val();
+	$.ajax({      
+		type:"POST",  
+		url:"sendFindthing.do",    
+		data:{name:name,email:email,id:id},     
+		success:function(res){
+			if(res.fail=='true'){
+				alert("조회하신 정보에 대한 결과가 없습니다.");
+				cancleFind();
+				return;
+			}
+			alert("임시 비밀번호가 발송 되었습니다^^ 받으신 비밀번호를 입력 후 마이페이지에서 수정해주세요^^");
+			cancleFind();
+		}
+	});	
+}
+
+function cancleFind(){
+	$("#idt").val("");
+	$("#nmt").val("");
+	$("#emt").val("");
+	$(".findDiv").hide();
+	$("#idtd").hide();
+}

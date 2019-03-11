@@ -12,7 +12,7 @@ public interface HowToUseDAO {
 	//num 최대 번호
 	Integer getHowToUseMaxNum();
 	//cnum 최대 번호
-	Integer getHowToUseMaxCnum();
+	Integer getHowToUseMaxCnum(int num);
 	//글 받아오기
 	List<HowToUseDTO> getHowToUseContent(int num);
 	//중간 글 삭제
@@ -21,4 +21,6 @@ public interface HowToUseDAO {
 	void deleteHowToUse(int num);
 	//업뎃
 	void updateHowToUseContent(HowToUseDTO htu);
+	//이미지 있떤거 가져오기
+	String getDefaultImg(HowToUseDTO htu);
 }

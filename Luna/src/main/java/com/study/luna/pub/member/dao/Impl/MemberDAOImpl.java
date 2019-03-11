@@ -92,4 +92,19 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update("memberDAO.refundofexpul",id);
 	}
 
+	@Override
+	public String findId(MemberCommand memcom) {
+		return sqlSession.selectOne("memberDAO.findId",memcom);
+	}
+
+	@Override
+	public String findpw(MemberCommand memcom) {
+		return sqlSession.selectOne("memberDAO.findpw",memcom);
+	}
+
+	@Override
+	public void changePW(MemberCommand memcom) {
+		sqlSession.update("memberDAO.changePW",memcom);
+	}
+
 }

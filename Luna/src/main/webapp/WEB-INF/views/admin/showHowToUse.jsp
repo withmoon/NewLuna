@@ -9,7 +9,6 @@
 <title>글상세</title>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
-<link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 <script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"/>"></script>
 <script src="<c:url value="/resources/admin/howtouse/js/showhowtouse.js"/>"></script>
 </head>
@@ -18,22 +17,24 @@
    <br>
    <br>
   <div id="writeForm" class="container">
-    <form name="form" action="insertHowToUse.do" onsubmit="setVal()" method="POST" enctype="multipart/form-data">
+    <form name="form" id="form" action="insertHowToUse.do" onsubmit="setVal()" method="POST" enctype="multipart/form-data">
     <input type="hidden" id="maxCnum" name="maxCnum" value=""/>
          <table class="table table-bordered">
          <thead>
          	 <tr>
                <th>제목:</th>
-        		<td colspan="2"><input disabled="disabled" id="ttid" class="formtx" size="120" type="text" name="title" value="${htuctlist.get(0).getTitle()}"/><input type="hidden" id="size" value="${size}"/></td>
+        		<td colspan="2"><input disabled="disabled" id="ttid" class="formtx" size="120" type="text" name="title" value="${htuctlist.get(0).getTitle()}"/><input type="hidden" id="size" value="${size}"/>
+        		  <input type="hidden" name="num" value="${htuctlist.get(0).getNum()}"/>
+        		</td>
         	</tr>
          </thead>
-         
+    
             <tbody>
               <c:forEach var="htuctlist" items="${htuctlist}">
               	 <tr class="form">
                		<th>내용:</th>
                		<td>
-              		 <textarea disabled="disabled" name="content${htuctlist}" class="formtx" cols="110" rows="5">${htuctlist.content}</textarea>
+              		 <textarea disabled="disabled" name="content${htuctlist.cnum}" class="formtx" cols="110" rows="5">${htuctlist.content}</textarea>
              		</td>
              		<td rowspan="2" align="center">
              			<input type="button"  onclick="delWriteForm(${htuctlist.cnum},${htuctlist.num})" value="삭제"/></td>
