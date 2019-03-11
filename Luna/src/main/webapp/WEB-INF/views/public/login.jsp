@@ -40,7 +40,19 @@
 	<a id="kakao-login-btn"></a>
 	<a href="http://developers.kakao.com/logout"></a>
 	<script src="<c:url value="/resources/public/js/login.js"/>"></script>
+	<br/>
+		<div  class="findBtns"><input type="button" onclick="findId()" value="아이디 찾기"/><input onclick="findPW()"  type="button" value="비밀번호 찾기"/></div>
 	</div>
+	
+	<div hidden="true" class="findDiv">
+	<table>
+		<tr><td>이름 :<input type="text" id="nmt" name="name" placeholder="이름" size="20"/></td></tr>
+		<tr><td>이메일 :<input type="text" id="emt" name="email" placeholder="이메일" size="20"/></td></tr>
+		<tr><td hidden="true" id="idtd">아이디 :<input name="id" type="text" id="idt" placeholder="아이디" size="20"/></td></tr>
+		<tr><td colspan="2"><input type="button" id="sendMail" value="메일로 보내기"/><input type="button" onclick="cancleFind()" value="취소"/></td></tr>
+	</table>
+	</div>
+	
 	
 	<form name="kform" action="join.do?br=off" method="post">
 		<input type="hidden" name="kid" value="1"/>

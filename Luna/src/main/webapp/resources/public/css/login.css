@@ -101,3 +101,36 @@ input[type=password]{
 	left:29.5%;
 	width:40%;
 }
+.findBtns{
+position:absolute;
+left:41%;
+bottom:20%;
+}
+.findDiv{
+	background-color:gray;
+position:absolute;
+left:30%;
+top:40%;
+width:30%;
+height:20%;
+}
+.findDiv table tr td{
+	font-size:2vw;
+}
+.findDiv input[type=text]{
+	height:20px;
+}
+.findDiv #nmt{
+	top:10px;
+}
+.findDiv #emt{
+	top:35px;
+}
+.findDiv #idt{
+	top:60px;
+}
+.findDiv input[type=button]{
+	position:absolute;
+	top:70%;
+	left:60%;
+}

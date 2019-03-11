@@ -25,4 +25,10 @@ public interface MemberDAO {
 	MemberCommand getMemberPosition(String id);
 	//제명처리로 인한 환불
 	void refundofexpul(String id);
+	//아이디 찾기
+	String findId(MemberCommand memcom);
+	//비번 찾기
+	String findpw(MemberCommand memcom);
+	//비번 바꾸기
+	void changePW(MemberCommand memcom);
 }
