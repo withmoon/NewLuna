@@ -7,8 +7,15 @@ public class ReserveTimeVO {
 	private Date reservdate;
 	private String branchName;
 	private int su;
+	private int bac = 100;
 	
 	
+	public int getBac() {
+		return bac;
+	}
+	public void setBac(int bac) {
+		this.bac = bac;
+	}
 	public int getSu() {
 		return su;
 	}

@@ -34,7 +34,6 @@ header {
 <script>
 var paid_at_start="";
 var paid_at_end="";
-var bac = 100;
 $(function(){
 	getTermSales();
 });
@@ -45,7 +44,7 @@ function getTermSales(){
 	
 	paid_at_start=$("#paid_at_start").val();
 	paid_at_end=$("#paid_at_end").val();
-		$.ajax({
+		$.ajax({ 
 			type : "GET",
 			url : "mgTime2.mdo",
 			data : {paid_at_start:paid_at_start, paid_at_end:paid_at_end}, 
@@ -53,29 +52,29 @@ function getTermSales(){
 				$("#b1").text("예약횟수 : "+vo.asum);
 				$("#b2").text(paid_at_start+" ~ "+  paid_at_end);
 				$("#a1").text(vo.a08 + vo.a09);	
-				$("#a11").text((bac/(vo.asum/(vo.a08+vo.a09))).toFixed(2));	
+				$("#a11").text((vo.bac/(vo.asum/(vo.a08+vo.a09))).toFixed(2));	
 				$("#a2").text(vo.a10 + vo.a11);	
-				$("#a22").text((bac/(vo.asum/(vo.a10+vo.a11))).toFixed(2));
+				$("#a22").text((vo.bac/(vo.asum/(vo.a10+vo.a11))).toFixed(2));
 				$("#a3").text(vo.a12 + vo.a13);	
-				$("#a33").text((bac/(vo.asum/(vo.a12+vo.a13))).toFixed(2));	
+				$("#a33").text((vo.bac/(vo.asum/(vo.a12+vo.a13))).toFixed(2));	
 				$("#a4").text(vo.a14 + vo.a15);	
-				$("#a44").text((bac/(vo.asum/(vo.a14+vo.a15))).toFixed(2));	
+				$("#a44").text((vo.bac/(vo.asum/(vo.a14+vo.a15))).toFixed(2));	
 				$("#a5").text(vo.a16 + vo.a17);	
-				$("#a55").text((bac/(vo.asum/(vo.a16+vo.a17))).toFixed(2));	
+				$("#a55").text((vo.bac/(vo.asum/(vo.a16+vo.a17))).toFixed(2));	
 				$("#a6").text(vo.a18 + vo.a19);	
-				$("#a66").text((bac/(vo.asum/(vo.a18+vo.a19))).toFixed(2));	
+				$("#a66").text((vo.bac/(vo.asum/(vo.a18+vo.a19))).toFixed(2));	
 				$("#a7").text(vo.a20 + vo.a21);	
-				$("#a77").text((bac/(vo.asum/(vo.a20+vo.a21))).toFixed(2));	
+				$("#a77").text((vo.bac/(vo.asum/(vo.a20+vo.a21))).toFixed(2));	
 				$("#a8").text(vo.a22 + vo.a23);	
-				$("#a88").text((bac/(vo.asum/(vo.a22+vo.a23))).toFixed(2));	
+				$("#a88").text((vo.bac/(vo.asum/(vo.a22+vo.a23))).toFixed(2));	
 				$("#a9").text(vo.a00 + vo.a01);	
-				$("#a99").text((bac/(vo.asum/(vo.a00+vo.a01))).toFixed(2));	
+				$("#a99").text((vo.bac/(vo.asum/(vo.a00+vo.a01))).toFixed(2));	
 				$("#a10").text(vo.a02 + vo.a03);	
-				$("#a1010").text((bac/(vo.asum/(vo.a02+vo.a03))).toFixed(2));	
+				$("#a1010").text((vo.bac/(vo.asum/(vo.a02+vo.a03))).toFixed(2));	
 				$("#a11").text(vo.a04 + vo.a05);	
-				$("#a1111").text((bac/(vo.asum/(vo.a04+vo.a05))).toFixed(2));	
+				$("#a1111").text((vo.bac/(vo.asum/(vo.a04+vo.a05))).toFixed(2));	
 				$("#a12").text(vo.a06 + vo.a07);	
-				$("#a1212").text((bac/(vo.asum/(vo.a06+vo.a07))).toFixed(2));	
+				$("#a1212").text((vo.bac/(vo.asum/(vo.a06+vo.a07))).toFixed(2));	
 				
 				
 				

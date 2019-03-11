@@ -34,7 +34,7 @@ function list(page) {
 
 #exb {
 	float: right;
-	margin-right: 5%;
+	margin-right: 1%;
 }
 
 #t {

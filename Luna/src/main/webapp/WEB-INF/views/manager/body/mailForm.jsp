@@ -24,7 +24,7 @@ function cle() {
 	window.close();
 }
 
-/* 
+/* sangdan
 $('#form1').submit();
 
 opener.parent.location="/luna/mgBoard.mdo";
