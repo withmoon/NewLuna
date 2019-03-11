@@ -182,6 +182,21 @@
 		<![CDATA[select * from member where position='관리자' or position='총관리자' order by id]]>   
 	</select>
 	
+	<!-- 아이디 찾기 -->
+	<select id="findId" resultType="String">
+		<![CDATA[select id from member where name=#{name} and email=#{email}]]> 
+	</select>
+	
+	<!-- 비번 여부 확인 -->
+	<select id="findpw" resultType="String">
+		<![CDATA[select pw from member where id=#{id} and email=#{email} and name=#{name}]]>
+	</select>
+
+	<!-- 비번 바꿔버리기 -->
+	<select id="changePW">
+		<![CDATA[update member set pw=#{pw} where id=#{id} and email=#{email} and name=#{name}]]> 
+	</select>
+	
 	<sql id="search">
       <choose>
          <!-- 검색옵션이 전체검색 일경우 -->
@@ -202,7 +217,6 @@
          </otherwise>
       </choose>
    </sql>
-
 	
 
 	<!-- 페이징 sql -->
@@ -213,4 +227,6 @@
 		)A
 		)where rn between #{start} and #{end}
 	</sql>
+	
+	
 </mapper>
