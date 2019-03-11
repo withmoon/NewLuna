@@ -74,7 +74,9 @@ ul.top li a {
 ul.top li a:hover {
 	color: red;
 }
-
+table tr th,td{
+	font-size: 13px;
+}
 
 
  /* 왼쪽 */
@@ -233,7 +235,7 @@ header{
 }
 #tsu li{
 	border-bottom: 1px solid black;
-	width: 230px;
+	width: 150px;
 	padding-bottom: 7px;
 	padding-top: 7px;
 }

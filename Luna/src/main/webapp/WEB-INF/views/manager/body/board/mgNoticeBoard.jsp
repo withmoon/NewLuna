@@ -14,6 +14,10 @@
 	function list(page) { 
 		location.href = "mgGong.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
 	}
+	
+	function Gog(num) {
+		    window.open("gongjiview.ado?num="+num, "공지사항", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	}
 </script>
 <style type="text/css">
 th{
@@ -40,8 +44,8 @@ background-color: #EBEBEB;
 		<!-- 상단 탭 -->
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
-			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/></a>
+			<div id="letflogo">							
+				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
 			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
 		</div>
@@ -103,7 +107,7 @@ background-color: #EBEBEB;
 							<td><%--<a href="mgBoardview.mdo?seq=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" > --%>
 								${list.title}
 							</td>	
-							<td>${list.content }</td>
+							<td><a href="#" onclick="Gog('${list.num}')">${list.content }</a></td>
 							<td><fmt:formatDate value="${list.regdate }" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
 						</tr>  
 					</c:forEach>
