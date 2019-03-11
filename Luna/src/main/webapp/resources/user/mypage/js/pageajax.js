@@ -54,6 +54,7 @@ function getKeepList(kcurpage){
 			$("#fvTable").append(kstrDom);
 			//방 없을때
 			if(data.klist.length==0){
+				$("#nonroom").display='';
 				$("#nonroom").show();
 			}
 			blockPage("fvPaging",kcurpage,data.kpager.BLOCK_SCALE,data.kpager.totPage,"kpli","getKeepList");
@@ -102,10 +103,6 @@ function getalamList(acurpage){
 			//없으면
 			if(data.alist.length==0){
 				astrDom+='<tr><td colspan="4">알림이 없습니다.</td></tr>';
-			}
-			//방 없을때
-			if(data.alist.length==0){
-				$("#nonroom").show();
 			}
 			$("#notification2").append(astrDom);
 			

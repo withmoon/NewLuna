@@ -53,7 +53,7 @@
 		<div class="favorites1">
 		<label>❣ 내가 찜한 방 ❣</label><a href="#" id="display1" onclick="displayBoard(1)">찜리스트 보이기</a>
 			<div class="favorlist">
-				<div id="nonroom" hidden="true"><!-- 방 없을때만 나옴 -->
+				<div style="display:none" id="nonroom"><!-- 방 없을때만 나옴 -->
 					ㅜ찜한방이 아직 없습니다ㅜ
 				</div>
 			<table id="fvTable"></table>

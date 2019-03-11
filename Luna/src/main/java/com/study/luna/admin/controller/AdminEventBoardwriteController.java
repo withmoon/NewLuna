@@ -29,7 +29,7 @@ import com.study.luna.user.comment.vo.EventReplyVO;
 
 @Controller
 public class AdminEventBoardwriteController {
-	private String efilePath = "D:\\myProject\\myMain\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
+	private String efilePath = "C:\\myProject\\myMainProject\\NewLuna\\Luna\\src\\main\\webapp\\resources\\eventimg\\";
    
    @Autowired
     AdminEventBoardService eboardService;
