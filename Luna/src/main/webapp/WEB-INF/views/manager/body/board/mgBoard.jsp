@@ -37,7 +37,7 @@
 			<div id="letflogo">
 				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
-			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
+			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include> 
 		</div>
 		<%-- <div id="TopMenu2">
 					<jsp:include page="form/TopMenu2.jsp" />

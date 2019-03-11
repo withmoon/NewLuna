@@ -61,7 +61,7 @@ margin-left:5%;
  border-radius: 40px;
 }
 .eventNow2{
-	width: 600px;
+	width: 550px;
 	margin: auto auto;
 	margin-top: 5%;
 	text-align: center;
@@ -93,7 +93,7 @@ margin-left:5%;
 /*진행(종료) 이벤트 버튼 여기까지*/
 
 .event-container .eventTap a {
-   font-size: 13px;
+   font-size: 10px;
    line-height: 40px;
    color: #333;
    text-decoration: none;
@@ -103,7 +103,12 @@ margin-left:5%;
 table th {
     background-color: #eeeeee;
     text-align: center;
+    font-size: 10px;
 }
+table tr td{
+	font-size: 15px;
+}
+
 
 .row {
     width:80%;
@@ -248,7 +253,7 @@ table th {
 		<div id="TopMenu1">
 			<!-- 좌측상단 로고 -->
 			<div id="letflogo">
-				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/manager/images/mainlogo2.png"/>"/></a>
+				<a href="manager.mdo"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 			</div>
 			<jsp:include page="../../form/TopMenu1.jsp"></jsp:include>
 		</div>

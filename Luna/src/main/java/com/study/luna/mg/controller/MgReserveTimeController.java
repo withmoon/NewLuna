@@ -3,13 +3,16 @@ package com.study.luna.mg.controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +69,28 @@ public class MgReserveTimeController {
 
 		return mv;
 	}
+	
+	@RequestMapping(value="/mgTime2.mdo")
+	@ResponseBody 
+	public ReserveTimeVO mgAgeView2(ReserveTimeVO vo,@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
+			,@RequestParam(value="paid_at_end",defaultValue = "") String paid_at_end,@RequestParam Map<String, Object> paramMap){
+	
+		if(paid_at_start==null || paid_at_start.equals("") ) {
+			paid_at_start = new SimpleDateFormat("yy/MM/dd").format(new Date());
+		}
+		if(paid_at_end==null || paid_at_end.equals("") ) {
+			paid_at_end = new SimpleDateFormat("yy/MM/dd").format(new Date());
+		}
+		
+		//由ъ뒪�듃
+		List<ReserveTimeVO> list = mgReserveTimeService.mgAgeList(paid_at_start,paid_at_end);
+		
+		//�넻怨꾧퀎�궛
+		mgReserveTimeService.mgsu(list,vo);
+		return vo;
+
+	}
+	
 	
 	@RequestMapping(value="/mgchart.mdo",method=RequestMethod.POST)
 	public  @ResponseBody List<ReserveTimeVO> getTermSales(@RequestParam(value="paid_at_start",defaultValue = "") String paid_at_start
