@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script src='<c:url value="/jquery/jquery-1.11.3.min.js" />'></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript">

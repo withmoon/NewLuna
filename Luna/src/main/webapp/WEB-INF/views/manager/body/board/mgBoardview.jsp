@@ -67,6 +67,7 @@ table, th, td {
 	}
 </script>
 <title>지점장 관리화면</title>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
 	<!-- 상단바 -->

@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <script type="text/javascript">
 	function list(page) { 
 		location.href = "mgBoard.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";

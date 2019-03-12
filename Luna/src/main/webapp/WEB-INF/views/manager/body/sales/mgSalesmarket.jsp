@@ -13,6 +13,7 @@
 <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 

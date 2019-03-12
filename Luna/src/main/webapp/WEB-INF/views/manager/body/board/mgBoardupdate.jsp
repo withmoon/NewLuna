@@ -16,6 +16,7 @@ table, th, td {
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 </head>
 <body>
 	<h2>글 수정</h2>
