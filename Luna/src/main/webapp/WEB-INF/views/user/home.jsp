@@ -17,12 +17,12 @@
 	<a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 	<div class="top">HOME</div>
 	
-	<section>
-	
 	<!-- 상단메뉴 -->
 	<nav>
 		<%@ include file="../public/topmenu.jsp" %>
 	</nav>
+	
+	<section>
 	
 	<!-- 배너 -->
 	<div>
@@ -147,13 +147,13 @@
 	<div class="review">
       <table>
      	<tr>
-     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(0).getFname1()}"/>"></td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(0).getFname1()}"/>"></td>
      		<td  class="starImg"  onclick="goToRoomDetail(${newReviewList.get(0).getRoomNum()})">
      			<c:forEach begin="1" end="${newReviewList.get(0).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">
      			</c:forEach>
      		</td>
-     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(1).getFname1()}"/>"></td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(1).getFname1()}"/>"></td>
      		<td  class="starImg"  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})">
 				<c:forEach begin="1" end="${newReviewList.get(0).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">
@@ -178,13 +178,13 @@
      		<td  onclick="goToRoomDetail(${newReviewList.get(1).getRoomNum()})">${newReviewList.get(1).getReviewcontent()}</td>
      	</tr>
      	<tr>
-     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(2).getFname1()}"/>"></td>
+     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(2).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(2).getFname1()}"/>"></td>
      		<td  class="starImg" >
      			<c:forEach begin="1" end="${newReviewList.get(2).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">
      			</c:forEach>
      		</td>
-     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(3).getFname1()}"/>"></td>
+     		<td rowspan="5"  onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(3).getFname1()}"/>"></td>
      		<td  class="starImg" >
 				<c:forEach begin="1" end="${newReviewList.get(3).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">
@@ -209,13 +209,13 @@
      		<td onclick="goToRoomDetail(${newReviewList.get(3).getRoomNum()})">${newReviewList.get(3).getReviewcontent()}</td>
      	</tr>
      	<tr>
-     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(4).getFname1()}"/>"></td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(4).getFname1()}"/>"></td>
      		<td  class="starImg" onclick="goToRoomDetail(${newReviewList.get(4).getRoomNum()})">
      			<c:forEach begin="1" end="${newReviewList.get(4).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">
      			</c:forEach>
      		</td>
-     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})"><img class="rvroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(5).getFname1()}"/>"></td>
+     		<td rowspan="5" onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})"><img class="rvwroomImg" src="<c:url value="/resources/rooms/${newReviewList.get(5).getFname1()}"/>"></td>
      		<td  class="starImg" onclick="goToRoomDetail(${newReviewList.get(5).getRoomNum()})">
 				<c:forEach begin="1" end="${newReviewList.get(5).getStarct()}">
      				<img src="<c:url value="/resources/util/star.png"/>">

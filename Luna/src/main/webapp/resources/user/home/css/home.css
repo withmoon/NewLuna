@@ -1,9 +1,16 @@
 @charset "UTF-8";
 * { font-family: 'Gamja Flower', cursive; }
-
+nav{
+	position:relative;
+	left:-1%;
+}
 section{
+	position:relative;
+	left:52px;
+	top:-100px;
+	margin:0;
 	border:1px solid tan;
-	width:100%;
+	width:670px;
 }
 /*배너*/
 .banner {
@@ -18,38 +25,32 @@ section{
 .whole {
 	clear:both; 
 	position:absolute; 
-	top:26.8%;
-	width:19.9%;
-	right:0.7%;
-
+	top:-1px;
+	width:137px;
+	right:-1px;
 }
 
 #whole2 {
 	display:none;
 	position:absolute;
-	width: 40%;
-	left: 30%;
-	top: 37%;
-	z-index: 1;
-	font-size: 1m;
-	line-height: 1.5em;
-	padding: 10px 10px;
+	width: 300px;
+	left: 150px;
+	top: 50px;
+	font-size: 10px;
+	text-align:center;
+	padding: 8px 8px;
 	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
-    -moz-background-clip: padding;
-	-webkit-background-clip: padding; 
-	background-clip: padding-box;
-	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
-	-webkit-border-radius: 40px;
-	-moz-border-radius: 40px;
-	border-radius: 40px; 
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
+
 }
 
 .previous {
 	clear:both; 
 	position:absolute; 
-	top:39.8%;
-	width: 19.9%;
-	right:0.7%;
+	top:57px;
+	width:137px;
+	right:-1px;
 }
 
 #previous2 {
@@ -75,9 +76,9 @@ section{
 .accumulate {
 	clear:both; 
 	position:absolute; 
-	top:52.8%;
-	width: 19.9%;
-	right:0.7%;
+	top:115px;
+	width:137px;
+	right:-1px;
 }
 
 #accumulate2 {
@@ -136,11 +137,11 @@ button:hover{
 
 
 /*인기순 / 조회순*/
-p{ font-size : 40px; color : #836e5b; }
+p{ font-size : 30px; color : #836e5b; }
 
 .line { position:relative; width: 31%; }
 
-.roomImage { width: 323px;  height:220px;}
+.roomImage {width:256px; height:170px;}
 
 .roomTable {
 	position: relative;
@@ -173,8 +174,9 @@ p{ font-size : 40px; color : #836e5b; }
 footer{
 	clear:both;
 	position:relative;
-	top:2%;
+	top:4%;
 	top:300%;	margin:0 -5% 0 0;
+	font-size:1.5vw;
 
 }
 
@@ -194,8 +196,8 @@ table td:hover{
 95% { left: 0%; }
 100% { left: 0%; }
 }
-div.slider { overflow: hidden; width:323px;}
-div.slider figure img { width: 323px;  height:220px; float: left; }
+div.slider { overflow: hidden; width:256px; height:170px;}
+div.slider figure img {width:258px;  height:220px; float: left; }
 div.slider figure {
 position: relative;
 width: 500%;
@@ -223,4 +225,8 @@ animation: 8s slidy infinite;
 }
 .imghover img:hover{
 	cursor:pointer;
+}
+.rvwroomImg{
+	width:200px; 
+	height:120px;
 }
