@@ -102,7 +102,7 @@
 								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}')">열람 하기</button></td>
 							</c:if>
 							<c:if test="${list.mail==1}">
-								<td><a href="javascript:mail_1(${list.seq },'${list.emailtitle}','${list.emailcontent}','${list.email}')">답장확인</a></td>
+								<td><a id="mail" href="javascript:mail_1(${list.seq },'${list.emailtitle}','${list.emailcontent}','${list.email}')">답장확인</a></td>
 							</c:if>
 							
 						</tr> 

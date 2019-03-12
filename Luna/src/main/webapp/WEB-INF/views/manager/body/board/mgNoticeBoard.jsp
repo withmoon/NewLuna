@@ -20,23 +20,6 @@
 		    window.open("gongjiview.ado?num="+num, "공지사항", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}
 </script>
-<style type="text/css">
-th{
- border:none;
-}
-td{
-	border:none;
-}
-/* c:forEach > tr:last-child */
-#last{
-border-top: 1px solid black;
-background-color: #EBEBEB;
-}
-#last a{
- text-decoration:none;
- color: black;
-}
-</style>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -103,11 +86,8 @@ background-color: #EBEBEB;
 					<c:forEach var="list" items="${list }">
 						 <tr>
 							<td>${list.num }</td>			
-							<td><%--<a href="mgBoardview.mdo?seq=${list.seq}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}" > --%>
-								${list.title}
-							</td>	
-							<td><a href="#" onclick="Gog('${list.num}')">${list.content }</a></td>
-							<td><fmt:formatDate value="${list.regdate }" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
+							<td><a href="#" onclick="Gog('${list.num}')">${list.title}</a></td>
+							<td><fmt:formatDate value="${list.regdate }" pattern="yy-MM-dd"/></td>
 						</tr>  
 					</c:forEach>
 					 <tr>

@@ -37,23 +37,7 @@ header {
 	width: 90%;
 }
 
-/*#boardtable, th, td {
-	border: 1px solid black;
-	border-spacing: 0px;
-	border-collapse: collapse;
-}
 
-#boardtable tr td {
-	text-align: center;
-	padding: 5px 10px;
-}
-
-#boardtable tr th {
-	padding: 10px 5px;
-	text-align: center;
-	background-color: #EBEBEB;
-	color: black;
-}*/
 table{
    text-align: center;
    border-bottom:2px solid tan; 
@@ -71,8 +55,12 @@ table td{
    font-size: 1.5vw;
 }
 
-a {
+#mail {
    color: #e8a8a8;
+}
+
+a{
+   color: #000000;
 }
 
 a:hover {
