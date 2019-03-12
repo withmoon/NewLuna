@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.StatisticsVO;
+import com.study.luna.user.dto.RoomReviewDTO;
 
 
 @Repository 
@@ -77,6 +78,12 @@ public class managerDAOImpl implements managerDAO{
 	public List<StatisticsVO> chart() {
 		System.out.println("chart DAO");
 		return SqlSession.selectList("managerDAO.chart");
+	}
+
+	@Override
+	public List<RoomReviewDTO> review() {
+		System.out.println("review DAO");
+		return SqlSession.selectList("managerDAO.review");
 	}
 
 

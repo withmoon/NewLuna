@@ -3,6 +3,7 @@ $(function() {
 });
 
 function qnaList(qpage) {
+	
 	$.ajax({
 		type:"GET",
 		url:"boardList.ado",

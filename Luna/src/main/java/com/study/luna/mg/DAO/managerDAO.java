@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.model.StatisticsVO;
+import com.study.luna.user.dto.RoomReviewDTO;
 
 public interface managerDAO {
 	//로그인 수 가져오기 
@@ -25,7 +26,10 @@ public interface managerDAO {
 	 
 	//고객의소리 미리보기 가져오기
 	List<QBoardVO> board();
+	//리뷰가져오기
+	List<RoomReviewDTO> review();
 	//차트
 	List<StatisticsVO> chart();
+	
 	
 }

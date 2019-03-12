@@ -31,7 +31,23 @@ function delWriteForm(formnum){
 }
 //값 세팅
 function setVal(){
+	if(document.getElementsByName('title')[0].value==""){
+		alert("제목을 입력해주세요");
+		document.getElementsByName('title')[0].focus();
+		return false;
+	}else if(document.getElementsByName('content0')[0].value==""){
+		alert("내용을 입력해주세요");
+		document.getElementsByName('content0')[0].focus();
+		return false;
+	}else if($("#file").value=""){
+		alert("이미지를 설정해주세요");
+		$("#file").focus();
+		return false;
+	}
+	
+	alert("??");
 	$("#maxCnum").val(formnum);
+	return false;
 }
 /*메인이미지 썸네일*/
 function ImgFileSelect(i) {

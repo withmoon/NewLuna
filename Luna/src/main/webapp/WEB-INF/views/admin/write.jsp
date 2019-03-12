@@ -13,15 +13,31 @@
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 </head>
 
+<script type="text/javascript">
+function check() {
+	/* || $("#subject").value=="" */
+	if(subject.value==""){
+		alert("제목이 입력되지않았습니다");
+		$("#subject").focus();
+		return false;
+	}else if(content.value==""){
+		alert("내용이 입력되지않았습니다");
+		$("#content").focus();
+		return false;
+	}
+	return true;
+}
+</script>
+
 <%@include file="../admin/footer.jsp" %>
    <br>
    <br>
    <br>
 
    <div class="container">
-   <form id="form1" name="form1" action="insert.ado" method="post">
+   <form id="form1" name="form1" onsubmit="return check()" action="insert.ado" method="post">
       <table class="table table-bordered">
-         <h4>글쓰기</h4>
+         <h4>글쓰기</h4> 
          <tbody>
                <tr>
                   <th>제목:</th>
@@ -31,7 +47,7 @@
 
                <tr>
                   <th>내용:</th>
-                  <td><textarea cols="10" placeholder="content " id="content" name="content"
+                  <td><textarea cols="10" placeholder="content" id="content" name="content"
                         class="form-control">${qncontent.content}</textarea></td>
                </tr>
 

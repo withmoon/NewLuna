@@ -8,6 +8,20 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
+<script type="text/javascript">
+function check() {
+	if(title.value==""){
+		alert("제목이 입력되지않았습니다");
+		$("#title").focus();
+		return false;
+	}else if(content.value==""){
+		alert("내용이 입력되지않았습니다");
+		$("#content").focus();
+		return false;
+	}
+	return true;
+}
+</script>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
@@ -18,7 +32,7 @@
 	<br>
 
 	<div class="container">
-		<form id="form1" name="form1" action="noticeinsert.ado">
+		<form id="form1" name="form1" onsubmit="return check()" action="noticeinsert.ado">
 			<table class="table table-bordered">
 				<h4>글쓰기</h4>
 				<tbody>

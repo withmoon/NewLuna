@@ -18,7 +18,7 @@
 <%@include file="../admin/footer.jsp" %><br><br><br>
 
 
-<form id="ajaxform" action="eventinsert.ado" onsubmit="changeContent()" method="post" enctype="multipart/form-data">
+<form id="ajaxform" action="eventinsert.ado" onsubmit="return changeContent()" method="post" enctype="multipart/form-data">
 <div class="container">
 <table class="table table-bordered">
 <caption>글쓰기</caption>
@@ -36,7 +36,7 @@
 	<th>이벤트시작일:</th>
 	<td><input type="date"  placeholder="startdate" name="startdate"/></td>
 </tr>
-<tr>
+<tr> 
 	<th>이벤트종료일:</th>
 	<td><input type="date"  placeholder="enddate" name="enddate"/></td>
 </tr>

@@ -20,6 +20,7 @@ import com.study.luna.mg.model.QBoardVO;
 import com.study.luna.mg.service.managerService;
 import com.study.luna.pub.command.MemberCommand;
 import com.study.luna.pub.member.service.MemberService;
+import com.study.luna.user.dto.RoomReviewDTO;
 
 @Controller
 public class ManagerMainController {
@@ -37,8 +38,8 @@ public class ManagerMainController {
    @RequestMapping(value = "/manager.mdo", method = RequestMethod.GET)
    public ModelAndView mainView(HttpServletRequest request, Map<String, ?> flashMap, HttpSession session,QBoardVO vo)
          throws Exception {
-      System.out.println("로그인 아이디  받아오기");
-      System.out.println("test 세션 :"+session.getAttribute("id"));
+	   	 System.out.println("로그인 아이디  받아오기");
+	   	 System.out.println("test 세션 :"+session.getAttribute("id"));
       if ((flashMap.get("id") == null || flashMap.get("id").equals("")) && session.getAttribute("id") == null) {
          System.out.println("카카오 로그인 실패");
          return logincheck(session);
@@ -64,33 +65,32 @@ public class ManagerMainController {
          System.out.println("branchName :" +bn);
          session.setAttribute("branchName",bn);
       }
-      //MemberCommand.setId((String) session.getAttribute("id"));
-      //MemberCommand mlist2 = MemberService.getMyPageInfo(MemberCommand);
       
-      //게시글 모든 정보 가져오기
-      List<QBoardVO> list = managerDAO.board();
+     
 
       Calendar calendar = Calendar.getInstance();    
       
-      //이번달 ㅁㄴㅇㅁ
+      //이번달 구하기
       int year = calendar.get( Calendar.YEAR );
-        int month  = calendar.get(calendar.MONTH) + 1;
-        String days = year+"/"+month;
-        System.out.println(days);
+      int month  = calendar.get(calendar.MONTH) + 1;
+      String days = year+"/"+month;
+      System.out.println(days);
       
-        //회원수 가져오기 
-        int member = managerService.member();
+      //게시글 모든 정보 가져오기 //최신소식가져오기
+      List<QBoardVO> list = managerDAO.board();
+      //최신댓글 가져오기 //리뷰
+      List<RoomReviewDTO> review = managerDAO.review();
+      //회원수 가져오기 
+      int member = managerService.member();
       //환불수 가져오기
-        int reroom = managerDAO.reroom();
+      int reroom = managerDAO.reroom();
       //방문자 수 가져오기 (로그인만 - 로그인컨트롤러에서 처리할것들)
       int login= managerService.login();
       //예약수 
       int roomcount= managerService.roomcount(session,days);
       //회원가입수
       int joincount =managerService.join();
-      
-//      List<RoomPaymentDTO> test = PayAndReserveService.getTermSales();
-      
+     
       
       Map<String, Object> map = new HashMap<>();
       map.put("login", login);
@@ -101,7 +101,6 @@ public class ManagerMainController {
       map.put("list", list);
       ModelAndView mv = new ModelAndView();
       mv.addObject("map", map);
-   // mv.addObject("mlist",memcom);
       mv.setViewName("manager");
 
 
