@@ -22,29 +22,28 @@
 				</ul>
 			</li>
 
-			<li class="menu2"><a href="#">☆ 매출통계</a>
+			<li class="menu"><a id="b" href="#">☆ 매출통계</a>
 				<ul class="hide">
 					<li><a href="mgSalesreserve.mdo">기간 매출</a></li>
 					<!-- <li><a href="mgSalesmonth.mdo">월 매출</a></li> -->
 					<li><a href="mgreport.mdo">리포트올리기</a></li>
 				</ul>
 			</li>
-			<li class="menu"><a href="#">☆ 예약시간대통계</a>
+			<li class="menu"><a id="a" href="#">☆ 예약시간대통계</a>
 				<ul class="hide">
 					<li><a href="mgTime.mdo">시간별</a></li>
 					<!-- <li><a href="mgSeason.mdo">분기별</a></li> -->
 				</ul>
 			</li>
-			<li class="menu2"><a href="#">☆ 방 생성/수정/삭제</a>
+			<li class="menu"><a id="b" href="#">☆ 방 생성/수정/삭제</a>
 				<ul class="hide">
 					<li><a href="mgRoom.mdo">방관리</a></li>
 				</ul>
 			</li>
-				<li class="menu"><a href="#">☆ 현황보기</a>
+				<li class="menu"><a id="a" href="#">☆ 현황보기</a>
 				<ul class="hide">
 					<li><a href="mgSales.mdo">회원관리</a></li>
 					<li><a href="mgReserve.mdo">예약현황</a></li>
-					<!-- <li><a href="mgVisit.mdo">방문현황</a></li> -->
 					<li><a href="mgRefund.mdo">환불현황</a></li>
 				</ul>
 			</li>
