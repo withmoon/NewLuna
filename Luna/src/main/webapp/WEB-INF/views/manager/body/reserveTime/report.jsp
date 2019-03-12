@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/report.css"/>"></link>
 <script src="<c:url value="/resources/util/js/paging.js"/>"></script>
 <script type="text/javascript"> 
 	function list(page) {
@@ -78,7 +79,7 @@
 									<option value="content">내용</option>
 								</select> 
 							<input name="text" id="keyword"/> 
-							<input type="button" value="검색" onclick="searchReport()">
+							<input id="submit" type="button" value="검색" onclick="searchReport()">
 							</td>
 						</tr>
 					</table>
