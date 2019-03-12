@@ -1,4 +1,9 @@
 @charset "UTF-8";
+*{
+   margin:0;
+   font-family: Gamja Flower', cursive;
+}
+
 header {
 	border-bottom: 1px solid blue;
 	width: auto;
