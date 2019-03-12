@@ -80,9 +80,7 @@ function list(page) {
 	<div id="border">
 		<!-- 왼측1 사이드 -->
 		<div id="left1div">
-			<div id="search">
-				<jsp:include page="/WEB-INF/views/manager/form/search.jsp" />
-			</div>
+			
 			<aside id="left1">
 				<jsp:include page="/WEB-INF/views/manager/form/left1_menu.jsp"></jsp:include>
 			</aside>

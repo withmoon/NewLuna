@@ -59,9 +59,7 @@ background-color: #EBEBEB;
 	<div id="border">
 		<!-- 왼측1 사이드 -->
 		<div id="left1div">
-			<div id="search">
-				<jsp:include page="../../form/search.jsp" />
-			</div>
+			
 			<aside id="left1">
 				<jsp:include page="../../form/left1_menu.jsp"></jsp:include>
 			</aside>

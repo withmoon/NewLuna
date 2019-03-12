@@ -6,6 +6,11 @@
 	font-family: 'Gamja Flower', cursive;
 }
 
+body {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
 /* 최상단 로고 / 메뉴들이 들어갈 틀 */
 #TopNav{
 	width: 1024px;
@@ -86,38 +91,17 @@ table tr th,td{
 	float: left;
 }
 
-/* 왼측 검색창 */
-#search {
-	width: 198px;
-	border-bottom: 1px solid tan;
-}
-#img-button {
-	margin-bottom:0%;
-	width: 30px;
-	height: 30px;
-	background: url("../images/search.png");
-	background-repeat: no-repeat;
-	cursor: pointer;
-	border: none;
-	position:relative;
-	top: 5px;
-}
-#sch {
-	margin-top:3px;
-	margin-left:3px;
-	width: 75%;
-	height:25px;
-	outline: none;
-	border: 0px;
-	float: left;
-}
 
 /* 맨왼측 메뉴 */
-.menu a {
+.menu {
 	cursor: pointer;
 	width: 200px;
 	text-decoration: none;
 	color: black;
+	position:relative;
+	top: 20px;
+	padding-top: 5px;
+	left: 10px;
 }
 .menu a:hover{
 	color: tan; 
@@ -634,22 +618,21 @@ header{
 	height: 700px;
 }
 #rtd{
-	margin-top:70%;
-	width: 100%;
+	width: 15%;
+	position:fixed;
+	top:-70%;
+	right: 10px;
 }
 .rdiv{
 	color:white;
 	width: 100%;
 	background-color: tan;
-	position:relative;
-	right: 20px;
 }
 #rul li{
 	list-style:none;
 	border-bottom: 1px solid tan;
 	padding-top: 3%;
-	position:relative;
-	right: 20px;
+	width: 100%;
 }
 
 #re{
