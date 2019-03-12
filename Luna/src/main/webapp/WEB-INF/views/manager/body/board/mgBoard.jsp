@@ -97,7 +97,7 @@
 							<td>${list.rownum }</td>
 							<td>${list.title}</td>
 							<td>${list.id }</td>
-							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd a hh:mm:ss"/></td>
+							<td><fmt:formatDate value="${list.regdate}" pattern="yy-MM-dd"/></td>
 							<c:if test="${list.mail==0 }">
 								<td><button onclick="mail_0('${list.seq}','${list.email}','${list.content}')">열람 하기</button></td>
 							</c:if>
