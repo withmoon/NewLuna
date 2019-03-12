@@ -67,13 +67,13 @@
 						<tr>
 							<td id="searchtd"><!-- <a id="write" onclick=" insertboard()" href="#">글쓰기</a> -->
 								<!-- 레코드의 갯수를 출력 -->
-								<div id="write">${map.count}개의 게시물이 있습니다.</div>
+								<div id="write"><b>${map.count}</b>개의 게시물이 있습니다.</div>
 								<select name="searchOption">
 									<option value="TITLE"  <c:out  value="${map.searchOption == 'title' ? 'selected' : '' }" />>제목</option>
 									<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >작성자</option>
 							</select> 
 							<input name="keyword"  value="${map.keyword }"> 
-							<input	 type="submit" value="검색">
+							<input id="submit"	type="submit" value="검색">
 							</td>
 						</tr>
 					</table>

@@ -5,7 +5,7 @@
 }
 
 header {
-	border-bottom: 1px solid blue;
+	border-bottom: 1px solid darkgray;
 	width: auto;
 	text-align: left;
 	padding-left: 10px;
@@ -37,7 +37,7 @@ header {
 	width: 90%;
 }
 
-#boardtable, th, td {
+/*#boardtable, th, td {
 	border: 1px solid black;
 	border-spacing: 0px;
 	border-collapse: collapse;
@@ -53,4 +53,60 @@ header {
 	text-align: center;
 	background-color: #EBEBEB;
 	color: black;
+}*/
+table{
+   text-align: center;
+   border-bottom:2px solid tan; 
+   border-collapse: collapse;
+   position:relative;
+}
+table th{
+   border-top:2px solid tan; 
+   border-bottom:2px solid tan; 
+   width:10px;
+   font-size: 1vw;
+   background:tan;
+}
+table td{
+   font-size: 1.5vw;
+}
+
+a {
+   color: #e8a8a8;
+}
+
+a:hover {
+   color: tan;
+}
+
+button{
+    background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none;
+}
+
+button:hover{
+    background-color: #bbbb;
+    color: white
+}
+
+#submit {
+	background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none
+}
+#submit:hover{
+    background-color: #bbbb;
+    color: white
+}
+
+b{
+	color:#323b9f;
+	font-size: 2vw;
 }
