@@ -14,23 +14,9 @@
 	
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->  
-<link type="text/css" rel="stylesheet"
-	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
-<style type="text/css">
-header {
-	border-bottom: 1px solid blue;
-	width: auto;
-	text-align: left;
-	padding-left: 10px;
-	padding-top: 30px;
-	font-size: 20pt;
-}
-#chartdiv {
-  width: 100%;
-  height: 500px;
-}
-</style>
-
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/board.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/mgTime.css"/>"></link>
 <!-- Chart code -->
 <script>
 var paid_at_start="";
@@ -39,7 +25,6 @@ $(function(){
 	getTermSales();
 });
 	
-
 	
 function getTermSales(){
 	
@@ -75,12 +60,7 @@ function getTermSales(){
 				$("#a11").text(vo.a04 + vo.a05);	
 				$("#a1111").text((vo.bac/(vo.asum/(vo.a04+vo.a05))).toFixed(2));	
 				$("#a12").text(vo.a06 + vo.a07);	
-				$("#a1212").text((vo.bac/(vo.asum/(vo.a06+vo.a07))).toFixed(2));	
-				
-				
-				
-				
-				
+				$("#a1212").text((vo.bac/(vo.asum/(vo.a06+vo.a07))).toFixed(2));		
 			}
 		});
 		
@@ -176,16 +156,21 @@ function getTermSales(){
 			</div>
 			
 			 <div class="searchArea">
-			 <input id="paid_at_start"  type="date"/><br/>
-			 <input id="paid_at_end" type="date"/>&emsp; 
-			 <button onclick="getTermSales()">검색</button>
+			 <ul>
+				<li>
+					날짜 : <input type="date" id="paid_at_start"> ~ <input type="date" id="paid_at_end">
+				</li>
+				<li id="exb">
+					<button id="submit" onclick="getTermSales()">검색</button>
+				</li>
+			 </ul>
 			 </div>
-			<table width="100%" border="1">
+			<table>
 				<tr>
-					<td>기간</td>
-					<td>TIME</td>
-					<td id="b1">예약횟수</td>
-					<td>퍼센트</td>
+					<th>기간</th>
+					<th>TIME</th>
+					<th id="b1">예약횟수</th>
+					<th>퍼센트</th>
 				</tr>
 				<tr>
 					<td rowspan="12" id="b2">일자</td>

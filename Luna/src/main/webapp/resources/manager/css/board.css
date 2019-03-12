@@ -43,6 +43,7 @@ table{
    border-bottom:2px solid tan; 
    border-collapse: collapse;
    position:relative;
+   width:100%;
 }
 table th{
    border-top:2px solid tan; 
@@ -77,19 +78,6 @@ button{
 }
 
 button:hover{
-    background-color: #bbbb;
-    color: white
-}
-
-#submit {
-	background-color: white;
-    border: 0.1vw solid gray;
-    color: gray;
-    text-align: center;
-    text-decoration: none;
-    outline:none
-}
-#submit:hover{
     background-color: #bbbb;
     color: white
 }

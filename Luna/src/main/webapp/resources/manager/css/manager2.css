@@ -683,3 +683,15 @@ footer {
 .upInfo button{
 	font-size:1.8vw;
 }
+
+#submit {
+	background-color: white;
+    border: 0.1vw solid gray;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    outline:none
+}
+#submit:hover{
+    background-color: #bbbb;
+    color: white
