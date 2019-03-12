@@ -15,48 +15,9 @@ function list(page) {
 
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<link type="text/css" rel="stylesheet"
-	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
-<style type="text/css">
-#ex {
-	background-color: lightblue;
-	height: 30px;
-}
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/mgSalesreserve.css"/>"></link>
 
-#ex ul {
-	padding-top: 3px;
-	list-style: circle;
-}
-
-#ex ul li {
-	display: inline;
-	padding-left: 20px;
-}
-
-#exb {
-	float: right;
-	margin-right: 1%;
-}
-
-#t {
-	height: 100%;
-	border-color: gray;
-}
-
-#t {
-	margin-top: 20px;
-	width: 100%;
-	border-bottom-color: black;
-}
-
-#t tr td {
-	text-align: center;
-}
-
-#ttr1 {
-	background-color: lightblue;
-}
-</style>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -104,8 +65,8 @@ function list(page) {
 						</li>
 						<li>검색 : <input type="text" name="keyword">
 						</li>
-						<li id="exb"><input type="button" value="방생성" 	onclick="location.href='RoomUpload.mdo'"></li>
-						<li id="exb"><input type="submit" value="검색"></li>
+						<li id="exb"><input id="submit" type="button" value="방생성" 	onclick="location.href='RoomUpload.mdo'"></li>
+						<li id="exb"><input id="submit" type="submit" value="검색"></li>
 					</ul>
 				</div>
 			</form>

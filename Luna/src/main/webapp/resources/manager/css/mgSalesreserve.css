@@ -40,9 +40,13 @@
 }
 
 a {
-	color:#595eff;
+	color:#836e5b;
 }
 
 a:hover {
-	color:#836e5b;
+	color:tan;
+}
+
+#excel {
+	color:#595eff;
 }

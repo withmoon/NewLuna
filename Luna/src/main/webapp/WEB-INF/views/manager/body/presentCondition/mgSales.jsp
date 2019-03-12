@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript"
-	src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
+<script type="text/javascript" src="<c:url value="/resources/public/jquery/jquery-3.3.1.min.js"></c:url>"></script>
 <script type="text/javascript"> 
 function list(page) {
 	location.href = "mgSales.mdo?curPage="+page+"&searchOption=${map.searchOption}"+"&keywrod=${map.keyword}";
@@ -33,48 +32,9 @@ $.ajax({
 </script>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<link type="text/css" rel="stylesheet" 
-	href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/mgSalesreserve.css"/>"></link>
 	
-	<style type="text/css">
-#ex {
-	background-color: lightblue;
-	height: 30px;
-}
-
-#ex ul {
-	padding-top: 3px;
-	list-style: circle;
-}
-
-#ex ul li {
-	display: inline;
-	padding-left: 20px;
-}
-
-#exb {
-	float: center;
-}
-
-#t {
-	height: 100%;
-	border-color: gray;
-}
-
-#t {
-	margin-top: 20px;
-	width: 100%;
-	border-bottom-color: black;
-}
-
-#t tr td {
-	text-align: center;
-}
-
-#ttr1 {
-	background-color: lightblue;
-}
-</style>
 <title>지점장 관리화면</title>
 </head>
 <body>
@@ -121,7 +81,7 @@ $.ajax({
 									<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >아이디</option>
 							</select> 
 							<input name="keyword"  value="${map.keyword }"> 
-							<input	 type="submit" value="검색">
+							<input id="submit" type="submit" value="검색">
 							</td>
 						</tr>
 					</table>

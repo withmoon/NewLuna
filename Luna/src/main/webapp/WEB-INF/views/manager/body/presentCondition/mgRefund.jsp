@@ -12,46 +12,8 @@
   crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/manager2.css"/>"></link>
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/manager/css/mgSalesreserve.css"/>"></link>
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet"> <!-- 외부폰트 -->
-<style type="text/css">
-#ex {
-	background-color: lightgreen;
-	height: 30px;
-}
-
-#ex ul {
-	padding-top: 3px;
-	list-style: circle;
-}
-
-#ex ul li {
-	display: inline;
-	padding-left: 20px;
-}
-
-#exb {
-	float: center;
-}
-
-#t {
-	height: 100%;
-	border-color: gray;
-}
-
-#t {
-	margin-top: 20px;
-	width: 100%;
-	border-bottom-color: black;
-}
-
-#t tr td {
-	text-align: center;
-}
-
-#ttr1 {
-	background-color: lightgreen;
-}
-</style>
 
 <!-- jQuery CDN --->
 <script>
@@ -145,7 +107,7 @@ function cle() {
 										<option value="id"  <c:out value="${map.searchOption == 'id'?'selected' : '' }"/> >아이디</option>
 								</select> 
 								<input name="keyword"   value="${map.keyword }"> 
-								<input	 type="submit" value="검색">
+								<input id="submit" type="submit" value="검색">
 								</td>
 							</tr>
 						</table>
