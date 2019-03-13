@@ -5,39 +5,28 @@
 }
 nav{
    position:relative;
-   top:150px;
-}
-
-.memberUl{
-   postion:absolute;
-   top:20px;   
-}
-.topUl{
-   top:-40px;
-}
-a .logo{
-   position:absolute;
+    top:30px;
+    left:8px;
 }
 
 /* 타이틀 */
 .top{
-   position:absolute;
-   top:2%;
-   left:15%;
-   width:auto;
-   text-align:center;
-   font-size: 2vw;
-   color: #686868; 
+	position:relative;
+	top:-71px;
+	left:-31%;
+	width:auto;
+	text-align:center;
+	font-size: 3.2vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
 }
-
 /*이벤트 단추*/
 .event-container {
-   position:absolute;
-   width: 90%;
-   top:32%;
-    left: 4%;
+   position:relative;
+   top:-50px;
+   width: 860px;
+   left:44px;
 }
-
 .eventTap {
    position:absolute;
    display: flex;
@@ -68,25 +57,29 @@ a .logo{
 
 /* 목록 */
 .list_tab{
-   position:absolute;
-   top:45%;
-   left:5%;
+   position:relative;
+   top:20px;
+   left:70px;
 }
 table{
    text-align: center;
    border-bottom:2px solid tan; 
    border-collapse: collapse;
-   position:relative;
 }
 table th{
-   border-top:2px solid tan; 
-   border-bottom:2px solid tan; 
-   width:230px;
+	height:30px;
+   width:175px;
    font-size: 2vw;
    background:tan;
 }
+.shortTD{
+	width:100px;
+}
+.subjectTD{
+	 width:473px;
+}
 table td{
-   font-size: 2vw;
+   font-size: 1.8vw;
    padding:1%;
 }
 
@@ -103,7 +96,7 @@ a:hover {
    width: 100%;
    font-size: 2vw;
    position:relative;
-   left:45%;
+   left:41%;
 }
 
 /*footer*/

@@ -1,16 +1,23 @@
 @charset "UTF-8";
 * { font-family: 'Gamja Flower', cursive; }
-nav{
-	position:relative;
-	left:-1%;
-}
 section{
 	position:relative;
-	left:52px;
+	left:60px;
 	top:-100px;
 	margin:0;
 	border:1px solid tan;
-	width:670px;
+	width:858px;
+}
+/* Ã­Æ’â‚¬Ã¬ÂÂ´Ã­â€¹â‚¬ */
+.top{
+	position:relative;
+	top:-76px;
+	left:-31%;
+	width:auto;
+	text-align:center;
+	font-size: 4vw;
+	color: tan; 
+	text-shadow: 1px 2px gray;
 }
 /*배너*/
 .banner {
@@ -26,7 +33,7 @@ section{
 	clear:both; 
 	position:absolute; 
 	top:-1px;
-	width:137px;
+	width:175px;
 	right:-1px;
 }
 
@@ -34,8 +41,8 @@ section{
 	display:none;
 	position:absolute;
 	width: 300px;
-	left: 150px;
-	top: 50px;
+	left: 250px;
+	top: 75px;
 	font-size: 10px;
 	text-align:center;
 	padding: 8px 8px;
@@ -48,57 +55,47 @@ section{
 .previous {
 	clear:both; 
 	position:absolute; 
-	top:57px;
-	width:137px;
+	top:73px;
+	width:175px;
 	right:-1px;
 }
 
 #previous2 {
 	display:none;
 	position:absolute;
-	width: 40%;
-	left: 30%;
-	top: 37%;
+	width: auto;
+	left: 230px;
+	top: 70px;
 	z-index: 1;
-	font-size: 1em;
-	line-height: 1.5em;
-	padding: 10px 10px;
+	font-size: 20px;
+	text-align:center;
+	padding: 8px 20px;
 	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
-    -moz-background-clip: padding;
-	-webkit-background-clip: padding; 
-	background-clip: padding-box;
-	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
-	-webkit-border-radius: 40px;
-	-moz-border-radius: 40px;
-	border-radius: 40px; 
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
 }
 
 .accumulate {
 	clear:both; 
 	position:absolute; 
-	top:115px;
-	width:137px;
+	top:147px;
+	width:175px;
 	right:-1px;
 }
 
 #accumulate2 {
 	display:none;
 	position:absolute;
-	width: 40%;
-	left: 30%;
-	top: 37%;
+	width: auto;
+	left: 250px;
+	top: 70px;
 	z-index: 1;
-	font-size: 1em;
-	line-height: 1.5em;
-	padding: 10px 10px;
+	font-size: 20px;
+	text-align:center;
+	padding: 8px 20px;
 	background: rgba(225,225,225,0.5); /*내용 바탕색 투명도*/
-    -moz-background-clip: padding;
-	-webkit-background-clip: padding; 
-	background-clip: padding-box;
-	border: 20px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
-	-webkit-border-radius: 40px;
-	-moz-border-radius: 40px;
-	border-radius: 40px; 
+	background-clip:padding-box;
+	border: 5px solid rgba(0,0,0,0.3); /*내용 경게선 투명도*/
 }
 
 b { font-size : 20px; color : #003366; }
@@ -108,7 +105,10 @@ b { font-size : 20px; color : #003366; }
 	position:relative;
 	top:1%;
 	background-color:tan;
+	border-top:1px solid #80776c;
+	border-bottom:1px solid #80776c;
 	width:100%;
+	padding:10px 0 0 0;
 }
 select {
  margin:1%;
@@ -119,16 +119,16 @@ select {
 
 /*button*/
 button{
-    background-color: #836e5b;
+    background-color: #80776c;
     border: none;
+    position:relative;
+    top:-1px;
     color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.7vw;
+    font-size: 2.1vw;
     cursor: pointer;
-    position:relative;
-    
 }
 
 button:hover{
@@ -141,7 +141,7 @@ p{ font-size : 30px; color : #836e5b; }
 
 .line { position:relative; width: 31%; }
 
-.roomImage {width:256px; height:170px;}
+.roomImage {width:278px; height:170px;}
 
 .roomTable {
 	position: relative;
@@ -172,14 +172,17 @@ p{ font-size : 30px; color : #836e5b; }
 
 /* footer */
 footer{
-	clear:both;
+	margin:0 -5% 0 0;
+	font-size:14px;
 	position:relative;
-	top:4%;
-	top:300%;	margin:0 -5% 0 0;
-	font-size:1.5vw;
-
+	top:-70px;
+	left:50px;
 }
-
+.sec{
+	position:relative;
+	left:10px;
+	top:4px;
+}
 table td:hover{
 	color:orange;
 	cursor:pointer;	
@@ -196,8 +199,8 @@ table td:hover{
 95% { left: 0%; }
 100% { left: 0%; }
 }
-div.slider { overflow: hidden; width:256px; height:170px;}
-div.slider figure img {width:258px;  height:220px; float: left; }
+div.slider { overflow: hidden; width:281px; height:170px;}
+div.slider figure img {width:281px;  height:220px; float: left; }
 div.slider figure {
 position: relative;
 width: 500%;

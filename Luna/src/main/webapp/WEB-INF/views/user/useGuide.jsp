@@ -13,13 +13,13 @@
 </head>
 <body  style="overflow-x:hidden; overflow-y:auto;">
 <!-- 상단 메뉴 -->
-<nav>
-<%@ include file="../public/topmenu.jsp" %>
-</nav>
-
 <!-- 상단로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">이용가이드</div>
+
+<nav>
+<%@ include file="../public/topmenu.jsp" %>
+</nav>
 
 <section>
 <table class="guideT">

@@ -12,15 +12,15 @@
 
 </head>
 <body style="overflow-x:hidden;">
-<section>
-<!-- 상단 메뉴 -->
-<nav>
-<%@ include file="../public/topmenu.jsp" %>
-</nav>
 
 <!-- 상단 로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">근처 지점 찾기</div>
+<!-- 상단 메뉴 -->
+<nav>
+<%@ include file="../public/topmenu.jsp" %>
+</nav>
+<section>
 
 <!-- 검색어 입력 -->
 <div class="searchArea">
@@ -33,7 +33,7 @@
 <!-- 지도 및 검색결과 틀 -->
 <article id="mapSec">
 <!-- 지도 div -->
-<div id="map" style="width:60%;height:100%;"></div>
+<div id="map"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da37e5836c002230d358ce5af57a57ca&libraries=services"></script>
 <script type="text/javascript" src="<c:url value="/resources/user/found/js/founding.js"/>"></script>
 

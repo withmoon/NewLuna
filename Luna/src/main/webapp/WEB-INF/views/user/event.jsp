@@ -15,15 +15,15 @@
 
 </head>
 <body style="overflow-x:hidden; overflow-y:auto;">
-<!-- 상단 메뉴 -->
-<nav>
-<%@ include file="../public/topmenu.jsp" %>
-</nav>
+
 
 <!-- 상단로고 -->
 <a href="<c:url value="/home.udo"/>" title="홈으로 이동"><img class="logo" src="<c:url value="/resources/public/logo/mainlogo.png"/>"/></a>
 <div class="top">이벤트</div>
-
+<!-- 상단 메뉴 -->
+<nav>
+<%@ include file="../public/topmenu.jsp" %>
+</nav>
 <!-- 이벤트목록 -->
 <section>
 <div class="event-container">
@@ -39,9 +39,9 @@
 <table class="eventNow2">
 <thead>
 	<tr>
-		<th>번호</th>
-		<th>제목</th>
-		<th>작성자</th>
+		<th class="shortTD">번호</th>
+		<th class="subjectTD">제목</th>
+		<th class="shortTD">작성자</th>
 		<th>날짜</th>
 	</tr>
 </thead>
