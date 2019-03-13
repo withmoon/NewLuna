@@ -7,21 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="<c:url value="/resources/admin/gongjiwrite/js/gongjiwrite.js"/>"></script>
 <title>글쓰기</title>
-<script type="text/javascript">
-function check() {
-	if(title.value==""){
-		alert("제목이 입력되지않았습니다");
-		$("#title").focus();
-		return false;
-	}else if(content.value==""){
-		alert("내용이 입력되지않았습니다");
-		$("#content").focus();
-		return false;
-	}
-	return true;
-}
-</script>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->

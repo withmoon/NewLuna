@@ -234,8 +234,25 @@ function sendEmailToMembers(){
 }
 //내용작성 후 메일 보내기
 function sendEmail(){
+	
+	if($("#extitle").value==""){
+		alert("제목을 작성하지 않으셨습니다");
+		$("#extitle").focus();
+		return false;
+	}else /*if($("#filename").value==""){
+		alert("파일을 입력하지않았습니다");
+		$("#filename").focus();
+		return false;
+	} else*/ if($("#excontent").value==""){
+		alert("내용을 작성하지 않으셨습니다");
+		$("#excontent").focus();
+		return false;
+	}
+	alert("성공");
 	$("#ids").val(ids);
 	$("#ems").val(emails);
+	return false;
+
 }
 
 //========================================

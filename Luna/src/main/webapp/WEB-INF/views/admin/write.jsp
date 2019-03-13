@@ -6,29 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="<c:url value="/resources/admin/write/js/write.js"/>"></script>
 <meta charset="UTF-8">
 <title>글쓰기</title>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/admin/css/footer.css"/>"> <!-- 메뉴 -->
 </head>
-
-<script type="text/javascript">
-function check() {
-	/* || $("#subject").value=="" */
-	if(subject.value==""){
-		alert("제목이 입력되지않았습니다");
-		$("#subject").focus();
-		return false;
-	}else if(content.value==""){
-		alert("내용이 입력되지않았습니다");
-		$("#content").focus();
-		return false;
-	}
-	return true;
-}
-</script>
-
 <%@include file="../admin/footer.jsp" %>
    <br>
    <br>
